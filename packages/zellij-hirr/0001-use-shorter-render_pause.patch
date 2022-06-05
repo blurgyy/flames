@@ -1,0 +1,26 @@
+From 9dde2a544a8af214b858b5db358fb84247e21443 Mon Sep 17 00:00:00 2001
+From: Gaoyang Zhang <gy@blurgy.xyz>
+Date: Sun, 15 May 2022 10:20:23 +0800
+Subject: [PATCH] use shorter `render_pause`
+
+Signed-off-by: Gaoyang Zhang <gy@blurgy.xyz>
+---
+ zellij-server/src/pty.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/zellij-server/src/pty.rs b/zellij-server/src/pty.rs
+index 327347c..be59bb7 100644
+--- a/zellij-server/src/pty.rs
++++ b/zellij-server/src/pty.rs
+@@ -228,7 +228,7 @@ fn stream_terminal_bytes(
+             // After a successful read, we keep on reading additional data up to a duration of
+             // `RENDER_PAUSE`. This is in order to batch up PtyBytes before rendering them.
+             // Once `render_deadline` has elapsed, we send Render.
+-            const RENDER_PAUSE: Duration = Duration::from_millis(30);
++            const RENDER_PAUSE: Duration = Duration::from_millis(3);
+             let mut render_deadline = None;
+             // Keep track of the last render time so we can render immediately if something shows
+             // up after a period of inactivity. This reduces input latency perception.
+-- 
+2.36.0
+

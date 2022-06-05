@@ -1,0 +1,97 @@
+##############################################################################
+# config for swaylock-effect #################################################
+##############################################################################
+# Nord color palette: <https://www.nordtheme.com/docs/colors-and-palettes>
+### Polar Night --------------------------------------------------------------
+# nord0  #2e3440
+# nord1  #3b4252
+# nord2  #434c5e
+# nord3  #4c566a
+### Snow Storm ---------------------------------------------------------------
+# nord4  #d8dee9
+# nord5  #e5e9f0
+# nord6  #eceff4
+### Frost --------------------------------------------------------------------
+# nord7  #8fbcbb
+# nord8  #88c0d0
+# nord9  #81a1c1
+# nord10 #5e81ac
+### Aurora  ------------------------------------------------------------------
+# nord11 #bf616a
+# nord12 #d08770
+# nord13 #ebcb8b
+# nord14 #a3be8c
+# nord15 #b48ead
+
+# Use a screenshot as lock screen background
+screenshots
+
+# Show a clock in the center
+clock
+
+# Fork process to background
+daemonize
+
+show-failed-attempts
+
+# Do not unlock in grace period in response to a mouse event
+grace-no-mouse
+# Do not unlock in grace period in response to a touchpad event
+grace-no-touch
+
+# Use jointly with `grace` to only show indicator after grace period
+indicator-idle-visible
+
+# man:strftime(3)
+timestr=%H:%M
+datestr=%a, %b.%d
+
+font=condensed-sans-serif
+# font-size=36
+
+indicator-radius=128
+indicator-thickness=4
+
+effect-blur=16x9
+effect-vignette=0.5:0.5
+key-hl-color=bdbdbd44
+
+# Colors between border and inside of the indicator
+line-color=2e344000
+line-clear-color=2e344000
+line-ver-color=a3be8c00
+line-wrong-color=2e344000
+
+# Colors inside indicator
+inside-color=2e3440aa
+inside-clear-color=2e3440aa
+inside-caps-lock-color=2e3440aa
+inside-ver-color=2e3440aa
+inside-wrong-color=2e3440aa
+
+# Colors of texts inside indicator
+text-color=eceff4
+text-clear-color=a3be8c
+text-caps-lock-color=d8dee9
+text-ver-color=8fbcbb
+text-wrong-color=bf616a
+
+# Colors on the border of indicator
+ring-color=eceff4
+ring-clear-color=a3be8c
+ring-caps-lock-color=d08770
+ring-ver-color=d8dee9
+ring-wrong-color=bf616a
+
+# On keyboard press
+key-hl-color=88c0d0
+bs-hl-color=ebcb8b
+
+# Require a password after 1s
+grace=0.2
+# Gradually fade into lock screen with blur/pixelate animation
+fade-in=0.2
+
+# vim: ft=conf:
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Nov 04 2021, 00:33 [CST]

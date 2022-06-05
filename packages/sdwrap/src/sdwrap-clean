@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+# Wrap a command with `systemd-run`[0], the stdout/stderr of the command are
+# redirected into systemd's journal, the wrapped process is attached to a
+# transient systemd service[2] called "sdwrap-$command.service".
+#
+# This script was originally created to properly handle field codes[1] in a
+# XDG desktop entry.
+#
+# NOTE: This script runs command in a clean and detached environment[0].
+#
+# Usage:
+#   sdwrap-clean <command> [<arguments>..]
+#
+# E.g.:
+#   sdwrap-clean /usr/lib/firefox/firefox https://google.com/
+#
+# [0]: man:systemd-run(1)
+# [1]: https://specifications.freedesktop.org/desktop-entry-spec/latest/ar01s07.html
+# [2]: man:systemd.service(5)
+
+command="$1"
+shift 1
+
+unit_name="sdwrap-$(awk -F'/' '{ print $NF }' <<<"$command")"
+
+if systemctl --user is-failed "$unit_name.service" >/dev/null; then
+  systemctl --user reset-failed "$unit_name.service"
+fi
+
+if systemctl --user is-active "$unit_name.service" >/dev/null; then
+  systemd-cat "$command" "$@" &
+  pid=$(jobs -p)
+  if busctl --user call org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager AttachProcessesToUnit ssau "$unit_name.service" / 1 "$pid"; then
+    echo "Attached new process of '$command $*'($pid) to '$unit_name.service'"
+  fi
+else
+  # NOTE: Must specify `Delegate=yes` as property for process to attach.
+  systemd-run --user \
+    --same-dir --unit="$unit_name" --property=Delegate=yes \
+    systemd-cat "$command" "$@" &
+fi
+
+disown
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Mar 22 2022, 11:50 [CST]

@@ -1,0 +1,21 @@
+<!-- Replace requested Noto fonts -->
+<!-- Simplified Chinese characters -->
+<match target="pattern">
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit name="family" mode="prepend" binding="same">
+        <string>Rubik</string>
+        <string>HarmonyOS Sans SC</string>
+    </edit>
+</match>
+<!-- Traditional Chinese characters -->
+<match target="pattern">
+    <test name="family">
+        <string>Noto Sans CJK TC</string>
+    </test>
+    <edit name="family" mode="prepend" binding="same">
+        <string>Rubik</string>
+        <string>HarmonyOS Sans TC</string>
+    </edit>
+</match>

@@ -1,0 +1,39 @@
+#!@bash@/bin/bash
+
+# Sends notification about current backlight status with proper icon with
+# dunst.
+#
+# Usage: $0 <ID>
+#
+# Where <ID> specifies the notification ID, defaults to -1.
+
+dunstify_bin="@dunst@/bin/dunstify"
+light_bin="@light@/bin/light"
+
+# Use -1 as notification ID when no <ID> is passed from command line.
+id="${1:--1}"
+
+icon=notification-display-brightness-
+current=$(cut -d'.' -f1 <("$light_bin" -G))
+if [[ "$current" -eq 0 ]]; then
+  icon+=off
+elif [[ "$current" -lt 33 ]]; then
+  icon+=low
+elif [[ "$current" -lt 67 ]]; then
+  icon+=medium
+elif [[ "$current" -lt 100 ]]; then
+  icon+=high
+else
+  icon+=full
+fi
+message=$("$light_bin" -G)%
+
+exec "$dunstify_bin" --replace="$id" \
+  --urgency=low \
+  --timeout=3000 \
+  --icon="$icon" \
+  --hints=int:value:"$current" \
+  "Brightness" "$message"
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Nov 14 2021, 01:04 [CST]

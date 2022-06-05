@@ -1,0 +1,578 @@
+---
+# Configuration for zellij.
+
+# In order to troubleshoot your configuration try using the following command:
+# `zellij setup --check`
+# It should show current config locations and features that are enabled.
+
+default_mode: locked
+ui:
+  pane_frames:
+    rounded_corners: true
+pane_frames: true
+## NOTE: Enabling this will pipe the selected text (using mouse) to the
+## NOTE: command, which won't work on headless machines.
+# copy_command: "wl-copy"
+keybinds:
+  unbind: true
+  locked:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's',]
+    - action: [Resize: Left,]
+      key: [Alt: 'h']
+    - action: [Resize: Down,]
+      key: [Alt: 'j']
+    - action: [Resize: Up,]
+      key: [Alt: 'k' ]
+    - action: [Resize: Right,]
+      key: [Alt: 'l']
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+    - action: [ToggleFloatingPanes]
+      key: [Alt: 'w']
+    - action: [TogglePaneEmbedOrFloating, SwitchToMode: Locked,]
+      key: [Alt: 'W']
+    - action: [NewPane: Down]
+      key: [Alt: 'n',]
+    - action: [NewPane: Right]
+      key: [Alt: 'v',]
+    - action: [CloseFocus]
+      key: [Alt: 'x']
+  normal:
+    # send the prefix-key ^s (ASCII: 19) on pressing C-s in normal mode then
+    # switch back to locked mode
+    - action: [Write: [19,], SwitchToMode: Locked]
+      key: [Ctrl: 's']
+    - action: [Detach,]
+      key: [Char: 'd',]
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [SwitchToMode: Pane,]
+      key: [Char: 'p',]
+    - action: [SwitchToMode: Resize,]
+      key: [Char: 'r',]
+    - action: [Resize: Left,]
+      key: [Alt: 'h']
+    - action: [Resize: Down,]
+      key: [Alt: 'j']
+    - action: [Resize: Up,]
+      key: [Alt: 'k' ]
+    - action: [Resize: Right,]
+      key: [Alt: 'l']
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+    - action: [SwitchToMode: Tab,]
+      key: [Char: 't',]
+    - action: [GoToTab: 1, SwitchToMode: Locked,]
+      key: [Char: '1',]
+    - action: [GoToTab: 2, SwitchToMode: Locked,]
+      key: [Char: '2',]
+    - action: [GoToTab: 3, SwitchToMode: Locked,]
+      key: [Char: '3',]
+    - action: [GoToTab: 4, SwitchToMode: Locked,]
+      key: [Char: '4',]
+    - action: [GoToTab: 5, SwitchToMode: Locked,]
+      key: [Char: '5',]
+    - action: [GoToTab: 6, SwitchToMode: Locked,]
+      key: [Char: '6',]
+    - action: [GoToTab: 7, SwitchToMode: Locked,]
+      key: [Char: '7',]
+    - action: [GoToTab: 8, SwitchToMode: Locked,]
+      key: [Char: '8',]
+    - action: [GoToTab: 9, SwitchToMode: Locked,]
+      key: [Char: '9',]
+    - action: [GoToTab: 10, SwitchToMode: Locked,]
+      key: [Char: '0',]
+    - action: [ToggleFocusFullscreen,]
+      key: [Char: 'z',]
+    - action: [SwitchToMode: Scroll,]
+      key: [Char: '[',]
+    - action: [SwitchToMode: Session,]
+      key: [Char: 'o',]
+    - action: [SwitchToMode: Move,]
+      key: [Char: 'm',]
+    - action: [MovePane: Left,]
+      key: [Char: 'H']
+    - action: [MovePane: Down,]
+      key: [Char: 'J']
+    - action: [MovePane: Up,]
+      key: [Char: 'K']
+    - action: [MovePane: Right,]
+      key: [Char: 'L']
+    - action: [NewPane: Down]
+      key: [Char: 'n',]
+    - action: [NewPane: Right]
+      key: [Char: 'v',]
+    - action: [ToggleFloatingPanes]
+      key: [Alt: 'w']
+    - action: [MoveFocusOrTab: Left,]
+      key: [Char: 'h',]
+    - action: [MoveFocusOrTab: Right,]
+      key: [Char: 'l',]
+    - action: [MoveFocus: Down,]
+      key: [Char: 'j',]
+    - action: [MoveFocus: Up,]
+      key: [Char: 'k',]
+    - action: [NewTab:]
+      key: [Char: 'c',]
+    - action: [SwitchToMode: RenameTab, TabNameInput: [0],]
+      key: [Char: ',']
+    - action: [CloseFocus,]
+      key: [Char: 'x']
+  resize:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's', Char: 'r']
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [Resize: Left,]
+      key: [Char: 'h', Left,]
+    - action: [Resize: Down,]
+      key: [Char: 'j', Down,]
+    - action: [Resize: Up,]
+      key: [Char: 'k', Up, ]
+    - action: [Resize: Right,]
+      key: [Char: 'l', Right,]
+    - action: [Resize: Increase,]
+      key: [Char: '=']
+    - action: [Resize: Increase,]
+      key: [Char: '+']
+    - action: [Resize: Decrease,]
+      key: [Char: '-']
+    - action: [Resize: Left,]
+      key: [Alt: 'h']
+    - action: [Resize: Down,]
+      key: [Alt: 'j']
+    - action: [Resize: Up,]
+      key: [Alt: 'k' ]
+    - action: [Resize: Right,]
+      key: [Alt: 'l']
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+  pane:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's', Char: 'p']
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [MoveFocus: Left,]
+      key: [Char: 'h', Left,]
+    - action: [MoveFocus: Right,]
+      key: [Char: 'l', Right,]
+    - action: [MoveFocus: Down,]
+      key: [Char: 'j', Down,]
+    - action: [MoveFocus: Up,]
+      key: [Char: 'k', Up,]
+    # - action: [SwitchFocus,]
+    #   key: [Char: 'p']
+    - action: [NewPane: Down]
+      key: [Char: 'n',]
+    - action: [NewPane: Right]
+      key: [Char: 'v',]
+    - action: [CloseFocus, SwitchToMode: Locked,]
+      key: [Char: 'x',]
+    - action: [ToggleFocusFullscreen, SwitchToMode: Locked,]
+      key: [Char: 'f',]
+    - action: [TogglePaneFrames, SwitchToMode: Locked,]
+      key: [Char: 'z',]
+    - action: [ToggleFloatingPanes]
+      key: [Alt: 'w']
+    - action: [TogglePaneEmbedOrFloating, SwitchToMode: Locked,]
+      key: [Alt: 'W']
+    - action: [MoveFocus: Left,]
+      key: [Alt: 'h',]
+    - action: [MoveFocus: Right,]
+      key: [Alt: 'l',]
+    - action: [MoveFocus: Down,]
+      key: [Alt: 'j',]
+    - action: [MoveFocus: Up,]
+      key: [Alt: 'k',]
+    - action: [FocusPreviousPane,]
+      key: [Alt: '[',]
+    - action: [FocusNextPane,]
+      key: [Alt: ']',]
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+    - action: [SwitchToMode: RenamePane, PaneNameInput: [0],]
+      key: [Char: 'c']
+  move:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's', Char: 'm']
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [MovePane: ,]
+      key: [Char: 'n', Char: "\t",]
+    - action: [MovePane: Left,]
+      key: [Char: 'h', Left,]
+    - action: [MovePane: Down,]
+      key: [Char: 'j', Down,]
+    - action: [MovePane: Up,]
+      key: [Char: 'k', Up, ]
+    - action: [MovePane: Right,]
+      key: [Char: 'l', Right,]
+    - action: [Resize: Left,]
+      key: [Alt: 'h']
+    - action: [Resize: Down,]
+      key: [Alt: 'j']
+    - action: [Resize: Up,]
+      key: [Alt: 'k' ]
+    - action: [Resize: Right,]
+      key: [Alt: 'l']
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+  tab:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's',]
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [SwitchToMode: RenameTab, TabNameInput: [0],]
+      key: [Char: 'r']
+    - action: [GoToPreviousTab,]
+      key: [Char: 'h', Left, Up, Char: 'k',]
+    - action: [GoToNextTab,]
+      key: [Char: 'l', Right,Down, Char: 'j']
+    - action: [NewTab:]
+      key: [Char: 'c',]
+    - action: [CloseTab, SwitchToMode: Locked,]
+      key: [Char: 'x',]
+    - action: [ToggleActiveSyncTab, SwitchToMode: Locked,]
+      key: [Char: 's']
+    - action: [GoToTab: 1, SwitchToMode: Locked,]
+      key: [Char: '1',]
+    - action: [GoToTab: 2, SwitchToMode: Locked,]
+      key: [Char: '2',]
+    - action: [GoToTab: 3, SwitchToMode: Locked,]
+      key: [Char: '3',]
+    - action: [GoToTab: 4, SwitchToMode: Locked,]
+      key: [Char: '4',]
+    - action: [GoToTab: 5, SwitchToMode: Locked,]
+      key: [Char: '5',]
+    - action: [GoToTab: 6, SwitchToMode: Locked,]
+      key: [Char: '6',]
+    - action: [GoToTab: 7, SwitchToMode: Locked,]
+      key: [Char: '7',]
+    - action: [GoToTab: 8, SwitchToMode: Locked,]
+      key: [Char: '8',]
+    - action: [GoToTab: 9, SwitchToMode: Locked,]
+      key: [Char: '9',]
+    - action: [GoToTab: 10, SwitchToMode: Locked,]
+      key: [Char: '0',]
+    - action: [ToggleTab]
+      key: [Char: "\t" ]
+    - action: [NewPane: ,]
+      key: [Alt: 'n',]
+    - action: [MoveFocus: Left,]
+      key: [Alt: 'h',]
+    - action: [MoveFocus: Right,]
+      key: [Alt: 'l',]
+    - action: [MoveFocus: Down,]
+      key: [Alt: 'j',]
+    - action: [MoveFocus: Up,]
+      key: [Alt: 'k',]
+    - action: [FocusPreviousPane,]
+      key: [Alt: '[',]
+    - action: [FocusNextPane,]
+      key: [Alt: ']',]
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+  scroll:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's', Char: '[']
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [ToggleFloatingPanes]
+      key: [Alt: 'w']
+    - action: [TogglePaneEmbedOrFloating, SwitchToMode: Locked,]
+      key: [Alt: 'W']
+    - action: [ScrollToBottom]
+      key: [Char: 'G',]
+    - action: [ScrollDown,]
+      key: [Char: 'j', Down,]
+    - action: [ScrollUp,]
+      key: [Char: 'k', Up,]
+    - action: [PageScrollDown,]
+      key: [Ctrl: 'f', PageDown, Right, Char: 'l',]
+    - action: [PageScrollUp,]
+      key: [Ctrl: 'b', PageUp, Left, Char: 'h',]
+    - action: [HalfPageScrollDown,]
+      key: [Char: 'd',]
+    - action: [HalfPageScrollUp,]
+      key: [Char: 'u',]
+    - action: [ToggleFocusFullscreen,]
+      key: [Char: 'z',]
+    - action: [Resize: Left,]
+      key: [Alt: 'h']
+    - action: [Resize: Down,]
+      key: [Alt: 'j']
+    - action: [Resize: Up,]
+      key: [Alt: 'k' ]
+    - action: [Resize: Right,]
+      key: [Alt: 'l']
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+  renametab:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's',]
+    - action: [SwitchToMode: Locked,]
+      key: [Char: "\n", Ctrl: 's', Esc]
+    - action: [TabNameInput: [27] , SwitchToMode: Tab,]
+      key: [Esc,]
+    - action: [NewPane: ,]
+      key: [Alt: 'n',]
+    - action: [MoveFocus: Left,]
+      key: [Alt: 'h',]
+    - action: [MoveFocus: Right,]
+      key: [Alt: 'l',]
+    - action: [MoveFocus: Down,]
+      key: [Alt: 'j',]
+    - action: [MoveFocus: Up,]
+      key: [Alt: 'k',]
+    - action: [FocusPreviousPane,]
+      key: [Alt: '[',]
+    - action: [FocusNextPane,]
+      key: [Alt: ']',]
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+  renamepane:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's',]
+    - action: [SwitchToMode: Locked,]
+      key: [Char: "\n", Ctrl: 'c', Esc]
+    - action: [PaneNameInput: [27] , SwitchToMode: Pane,]
+      key: [Esc,]
+    - action: [NewPane: ,]
+      key: [Alt: 'n',]
+    - action: [MoveFocus: Left,]
+      key: [Alt: 'h',]
+    - action: [MoveFocus: Right,]
+      key: [Alt: 'l',]
+    - action: [MoveFocus: Down,]
+      key: [Alt: 'j',]
+    - action: [MoveFocus: Up,]
+      key: [Alt: 'k',]
+    - action: [FocusPreviousPane,]
+      key: [Alt: '[',]
+    - action: [FocusNextPane,]
+      key: [Alt: ']',]
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+  session:
+    - action: [SwitchToMode: Normal,]
+      key: [Ctrl: 's', Char: 'o']
+    - action: [SwitchToMode: Locked,]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [Detach,]
+      key: [Char: 'd',]
+    - action: [NewPane: ,]
+      key: [Alt: 'n',]
+    - action: [MoveFocus: Left,]
+      key: [Alt: 'h',]
+    - action: [MoveFocus: Right,]
+      key: [Alt: 'l',]
+    - action: [MoveFocus: Down,]
+      key: [Alt: 'j',]
+    - action: [MoveFocus: Up,]
+      key: [Alt: 'k',]
+    - action: [FocusPreviousPane,]
+      key: [Alt: '[',]
+    - action: [FocusNextPane,]
+      key: [Alt: ']',]
+    - action: [Resize: Increase,]
+      key: [Alt: '=']
+    - action: [Resize: Increase,]
+      key: [Alt: '+']
+    - action: [Resize: Decrease,]
+      key: [Alt: '-']
+plugins:
+  - path: tab-bar
+    tag: tab-bar
+  - path: status-bar
+    tag: status-bar
+  - path: strider
+    tag: strider
+
+themes:
+  catppuccin:
+    bg: [48, 45, 65]
+    black: [22, 19, 32]
+    blue: [150, 205, 251]
+    cyan: [26, 24, 38]
+    fg: [217, 224, 238]
+    gray: [87, 82, 104]
+    green: [171, 233, 179]
+    magenta: [245, 194, 231]
+    orange: [248, 189, 150]
+    red: [242, 143, 173]
+    white: [217, 224, 238]
+    yellow: [250, 227, 176]
+  nord:
+    fg: [216, 222, 233]      # nord4
+    bg: [76, 86, 106]        # nord3
+    black: [59, 66, 82]      # nord1
+    red: [191, 97, 106]      # nord11
+    green: [163, 190, 140]   # nord14
+    yellow: [235, 203, 139]  # nord13
+    blue: [129, 161, 193]    # nord9
+    magenta: [180, 142, 173] # nord15
+    cyan: [136, 192, 208]    # nord8
+    white: [229, 233, 240]   # nord5
+    orange: [208, 135, 112]  # nord12
+  kanawaga:
+    fg: [220, 217, 111]
+    bg: [31, 31, 102]
+    black: [9, 6, 39]
+    red: [195, 65, 71]
+    green: [118, 149, 117]
+    yellow: [192, 164, 210]
+    blue: [126, 157, 243]
+    magenta: [149, 128, 205]
+    cyan: [106, 150, 137]
+    white: [200, 194, 29]
+    orange: [255, 160, 102]
+theme: catppuccin
+
+# Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
+# eg. when terminal window with an active zellij session is closed
+# Options:
+# - detach (Default)
+# - quit
+#on_force_close: quit
+
+# Send a request for a simplified ui (without arrow fonts) to plugins
+# Options:
+# - true
+# - false (Default)
+#simplified_ui: true
+
+# Choose the path to the default shell that zellij will use for opening new panes
+# Default: $SHELL
+# default_shell: fish
+
+# Toggle between having pane frames around the panes
+# Options:
+# - true (default)
+# - false
+#pane_frames: true
+
+# Choose the theme that is specified in the themes section.
+# Default: default
+#theme: default
+
+# Choose the mode that zellij uses when starting up.
+# Default: normal
+#default_mode: locked
+
+# Toggle enabling the mouse mode.
+# On certain configurations, or terminals this could
+# potentially interfere with copying text.
+# Options:
+# - true (default)
+# - false
+#mouse_mode: false
+
+# Configure the scroll back buffer size
+# This is the number of lines zellij stores for each pane in the scroll back
+# buffer. Excess number of lines are discarded in a FIFO fashion.
+# Valid values: positive integers
+# Default value: 10000
+#scroll_buffer_size: 10000
+
+# Provide a command to execute when copying text. The text will be piped to
+# the stdin of the program to perform the copy. This can be used with
+# terminal emulators which do not support the OSC 52 ANSI control sequence
+# that will be used by default if this option is not set.
+# Examples:
+#copy_command: "xclip -selection clipboard" # x11
+#copy_command: "wl-copy"          # wayland
+#copy_command: "pbcopy"           # osx
+
+# Choose the destination for copied text
+# Allows using the primary selection buffer (on x11/wayland) instead of the system clipboard.
+# Does not apply when using copy_command.
+# Options:
+# - system (default)
+# - primary
+# copy_clipboard: primary

@@ -1,0 +1,111 @@
+* {
+    nord0: #2e3440;
+    nord1: #3b4252;
+    nord2: #434c5e;
+    nord3: #4c566a;
+    nord4: #d8dee9;
+    nord5: #e5e9f0;
+    nord6: #eceff4;
+
+    nord7: #8fbcbb;
+    nord8: #88c0d0;
+    nord9: #81a1c1;
+    nord10: #5e81ac;
+
+    nord11: #bf616a;
+    nord12: #d08770;
+    nord13: #ebcb8b;
+    nord14: #a3be8c;
+    nord15: #b48ead;
+
+    separatorcolor: var(nord4);
+
+    foreground: var(nord4);
+    lightfg: var(nord8);
+
+    background: var(nord1);
+    lightbg: var(nord2);
+
+    red: var(nord11);
+    blue: var(nord8);
+
+    font: "slab-serif 15";
+}
+
+configuration {
+    terminal: "/usr/bin/alacritty";
+
+    show-icons: true;
+
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
+    kb-remove-to-eol: "Control+Shift+Delete";
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+
+    kb-row-down: "Alt+j";
+    kb-row-up: "Alt+k";
+    kb-mode-next: "Alt+l";
+    kb-mode-previous: "Alt+h";
+}
+
+window {
+    location: southeast;
+    anchor: southeast;
+    width: 448px;
+
+    /*
+     * Define offset so that rofi window borders are placed at the middle of
+     * the outer gap in sway.
+     */
+    x-offset: -6px;
+    y-offset: -6px;
+
+    padding: 8px;
+    border: 2px;
+    border-color: var(nord10);
+}
+
+element {
+    border: 1px solid;
+    border-color: var(nord3);
+    cursor: pointer;
+}
+
+element-icon {
+    background-color: transparent;
+    size: 32px;
+}
+
+listview {
+    padding: 2px 0 0;
+    scrollbar: true;
+    border: 4px solid 0 0;
+    border-color: var(nord7);
+    spacing: 8px;
+    lines: 7;
+}
+
+scrollbar {
+    width: 4px;
+    padding: 2px;
+    handle-width: 4px;
+    handle-color: var(nord13);
+    border: 0px;
+}
+
+inputbar {
+    padding: 5px;
+    children: [prompt, text-prompt-separator, entry, num-filtered-rows, textbox-num-sep, num-rows, case-indicator];
+}
+
+text-prompt-separator {
+    margin: 0 8px 0 0;
+    expand: false;
+    str: " ";
+    text-color: inherit;
+}
+
+/*
+ * vim: ft=css:
+ * Author: Blurgy <gy@blurgy.xyz>
+ * Date:   Dec 27 2021, 22:55 [CST]
+ */

@@ -1,0 +1,32 @@
+# REF: https://github.com/catppuccin/fish/blob/main/conf.d/catppuccin.fish
+
+fish_color_autosuggestion 6e6c7e
+fish_color_cancel e38c8f
+fish_color_command a4b9ef
+fish_color_comment 434c5e
+fish_color_cwd ebddaa
+fish_color_cwd_root red
+fish_color_end f9c096
+fish_color_error e38c8f
+fish_color_escape f2cecf
+fish_color_gray 6e6c7e
+fish_color_history_current --bold
+fish_color_host a4b9ef
+fish_color_host_remote yellow
+fish_color_keyword e38c8f
+fish_color_match --background=brblue
+fish_color_normal dadae8
+fish_color_operator e5b4e2
+fish_color_param f2cecf
+fish_color_quote b1e3ad
+fish_color_redirection e5b4e2
+fish_color_search_match --background=3e4058
+fish_color_selection --background=3e4058
+fish_color_status red
+fish_color_user bee4ed
+fish_color_valid_path --underline
+fish_pager_color_completion dadae8
+fish_pager_color_description 6e6c7e
+fish_pager_color_prefix e5b4e2
+fish_pager_color_progress 6e6c7e
+fish_pager_color_selected_background -r

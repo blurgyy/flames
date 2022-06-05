@@ -1,0 +1,57 @@
+#!@bash@/bin/bash
+
+# Capture a region of or the full screen, refuse to open another screenshot
+# session when another one is running.
+#
+# Usage: $0 <type>
+#
+# Where <type> is one of "pixel", "region", "full" (without quotes), defaults
+# to "full".
+
+dunstify_bin="@dunst@/bin/dunstify"
+slurp_bin="@slurp@/bin/slurp"
+grim_bin="@grim@/bin/grim"
+convert_bin="@imagemagick@/bin/convert"
+flameshot_bin="@flameshot@/bin/flameshot"
+wlcopy_bin="@wl-clipboard@/bin/wl-copy"
+rm_bin="@coreutils@/bin/rm"
+
+type="${1:-full}"
+
+tmpsav=$(mktemp "/run/user/$(id -u)/screenshot-XXXXXX")
+
+if [[ "$type" == "pixel" ]]; then
+  if region=$("$slurp_bin" -p); then
+    "$grim_bin" -g "$region" -t ppm "$tmpsav"
+    negated=$(
+      "$convert_bin" "$tmpsav" -negate -format '%[pixel:p{0,0}]' txt:- |
+        tail -n 1 |
+        cut -d' ' -f4 |
+        tr -d '\n'
+    )
+    "$convert_bin" "$tmpsav" -format '%[pixel:p{0,0}]' txt:- |
+      tail -n 1 |
+      cut -d' ' -f4 |
+      tr -d '\n' |
+      "$wlcopy_bin"
+    exec "$dunstify_bin" \
+      --replace=-2 \
+      --urgency=low \
+      --timeout=5000 \
+      --icon=applications-graphics-drawing \
+      "Color picked (pixel)" \
+      "<tt><span background='$(wl-paste)' foreground='${negated}'>$(wl-paste)</span></tt>"
+  fi
+elif [[ "$type" == "region" ]]; then
+  "$flameshot_bin" gui
+elif [[ "$type" == "full" ]]; then
+  "$flameshot_bin" screen \
+    -p "$HOME/Pictures/screenshots/$(date +'%y%m%d%H%m%S').png" \
+    -r |
+    "$wlcopy_bin" -t image/png
+fi
+
+"$rm_bin" -f "$tmpsav"
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Dec 14 2021, 13:30 [CST]

@@ -1,0 +1,43 @@
+#!@bash@/bin/bash
+
+# Sends notification about current volume status with proper icon with dunst.
+#
+# Usage: $0 [<ID>]
+#
+# Where <ID> specifies the notification ID, defaults to -1.
+
+dunstify_bin="@dunst@/bin/dunstify"
+pamixer_bin="@pamixer@/bin/pamixer"
+
+# Use -1 as notification ID when no <ID> is passed from command line.
+id="${1:--1}"
+
+icon=audio-volume-
+muted=$("$pamixer_bin" --get-mute)
+message=$("$pamixer_bin" --get-volume-human)
+
+if [[ "$muted" == "true" ]]; then
+  current=0
+  icon+=muted
+else
+  current=$("$pamixer_bin" --get-volume)
+  if [[ "$current" -eq 0 ]]; then
+    icon+=muted
+  elif [[ "$current" -lt 33 ]]; then
+    icon+=low
+  elif [[ "$current" -lt 67 ]]; then
+    icon+=medium
+  else
+    icon+=high
+  fi
+fi
+
+exec "$dunstify_bin" --replace="$id" \
+  --urgency=low \
+  --timeout=3000 \
+  --icon="$icon" \
+  --hints=int:value:"$current" \
+  "Volume" "$message"
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Nov 14 2021, 01:04 [CST]
