@@ -117,6 +117,12 @@
   # Enable pipewire (see NixOS Wiki)
   security.rtkit.enable = true;
   security.pam.services.swaylock = { };
+  security.sudo.extraRules = let
+    applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
+    systemdCmds = map applyNoPasswd (map (cmd: "${pkgs.systemd}/bin/${cmd}") [ "systemctl" "journalctl" ]);
+  in [
+    { groups = [ "wheel" ]; commands = systemdCmds; }
+  ];
 
   services = {
     btrfs.autoScrub = {
