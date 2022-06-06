@@ -75,7 +75,7 @@
     let g:catppuccin_flavour = "mocha"
     colorscheme catppuccin
     lua <<EOF
-    ${builtins.readFile ./raw/nvim.lua}
+    ${builtins.readFile ./config.lua}
     EOF
   '';
   extraPackages = with pkgs; [

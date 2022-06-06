@@ -100,7 +100,7 @@ in {
       extraConfig = { };
     };
 
-    neovim = import ./parts/nvim.nix { inherit pkgs; };
+    neovim = import ./parts/neovim { inherit pkgs; };
 
     alacritty = {
       enable = true;
