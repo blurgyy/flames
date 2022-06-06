@@ -9,6 +9,7 @@
   };
 
   nix = {
+    autoOptimiseStore = true;
     package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
