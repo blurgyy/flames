@@ -187,6 +187,8 @@ in {
     MOZ_ENABLE_WAYLAND = 1;  # TODO: with `hm-config.firefox.package.forceWayland` set to true, maybe this can be removed?
     WINEPREFIX = "${hm-config.xdg.dataHome}/wine";
     _JAVA_AWT_WM_NONREPARENTING = 1;
+    FZF_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
+    SKIM_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
   };
   systemd.user.sessionVariables = hm-config.home.sessionVariables;
   pam.sessionVariables = hm-config.home.sessionVariables;
