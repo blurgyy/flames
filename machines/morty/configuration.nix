@@ -59,7 +59,10 @@
     interfaces.wlo1.useDHCP = true;
     wireless = {
       enable = true;
-      networks = { };  # Actual network config goes in ./sops.nix
+      networks = {  # More network configs go in ./sops.nix
+        "ZJUWLAN".authProtocols = [ "NONE" ];
+        "ZJUWLAN-NEW".authProtocols = [ "NONE" ];
+      };
     };
     firewall.enable = false;
     # REF: man:resolvconf.conf(5)
