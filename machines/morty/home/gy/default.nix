@@ -39,7 +39,6 @@ in {
   };
 
   home.packages = with pkgs; [
-    exa bat fd ripgrep procs
     imv
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     waypipe

@@ -191,6 +191,7 @@
     libnotify
     neovim
     zsh fish fzf
+    exa bat fd ripgrep procs dua
     htop
     file
     zip unzip unar
