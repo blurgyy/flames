@@ -46,6 +46,7 @@
       "loglevel=3"
       "pcie_aspm=off"
       "mitigations=off"
+      "resume=LABEL=nixos-swap"
     ];
     loader = {
       efi.canTouchEfiVariables = true;
