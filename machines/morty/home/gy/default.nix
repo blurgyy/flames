@@ -46,7 +46,7 @@ in {
     xfce.thunar
     zotero
     sdwrap
-    #tdesktop  # use https://webz.telegram.org/
+    tdesktop-megumifox
   ];
 
   i18n.inputMethod = {
