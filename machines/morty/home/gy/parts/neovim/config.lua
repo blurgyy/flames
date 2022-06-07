@@ -590,11 +590,11 @@ require("todo-comments").setup({
   ---- list of named colors where we try to extract the guifg from the list of
   ---- highlight groups or use the hex color if hl not found as a fallback
   colors = {
-    error = { "#bf616a" }, -- nord11 (red)
-    warning = { "#d08770" }, -- nord12 (orange)
-    hint = { "#ebcb8b" }, -- nord13 (yellow)
-    info = { "#a3be8c" }, -- nord14 (green)
-    default = { "#b48ead" }, -- nord15 (purple)
+    -- error = { "#bf616a" }, -- nord11 (red)
+    -- warning = { "#d08770" }, -- nord12 (orange)
+    -- hint = { "#ebcb8b" }, -- nord13 (yellow)
+    -- info = { "#a3be8c" }, -- nord14 (green)
+    -- default = { "#b48ead" }, -- nord15 (purple)
   },
   search = {
     command = "rg",
