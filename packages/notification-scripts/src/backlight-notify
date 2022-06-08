@@ -1,4 +1,4 @@
-#!@bash@/bin/bash
+#!/usr/bin/env bash
 
 # Sends notification about current backlight status with proper icon with
 # dunst.
@@ -34,6 +34,3 @@ exec "$dunstify_bin" --replace="$id" \
   --icon="$icon" \
   --hints=int:value:"$current" \
   "Brightness" "$message"
-
-# Author: Blurgy <gy@blurgy.xyz>
-# Date:   Nov 14 2021, 01:04 [CST]

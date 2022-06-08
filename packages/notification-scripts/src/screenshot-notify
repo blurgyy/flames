@@ -1,4 +1,4 @@
-#!@bash@/bin/bash
+#!/usr/bin/env bash
 
 # Capture a region of or the full screen, refuse to open another screenshot
 # session when another one is running.
@@ -52,6 +52,3 @@ elif [[ "$type" == "full" ]]; then
 fi
 
 "$rm_bin" -f "$tmpsav"
-
-# Author: Blurgy <gy@blurgy.xyz>
-# Date:   Dec 14 2021, 13:30 [CST]
