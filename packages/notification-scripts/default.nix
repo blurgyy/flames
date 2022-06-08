@@ -6,7 +6,7 @@ stdenv.mkDerivation {
   phases = [ "installPhase" ];
 
   # NOTE: Need these for `substituteAllInPlace` to work
-  inherit bash light dunst slurp grim imagemagick flameshot pamixer coreutils;
+  inherit bash diffutils light dunst slurp grim imagemagick flameshot pamixer coreutils;
 
   installPhase = ''
     install -Dt $out/bin -m555 $src/*
