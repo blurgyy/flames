@@ -151,7 +151,7 @@
     };
 
     logind.lidSwitch = "ignore";
-    logind.killUserProcess = false;  # This is already the default
+    logind.killUserProcesses = false;  # This is already the default
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
