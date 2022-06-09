@@ -1,9 +1,9 @@
 let
-  mapPackage = f: with builtins; listToAttrs ( map
+  mapPackage = f: with builtins; listToAttrs (map
     (name: { inherit name; value = f name; })
     (filter
         (v: v != null)
-        (attrValues ( mapAttrs
+        (attrValues (mapAttrs
           (path: type: if type == "directory" then path else null)
           (readDir ./.)
         ))
@@ -11,9 +11,9 @@ let
   );
 in {
   packages = pkgs: mapPackage (name: pkgs.${name});
-  overlay = final: prev: mapPackage ( name: let
+  overlay = final: prev: mapPackage (name: let
     package = import ./${name};
-    args = builtins.intersectAttrs ( builtins.functionArgs package ) { inherit final prev; };
+    args = with builtins; intersectAttrs (functionArgs package) { inherit final prev; };
   in
     final.callPackage package args
   );
