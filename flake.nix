@@ -14,14 +14,18 @@
 
   # `self` denotes this flake, otther function arguments are the flakes
   # specified in the `inputs` attribute above.
-  outputs = inputs@{ self, nixpkgs, ... }: let
+  outputs = inputs@{ self, nixpkgs, flake-utils, ... }: let
     my = import ./packages;
-  in {
-    packages = {
-      x86_64-linux = {
-        packages = my.packages;
-      };
+  in flake-utils.lib.eachDefaultSystem (system: let
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        self.overlays.default
+      ];
     };
+  in {
+    packages = my.packages pkgs;
+  }) // {
     overlays.default = my.overlay;
     nixosConfigurations = {
       morty = import ./machines/morty {
