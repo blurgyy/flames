@@ -47,6 +47,7 @@ in {
     zotero
     sdwrap
     tdesktop-megumifox
+    dingtalk
   ];
 
   i18n.inputMethod = {

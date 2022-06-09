@@ -245,8 +245,8 @@
           "Font Awesome 5 Brands"
           "Symbols Nerd Font"
         ];
-      in {
-        serif = [
+      in rec {
+        serif = sansSerif ++ [
           "Noto Serif CJK SC"
           "Noto Serif CJK TC"
           "Noto Serif CJK HK"

@@ -208,6 +208,7 @@ in {
           title = "Uplay|LariLauncher";
         }
         { app_id = "Thunar"; title = "^.+$"; }
+        { title = "https:\/\/space.dingtalk.com\/attachment\/mdown.*"; }
       ];
     };
     window.commands = [
