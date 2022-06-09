@@ -25,6 +25,8 @@ tmpsav=$(mktemp "$tmpdir/screenshot-XXXXXX")
 old_clipboard_content=$(mktemp "$tmpdir/oldclip-XXXXXX")
 new_clipboard_content=$(mktemp "$tmpdir/newclip-XXXXXX")
 
+trap ''$rm_bin' -f $tmpsav $old_clipboard_content $new_clipboard_content' EXIT
+
 if [[ "$type" == "pixel" ]]; then
   if region=$("$slurp_bin" -p); then
     "$grim_bin" -g "$region" -t ppm "$tmpsav"
@@ -63,5 +65,3 @@ elif [[ "$type" == "full" ]]; then
     -r |
     "$wlcopy_bin" -t image/png
 fi
-
-"$rm_bin" -f "$tmpsav"
