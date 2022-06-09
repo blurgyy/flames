@@ -194,7 +194,7 @@
     plocate
     jq libqalculate
     sops age
-    hydra-check
+    hydra-check cachix
     wine-wayland
   ];
 
