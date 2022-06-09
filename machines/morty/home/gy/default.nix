@@ -44,8 +44,10 @@ in {
     waypipe
     zellij-hirr
     xfce.thunar
-    zotero
     sdwrap
+    python3
+    zotero
+    meshlab
     tdesktop-megumifox
     dingtalk
   ];
@@ -146,6 +148,8 @@ in {
           utc_time_offset = "local";
           time_range = "-";
         };
+        cmake.disabled = true;
+        python.format = "is [$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)";
       };
     };
     bash = { enable = true; };
