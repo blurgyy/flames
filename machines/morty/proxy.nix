@@ -1,6 +1,7 @@
 { config, lib, ... }: {
   systemd.services.nftables.requires = [ "nix-daemon.service" ];
   systemd.services.v2ray.serviceConfig.LimitNOFILE = 1000000007;
+  networking.resolvconf.extraConfig = "name_servers=127.0.0.53";  # REF: man:resolvconf.conf(5)
   networking.nftables = {
     enable = true;
     rulesetFile = config.sops.templates.nftables.path;
