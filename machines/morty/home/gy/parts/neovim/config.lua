@@ -59,8 +59,8 @@ vim.o.expandtab = true
 
 vim.o.formatoptions = "croqnlm2B"
 
-vim.o.textwidth = 78
-vim.o.colorcolumn = "79,101"
+vim.o.textwidth = 100
+vim.o.colorcolumn = "101"
 vim.o.cursorlineopt = "number"
 vim.o.cursorline = true
 vim.o.showtabline = 2
