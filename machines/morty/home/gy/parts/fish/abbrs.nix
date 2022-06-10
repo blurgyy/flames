@@ -196,7 +196,6 @@ fixTypo "blurgy" [
   bpvc = "pelican -rl";
   cf = "clang-format";
   cgls = "systemd-cgls";
-  dingtalk = "systemctl --user start dingtalk.service";
   dl = "axel -n 16";
   du = "dua interactive";
   dvim = "${vi_command} -V10/tmp/vim-debug.log";

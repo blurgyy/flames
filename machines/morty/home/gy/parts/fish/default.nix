@@ -10,7 +10,8 @@ with builtins; {
   };
   interactiveShellInit = readFile ../raw/fish/interactiveShellInit.fish;
   shellAbbrs = import ./abbrs.nix;
-  shellAliases = {
-    meshlab = "${pkgs.sdwrap}/bin/sdwrap ${pkgs.meshlab}/bin/meshlab";
+  shellAliases = with pkgs; {
+    meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
+    dingtalk = "${sdwrap}/bin/sdwrap ${dingtalk}/bin/dingtalk";
   };
 }
