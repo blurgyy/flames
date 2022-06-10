@@ -214,6 +214,7 @@ in {
     window.commands = [
       { criteria = { floating = true; }; command = "sticky enable, border csd"; }
       { criteria = { app_id = "pavucontrol"; }; command = "resize set width 480 px height 640px, move position cursor, move down 35"; }
+      { criteria = { app_id = "Thunar"; }; command = "move position center"; }
       { criteria = { app_id = "Thunar"; title = "^.+[^( - Properties)]$"; }; command = "resize set width 1280px height 936px"; }
     ];
     colors = {
