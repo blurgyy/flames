@@ -42,3 +42,8 @@ Trouble Shooting
   See [./packages/notification-scripts/default.nix](./packages/notification-scripts/default.nix) and
   [./packages/notification-scripts/src/screenshot-notify](./packages/notification-scripts/src/screenshot-notify)
   for a concrete example.
+* Since network credentials are managed by `sops`, it is crucial that the secret key is present
+  during boot.  For the raspberry pi config, after flashing the image into the sd card, the secret
+  key for `sops` must also be copied to the sdcard (use `rsync -aAX` to preserve mode info).
+
+  > The image can be built with `nix build .#nixosConfigurations.rpi.config.system.build.sdImage`.

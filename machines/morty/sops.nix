@@ -9,13 +9,13 @@
   networking.wireless = {
     environmentFile = config.sops.secrets.wireless-environment-file.path;
     networks = {
-      "@morty_wlan_0@".psk = "@morty_wlan_0_psk@";
-      "@morty_wlan_1@".psk = "@morty_wlan_1_psk@";
+      "@wlan_0@".psk = "@wlan_0_psk@";
+      "@wlan_1@".psk = "@wlan_1_psk@";
     };
   };
 
   sops = {
-    defaultSopsFile = ./secrets.yaml;
+    defaultSopsFile = ../secrets.yaml;
     age = {
       keyFile = "/var/lib/sops.age";
       sshKeyPaths = [ ];  # Do not import ssh keys
