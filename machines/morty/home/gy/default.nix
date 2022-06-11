@@ -214,6 +214,15 @@ in {
   systemd.user.sessionVariables = hm-config.home.sessionVariables;
   pam.sessionVariables = hm-config.home.sessionVariables;
 
+  home.file = {
+    ipythonConfig = {
+      text = ''
+        c.TerminalInteractiveShell.editing_mode = "vi"
+        c.TerminalInteractiveShell.emacs_bindings_in_vi_insert_mode = False
+      '';
+      target = ".ipython/profile_default/ipython_config.py";
+    };
+  };
   xdg = with helpers; {
     enable = true;
     configFile = with builtins; {
