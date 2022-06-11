@@ -155,15 +155,15 @@ in {
         python.format = "is [$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)";
         shell = {
           disabled = false;
-          format = "|[$indicator](italic purple)| ";
-          bash_indicator = "b";
-          fish_indicator = "f";
-          zsh_indicator = "z";
-          powershell_indicator = "p";
-          ion_indicator = "i";
-          elvish_indicator = "e";
-          tcsh_indicator = "t";
-          unknown_indicator = "?";
+          format = "|$indicator| ";
+          bash_indicator = "[b](yellow underline)";
+          fish_indicator = "[f](green bold italic)";
+          zsh_indicator = "[z](purple underline)";
+          powershell_indicator = "[p](blue)";
+          ion_indicator = "[i](blue)";
+          elvish_indicator = "[e](blue)";
+          tcsh_indicator = "[t](blue)";
+          unknown_indicator = "[?](red)";
         };
       };
     };
