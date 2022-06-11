@@ -145,6 +145,7 @@ local lowtab_fts = {
   "lua",
   "markdown",
   "nix",
+  "python",
   "sh",
   "sshconfig",
   "toml",
