@@ -7,6 +7,7 @@ with builtins; {
       onEvent = "fish_postexec";
     };
     fish_title.body = readFile ../raw/fish/functions/fish_title.fish;
+    gcnt.body = readFile ../raw/fish/functions/gcnt.fish;
   };
   interactiveShellInit = readFile ../raw/fish/interactiveShellInit.fish;
   shellAbbrs = import ./abbrs.nix;
