@@ -154,6 +154,18 @@ in {
         };
         cmake.disabled = true;
         python.format = "is [$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)";
+        shell = {
+          disabled = false;
+          format = "|[$indicator](italic purple)| ";
+          bash_indicator = "b";
+          fish_indicator = "f";
+          zsh_indicator = "z";
+          powershell_indicator = "p";
+          ion_indicator = "i";
+          elvish_indicator = "e";
+          tcsh_indicator = "t";
+          unknown_indicator = "?";
+        };
       };
     };
     bash = { enable = true; };
