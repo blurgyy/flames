@@ -78,6 +78,10 @@ in {
   programs = {
     git = import ./parts/git.nix;
     ssh = import ./parts/ssh.nix;
+    readline = {
+      enable = true;
+      variables.editing-mode = "vi";
+    };
 
     mpv = {
       enable = true;
