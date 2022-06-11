@@ -49,7 +49,6 @@ in {
     zotero
     meshlab
     tdesktop-megumifox
-    dingtalk
   ];
 
   i18n.inputMethod = {

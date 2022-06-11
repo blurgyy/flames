@@ -12,6 +12,6 @@ with builtins; {
   shellAbbrs = import ./abbrs.nix;
   shellAliases = with pkgs; {
     meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
-    dingtalk = "${sdwrap}/bin/sdwrap ${dingtalk}/bin/dingtalk";
+    #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";
   };
 }
