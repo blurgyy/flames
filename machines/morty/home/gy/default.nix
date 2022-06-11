@@ -232,6 +232,15 @@ in {
     };
     # HACK: Do not enable fcitx5-daemon.service because xdg-desktop-autostart.target already pulls another fcitx5 service
     services.fcitx5-daemon.Install.WantedBy = lib.mkForce [ ];
+    services.blackd = {
+      Unit.Documentation = "https://black.readthedocs.io/en/stable/usage_and_configuration/black_as_a_server.html";
+      Service = {
+        ExecStart = "${pkgs.black}/bin/blackd";
+        Restart = "always";
+        RestartSec = 5;
+      };
+      Install.WantedBy = [ "default.target" ];
+    };
   };
   services = {
     gammastep = {

@@ -407,6 +407,67 @@ for _, lspname in pairs(enabled_lsps) do
   require("lspconfig")[lspname].setup(lsp_settings)
 end
 
+--- null-ls
+local null_ls = require("null-ls")
+local h = require("null-ls.helpers")
+local methods = require("null-ls.methods")
+null_ls.setup({
+  -- REF: https://github.com/jose-elias-alvarez/null-ls.nvim#user-content-how-do-i-format-files-on-save
+  on_attach = function(client)
+    require("lsp-format").on_attach(client)
+    vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
+  end,
+  sources = {
+    -- null_ls.builtins.formatting.stylua,
+    -- null_ls.builtins.completion.spell,
+    null_ls.builtins.formatting.clang_format,
+    -- Custom sh/bash/zsh script formatter
+    h.make_builtin({
+      name = "shfmt",
+      meta = {
+        url = "https://github.com/mvdan/sh",
+        description = "A shell parser, formatter, and interpreter with `bash` support.",
+      },
+      method = methods.internal.FORMATTING,
+      filetypes = { "sh", "bash", "zsh", "PKGBUILD" },
+      generator_opts = {
+        command = "shfmt",
+        args = { "-i", "2", "-filename", "$FILENAME" },
+        to_stdin = true,
+      },
+      factory = h.formatter_factory,
+    }),
+    -- Custom blackd formatter
+    -- REF: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/lua/null-ls/builtins/formatting/black.lua
+    h.make_builtin({
+      name = "blackd",
+      meta = {
+        url = "https://github.com/psf/black",
+        description = "The uncompromising Python code formatter",
+      },
+      method = methods.internal.FORMATTING,
+      filetypes = { "python" },
+      generator_opts = {
+        command = "curl",
+        args = {
+          -- Return non-zero when there's any syntax error
+          "--fail",
+          -- Using "@$FILENAME" below won't work because formatting is
+          -- done before writting buffer and at the moment $FILENAME
+          -- doesn't contain updated file content. use stdin "@-"
+          -- instead.
+          "--data-binary", "@-",
+          "-H", "X-Line-Length: 100",
+          "-H", "X-Skip-Magic-Trailing-Comma: true",
+          "localhost:45484",
+        },
+        to_stdin = true,
+      },
+      factory = h.formatter_factory,
+    }),
+  },
+})
+
 --- lualine
 require("lualine").setup({
   sections = {
