@@ -67,7 +67,6 @@
     # tabby  # Not provided by nixpkgs
 
     vim-fugitive
-    vim-gutentags
     vim-smoothie
     vim-wakatime
   ]);

@@ -673,33 +673,33 @@ require("todo-comments").setup({
   },
 })
 
---- gutentags
----- Project root patterns
-vim.g.gutentags_project_root = { ".git", "Makefile", ".thisisroot" }
----- Name of generated data file
-vim.g.gutentags_ctags_tagfile = ".tags"
----- Move all generated data file to ~/.cache/nvim/gutentags
-local vim_tags = vim.fn.expand(
-  os.getenv("HOME") .. "/.cache/nvim/gutentags"
-)
-vim.g.gutentags_cache_dir = vim_tags
----- Ctags parameters yanked from: https://www.zhihu.com/question/47691414
-vim.g.gutentags_ctags_extra_args = {
-  "--fields=+nialmzS",
-  "--extra=+q",
-  "--guess-language-eagerly",
-  "--kinds-c++=+px",
-  "--kinds-c=+px",
-}
----- Generate tags in most cases
-vim.g.gutentags_generate_on_new = true
-vim.g.gutentags_generate_on_missing = true
-vim.g.gutentags_generate_on_write = true
-vim.g.gutentags_generate_on_empty_buffer = false
----- Create cache directory if it does not exist
-os.execute("mkdir -p " .. vim_tags)
----- Ignore files properly
-vim.g.gutentags_file_list_command = "rg --files --hidden --ignore-files -g\"!.git/\""
+----- gutentags
+------ Project root patterns
+--vim.g.gutentags_project_root = { ".git", "Makefile", ".thisisroot" }
+------ Name of generated data file
+--vim.g.gutentags_ctags_tagfile = ".tags"
+------ Move all generated data file to ~/.cache/nvim/gutentags
+--local vim_tags = vim.fn.expand(
+--  os.getenv("XDG_CACHE_HOME") .. "/nvim/gutentags"
+--)
+--vim.g.gutentags_cache_dir = vim_tags
+------ Ctags parameters yanked from: https://www.zhihu.com/question/47691414
+--vim.g.gutentags_ctags_extra_args = {
+--  "--fields=+nialmzS",
+--  "--extra=+q",
+--  "--guess-language-eagerly",
+--  "--kinds-c++=+px",
+--  "--kinds-c=+px",
+--}
+------ Generate tags in most cases
+--vim.g.gutentags_generate_on_new = true
+--vim.g.gutentags_generate_on_missing = true
+--vim.g.gutentags_generate_on_write = true
+--vim.g.gutentags_generate_on_empty_buffer = false
+------ Create cache directory if it does not exist
+--os.execute("mkdir -p " .. vim_tags)
+------ Ignore files properly
+--vim.g.gutentags_file_list_command = "rg --files --hidden --ignore-files -g\"!.git/\""
 
 ----- nvim-comment
 --require("nvim_comment").setup({
