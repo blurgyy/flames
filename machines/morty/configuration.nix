@@ -30,9 +30,7 @@
     };
   };
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-    "vscode-codicons"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
