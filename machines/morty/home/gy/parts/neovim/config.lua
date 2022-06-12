@@ -137,6 +137,7 @@ end
 
 -- Autocmds
 local lowtab_fts = {
+  "dts",
   "fish",
   "gitcommit",
   "javascript",
