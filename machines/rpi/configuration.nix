@@ -37,8 +37,14 @@
 
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
-  hardware.deviceTree.enable = true;
-  #hardware.deviceTree.name = "bcm2711-rpi-*.dtb";
+  hardware.deviceTree = {
+    enable = true;
+    filter = "bcm2711-rpi-4-b.dtb";
+    overlays = [  # REF: https://github.com/raspberrypi/linux
+      { name = "gpio-ir"; dtsFile = ./device-tree/gpio-ir.dts; }
+      { name = "gpio-ir-tx"; dtsFile = ./device-tree/gpio-ir-tx.dts; }
+    ];
+  };
 
   nix = {
     package = pkgs.nixStable;
