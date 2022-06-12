@@ -49,6 +49,8 @@ in {
     zotero
     meshlab
     tdesktop-megumifox
+    #nixos-cn.re-export.telegram-send
+    #nixos-cn.dingtalk
   ];
 
   i18n.inputMethod = {
