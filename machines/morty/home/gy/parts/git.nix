@@ -14,6 +14,7 @@
     cannosign = "commit -sv --amend --no-edit";
     canosign = "commit -sv --amend";
     cnosign = "commit -sv";
+    cinit = ''commit --allow-empty -m "chore: initalize repository (empty)"'';
     co = "checkout";
     d = "diff";
     dc = "diff --cached";
@@ -21,6 +22,7 @@
     l = "log --all --graph --decorate --oneline -8";
     la = "log --all --graph --decorate --format=fuller";
     ll = "pull";
+    mt = "mergetool";
     p = "push";
     pf = "push -f";
     s = "status -s";
