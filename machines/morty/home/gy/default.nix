@@ -157,7 +157,7 @@ in {
         python.format = "is [$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)";
         shell = {
           disabled = false;
-          format = "|$indicator| ";
+          format = "[|](black)$indicator[|](black) ";
           bash_indicator = "[b](yellow underline)";
           fish_indicator = "[f](green bold italic)";
           zsh_indicator = "[z](purple underline)";
