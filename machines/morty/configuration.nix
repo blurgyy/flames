@@ -307,6 +307,7 @@
       symbols-nerd-font
       vscode-codicons
       apple-color-emoji
+      freefont_ttf
     ];
   };
 
