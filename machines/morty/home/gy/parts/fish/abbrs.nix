@@ -160,7 +160,8 @@ fixTypo "blurgy" [
   pg = "git push";
   gfp = "git push --force";
   gpf = "git push --force";
-  gs = "git status";
+  gs = "git status -s";
+  gsa = "git status";
   gsl = "git status && git log --all --graph --decorate --oneline -8";
   gbisect = "git bisect";
   gclone = "git clone";

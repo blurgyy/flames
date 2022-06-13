@@ -3,17 +3,17 @@
   userEmail = "gy@blurgy.xyz";
   userName = "Gaoyang Zhang";
   aliases = {
-    unstage = "reset HEAD --";
     a = "add";
+    aa = "add -A";
     b = "branch";
     bs = "branch --set-upstream-to";
     bv = "branch -vv";
     c = "commit -S -sv";
     ca = "commit -S -sv --amend";
     can = "commit -S -sv --amend --no-edit";
-    cnosign = "commit -sv";
-    canosign = "commit -sv --amend";
     cannosign = "commit -sv --amend --no-edit";
+    canosign = "commit -sv --amend";
+    cnosign = "commit -sv";
     co = "checkout";
     d = "diff";
     dc = "diff --cached";
@@ -23,7 +23,9 @@
     ll = "pull";
     p = "push";
     pf = "push -f";
-    s = "status";
+    s = "status -s";
+    sa = "status";
+    unstage = "reset HEAD --";
   };
   attributes = [
     "#       text=auto diff=ada"
