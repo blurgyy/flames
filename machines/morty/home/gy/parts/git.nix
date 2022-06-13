@@ -18,7 +18,7 @@
     d = "diff";
     dc = "diff --cached";
     f = "fetch";
-    l = "log --all --graph --decorate --oneline";
+    l = "log --all --graph --decorate --oneline -8";
     la = "log --all --graph --decorate --format=fuller";
     ll = "pull";
     p = "push";
