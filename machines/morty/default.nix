@@ -12,6 +12,7 @@ nixpkgs.lib.nixosSystem {
     {
       nixpkgs.overlays = [
         self.overlays.default
+        inputs.nixos-cn.overlay
         (final: prev: {
           nbfc-linux = inputs.nbfc-linux.defaultPackage.${system};
         })

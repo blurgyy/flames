@@ -19,10 +19,6 @@
   in flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [
-        self.overlays.default
-        nixos-cn.overlay
-      ];
     };
   in {
     packages = my.packages pkgs;
