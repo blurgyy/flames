@@ -21,7 +21,7 @@
       inherit system;
       overlays = [
         self.overlays.default
-        nixos-cn.overlays.default
+        nixos-cn.overlay
       ];
     };
   in {
