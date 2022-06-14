@@ -14,7 +14,7 @@
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "general.useragent.override" = with hm-config.programs.firefox.package; "Mozilla/5.0 (X11; x86_64; rv:${version}) Gecko/20100101 Firefox/${version}";
         "widget.gtk.overlay-scrollbars.enabled" = false;
-        "layout.css.prefers-color-scheme.content-override" = 1;  # REF: <https://support.mozilla.org/bm/questions/1364502>
+        "layout.css.prefers-color-scheme.content-override" = 0;  # REF: <https://support.mozilla.org/bm/questions/1364502>
       };
     };
   };
