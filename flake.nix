@@ -7,8 +7,10 @@
     nixos-cn = { url = github:nixos-cn/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
     home-manager = { url = github:nix-community/home-manager; inputs.nixpkgs.follows = "nixpkgs"; };
     nvfetcher = { url = github:berberman/nvfetcher; inputs.nixpkgs.follows = "nixpkgs"; };
-    nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     sops-nix = { url = github:Mic92/sops-nix; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
+
+    nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote = { url = gitlab:highsunz/acremote; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
@@ -21,8 +23,22 @@
       inherit system;
       overlays = [ self.overlays.default ];
     };
-  in {
+  in rec {
     packages = my.packages pkgs;
+    apps.gpustat = let
+      gpustat-wrapped = pkgs.writeShellScriptBin "gpustat" ''
+        source ${inputs.nixgl.packages.${system}.nixGLNvidia}/bin/nixGL*
+        tmpfile=$(mktemp /tmp/gpustat-XXXXXX)
+        trap "rm $tmpfile" EXIT
+        while ${packages.gpustat-rs}/bin/gpustat --color "$@" >$tmpfile; do
+          clear && ${pkgs.coreutils}/bin/cat $tmpfile
+          sleep 1
+        done
+      '';
+    in {
+      type = "app";
+      program = "${gpustat-wrapped}/bin/gpustat";
+    };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
     overlays.default = my.overlay;
