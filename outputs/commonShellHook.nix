@@ -4,6 +4,8 @@
   export PYTHONDONTWRITEBYTECODE=1
 
   alias ls='${exa}/bin/exa -F'
+  alias l='ls'
+  alias sl='ls'
   alias la='ls -a'
   alias ll='ls -lhg --icons'
   alias tree='ls -T --icons'
