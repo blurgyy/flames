@@ -4,4 +4,5 @@ zellij.overrideAttrs (oldAttrs: {
   patches = oldAttrs.patches ++ [
     ./0001-use-shorter-render_pause.patch
   ];
+  meta.mainProgram = "zellij";
 })
