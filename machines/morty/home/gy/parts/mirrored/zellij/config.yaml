@@ -58,6 +58,8 @@ keybinds:
         - Char: 's'
         - Esc
         - Ctrl: 'c'
+    - action: [EditScrollback, SwitchToMode: Locked]
+      key: [Char: 'e']
     - action: [SwitchToMode: Pane,]
       key: [Char: 'p',]
     - action: [SwitchToMode: Resize,]
@@ -344,6 +346,8 @@ keybinds:
         - Char: 's'
         - Esc
         - Ctrl: 'c'
+    - action: [EditScrollback, SwitchToMode: Locked]
+      key: [Char: 'e']
     - action: [ToggleFloatingPanes]
       key: [Alt: 'w']
     - action: [TogglePaneEmbedOrFloating, SwitchToMode: Locked,]
