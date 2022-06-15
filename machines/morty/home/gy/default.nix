@@ -81,7 +81,10 @@ in {
     ssh = import ./parts/ssh.nix;
     readline = {
       enable = true;
-      variables.editing-mode = "vi";
+      variables = {
+        editing-mode = "vi";
+        completion-ignore-case = "On";
+      };
     };
 
     mpv = {
