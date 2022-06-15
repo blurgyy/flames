@@ -1,6 +1,6 @@
 { pkgs }: with pkgs; ''
   set -o vi
-  export HISTCONTROL="\${HISTCONTROL:+$HISTCONTROL:}ignoredups"
+  export HISTCONTROL="''${HISTCONTROL:+$HISTCONTROL:}ignoredups"
 
   export PYTHONDONTWRITEBYTECODE=1
 
