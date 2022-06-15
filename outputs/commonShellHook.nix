@@ -1,6 +1,8 @@
 { pkgs }: with pkgs; ''
   set -o vi
   export HISTCONTROL="''${HISTCONTROL:+$HISTCONTROL:}ignoredups"
+  source ${fzf}/share/fzf/key-bindings.bash
+  source ${fzf}/share/fzf/completion.bash
 
   export PYTHONDONTWRITEBYTECODE=1
 
