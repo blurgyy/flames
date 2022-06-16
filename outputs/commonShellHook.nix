@@ -6,6 +6,11 @@
 
   export PYTHONDONTWRITEBYTECODE=1
 
+  alias ..='cd ..'
+  alias ...='cd ../..'
+  alias ....='cd ../../..'
+  alias .....='cd ../../../..'
+
   alias ls='${exa}/bin/exa -F'
   alias l='ls'
   alias sl='ls'
