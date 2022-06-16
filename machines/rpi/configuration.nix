@@ -10,6 +10,7 @@
   #nixpkgs.crossSystem = lib.systems.examples.aarch64-multiplatform;
 
   boot = {
+    supportedFilesystems = [ "btrfs" "ext4" ];
     kernelPackages = pkgs.linuxPackages_rpi4;
     tmpOnTmpfs = true;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
