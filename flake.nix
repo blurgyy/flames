@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable-small;
     flake-utils.url = github:numtide/flake-utils;
+    nixos-generators.url = github:nix-community/nixos-generators;
     #nixpkgs.url = github:NixOS/nixpkgs;
     nixos-cn = { url = github:nixos-cn/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
     home-manager = { url = github:nix-community/home-manager; inputs.nixpkgs.follows = "nixpkgs"; };
@@ -43,6 +44,10 @@
   }) // {
     overlays.default = my.overlay;
     nixosConfigurations = {
+      cube = import ./machines/cube {
+        system = "x86_64-linux";
+        inherit self nixpkgs inputs;
+      };
       morty = import ./machines/morty {
         system = "x86_64-linux";
         inherit self nixpkgs inputs;
