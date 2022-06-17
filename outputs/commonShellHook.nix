@@ -6,6 +6,7 @@
 
   export PYTHONDONTWRITEBYTECODE=1
 
+  alias -- -='cd -'
   alias ..='cd ..'
   alias ...='cd ../..'
   alias ....='cd ../../..'
