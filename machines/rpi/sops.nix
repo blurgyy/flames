@@ -19,6 +19,10 @@ in {
     secrets = {
       "passwords/root".neededForUsers = true;
       wireless-environment-file = { };
+
+      "rathole/remote_addr" = { };
+      "rathole/ssh/token" = { };
+      "rathole/acremote/token" = { };
     };
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
