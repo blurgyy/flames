@@ -1,9 +1,6 @@
 {
   domain = [
     "zoom"
-    "cdn-apple.com"
-    "icloud.com"
-    "icloud-content.com"
     "domain:amd.com"
     "domain:detectportal.firefox.com"
     "domain:download.amd.com"

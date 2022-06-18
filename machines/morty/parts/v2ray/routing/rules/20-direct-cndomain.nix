@@ -1,8 +1,8 @@
 {
   domain = [
     "geosite:cn"
-    "domain:shiyebian.net"
-    "domain:chinasydw.org"
+    "geosite:apple-cn"
+    "geosite:google-cn"
   ];
   outboundTag = "direct-cndomain";
 }
