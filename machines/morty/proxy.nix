@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
   systemd.services.nftables.requires = [ "nix-daemon.service" ];
   systemd.services.v2ray.serviceConfig.LimitNOFILE = 1000000007;
   networking.resolvconf.extraConfig = "name_servers=127.0.0.53";  # REF: man:resolvconf.conf(5)
@@ -38,6 +38,7 @@
   };
   services.v2ray = {
     enable = true;
+    package = pkgs.v2ray-loyalsoldier;
     configFile = config.sops.templates.v2ray-config.path;
   };
   sops.templates.v2ray-config.content = builtins.toJSON (import ./parts/v2ray { inherit lib config; });
