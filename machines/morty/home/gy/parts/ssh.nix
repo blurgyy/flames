@@ -26,7 +26,7 @@
         { host.port = 9091; bind.port = 49091; host.address = "localhost"; }
       ];
     };
-    pi = { hostname = "${relay}"; port = 10013; };
+    pi = { user = "root"; hostname = "${relay}"; port = 10013; };
 
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
