@@ -42,6 +42,7 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
+    nixosModules = import ./modules;
     overlays.default = my.overlay;
     nixosConfigurations = {
       cube = import ./machines/cube {

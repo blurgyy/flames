@@ -74,6 +74,7 @@
     firewall.enable = false;
   };
   services.resolved.enable = false;
+  services.rathole.enable = true;
 
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
