@@ -52,7 +52,7 @@
     autoOptimiseStore = true;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "gy" ];
+      trusted-users = [ "root" ];
     };
     gc = {
       automatic = true;
@@ -83,17 +83,6 @@
     groups = {
       plocate = {};
       infrared = {};
-    };
-    users.gy = {
-      isNormalUser = true;
-      extraGroups = [
-        config.users.groups.wheel.name
-        config.users.groups.video.name
-        config.users.groups.plocate.name
-        config.users.groups.infrared.name
-      ];
-      shell = pkgs.zsh;
-      openssh.authorizedKeys.keys = keys;
     };
   };
 

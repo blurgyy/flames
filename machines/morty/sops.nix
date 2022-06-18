@@ -1,4 +1,6 @@
-{ config, ... }: {
+{ config, ... }: let
+  sops-key-file = "/var/lib/${config.networking.hostName}.age";
+in {
   users.users = {
     root.passwordFile = config.sops.secrets."passwords/root".path;
     gy = {
@@ -15,9 +17,9 @@
   };
 
   sops = {
-    defaultSopsFile = ../secrets.yaml;
+    defaultSopsFile = ./secrets.yaml;
     age = {
-      keyFile = "/var/lib/sops.age";
+      keyFile = sops-key-file;
       sshKeyPaths = [ ];  # Do not import ssh keys
     };
     gnupg.sshKeyPaths = [ ];  # Do not import ssh keys  
@@ -57,5 +59,5 @@
       "ports/rathole/watson/coderp" = { };
     };
   };
-  environment.variables.SOPS_AGE_KEY_FILE = "/var/lib/sops.age";
+  environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
 }
