@@ -16,7 +16,7 @@
     gpp = { hostname = "${peterpan}"; user = "git"; };
     ghooper = { hostname = "${hooper}"; user = "git"; };
 
-    j = { hostname = "${relay}"; port = 10021; };
+    m = { hostname = "${relay}"; port = 10021; };
     w = {
       hostname = "${relay}";
       port = 10020;
