@@ -199,6 +199,7 @@
     zip unzip unar
     plocate
     jq libqalculate
+    parallel
     sops age
     hydra-check cachix
     wine-wayland
