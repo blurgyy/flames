@@ -58,4 +58,5 @@
   alias fd='${fd}/bin/fd'
   alias procs='${procs}/bin/procs'
   alias htop='${htop}/bin/htop'
+  alias parallel='${parallel}/bin/parallel '
 ''
