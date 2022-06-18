@@ -158,6 +158,21 @@
         "type": "github"
       }
     },
+    "nix-std": {
+      "locked": {
+        "lastModified": 1652574713,
+        "narHash": "sha256-HQw5VtHI4uYvWfwXtDwupP8SV/efZa3Vot5VNbH0RRU=",
+        "owner": "chessai",
+        "repo": "nix-std",
+        "rev": "082f38023b68f93cd3a6e3a8ddda54d3f5487c52",
+        "type": "github"
+      },
+      "original": {
+        "owner": "chessai",
+        "repo": "nix-std",
+        "type": "github"
+      }
+    },
     "nixgl": {
       "inputs": {
         "nixpkgs": [
@@ -357,6 +372,7 @@
         "flake-utils": "flake-utils_2",
         "home-manager": "home-manager",
         "nbfc-linux": "nbfc-linux",
+        "nix-std": "nix-std",
         "nixgl": "nixgl",
         "nixos-cn": "nixos-cn",
         "nixos-generators": "nixos-generators",

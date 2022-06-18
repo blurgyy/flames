@@ -41,6 +41,13 @@
     package = pkgs.v2ray-loyalsoldier;
     configFile = config.sops.templates.v2ray-config.path;
   };
+
+  services.rathole = {
+    enable = true;
+    configFile = config.sops.templates.rathole-config.path;
+  };
+
   sops.templates.v2ray-config.content = builtins.toJSON (import ./parts/v2ray { inherit lib config; });
+  sops.templates.rathole-config.content = pkgs.toTOML (import ./parts/rathole.nix { inherit config; });
   sops.templates.nftables.content = import ./parts/nftables.conf.nix { inherit config; };
 }

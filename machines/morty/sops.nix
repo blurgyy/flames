@@ -51,12 +51,8 @@ in {
       "server-addresses/peterpan" = { };
       "server-addresses/watson" = { };
 
-      "ports/rathole/data-channel" = { };
-      "ports/rathole/morty/ssh" = { };
-      "ports/rathole/rpi/ssh" = { };
-      "ports/rathole/rpi/acremote" = { };
-      "ports/rathole/watson/ssh" = { };
-      "ports/rathole/watson/coderp" = { };
+      "rathole/remote_addr" = { };
+      "rathole/ssh/token" = { };
     };
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;

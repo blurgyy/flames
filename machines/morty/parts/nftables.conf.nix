@@ -84,13 +84,6 @@ table inet filter {
     tcp dport smtp counter accept comment "count and allow smtp receiving"
     tcp dport submission counter accept comment "count and allow secured smtp"
     tcp dport imaps accept comment "count and allow secured imap"
-    tcp dport {
-      ${config.sops.placeholder."ports/rathole/rpi/ssh"},
-      ${config.sops.placeholder."ports/rathole/rpi/acremote"},
-      ${config.sops.placeholder."ports/rathole/watson/ssh"},
-      ${config.sops.placeholder."ports/rathole/morty/ssh"},
-      ${config.sops.placeholder."ports/rathole/data-channel"},
-    } counter accept comment "allow reverse-proxied services"
     # REF: [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3)
     ip saddr {
       10.0.0.0/8,

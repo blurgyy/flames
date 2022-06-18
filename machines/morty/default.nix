@@ -16,6 +16,7 @@ nixpkgs.lib.nixosSystem {
         inputs.nixos-cn.overlay
         (final: prev: {
           nbfc-linux = inputs.nbfc-linux.defaultPackage.${system};
+          toTOML = inputs.nix-std.lib.serde.toTOML;
         })
       ];
     }
