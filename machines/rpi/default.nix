@@ -7,6 +7,7 @@ nixpkgs.lib.nixosSystem {
     ./proxy.nix
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn
+    inputs.acremote.nixosModules.${system}.default
     self.nixosModules.default
     {
       nixpkgs.overlays = [

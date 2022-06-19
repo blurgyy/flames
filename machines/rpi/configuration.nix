@@ -80,10 +80,7 @@
   in {
     users.root.openssh.authorizedKeys.keys = keys;
     mutableUsers = false;
-    groups = {
-      plocate = {};
-      infrared = {};
-    };
+    groups.plocate = {};
   };
 
   networking.proxy = {
@@ -128,13 +125,12 @@
       enableNotifications = true;
     };
   };
+  services.acremote.enable = true;
 
   security.sudo.extraRules = let
     applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
-    infraredCtlCmds = map applyNoPasswd (map (cmd: "${pkgs.v4l-utils}/bin/${cmd}") [ "ir-ctl" ]);
     systemdCmds = map applyNoPasswd (map (cmd: "${pkgs.systemd}/bin/${cmd}") [ "systemctl" "journalctl" ]);
   in [
-    { groups = [ "infrared" ]; commands = infraredCtlCmds; }
     { groups = [ "wheel" ]; commands = systemdCmds; }
   ];
 
