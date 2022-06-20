@@ -9,7 +9,7 @@
       else let
         args = (intersectAttrs (functionArgs f) { inherit lib config; }) // overrides;
       in f args);
-  importDir = f: path: with builtins;
+  mapDir = f: path: with builtins;
     map f
       (map (subPath: "${path}/${subPath}") (attrNames (readDir path)));
 in {
@@ -18,7 +18,7 @@ in {
     access = "none";
   };
   dns = import ./dns.nix { inherit config; };
-  inbounds = importDir (applyTag { inherit config; }) ./inbounds;
+  inbounds = mapDir (applyTag { inherit config; }) ./inbounds;
   outbounds = let
     applyTagAndSoMark = mark: path: let
       obj = applyTag { } path;
@@ -35,9 +35,9 @@ in {
         sockopt = (obj.streamSettings.sockopt or {}) // { mark = mark; };
       };
     };
-  in (importDir (applyTagAndSoMark 27) ./outbounds-misc)
-    ++ (importDir (callAndApplyTagWithSoMark 27 { inherit config; }) ./outbounds-servers);
-  routing = import ./routing { inherit applyTag importDir; };
+  in (mapDir (applyTagAndSoMark 27) ./outbounds-misc)
+    ++ (mapDir (callAndApplyTagWithSoMark 27 { inherit config; }) ./outbounds-servers);
+  routing = import ./routing { inherit applyTag mapDir; };
   observatory = {
     subjectSelector = [ "wss" "us" "eu" ];
     probeURL = config.sops.placeholder."v2ray/observatory-probe-url";

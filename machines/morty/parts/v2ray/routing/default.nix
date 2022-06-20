@@ -1,6 +1,6 @@
-{ applyTag, importDir }: {
+{ applyTag, mapDir }: {
   domainStrategy = "IPIfNonMatch";
   domainMatcher = "mph";
-  balancers = importDir (applyTag { }) ./balancers;
-  rules = importDir (path: { type = "field"; } // (import path)) ./rules;
+  balancers = mapDir (applyTag { }) ./balancers;
+  rules = mapDir (path: { type = "field"; } // (import path)) ./rules;
 }
