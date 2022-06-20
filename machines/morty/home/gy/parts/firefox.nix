@@ -18,7 +18,7 @@
       };
     };
   };
-  package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
+  package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
     forceWayland = true;
     extraPolicies = {
       PasswordManagerEnabled = false;
