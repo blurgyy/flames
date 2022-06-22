@@ -366,7 +366,7 @@ keybinds:
       key: [Char: 'd']
     - action: [HalfPageScrollUp]
       key: [Char: 'u']
-    - action: [ToggleFocusFullscreen, SwitchToMode: Locked]
+    - action: [ToggleFocusFullscreen]
       key: [Char: 'z']
     - action: [Resize: Left]
       key: [Alt: 'h']
