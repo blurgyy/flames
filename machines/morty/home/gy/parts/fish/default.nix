@@ -8,6 +8,7 @@ with builtins; {
     };
     fish_title.body = readFile ../raw/fish/functions/fish_title.fish;
     gcnt.body = readFile ../raw/fish/functions/gcnt.fish;
+    private.body = readFile ../raw/fish/functions/private.fish;
   };
   interactiveShellInit = readFile ../raw/fish/interactiveShellInit.fish;
   shellAbbrs = import ./abbrs.nix;
