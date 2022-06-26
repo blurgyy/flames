@@ -49,6 +49,7 @@ in {
     zotero
     meshlab
     tdesktop-megumifox
+    lnav
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
