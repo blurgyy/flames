@@ -29,7 +29,7 @@
     packages = my.packages pkgs;
     apps.gpustat = let
       gpustat-wrapped = pkgs.writeShellScriptBin "gpustat" ''
-        source ${inputs.nixgl.packages.${system}.nixGLNvidia}/bin/nixGL*
+        source <(sed -e 's/"\$@"//g' ${inputs.nixgl.packages.${system}.nixGLNvidia}/bin/nixGL*)
         tmpfile=$(mktemp /tmp/gpustat-XXXXXX)
         trap "rm $tmpfile" EXIT
         while ${packages.gpustat-rs}/bin/gpustat --color "$@" >$tmpfile; do
