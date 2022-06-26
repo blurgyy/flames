@@ -202,7 +202,7 @@
     parallel
     sops age
     hydra-check cachix
-    #wine-wayland
+    wine-wayland
   ];
 
   environment.variables = {
