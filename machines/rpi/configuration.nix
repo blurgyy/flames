@@ -106,17 +106,8 @@
     };
   };
 
-  #systemd.services.acremote = {
-  #  unitConfig = {
-  #    Description = "Run acremote backend";
-  #  };
-  #  serviceConfig = {
-  #    ExecStart = "${pkgs.acremote-backend}/bin/acremote-backend -l 12682 "; #-s ${pkgs.acremote-frontend}/share/webapp/acremote-frontend";
-  #    Restart = "always";
-  #    RestartSec = "3s";
-  #  };
-  #  wantedBy = [ "multi-user.target" ];
-  #};
+  time.timeZone = "Asia/Shanghai";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   services = {
     openssh.enable = true;
