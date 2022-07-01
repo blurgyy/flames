@@ -15,6 +15,11 @@
     options = [ "noatime" "compress-force=zstd:3" "discard=async" ];
   };
 
+  fileSystems."/tmp" = {
+    fsType = "tmpfs";
+    options = [ "defaults" "size=2G" ];
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/nixos-esp";
     fsType = "vfat";
