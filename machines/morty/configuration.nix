@@ -332,7 +332,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    gtkUsePortal = true;
+    #gtkUsePortal = true;  # It's deprecated (for some reason, enable this and see trace message while rebuilding)
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];  # needed for opening filechooser
   };
 

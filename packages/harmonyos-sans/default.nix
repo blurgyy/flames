@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   src = fetchgit {
     url = "https://gitee.com/openharmony/resources";
     rev = "refs/tags/${version}";
-    sha256 = "sha256-dbdrVMGEvFuy6lepWTgL4k5Fh5ToTXl8j80NZygL6n8=";
+    sha256 = "sha256-3pRtbE5TxfBF7ZsP7Q+ZnXgyxL/+ssimCSghRT8D0ac=";
   };
 
   nativeBuildInputs = [ pkgs.unzip ];
