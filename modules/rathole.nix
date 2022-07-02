@@ -13,9 +13,10 @@ in {
   };
   config = mkIf cfg.enable {
     systemd.services.rathole = with pkgs; {
+      after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-      script = "${cfg.package}/bin/rathole ${config.services.rathole.configFile}";
       serviceConfig = {
+        ExecStart = "${cfg.package}/bin/rathole ${config.services.rathole.configFile}";
         Restart = "on-failure";
         RestartSec = 5;
       };
