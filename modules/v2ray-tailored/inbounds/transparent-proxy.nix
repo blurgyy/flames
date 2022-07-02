@@ -1,4 +1,4 @@
-{ config }: {
+{ ports }: {
   sniffing = {
     enabled = true;
     destOverride = [ "http" "tls" ];
@@ -8,6 +8,6 @@
     followRedirect = true;
   };
   streamSettings.sockopt.tproxy = "tproxy";
-  port = config.sops.placeholder."v2ray/ports/tproxy";
+  port = ports.tproxy;
   protocol = "dokodemo-door";
 }

@@ -42,10 +42,9 @@ in {
       "v2ray/domains/us-00" = { };
       "v2ray/domains/wss-eu-00" = { };
       "v2ray/domains/wss-us-00" = { };
-
-      "server-addresses/cn-00" = { };
-      "server-addresses/eu-00" = { };
-      "server-addresses/us-00" = { };
+      "v2ray/addresses/cn-00" = { };
+      "v2ray/addresses/eu-00" = { };
+      "v2ray/addresses/us-00" = { };
 
       "server-addresses/cindy" = { };
       "server-addresses/hooper" = { };

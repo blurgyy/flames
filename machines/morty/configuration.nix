@@ -73,7 +73,6 @@
     };
     firewall.enable = false;
   };
-  services.resolved.enable = false;
 
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
@@ -237,7 +236,7 @@
   };
 
   fonts = let
-    fontConfsRoot = ./parts/raw/fontconfig;
+    fontConfsRoot = ../_parts/raw/fontconfig;
   in {
     enableDefaultFonts = false;
     fontconfig = {
