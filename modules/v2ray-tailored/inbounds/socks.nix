@@ -1,6 +1,6 @@
-{ config }: {
+{ ports }: {
   listen = "0.0.0.0";
-  port = config.sops.placeholder."v2ray/ports/socks";
+  port = ports.socks;
   protocol = "socks";
   sniffing = {
     enabled = true;
