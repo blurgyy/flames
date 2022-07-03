@@ -8,7 +8,7 @@ in {
       default = pkgs.rathole;
     };
     configFile = mkOption {
-      type = with types; oneOf [ path string ];
+      type = with types; oneOf [ path str ];
     };
   };
   config = mkIf cfg.enable {
