@@ -1,12 +1,8 @@
-{ pkgs, lib, fetchCrate, rustPlatform }: with pkgs; rustPlatform.buildRustPackage rec {
-  pname = "rathole";
-  version = "0.4.2";
+{ source, pkgs, lib }: with pkgs; rustPlatform.buildRustPackage rec {
+  inherit (source) pname version src;
 
-  src = fetchCrate {
-    inherit pname version;
-    sha256 = "sha256-qzeR9fbDenXSYAM9ymjhr63UUQ4pDf8/2LP0HE+e5ao=";
-  };
-  cargoSha256 = "sha256-ImBx2wKZzEXWxNvfu/2Dj/cyY3v5GZNwsPM3XM1Otxg=";
+  cargoLock.lockFileContents = source."Cargo.lock";
+
   buildInputs = [ openssl ];
   nativeBuildInputs = [ pkg-config ];
   doCheck = false;

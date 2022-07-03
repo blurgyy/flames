@@ -1,0 +1,127 @@
+{
+    "apple-color-emoji": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "apple-color-emoji",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-CDmtLCzlytCZyMBDoMrdvs3ScHkMipuiXoNfc6bfimw=",
+            "type": "url",
+            "url": "https://github.com/samuelngs/apple-emoji-linux/releases/download/ios-15.4/AppleColorEmoji.ttf"
+        },
+        "version": "ios-15.4"
+    },
+    "fcitx5-fluent-dark-theme": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "fcitx5-fluent-dark-theme",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Reverier-Xu",
+            "repo": "FluentDark-fcitx5",
+            "rev": "77556203063760d87b87fb0b3b82f14cbe190193",
+            "sha256": "sha256-om3jI6XNpkmFBXarwROKb6ldvCKaKzrBkLAdPmCxWkU=",
+            "type": "github"
+        },
+        "version": "77556203063760d87b87fb0b3b82f14cbe190193"
+    },
+    "fcitx5-sogou-themes": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "fcitx5-sogou-themes",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "sxqsfun",
+            "repo": "fcitx5-sogou-themes",
+            "rev": "fbc1e34179cb6a37f0ddb28024f9bf94f0cbd70d",
+            "sha256": "sha256-+Q8VNtAFWWD0UbF9nN+7FsCpcwUIi7HFJRbTeHU3HLo=",
+            "type": "github"
+        },
+        "version": "fbc1e34179cb6a37f0ddb28024f9bf94f0cbd70d"
+    },
+    "lsp-format-nvim": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "lsp-format-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "lukas-reineke",
+            "repo": "lsp-format.nvim",
+            "rev": "v2.4.1",
+            "sha256": "sha256-xFA+9JO3Rnj/CAYXb+oOnbslH3jgEapHA67I6dMFRFI=",
+            "type": "github"
+        },
+        "version": "v2.4.1"
+    },
+    "rathole": {
+        "cargoLocks": null,
+        "extract": {
+            "Cargo.lock": "./rathole-v0.4.2/Cargo.lock"
+        },
+        "name": "rathole",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rapiz1",
+            "repo": "rathole",
+            "rev": "v0.4.2",
+            "sha256": "sha256-fcQBafqyE/274QZ7AmivAE4xEQOBBMVqrMySBXBmxnA=",
+            "type": "github"
+        },
+        "version": "v0.4.2"
+    },
+    "symbols-nerd-font": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "symbols-nerd-font",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-VpnnL91Bq5e8Hnhu9sCoskGOiDiAxWEDvuiKRB23Hh0=",
+            "type": "url",
+            "url": "https://github.com/ryanoasis/nerd-fonts/blob/v2.1.0/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf?raw=true"
+        },
+        "version": "v2.1.0"
+    },
+    "vscode-codicons": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "vscode-codicons",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "microsoft",
+            "repo": "vscode-codicons",
+            "rev": "0.0.31",
+            "sha256": "sha256-b2irBe8+YG1qSEfQME8KzxrfOOBoemumMuzHrKmnrpg=",
+            "type": "github"
+        },
+        "version": "0.0.31"
+    }
+}

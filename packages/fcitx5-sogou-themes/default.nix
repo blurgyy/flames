@@ -1,13 +1,7 @@
-{ stdenv, fetchFromGitHub }:
+{ source, stdenv }:
 stdenv.mkDerivation rec {
-  pname = "fcitx5-sogou-themes";
-  version = "0.0.0";
-  src = fetchFromGitHub {
-    owner = "sxqsfun";
-    repo = pname;
-    rev = "refs/heads/master";
-    sha256 = "1fhw6xspilqn4p2v32q80mrskh0npggrqzdia7s60n85s0v1a3zr";
-  };
+  inherit (source) pname version src;
+
   phases = [ "installPhase" ];
   installPhase = ''
     install -dm755 $out/share/fcitx5/themes

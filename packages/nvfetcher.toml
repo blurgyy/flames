@@ -1,0 +1,30 @@
+# To update, run `nix run github:berberman/nvfetcher`
+
+[apple-color-emoji]
+src.github = "samuelngs/apple-emoji-linux"
+fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
+
+[fcitx5-fluent-dark-theme]
+src.git = "https://github.com/Reverier-Xu/FluentDark-fcitx5"
+fetch.github = "Reverier-Xu/FluentDark-fcitx5"
+
+[fcitx5-sogou-themes]
+src.git = "https://github.com/sxqsfun/fcitx5-sogou-themes"
+fetch.github = "sxqsfun/fcitx5-sogou-themes"
+
+[lsp-format-nvim]
+src.github = "lukas-reineke/lsp-format.nvim"
+fetch.github = "lukas-reineke/lsp-format.nvim"
+
+[rathole]
+src.github = "rapiz1/rathole"
+fetch.github = "rapiz1/rathole"
+extract = ["Cargo.lock"]
+
+[symbols-nerd-font]
+src.github = "ryanoasis/nerd-fonts"
+fetch.url = "https://github.com/ryanoasis/nerd-fonts/blob/$ver/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf?raw=true"
+
+[vscode-codicons]
+src.github = "microsoft/vscode-codicons"
+fetch.github = "microsoft/vscode-codicons"

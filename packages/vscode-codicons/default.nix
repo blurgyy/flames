@@ -1,13 +1,6 @@
-{ stdenv, lib, fetchFromGitHub, ... }:
+{ source, stdenv, lib, ... }:
 stdenv.mkDerivation rec {
-  pname = "vscode-codicons";
-  version = "0.0.31";
-  src = fetchFromGitHub {
-    owner = "microsoft";
-    repo = "${pname}";
-    rev = "refs/tags/${version}";
-    sha256 = "sha256-b2irBe8+YG1qSEfQME8KzxrfOOBoemumMuzHrKmnrpg=";
-  };
+  inherit (source) pname version src;
 
   phases = [ "installPhase" ];
   installPhase = ''

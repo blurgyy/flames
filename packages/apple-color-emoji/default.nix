@@ -1,15 +1,10 @@
-{ stdenv, lib, fetchurl, ... }:
+{ source, stdenv, lib, ... }:
 stdenv.mkDerivation rec {
-  pname = "apple-color-emoji";
-  version = "ios-15.4";
-  src = fetchurl {
-    url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/${version}/AppleColorEmoji.ttf";
-    sha256 = "0v4avyk76pw3bsi9p2hcg5qd5kdyvp5a0hy0r2cx1jp55hnasf88";
-  };
+  inherit (source) pname version src;
 
   phases = [ "installPhase" ];
   installPhase = ''
-    install -Dt $out/share/truetype $src
+    install -Dt $out/share/truetype/ $src
   '';
 
   meta = {
