@@ -19,11 +19,11 @@ fetch.github = "lukas-reineke/lsp-format.nvim"
 [rathole]
 src.github = "rapiz1/rathole"
 fetch.github = "rapiz1/rathole"
-extract = ["Cargo.lock"]
+cargo_locks = ["Cargo.lock"]
 
 [symbols-nerd-font]
 src.github = "ryanoasis/nerd-fonts"
-fetch.url = "https://github.com/ryanoasis/nerd-fonts/blob/$ver/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf?raw=true"
+fetch.url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf"
 
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"

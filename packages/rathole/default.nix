@@ -1,7 +1,7 @@
 { source, pkgs, lib }: with pkgs; rustPlatform.buildRustPackage rec {
   inherit (source) pname version src;
 
-  cargoLock.lockFileContents = source."Cargo.lock";
+  cargoLock = source.cargoLock."Cargo.lock";
 
   buildInputs = [ openssl ];
   nativeBuildInputs = [ pkg-config ];

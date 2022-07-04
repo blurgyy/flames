@@ -71,10 +71,13 @@
         "version": "v2.4.1"
     },
     "rathole": {
-        "cargoLocks": null,
-        "extract": {
-            "Cargo.lock": "./rathole-v0.4.2/Cargo.lock"
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./rathole-v0.4.2/Cargo.lock",
+                {}
+            ]
         },
+        "extract": null,
         "name": "rathole",
         "passthru": null,
         "pinned": false,
@@ -99,9 +102,9 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-VpnnL91Bq5e8Hnhu9sCoskGOiDiAxWEDvuiKRB23Hh0=",
+            "sha256": "sha256-32vlj3cHwOjJvDqiMPyY/o+njPuhytQzIeWSgeyklgA=",
             "type": "url",
-            "url": "https://github.com/ryanoasis/nerd-fonts/blob/v2.1.0/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf?raw=true"
+            "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf"
         },
         "version": "v2.1.0"
     },

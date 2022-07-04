@@ -52,14 +52,19 @@
       fetchSubmodules = false;
       sha256 = "sha256-fcQBafqyE/274QZ7AmivAE4xEQOBBMVqrMySBXBmxnA=";
     });
-    "Cargo.lock" = builtins.readFile ./rathole-v0.4.2/Cargo.lock;
+    cargoLock."Cargo.lock" = {
+      lockFile = ./rathole-v0.4.2/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
   };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
     version = "v2.1.0";
     src = fetchurl {
-      url = "https://github.com/ryanoasis/nerd-fonts/blob/v2.1.0/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf?raw=true";
-      sha256 = "sha256-VpnnL91Bq5e8Hnhu9sCoskGOiDiAxWEDvuiKRB23Hh0=";
+      url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf";
+      sha256 = "sha256-32vlj3cHwOjJvDqiMPyY/o+njPuhytQzIeWSgeyklgA=";
     };
   };
   vscode-codicons = {
