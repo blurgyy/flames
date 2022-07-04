@@ -83,10 +83,6 @@
     groups.plocate = {};
   };
 
-  networking.proxy = {
-    httpProxy = "http://192.168.0.114:9990";
-    httpsProxy = "http://192.168.0.114:9990";
-  };
   networking = {
     useDHCP = false;
     hostName = "rpi";
@@ -96,6 +92,7 @@
       enable = true;
       networks = { };  # See ./sops.nix
     };
+    firewall.enable = false;
   };
 
   systemd = {

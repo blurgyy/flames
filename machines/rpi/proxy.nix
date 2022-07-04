@@ -26,23 +26,23 @@ in {
       remotes = [
         rec {
           tag = "us-00";
-          address = config.sops.placeholder."server-addresses/${tag}";
+          address = config.sops.placeholder."v2ray/addresses/${tag}";
           port = 443;
           domain = config.sops.placeholder."v2ray/domains/${tag}";
           wsPath = null;
         }
         rec {
           tag = "eu-00";
-          address = config.sops.placeholder."server-addresses/${tag}";
+          address = config.sops.placeholder."v2ray/addresses/${tag}";
           port = 443;
           domain = config.sops.placeholder."v2ray/domains/${tag}";
           wsPath = null;
         }
         rec {
           tag = "cn-00";
-          address = config.sops.placeholder."server-addresses/${tag}";
+          address = config.sops.placeholder."v2ray/addresses/${tag}";
           port = 443;
-          domain = config.sops.placeholder."server-addresses/${tag}";
+          domain = config.sops.placeholder."v2ray/addresses/${tag}";
           wsPath = null;
           allowInsecure = true;
         }
