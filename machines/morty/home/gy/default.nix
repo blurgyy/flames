@@ -137,42 +137,7 @@ in {
         style = "numbers,changes,header-filename,header-filesize";
       };
     };
-    starship = {
-      enable = true;
-      settings = {
-        format = "$all";
-        scan_timeout = 30;
-        command_timeout = 500;
-        add_newline = false;
-        character = {
-          success_symbol = "[](bold green)";
-          error_symbol = "[✗](bold red)";
-          vicmd_symbol = "[](bold blue)";
-        };
-        time = {
-          disabled = false;
-          format = "at [$time]($style) ";
-          style = "bold yellow";
-          use_12hr = false;
-          utc_time_offset = "local";
-          time_range = "-";
-        };
-        cmake.disabled = true;
-        python.format = "is [$symbol$pyenv_prefix($version )(\($virtualenv\) )]($style)";
-        shell = {
-          disabled = false;
-          format = "[|](black)$indicator[|](black) ";
-          bash_indicator = "[b](yellow underline)";
-          fish_indicator = "[f](green bold italic)";
-          zsh_indicator = "[z](purple underline)";
-          powershell_indicator = "[p](blue)";
-          ion_indicator = "[i](blue)";
-          elvish_indicator = "[e](blue)";
-          tcsh_indicator = "[t](blue)";
-          unknown_indicator = "[?](red)";
-        };
-      };
-    };
+    starship = import ./parts/starship.nix;
     bash = { enable = true; };
     zsh = {
       enable = true;
