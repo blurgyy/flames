@@ -35,9 +35,7 @@ in {
       "v2ray/ports/socks" = { };
       "v2ray/ports/tproxy" = { };
       "v2ray/ws-path" = { };
-
       "v2ray/users/a/id" = { };
-
       "v2ray/domains/eu-00" = { };
       "v2ray/domains/us-00" = { };
       "v2ray/domains/wss-eu-00" = { };
