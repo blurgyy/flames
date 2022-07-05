@@ -17,7 +17,7 @@ in {
   services.v2ray-tailored = {
     client = {
       enable = true;
-      uuid = config.sops.placeholder."v2ray/users/a/id";
+      uuid = config.sops.placeholder."v2ray/id";
       soMark = 27;
       fwMark = 39283;
       ports.http = config.sops.placeholder."v2ray/ports/http";
