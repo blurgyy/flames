@@ -5,6 +5,7 @@
   source ${fzf}/share/fzf/completion.bash
 
   export PYTHONDONTWRITEBYTECODE=1
+  export PYTHONUNBUFFERED=1
 
   alias -- -='cd -'
   alias ..='cd ..'
