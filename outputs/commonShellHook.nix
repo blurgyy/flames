@@ -45,6 +45,11 @@
   alias gpf='g push -f'
   alias gs='g status -s'
   alias gsa='g status --show-stash'
+
+  alias ginit='g init'
+  alias gmerge='g merge'
+  alias grebase='g rebase'
+  alias greset='g reset'
   alias gunstage='g reset HEAD --'
 
   alias cat='${bat}/bin/bat'
