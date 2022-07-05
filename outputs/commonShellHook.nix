@@ -47,9 +47,11 @@
   alias gs='g status -s'
   alias gsa='g status --show-stash'
 
+  alias gbranch='g branch'
   alias ginit='g init'
   alias gmerge='g merge'
   alias grebase='g rebase'
+  alias gremote='g remote'
   alias greset='g reset'
   alias gunstage='g reset HEAD --'
 
