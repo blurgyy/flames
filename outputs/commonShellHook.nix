@@ -31,8 +31,8 @@
   alias gcan='g commit -S -sv --amend --no-edit'
   alias gcannosign='g commit -sv --amend --no-edit'
   alias gcanosign='g commit -sv --amend'
-  alias gcnosign='g commit -sv'
   alias gcinit='g commit --allow-empty -m "chore: initalize repository (empty)"';
+  alias gcnosign='g commit -sv'
   alias gco='g checkout'
   alias gd='g diff'
   alias gdc='g diff --cached'
@@ -40,6 +40,7 @@
   alias gl='g log --all --graph --decorate --oneline -8'
   alias gla='g log --all --graph --decorate --format=fuller'
   alias gll='g pull'
+  alias gln='g log --all --graph --decorate --oneline'
   alias gmt='g mergetool'
   alias gp='g push'
   alias gpf='g push -f'
