@@ -9,15 +9,18 @@
   };
 
   nix = {
-    autoOptimiseStore = true;
-    binaryCaches = [
-      "https://nixos-cn.cachix.org"
-      "https://highsunz.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
-      "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
-    ];
+    
+    settings = {
+      substituters = [
+        "https://nixos-cn.cachix.org"
+        "https://highsunz.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
+        "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
+      ];
+      auto-optimise-store = true;
+    };
     package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
