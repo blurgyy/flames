@@ -53,6 +53,7 @@
   alias grebase='g rebase'
   alias gremote='g remote'
   alias greset='g reset'
+  alias gshow='g show'
   alias gunstage='g reset HEAD --'
 
   alias cat='${bat}/bin/bat'
