@@ -68,6 +68,8 @@
   alias fd='${fd}/bin/fd'
   alias procs='${procs}/bin/procs'
   alias htop='${htop}/bin/htop'
+
+  alias xargs='xargs '
   alias parallel='${parallel}/bin/parallel '
 
   yes 'will cite' | parallel --cite >/dev/null 2>/dev/null
