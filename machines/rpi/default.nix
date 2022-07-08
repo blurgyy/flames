@@ -3,6 +3,7 @@ nixpkgs.lib.nixosSystem {
   inherit system;
   modules = [
     ./configuration.nix
+    ./hardware.nix
     ./sops.nix
     ./proxy.nix
     inputs.sops-nix.nixosModules.sops

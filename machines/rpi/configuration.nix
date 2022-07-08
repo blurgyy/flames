@@ -3,30 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, lib, modulesPath, ... }: {
-  imports = [ (modulesPath + "/installer/sd-card/sd-image-aarch64.nix") ];
-
-  #nixpkgs.localSystem = lib.systems.examples.gnu64;
-  #nixpkgs.crossSystem.system = "aarch64-linux";
-  #nixpkgs.crossSystem = lib.systems.examples.aarch64-multiplatform;
-
   boot = {
-    supportedFilesystems = [ "btrfs" "ext4" ];
     kernelPackages = pkgs.linuxPackages_rpi4;
-    tmpOnTmpfs = true;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
     # ttyAMA0 is the serial console broken out to the GPIO
-    kernel = {
-      sysctl = {
-        "net.core.default_qdisc" = "fq";
-        "net.ipv4.tcp_congestion_control" = "bbr";
-        "dev.i915.perf_stream_paranoid" = 0;
-        "kernel.sysrq" = 1;
-        "vm.swappiness" = 1;
-        "vm.vfs_cache_pressure" = 50;
-        "vm.dirty_background_ratio" = 5;
-        "vm.dirty_ratio" = 80;
-      };
-    };
     kernelParams = [
         "8250.nr_uarts=1"
         "console=ttyAMA0,115200"
@@ -49,10 +29,10 @@
 
   nix = {
     package = pkgs.nixStable;
-    autoOptimiseStore = true;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" ];
+      auto-optimise-store = true;
     };
     gc = {
       automatic = true;
