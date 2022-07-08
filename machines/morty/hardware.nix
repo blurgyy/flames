@@ -8,6 +8,16 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.kernel.sysctl = {
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "dev.i915.perf_stream_paranoid" = 0;
+    "kernel.sysrq" = 1;
+    "vm.swappiness" = 200;
+    "vm.vfs_cache_pressure" = 50;
+    "vm.dirty_background_ratio" = 5;
+    "vm.dirty_ratio" = 80;
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/nixos-root";
@@ -32,8 +42,13 @@
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-label/nixos-swap"; }
+    { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
   ];
+  zramSwap = {  # REF: <https://unix.stackexchange.com/a/596929>
+    enable = true;
+    priority = 32767;
+    memoryPercent = 150;
+  };
 
   networking.useDHCP = lib.mkDefault false;
   powerManagement.cpuFreqGovernor = "performance";

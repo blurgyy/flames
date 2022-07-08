@@ -9,7 +9,6 @@
   };
 
   nix = {
-    
     settings = {
       substituters = [
         "https://nixos-cn.cachix.org"
@@ -38,18 +37,6 @@
   boot = {
     binfmt.emulatedSystems = [ "aarch64-linux" ];
     initrd.kernelModules = [ "i915" "amdgpu" ];
-    kernel = {
-      sysctl = {
-        "net.core.default_qdisc" = "fq";
-        "net.ipv4.tcp_congestion_control" = "bbr";
-        "dev.i915.perf_stream_paranoid" = 0;
-        "kernel.sysrq" = 1;
-        "vm.swappiness" = 1;
-        "vm.vfs_cache_pressure" = 50;
-        "vm.dirty_background_ratio" = 5;
-        "vm.dirty_ratio" = 80;
-      };
-    };
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "loglevel=3"
