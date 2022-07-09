@@ -1,4 +1,5 @@
 { config, pkgs, lib, hm-config, ... }: let
+  myHome = "/home/gy";
   helpers = import ./helpers.nix { inherit lib; };
   callWithHelpers = path: overrides: with builtins; let
     f = import path;
@@ -50,6 +51,8 @@ in {
     meshlab
     tdesktop-megumifox
     lnav
+    logseq
+    git-sync
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
@@ -223,6 +226,16 @@ in {
     };
   };
   services = {
+    git-sync = {
+      enable = true;
+      repositories = {
+        logseq = {
+          interval = 1200;  # pull for changes 3 times per hour
+          path = "${myHome}/Repos/CHR/logseq";
+          uri = "git+ssh://git@github.com/blurgyy/logseq.git";
+        };
+      };
+    };
     gammastep = {
       enable = true;
       latitude = 30.31;
