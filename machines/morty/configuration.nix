@@ -250,10 +250,11 @@
           "Noto Serif CJK KR"
           "LXGW Wenkai"
         ] ++ generic-fallbacks;
+        # NOTE: "HarmonyOS Sans" won't work.  Use "HarmonyOS Sans SC", etc.
         sansSerif = [
           "Rubik"
-          "Source Han Sans SC"
-          "Source Han Sans TC"
+          "HarmonyOS Sans SC"
+          "HarmonyOS Sans TC"
           "LXGW Wenkai"
           "Noto Sans CJK SC"
           "Noto Sans CJK TC"
@@ -292,7 +293,7 @@
       noto-fonts-cjk-serif
       font-awesome
       lxgw-wenkai
-      source-han-sans
+      harmonyos-sans
       symbols-nerd-font
       vscode-codicons
       apple-color-emoji
