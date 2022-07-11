@@ -54,6 +54,8 @@
   alias gremote='g remote'
   alias greset='g reset'
   alias gshow='g show'
+  alias gstash='g stash'
+  alias gswitch='g switch'
   alias gunstage='g reset HEAD --'
 
   alias cat='${bat}/bin/bat'
