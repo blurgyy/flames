@@ -15,6 +15,7 @@
 
   alias ls='${exa}/bin/exa -F'
   alias l='ls'
+  alias s='ls'
   alias sl='ls'
   alias la='ls -a'
   alias ll='ls -lhg --icons'
@@ -61,6 +62,7 @@
   alias cat='${bat}/bin/bat'
   alias p='python'
   alias fgfg='fg'
+  alias ffg='fg'
 
   # Neovim from nixpkgs is statically linked while on Arch it's not.  Don't assume a flake will
   # be run on a NixOS machine.
