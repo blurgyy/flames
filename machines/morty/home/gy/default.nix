@@ -53,6 +53,7 @@ in {
     lnav
     logseq
     git-sync
+    gcc gdb
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
