@@ -31,6 +31,18 @@
       sha256 = "sha256-+Q8VNtAFWWD0UbF9nN+7FsCpcwUIi7HFJRbTeHU3HLo=";
     });
   };
+  harmonyos-sans = {
+    pname = "harmonyos-sans";
+    version = "0d79cad76b37ba0f3ccb1323c83833c78e0860de";
+    src = fetchgit {
+      url = "https://gitee.com/openharmony/resources";
+      rev = "0d79cad76b37ba0f3ccb1323c83833c78e0860de";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-0jIaSp3WJ9jiTFS9nhwUo27N8WWne/yW9Y8vQ+sgHoI=";
+    };
+  };
   lsp-format-nvim = {
     pname = "lsp-format-nvim";
     version = "v2.4.1";

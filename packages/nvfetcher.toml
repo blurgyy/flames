@@ -12,6 +12,10 @@ fetch.github = "Reverier-Xu/FluentDark-fcitx5"
 src.git = "https://github.com/sxqsfun/fcitx5-sogou-themes"
 fetch.github = "sxqsfun/fcitx5-sogou-themes"
 
+[harmonyos-sans]
+src.git = "https://gitee.com/openharmony/resources"
+fetch.git = "https://gitee.com/openharmony/resources"
+
 [lsp-format-nvim]
 src.github = "lukas-reineke/lsp-format.nvim"
 fetch.github = "lukas-reineke/lsp-format.nvim"
