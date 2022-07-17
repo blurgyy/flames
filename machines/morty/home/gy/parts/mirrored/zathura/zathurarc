@@ -1,0 +1,30 @@
+# Fit width on first open by default
+set adjust-open         "best-fit"
+set pages-per-row       1
+
+# Copy selection to clipboard, instead of to primary
+set selection-clipboard "clipboard"
+
+# Font
+set font                "Slab-Serif 10"
+
+# Colorscheme
+set default-bg          "#000000"
+set default-fg          "#f7f7f6"
+
+set statusbar-fg        "#B0B0B0"
+set statusbar-bg        "#202020"
+
+# Key mappings
+map S                   toggle_fullscreen
+map t                   toggle_statusbar
+
+# Same when in fullscreen
+map [fullscreen] S      toggle_fullscreen
+map [fullscreen] t      toggle_statusbar
+
+# Scrollbar
+set guioptions          shv
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   May 17 2021, 16:38 [CST]

@@ -40,20 +40,22 @@ in {
   };
 
   home.packages = with pkgs; [
+    gcc
+    gdb
+    git-sync
     imv
-    wl-clipboard  # Need to be globally executable for clipboard integrations to work
-    waypipe
-    zellij-hirr
-    xfce.thunar
-    sdwrap
-    python3
-    zotero
-    meshlab
-    tdesktop-megumifox
     lnav
     logseq
-    git-sync
-    gcc gdb
+    meshlab
+    python3
+    sdwrap
+    tdesktop-megumifox
+    waypipe
+    wl-clipboard  # Need to be globally executable for clipboard integrations to work
+    xfce.thunar
+    zathura
+    zellij-hirr
+    zotero
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
