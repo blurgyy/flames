@@ -18,6 +18,8 @@
   alias s='ls'
   alias sl='ls'
   alias la='ls -a'
+  alias a='ls -a'
+  alias al='ls -a'
   alias ll='ls -lhg --icons'
   alias tree='ls -T --icons'
 
@@ -63,6 +65,7 @@
   alias p='python'
   alias fgfg='fg'
   alias ffg='fg'
+  alias gfg='fg'
 
   # Neovim from nixpkgs is statically linked while on Arch it's not.  Don't assume a flake will
   # be run on a NixOS machine.
