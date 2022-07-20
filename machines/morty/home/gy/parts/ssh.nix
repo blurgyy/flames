@@ -31,14 +31,12 @@
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
     "2x1080ti" = {
-      hostname = "192.168.1.22";
-      port = 22;
-      proxyJump = "w";
+      hostname = "${relay}";
+      port = 10023;
     };
     shared = {
-      hostname = "192.168.1.23";
-      port = 22;
-      proxyJump = "w";
+      hostname = "${relay}";
+      port = 10025;
     };
 
     github = { hostname = "github.com"; user = "git"; };
