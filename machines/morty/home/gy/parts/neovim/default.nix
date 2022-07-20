@@ -30,6 +30,7 @@
         tree-sitter-cmake
         tree-sitter-cpp
         tree-sitter-css
+        tree-sitter-cuda
         tree-sitter-fish
         # tree-sitter-help  # Not provided by nixpkgs
         tree-sitter-html
