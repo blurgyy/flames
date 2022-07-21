@@ -42,6 +42,8 @@
   alias gf='g fetch'
   alias gl='g log --all --graph --decorate --oneline -8'
   alias gla='g log --all --graph --decorate --format=fuller'
+  alias glad='git log --all --graph --decorate --format=fuller --patch --ext-diff'
+  alias glap='git log --all --graph --decorate --format=fuller --patch'
   alias gll='g pull'
   alias gln='g log --all --graph --decorate --oneline'
   alias gmt='g mergetool'
