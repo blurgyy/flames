@@ -21,6 +21,8 @@
     f = "fetch";
     l = "log --all --graph --decorate --oneline -8";
     la = "log --all --graph --decorate --format=fuller";
+    lad = "log --all --graph --decorate --format=fuller --patch --ext-diff";
+    lap = "log --all --graph --decorate --format=fuller --patch";
     ll = "pull";
     mt = "mergetool";
     p = "push";
