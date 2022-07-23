@@ -33,8 +33,6 @@
 }
 
 configuration {
-    terminal: "/usr/bin/alacritty";
-
     show-icons: true;
 
     kb-remove-char-back: "BackSpace,Shift+BackSpace";

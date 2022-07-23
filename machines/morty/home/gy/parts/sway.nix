@@ -1,4 +1,5 @@
 { pkgs, hm-config, themeColor }: let
+  terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
   bgimg = pkgs.fetchurl {
     url = "https://i.redd.it/a8kxowakxbe81.jpg";
     name = "forest.jpg";
@@ -15,16 +16,16 @@ in {
     up = "k";
     right = "l";
     defaultWorkspace = "workspace number 1";
-    terminal = "${pkgs.alacritty}/bin/alacritty";
+    terminal = "${terminal}";
     startup = let 
       topprg = "${pkgs.btop}/bin/btop";
     in [
       { command = "systemctl --user reset-failed"; }
-      { command = "${pkgs.alacritty}/bin/alacritty --class sway_autostart_alacritty"; }
+      { command = "${terminal} --class sway_autostart_alacritty"; }
       { command = "firefox"; }
       { command = "zotero"; }
       { command = ''
-        ${pkgs.alacritty}/bin/alacritty --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
+        ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
         ''; }
     ];
     keybindings = let

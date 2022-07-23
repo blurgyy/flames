@@ -108,7 +108,7 @@ in {
       enable = true;
       package = pkgs.rofi-wayland;
       font = "slab-serif 15";
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
       xoffset = 0;
       yoffset = 0;
       location = "center";
@@ -121,6 +121,7 @@ in {
 
     alacritty = {
       enable = true;
+      package = pkgs.alacritty-swarm;
       settings = import ./parts/alacritty.nix;
     };
 
