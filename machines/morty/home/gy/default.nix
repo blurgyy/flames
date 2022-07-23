@@ -53,6 +53,7 @@ in {
     waypipe
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     xfce.thunar
+    xfce.thunar-volman
     zathura
     zellij-hirr
     zotero
