@@ -242,7 +242,8 @@
           "Symbols Nerd Font"
         ];
       in rec {
-        serif = sansSerif ++ [
+        serif = [
+          "Noto Serif"
           "Noto Serif CJK SC"
           "Noto Serif CJK TC"
           "Noto Serif CJK HK"
@@ -289,6 +290,8 @@
       rubik
       (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
       (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
+      noto-fonts
+      noto-fonts-extra
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
       font-awesome
