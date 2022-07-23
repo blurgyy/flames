@@ -57,6 +57,7 @@ in {
     zathura
     zellij-hirr
     zotero
+    texlive.combined.scheme-full
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
