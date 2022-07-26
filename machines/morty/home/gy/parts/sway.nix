@@ -60,19 +60,23 @@ in {
       # Brightness & Volume control
       "XF86MonBrightnessUp" = ''
         exec ${pkgs.light}/bin/light -A 5 && \
-        exec ${backlight-notify}
+          exec ${backlight-notify}
       '';
-      "XF86MonBrightnessDown" = ''exec ${pkgs.light}/bin/light -U 5 && \
-        exec ${backlight-notify}
+      "XF86MonBrightnessDown" = ''
+        exec ${pkgs.light}/bin/light -U 5 && \
+          exec ${backlight-notify}
       '';
-      "XF86AudioRaiseVolume" = ''exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5% && \
-        exec ${volume-notify}
+      "XF86AudioRaiseVolume" = ''
+        exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5% && \
+          exec ${volume-notify}
       '';
-      "XF86AudioLowerVolume" = ''exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5% && \
-        exec ${volume-notify}
+      "XF86AudioLowerVolume" = ''
+        exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5% && \
+          exec ${volume-notify}
       '';
-      "XF86AudioMute" = ''exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && \
-        exec ${volume-notify}
+      "XF86AudioMute" = ''
+        exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && \
+          exec ${volume-notify}
       '';
 
       # Moving focus within workspace
@@ -285,9 +289,7 @@ in {
     };
     bars = [ ];
   };
-  extraConfig = let
-    mod = hm-config.wayland.windowManager.sway.config.modifier; 
-  in ''
+  extraConfig = ''
     bindswitch lid:on exec "${pkgs.swaylock-effects}/bin/swaylock"
     titlebar_border_thickness 3
     titlebar_padding 3 3
