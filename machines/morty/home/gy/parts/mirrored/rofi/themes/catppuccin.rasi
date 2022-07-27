@@ -1,18 +1,5 @@
 /* REF: https://github.com/catppuccin/rofi */
 
-* {
-  font: "slab-serif 15";
-  bg-col:  #1E1D2F;
-  bg-col-light: #1E1D2F;
-  border-col: #1E1D2F;
-  selected-col: #1E1D2F;
-  blue: #7aa2f7;
-  fg-col: #D9E0EE;
-  fg-col2: #F28FAD;
-  grey: #D9E0EE;
-  width: 600;
-}
-
 configuration {
   modi: "run,drun,ssh";
   icon-theme: "Oranchelo";
@@ -24,6 +11,19 @@ configuration {
   display-run: "  Run ";  /* font-awesome: keyboard */
   display-ssh: "  ssh ";  /* font-awesome: display */
   sidebar-mode: true;
+}
+
+* {
+  font: "slab-serif 15";
+  bg-col:  #1e1e2e;
+  bg-col-light: #1e1e2e;
+  border-col: #1e1e2e;
+  selected-col: #1e1e2e;
+  blue: #89b4fa;
+  fg-col: #cdd6f4;
+  fg-col2: #f38ba8;
+  grey: #6c7086;
+  width: 600;
 }
 
 element-text, element-icon , mode-switcher {
@@ -70,12 +70,12 @@ entry {
 }
 
 listview {
-  background-color: @bg-col;
   border: 0px 0px 0px;
   padding: 6px 0px 0px;
   margin: 10px 0px 0px 20px;
-  lines: 5;
   columns: 2;
+  lines: 5;
+  background-color: @bg-col;
 }
 
 element {

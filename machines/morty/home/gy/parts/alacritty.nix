@@ -226,41 +226,15 @@ rec {
       };
     };
 
-    catppuccin = {
-      primary = {
-        background = "0x1E1D2F";
-        foreground = "0xD9E0EE";
-      };
-      cursor = {
-        text = "0x1E1D2F";
-        cursor = "0xF5E0DC";
-      };
-      normal = {
-        black = "0x6E6C7E";
-        red = "0xF28FAD";
-        green = "0xABE9B3";
-        yellow = "0xFAE3B0";
-        blue = "0x96CDFB";
-        magenta = "0xF5C2E7";
-        cyan = "0x89DCEB";
-        white = "0xD9E0EE";
-      };
-      bright = {
-        black = "0x988BA2";
-        red = "0xF28FAD";
-        green = "0xABE9B3";
-        yellow = "0xFAE3B0";
-        blue = "0x96CDFB";
-        magenta = "0xF5C2E7";
-        cyan = "0x89DCEB";
-        white = "0xD9E0EE";
-      };
-      indexed_colors = [
-        { index = 16; color = "0xF8BD96"; }
-        { index = 17; color = "0xF5E0DC"; }
-      ];
-    };
+    # $ cat alacritty.yaml | nix run nixpkgs#yj >tmp.json
+    # $ nix repl
+    # nix-repl > :p
+    #            (builtins.fromJSON (builtins.readFile ./tmp.json)).scheme.<name>
+    frappe = { bright = { black = "#626880"; blue = "#8CAAEE"; cyan = "#81C8BE"; green = "#A6D189"; magenta = "#F4B8E4"; red = "#E78284"; white = "#A5ADCE"; yellow = "#E5C890"; }; cursor = { cursor = "#F2D5CF"; text = "#303446"; }; dim = { black = "#51576D"; blue = "#8CAAEE"; cyan = "#81C8BE"; green = "#A6D189"; magenta = "#F4B8E4"; red = "#E78284"; white = "#B5BFE2"; yellow = "#E5C890"; }; hints = { end = { background = "#A5ADCE"; foreground = "#303446"; }; start = { background = "#E5C890"; foreground = "#303446"; }; }; indexed_colors = [ { color = "#EF9F76"; index = 16; } { color = "#F2D5CF"; index = 17; } ]; normal = { black = "#51576D"; blue = "#8CAAEE"; cyan = "#81C8BE"; green = "#A6D189"; magenta = "#F4B8E4"; red = "#E78284"; white = "#B5BFE2"; yellow = "#E5C890"; }; primary = { background = "#303446"; bright_foreground = "#C6D0F5"; dim_foreground = "#C6D0F5"; foreground = "#C6D0F5"; }; search = { focused_match = { background = "#A6D189"; foreground = "#303446"; }; footer_bar = { background = "#A5ADCE"; foreground = "#303446"; }; matches = { background = "#A5ADCE"; foreground = "#303446"; }; }; selection = { background = "#F2D5CF"; text = "#303446"; }; vi_mode_cursor = { cursor = "#BABBF1"; text = "#303446"; }; };
+    latte = { bright = { black = "#6C6F85"; blue = "#1E66F5"; cyan = "#179299"; green = "#40A02B"; magenta = "#EA76CB"; red = "#D20F39"; white = "#BCC0CC"; yellow = "#DF8E1D"; }; cursor = { cursor = "#DC8A78"; text = "#EFF1F5"; }; dim = { black = "#5C5F77"; blue = "#1E66F5"; cyan = "#179299"; green = "#40A02B"; magenta = "#EA76CB"; red = "#D20F39"; white = "#ACB0BE"; yellow = "#DF8E1D"; }; hints = { end = { background = "#6C6F85"; foreground = "#EFF1F5"; }; start = { background = "#DF8E1D"; foreground = "#EFF1F5"; }; }; indexed_colors = [ { color = "#FE640B"; index = 16; } { color = "#DC8A78"; index = 17; } ]; normal = { black = "#5C5F77"; blue = "#1E66F5"; cyan = "#179299"; green = "#40A02B"; magenta = "#EA76CB"; red = "#D20F39"; white = "#ACB0BE"; yellow = "#DF8E1D"; }; primary = { background = "#EFF1F5"; bright_foreground = "#4C4F69"; dim_foreground = "#4C4F69"; foreground = "#4C4F69"; }; search = { focused_match = { background = "#40A02B"; foreground = "#EFF1F5"; }; footer_bar = { background = "#6C6F85"; foreground = "#EFF1F5"; }; matches = { background = "#6C6F85"; foreground = "#EFF1F5"; }; }; selection = { background = "#DC8A78"; text = "#EFF1F5"; }; vi_mode_cursor = { cursor = "#7287FD"; text = "#EFF1F5"; }; };
+    macchiato = { bright = { black = "#5B6078"; blue = "#8AADF4"; cyan = "#8BD5CA"; green = "#A6DA95"; magenta = "#F5BDE6"; red = "#ED8796"; white = "#A5ADCB"; yellow = "#EED49F"; }; cursor = { cursor = "#F4DBD6"; text = "#24273A"; }; dim = { black = "#494D64"; blue = "#8AADF4"; cyan = "#8BD5CA"; green = "#A6DA95"; magenta = "#F5BDE6"; red = "#ED8796"; white = "#B8C0E0"; yellow = "#EED49F"; }; hints = { end = { background = "#A5ADCB"; foreground = "#24273A"; }; start = { background = "#EED49F"; foreground = "#24273A"; }; }; indexed_colors = [ { color = "#F5A97F"; index = 16; } { color = "#F4DBD6"; index = 17; } ]; normal = { black = "#494D64"; blue = "#8AADF4"; cyan = "#8BD5CA"; green = "#A6DA95"; magenta = "#F5BDE6"; red = "#ED8796"; white = "#B8C0E0"; yellow = "#EED49F"; }; primary = { background = "#24273A"; bright_foreground = "#CAD3F5"; dim_foreground = "#CAD3F5"; foreground = "#CAD3F5"; }; search = { focused_match = { background = "#A6DA95"; foreground = "#24273A"; }; footer_bar = { background = "#A5ADCB"; foreground = "#24273A"; }; matches = { background = "#A5ADCB"; foreground = "#24273A"; }; }; selection = { background = "#F4DBD6"; text = "#24273A"; }; vi_mode_cursor = { cursor = "#B7BDF8"; text = "#24273A"; }; };
+    mocha = { bright = { black = "#585B70"; blue = "#89B4FA"; cyan = "#94E2D5"; green = "#A6E3A1"; magenta = "#F5C2E7"; red = "#F38BA8"; white = "#A6ADC8"; yellow = "#F9E2AF"; }; cursor = { cursor = "#F5E0DC"; text = "#1E1E2E"; }; dim = { black = "#45475A"; blue = "#89B4FA"; cyan = "#94E2D5"; green = "#A6E3A1"; magenta = "#F5C2E7"; red = "#F38BA8"; white = "#BAC2DE"; yellow = "#F9E2AF"; }; hints = { end = { background = "#A6ADC8"; foreground = "#1E1E2E"; }; start = { background = "#F9E2AF"; foreground = "#1E1E2E"; }; }; indexed_colors = [ { color = "#FAB387"; index = 16; } { color = "#F5E0DC"; index = 17; } ]; normal = { black = "#45475A"; blue = "#89B4FA"; cyan = "#94E2D5"; green = "#A6E3A1"; magenta = "#F5C2E7"; red = "#F38BA8"; white = "#BAC2DE"; yellow = "#F9E2AF"; }; primary = { background = "#1E1E2E"; bright_foreground = "#CDD6F4"; dim_foreground = "#CDD6F4"; foreground = "#CDD6F4"; }; search = { focused_match = { background = "#A6E3A1"; foreground = "#1E1E2E"; }; footer_bar = { background = "#A6ADC8"; foreground = "#1E1E2E"; }; matches = { background = "#A6ADC8"; foreground = "#1E1E2E"; }; }; selection = { background = "#F5E0DC"; text = "#1E1E2E"; }; vi_mode_cursor = { cursor = "#B4BEFE"; text = "#1E1E2E"; }; };
   };
 
-  colors = schemes.catppuccin;
+  colors = schemes.mocha;
 }
