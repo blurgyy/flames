@@ -84,5 +84,6 @@
   alias xargs='xargs '
   alias parallel='${parallel}/bin/parallel '
 
-  yes 'will cite' | parallel --cite >/dev/null 2>/dev/null
+  mkdir -p ''${PARALLEL_HOME:-$HOME/.parallel}
+  touch ''${PARALLEL_HOME:-$HOME/.parallel}/will-cite
 ''
