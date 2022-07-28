@@ -19,4 +19,9 @@
     priority = 32767;
     memoryPercent = 150;
   };
+  fileSystems."/elements" = {
+    device = "/dev/disk/by-label/wd-elements";
+    fsType = "btrfs";
+    options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
+  };
 }
