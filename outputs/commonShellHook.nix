@@ -25,6 +25,7 @@
 
   alias g='${git}/bin/git'
   alias ga='g add'
+  alias ga.='g add .'
   alias gaa='g add -A'
   alias gb='g branch'
   alias gbs='g branch --set-upstream-to'
@@ -37,6 +38,7 @@
   alias gcinit='g commit --allow-empty -m "chore: initalize repository (empty)"';
   alias gcnosign='g commit -sv'
   alias gco='g checkout'
+  alias gco.='g checkout .'
   alias gd='g diff'
   alias gdc='g diff --cached'
   alias gf='g fetch'
