@@ -51,11 +51,7 @@ keybinds:
       key: [Char: 'd']
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [EditScrollback, SwitchToMode: Locked]
@@ -141,11 +137,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'r']
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [Resize: Left]
@@ -181,11 +173,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'p']
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [MoveFocus: Left]
@@ -237,11 +225,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'm']
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [MovePane:]
@@ -271,11 +255,7 @@ keybinds:
   tab:
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [SwitchToMode: Normal]
@@ -337,11 +317,7 @@ keybinds:
   entersearch:
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [SwitchToMode: Search]
@@ -416,7 +392,10 @@ keybinds:
     - action: [SwitchToMode: Normal]
       key: [Ctrl: 's']
     - action: [SwitchToMode: Locked]
-      key: [Char: "\n", Ctrl: 's', Esc]
+      key: 
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Esc
+        - Ctrl: 'c'
     - action: [TabNameInput: [27] , SwitchToMode: Tab]
       key: [Esc]
     - action: [NewPane: ]
@@ -443,7 +422,10 @@ keybinds:
     - action: [SwitchToMode: Normal]
       key: [Ctrl: 's']
     - action: [SwitchToMode: Locked]
-      key: [Char: "\n", Ctrl: 'c', Esc]
+      key: 
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Esc
+        - Ctrl: 'c'
     - action: [PaneNameInput: [27] , SwitchToMode: Pane]
       key: [Esc]
     - action: [NewPane: ]
@@ -471,11 +453,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'o']
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     - action: [Detach]
