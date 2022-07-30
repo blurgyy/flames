@@ -102,7 +102,7 @@ keybinds:
       key: [Char: '0']
     - action: [ToggleFocusFullscreen, SwitchToMode: Locked]
       key: [Char: 'z']
-    - action: [SwitchToMode: Scroll]
+    - action: [SwitchToMode: Search]
       key: [Char: '[']
     - action: [SwitchToMode: Session]
       key: [Char: 'o']
@@ -269,8 +269,6 @@ keybinds:
     - action: [Resize: Decrease]
       key: [Alt: '-']
   tab:
-    - action: [SwitchToMode: Normal]
-      key: [Ctrl: 's']
     - action: [SwitchToMode: Locked]
       key: 
         - Char: ' '
@@ -280,6 +278,8 @@ keybinds:
         - Char: 's'
         - Esc
         - Ctrl: 'c'
+    - action: [SwitchToMode: Normal]
+      key: [Ctrl: 's']
     - action: [SwitchToMode: RenameTab, TabNameInput: [0]]
       key: [Char: 'r']
     - action: [GoToPreviousTab]
@@ -334,7 +334,27 @@ keybinds:
       key: [Alt: '+']
     - action: [Resize: Decrease]
       key: [Alt: '-']
-  scroll:
+  entersearch:
+    - action: [SwitchToMode: Locked]
+      key: 
+        - Char: ' '
+        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
+        - Char: 'i'
+        - Char: 'q'
+        - Char: 's'
+        - Esc
+        - Ctrl: 'c'
+    - action: [SwitchToMode: Search]
+      key: [Char: "\n"]
+    - action: [NewPane: ]
+      key: [Alt: 'n',]
+    - action: [Resize: Increase]
+      key: [Alt: '=']
+    - action: [Resize: Increase]
+      key: [Alt: '+']
+    - action: [Resize: Decrease]
+      key: [Alt: '-']
+  search:
     - action: [SwitchToMode: Normal]
       key: [Ctrl: 's', Char: '[']
     - action: [SwitchToMode: Locked]
@@ -346,6 +366,20 @@ keybinds:
         - Char: 's'
         - Esc
         - Ctrl: 'c'
+    # [Searching]
+    - action: [SwitchToMode: EnterSearch, SearchInput: [0],]
+      key: [Char: '/', Char: '?']
+    - action: [Search: Down]
+      key: [Char: 'n', Char: 'P']
+    - action: [Search: Up]
+      key: [Char: 'N', Char: 'p']
+    - action: [SearchToggleOption: CaseSensitivity]
+      key: [Char: 'c']
+    - action: [SearchToggleOption: Wrap]
+      key: [Char: 'w']
+    - action: [SearchToggleOption: WholeWord]
+      key: [Char: 'o']
+    # [/Searching]
     - action: [EditScrollback, SwitchToMode: Locked]
       key: [Char: 'e']
     - action: [ToggleFloatingPanes]
