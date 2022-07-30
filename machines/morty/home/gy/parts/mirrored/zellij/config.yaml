@@ -359,11 +359,7 @@ keybinds:
       key: [Ctrl: 's', Char: '[']
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: ' '
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
-        - Char: 'i'
-        - Char: 'q'
-        - Char: 's'
         - Esc
         - Ctrl: 'c'
     # [Searching]
