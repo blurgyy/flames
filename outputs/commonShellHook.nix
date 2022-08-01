@@ -82,6 +82,7 @@
   alias procs='${procs}/bin/procs'
   alias htop='${htop}/bin/htop'
   alias lnav='${lnav}/bin/lnav'
+  alias rsync='${rsync}/bin/rsync'
 
   alias xargs='xargs '
   alias parallel='${parallel}/bin/parallel '
