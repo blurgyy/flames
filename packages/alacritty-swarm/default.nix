@@ -10,7 +10,7 @@ alacritty_bin="${alacritty}/bin/alacritty"
 
 # IPC socket path, when ALACRITTY_SOCK is not found in the script's environment, use a default one
 # which is unique to current boot.
-alacritty_sock=''${ALACRITTY_SOCK:-$XDG_RUNTIME_DIR/alacritty-ipc-boot-$(
+alacritty_sock=''${ALACRITTY_SOCK:-$XDG_RUNTIME_DIR/alacritty-ipc-$(
   cat /proc/sys/kernel/random/boot_id
 ).sock}
 
