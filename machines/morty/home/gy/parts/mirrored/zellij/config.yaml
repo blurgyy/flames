@@ -51,6 +51,7 @@ keybinds:
       key: [Char: 'd']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -137,6 +138,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'r']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -173,6 +175,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'p']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -225,6 +228,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'm']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -255,6 +259,7 @@ keybinds:
   tab:
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -317,7 +322,6 @@ keybinds:
   entersearch:
     - action: [SwitchToMode: Locked]
       key: 
-        - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
     - action: [SwitchToMode: Search]
@@ -335,6 +339,7 @@ keybinds:
       key: [Ctrl: 's', Char: '[']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -393,6 +398,7 @@ keybinds:
       key: [Ctrl: 's']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
@@ -453,6 +459,7 @@ keybinds:
       key: [Ctrl: 's', Char: 'o']
     - action: [SwitchToMode: Locked]
       key: 
+        - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
         - Esc
         - Ctrl: 'c'
