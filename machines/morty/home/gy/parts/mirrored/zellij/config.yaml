@@ -337,7 +337,7 @@ keybinds:
   search:
     - action: [SwitchToMode: Normal]
       key: [Ctrl: 's', Char: '[']
-    - action: [SwitchToMode: Locked]
+    - action: [ScrollToBottom, SwitchToMode: Locked]
       key: 
         - Char: "q"
         - Char: "\n"  # NOTE: The \n here should be quoted in double quotes or the config won't parse
