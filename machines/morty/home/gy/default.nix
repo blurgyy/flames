@@ -47,8 +47,10 @@ in {
     lnav
     logseq
     meshlab
+    patchelf
     python3
     sdwrap
+    steam-run
     tdesktop-megumifox
     waypipe
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
