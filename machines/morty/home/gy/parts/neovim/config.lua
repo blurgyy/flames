@@ -20,8 +20,8 @@ vim.o.smartcase = true -- This only works when the 'ignorecase' option is on
 vim.o.incsearch = true
 vim.o.inccommand = "split"
 
---- Show whitespaces as visible characters if `has('gui')`
-if vim.fn.has("gui") ~= 0 then
+--- Show whitespaces as visible characters if not inside tty
+if os.getenv("TERM") ~= "linux" then
   vim.opt.list = true
   vim.opt.listchars:append("space:⋅")
   vim.opt.listchars:append("tab:――")
