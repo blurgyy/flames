@@ -243,12 +243,11 @@
         ];
       in rec {
         serif = [
-          "Noto Serif"
-          "Noto Serif CJK SC"
-          "Noto Serif CJK TC"
-          "Noto Serif CJK HK"
-          "Noto Serif CJK JP"
-          "Noto Serif CJK KR"
+          "Source Serif Pro"
+          "Source Han Serif SC"
+          "Source Han Serif TC"
+          "Source Han Serif HC"
+          "Source Han Serif K"
           "LXGW Wenkai"
         ] ++ generic-fallbacks;
         # NOTE: "HarmonyOS Sans" won't work.  Use "HarmonyOS Sans SC", etc.
@@ -257,19 +256,15 @@
           "HarmonyOS Sans SC"
           "HarmonyOS Sans TC"
           "LXGW Wenkai"
-          "Noto Sans CJK SC"
-          "Noto Sans CJK TC"
-          "Noto Sans CJK HK"
-          "Noto Sans CJK JP"
-          "Noto Sans CJK KR"
+          "Source Sans Pro"
+          "Source Han Sans SC"
+          "Source Han Sans TC"
+          "Source Han Sans HC"
+          "Source Han Sans K"
         ] ++ generic-fallbacks;
         monospace = [
           "Iosevka Fixed"
-          "Noto Sans Mono CJK SC"
-          "Noto Sans Mono CJK TC"
-          "Noto Sans Mono CJK HK"
-          "Noto Sans Mono CJK JP"
-          "Noto Sans Mono CJK KR"
+          "Source Code Pro"
         ] ++ generic-fallbacks;
         emoji = [ "Apple Color Emoji" ];
       };
@@ -290,17 +285,18 @@
       rubik
       (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
       (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
-      noto-fonts
-      noto-fonts-extra
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
+      source-sans-pro
+      source-han-sans
+      source-serif-pro
+      source-han-serif
+      source-code-pro
       font-awesome
+      liberation_ttf
       lxgw-wenkai
       harmonyos-sans
       symbols-nerd-font
       vscode-codicons
       apple-color-emoji
-      freefont_ttf
     ];
   };
 
