@@ -16,6 +16,11 @@ fetch.github = "sxqsfun/fcitx5-sogou-themes"
 src.git = "https://gitee.com/openharmony/resources"
 fetch.git = "https://gitee.com/openharmony/resources"
 
+[libime-history-merge]
+src.github_tag = "blurgyy/libime-history-merge"
+fetch.github = "blurgyy/libime-history-merge"
+cargo_locks = ["Cargo.lock"]
+
 [lsp-format-nvim]
 src.github = "lukas-reineke/lsp-format.nvim"
 fetch.github = "lukas-reineke/lsp-format.nvim"

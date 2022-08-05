@@ -43,6 +43,23 @@
       sha256 = "sha256-0jIaSp3WJ9jiTFS9nhwUo27N8WWne/yW9Y8vQ+sgHoI=";
     };
   };
+  libime-history-merge = {
+    pname = "libime-history-merge";
+    version = "v0.2.0";
+    src = fetchFromGitHub ({
+      owner = "blurgyy";
+      repo = "libime-history-merge";
+      rev = "v0.2.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-k8I/uUFjqUecPgsrJl+X8tZajkfdW35ahMSJeZZn8jY=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./libime-history-merge-v0.2.0/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+  };
   lsp-format-nvim = {
     pname = "lsp-format-nvim";
     version = "v2.4.1";

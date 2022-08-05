@@ -69,6 +69,25 @@
         },
         "version": "0d79cad76b37ba0f3ccb1323c83833c78e0860de"
     },
+    "libime-history-merge": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "libime-history-merge",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "blurgyy",
+            "repo": "libime-history-merge",
+            "rev": "v0.2.0",
+            "sha256": "sha256-k8I/uUFjqUecPgsrJl+X8tZajkfdW35ahMSJeZZn8jY=",
+            "type": "github"
+        },
+        "version": "v0.2.0"
+    },
     "lsp-format-nvim": {
         "cargoLocks": null,
         "extract": null,

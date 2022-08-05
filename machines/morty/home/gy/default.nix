@@ -44,6 +44,7 @@ in {
     gdb
     git-sync
     imv
+    libime-history-merge
     lnav
     logseq
     meshlab
