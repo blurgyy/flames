@@ -96,6 +96,17 @@
       sha256 = "sha256-32vlj3cHwOjJvDqiMPyY/o+njPuhytQzIeWSgeyklgA=";
     };
   };
+  ttf-google-sans = {
+    pname = "ttf-google-sans";
+    version = "b1826355d8212378e5fd6094bbe504268fa6f85d";
+    src = fetchFromGitHub ({
+      owner = "sahibjotsaggu";
+      repo = "Google-Sans-Fonts";
+      rev = "b1826355d8212378e5fd6094bbe504268fa6f85d";
+      fetchSubmodules = false;
+      sha256 = "sha256-KJsLM0NkhxGtJ2GGTzIUjh3lWIdQFZQoD5c3AG2ApTg=";
+    });
+  };
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.32";

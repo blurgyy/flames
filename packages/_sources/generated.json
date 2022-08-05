@@ -70,7 +70,12 @@
         "version": "0d79cad76b37ba0f3ccb1323c83833c78e0860de"
     },
     "libime-history-merge": {
-        "cargoLocks": null,
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./libime-history-merge-v0.2.0/Cargo.lock",
+                {}
+            ]
+        },
         "extract": null,
         "name": "libime-history-merge",
         "passthru": null,
@@ -144,6 +149,25 @@
             "url": "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf"
         },
         "version": "v2.1.0"
+    },
+    "ttf-google-sans": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "ttf-google-sans",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "sahibjotsaggu",
+            "repo": "Google-Sans-Fonts",
+            "rev": "b1826355d8212378e5fd6094bbe504268fa6f85d",
+            "sha256": "sha256-KJsLM0NkhxGtJ2GGTzIUjh3lWIdQFZQoD5c3AG2ApTg=",
+            "type": "github"
+        },
+        "version": "b1826355d8212378e5fd6094bbe504268fa6f85d"
     },
     "vscode-codicons": {
         "cargoLocks": null,

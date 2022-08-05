@@ -37,3 +37,7 @@ fetch.url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/g
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"
+
+[ttf-google-sans]
+src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
+fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
