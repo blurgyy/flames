@@ -1,5 +1,4 @@
-{ flat-remix-icon-theme }:
-flat-remix-icon-theme.overrideAttrs (oldAttrs: {
+{ flat-remix-icon-theme }: flat-remix-icon-theme.overrideAttrs (oldAttrs: {
   pname = "flat-remix-icon-theme-proper-trayicons";
   installPhase = ''
     mkdir -p $out/share/icons

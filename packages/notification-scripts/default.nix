@@ -1,5 +1,16 @@
-{ stdenv, pkgs }: with pkgs;
-stdenv.mkDerivation {
+{ stdenv
+, bash
+, coreutils
+, diffutils
+, dunst
+, flameshot
+, grim
+, imagemagick
+, light
+, pamixer
+, slurp
+, wl-clipboard
+}: stdenv.mkDerivation {
   pname = "notification-scripts";
   version = "0.0.0";
   src = ./src;

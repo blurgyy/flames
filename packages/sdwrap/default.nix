@@ -1,5 +1,4 @@
-{ stdenv }:
-stdenv.mkDerivation {
+{ stdenv }: stdenv.mkDerivation {
   pname = "sdwrap";
   version = "0.0.0";
   src = ./src;

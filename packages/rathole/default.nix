@@ -1,10 +1,12 @@
-{ source, pkgs, lib }: with pkgs; rustPlatform.buildRustPackage rec {
+{ source, lib, rustPlatform
+, openssl
+, pkg-config
+}: rustPlatform.buildRustPackage rec {
   inherit (source) pname version src;
-
   cargoLock = source.cargoLock."Cargo.lock";
 
-  buildInputs = [ openssl ];
   nativeBuildInputs = [ pkg-config ];
+  buildInputs = [ openssl ];
   doCheck = false;
 
   meta = {

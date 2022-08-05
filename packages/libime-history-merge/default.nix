@@ -1,4 +1,4 @@
-{ source, rustPlatform, lib }: rustPlatform.buildRustPackage rec {
+{ source, lib, rustPlatform }: rustPlatform.buildRustPackage rec {
   inherit (source) pname version src;
   cargoLock = source.cargoLock."Cargo.lock";
 
