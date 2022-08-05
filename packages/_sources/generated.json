@@ -139,10 +139,10 @@
             "name": null,
             "owner": "microsoft",
             "repo": "vscode-codicons",
-            "rev": "0.0.31",
-            "sha256": "sha256-b2irBe8+YG1qSEfQME8KzxrfOOBoemumMuzHrKmnrpg=",
+            "rev": "0.0.32",
+            "sha256": "sha256-5Hhqnwh9/s2rnITtcGnsR3M0DouTUh8CMLxgX5xrnyg=",
             "type": "github"
         },
-        "version": "0.0.31"
+        "version": "0.0.32"
     }
 }

@@ -81,13 +81,13 @@
   };
   vscode-codicons = {
     pname = "vscode-codicons";
-    version = "0.0.31";
+    version = "0.0.32";
     src = fetchFromGitHub ({
       owner = "microsoft";
       repo = "vscode-codicons";
-      rev = "0.0.31";
+      rev = "0.0.32";
       fetchSubmodules = false;
-      sha256 = "sha256-b2irBe8+YG1qSEfQME8KzxrfOOBoemumMuzHrKmnrpg=";
+      sha256 = "sha256-5Hhqnwh9/s2rnITtcGnsR3M0DouTUh8CMLxgX5xrnyg=";
     });
   };
 }
