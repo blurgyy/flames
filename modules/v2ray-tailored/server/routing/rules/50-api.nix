@@ -1,0 +1,4 @@
+{
+  inboundTag = [ "api" ];
+  outboundTag = "api";
+}

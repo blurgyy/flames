@@ -19,6 +19,21 @@ in {
     };
     server = {
       enable = mkEnableOption "Tailored V2Ray service (as server)";
+      ports.api = mkOption { type = with types; oneOf [ str int ]; };
+      ports.tcp = mkOption { type = with types; oneOf [ str int ]; };
+      ports.wss = mkOption { type = with types; oneOf [ str int ]; };
+      wsPath = mkOption { type = types.str; description = "Path for websocket inbound"; };
+      usersInfo = mkOption {
+        type = with types; listOf attrs;
+        default = [
+          {
+            uuid = "44444444-4444-4444-8888-888888888888";
+            email = "example@example.org";
+            level = 0;
+          }
+        ];
+        description = "Credentials of users to serve";
+      };
     };
     package = mkOption {
       type = types.package;
@@ -32,9 +47,7 @@ in {
     # As client
     sops.templates = {
       vclient-config.content = with cfg.client; mkIf cfg.client.enable (builtins.toJSON
-        (import ./client {
-          inherit config lib uuid extraHosts soMark fwMark ports remotes;
-        }));
+        (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes; }));
     };
     sops.templates.nftables.content = mkIf cfg.client.enable config.networking.nftables.ruleset;
     networking.nftables = mkIf cfg.client.enable {
@@ -123,5 +136,18 @@ table ip transparent_proxy {
     };
 
     # TODO: As server
+    sops.templates = {
+      vserver-config.content = with cfg.server; mkIf cfg.server.enable (builtins.toJSON
+        (import ./server { inherit config lib usersInfo ports wsPath; }));
+    };
+    systemd.services.vserver = mkIf cfg.server.enable {
+      description = "V2Ray server";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vserver-config.path}";
+        LimitNOFILE = 1000000007;
+      };
+    };
   };
 }
