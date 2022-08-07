@@ -32,7 +32,7 @@ in {
     # As client
     sops.templates = {
       vclient-config.content = with cfg.client; mkIf cfg.client.enable (builtins.toJSON
-        (import ./v2ray-config.nix {
+        (import ./client {
           inherit config lib uuid extraHosts soMark fwMark ports remotes;
         }));
     };
