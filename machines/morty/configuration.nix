@@ -265,7 +265,7 @@
         monospace = [
           "Iosevka Fixed"
           "Source Code Pro"
-        ] ++ generic-fallbacks;
+        ] ++ sansSerif;
         emoji = [ "Apple Color Emoji" ];
       };
       # includeUserConf = true;
