@@ -162,8 +162,8 @@
           ""
         ];
       };
-      on-click = "${pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && ${notification-scripts}/bin/volume-notify";
-      on-click-right = "${pavucontrol}/bin/pavucontrol";
+      on-click = "${pavucontrol}/bin/pavucontrol";
+      on-click-right = "${pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && ${notification-scripts}/bin/volume-notify";
     };
     "custom/menu" = {
       # format = " ";
