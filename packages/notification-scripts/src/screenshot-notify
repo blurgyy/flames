@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!@bash@/bin/bash
 
 # Capture a region of or the full screen, refuse to open another screenshot
 # session when another one is running.

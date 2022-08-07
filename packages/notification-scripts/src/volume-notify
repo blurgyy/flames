@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!@bash@/bin/bash
 
 # Sends notification about current volume status with proper icon with dunst.
 #
