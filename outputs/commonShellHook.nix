@@ -85,7 +85,7 @@
   alias htop='${htop}/bin/htop'
   alias lnav='${lnav}/bin/lnav'
   alias rsync='${rsync}/bin/rsync'
-  alias qalc='${qalc}/bin/qalc'
+  alias qalc='${libqalculate}/bin/qalc'
 
   alias xargs='xargs '
   alias parallel='${parallel}/bin/parallel '
