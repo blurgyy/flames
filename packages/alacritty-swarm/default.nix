@@ -14,7 +14,7 @@ alacritty_sock=''${ALACRITTY_SOCK:-$XDG_RUNTIME_DIR/alacritty-ipc-$(
   cat /proc/sys/kernel/random/boot_id
 ).sock}
 
-if command -v ${lsof}/bin/lsof >/dev/null && test -e "$alacritty_sock" && ! ${lsof}/bin/lsof "$alacritty_sock"; then
+if test -e "$alacritty_sock" && ! ${lsof}/bin/lsof "$alacritty_sock"; then
   rm -vf "$alacritty_sock"
 fi
 
