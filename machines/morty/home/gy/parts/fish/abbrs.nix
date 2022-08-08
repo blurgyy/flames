@@ -162,7 +162,9 @@ fixTypo "blurgy" [
   gpf = "git push --force";
   gs = "git status -s";
   gsa = "git status";
+  gsd = "git stash --patch --ext-diff";
   gsl = "git status && git log --all --graph --decorate --oneline -8";
+  gsp = "git stash --patch";
   gbisect = "git bisect";
   gclone = "git clone";
   gshow = "git show";

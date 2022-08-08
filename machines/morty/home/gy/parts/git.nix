@@ -29,6 +29,8 @@
     pf = "push -f";
     s = "status -s";
     sa = "status";
+    sd = "stash --patch --ext-diff";
+    sp = "stash --patch";
     unstage = "reset HEAD --";
   };
   attributes = [

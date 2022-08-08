@@ -62,6 +62,8 @@
   alias greset='g reset'
   alias gshow='g show'
   alias gstash='g stash'
+  alias gsd='gstash --patch --ext-diff'
+  alias gsp='gstash --patch'
   alias gswitch='g switch'
   alias gunstage='g reset HEAD --'
 
