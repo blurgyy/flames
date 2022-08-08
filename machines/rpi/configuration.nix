@@ -106,6 +106,7 @@
     v4l-utils  # for `ir-ctl` executable
     git
     libnotify
+    miniserve
     neovim
     zsh fish fzf
     htop
