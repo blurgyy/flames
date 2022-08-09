@@ -182,7 +182,7 @@
     libnotify
     neovim
     zsh fish fzf
-    exa bat fd ripgrep procs dua
+    exa bat fd ripgrep procs dua miniserve
     htop
     file
     zip unzip unar
