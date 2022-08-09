@@ -13,6 +13,7 @@
       "vm.dirty_ratio" = 80;
     };
     tmpOnTmpfs = true;
+    tmpOnTmpfsSize = "100%";
   };
   zramSwap = {  # REF: <https://unix.stackexchange.com/a/596929>
     enable = true;

@@ -19,6 +19,7 @@
       "vm.dirty_ratio" = 80;
     };
     tmpOnTmpfs = true;
+    tmpOnTmpfsSize = "100%";
   };
 
   fileSystems."/" = {
