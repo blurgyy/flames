@@ -255,12 +255,12 @@
           "Rubik"
           "HarmonyOS Sans SC"
           "HarmonyOS Sans TC"
-          "LXGW Wenkai"
           "Source Sans Pro"
           "Source Han Sans SC"
           "Source Han Sans TC"
           "Source Han Sans HC"
           "Source Han Sans K"
+          "LXGW Wenkai"
         ] ++ generic-fallbacks;
         monospace = [
           "Iosevka Fixed"
