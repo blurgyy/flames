@@ -51,12 +51,62 @@ function bootstrap
   set -gx GPG_TTY (tty)
 end
 
+## 03: fetch
+#if string match --quiet --entire --regex '^/dev/tty[0-9]$' (tty)
+#  if type -q macchina
+#    clear && macchina
+#  end
+#end
+
+# 05: start-gui
+if string match --quiet --entire --regex '^/dev/tty2$' (tty)
+  set protocol wayland
+  # HACK: This seems too hacky
+  trap "
+  netstat -anp | rg 'alacritty-ipc-"(cat /proc/sys/kernel/random/boot_id)".sock' | sed -Ee 's/\\s+/ /g' -e 's|.* ([0-9]+)/alacritty .*|\\1|'
+  rm -vf $XDG_RUNTIME_DIR/alacritty-ipc-"(cat /proc/sys/kernel/random/boot_id)".sock
+  " EXIT
+  if string match --quiet --entire "wayland" "$protocol"
+    if lsmod | grep -q nvidia
+      # Do not disable hardware cursors when using iGPU, because it leads to cursors fail to hide
+      # when taking screenshots, it's a wlroots bug:
+      #   - <https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/2301>
+      #   - <https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/1363>
+      # This setting was originally added since hardware cursor is not rendering on an NVIDIA dGPU
+      # with 495+ driver which added GBM support but still quite buggy.
+      ## Fix cursor rendering with Nvidia proprietary driver
+      #set -x WLR_NO_HARDWARE_CURSORS 1
+
+      # According to this GitHub issue comment:
+      # <https://github.com/swaywm/sway/issues/5642#issuecomment-680771073>
+      # Specifying `WLR_DRM_DEVICES=$iGPU:$dGPU` will let the $iGPU do the rendering and use
+      # llvmpipe to copy the buffer to the dGPU.  To make sure /dev/dri/card0 is the iGPU, specify
+      # i915 in the MODULES array in /etc/mkinitcpio.conf before other driver modules should work (I
+      # think).
+      #
+      # Yet with the NVIDIA proprietary driver, this does not work, after setting this, only the
+      # first GPU's connected monitor is displaying a buffer, the other is frozen.
+      #
+      # Use `lspci` and `ls -l /dev/dri/by-path/` to determine how the cards are ordered (e.g. if
+      # card0 is iGPU or dGPU).
+      set -x WLR_DRM_DEVICES "/dev/dri/card0:/dev/dri/card1"
+
+      exec sway --unsupported-gpu >>"$XDG_RUNTIME_DIR/sway.log" 2>&1
+    else
+      exec sway >>"$XDG_RUNTIME_DIR/sway.log" 2>&1
+    end
+  else
+    exec startx
+  end
+end
+
+# 50: multiplexer
 if string match -q "/dev/tty*" (tty)  # Do not autostart tmux in tty
   echo "Not autostarting terminal multiplexer in a tty" >&2
 else if test 0 -eq (id -u)  # Do not autostart tmux as root
   echo "Not autostarting terminal multiplexer as root" >&2
-else if set -q ZELLIJ # Do not nest zellij session
-else if set -q TMUX # Do not nest tmux session
+else if set -q ZELLIJ  # Do not nest zellij session
+else if set -q TMUX  # Do not nest tmux session
 else if type -q zellij  # Try zellij first
   if zellij setup --check >/dev/null 2>/dev/null
     exec_zellij
