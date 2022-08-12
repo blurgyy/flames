@@ -10,9 +10,7 @@
             <name>charset</name>
             <charset>
                 <range>
-                    <!--
-                        REF: <https://github.com/mortepau/codicons.nvim>
-                    -->
+                    <!-- REF: <https://github.com/mortepau/codicons.nvim> -->
                     <int>0xEA60</int>
                     <int>0xEBC3</int>
                 </range>
@@ -21,22 +19,13 @@
     </edit>
 </match>
 
-<!--
-    Blacklist private range codepoints from non-nerd fonts and
-    non-fontawesome fonts
--->
+<!-- Blacklist private range codepoints from non-nerd fonts and non-fontawesome fonts -->
 <match target="scan">
-    <!--
-        Any font that is not "Symbols Nerd Font", which is provided by
-        package `ttf-nerd-fonts-symbols`.
-    -->
+    <!-- Any font that is not "Symbols Nerd Font" -->
     <test name="family" compare="not_contains">
         <string>Nerd</string>
     </test>
-    <!--
-        Any font that does not provide FontAwesome fonts. FontAwesome
-        fonts are provided by package `otf-font-awesome` and TeXLive.
-    -->
+    <!-- Any font that does not provide FontAwesome fonts -->
     <test name="family" compare="not_contains">
         <string>Font Awesome</string>
     </test>
@@ -51,9 +40,7 @@
             <name>charset</name>
             <charset>
                 <range>
-                    <!--
-                        REF: <https://the.exa.website/features/icons>
-                    -->
+                    <!-- REF: <https://the.exa.website/features/icons> -->
                     <int>0xE000</int>
                     <int>0xF8FF</int>
                 </range>
