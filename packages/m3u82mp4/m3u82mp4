@@ -64,7 +64,7 @@ Conversion started ..
                 input: $input_url
              log file: $log_path
     output video file: $output_path
-                  pid: $("$lsof_bin" -Fp "$log_path" | sed 's/p//')
+                  pid: $("$lsof_bin" -Fp "$log_path" | sed -e 's/p//' | xargs echo)
 EOF
 }
 
