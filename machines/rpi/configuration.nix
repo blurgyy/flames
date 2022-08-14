@@ -105,8 +105,11 @@
   environment.systemPackages = with pkgs; [
     v4l-utils  # for `ir-ctl` executable
     git
+    ffmpeg
+    lsof
     libnotify
     miniserve
+    procs
     transmission
     neovim
     zsh fish fzf
