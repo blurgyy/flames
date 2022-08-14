@@ -107,6 +107,7 @@
     git
     libnotify
     miniserve
+    transmission
     neovim
     zsh fish fzf
     htop
