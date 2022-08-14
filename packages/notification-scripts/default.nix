@@ -11,8 +11,7 @@
 , slurp
 , wl-clipboard
 }: stdenv.mkDerivation {
-  pname = "notification-scripts";
-  version = "0.0.0";
+  name = "notification-scripts";
   src = ./src;
   phases = [ "installPhase" ];
 

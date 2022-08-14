@@ -1,0 +1,62 @@
+#!@bash@/bin/bash
+
+# Wrapper script to startup a dedicated alacritty instance for desktop only when no existing
+# instance is found; if a dedicated instance of alacritty is found, just create a new window via
+# alacritty's IPC command to reduce memory consumption.
+
+# Absolute path to the executable alacritty binary
+alacritty_bin="@alacritty@/bin/alacritty"
+
+# IPC socket path, when ALACRITTY_SOCK is not found in the script's environment, use a default one
+# which is unique to current boot.
+alacritty_sock=${ALACRITTY_SOCK:-$XDG_RUNTIME_DIR/alacritty-ipc-$(
+  cat /proc/sys/kernel/random/boot_id
+).sock}
+
+if test -e "$alacritty_sock" && ! @lsof@/bin/lsof "$alacritty_sock"; then
+  rm -vf "$alacritty_sock"
+fi
+
+function is-applicable-for-subcommand() {
+  if [[ ! -S "$alacritty_sock" ]]; then
+    # run binary when no IPC socket exists
+    return 1
+  fi
+  if [[ "$1" =~ msg|help ]]; then
+    # run binary when subcommand is given as first argument
+    return 1
+  fi
+  skip_next="false"
+  for arg in "$@"; do
+    if [[ "$arg" =~ -e|--command ]]; then
+      # ignore everything after the `-e|--command` option, run IPC command when encountering this
+      return 0
+    fi
+    if [[ "$arg" =~ -h|--help|-v|--version ]]; then
+      # run binary when asking for usage or version
+      return 1
+    fi
+    if [[ "$skip_next" == "true" ]]; then
+      if [[ "$arg" =~ ^-.+$ ]]; then
+        # if another option/flag is found after an option that needs an argument, let the binary
+        # handle it
+        return 1
+      else
+        skip_next="false"
+        continue
+      fi
+    fi
+    if [[ "$arg" =~ -t|--title|--class|--working-directory ]]; then
+      skip_next="true"
+    else
+      # when arguments unrecognized by the `msg` subcommand is found, let the binary handle it
+      return 1
+    fi
+  done
+}
+
+if is-applicable-for-subcommand "$@"; then
+  exec "$alacritty_bin" msg --socket="$alacritty_sock" create-window "$@"
+else
+  exec "$alacritty_bin" --socket="$alacritty_sock" "$@"
+fi

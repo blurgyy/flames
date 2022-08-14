@@ -1,11 +1,10 @@
-#!/usr/bin/env bash
+#!@bash@/bin/bash
 
-# Wrap a command with `systemd-run`[0], the stdout/stderr of the command are
-# redirected into systemd's journal, the wrapped process is attached to a
-# transient systemd scope[2] called "sdwrap-$command.scope".
+# Wrap a command with `systemd-run`[0], the stdout/stderr of the command are redirected into
+# systemd's journal, the wrapped process is attached to a transient systemd scope[2] called
+# "sdwrap-$command.scope".
 #
-# This script was originally created to properly handle field codes[1] in a
-# XDG desktop entry.
+# This script was originally created to properly handle field codes[1] in a XDG desktop entry.
 #
 # NOTE: Command run from this script will inherit the caller's environment[0].
 #
