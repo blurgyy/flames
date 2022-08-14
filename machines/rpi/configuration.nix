@@ -109,6 +109,7 @@
     lsof
     libnotify
     miniserve
+    m3u82mp4
     procs
     transmission
     neovim
