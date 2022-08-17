@@ -45,10 +45,8 @@ in {
     services.v2ray.enable = false;
 
     # As client
-    sops.templates = {
-      vclient-config.content = with cfg.client; mkIf cfg.client.enable (builtins.toJSON
+    sops.templates.vclient-config.content = with cfg.client; mkIf enable (builtins.toJSON
         (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes; }));
-    };
     sops.templates.nftables.content = mkIf cfg.client.enable config.networking.nftables.ruleset;
     networking.nftables = mkIf cfg.client.enable {
       enable = true;
@@ -135,11 +133,9 @@ table ip transparent_proxy {
       };
     };
 
-    # TODO: As server
-    sops.templates = {
-      vserver-config.content = with cfg.server; mkIf cfg.server.enable (builtins.toJSON
+    # As server
+    sops.templates.vserver-config.content = with cfg.server; mkIf enable (builtins.toJSON
         (import ./server { inherit config lib usersInfo ports wsPath; }));
-    };
     systemd.services.vserver = mkIf cfg.server.enable {
       description = "V2Ray server";
       after = [ "network.target" ];
