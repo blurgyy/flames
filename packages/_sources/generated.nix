@@ -73,16 +73,16 @@
   };
   rathole = {
     pname = "rathole";
-    version = "v0.4.2";
+    version = "v0.4.3";
     src = fetchFromGitHub ({
       owner = "rapiz1";
       repo = "rathole";
-      rev = "v0.4.2";
+      rev = "v0.4.3";
       fetchSubmodules = false;
-      sha256 = "sha256-fcQBafqyE/274QZ7AmivAE4xEQOBBMVqrMySBXBmxnA=";
+      sha256 = "sha256-gqWgx03mUk6+9K4Yw5PHEBwFxsOR+48wvngT+wQnN1k=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./rathole-v0.4.2/Cargo.lock;
+      lockFile = ./rathole-v0.4.3/Cargo.lock;
       outputHashes = {
         
       };
