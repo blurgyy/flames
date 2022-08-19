@@ -118,4 +118,15 @@
       sha256 = "sha256-5Hhqnwh9/s2rnITtcGnsR3M0DouTUh8CMLxgX5xrnyg=";
     });
   };
+  zellij-hirr = {
+    pname = "zellij-hirr";
+    version = "v0.31.3";
+    src = fetchFromGitHub ({
+      owner = "zellij-org";
+      repo = "zellij";
+      rev = "v0.31.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-4iljPNw/tS/COStARg2PlrCoeE0lkSQ5+r8BrnxFLMo=";
+    });
+  };
 }

@@ -1,5 +1,6 @@
-{ zellij }: zellij.overrideAttrs (oldAttrs: {
+{ zellij, source }: zellij.overrideAttrs (oldAttrs: {
   pname = "zellij-hirr";
+  inherit (source) version;
   patches = oldAttrs.patches ++ [
     ./0001-use-shorter-render_pause.patch
   ];
