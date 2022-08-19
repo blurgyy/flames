@@ -43,6 +43,12 @@ fixTypo "blurgy" [
   "makje"
   "mkae"
   "mke"
+] // fixTypo "nix" [
+  "nxi"
+  "xni"
+  "xin"
+  "ixn"
+  "inx"
 ] // fixTypo "sudo" [
   "sdo"
   "sduo"
@@ -241,5 +247,4 @@ fixTypo "blurgy" [
   vimlite = "${vi_command} --clean";
   watch = "watch -n 0.2 -c";
   kwget = "wget --no-check-certificate";
-  z = "zathura --fork 2>/dev/null";
 }
