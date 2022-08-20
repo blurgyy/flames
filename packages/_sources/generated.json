@@ -189,7 +189,12 @@
         "version": "0.0.32"
     },
     "zellij-hirr": {
-        "cargoLocks": null,
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./zellij-hirr-v0.31.3/Cargo.lock",
+                {}
+            ]
+        },
         "extract": null,
         "name": "zellij-hirr",
         "passthru": null,

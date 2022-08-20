@@ -45,3 +45,4 @@ fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 [zellij-hirr]
 src.github = "zellij-org/zellij"
 fetch.github = "zellij-org/zellij"
+cargo_locks = ["Cargo.lock"]

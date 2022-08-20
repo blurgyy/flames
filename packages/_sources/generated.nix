@@ -128,5 +128,11 @@
       fetchSubmodules = false;
       sha256 = "sha256-4iljPNw/tS/COStARg2PlrCoeE0lkSQ5+r8BrnxFLMo=";
     });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./zellij-hirr-v0.31.3/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
   };
 }
