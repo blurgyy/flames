@@ -92,4 +92,6 @@
 
   mkdir -p ''${PARALLEL_HOME:-$HOME/.parallel}
   touch ''${PARALLEL_HOME:-$HOME/.parallel}/will-cite
+
+  eval "$(${starship}/bin/starship init bash)"
 ''
