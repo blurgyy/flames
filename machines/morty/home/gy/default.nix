@@ -11,7 +11,7 @@ in {
     enable = true;
     theme = {
       package = pkgs.catppuccin-gtk;
-      name = "Catppuccin-yellow-dark";
+      name = "Catppuccin-Yellow-Dark";
     };
     iconTheme = {
       package = pkgs.flat-remix-icon-theme-proper-trayicons;
