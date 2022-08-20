@@ -112,30 +112,6 @@
         },
         "version": "v2.4.1"
     },
-    "rathole": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./rathole-v0.4.3/Cargo.lock",
-                {}
-            ]
-        },
-        "extract": null,
-        "name": "rathole",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "rapiz1",
-            "repo": "rathole",
-            "rev": "v0.4.3",
-            "sha256": "sha256-gqWgx03mUk6+9K4Yw5PHEBwFxsOR+48wvngT+wQnN1k=",
-            "type": "github"
-        },
-        "version": "v0.4.3"
-    },
     "symbols-nerd-font": {
         "cargoLocks": null,
         "extract": null,

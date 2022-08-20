@@ -71,23 +71,6 @@
       sha256 = "sha256-xFA+9JO3Rnj/CAYXb+oOnbslH3jgEapHA67I6dMFRFI=";
     });
   };
-  rathole = {
-    pname = "rathole";
-    version = "v0.4.3";
-    src = fetchFromGitHub ({
-      owner = "rapiz1";
-      repo = "rathole";
-      rev = "v0.4.3";
-      fetchSubmodules = false;
-      sha256 = "sha256-gqWgx03mUk6+9K4Yw5PHEBwFxsOR+48wvngT+wQnN1k=";
-    });
-    cargoLock."Cargo.lock" = {
-      lockFile = ./rathole-v0.4.3/Cargo.lock;
-      outputHashes = {
-        
-      };
-    };
-  };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
     version = "v2.1.0";
