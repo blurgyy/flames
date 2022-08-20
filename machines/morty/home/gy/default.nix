@@ -57,7 +57,7 @@ in {
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     xfce.thunar
     xfce.thunar-volman
-    zathura
+    evince
     zellij-hirr
     zotero
     texlive.combined.scheme-full
@@ -211,6 +211,44 @@ in {
     configFile = with builtins; {
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
     } // (manifestXdgConfigFilesFrom ./parts/mirrored);
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/mp4" = "mpv.desktop";
+        "application/octet-stream" = "firefox.desktop";
+        "application/pdf" = "org.gnome.Evince.desktop";
+        "application/vnd.ms-excel" = "wps-office-et.desktop";
+        "application/vnd.ms-powerpoint" = "wps-office-wpp.desktop";
+        "application/vnd.ms-word" = "wps-office-wps.desktop";
+        "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "wps-office-wpp.desktop";
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "wps-office-et.desktop";
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "wps-office-wps.desktop";
+        "application/x-zerosize" = "nvim.desktop";
+        "audio/aac" = "mpv.desktop";
+        "audio/mp3" = "mpv.desktop";
+        "audio/mp4" = "mpv.desktop";
+        "audio/mpeg" = "mpv.desktop";
+        "audio/wave" = "mpv.desktop";
+        "audio/x-wav" = "mpv.desktop";
+        "audio/x-wave" = "mpv.desktop";
+        "image/bmp" = "imv.desktop";
+        "image/gif" = "imv.desktop";
+        "image/jpeg" = "imv.desktop";
+        "image/png" = "imv.desktop";
+        "image/tiff" = "imv.desktop";
+        "inode/directory" = "thunar.desktop";
+        "text/html" = "firefox.desktop";
+        "text/markdown" = "marktext.desktop";
+        "text/x-markdown" = "marktext.desktop";
+        "video/mp4" = "mpv.desktop";
+        "video/vnd.uvvu.mp4" = "mpv.desktop";
+        "x-scheme-handler/element" = "io.element.Element.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/terminal" = "Alacritty.desktop";
+        "x-scheme-handler/tg" = "telegramdesktop.desktop";
+      };
+    };
   };
 
   systemd.user = {
