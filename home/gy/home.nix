@@ -12,9 +12,12 @@ in lib.mkMerge [
   home.username = myName;
   home.homeDirectory = myHome;
   home.packages = with pkgs; [
+    btop
     gcc
     gdb
     git-sync
+    htop
+    lfs
     libime-history-merge
     lnav
     patchelf
