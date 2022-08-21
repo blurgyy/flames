@@ -8,6 +8,10 @@
     fish_title.body = readFile ../raw/fish/functions/fish_title.fish;
     gcnt.body = readFile ../raw/fish/functions/gcnt.fish;
     private.body = readFile ../raw/fish/functions/private.fish;
+    cg = {
+      description = "Goto nearest git root above current directory";
+      body = readFile ../raw/fish/functions/cg.fish;
+    };
     __set_conda_root = {
       description = "Find root of miniconda/anaconda and store to variable `_conda_root`";
       body = readFile ../raw/fish/functions/__set_conda_root.fish;
