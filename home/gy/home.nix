@@ -12,20 +12,38 @@ in lib.mkMerge [
   home.username = myName;
   home.homeDirectory = myHome;
   home.packages = with pkgs; [
+    bat
     btop
+    dua
+    exa
+    fd
+    file
+    fish
+    fzf
     gcc
     gdb
+    git
     git-sync
     htop
+    jq
     lfs
     libime-history-merge
+    libqalculate
     lnav
+    miniserve
+    parallel
     patchelf
+    procs
     python3
+    ripgrep
     sdwrap
     steam-run
     tex2nix
+    unar
+    unzip
     zellij-hirr
+    zip
+    zsh
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
@@ -198,6 +216,7 @@ in lib.mkMerge [
   home.packages = with pkgs; [
     evince
     imv
+    libnotify
     logseq
     meshlab
     tdesktop-megumifox
