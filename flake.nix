@@ -44,8 +44,8 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
-    homeConfigurations = rec {
-      gy = import ./home/gy {
+    homeConfigurations = let
+      x86_64-non-headless = import ./home/gy {
         system = "x86_64-linux";
         inherit nixpkgs inputs self;
       };
@@ -59,9 +59,9 @@
         headless = true;
         inherit nixpkgs inputs self;
       };
-
+    in {
+      gy = x86_64-non-headless;
       "gy@cindy" = aarch64-headless;
-
       "gy@cadliu" = x86_64-headless;
       "gy@cad-liu" = x86_64-headless;
     };
