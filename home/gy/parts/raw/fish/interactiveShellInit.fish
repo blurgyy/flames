@@ -6,7 +6,7 @@ function fish_greeting
 end
 
 function exec_zellij
-  set session_name (whoami)@(hostnamectl hostname)
+  set session_name (whoami)@(hostnamectl hostname; or hostname; or cat /etc/hostname)
   exec zellij attach --create "$session_name"
 end
 
