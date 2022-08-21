@@ -14,6 +14,7 @@ in lib.mkMerge [
   home.packages = with pkgs; [
     bat
     btop
+    cachix
     dua
     exa
     fd
