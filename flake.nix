@@ -44,15 +44,26 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
-    homeConfigurations = {
-      "gy@cindy" = import ./home/gy {
-        system = "aarch64-linux";
-        inherit nixpkgs inputs self;
-      };
+    homeConfigurations = rec {
       gy = import ./home/gy {
         system = "x86_64-linux";
         inherit nixpkgs inputs self;
       };
+      x86_64-headless = import ./home/gy {
+        system = "x86_64-linux";
+        headless = true;
+        inherit nixpkgs inputs self;
+      };
+      aarch64-headless = import ./home/gy {
+        system = "aarch64-linux";
+        headless = true;
+        inherit nixpkgs inputs self;
+      };
+
+      "gy@cindy" = aarch64-headless;
+
+      "gy@cadliu" = x86_64-headless;
+      "gy@cad-liu" = x86_64-headless;
     };
     nixosModules = import ./modules;
     overlays.default = my.overlay;

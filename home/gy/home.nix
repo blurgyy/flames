@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }: let
+{ lib, pkgs, config, headless ? false, ... }: let
   myName = "gy";
   myHome = "/home/${myName}";
   helpers = import ./helpers.nix { inherit lib; };
@@ -7,80 +7,26 @@
   in if (typeOf f) == "set" then f else let
     args = (intersectAttrs (functionArgs f) { inherit pkgs lib config; } // overrides);
   in f ((intersectAttrs (functionArgs f) helpers) // args);
-in {
+in lib.mkMerge [
+{  # Generic
   home.username = myName;
   home.homeDirectory = myHome;
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.catppuccin-gtk;
-      name = "Catppuccin-Yellow-Dark";
-    };
-    iconTheme = {
-      package = pkgs.flat-remix-icon-theme-proper-trayicons;
-      name = "Flat-Remix-Yellow-Dark";
-    };
-  };
-  qt = {
-    enable = true;
-    platformTheme = "gtk";
-  };
-  home.pointerCursor = {
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Original-Classic";
-    size = 24;
-    gtk.enable = true;
-  };
-
-  wayland.windowManager.sway = callWithHelpers ./parts/sway.nix { };
-  fonts.fontconfig.enable = true;
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      font-name = "system-ui 10";
-      document-font-name = "system-ui 10";
-      monospace-font-name = "ui-monospace 10";
-      text-scaling-factor = 1.5;
-    };
-  };
-
   home.packages = with pkgs; [
     gcc
     gdb
     git-sync
-    imv
     libime-history-merge
     lnav
-    logseq
-    meshlab
     patchelf
     python3
     sdwrap
     steam-run
-    tdesktop-megumifox
-    waypipe
-    wl-clipboard  # Need to be globally executable for clipboard integrations to work
-    xfce.thunar
-    xfce.thunar-volman
-    evince
-    zellij-hirr
-    zotero
     tex2nix
+    zellij-hirr
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
-
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-gtk
-      fcitx5-lua
-      libsForQt5.fcitx5-qt
-      fcitx5-sogou-themes
-      fcitx5-fluent-dark-theme
-    ];
-  };
 
   programs.gpg = {
     enable = true;
@@ -103,50 +49,7 @@ in {
         completion-ignore-case = "On";
       };
     };
-
-    mpv = {
-      enable = true;
-      config = {
-        save-position-on-quit = true;
-        hwdec = "auto";
-        tone-mapping = "hable";
-        hdr-compute-peak = "yes";
-      };
-      scripts = with pkgs.mpvScripts; [ mpris ];
-    };
-    rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-      font = "slab-serif 15";
-      terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
-      xoffset = 0;
-      yoffset = 0;
-      location = "center";
-      plugins = [ pkgs.rofi-emoji ];
-      theme = "catppuccin";
-      extraConfig = { };
-    };
-
     neovim = import ./parts/neovim { inherit pkgs; };
-
-    alacritty = {
-      enable = true;
-      package = pkgs.alacritty-swarm;
-      settings = import ./parts/alacritty.nix;
-    };
-
-    firefox = callWithHelpers ./parts/firefox.nix { };
-
-    waybar = {
-      settings = callWithHelpers ./parts/waybar { };
-      style = callWithHelpers ./parts/waybar/style.css.nix { };
-      systemd = {
-        enable = true;
-        target = "sway-session.target";
-      };
-      enable = true;
-    };
-
     bat = {
       enable = true;
       config = {
@@ -171,7 +74,6 @@ in {
     fzf = { enable = true; };
     fish = callWithHelpers ./parts/fish { };
   };
-
   home.sessionVariables = {
     EDITOR = "nvim";
     DIFFPROG = "nvim -d";
@@ -189,13 +91,7 @@ in {
     MDCAT_PAGER = "less";
     WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     PYTHONDONTWRITEBYTECODE = 1;
-    XDG_SESSION_DESKTOP = "sway";
-    QT_QPA_PLATFORM = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    SDL_VIDEODRIVER = "wayland";
-    MOZ_ENABLE_WAYLAND = 1;  # TODO: with `config.firefox.package.forceWayland` set to true, maybe this can be removed?
     WINEPREFIX = "${config.xdg.dataHome}/wine";
-    _JAVA_AWT_WM_NONREPARENTING = 1;
     FZF_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
     SKIM_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
   };
@@ -219,11 +115,151 @@ in {
       target = ".netrc";
     };
   };
+
   xdg = with helpers; {
     enable = true;
     configFile = with builtins; {
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
     } // (manifestXdgConfigFilesFrom ./parts/mirrored);
+  };
+
+  systemd.user = {
+    services.blackd = {
+      Unit.Documentation = "https://black.readthedocs.io/en/stable/usage_and_configuration/black_as_a_server.html";
+      Service = {
+        ExecStart = "${pkgs.black}/bin/blackd";
+        Restart = "always";
+        RestartSec = 5;
+      };
+      Install.WantedBy = [ "default.target" ];
+    };
+  };
+
+  services = {
+    git-sync = {
+      enable = true;
+      repositories = {
+        logseq = {
+          interval = 1200;  # pull for changes 3 times per hour
+          path = "${myHome}/Repos/CHR/logseq";
+          uri = "git+ssh://git@github.com/blurgyy/logseq.git";
+        };
+      };
+    };
+  };
+
+  home.stateVersion = "22.05";
+}
+
+(if !headless then {  # For non-headless machines
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.catppuccin-gtk;
+      name = "Catppuccin-Yellow-Dark";
+    };
+    iconTheme = {
+      package = pkgs.flat-remix-icon-theme-proper-trayicons;
+      name = "Flat-Remix-Yellow-Dark";
+    };
+  };
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
+  home.pointerCursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Original-Classic";
+    size = 24;
+    gtk.enable = true;
+  };
+  wayland.windowManager.sway = callWithHelpers ./parts/sway.nix { };
+  fonts.fontconfig.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      font-name = "system-ui 10";
+      document-font-name = "system-ui 10";
+      monospace-font-name = "ui-monospace 10";
+      text-scaling-factor = 1.5;
+    };
+  };
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-chinese-addons
+      fcitx5-gtk
+      fcitx5-lua
+      libsForQt5.fcitx5-qt
+      fcitx5-sogou-themes
+      fcitx5-fluent-dark-theme
+    ];
+  };
+  home.packages = with pkgs; [
+    evince
+    imv
+    logseq
+    meshlab
+    tdesktop-megumifox
+    waypipe
+    wl-clipboard  # Need to be globally executable for clipboard integrations to work
+    xfce.thunar
+    xfce.thunar-volman
+    zotero
+  ];
+  programs = {
+    mpv = {
+      enable = true;
+      config = {
+        save-position-on-quit = true;
+        hwdec = "auto";
+        tone-mapping = "hable";
+        hdr-compute-peak = "yes";
+      };
+      scripts = with pkgs.mpvScripts; [ mpris ];
+    };
+    rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      font = "slab-serif 15";
+      terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
+      xoffset = 0;
+      yoffset = 0;
+      location = "center";
+      plugins = [ pkgs.rofi-emoji ];
+      theme = "catppuccin";
+      extraConfig = { };
+    };
+    alacritty = {
+      enable = true;
+      package = pkgs.alacritty-swarm;
+      settings = import ./parts/alacritty.nix;
+    };
+
+    firefox = callWithHelpers ./parts/firefox.nix { };
+
+    waybar = {
+      settings = callWithHelpers ./parts/waybar { };
+      style = callWithHelpers ./parts/waybar/style.css.nix { };
+      systemd = {
+        enable = true;
+        target = "sway-session.target";
+      };
+      enable = true;
+    };
+  };
+  home.sessionVariables = {
+    XDG_SESSION_DESKTOP = "sway";
+    QT_QPA_PLATFORM = "wayland";
+    CLUTTER_BACKEND = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+    MOZ_ENABLE_WAYLAND = 1;  # TODO: with `config.firefox.package.forceWayland` set to true, maybe this can be removed?
+    _JAVA_AWT_WM_NONREPARENTING = 1;
+  };
+  systemd.user.sessionVariables = config.home.sessionVariables;
+  pam.sessionVariables = config.home.sessionVariables;
+
+  xdg = {
+    enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = {
@@ -263,7 +299,6 @@ in {
       };
     };
   };
-
   systemd.user = {
     targets.sway-session.Unit.Wants = [
       "thunar.service"
@@ -275,27 +310,9 @@ in {
     };
     # HACK: Do not enable fcitx5-daemon.service because xdg-desktop-autostart.target already pulls another fcitx5 service
     services.fcitx5-daemon.Install.WantedBy = lib.mkForce [ ];
-    services.blackd = {
-      Unit.Documentation = "https://black.readthedocs.io/en/stable/usage_and_configuration/black_as_a_server.html";
-      Service = {
-        ExecStart = "${pkgs.black}/bin/blackd";
-        Restart = "always";
-        RestartSec = 5;
-      };
-      Install.WantedBy = [ "default.target" ];
-    };
   };
+
   services = {
-    git-sync = {
-      enable = true;
-      repositories = {
-        logseq = {
-          interval = 1200;  # pull for changes 3 times per hour
-          path = "${myHome}/Repos/CHR/logseq";
-          uri = "git+ssh://git@github.com/blurgyy/logseq.git";
-        };
-      };
-    };
     gammastep = {
       enable = true;
       latitude = 30.31;
@@ -324,7 +341,5 @@ in {
       settings = callWithHelpers ./parts/dunst.nix { };
     };
   };
-
-  home.stateVersion = "22.05";
-}
-
+} else {})
+]

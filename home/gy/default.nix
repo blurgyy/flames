@@ -1,4 +1,4 @@
-{ system, nixpkgs, inputs, self }: let
+{ system, nixpkgs, inputs, self, headless ? false }: let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
@@ -13,4 +13,5 @@
 in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
   modules = [ ./home.nix ];
+  extraSpecialArgs = { inherit headless; };
 }
