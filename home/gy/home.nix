@@ -142,6 +142,10 @@ in lib.mkMerge [
       '';
       target = ".netrc";
     };
+    condarc = {
+      source = ./parts/raw/condarc.yaml;
+      target = ".condarc";
+    };
   };
 
   xdg = with helpers; {
