@@ -1,4 +1,4 @@
-{ lib, pkgs, config, headless ? false, ... }: let
+{ lib, pkgs, config, headless ? false, proxy ? null, ... }: let
   myName = "gy";
   myHome = "/home/${myName}";
   helpers = import ./helpers.nix { inherit lib; };
@@ -115,7 +115,10 @@ in lib.mkMerge [
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     FZF_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
     SKIM_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
-  };
+  } // (if proxy != null then {
+    http_proxy = "http://${proxy.addr}:${proxy.port}";
+    https_proxy = "http://${proxy.addr}:${proxy.port}";
+  } else {});
   systemd.user.sessionVariables = config.home.sessionVariables;
   pam.sessionVariables = config.home.sessionVariables;
 
