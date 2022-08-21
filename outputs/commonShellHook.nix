@@ -1,6 +1,7 @@
 { pkgs }: with pkgs; ''
   set -o vi
   shopt -s failglob
+  shopt -u progcomp
   export HISTCONTROL="''${HISTCONTROL:+$HISTCONTROL:}ignoredups"
   source ${fzf}/share/fzf/key-bindings.bash
   source ${fzf}/share/fzf/completion.bash
