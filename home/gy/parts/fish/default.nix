@@ -10,7 +10,7 @@
     private.body = readFile ../raw/fish/functions/private.fish;
   };
   interactiveShellInit = readFile ../raw/fish/interactiveShellInit.fish;
-  shellAbbrs = import ./abbrs.nix;
+  shellAbbrs = import ./abbrs.nix { inherit pkgs; };
   shellAliases = with pkgs; {
     meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
     #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";

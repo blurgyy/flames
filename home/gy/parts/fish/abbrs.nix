@@ -1,4 +1,4 @@
-let
+{ pkgs }: let
   fixTypo = target: typos:
     builtins.listToAttrs (
       map
@@ -247,4 +247,9 @@ fixTypo "blurgy" [
   vimlite = "${vi_command} --clean";
   watch = "watch -n 0.2 -c";
   kwget = "wget --no-check-certificate";
+} // {
+  bhome = "${pkgs.home-manager}/bin/home-manager build --flake ~/.local/share/flames";
+  bsys = "nixos-rebuild build --use-remote-sudo --flake ~/.local/share/flames";
+  swhome = "${pkgs.home-manager}/bin/home-manager switch --flake ~/.local/share/flames";
+  swsys = "nixos-rebuild switch --use-remote-sudo --flake ~/.local/share/flames";
 }

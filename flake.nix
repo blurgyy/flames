@@ -18,7 +18,7 @@
 
   # `self` denotes this flake, otther function arguments are the flakes
   # specified in the `inputs` attribute above.
-  outputs = inputs@{ self, nixpkgs, flake-utils, nixos-cn, ... }: let
+  outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nixos-cn, ... }: let
     my = import ./packages;
   in flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs {
@@ -43,6 +43,16 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
+    homeConfigurations = {
+      "gy@cindy" = import ./home/gy {
+        system = "aarch64-linux";
+        inherit nixpkgs home-manager self;
+      };
+      gy = import ./home/gy {
+        system = "x86_64-linux";
+        inherit nixpkgs home-manager self;
+      };
+    };
     nixosModules = import ./modules;
     overlays.default = my.overlay;
     nixosConfigurations = {

@@ -1,13 +1,13 @@
 { config, lib, pkgs, home-manager, ... }: {
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.gy = import ./home/gy {
-      inherit lib pkgs;
-      nixos-config = config;
-      config = config.home-manager.users.gy;
-    };
-  };
+  #home-manager = {
+  #  useGlobalPkgs = true;
+  #  useUserPackages = true;
+  #  users.gy = import ../../home/gy/home.nix {
+  #    inherit lib pkgs;
+  #    nixos-config = config;
+  #    config = config.home-manager.users.gy;
+  #  };
+  #};
 
   nix = {
     settings = {
@@ -20,6 +20,9 @@
         "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
       ];
       auto-optimise-store = true;
+      # REF: <https://docs.cachix.org/faq#frequently-asked-questions>
+      # REF: <https://nix.dev/faq#how-do-i-force-nix-to-re-check-whether-something-exists-at-a-binary-cache>
+      narinfo-cache-negative-ttl = 30;
     };
     package = pkgs.nixUnstable;
     settings = {
