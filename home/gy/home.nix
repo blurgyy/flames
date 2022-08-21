@@ -41,6 +41,7 @@ in lib.mkMerge [
     sdwrap
     steam-run
     tex2nix
+    tinytools
     unar
     unzip
     zellij-hirr
