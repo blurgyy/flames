@@ -147,8 +147,6 @@ in lib.mkMerge [
       };
     };
   };
-
-  home.stateVersion = "22.05";
 }
 
 (if !headless then {  # For non-headless machines

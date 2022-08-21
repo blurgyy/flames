@@ -12,6 +12,9 @@
   lib = nixpkgs.lib;
 in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
-  modules = [ ./home.nix ];
+  modules = [
+    ./home.nix
+    { home.stateVersion = "22.11"; }
+  ];
   extraSpecialArgs = { inherit headless; };
 }
