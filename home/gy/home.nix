@@ -27,6 +27,7 @@ in lib.mkMerge [
     git-sync
     htop
     jq
+    less
     lfs
     libime-history-merge
     libqalculate
