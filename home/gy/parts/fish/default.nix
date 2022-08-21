@@ -12,9 +12,9 @@
       description = "Goto nearest git root above current directory";
       body = readFile ../raw/fish/functions/cg.fish;
     };
-    __set_conda_root = {
+    __find_conda_root = {
       description = "Find root of miniconda/anaconda and store to variable `_conda_root`";
-      body = readFile ../raw/fish/functions/__set_conda_root.fish;
+      body = readFile ../raw/fish/functions/__find_conda_root.fish;
     };
     cinit = {
       description = "Initialize conda executable";

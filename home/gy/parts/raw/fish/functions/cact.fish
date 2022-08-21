@@ -1,4 +1,4 @@
-if not __set_conda_root
+if not set -l _conda_root (__find_conda_root)
   return 1
 end
 if set -q CONDA_PREFIX
