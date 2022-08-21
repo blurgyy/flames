@@ -206,7 +206,7 @@ fixTypo "blurgy" [
   cf = "clang-format";
   cgls = "systemd-cgls";
   dl = "axel -n 16";
-  du = "dua interactive";
+  du = "dua -x interactive";
   dvim = "${vi_command} -V10/tmp/vim-debug.log";
   feh = "feh --auto-rotate --conversion-timeout=1";
   fgfg = "fg";
