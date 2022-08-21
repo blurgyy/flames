@@ -3,8 +3,9 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.gy = import ./home/gy {
-      inherit pkgs lib config;
-      hm-config = config.home-manager.users.gy;
+      inherit lib pkgs;
+      nixos-config = config;
+      config = config.home-manager.users.gy;
     };
   };
 

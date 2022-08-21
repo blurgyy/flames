@@ -1,10 +1,14 @@
-{ config, pkgs, lib, hm-config, ... }: let
+{ nixos-config, config, lib, pkgs, ... }: let
   myHome = "/home/gy";
   helpers = import ./helpers.nix { inherit lib; };
   callWithHelpers = path: overrides: with builtins; let
     f = import path;
   in if (typeOf f) == "set" then f else let
-    args = (intersectAttrs (functionArgs f) { inherit config pkgs lib hm-config; } // overrides);
+    args = (intersectAttrs (functionArgs f) {
+      inherit pkgs lib;
+      config = nixos-config;
+      hm-config = config;
+    } // overrides);
   in f ((intersectAttrs (functionArgs f) helpers) // args);
 in {
   gtk = {
@@ -79,7 +83,7 @@ in {
 
   programs.gpg = {
     enable = true;
-    homedir = "${hm-config.xdg.stateHome}/gnupg";
+    homedir = "${config.xdg.stateHome}/gnupg";
   };
   services.gpg-agent = {
     enable = true;
@@ -177,25 +181,25 @@ in {
     LESS_TERMCAP_ue = "[m";
     LESS_TERMCAP_so = "[7;36m";  # set_color --reverse brcyan
     LESS_TERMCAP_se = "[m";
-    LESSHISTFILE = "${hm-config.xdg.stateHome}/lesshst";
-    CARGO_HOME = "${hm-config.xdg.stateHome}/cargo";
+    LESSHISTFILE = "${config.xdg.stateHome}/lesshst";
+    CARGO_HOME = "${config.xdg.stateHome}/cargo";
     PAGER = "less";
     MANPAGER = "less";
     MDCAT_PAGER = "less";
-    WAKATIME_HOME = "${hm-config.xdg.configHome}/wakatime";
+    WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     PYTHONDONTWRITEBYTECODE = 1;
     XDG_SESSION_DESKTOP = "sway";
     QT_QPA_PLATFORM = "wayland";
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
-    MOZ_ENABLE_WAYLAND = 1;  # TODO: with `hm-config.firefox.package.forceWayland` set to true, maybe this can be removed?
-    WINEPREFIX = "${hm-config.xdg.dataHome}/wine";
+    MOZ_ENABLE_WAYLAND = 1;  # TODO: with `config.firefox.package.forceWayland` set to true, maybe this can be removed?
+    WINEPREFIX = "${config.xdg.dataHome}/wine";
     _JAVA_AWT_WM_NONREPARENTING = 1;
     FZF_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
     SKIM_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
   };
-  systemd.user.sessionVariables = hm-config.home.sessionVariables;
-  pam.sessionVariables = hm-config.home.sessionVariables;
+  systemd.user.sessionVariables = config.home.sessionVariables;
+  pam.sessionVariables = config.home.sessionVariables;
 
   home.file = {
     ipythonConfig = {
