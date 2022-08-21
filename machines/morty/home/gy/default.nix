@@ -1,16 +1,15 @@
-{ nixos-config, config, lib, pkgs, ... }: let
-  myHome = "/home/gy";
+{ lib, pkgs, config, ... }: let
+  myName = "gy";
+  myHome = "/home/${myName}";
   helpers = import ./helpers.nix { inherit lib; };
   callWithHelpers = path: overrides: with builtins; let
     f = import path;
   in if (typeOf f) == "set" then f else let
-    args = (intersectAttrs (functionArgs f) {
-      inherit pkgs lib;
-      config = nixos-config;
-      hm-config = config;
-    } // overrides);
+    args = (intersectAttrs (functionArgs f) { inherit pkgs lib config; } // overrides);
   in f ((intersectAttrs (functionArgs f) helpers) // args);
 in {
+  home.username = myName;
+  home.homeDirectory = myHome;
   gtk = {
     enable = true;
     theme = {
@@ -30,6 +29,7 @@ in {
     package = pkgs.bibata-cursors;
     name = "Bibata-Original-Classic";
     size = 24;
+    gtk.enable = true;
   };
 
   wayland.windowManager.sway = callWithHelpers ./parts/sway.nix { };

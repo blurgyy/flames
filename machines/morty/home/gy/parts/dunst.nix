@@ -1,4 +1,4 @@
-{ lib, pkgs, hm-config, themeColor }: {
+{ lib, pkgs, config, themeColor }: {
   global = {
     # Which monitor should the notifications be displayed on.
     monitor = 0;
@@ -208,7 +208,7 @@
       "/etc/profiles/per-user/gy/share/icons/${name}/${category}/${variant}";
     in lib.concatMapStringsSep ":" mkDunstIconPath (
       lib.attrsets.cartesianProductOfSets {
-        name = [ hm-config.services.dunst.iconTheme.name ];
+        name = [ config.services.dunst.iconTheme.name ];
         category = [
           "status"
           "devices"

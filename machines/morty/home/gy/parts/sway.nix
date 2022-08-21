@@ -1,4 +1,4 @@
-{ pkgs, hm-config, themeColor }: let
+{ pkgs, config, themeColor }: let
   terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
   bgimg = pkgs.fetchurl {
     url = "https://i.redd.it/a8kxowakxbe81.jpg";
@@ -29,19 +29,19 @@ in {
         ''; }
     ];
     keybindings = let
-      term = hm-config.wayland.windowManager.sway.config.terminal;
-      mod = hm-config.wayland.windowManager.sway.config.modifier;
-      left = hm-config.wayland.windowManager.sway.config.left;
-      down = hm-config.wayland.windowManager.sway.config.down;
-      up = hm-config.wayland.windowManager.sway.config.up;
-      right = hm-config.wayland.windowManager.sway.config.right;
+      term = config.wayland.windowManager.sway.config.terminal;
+      mod = config.wayland.windowManager.sway.config.modifier;
+      left = config.wayland.windowManager.sway.config.left;
+      down = config.wayland.windowManager.sway.config.down;
+      up = config.wayland.windowManager.sway.config.up;
+      right = config.wayland.windowManager.sway.config.right;
       rofi = "${pkgs.rofi-wayland}/bin/rofi";
       fm = "${pkgs.xfce.thunar}/bin/thunar ~";
       backlight-notify = "${pkgs.notification-scripts}/bin/backlight-notify";
       volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
       screenshot-notify = "${pkgs.notification-scripts}/bin/screenshot-notify";
     in {
-      "${mod}+Return" = "exec ${hm-config.wayland.windowManager.sway.config.terminal}";
+      "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
       "${mod}+Alt+q" =  "exec swaymsg exit";
       "${mod}+e" = "exec ${fm}";
       "${mod}+w" = "kill";
@@ -149,7 +149,7 @@ in {
 
       "${mod}+r" = ''mode "resize"'';
     };
-    modes.resize = with hm-config.wayland.windowManager.sway.config; {
+    modes.resize = with config.wayland.windowManager.sway.config; {
       "${left}" = "resize shrink width 10px";
       "${down}" = "resize grow height 10px";
       "${up}" = "resize shrink height 10px";

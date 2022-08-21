@@ -1,4 +1,4 @@
-{ config, pkgs, themeColor }: with pkgs; {
+{ pkgs, themeColor }: with pkgs; {
   mainBar = {
     posiiton = "top";
     margin-top = 4;

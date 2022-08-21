@@ -1,4 +1,4 @@
-{ hm-config, pkgs }: {
+{ config, pkgs }: {
   enable = true;
   profiles = {
     home = {
@@ -12,7 +12,7 @@
         "media.rdd-ffmpeg.enabled" = true;
         "browser.newtabpage.activity-stream.feeds.topsites" = "https://google.com/,https://github.com/";
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-        "general.useragent.override" = with hm-config.programs.firefox.package; "Mozilla/5.0 (X11; x86_64; rv:${version}) Gecko/20100101 Firefox/${version}";
+        "general.useragent.override" = with config.programs.firefox.package; "Mozilla/5.0 (X11; x86_64; rv:${version}) Gecko/20100101 Firefox/${version}";
         "widget.gtk.overlay-scrollbars.enabled" = false;
         "layout.css.prefers-color-scheme.content-override" = 0;  # REF: <https://support.mozilla.org/bm/questions/1364502>
       };
