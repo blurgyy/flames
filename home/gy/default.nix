@@ -1,11 +1,16 @@
-{ system, nixpkgs, home-manager, self }: let
+{ system, nixpkgs, inputs, self }: let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
-    overlays = [ self.overlays.default ];
+    overlays = [
+      self.overlays.default
+      (final: prev: {
+        tex2nix = inputs.tex2nix.packages.${system}.tex2nix;
+      })
+    ];
   };
   lib = nixpkgs.lib;
-in home-manager.lib.homeManagerConfiguration {
+in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
   modules = [ ./home.nix ];
 }

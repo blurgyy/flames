@@ -64,7 +64,8 @@ in {
     evince
     zellij-hirr
     zotero
-    texlive.combined.scheme-full
+    tex2nix
+    #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];

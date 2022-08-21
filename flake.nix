@@ -11,6 +11,7 @@
     nvfetcher = { url = github:berberman/nvfetcher; inputs.nixpkgs.follows = "nixpkgs"; };
     sops-nix = { url = github:Mic92/sops-nix; inputs.nixpkgs.follows = "nixpkgs"; };
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
+    tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
 
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote = { url = gitlab:highsunz/acremote; inputs.nixpkgs.follows = "nixpkgs"; };
@@ -18,7 +19,7 @@
 
   # `self` denotes this flake, otther function arguments are the flakes
   # specified in the `inputs` attribute above.
-  outputs = inputs@{ self, nixpkgs, flake-utils, home-manager, nixos-cn, ... }: let
+  outputs = inputs@{ self, nixpkgs, flake-utils, nixos-cn, ... }: let
     my = import ./packages;
   in flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs {
@@ -46,11 +47,11 @@
     homeConfigurations = {
       "gy@cindy" = import ./home/gy {
         system = "aarch64-linux";
-        inherit nixpkgs home-manager self;
+        inherit nixpkgs inputs self;
       };
       gy = import ./home/gy {
         system = "x86_64-linux";
-        inherit nixpkgs home-manager self;
+        inherit nixpkgs inputs self;
       };
     };
     nixosModules = import ./modules;
