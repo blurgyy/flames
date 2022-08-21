@@ -126,6 +126,30 @@
         },
         "version": "v2.1.0"
     },
+    "tinytools": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./tinytools-refs/tags/v1.1.2/Cargo.lock",
+                {}
+            ]
+        },
+        "extract": null,
+        "name": "tinytools",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "blurgyy",
+            "repo": "tinytools",
+            "rev": "refs/tags/v1.1.2",
+            "sha256": "sha256-OjnSbiil2zx1sT93T6nPJXg+rwZYgryiT+DrpolrW7M=",
+            "type": "github"
+        },
+        "version": "refs/tags/v1.1.2"
+    },
     "ttf-google-sans": {
         "cargoLocks": null,
         "extract": null,

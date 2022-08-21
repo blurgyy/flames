@@ -29,13 +29,18 @@ fetch.github = "lukas-reineke/lsp-format.nvim"
 src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf"
 
-[vscode-codicons]
-src.github = "microsoft/vscode-codicons"
-fetch.github = "microsoft/vscode-codicons"
+[tinytools]
+src.github = "blurgyy/tinytools"
+fetch.github = "blurgyy/tinytools"
+cargo_locks = ["Cargo.lock"]
 
 [ttf-google-sans]
 src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
 fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
+
+[vscode-codicons]
+src.github = "microsoft/vscode-codicons"
+fetch.github = "microsoft/vscode-codicons"
 
 [zellij-hirr]
 src.github = "zellij-org/zellij"

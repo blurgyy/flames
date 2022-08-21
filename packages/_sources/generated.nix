@@ -79,6 +79,23 @@
       sha256 = "sha256-32vlj3cHwOjJvDqiMPyY/o+njPuhytQzIeWSgeyklgA=";
     };
   };
+  tinytools = {
+    pname = "tinytools";
+    version = "refs/tags/v1.1.2";
+    src = fetchFromGitHub ({
+      owner = "blurgyy";
+      repo = "tinytools";
+      rev = "refs/tags/v1.1.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-OjnSbiil2zx1sT93T6nPJXg+rwZYgryiT+DrpolrW7M=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./tinytools-refs/tags/v1.1.2/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+  };
   ttf-google-sans = {
     pname = "ttf-google-sans";
     version = "b1826355d8212378e5fd6094bbe504268fa6f85d";
