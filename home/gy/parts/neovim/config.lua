@@ -380,7 +380,6 @@ local opts = { buffer = true, noremap = true, silent = true }
 local on_attach = function(client, _) -- The two parameters are client and bufnr, respectively
   require("lsp-format").on_attach(client)
   ---- REF: https://github.com/lukas-reineke/lsp-format.nvim#user-content-wq-will-not-format
-  vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -416,7 +415,6 @@ null_ls.setup({
   -- REF: https://github.com/jose-elias-alvarez/null-ls.nvim#user-content-how-do-i-format-files-on-save
   on_attach = function(client)
     require("lsp-format").on_attach(client)
-    vim.cmd [[cabbrev wq execute "lua vim.lsp.buf.formatting_seq_sync()" <bar> wq]]
   end,
   sources = {
     -- null_ls.builtins.formatting.stylua,
