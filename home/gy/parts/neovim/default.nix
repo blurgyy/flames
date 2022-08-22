@@ -79,11 +79,12 @@
     EOF
   '';
   extraPackages = with pkgs; [
-    shfmt
     ccls
     clang
     ctags
-    yaml-language-server
+    pyright
+    shfmt
     sumneko-lua-language-server
+    yaml-language-server
   ];
 }
