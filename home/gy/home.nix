@@ -25,6 +25,7 @@ in lib.mkMerge [
     gdb
     git
     git-sync
+    gnutar
     htop
     jq
     less
@@ -47,6 +48,7 @@ in lib.mkMerge [
     zellij-hirr
     zip
     zsh
+    zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
