@@ -45,6 +45,7 @@ in lib.mkMerge [
     tinytools
     unar
     unzip
+    viddy
     wget
     zellij-hirr
     zip

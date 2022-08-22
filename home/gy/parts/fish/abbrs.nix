@@ -244,6 +244,7 @@ fixTypo "blurgy" [
   sys = "sudo systemctl --system";
   today = ''date +"%Y-%m-%d"'';
   ts = "PYTHONWARNINGS=ignore telegram-send --timeout 86400";
+  viddy = "viddy -n 0.2 --pty";
   vimlite = "${vi_command} --clean";
   watch = "watch -n 0.2 -c";
   kwget = "wget --no-check-certificate";
