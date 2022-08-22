@@ -1,16 +1,16 @@
 { config, lib, pkgs, home-manager, ... }: rec {
   nix = {
-    autoOptimiseStore = true;
-    binaryCaches = [
-      "https://highsunz.cachix.org"
-    ];
-    binaryCachePublicKeys = [
-      "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
-    ];
     package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
+      auto-optimise-store = true;
+      binary-caches = [
+        "https://highsunz.cachix.org"
+      ];
+      binary-cache-public-keys = [
+        "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
+      ];
     };
     gc = {
       automatic = true;
@@ -21,28 +21,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot = {
-    kernel = {
-      sysctl = {
-        "net.core.default_qdisc" = "fq";
-        "net.ipv4.tcp_congestion_control" = "bbr";
-        "dev.i915.perf_stream_paranoid" = 0;
-        "kernel.sysrq" = 1;
-        "vm.swappiness" = 1;
-        "vm.vfs_cache_pressure" = 50;
-        "vm.dirty_background_ratio" = 5;
-        "vm.dirty_ratio" = 80;
-      };
-    };
-    # NOTE: Omit `boot.kernelPackages` to use the LTS kernel
-    # kernelPackages = pkgs.linuxPackages_lts;
-    kernelParams = [
-      "pcie_aspm=off"
-      "mitigations=off"
-      "net.ifnames=0"  # predictable interface names
-    ];
-  };
-
   networking = {
     hostName = "cube";
     useNetworkd = true;
@@ -50,8 +28,6 @@
     firewall.enable = false;
   };
   services.resolved.enable = true;
-
-  kexec.autoReboot = false;
 
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
@@ -81,10 +57,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-  };
 
   security.sudo.extraRules = let
     applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
@@ -123,7 +95,6 @@
       isNormalUser = true;
       extraGroups = [
         config.users.groups.wheel.name
-        config.users.groups.video.name
         config.users.groups.plocate.name
         ];
       shell = pkgs.zsh;
@@ -134,7 +105,6 @@
 
   environment.systemPackages = with pkgs; [
     git
-    libnotify
     neovim
     zsh fish fzf
     exa bat fd ripgrep procs dua
