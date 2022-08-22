@@ -5,7 +5,7 @@
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-    initrd.kernelModules = [ ];
+    initrd.kernelModules = [ "i915" "amdgpu" ];
     kernelModules = [ ];
     extraModulePackages = [ ];
     kernel.sysctl = {
@@ -17,6 +17,18 @@
       "vm.vfs_cache_pressure" = 50;
       "vm.dirty_background_ratio" = 5;
       "vm.dirty_ratio" = 80;
+    };
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      "loglevel=3"
+      "pcie_aspm=off"
+      "mitigations=off"
+      "resume=LABEL=nixos-swap"
+    ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      systemd-boot.enable = true;
     };
     tmpOnTmpfs = true;
     tmpOnTmpfsSize = "100%";

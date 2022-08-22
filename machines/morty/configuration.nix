@@ -38,22 +38,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  boot = {
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
-    initrd.kernelModules = [ "i915" "amdgpu" ];
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "loglevel=3"
-      "pcie_aspm=off"
-      "mitigations=off"
-      "resume=LABEL=nixos-swap"
-    ];
-    loader = {
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
-    };
-  };
-
   networking = {
     hostName = "morty";
     useNetworkd = true;
