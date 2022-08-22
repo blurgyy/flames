@@ -57,6 +57,10 @@
           installation_mode = "force_installed";
           install_url = "https://www.zotero.org/download/connector/dl?browser=firefox";
         };
+        "{36bdf805-c6f2-4f41-94d2-9b646342c1dc}" = {
+          installation_mode = "force_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/export-cookies-txt/latest.xpi";
+        };
       };
     };
   };
