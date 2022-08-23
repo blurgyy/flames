@@ -6,12 +6,14 @@
   matchBlocks = let 
     peterpan = "81.69.28.75";
     cindy = "130.162.238.248";
+    cube = "45.78.17.205";
     hooper = "64.64.244.30";
     relay = peterpan;
   in {
     pp = { hostname = "${peterpan}"; };
     hooper = { hostname = "${hooper}"; };
     cindy = { hostname = "${cindy}"; };
+    cube = { user = "root"; hostname = "${cube}"; };
 
     gpp = { hostname = "${peterpan}"; user = "git"; };
     ghooper = { hostname = "${hooper}"; user = "git"; };
