@@ -6,7 +6,8 @@
   ];
   patches = [
   # NOTE: These patches are fetched and modified from <https://github.com/archlinuxcn/repo/tree/master/archlinuxcn/telegram-desktop-megumifox>
-    ./0001-Use-QGuiApplication-font-instead-of-opensans.patch
+    ./0001-Use-font-from-environment-variables.patch
     ./0002-add-TDESKTOP_DISABLE_REGISTER_CUSTOM_SCHEME-back.patch
+    ./fix-tgcalls-cstdint.patch
   ];
 })
