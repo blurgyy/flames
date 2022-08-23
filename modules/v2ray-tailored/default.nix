@@ -1,5 +1,15 @@
 { config, pkgs, lib, ... }: with lib; let
   cfg = config.services.v2ray-tailored;
+  remoteModule = types.submodule ({ ... }: {
+    options = {
+      tag = mkOption { type = types.str; };
+      address = mkOption { type = types.str; };
+      port = mkOption { type = types.int; };
+      domain = mkOption { type = types.str; };
+      wsPath = mkOption { type = types.nullOr types.str; default = null; };
+      allowInsecure = mkOption { type = types.bool; default = false; };
+    };
+  });
 in {
   options.services.v2ray-tailored = {
     client = {
@@ -15,7 +25,7 @@ in {
       ports.http = mkOption { type = with types; oneOf [ str int ]; };
       ports.socks = mkOption { type = with types; oneOf [ str int ]; };
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
-      remotes = mkOption { type = with types; listOf attrs; };
+      remotes = mkOption { type = with types; listOf remoteModule; };
     };
     server = {
       enable = mkEnableOption "Tailored V2Ray service (as server)";
