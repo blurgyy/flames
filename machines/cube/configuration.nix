@@ -3,14 +3,11 @@
     package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "gy" ];
+      trusted-users = [ "root" ];
       auto-optimise-store = true;
-      binary-caches = [
-        "https://highsunz.cachix.org"
-      ];
-      binary-cache-public-keys = [
-        "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
-      ];
+      binary-caches = [ "https://highsunz.cachix.org" ];
+      binary-cache-public-keys = [ "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY=" ];
+      narinfo-cache-negative-ttl = 30;
     };
     gc = {
       automatic = true;
@@ -55,17 +52,12 @@
     command-not-found.enable = false;
   };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  security.sudo.extraRules = let
-    applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
-    systemdCmds = map applyNoPasswd (map (cmd: "${pkgs.systemd}/bin/${cmd}") [ "systemctl" "journalctl" ]);
-  in [
-    { groups = [ "wheel" ]; commands = systemdCmds; }
-  ];
-
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = [ "/" ];
+    };
     fstrim.enable = true;
 
     earlyoom = {
@@ -131,11 +123,5 @@
     };
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.11";
 }

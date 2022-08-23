@@ -11,6 +11,8 @@
 
   nix = {
     settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      trusted-users = [ "root" "gy" ];
       substituters = [
         "https://nixos-cn.cachix.org"
         "https://highsunz.cachix.org"
@@ -25,10 +27,6 @@
       narinfo-cache-negative-ttl = 30;
     };
     package = pkgs.nixUnstable;
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" "gy" ];
-    };
     gc = {
       automatic = true;
       dates = "weekly";

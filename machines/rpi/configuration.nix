@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, modulesPath, ... }: {
+{ config, pkgs, ... }: {
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
@@ -28,11 +24,12 @@
   };
 
   nix = {
-    package = pkgs.nixStable;
+    package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" ];
       auto-optimise-store = true;
+      narinfo-cache-negative-ttl = 30;
     };
     gc = {
       automatic = true;
@@ -94,13 +91,6 @@
     };
   };
   services.acremote.enable = true;
-
-  security.sudo.extraRules = let
-    applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
-    systemdCmds = map applyNoPasswd (map (cmd: "${pkgs.systemd}/bin/${cmd}") [ "systemctl" "journalctl" ]);
-  in [
-    { groups = [ "wheel" ]; commands = systemdCmds; }
-  ];
 
   environment.systemPackages = with pkgs; [
     v4l-utils  # for `ir-ctl` executable
