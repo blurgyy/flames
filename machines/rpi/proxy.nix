@@ -61,12 +61,6 @@ in {
           wsPath = config.sops.placeholder."v2ray/ws-path";
         }
       ];
-      extraHosts = {
-        "hooper" = config.sops.placeholder."server-addresses/hooper";
-        "peterpan" = config.sops.placeholder."server-addresses/peterpan";
-        "cindy" = config.sops.placeholder."server-addresses/cindy";
-        "watson" = config.sops.placeholder."server-addresses/watson";
-      };
     };
   };
   services.rathole = {

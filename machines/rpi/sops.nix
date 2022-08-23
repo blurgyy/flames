@@ -35,11 +35,6 @@ in {
       "v2ray/addresses/eu-00" = { };
       "v2ray/addresses/us-00" = { };
 
-      "server-addresses/cindy" = { };
-      "server-addresses/hooper" = { };
-      "server-addresses/peterpan" = { };
-      "server-addresses/watson" = { };
-
       "rathole/remote_addr" = { };
       "rathole/ssh/token" = { };
       "rathole/acremote/token" = { };
