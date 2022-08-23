@@ -32,8 +32,17 @@
       grub.device = "/dev/sda";
     };
     initrd = {
-      availableKernelModules = [ "virtio_pci" ];  # REF: <https://nixos.wiki/wiki/Remote_LUKS_Unlocking#Set_up_SSH_in_initrd>
-      postDeviceCommands = "sleep 2";  # REF: <https://github.com/NixOS/nixpkgs/issues/32588#issuecomment-725695984>
+      availableKernelModules = [  # modules to load in boot stage 1
+        "virtio_scsi"  # for detecting root disk in boot stage 1, REF: <https://github.com/NixOS/nixpkgs/issues/76980>
+        "virtio_net"  # for sshd in boot stage 1
+        "virtio_pci"  # not sure what this does
+      ];
+      kernelModules = [ "virtio_pci" "virtio_scsi" "virtio_net" ];  # NOTE: actually load the modules
+      # REF: <https://github.com/NixOS/nixpkgs/issues/32588#issuecomment-725695984>
+      postDeviceCommands = "
+        sleep 2
+        partprobe
+      ";
       network.ssh = let
         keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKco1z3uNTuYW7eVl2MTPrvVG5jnEnNJne/Us+LhKOwC gy@rpi"
