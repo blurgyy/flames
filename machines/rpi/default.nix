@@ -5,7 +5,7 @@ nixpkgs.lib.nixosSystem {
     ./configuration.nix
     ./hardware.nix
     ./sops.nix
-    ./proxy.nix
+    ./network.nix
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn
     inputs.acremote.nixosModules.${system}.default
