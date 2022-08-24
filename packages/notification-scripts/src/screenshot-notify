@@ -1,12 +1,11 @@
 #!@bash@/bin/bash
 
-# Capture a region of or the full screen, refuse to open another screenshot
-# session when another one is running.
+# Capture a region of or the full screen, refuse to open another screenshot session when another one
+# is running.
 #
 # Usage: $0 <type>
 #
-# Where <type> is one of "pixel", "region", "full" (without quotes), defaults
-# to "full".
+# Where <type> is one of "pixel", "region", "delegate", "full" (without quotes), defaults to "full".
 
 dunstify_bin="@dunst@/bin/dunstify"
 slurp_bin="@slurp@/bin/slurp"
@@ -60,9 +59,13 @@ elif [[ "$type" == "region" ]]; then
     # changed after invoking flameshot.
     "$wlpaste_bin" | "$convert_bin" - - | "$wlcopy_bin" -t image/png
   fi
+elif [[ "$type" == "delegate" ]]; then
+  "$flameshot_bin" gui
 elif [[ "$type" == "full" ]]; then
   "$flameshot_bin" screen \
     -p "$HOME/Pictures/screenshots/$(date +'%y%m%d%H%m%S').png" \
     -r |
     "$wlcopy_bin" -t image/png
 fi
+
+# vim: ft=sh:

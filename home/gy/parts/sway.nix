@@ -54,6 +54,7 @@ in {
       # Screenshots
       "${mod}+Shift+x" = "exec ${screenshot-notify} pixel";
       "${mod}+Shift+s" = "exec ${screenshot-notify} region";
+      "${mod}+Shift+d" = "exec ${screenshot-notify} delegate";
       "${mod}+Shift+p" = "exec ${screenshot-notify} full";
       "Print" = "exec ${screenshot-notify} full";
 

@@ -1,7 +1,6 @@
 #!@bash@/bin/bash
 
-# Sends notification about current backlight status with proper icon with
-# dunst.
+# Sends notification about current backlight status with proper icon with dunst.
 #
 # Usage: $0 <ID>
 #
@@ -34,3 +33,5 @@ exec "$dunstify_bin" --replace="$id" \
   --icon="$icon" \
   --hints=int:value:"$current" \
   "Brightness" "$message"
+
+# vim: ft=sh:

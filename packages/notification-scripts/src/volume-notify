@@ -38,3 +38,5 @@ exec "$dunstify_bin" --replace="$id" \
   --icon="$icon" \
   --hints=int:value:"$current" \
   "Volume" "$message"
+
+# vim: ft=sh:
