@@ -22,7 +22,7 @@
   });
   mode = mkOption { type = types.enum [ "tcp" "http" ]; default = "tcp"; };
   acmeModule = types.submodule ({ ... }: {
-    options.enable = mkOption { type = types.bool; };
+    options.enable = mkEnableOption "Configs passed to ACME";
     options.email = mkOption { type = types.nullOr types.str; default = null; };
     options.credentialsFile = mkOption { type = types.nullOr types.path; default = null; };
   });
