@@ -1,4 +1,4 @@
 {
-  selector = [ "eu" "us" "wss" ];
+  selector = [ "eu" "hk" "us" "wss" ];
   strategy.type = "leastPing";
 }

@@ -31,6 +31,7 @@ in {
       ports.socks = mkOption { type = with types; oneOf [ str int ]; };
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
       remotes = mkOption { type = with types; listOf remoteModule; };
+      overseaSelectors = mkOption { type = types.listOf types.str; };
     };
     server = {
       enable = mkEnableOption "Tailored V2Ray service (as server)";
@@ -54,9 +55,12 @@ in {
     services.v2ray.enable = false;
 
     # As client
-    sops.templates.vclient-config.content = with cfg.client; mkIf enable (builtins.toJSON
-        (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes; }));
-    sops.templates.nftables.content = mkIf cfg.client.enable config.networking.nftables.ruleset;
+    sops.templates.vclient-config = with cfg.client; mkIf enable {
+      content = builtins.toJSON (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes overseaSelectors; });
+    };
+    sops.templates.nftables = mkIf cfg.client.enable {
+      content = config.networking.nftables.ruleset;
+    };
     networking.nftables = mkIf cfg.client.enable {
       enable = true;
       rulesetFile = config.sops.templates.nftables.path;
@@ -143,8 +147,9 @@ table ip transparent_proxy {
     };
 
     # As server
-    sops.templates.vserver-config.content = with cfg.server; mkIf enable (builtins.toJSON
-        (import ./server { inherit config lib usersInfo ports wsPath; }));
+    sops.templates.vserver-config = with cfg.server; mkIf enable {
+      content = builtins.toJSON (import ./server { inherit config lib usersInfo ports wsPath; });
+    };
     systemd.services.vserver = mkIf cfg.server.enable {
       description = "V2Ray server";
       after = [ "network.target" ];

@@ -18,6 +18,13 @@
           wsPath = null;
         }
         rec {
+          tag = "hk-00";
+          address = config.sops.placeholder."v2ray/addresses/${tag}";
+          port = 443;
+          domain = config.sops.placeholder."v2ray/domains/${tag}";
+          wsPath = null;
+        }
+        rec {
           tag = "eu-00";
           address = config.sops.placeholder."v2ray/addresses/${tag}";
           port = 443;
@@ -47,6 +54,7 @@
           wsPath = config.sops.placeholder."v2ray/ws-path";
         }
       ];
+      overseaSelectors = [ "hk" "us" "wss" ];
     };
   };
 

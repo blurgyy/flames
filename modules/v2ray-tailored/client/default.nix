@@ -1,4 +1,4 @@
-{ config, lib, uuid, extraHosts, soMark, fwMark, ports, remotes }: with builtins; let
+{ config, lib, uuid, extraHosts, soMark, fwMark, ports, remotes, overseaSelectors }: with builtins; let
   applyTag = overrides: path: {
     tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
   } // (with builtins; let
@@ -49,7 +49,7 @@ in {
     ++ (map (applySoMark soMark) outbounds-servers);
   routing = import ./routing { inherit applyTag mapDir; };
   observatory = {
-    subjectSelector = [ "wss" "us" "eu" ];
+    subjectSelector = overseaSelectors;
     probeURL = config.sops.placeholder."v2ray/observatory-probe-url";
     probeInterval = "30s";
   };
