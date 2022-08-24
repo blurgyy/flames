@@ -1,4 +1,4 @@
 {
   network = "tcp,udp";
-  outboundTag = "default";
+  outboundTag = "00-default";
 }
