@@ -69,7 +69,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent:hover {
-  background-color: ${themeColor "yellow"};
+  background-color: ${themeColor "darkgray"};
 }
 
 /* https://stackoverflow.com/a/16344389/13482274 */
