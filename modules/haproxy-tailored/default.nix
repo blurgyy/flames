@@ -54,12 +54,20 @@
       in mkOption { type = types.listOf useBackendModule; default = []; };
     };
   });
-  backendModule = types.submodule ({ ... }: {
+  backendModule = types.submodule ({ ... }: let
+    backendServerModule = types.submodule ({ ... }: {
+      options.address = mkOption { type = types.str; example = "127.0.0.1:8080"; };
+      options.extraArgs = mkOption {
+        type = types.listOf types.str;
+        example = [ "send-proxy-v2" ];
+      };
+    });
+  in {
     options = {
       name = mkOption { type = types.str; };
       inherit mode;
       inherit acls requestRules;
-      server = mkOption { type = types.str; example = "127.0.0.1:8080"; };
+      server = mkOption { type = backendServerModule; };
     };
   });
   defaultsModule = types.submodule ({ ... }: {

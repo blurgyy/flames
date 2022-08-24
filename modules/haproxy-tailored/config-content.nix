@@ -11,7 +11,7 @@ frontend ${opts.name}
   ${concatStringsSep "\n  " (map (acl: "acl ${acl.name} ${acl.body}") opts.acls)}
   ${concatStringsSep "\n  " (map (rule: "${opts.mode}-request ${rule}") opts.requestRules)}
   ${concatStringsSep "\n  " (map
-    (backend: "${if backend.isDefault then "default" else "use"}_backend ${backend.name}${optionalString (!backends.isDefault) " ${backend.condition}"}")
+    (backend: "${if backend.isDefault then "default" else "use"}_backend ${backend.name}${optionalString (!backend.isDefault) " ${backend.condition}"}")
     opts.backends
   )}
 '';
@@ -20,7 +20,7 @@ backend ${opts.name}
   mode ${opts.mode}
   ${concatStringsSep "\n  " (map (acl: "acl ${acl.name} ${acl.body}") opts.acls)}
   ${concatStringsSep "\n  " (map (rule: "${opts.mode}-request ${rule}") opts.requestRules)}
-  server ${opts.name}-server ${opts.server}
+  server ${opts.name}-server ${opts.server.address} ${concatStringsSep " " opts.server.extraArgs}
 '';
 in ''
 ## This 2 lines are already defined in module `services.haproxy`
