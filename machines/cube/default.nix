@@ -4,7 +4,7 @@ nixpkgs.lib.nixosSystem {
   modules = [
     ./configuration.nix
     ./hardware.nix
-    ./network.nix
+    ./network
     ./sops.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
