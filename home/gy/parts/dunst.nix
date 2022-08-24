@@ -203,11 +203,15 @@
     max_icon_size = 32;
 
     # Paths in which to default icons.
-    # HACK: The complexity here is due to non-canonical file hierarchy of package flat-remix-icon-theme
-    icon_path = let mkDunstIconPath = { name, category, variant }:
-      "/etc/profiles/per-user/gy/share/icons/${name}/${category}/${variant}";
-    in lib.concatMapStringsSep ":" mkDunstIconPath (
-      lib.attrsets.cartesianProductOfSets {
+    # HACK: The added complexity here is due to non-canonical file hierarchy of package flat-remix-icon-theme
+    icon_path = with lib; let
+      mkFlatRemixIconPath = { name, category, variant }:
+        "${config.home.homeDirectory}/.nix-profile/share/icons/${name}/${category}/${variant}";
+      mkHiColorIconPath = { category, variant }:
+        "${config.home.homeDirectory}/.nix-profile/share/icons/hicolor/${variant}/${category}";
+      variant = [ "" "scalable" "symbolic" "512" "256" "128" "64" "48" "32" "24" "22" "18" "16" ];
+    in (concatMapStringsSep ":" mkFlatRemixIconPath (
+      cartesianProductOfSets {
         name = [ config.services.dunst.iconTheme.name ];
         category = [
           "status"
@@ -218,12 +222,17 @@
           "categories"
           "emblems"
           "mimetypes"
-          "panel"
+          # "panel"  # Don't use panel icons for dunst
           "places"
         ];
-        variant = [ "" "scalable" "symbolic" "32" "24" "22" "18" "16" ];
+        inherit variant;
       }
-    );
+    ))
+    + (concatMapStringsSep ":" mkHiColorIconPath (
+      cartesianProductOfSets {
+        inherit variant;
+        category = [ "apps" "stock" ];
+      }));
 
     ### History ###
 
