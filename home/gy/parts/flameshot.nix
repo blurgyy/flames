@@ -16,6 +16,7 @@
       userColors = "picker, #2e3440, #bf616a, #ebcb8b, #a3be8c, #8fbcbb, #5e81ac, #b48ead, #eceff4";
     };
     Shortcuts = {
+      TYPE_ACCEPT = "Return";
       TYPE_ARROW = "A";
       TYPE_CIRCLE = "C";
       TYPE_CIRCLECOUNT = "";
@@ -24,7 +25,6 @@
       TYPE_DELETE_CURRENT_TOOL = "Del";
       TYPE_DRAWER = "D";
       TYPE_EXIT = "Ctrl+Q";
-      TYPE_IMAGEUPLOADER = "Return";
       TYPE_MARKER = "M";
       TYPE_MOVESELECTION = "Ctrl+M";
       TYPE_MOVE_DOWN = "Down";
