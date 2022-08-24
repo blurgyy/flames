@@ -109,6 +109,7 @@ in {
           group = mkDefault cfg.group;
           dnsProvider = "cloudflare";
           inherit (frontendConfig.domain.acme) email credentialsFile;
+          reloadServices = [ "haproxy.service" ];
         }) (filter (frontendConfig: frontendConfig.domain != null && frontendConfig.domain.acme.enable) cfg.frontends);
       in listToAttrs acmePairs;
     };
@@ -182,6 +183,12 @@ in {
           BindPaths = [
             "/var/lib/self-signed/${domain.name}:/tmp/${domain.name}"
           ];
+          ExecStartPost = "+" + (pkgs.writeShellScript "acme-postrun" ''
+            cd /var/lib/self-signed/${escapeShellArg domain.name}
+            ${optionalString (data.reloadServices != [])
+                "systemctl --no-block try-reload-or-restart ${escapeShellArgs data.reloadServices}"
+            }
+          '');
         };
         script = ''
           mkdir -p ca
