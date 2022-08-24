@@ -345,6 +345,7 @@ in lib.mkMerge [
     };
     # HACK: Do not enable fcitx5-daemon.service because xdg-desktop-autostart.target already pulls another fcitx5 service
     services.fcitx5-daemon.Install.WantedBy = lib.mkForce [ ];
+    services.waybar.Unit.PartOf = [ "tray.target" ];
   };
 
   services = {
