@@ -114,19 +114,28 @@ in {
       in listToAttrs acmePairs;
     };
     systemd.services = {
-      haproxy.serviceConfig.ExecStartPre = mkBefore (concatLists (map
-        (frontendConfig: let
-          certRoot = if frontendConfig.domain.acme.enable
-            then "/var/lib/acme"
-            else "/var/lib/self-signed";
-          domainName = frontendConfig.domain.name;
-        in [
-          "${pkgs.coreutils}/bin/mkdir -p /run/haproxy/${domainName}"
-          # NOTE: use bash since systemd does not know how to treat redirection
-          "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
-        ])
-        (filter (frontendConfig: frontendConfig.domain != null) cfg.frontends)
-      ));
+      haproxy = {
+        serviceConfig.ExecStartPre = mkBefore (concatLists (map
+          (frontendConfig: let
+            certRoot = if frontendConfig.domain.acme.enable
+              then "/var/lib/acme"
+              else "/var/lib/self-signed";
+            domainName = frontendConfig.domain.name;
+          in [
+            "${pkgs.coreutils}/bin/mkdir -p /run/haproxy/${domainName}"
+            # NOTE: use bash since systemd does not know how to treat redirection
+            "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
+          ])
+          (filter (frontendConfig: frontendConfig.domain != null) cfg.frontends)
+        ));
+        reloadTriggers = [
+          (replaceStrings [ " " ] [ "" ]
+            (concatStringsSep ""
+              (splitString "\n" config.services.haproxy.config)
+            )
+          )
+        ];
+      };
     } // (let
       commonServiceConfig = {
         Type = "oneshot";

@@ -9,8 +9,15 @@
 
   services.rathole = {
     enable = true;
-    configFile = config.sops.templates.rathole-config.path;
+    client = {
+      remoteAddr = config.sops.placeholder."rathole/remote_addr";
+      services = [
+        {
+          name = "ssh-${config.networking.hostName}";
+          token = config.sops.placeholder."rathole/ssh/token";
+          localAddr = "127.1:22";
+        }
+      ];
+    };
   };
-
-  sops.templates.rathole-config.content = pkgs.toTOML (import ./parts/rathole.nix { inherit config; });
 }

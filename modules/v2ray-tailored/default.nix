@@ -111,6 +111,7 @@ table ip transparent_proxy {
         ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vclient-config.path}";
         LimitNOFILE = 1000000007;
       };
+      restartTriggers = [ config.sops.templates.vclient-config.content ];
     };
     networking.resolvconf.extraConfig = mkIf cfg.client.enable "name_servers=127.0.0.53";  # REF: man:resolvconf.conf(5)
     services.resolved.enable = mkIf cfg.client.enable false;
@@ -158,6 +159,7 @@ table ip transparent_proxy {
         ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vserver-config.path}";
         LimitNOFILE = 1000000007;
       };
+      restartTriggers = [ config.sops.templates.vserver-config.content ];
     };
   };
 }
