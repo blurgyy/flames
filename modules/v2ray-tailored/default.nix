@@ -4,7 +4,7 @@
     options = {
       tag = mkOption { type = types.str; };
       address = mkOption { type = types.str; };
-      port = mkOption { type = types.int; };
+      port = mkOption { type = with types; oneOf [ str int ]; };
       domain = mkOption { type = types.str; };
       wsPath = mkOption { type = types.nullOr types.str; default = null; };
       allowInsecure = mkOption { type = types.bool; default = false; };
@@ -14,6 +14,17 @@
     options.uuid = mkOption { type = types.str; example = "44444444-4444-4444-8888-888888888888"; };
     options.email = mkOption { type = types.str; example = "example@example.org"; };
     options.level = mkOption { type = types.int; example = 0; };
+  });
+  reverseModule = types.submodule ({ ... }: {
+    options = {
+      counterpartName = mkOption { type = types.str; };
+      position = mkOption { type = types.enum [ "world" "internal" ]; };
+      port = mkOption { type = with types; oneOf [ str int ]; };
+      id = mkOption { type = types.str; example = "44444444-4444-4444-8888-888888888888"; };
+      proxiedDomains = mkOption { type = types.listOf types.str; default = []; };  # Works when position is "world"
+      proxiedIPs = mkOption { type = types.listOf types.str; default = []; };  # Works when position is "world"
+      counterpartAddr = mkOption { type = types.str; example = "1.1.1.1"; };  # Works when position is "internal"
+    };
   });
 in {
   options.services.v2ray-tailored = {
@@ -44,6 +55,7 @@ in {
         default = [ ];
         description = "Credentials of users to serve";
       };
+      reverse = mkOption { type = types.nullOr reverseModule; default = null; };
     };
     package = mkOption {
       type = types.package;
@@ -149,7 +161,7 @@ table ip transparent_proxy {
 
     # As server
     sops.templates.vserver-config = with cfg.server; mkIf enable {
-      content = builtins.toJSON (import ./server { inherit config lib usersInfo ports wsPath; });
+      content = builtins.toJSON (import ./server { inherit config lib usersInfo ports wsPath reverse; });
     };
     systemd.services.vserver = mkIf cfg.server.enable {
       description = "V2Ray server";
