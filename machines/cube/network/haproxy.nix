@@ -1,4 +1,6 @@
-{ config }: {
+{ config }: let
+  domainName = "${config.networking.fqdn}";
+in {
   enable = true;
   frontends = [
     {
@@ -28,7 +30,7 @@
       alpns = [ "http/1.1" ];
       acceptProxy = true;
       domain = {
-        name = "cube.blurgy.xyz";
+        name = domainName;
         acme = {
           enable = true;
           email = "gy@blurgy.xyz";
@@ -38,6 +40,10 @@
       requestRules = [
         "inspect-delay 5s"
         "content accept if { req_ssl_hello_type 1 }"
+      ];
+      backends = [
+        { name = "web"; condition = "if HTTP"; }
+        { name = "pivot"; condition = "if !HTTP"; }
       ];
     }
   ];
@@ -50,5 +56,7 @@
         extraArgs = [ "send-proxy-v2" ];
       };
     }
+    { name = "web"; mode = "http"; server.address = "127.0.0.1:8080"; }
+    { name = "pivot"; mode = "tcp"; server.address = "127.0.0.1:65092"; }
   ];
 }

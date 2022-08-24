@@ -20,6 +20,7 @@
 
   networking = {
     hostName = "cube";
+    domain = "blurgy.xyz";
     useNetworkd = true;
     interfaces.eth0.useDHCP = true;
     firewall.enable = false;

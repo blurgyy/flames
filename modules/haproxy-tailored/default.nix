@@ -60,6 +60,7 @@
       options.extraArgs = mkOption {
         type = types.listOf types.str;
         example = [ "send-proxy-v2" ];
+        default = [];
       };
     });
   in {
