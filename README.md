@@ -47,3 +47,33 @@ Trouble Shooting
   key for `sops` must also be copied to the sdcard (use `rsync -aAX` to preserve mode info).
 
   > The image can be built with `nix build .#nixosConfigurations.rpi.config.system.build.sdImage`.
+
+* On a machine with tight memory budgets, the `/nix/store` in an live environment might not have
+  sufficient space for a installation.  The path `/nix/.rw-store` should be of type `tmpfs` at this
+  moment, remount it to gain more spaces:
+
+  ```bash
+  $ mount -oremount,size=100% /nix/.rw-store
+  ```
+
+  > See <https://gist.github.com/blurgyy/0d559e6bb9f20de46f61938539b9cd74> for an example.
+
+* If installation process is killed due to OOM, enable zram in the live environment:
+
+  ```bash
+  $ modprobe zram
+  $ echo lz4 >/sys/block/zram0/comp_algorithm
+  $ echo 2G >/sys/block/zram0/disksize
+  $ mkswap /dev/zram0
+  $ swapon --priority 100 /dev/zram0
+  ```
+
+  > See <https://gist.github.com/blurgyy/0d559e6bb9f20de46f61938539b9cd74> for an example.
+
+* If installation was successfull but boot fails at Stage 1, complaining that the root filesystem
+  could not be found and mounted, this may be due to related kernel modules not being loaded.  On a
+  bandwagon machine, adding an entry `virtio_scsi` to both `boot.initrd.availableKernelModules` and
+  `boot.initrd.kernelModules` before installing solved this problem.
+
+  > See [./machines/cube/hardware.nix](./machines/cube/hardware.nix) for an concrete example.
+  > Related: <https://github.com/NixOS/nixpkgs/issues/76980>
