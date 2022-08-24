@@ -113,7 +113,7 @@ in {
         in [
           "${pkgs.coreutils}/bin/mkdir -p /run/haproxy/${domainName}"
           # NOTE: use bash since systemd does not know how to treat redirection
-          "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem >/run/haproxy/${domainName}/full.pem'"
+          "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
         ])
         (filter (frontendConfig: frontendConfig.domain != null) cfg.frontends)
       ));
