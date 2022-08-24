@@ -61,7 +61,7 @@
     ports.wss = config.sops.placeholder."v2ray/ports/wss";
     wsPath = config.sops.placeholder."v2ray/ws-path";
     usersInfo = let
-      level = 0;
+      level = 1;
     in [
       {
         uuid = config.sops.placeholder."v2ray/users/00/uuid";
