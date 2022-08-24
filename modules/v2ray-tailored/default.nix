@@ -10,6 +10,11 @@
       allowInsecure = mkOption { type = types.bool; default = false; };
     };
   });
+  userModule = types.submodule ({ ... }: {
+    options.uuid = mkOption { type = types.str; example = "44444444-4444-4444-8888-888888888888"; };
+    options.email = mkOption { type = types.str; example = "example@example.org"; };
+    options.level = mkOption { type = types.int; example = 0; };
+  });
 in {
   options.services.v2ray-tailored = {
     client = {
@@ -34,14 +39,8 @@ in {
       ports.wss = mkOption { type = with types; oneOf [ str int ]; };
       wsPath = mkOption { type = types.str; description = "Path for websocket inbound"; };
       usersInfo = mkOption {
-        type = with types; listOf attrs;
-        default = [
-          {
-            uuid = "44444444-4444-4444-8888-888888888888";
-            email = "example@example.org";
-            level = 0;
-          }
-        ];
+        type = with types; listOf userModule;
+        default = [ ];
         description = "Credentials of users to serve";
       };
     };
