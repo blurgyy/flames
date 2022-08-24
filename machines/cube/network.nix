@@ -1,5 +1,8 @@
 { config, ... }: {
-  networking.nftables.ruleset = builtins.readFile ../_parts/raw/nftables-default.conf;
+  networking.nftables = {
+    enable = true;
+    ruleset = builtins.readFile ../_parts/raw/nftables-default.conf;
+  };
   services = {
     haproxy-tailored = let
       domainName = "${config.networking.fqdn}";
