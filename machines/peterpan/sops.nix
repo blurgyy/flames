@@ -5,9 +5,9 @@ in {
     defaultSopsFile = ./secrets.yaml;
     age = {
       keyFile = sops-key-file;
-      sshKeyPaths = [];  # Do not import ssh keys
+      sshKeyPaths = [ ];  # Do not import ssh keys
     };
-    gnupg.sshKeyPaths = [];
+    gnupg.sshKeyPaths = [ ];  # Do not import ssh keys  
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
 }
