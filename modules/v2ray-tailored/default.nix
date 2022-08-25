@@ -79,6 +79,7 @@ in {
         predicate = "ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 }";
       }];
       extraRulesAfter = with builtins; with cfg.client; [''
+include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
 define proxy_bypassed_IPs = {
   100.64.0.0/10,
   127.0.0.0/8,
@@ -112,6 +113,7 @@ table ip transparent_proxy {
     policy accept
 
     ip daddr $proxy_bypassed_IPs return
+    ip daddr $geoip4_iso_country_CN return
 
     socket cgroupv2 level 1 "system.slice" socket cgroupv2 level 2 != "system.slice/nix-daemon.service" return
     meta l4proto {tcp,udp} meta mark set ${toString fwMark} 
