@@ -74,7 +74,7 @@ in {
       enable = true;
       acceptedPorts = [{
         port = 9990;
-        protocols = "tcp";
+        protocols = [ "tcp" ];
         comment = "allow machines from private network ranges to access http proxy";
         predicate = "ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 }";
       }];

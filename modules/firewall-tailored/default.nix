@@ -3,7 +3,7 @@
   portType = with types; oneOf [ int str ];
   portModule = types.submodule ({ ... }: {
     options.port = mkOption { type = portType; };
-    options.protocols = mkOption { type = types.str; };
+    options.protocols = mkOption { type = types.listOf types.str; };
     options.predicate = mkOption { type = types.nullOr types.str; default = null; };
     options.comment = mkOption { type = types.nullOr types.str; default = null; };
   });
@@ -61,11 +61,11 @@ table inet filter {
 
     ${concatStringsSep "\n    " (map (portInfo: with builtins;
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
-      then "meta l4proto {tcp,udp} th dport ${portInfo} accept"
+      then "meta l4proto tcp th dport ${portInfo} accept"
       else "${if (portInfo.predicate != null)
           then portInfo.predicate
           else ""
-        } meta l4proto {${portInfo.protocols}} th dport ${toString portInfo.port} accept ${if (portInfo.comment != null)
+        } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} accept ${if (portInfo.comment != null)
           then "comment \"${portInfo.comment}\""
           else ""
         }"
