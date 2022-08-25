@@ -198,6 +198,7 @@ in {
           '');
         };
         script = ''
+          rm -rf ${domain.name}/*
           mkdir -p ca
           ${pkgs.minica}/bin/minica \
             --ca-key ca/key.pem \
