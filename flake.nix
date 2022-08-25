@@ -61,6 +61,7 @@
         inherit nixpkgs inputs self;
       };
     in rec {
+      gy = import ./home/gy x86_64-headless;
       "gy@cindy" = import ./home/gy aarch64-headless;
       "gy@cadliu" = import ./home/gy (x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; });
       "gy@cad-liu" = self.homeConfigurations."gy@cadliu";
