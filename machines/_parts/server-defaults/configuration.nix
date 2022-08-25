@@ -50,6 +50,13 @@
     command-not-found.enable = false;
   };
 
+  security.sudo.extraRules = let
+    applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
+    systemdCmds = map applyNoPasswd (map (cmd: "${pkgs.systemd}/bin/${cmd}") [ "systemctl" "journalctl" ]);
+  in [
+    { groups = [ "wheel" ]; commands = systemdCmds; }
+  ];
+
   services = {
     btrfs.autoScrub = {
       enable = true;
