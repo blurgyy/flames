@@ -10,11 +10,11 @@ in {
   sops = {
     inherit defaultSopsFile age gnupg;
     secrets = {
-      acme-credentials-file = { };
-      "v2ray/ports/api" = { };
-      "v2ray/ports/tcp" = { };
-      "v2ray/ports/wss" = { };
-      "v2ray/ws-path" = { };
+      acme-credentials-file = {};
+      "v2ray/ports/api" = {};
+      "v2ray/ports/tcp" = {};
+      "v2ray/ports/wss" = {};
+      "v2ray/ws-path" = {};
 
       "v2ray/users/00/uuid" = {};
       "v2ray/users/01/uuid" = {};
