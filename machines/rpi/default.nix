@@ -3,9 +3,9 @@ nixpkgs.lib.nixosSystem {
   inherit system;
   modules = [
     ../_parts/defaults/network
+    ../_parts/defaults/secret
     ./configuration.nix
     ./hardware.nix
-    ./sops.nix
     ./network.nix
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn

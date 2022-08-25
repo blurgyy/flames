@@ -3,11 +3,11 @@ nixpkgs.lib.nixosSystem {
   inherit system;
   modules = [
     ../_parts/defaults/network
+    ../_parts/defaults/secret
     ../_parts/defaults/server/configuration.nix
     ../_parts/defaults/server/hardware.nix
     ./configuration.nix
     ./network
-    ./sops.nix
     inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn

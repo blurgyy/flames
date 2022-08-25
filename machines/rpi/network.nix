@@ -37,6 +37,7 @@ in {
     "rathole/acremote/token" = {};
   };
   networking.wireless = {
+    enable = true;
     environmentFile = config.sops.secrets.wireless-environment-file.path;
     networks = {
       "@wlan_0@".psk = "@wlan_0_psk@";
