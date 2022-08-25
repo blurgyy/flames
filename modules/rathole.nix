@@ -31,7 +31,7 @@ in {
     server = mkOption { type = types.nullOr serverModule; default = null; };
   };
   config = mkIf cfg.enable {
-    systemd.services.rathole-client = mkIf (cfg.client != null) (with pkgs; {
+    systemd.services.rathole-client = mkIf (cfg.client != null || cfg.server != null) (with pkgs; {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
