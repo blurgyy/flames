@@ -77,6 +77,10 @@
         system = "x86_64-linux";
         inherit self nixpkgs inputs;
       };
+      peterpan = import ./machines/peterpan {
+        system = "x86_64-linux";
+        inherit self nixpkgs inputs;
+      };
       rpi = import ./machines/rpi {
         system = "aarch64-linux";
         inherit self nixpkgs inputs;

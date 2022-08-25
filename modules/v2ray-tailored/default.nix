@@ -86,7 +86,8 @@ define proxy_bypassed_IPs = {
   224.0.0.0/4,
   240.0.0.0/4,
   255.255.255.255/32,
-  ${concatStringsSep "," (map (x: x.address) (filter (x: x.wsPath == null) remotes))}
+  ${concatStringsSep "," ((map (x: toString x.address) (filter (x: x.wsPath == null) remotes))
+    + (if (cfg.server.reverse != null) then [ (toString reverse.port) ] else []))}
 }
 table ip transparent_proxy
 delete table ip transparent_proxy

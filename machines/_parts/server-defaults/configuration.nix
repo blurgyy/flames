@@ -19,6 +19,7 @@
   nixpkgs.config.allowUnfree = true;
 
   networking = {
+    domain = "blurgy.xyz";
     useNetworkd = true;
     interfaces.eth0.useDHCP = true;
     firewall.enable = false;

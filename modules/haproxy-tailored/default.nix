@@ -194,9 +194,7 @@ in {
           ];
           ExecStartPost = "+" + (pkgs.writeShellScript "acme-postrun" ''
             cd /var/lib/self-signed/${escapeShellArg domain.name}
-            ${optionalString (data.reloadServices != [])
-                "systemctl --no-block try-reload-or-restart ${escapeShellArgs data.reloadServices}"
-            }
+            systemctl --no-block try-reload-or-restart haproxy.service
           '');
         };
         script = ''
