@@ -2,9 +2,9 @@
 nixpkgs.lib.nixosSystem {
   inherit system;
   modules = [
-    ../_parts/network-defaults
-    ../_parts/server-defaults/configuration.nix
-    ../_parts/server-defaults/hardware.nix
+    ../_parts/defaults/network
+    ../_parts/defaults/server/configuration.nix
+    ../_parts/defaults/server/hardware.nix
     ./configuration.nix
     ./network
     ./sops.nix
