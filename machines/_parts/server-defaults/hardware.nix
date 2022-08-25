@@ -29,7 +29,8 @@
     loader.grub.enable = true;  # NOTE: Define `boot.loader.grub.device` per-host
     initrd = {
       availableKernelModules = [  # modules to load in boot stage 1
-        "virtio_scsi"  # for detecting root disk in boot stage 1, REF: <https://github.com/NixOS/nixpkgs/issues/76980>
+        "virtio_blk"  # for detecting /dev/vd* disks, REF: <https://intl.cloud.tencent.com/document/product/213/9929>
+        "virtio_scsi"  # for detecting SCSI root disk in boot stage 1, REF: <https://github.com/NixOS/nixpkgs/issues/76980>
         "virtio_net"  # for sshd in boot stage 1
         "virtio_pci"  # not sure what this does
       ];
