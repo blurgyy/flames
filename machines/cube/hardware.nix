@@ -3,9 +3,8 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-  };
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.cpu.amd.updateMicrocode = true;
 
   boot = {
     kernel = {
