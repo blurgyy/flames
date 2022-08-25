@@ -2,8 +2,9 @@
 nixpkgs.lib.nixosSystem {
   inherit system;
   modules = [
+    ../_parts/server-defaults/configuration.nix
+    ../_parts/server-defaults/hardware.nix
     ./configuration.nix
-    ./hardware.nix
     ./network
     ./sops.nix
     inputs.home-manager.nixosModules.home-manager
