@@ -86,7 +86,7 @@
       extraGroups = [
         config.users.groups.wheel.name
         config.users.groups.plocate.name
-        ];
+      ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = keys;
     };
