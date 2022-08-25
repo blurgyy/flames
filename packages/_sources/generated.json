@@ -112,6 +112,20 @@
         },
         "version": "v2.4.1"
     },
+    "nftables-geoip-db": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "nftables-geoip-db",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-tJz7MoaiRQ4OFBsXTRNGNusAydDT8wIkBCWNulISpB4=",
+            "type": "url",
+            "url": "https://download.db-ip.com/free/dbip-country-lite-2022-08.csv.gz"
+        },
+        "version": "2022-08"
+    },
     "symbols-nerd-font": {
         "cargoLocks": null,
         "extract": null,
@@ -187,6 +201,20 @@
             "type": "github"
         },
         "version": "0.0.32"
+    },
+    "xtables-addons-perl-scripts": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "xtables-addons-perl-scripts",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-LgmsEpoU9enCOxFevN//SqhOKuuhJo2985stdSvXHhk=",
+            "type": "url",
+            "url": "https://inai.de/files/xtables-addons/xtables-addons-3.21.tar.xz"
+        },
+        "version": "3.21"
     },
     "zellij-hirr": {
         "cargoLocks": {

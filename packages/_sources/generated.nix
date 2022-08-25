@@ -71,6 +71,14 @@
       sha256 = "sha256-xFA+9JO3Rnj/CAYXb+oOnbslH3jgEapHA67I6dMFRFI=";
     });
   };
+  nftables-geoip-db = {
+    pname = "nftables-geoip-db";
+    version = "2022-08";
+    src = fetchurl {
+      url = "https://download.db-ip.com/free/dbip-country-lite-2022-08.csv.gz";
+      sha256 = "sha256-tJz7MoaiRQ4OFBsXTRNGNusAydDT8wIkBCWNulISpB4=";
+    };
+  };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
     version = "v2.1.0";
@@ -117,6 +125,14 @@
       fetchSubmodules = false;
       sha256 = "sha256-5Hhqnwh9/s2rnITtcGnsR3M0DouTUh8CMLxgX5xrnyg=";
     });
+  };
+  xtables-addons-perl-scripts = {
+    pname = "xtables-addons-perl-scripts";
+    version = "3.21";
+    src = fetchurl {
+      url = "https://inai.de/files/xtables-addons/xtables-addons-3.21.tar.xz";
+      sha256 = "sha256-LgmsEpoU9enCOxFevN//SqhOKuuhJo2985stdSvXHhk=";
+    };
   };
   zellij-hirr = {
     pname = "zellij-hirr";

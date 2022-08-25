@@ -25,6 +25,10 @@ cargo_locks = ["Cargo.lock"]
 src.github = "lukas-reineke/lsp-format.nvim"
 fetch.github = "lukas-reineke/lsp-format.nvim"
 
+[nftables-geoip-db]
+src.cmd = "date +'%Y-%m'"
+fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
+
 [symbols-nerd-font]
 src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/src/glyphs/Symbols-2048-em%20Nerd%20Font%20Complete.ttf"
@@ -41,6 +45,11 @@ fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"
+
+[xtables-addons-perl-scripts]
+# curl https://inai.de/projects/xtables-addons/ | rg -i 'Latest release:' | sed -Ee 's:.*<b>([0-9]+\.[0-9]+)</b>.*:\1:'
+src.cmd = "curl https://inai.de/projects/xtables-addons/ | rg -i 'Latest release:' | sed -Ee 's:.*<b>([0-9]+\\.[0-9]+)</b>.*:\\1:'"
+fetch.url = "https://inai.de/files/xtables-addons/xtables-addons-$ver.tar.xz"
 
 [zellij-hirr]
 src.github = "zellij-org/zellij"
