@@ -74,7 +74,7 @@ in {
           counterpartName = "watson";
           position = "world";
           port = 10024;
-          id = config.sops.placeholder."v2ray/ports/reverse";
+          id = config.sops.placeholder."v2ray/users/reverse/uuid";
           proxiedDomains = [
             "cc98"
             "domain:nexushd"
