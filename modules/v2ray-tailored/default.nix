@@ -70,13 +70,15 @@ in {
     sops.templates.vclient-config = with cfg.client; mkIf enable {
       content = builtins.toJSON (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes overseaSelectors; });
     };
-    sops.templates.nftables = mkIf cfg.client.enable {
-      content = config.networking.nftables.ruleset;
-    };
-    networking.nftables = mkIf cfg.client.enable {
+    networking.firewall-tailored = mkIf cfg.client.enable {
       enable = true;
-      rulesetFile = config.sops.templates.nftables.path;
-      ruleset = with builtins; with cfg.client; mkAfter ''
+      acceptedPorts = [{
+        port = 9990;
+        protocols = "tcp";
+        comment = "allow machines from private network ranges to access http proxy";
+        predicate = "ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 }";
+      }];
+      extraRulesAfter = with builtins; with cfg.client; [''
 define proxy_bypassed_IPs = {
   100.64.0.0/10,
   127.0.0.0/8,
@@ -100,9 +102,9 @@ table ip transparent_proxy {
 
     ip daddr $proxy_bypassed_IPs return
 
-    meta l4proto {tcp, udp} socket transparent 1 meta mark ${toString fwMark} return
-    meta l4proto {tcp, udp} socket transparent 1 meta mark ${toString soMark} return
-    meta l4proto {tcp, udp} meta mark ${toString fwMark} tproxy to :${toString ports.tproxy}
+    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString fwMark} return
+    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString soMark} return
+    meta l4proto {tcp,udp} meta mark ${toString fwMark} tproxy to :${toString ports.tproxy}
   }
 
   chain output {
@@ -112,9 +114,9 @@ table ip transparent_proxy {
     ip daddr $proxy_bypassed_IPs return
 
     socket cgroupv2 level 1 "system.slice" socket cgroupv2 level 2 != "system.slice/nix-daemon.service" return
-    meta l4proto {tcp, udp} meta mark set ${toString fwMark} 
+    meta l4proto {tcp,udp} meta mark set ${toString fwMark} 
   }
-}'';
+}''];
     };
     systemd.services.vclient = mkIf cfg.client.enable {
       description = "V2Ray client";

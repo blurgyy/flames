@@ -17,10 +17,6 @@
     value = {};
   }) ratholeServiceNames));
 in {
-  networking.nftables = {
-    enable = true;
-    ruleset = builtins.readFile ../../_parts/raw/nftables-default.conf;
-  };
   sops.secrets = {
     "v2ray/id" = {};
     "v2ray/observatory-probe-url" = {};
