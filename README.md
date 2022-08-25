@@ -77,3 +77,34 @@ Trouble Shooting
 
   > See [./machines/cube/hardware.nix](./machines/cube/hardware.nix) for an concrete example.
   > Related: <https://github.com/NixOS/nixpkgs/issues/76980>
+
+* To boot from an ISO located on a physical drive `/dev/vda3` at path `/live.iso`, use below grub
+  entry:
+  ```
+  menuentry "NixOS minimal ISO" --class nixos {
+    set isofile="/live.iso"
+    set linux_path="/boot/bzImage"
+    set initrd_path="/boot/initrd"
+    loopback loop (hd0,3)$isofile  # /dev/vda3
+    linux (loop)$linux_path init=/nix/store/69d87r2dvhhbbq17lsw04msvcq0y0kg0-nixos-system-nixos-22.05.2676.b9fd420fa53/init root=LABEL=nixos-minimal-22.05-x86_64 boot.shell_on_fail loglevel=4 copytoram
+    initrd (loop)$initrd_path
+  }
+  ```
+
+  > **Note that the kernel params are copied from inside the ISO image**.
+
+* If the live environment cannot pass through stage 1 due to `/dev/root` not appearing, a workaround
+  is to copy all contents of the ISO image to a standalong partition and use it as the `root=`
+  parameter, e.g.
+  ```bash
+  $ mkdir iso-mnt fresh-part-mnt
+  $ mount /live.iso iso-mnt/
+  $ mount /dev/disk/by-label/fresh-partition fresh-part-mnt/
+  $ cp -vr iso-mnt/* fresh-part-mnt/
+  ```
+  And The `linux (loop)$linux_path ...` line in the above menuentry becomes:
+  ```
+    linux (loop)$linux_path init=/nix/store/69d87r2dvhhbbq17lsw04msvcq0y0kg0-nixos-system-nixos-22.05.2676.b9fd420fa53/init root=LABEL=nixos-minimal-22.05-x86_64 boot.shell_on_fail loglevel=4 copytoram
+  ```
+  Where the `/dev/disk/by-label/fresh-partition` should be the partition to create and put all
+  contents in.
