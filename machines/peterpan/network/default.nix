@@ -22,6 +22,10 @@ in {
     ruleset = builtins.readFile ../../_parts/raw/nftables-default.conf;
   };
   sops.secrets = {
+    "v2ray/id" = {};
+    "v2ray/observatory-probe-url" = {};
+    "v2ray/ws-path" = {};
+
     "v2ray/ports/http" = {};
     "v2ray/ports/socks" = {};
     "v2ray/ports/tproxy" = {};
@@ -29,8 +33,6 @@ in {
     "v2ray/ports/api" = {};
     "v2ray/ports/tcp" = {};
     "v2ray/ports/wss" = {};
-
-    "v2ray/ws-path" = {};
 
     "v2ray/users/00/uuid" = {};
     "v2ray/users/01/uuid" = {};
@@ -85,6 +87,7 @@ in {
       };
     };
     v2ray-tailored = {
+      client = (import ../../_parts/v2ray.nix { inherit config; }).client;
       server = (import ../../_parts/v2ray.nix { inherit config; }).server // {
         reverse = {
           counterpartName = "watson";
