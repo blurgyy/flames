@@ -26,10 +26,7 @@
       "mitigations=off"
       "net.ifnames=0"  # predictable interface names
     ];
-    loader = {
-      grub.enable = true;
-      grub.device = "/dev/sda";
-    };
+    loader.grub.enable = true;  # NOTE: Define `boot.loader.grub.device` per-host
     initrd = {
       availableKernelModules = [  # modules to load in boot stage 1
         "virtio_scsi"  # for detecting root disk in boot stage 1, REF: <https://github.com/NixOS/nixpkgs/issues/76980>
