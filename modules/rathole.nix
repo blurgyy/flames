@@ -31,16 +31,28 @@ in {
     server = mkOption { type = types.nullOr serverModule; default = null; };
   };
   config = mkIf cfg.enable {
-    systemd.services.rathole-client = mkIf (cfg.client != null || cfg.server != null) (with pkgs; {
-      after = [ "network.target" ];
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        ExecStart = "${cfg.package}/bin/rathole --client ${config.sops.templates.rathole-config.path}";
-        Restart = "on-failure";
-        RestartSec = 5;
-      };
-      restartTriggers = [ (replaceStrings [ " " ] [ "" ] (concatStringsSep "" (splitString "\n" config.sops.templates.rathole-config.content))) ];
-    });
+    systemd.services = {
+      rathole-client = mkIf (cfg.client != null) (with pkgs; {
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+          ExecStart = "${cfg.package}/bin/rathole --client ${config.sops.templates.rathole-config.path}";
+          Restart = "on-failure";
+          RestartSec = 5;
+        };
+        restartTriggers = [ (replaceStrings [ " " ] [ "" ] (concatStringsSep "" (splitString "\n" config.sops.templates.rathole-config.content))) ];
+      });
+      rathole-server = mkIf (cfg.server != null) (with pkgs; {
+        after = [ "network.target" ];
+        wantedBy = [ "multi-user.target" ];
+        serviceConfig = {
+          ExecStart = "${cfg.package}/bin/rathole --server ${config.sops.templates.rathole-config.path}";
+          Restart = "on-failure";
+          RestartSec = 5;
+        };
+        restartTriggers = [ (replaceStrings [ " " ] [ "" ] (concatStringsSep "" (splitString "\n" config.sops.templates.rathole-config.content))) ];
+      });
+    };
     sops.templates.rathole-config.content = let
       lift = services: listToAttrs
         (map
