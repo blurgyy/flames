@@ -22,9 +22,14 @@ in {
     ruleset = builtins.readFile ../../_parts/raw/nftables-default.conf;
   };
   sops.secrets = {
+    "v2ray/ports/http" = {};
+    "v2ray/ports/socks" = {};
+    "v2ray/ports/tproxy" = {};
+
     "v2ray/ports/api" = {};
     "v2ray/ports/tcp" = {};
     "v2ray/ports/wss" = {};
+
     "v2ray/ws-path" = {};
 
     "v2ray/users/00/uuid" = {};
@@ -44,6 +49,17 @@ in {
     "v2ray/ports/reverse" = {};
     "v2ray/users/reverse/uuid" = {};
     "v2ray/users/reverse/email" = {};
+
+    "v2ray/addresses/us-00" = {};
+    "v2ray/addresses/hk-00" = {};
+    "v2ray/addresses/eu-00" = {};
+    "v2ray/addresses/cn-00" = {};
+
+    "v2ray/domains/us-00" = {};
+    "v2ray/domains/hk-00" = {};
+    "v2ray/domains/eu-00" = {};
+    "v2ray/domains/wss-us-00" = {};
+    "v2ray/domains/wss-eu-00" = {};
 
     "rathole/bind-addr" = {};
   } // ratholeServiceTokens // ratholeServiceAddrs;
