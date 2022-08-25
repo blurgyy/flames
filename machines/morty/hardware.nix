@@ -3,6 +3,16 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
+  hardware = {
+    cpu.intel.updateMicrocode = true;
+    bluetooth.enable = true;
+    opengl = {
+      # NOTE: needed to get sway to work.  (See https://search.nixos.org)
+      enable = true;
+      extraPackages = with pkgs; [ vaapiIntel ];
+    };
+  };
+
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
     initrd.kernelModules = [ "i915" "amdgpu" ];

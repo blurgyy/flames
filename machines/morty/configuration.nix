@@ -81,18 +81,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  hardware = {
-    cpu.intel.updateMicrocode = true;
-    bluetooth.enable = true;
-    opengl = {
-      # NOTE: needed to get sway to work.  (See https://search.nixos.org)
-      enable = true;
-      extraPackages = with pkgs; [
-        vaapiIntel
-      ];
-    };
-  };
-
   # Enable pipewire (see NixOS Wiki)
   security.rtkit.enable = true;
   services.pipewire = {
