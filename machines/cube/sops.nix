@@ -29,13 +29,6 @@ in {
       "v2ray/users/03/email" = {};
       "v2ray/users/04/email" = {};
       "v2ray/users/05/email" = {};
-
-      "v2ray/users/00/level" = {};
-      "v2ray/users/01/level" = {};
-      "v2ray/users/02/level" = {};
-      "v2ray/users/03/level" = {};
-      "v2ray/users/04/level" = {};
-      "v2ray/users/05/level" = {};
     };
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
