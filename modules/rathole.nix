@@ -10,7 +10,7 @@ in {
         localAddr = mkOption { type = types.str; };
       };
     });
-    serverServiceModule = types.submodle ({ ... }: {
+    serverServiceModule = types.submodule ({ ... }: {
       options = {
         inherit name token;
         bindAddr = mkOption { type = types.str; };

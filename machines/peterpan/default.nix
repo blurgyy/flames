@@ -15,6 +15,9 @@ nixpkgs.lib.nixosSystem {
     {
       nixpkgs.overlays = [
         self.overlays.default
+        (final: prev: {
+          toTOML = inputs.nix-std.lib.serde.toTOML;
+        })
       ];
     }
   ];

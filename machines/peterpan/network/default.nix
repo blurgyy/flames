@@ -5,6 +5,25 @@
   };
   services = {
     haproxy-tailored = import ./haproxy.nix { inherit config; };
+    rathole = {
+      enable = true;
+      server = {
+        bindAddr = config.sops.placeholder."rathole/bind-addr";
+        services = map (name: {
+          inherit name;
+          token = config.sops.placeholder."rathole/${name}/token";
+          bindAddr = config.sops.placeholder."rathole/${name}/addr";
+        }) [
+          "ssh-morty"
+          "ssh-rpi"
+          "ssh-watson"
+          "ssh-lab-2x1080ti"
+          "ssh-lab-shared"
+          "coderp-watson"
+          "acremote-rpi"
+        ];
+      };
+    };
     v2ray-tailored = {
       server = (import ../../_parts/v2ray.nix { inherit config; }).server // {
         reverse = {

@@ -10,10 +10,10 @@ in {
   sops = {
     inherit defaultSopsFile age gnupg;
     secrets = {
-      "v2ray/ports/api" = { };
-      "v2ray/ports/tcp" = { };
-      "v2ray/ports/wss" = { };
-      "v2ray/ws-path" = { };
+      "v2ray/ports/api" = {};
+      "v2ray/ports/tcp" = {};
+      "v2ray/ports/wss" = {};
+      "v2ray/ws-path" = {};
 
       "v2ray/users/00/uuid" = {};
       "v2ray/users/01/uuid" = {};
@@ -29,10 +29,34 @@ in {
       "v2ray/users/04/email" = {};
       "v2ray/users/05/email" = {};
 
-      "v2ray/ports/reverse" = { };
+      "v2ray/ports/reverse" = {};
       "v2ray/users/reverse/uuid" = {};
       "v2ray/users/reverse/email" = {};
-    };
+
+      "rathole/bind-addr" = {};
+    } // (builtins.listToAttrs (map (name: {
+      name = "rathole/${name}/token";
+      value = {};
+    }) [
+      "ssh-morty"
+      "ssh-rpi"
+      "ssh-watson"
+      "ssh-lab-2x1080ti"
+      "ssh-lab-shared"
+      "coderp-watson"
+      "acremote-rpi"
+    ])) // (builtins.listToAttrs (map (name: {
+      name = "rathole/${name}/addr";
+      value = {};
+    }) [
+      "ssh-morty"
+      "ssh-rpi"
+      "ssh-watson"
+      "ssh-lab-2x1080ti"
+      "ssh-lab-shared"
+      "coderp-watson"
+      "acremote-rpi"
+    ]));
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
 }
