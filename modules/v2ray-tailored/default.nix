@@ -87,7 +87,7 @@ define proxy_bypassed_IPs = {
   240.0.0.0/4,
   255.255.255.255/32,
   ${concatStringsSep "," ((map (x: toString x.address) (filter (x: x.wsPath == null) remotes))
-    + (if (cfg.server.reverse != null) then [ (toString reverse.port) ] else []))}
+    ++ (if (cfg.server.reverse != null) then [ (toString reverse.port) ] else []))}
 }
 table ip transparent_proxy
 delete table ip transparent_proxy
@@ -127,7 +127,7 @@ table ip transparent_proxy {
       restartTriggers = [ config.sops.templates.vclient-config.content ];
     };
     networking.resolvconf.extraConfig = mkIf cfg.client.enable "name_servers=127.0.0.53";  # REF: man:resolvconf.conf(5)
-    services.resolved.enable = mkIf cfg.client.enable false;
+    services.resolved.enable = mkIf cfg.client.enable (mkForce false);
     systemd.services.nftables.requires = mkIf cfg.client.enable [ "nix-daemon.service" ];
     systemd.network = mkIf cfg.client.enable {
       config.routeTables = { v2ray-tproxy = 10007; };
