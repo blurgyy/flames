@@ -1,4 +1,4 @@
-{ lib, pkgs, config, headless ? false, proxy ? null, ... }: let
+{ lib, pkgs, config, headless ? true, proxy ? null, ... }: let
   myName = "gy";
   myHome = "/home/${myName}";
   helpers = import ./helpers.nix { inherit lib; };

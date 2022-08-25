@@ -1,4 +1,4 @@
-{ system, nixpkgs, inputs, self, headless ? false, proxy ? null, ... }: let
+{ system, nixpkgs, inputs, self, headless ? true, proxy ? null, ... }: let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;

@@ -48,23 +48,23 @@
       lib = nixpkgs.lib;
       x86_64-non-headless = {
         system = "x86_64-linux";
+        headless = false;
         inherit nixpkgs inputs self;
       };
       x86_64-headless = {
         system = "x86_64-linux";
-        headless = true;
         inherit nixpkgs inputs self;
       };
       aarch64-headless = {
         system = "aarch64-linux";
-        headless = true;
         inherit nixpkgs inputs self;
       };
     in rec {
       "gy@cindy" = import ./home/gy aarch64-headless;
       "gy@cadliu" = import ./home/gy (x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; });
       "gy@cad-liu" = self.homeConfigurations."gy@cadliu";
-      gy = import ./home/gy x86_64-non-headless;
+      "gy@morty" = import ./home/gy x86_64-non-headless;
+      gy = import ./home/gy x86_64-headless;
     };
     nixosModules = import ./modules;
     overlays.default = my.overlay;
