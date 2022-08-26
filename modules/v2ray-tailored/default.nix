@@ -43,6 +43,7 @@ in {
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
       remotes = mkOption { type = with types; listOf remoteModule; };
       overseaSelectors = mkOption { type = types.listOf types.str; };
+      proxiedSystemServices = mkOption { type = types.listOf types.str; default = [ "nix-daemon.service" ]; };
     };
     server = {
       enable = mkEnableOption "Tailored V2Ray service (as server)";
@@ -119,7 +120,14 @@ table ip transparent_proxy {
     ip daddr $proxy_bypassed_IPs return
     ip daddr $geoip4_iso_country_CN return
 
-    socket cgroupv2 level 1 "system.slice" socket cgroupv2 level 2 != "system.slice/nix-daemon.service" return
+    socket cgroupv2 level 1 "system.slice" ${optionalString
+      ((length cfg.client.proxiedSystemServices) > 0)
+      (concatStringsSep " " (map
+        (svc: ''socket cgroupv2 level 2 != "system.slice/${svc}"'')
+        cfg.client.proxiedSystemServices
+        )
+      )
+    } return
     meta l4proto {tcp,udp} meta mark set ${toString fwMark} 
   }
 }''];
