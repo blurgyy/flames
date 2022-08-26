@@ -26,30 +26,30 @@
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   networking = {
     domain = "blurgy.xyz";
-    useNetworkd = true;
+    useNetworkd = lib.mkDefault true;
     interfaces = {
       eth0.useDHCP = true;
       wlo1.useDHCP = true;
       wlan0.useDHCP = true;
     };
-    firewall.enable = false;
+    firewall.enable = lib.mkDefault false;
   };
-  services.resolved.enable = true;
+  services.resolved.enable = lib.mkDefault true;
 
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
     network.wait-online = {
-      anyInterface = true;
+      anyInterface = lib.mkDefault true;
       timeout = 16;
     };
   };
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
 
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e,caps:escape";

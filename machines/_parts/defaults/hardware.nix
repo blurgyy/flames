@@ -8,17 +8,17 @@
   #  '';
   #}];
 
-  hardware.cpu = if (pkgs.system == "x86_64-linux") then {
+  hardware.cpu = lib.mkIf (pkgs.system == "x86_64-linux") {
     intel.updateMicrocode = lib.mkDefault true;
     amd.updateMicrocode = lib.mkDefault true;
-  } else {};
+  };
   hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   boot = let
-    supportedFilesystems = [ "btrfs" "ext4" ];
+    supportedFilesystems = lib.mkDefault [ "btrfs" "ext4" ];
   in {
     inherit supportedFilesystems;
-    loader.efi.canTouchEfiVariables = config.boot.loader.systemd-boot.enable;
+    loader.efi.canTouchEfiVariables = lib.mkDefault config.boot.loader.systemd-boot.enable;
     # NOTE: Omit `boot.kernelPackages` to use the LTS kernel
     # kernelPackages = pkgs.linuxPackages_lts;
     kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
@@ -80,5 +80,5 @@
   };
 
   networking.useDHCP = lib.mkDefault false;
-  powerManagement.cpuFreqGovernor = "performance";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }
