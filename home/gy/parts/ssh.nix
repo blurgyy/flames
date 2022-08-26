@@ -13,7 +13,7 @@
     pp = { hostname = "${peterpan}"; };
     hooper = { hostname = "${hooper}"; };
     cindy = { hostname = "${cindy}"; };
-    cube = { user = "root"; hostname = "${cube}"; };
+    cube = { hostname = "${cube}"; };
 
     gpp = { hostname = "${peterpan}"; user = "git"; };
     ghooper = { hostname = "${hooper}"; user = "git"; };
@@ -28,7 +28,7 @@
         { host.port = 9091; bind.port = 49091; host.address = "localhost"; }
       ];
     };
-    pi = { user = "root"; hostname = "${relay}"; port = 10013; };
+    pi = { hostname = "${relay}"; port = 10013; };
 
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
