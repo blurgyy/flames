@@ -108,7 +108,7 @@
   # Enable the OpenSSH daemon.
   services = {
     openssh = {
-      enable = true;  # NOTE: OpehSSH is disabled by default!
+      enable = true;  # NOTE: OpenSSH is disabled by default!
       passwordAuthentication = false;
       #permitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
     };
