@@ -15,5 +15,7 @@
   networking.hostName = "peterpan";
   time.timeZone = "Asia/Shanghai";
 
+  services.udisks2.enable = false;
+
   system.stateVersion = "22.11";
 }

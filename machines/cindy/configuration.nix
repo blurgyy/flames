@@ -16,5 +16,7 @@
   networking.hostName = "cindy";
   time.timeZone = "Europe/Berlin";
 
+  services.udisks2.enable = false;
+
   system.stateVersion = "22.11";
 }
