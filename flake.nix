@@ -64,6 +64,7 @@
       "gy@cadliu" = import ./home/gy (x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; });
       "gy@cad-liu" = self.homeConfigurations."gy@cadliu";
       "gy@morty" = import ./home/gy x86_64-non-headless;
+      "gy@rpi" = import ./home/gy aarch64-headless;
       gy = import ./home/gy x86_64-headless;
     };
     nixosModules = import ./modules;
