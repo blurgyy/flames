@@ -5,10 +5,12 @@
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
       substituters = [
+        "https://nix-community.cachix.org"
         "https://nixos-cn.cachix.org"
         "https://highsunz.cachix.org"
       ];
       trusted-public-keys = [
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
         "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
       ];
