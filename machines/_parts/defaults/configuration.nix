@@ -1,6 +1,10 @@
 { config, lib, pkgs, home-manager, ... }: rec {
   nix = {
     package = lib.mkDefault pkgs.nixUnstable;
+    registry.hsz = {
+      from = { type = "indirect"; id = "hsz"; };
+      to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
+    };
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
@@ -18,6 +22,7 @@
       # REF: <https://docs.cachix.org/faq#frequently-asked-questions>
       # REF: <https://nix.dev/faq#how-do-i-force-nix-to-re-check-whether-something-exists-at-a-binary-cache>
       narinfo-cache-negative-ttl = 30;
+      tarball-ttl = 30;
     };
     gc = {
       automatic = true;
