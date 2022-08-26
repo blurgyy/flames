@@ -4,7 +4,6 @@ nixpkgs.lib.nixosSystem {
   modules = (import ../_parts/defaults { headless = true; }) ++ [
     ./configuration.nix
     ./network
-    inputs.home-manager.nixosModules.home-manager
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn
     self.nixosModules.default
