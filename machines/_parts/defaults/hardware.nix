@@ -8,13 +8,6 @@
     '';
   }];
 
-  fileSystems."/boot" = {
-    device = if (config.boot.loader.grub.enable)
-      then "/dev/disk/by-label/nixos-boot"
-      else "/dev/disk/by-label/nixos-esp";
-    fsType = "vfat";
-  };
-
   hardware.cpu = if (pkgs.system == "x86_64-linux") then {
     intel.updateMicrocode = lib.mkDefault true;
     amd.updateMicrocode = lib.mkDefault true;
@@ -81,11 +74,6 @@
 
   #kexec.autoReboot = false;  # Use this with inputs.nixos-generators.nixosModules.kexec in `./default.nix`
 
-  fileSystems."/" = lib.mkDefault {  
-    device = "/dev/disk/by-label/nixos-root";
-    fsType = "btrfs";
-    options = [ "noatime" "compress-force=zstd:3" "discard=async" ];
-  };
   zramSwap = {  # REF: <https://unix.stackexchange.com/a/596929>
     enable = true;
     priority = 32767;

@@ -15,10 +15,6 @@
     ];
   };
 
-  fileSystems."/" = {  
-    device = "/dev/disk/by-label/NIXOS_SD";
-    fsType = "ext4";
-  };
   fileSystems."/elements" = {
     device = "/dev/disk/by-label/wd-elements";
     fsType = "btrfs";

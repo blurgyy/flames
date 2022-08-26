@@ -2,10 +2,21 @@
   networking.hostName = "morty";
 
   boot.loader.systemd-boot.enable = true;
-  fileSystems."/elements" = {
-    device = "/dev/disk/by-label/wd-elements";
-    fsType = "btrfs";
-    options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
+  fileSystems = {
+    "/" = {  
+      device = "/dev/disk/by-label/nixos-root";
+      fsType = "btrfs";
+      options = [ "noatime" "compress-force=zstd:3" "discard=async" ];
+    };
+    "/boot" = {
+      device = "/dev/disk/by-label/nixos-esp";
+      fsType = "vfat";
+    };
+    "/elements" = {
+      device = "/dev/disk/by-label/wd-elements";
+      fsType = "btrfs";
+      options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
+    };
   };
   swapDevices = [
     { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
