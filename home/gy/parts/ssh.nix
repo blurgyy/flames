@@ -1,5 +1,7 @@
 {
   enable = true;
+  controlMaster = "auto";
+  controlPath = "~/.ssh/master-%r@%n:%p";
   compression = true;
   serverAliveInterval = 60;
   serverAliveCountMax = 3;
