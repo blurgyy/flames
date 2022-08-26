@@ -40,7 +40,6 @@ in lib.mkMerge [
     python3
     ripgrep
     sdwrap
-    steam-run
     tex2nix
     tinytools
     unar
@@ -54,7 +53,10 @@ in lib.mkMerge [
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
-  ];
+  ] ++ (if ((pkgs.system == "x86_64-linux") || (pkgs.system == "i686-linux"))
+    then [ steam-run ]
+    else []
+  );
 
   programs.gpg = {
     enable = true;
