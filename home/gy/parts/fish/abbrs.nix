@@ -248,9 +248,4 @@ fixTypo "blurgy" [
   vimlite = "${vi_command} --clean";
   watch = "watch -n 0.2 -c";
   kwget = "wget --no-check-certificate";
-} // {
-  bhome = "${pkgs.home-manager}/bin/home-manager build --flake";
-  bsys = "nixos-rebuild build --use-remote-sudo --flake";
-  shome = "${pkgs.home-manager}/bin/home-manager switch --flake";
-  ssys = "nixos-rebuild switch --use-remote-sudo --flake";
 }
