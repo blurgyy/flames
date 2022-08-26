@@ -2,28 +2,28 @@
   boot.initrd.kernelModules = [ "i915" "amdgpu" ];
 
   programs = {
-    light.enable = true;
+    light.enable = lib.mkDefault true;
   };
 
   hardware = {
-    bluetooth.enable = true;
+    bluetooth.enable = lib.mkDefault true;
     opengl = {
       # NOTE: needed to get sway to work.  (See https://search.nixos.org)
-      enable = true;
+      enable = lib.mkDefault true;
       extraPackages = with pkgs; [ vaapiIntel ];
     };
   };
 
   # Enable pipewire (see NixOS Wiki)
-  security.rtkit.enable = true;
+  security.rtkit.enable = lib.mkDefault true;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-    media-session.enable = false;
+    enable = lib.mkDefault true;
+    alsa.enable = lib.mkDefault true;
+    alsa.support32Bit = lib.mkDefault true;
+    pulse.enable = lib.mkDefault true;
+    jack.enable = lib.mkDefault true;
+    wireplumber.enable = lib.mkDefault true;
+    media-session.enable = lib.mkDefault false;
   };
 
   # Needed for swaylock to work
@@ -105,9 +105,9 @@
   };
 
   xdg.portal = {
-    enable = true;
-    wlr.enable = true;
+    enable = lib.mkDefault true;
+    wlr.enable = lib.mkDefault true;
     #gtkUsePortal = true;  # It's deprecated (for some reason, enable this and see trace message while rebuilding)
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];  # needed for opening filechooser
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];  # needed for opening filechooser
   };
 }
