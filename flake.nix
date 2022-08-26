@@ -70,6 +70,10 @@
     nixosModules = import ./modules;
     overlays.default = my.overlay;
     nixosConfigurations = {
+      cindy = import ./machines/cindy {
+        system = "aarch64-linux";
+        inherit self nixpkgs inputs;
+      };
       cube = import ./machines/cube {
         system = "x86_64-linux";
         inherit self nixpkgs inputs;

@@ -1,12 +1,12 @@
 { config, lib, pkgs, modulesPath, ... }: {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-  assertions = [{
-    assertion = with config.boot.loader; (grub.enable || systemd-boot.enable || generic-extlinux-compatible.enable);
-    message = ''
-      At least one of `boot.loader.generic-extlinux-compatible`, `boot.loader.systemd-boot` or
-      `boot.loader.grub` must be enabled
-    '';
-  }];
+  #assertions = [{
+  #  assertion = with config.boot.loader; (grub.enable || systemd-boot.enable || generic-extlinux-compatible.enable);
+  #  message = ''
+  #    At least one of `boot.loader.generic-extlinux-compatible`, `boot.loader.systemd-boot` or
+  #    `boot.loader.grub` must be enabled
+  #  '';
+  #}];
 
   hardware.cpu = if (pkgs.system == "x86_64-linux") then {
     intel.updateMicrocode = lib.mkDefault true;
