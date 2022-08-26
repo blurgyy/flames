@@ -3,7 +3,7 @@
     package = pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" ];
+      trusted-users = [ "root" "gy" ];
       auto-optimise-store = true;
       binary-caches = [ "https://highsunz.cachix.org" ];
       binary-cache-public-keys = [ "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY=" ];

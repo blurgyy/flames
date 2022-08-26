@@ -1,11 +1,7 @@
 { system, self, nixpkgs, inputs }:
 nixpkgs.lib.nixosSystem {
   inherit system;
-  modules = [
-    ../_parts/defaults/network
-    ../_parts/defaults/secret
-    ../_parts/defaults/server/configuration.nix
-    ../_parts/defaults/server/hardware.nix
+  modules = (import ../_parts/defaults) ++ [
     ./configuration.nix
     ./network
     inputs.home-manager.nixosModules.home-manager
