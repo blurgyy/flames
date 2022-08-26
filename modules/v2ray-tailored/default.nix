@@ -70,14 +70,18 @@ in {
     sops.templates.vclient-config = with cfg.client; mkIf enable {
       content = builtins.toJSON (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes overseaSelectors; });
     };
-    networking.firewall-tailored = mkIf cfg.client.enable {
+    networking.firewall-tailored = mkIf (cfg.client.enable || cfg.server.reverse != null) {
       enable = true;
-      acceptedPorts = [{
+      acceptedPorts = (if cfg.client.enable then [{
         port = 9990;
         protocols = [ "tcp" ];
         comment = "allow machines from private network ranges to access http proxy";
         predicate = "ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 }";
-      }];
+      }] else []) ++ (if cfg.server.reverse != null then [{
+        port = cfg.server.reverse.port;
+        protocols = [ "tcp" ];
+        comment = "allow traffic on V2Ray reverse proxy control channel";
+      }] else []);
       extraRulesAfter = with builtins; with cfg.client; [''
 include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
 define proxy_bypassed_IPs = {

@@ -95,7 +95,7 @@ in {
       rules = (map
         (o: { type = "field"; outboundTag = "portal-${reverse.counterpartName}"; } // o) (
           [
-            {  # Use this as the first rule, use full domain to route communication channel traffic
+            {  # Use this as the first rule, use full domain to route control channel traffic
               inboundTag = [ "portal-${reverse.counterpartName}" ];
               domain = [ "full:${reverse.counterpartName}.reverse.${config.networking.hostName}" ];
               outboundTag = "reverse-tunnel";
@@ -113,7 +113,7 @@ in {
       domainStrategy = "IPIfNonMatch";
       domainMatcher = "mph";
       rules = map (o: { type = "field"; } // o) [
-        {  # Use this as the first rule, use full domain to route communication channel traffic
+        {  # Use this as the first rule, use full domain to route control channel traffic
           inboundTag = [ "portal-${reverse.counterpartName}" ];
           domain = [ "full:${config.networking.hostName}.reverse.${reverse.counterpartName}" ];
           outboundTag = "reverse-tunnel";
