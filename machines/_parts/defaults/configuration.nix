@@ -1,12 +1,20 @@
 { config, lib, pkgs, home-manager, ... }: rec {
   nix = {
-    package = pkgs.nixUnstable;
+    package = lib.mkDefault pkgs.nixUnstable;
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
+      substituters = [
+        "https://nixos-cn.cachix.org"
+        "https://highsunz.cachix.org"
+      ];
+      trusted-public-keys = [
+        "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
+        "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
+      ];
       auto-optimise-store = true;
-      binary-caches = [ "https://highsunz.cachix.org" ];
-      binary-cache-public-keys = [ "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY=" ];
+      # REF: <https://docs.cachix.org/faq#frequently-asked-questions>
+      # REF: <https://nix.dev/faq#how-do-i-force-nix-to-re-check-whether-something-exists-at-a-binary-cache>
       narinfo-cache-negative-ttl = 30;
     };
     gc = {
@@ -21,7 +29,11 @@
   networking = {
     domain = "blurgy.xyz";
     useNetworkd = true;
-    interfaces.eth0.useDHCP = true;
+    interfaces = {
+      eth0.useDHCP = true;
+      wlo1.useDHCP = true;
+      wlan0.useDHCP = true;
+    };
     firewall.enable = false;
   };
   services.resolved.enable = true;
@@ -48,6 +60,7 @@
 
   programs = {
     command-not-found.enable = false;
+    dconf.enable = true;
   };
 
   security.sudo.extraRules = let

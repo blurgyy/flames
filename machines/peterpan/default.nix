@@ -1,7 +1,7 @@
 { system, self, nixpkgs, inputs }:
 nixpkgs.lib.nixosSystem {
   inherit system;
-  modules = (import ../_parts/defaults) ++ [
+  modules = (import ../_parts/defaults { headless = true; bootloader = "grub"; }) ++ [
     ./configuration.nix
     ./network
     inputs.home-manager.nixosModules.home-manager

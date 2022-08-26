@@ -1,45 +1,62 @@
 { config, lib, pkgs, modulesPath, ... }: {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  assertions = [{
+    assertion = with config.boot.loader; (grub.enable || systemd-boot.enable || generic-extlinux-compatible.enable);
+    message = ''
+      At least one of `boot.loader.generic-extlinux-compatible`, `boot.loader.systemd-boot` or
+      `boot.loader.grub` must be enabled
+    '';
+  }];
 
-  hardware.cpu.intel.updateMicrocode = true;
-  hardware.cpu.amd.updateMicrocode = true;
+  fileSystems."/boot" = {
+    device = if (config.boot.loader.grub.enable)
+      then "/dev/disk/by-label/nixos-boot"
+      else "/dev/disk/by-label/nixos-esp";
+    fsType = "vfat";
+  };
 
-  boot = {
-    kernel = {
-      sysctl = {
-        "net.core.default_qdisc" = "fq";
-        "net.ipv4.tcp_congestion_control" = "bbr";
-        "dev.i915.perf_stream_paranoid" = 0;
-        "kernel.sysrq" = 1;
-        "vm.swappiness" = 1;
-        "vm.vfs_cache_pressure" = 50;
-        "vm.dirty_background_ratio" = 5;
-        "vm.dirty_ratio" = 80;
-      };
-    };
+  hardware.cpu = if (pkgs.system == "x86_64-linux") then {
+    intel.updateMicrocode = lib.mkDefault true;
+    amd.updateMicrocode = lib.mkDefault true;
+  } else {};
+  hardware.enableRedistributableFirmware = lib.mkDefault true;
+
+  boot = let
+    supportedFilesystems = [ "btrfs" "ext4" ];
+  in {
+    inherit supportedFilesystems;
+    loader.efi.canTouchEfiVariables = config.boot.loader.systemd-boot.enable;
     # NOTE: Omit `boot.kernelPackages` to use the LTS kernel
     # kernelPackages = pkgs.linuxPackages_lts;
+    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     kernelParams = [
       "pcie_aspm=off"
       "mitigations=off"
       "net.ifnames=0"  # predictable interface names
+      "resume=LABEL=nixos-swap"
+      "boot.shell_on_fail"
+      "loglevel=3"
     ];
-    loader.grub.enable = true;  # NOTE: Define `boot.loader.grub.device` per-host
+    kernel.sysctl = {
+      "net.core.default_qdisc" = "fq";
+      "net.ipv4.tcp_congestion_control" = "bbr";
+      "dev.i915.perf_stream_paranoid" = 0;
+      "kernel.sysrq" = 1;
+      "vm.swappiness" = 200;
+      "vm.vfs_cache_pressure" = 50;
+      "vm.dirty_background_ratio" = 5;
+      "vm.dirty_ratio" = 80;
+    };
     initrd = {
-      availableKernelModules = [  # modules to load in boot stage 1
+      inherit supportedFilesystems;
+      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+      kernelModules = [  # modules to load in boot stage 1
         "virtio_blk"  # for detecting /dev/vd* disks, REF: <https://intl.cloud.tencent.com/document/product/213/9929>
         "virtio_scsi"  # for detecting SCSI root disk in boot stage 1, REF: <https://github.com/NixOS/nixpkgs/issues/76980>
         "virtio_net"  # for sshd in boot stage 1
         "virtio_pci"  # not sure what this does
-      ];
-      kernelModules = [ "virtio_pci" "virtio_scsi" "virtio_net" ];  # NOTE: actually load the modules
+      ];  # NOTE: actually load the modules
       # REF: <https://github.com/NixOS/nixpkgs/issues/32588#issuecomment-725695984>
-      postDeviceCommands = "
-        sleep 2
-        partprobe
-      ";
       network.ssh = let
         keys = [
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKco1z3uNTuYW7eVl2MTPrvVG5jnEnNJne/Us+LhKOwC gy@rpi"
@@ -57,18 +74,18 @@
         authorizedKeys = keys;
       };
     };
+    binfmt.emulatedSystems = [ (if (pkgs.system == "x86_64-linux") then "aarch64-linux" else "x86_64-linux") ];
+    tmpOnTmpfs = true;
+    tmpOnTmpfsSize = "100%";
   };
 
   #kexec.autoReboot = false;  # Use this with inputs.nixos-generators.nixosModules.kexec in `./default.nix`
 
-  fileSystems."/" = {
+  fileSystems."/" = lib.mkDefault {  
     device = "/dev/disk/by-label/nixos-root";
     fsType = "btrfs";
     options = [ "noatime" "compress-force=zstd:3" "discard=async" ];
   };
-  /* swapDevices = [ */
-  /*   { device = "/dev/disk/by-label/nixos-swap"; priority = 0; } */
-  /* ]; */
   zramSwap = {  # REF: <https://unix.stackexchange.com/a/596929>
     enable = true;
     priority = 32767;

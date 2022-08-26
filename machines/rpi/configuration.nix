@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, modulesPath, ... }: {
+  # needed for building sd-card image, REF: <https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
+  imports = [ (modulesPath + "/installer/sd-card/sd-image-aarch64.nix") ];
+
   boot = {
     kernelPackages = pkgs.linuxPackages_rpi4;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
@@ -12,6 +15,18 @@
     ];
   };
 
+  fileSystems."/" = {  
+    device = "/dev/disk/by-label/NIXOS_SD";
+    fsType = "ext4";
+  };
+  fileSystems."/elements" = {
+    device = "/dev/disk/by-label/wd-elements";
+    fsType = "btrfs";
+    options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
+  };
+
+  networking.hostName = "rpi";
+
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
   hardware.deviceTree = {
@@ -23,83 +38,21 @@
     ];
   };
 
-  nix = {
-    package = pkgs.nixUnstable;
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
-      trusted-users = [ "root" ];
-      auto-optimise-store = true;
-      narinfo-cache-negative-ttl = 30;
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    # Free up to 1GiB whenever there is less than 100MiB left.
-    extraOptions = ''
-      min-free = ${toString (100 * 1024 * 1024)}
-      max-free = ${toString (1024 * 1024 * 1024)}
-    '';
-  };
-
-  networking = {
-    useDHCP = false;
-    hostName = "rpi";
-    useNetworkd = true;
-    interfaces.wlan0.useDHCP = true;  # `interfaces."*".useDHCP` is buggy
-    firewall.enable = false;
-  };
-
-  systemd = {
-    extraConfig = "DefaultTimeoutStopSec=16s";
-    network.wait-online = {
-      anyInterface = true;
-      timeout = 16;
-    };
-  };
+  # Free up to 1GiB whenever there is less than 100MiB left.
+  nix.extraOptions = ''
+    min-free = ${toString (100 * 1024 * 1024)}
+    max-free = ${toString (1024 * 1024 * 1024)}
+  '';
 
   time.timeZone = "Asia/Shanghai";
-  i18n.defaultLocale = "en_US.UTF-8";
 
-  services = {
-    openssh.enable = true;
-    earlyoom = {
-      enable = true;
-      enableNotifications = true;
-    };
-  };
   services.acremote.enable = true;
 
   environment.systemPackages = with pkgs; [
     v4l-utils  # for `ir-ctl` executable
-    git
-    ffmpeg
-    lsof
-    libnotify
-    miniserve
-    m3u82mp4
-    procs
-    transmission
-    neovim
-    zsh fish fzf
-    htop
-    file
-    zip unzip unar
-    plocate
-    jq
-    #libqalculate  # build fails
-    sops age
-    hydra-check
   ];
 
   documentation.nixos.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.05"; # Did you read the comment?
+  system.stateVersion = "22.05";
 }
