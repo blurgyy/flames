@@ -71,6 +71,7 @@
   ];
 
   services = {
+    udisks2.enable = true;
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";
