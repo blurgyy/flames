@@ -83,6 +83,7 @@ in {
         protocols = [ "tcp" ];
         comment = "allow traffic on V2Ray reverse proxy control channel";
       }] else []);
+      referredServices = cfg.client.proxiedSystemServices;
       extraRulesAfter = with builtins; with cfg.client; [''
 include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
 define proxy_bypassed_IPs = {

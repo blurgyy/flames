@@ -7,6 +7,7 @@
     ports.http = config.sops.placeholder."v2ray/ports/http";
     ports.socks = config.sops.placeholder."v2ray/ports/socks";
     ports.tproxy = config.sops.placeholder."v2ray/ports/tproxy";
+    proxiedSystemServices = [ "nix-daemon.service" ];
     remotes = [
       rec {
         tag = "us-00";

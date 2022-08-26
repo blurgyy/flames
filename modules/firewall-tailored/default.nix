@@ -18,6 +18,13 @@ in {
     acceptedPorts = mkOption { type = types.listOf (types.oneOf [ portType portModule ]); default = []; };
     rejectedAddrGroups = mkOption { type = types.listOf AddrGroupModule; default = []; };
     extraRulesAfter = mkOption { type = types.listOf types.lines; default = []; };
+    referredServices = mkOption {
+      type = types.listOf types.str;
+      description = ''
+        System services to be reloaded, these services are also added to the Wants= dependencies of
+        nftables.service.
+      '';
+    };
   };
 
   config = mkIf cfg.enable {
@@ -27,6 +34,9 @@ in {
     } {
       assertion = config.networking.nftables.enable == false;
       message = "networking.firewall-tailored conflicts with networking.nftables.  networking.nftables must be set to false.";
+    } {
+      assertion = builtins.all (svc: hasSuffix ".service" svc) cfg.referredServices;
+      message = "Service names in networking.firewall-tailored.referredServices must end with .service";
     }];
     networking.firewall.enable = false;
     networking.nftables.enable = false;
@@ -79,21 +89,33 @@ table inet filter {
 
 ${concatStringsSep "\n" cfg.extraRulesAfter}
       '';
-    systemd.services.nftables = {
-      description = "nftables firewall";
-      before = [ "network-pre.target" ];
-      wants = [ "network-pre.target" ];
-      wantedBy = [ "multi-user.target" ];
-      reloadIfChanged = true;
-      serviceConfig = let
-        ruleFilePath = config.sops.templates.nftables-rules.path;
-      in {
-        Type = "oneshot";
-        RemainAfterExit = true;
-        ExecStart = "${pkgs.nftables}/bin/nft -f ${ruleFilePath}";
-        ExecReload = "${pkgs.nftables}/bin/nft -f ${ruleFilePath}";
-        ExecStop = "${pkgs.nftables}/bin/nft flush ruleset";
+    systemd.services = {
+      nftables = {
+        description = "nftables firewall";
+        before = [ "network-pre.target" ];
+        wants = [ "network-pre.target" ];
+        wantedBy = [ "multi-user.target" ];
+        reloadIfChanged = true;
+        serviceConfig = let
+          ruleFilePath = config.sops.templates.nftables-rules.path;
+        in {
+          Type = "oneshot";
+          RemainAfterExit = true;
+          ExecStart = "${pkgs.nftables}/bin/nft -f ${ruleFilePath}";
+          ExecReload = "${pkgs.nftables}/bin/nft -f ${ruleFilePath}";
+          ExecStop = "${pkgs.nftables}/bin/nft flush ruleset";
+        };
       };
-    };
+    } // (foldl' mergeAttrs {} (map
+      (svc: let
+        name = removeSuffix ".service" svc;
+      in {
+        ${name} = {
+          wants = [ "nftables.service" ];  # svc is referred, so add a dependency on firewall in case it does not work without a firewall.
+          before = [ "nftables.service" ];  # svc's cgroupv2 path needs to be present at the time firewall tries to start.
+        };
+      })
+      cfg.referredServices
+    ));
   };
 }
