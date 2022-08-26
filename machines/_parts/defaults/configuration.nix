@@ -73,7 +73,7 @@
   ];
 
   services = {
-    udisks2.enable = true;
+    udisks2.enable = lib.mkDefault true;
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";

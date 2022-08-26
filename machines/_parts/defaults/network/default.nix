@@ -9,5 +9,6 @@
       addrs = (import ./banned-ips/smtp-scanners.nix);
       comment = "reject known smtp scanners";
     }];
+    referredServices = [];
   };
 }
