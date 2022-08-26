@@ -28,7 +28,7 @@
       "net.ifnames=0"  # predictable interface names
       "resume=LABEL=nixos-swap"
       "boot.shell_on_fail"
-      "loglevel=3"
+      "loglevel=4"
     ];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
