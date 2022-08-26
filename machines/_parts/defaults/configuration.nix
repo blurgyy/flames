@@ -61,8 +61,8 @@
   };
 
   programs = {
-    command-not-found.enable = false;
-    dconf.enable = true;
+    command-not-found.enable = lib.mkDefault false;
+    dconf.enable = lib.mkDefault true;
   };
 
   security.sudo.extraRules = let
@@ -89,7 +89,7 @@
     logind.killUserProcesses = false;  # This is already the default
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; lib.mkDefault [
     git
     neovim
     zsh fish fzf

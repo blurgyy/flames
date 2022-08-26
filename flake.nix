@@ -90,6 +90,15 @@
         system = "aarch64-linux";
         inherit self nixpkgs inputs;
       };
+    } // {
+      installer-aarch64 = import ./machines/installer {
+        system = "aarch64-linux";
+        inherit self nixpkgs inputs;
+      };
+      installer-x86_64 = import ./machines/installer {
+        system = "x86_64-linux";
+        inherit self nixpkgs inputs;
+      };
     };
   };
 }

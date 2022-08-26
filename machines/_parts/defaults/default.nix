@@ -1,8 +1,9 @@
-{ headless }: [
+{ headless, withSecrets ? true }: [
   ./configuration.nix
   ./hardware.nix
   ./network
+] ++ (if withSecrets then [
   ./secret
-] ++ (if (!headless) then[
+] else []) ++ (if (!headless) then [
   ./non-headless-extras.nix
 ] else [])
