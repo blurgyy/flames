@@ -2,7 +2,7 @@
   domainName = config.networking.fqdn;
 in {
   sops.secrets = {
-    acme-credentials-file = {};
+    acme-credentials-file = { owner = config.users.users.haproxy.name; };
     "v2ray/ports/api" = {};
     "v2ray/ports/tcp" = {};
     "v2ray/ports/wss" = {};
