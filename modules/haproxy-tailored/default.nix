@@ -2,8 +2,8 @@
   cfg = config.services.haproxy-tailored;
   acls = let
     aclModule = types.submodule ({ ... }: {
-      options.name = mkOption { type = type.str; example = "begins_with_v2_or_api"; };
-      options.body = mkOption { type = type.str; example = "path_beg /v2 || path_beg /api"; };
+      options.name = mkOption { type = types.str; example = "begins_with_v2_or_api"; };
+      options.body = mkOption { type = types.str; example = "path_beg /v2 || path_beg /api"; };
     });
   in mkOption { type = types.listOf aclModule; default = []; };
   requestRules = mkOption {
