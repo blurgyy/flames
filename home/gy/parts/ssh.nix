@@ -7,7 +7,7 @@
   serverAliveCountMax = 3;
   matchBlocks = let 
     peterpan = "81.69.28.75";
-    cindy = "130.162.238.248";
+    cindy = "130.61.57.3";
     cube = "45.78.17.205";
     hooper = "64.64.244.30";
     relay = peterpan;
