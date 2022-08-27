@@ -108,3 +108,9 @@ Trouble Shooting
   ```
   Where the `/dev/disk/by-label/fresh-partition` should be the partition to create and put all
   contents in.
+
+* In case bootloader was installed when a wrong partition (or no partition) was mounted on `/boot`,
+  reinstall bootloader with:
+  ```bash
+  $ sudo NIXOS_INSTALL_BOOTLOADER=1 /nix/var/nix/profiles/system/bin/switch-to-configuration boot
+  ```
