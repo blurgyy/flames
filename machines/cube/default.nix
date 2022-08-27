@@ -1,5 +1,4 @@
-{ system, self, nixpkgs, inputs }:
-nixpkgs.lib.nixosSystem {
+{ system, self, nixpkgs, inputs }: nixpkgs.lib.nixosSystem {
   inherit system;
   modules = (import ../_parts/defaults {
     headless = true;
