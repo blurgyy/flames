@@ -12,9 +12,6 @@
     };
   };
 
-  # Workaround broken ZFS module in kernel packages
-  nixpkgs.config.allowBroken = true;
-
   networking.hostName = "cindy";
   time.timeZone = "Europe/Berlin";
 
