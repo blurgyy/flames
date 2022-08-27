@@ -28,6 +28,8 @@
   });
   domainModule = types.submodule ({ ... }: {
     options.name = mkOption { type = types.str; };
+    options.extraNames = mkOption { type = types.listOf types.str; default = []; };
+    options.reloadServices = mkOption { type = types.listOf types.str; default = []; };
     options.acme = mkOption { type = acmeModule; };
   });
   frontendModule = types.submodule ({ ... }: {
@@ -94,8 +96,22 @@ in {
     backends = mkOption { type = types.attrsOf backendModule; default = []; };
   };
 
-  config = let
-  in mkIf cfg.enable {
+  config = mkIf cfg.enable {
+    assertions = [{
+      assertion = builtins.all
+        (svc: hasSuffix ".service" svc)
+        (attrValues (mapAttrs
+          (_: frontendConfig: frontendConfig.domain.reloadServices)
+          (filterAttrs
+            (_: frontendConfig: frontendConfig.domain != null)
+            cfg.frontends
+          )
+        ));
+      message = ''
+        Service names in `services.haproxy-tailored.frontends.<name>.domain.reloadServices` must end
+        with ".service"
+      '';
+    }];
     services.haproxy = {
       enable = true;
       config = import ./config-content.nix { inherit lib cfg; };
@@ -108,8 +124,9 @@ in {
         in nameValuePair frontendConfig.domain.name {
           group = mkDefault cfg.group;
           dnsProvider = "cloudflare";
+          extraDomainNames = frontendConfig.domain.extraNames;
           inherit (frontendConfig.domain.acme) email credentialsFile;
-          reloadServices = [ "haproxy.service" ];
+          reloadServices = unique ([ "haproxy.service" ] ++ frontendConfig.domain.reloadServices);
         }) (filterAttrs (_: frontendConfig: frontendConfig.domain != null && frontendConfig.domain.acme.enable) cfg.frontends));
       in listToAttrs acmePairs;
     };
@@ -194,7 +211,9 @@ in {
           ];
           ExecStartPost = "+" + (pkgs.writeShellScript "acme-postrun" ''
             cd /var/lib/self-signed/${escapeShellArg domain.name}
-            systemctl --no-block try-reload-or-restart haproxy.service
+            systemctl --no-block try-reload-or-restart haproxy.service ${
+              concatStringsSep " " domain.reloadServices
+            }
           '');
         };
         script = ''
