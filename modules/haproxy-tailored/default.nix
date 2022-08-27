@@ -99,14 +99,14 @@ in {
   config = mkIf cfg.enable {
     assertions = [{
       assertion = builtins.all
-        (svc: hasSuffix ".service" svc)
-        (attrValues (mapAttrs
+        (svc: trace svc (hasSuffix ".service" svc))
+        (concatLists (attrValues (mapAttrs
           (_: frontendConfig: frontendConfig.domain.reloadServices)
           (filterAttrs
             (_: frontendConfig: frontendConfig.domain != null)
             cfg.frontends
           )
-        ));
+        )));
       message = ''
         Service names in `services.haproxy-tailored.frontends.<name>.domain.reloadServices` must end
         with ".service"

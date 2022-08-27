@@ -30,13 +30,13 @@ in {
   config = mkIf cfg.enable {
     assertions = [{
       assertion = config.networking.firewall.enable == false;
-      message = "nftables is not meant to be used with iptables.  networking.firewall.enable must be set to false.";
+      message = "nftables is not meant to be used with iptables.  `networking.firewall.enable` must be set to false.";
     } {
       assertion = config.networking.nftables.enable == false;
-      message = "networking.firewall-tailored conflicts with networking.nftables.  networking.nftables must be set to false.";
+      message = "`networking.firewall-tailored` conflicts with `networking.nftables`.  `networking.nftables` must be set to false.";
     } {
       assertion = builtins.all (svc: hasSuffix ".service" svc) cfg.referredServices;
-      message = "Service names in networking.firewall-tailored.referredServices must end with .service";
+      message = "Service names in `networking.firewall-tailored.referredServices` must end with \".service\"";
     }];
     networking.firewall.enable = false;
     networking.nftables.enable = false;
