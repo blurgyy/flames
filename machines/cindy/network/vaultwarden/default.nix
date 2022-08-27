@@ -4,6 +4,7 @@
     dbBackend = "sqlite";
     webVaultPackage = pkgs.vaultwarden-vault;
     config = {
+      signupsAllowed = false;
       webVaultEnabled = true;
       webVaultFolder = "${pkgs.vaultwarden-vault}/share/vaultwarden/vault";
       rocketPort = 62332;
