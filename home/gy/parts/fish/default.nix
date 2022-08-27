@@ -46,9 +46,9 @@
   shellAliases = with pkgs; {
     meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
     #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";
-    bhome = "${pkgs.home-manager}/bin/home-manager build --flake";
-    bsys = "nixos-rebuild build --use-remote-sudo --flake";
-    shome = "${pkgs.home-manager}/bin/home-manager switch --flake";
-    ssys = "nixos-rebuild switch --use-remote-sudo --flake";
+    bhome = "${pkgs.home-manager}/bin/home-manager build -v --flake";
+    bsys = "nixos-rebuild build --use-remote-sudo -v --flake";
+    shome = "${pkgs.home-manager}/bin/home-manager switch -v --flake";
+    ssys = "nixos-rebuild switch --use-remote-sudo -v --flake";
   };
 }
