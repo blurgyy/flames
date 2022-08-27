@@ -18,9 +18,6 @@
   in {
     inherit supportedFilesystems;
     loader.efi.canTouchEfiVariables = lib.mkDefault config.boot.loader.systemd-boot.enable;
-    # NOTE: Omit `boot.kernelPackages` to use the LTS kernel
-    # kernelPackages = pkgs.linuxPackages_lts;
-    kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     kernelParams = [
       "pcie_aspm=off"
       "mitigations=off"
