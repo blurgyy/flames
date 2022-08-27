@@ -5,6 +5,7 @@
   ./configuration.nix
   ./hardware.nix
   ./network
+  ./haproxy.nix
 ] ++ (if withSecrets then [
   ./secret
 ] else []) ++ (if (!headless) then [

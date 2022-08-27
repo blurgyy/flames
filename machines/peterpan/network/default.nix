@@ -1,4 +1,5 @@
-{ config, ... }: let
+{ config, lib, ... }: let
+  domainName = config.networking.fqdn;
   ratholeServiceNames = [
     "ssh-morty"
     "ssh-rpi"
@@ -67,7 +68,20 @@ in {
     "rathole/bind-port" = {};
   } // ratholeServiceTokens // ratholeServiceAddrs // ratholeServicePorts;
   services = {
-    haproxy-tailored = import ./haproxy.nix { inherit config; };
+    haproxy-tailored = {
+      enable = true;
+      frontends.tls-offload-front = {
+        domain.acme.enable = false;
+        backends = [
+          { name = "web"; condition = "if HTTP"; }
+          { name = "pivot"; condition = "if !HTTP"; }
+        ];
+      };
+      backends = {
+        web = { mode = "http"; server.address = "127.0.0.1:8080"; };
+        pivot = { mode = "tcp"; server.address = "127.0.0.1:65092"; };
+      };
+    };
     rathole = {
       enable = true;
       server = {
