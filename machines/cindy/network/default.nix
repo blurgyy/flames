@@ -14,7 +14,7 @@ in {
         credentialsFile = config.sops.secrets.acme-credentials-file.path;
       };
       backends = [
-        { name = "vaultwarden"; condition = "is_vaultwarden"; }
+        { name = "vaultwarden"; condition = "if is_vaultwarden"; }
       ];
     };
     backends = {
