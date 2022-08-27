@@ -4,11 +4,9 @@
     dbBackend = "sqlite";
     webVaultPackage = pkgs.vaultwarden-vault;
     config = {
-      DATA_FOLDER = "/var/lib/vaultwarden";
-      WEB_VAULT_ENABLED = true;
-      WEB_VAULT_FOLDER = "${pkgs.vaultwarden-vault}/share/vaultwarden/vault";
-      ROCKET_PORT = 62332;
-      ROCKET_LIMITS = "{json=10485760}";
+      webVaultEnabled = true;
+      webVaultFolder = "${pkgs.vaultwarden-vault}/share/vaultwarden/vault";
+      rocketPort = 62332;
     };
   };
   services.haproxy-tailored = {
