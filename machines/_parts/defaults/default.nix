@@ -10,7 +10,13 @@
 ] else []) ++ (if (!headless) then [
   ./non-headless-extras.nix
 ] else []) ++ (if isQemuGuest then [
-  ({ modulesPath, ... }: { imports = [ (modulesPath + "/profiles/qemu-guest.nix") ]; })
+  ({ pkgs, modulesPath, ... }: {
+    imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
+    boot.kernelPackages = pkgs.linuxPackages;
+  })
 ] else [
-  ({ modulesPath, ... }: { imports = [ (modulesPath + "/installer/scan/not-detected.nix") ]; })
+  ({ pkgs, modulesPath, ... }: {
+    imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+    boot.kernelPackages = pkgs.linuxPackages_latest;
+  })
 ])
