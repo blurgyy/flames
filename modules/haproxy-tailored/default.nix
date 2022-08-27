@@ -203,18 +203,18 @@ in {
       };
       createServiceFor = domain: nameValuePair "self-sign-${domain.name}" {
         description = "Generate self-signed certificate for ${domain.name}";
+        before = unique ([ "haproxy.service" ] ++ domain.reloadServices);
         wantedBy = [ "multi-user.target" ];
         serviceConfig = commonServiceConfig // {
           StateDirectory = "self-signed/${domain.name}";
           BindPaths = [
             "/var/lib/self-signed/${domain.name}:/tmp/${domain.name}"
           ];
-          ExecStartPost = "+" + (pkgs.writeShellScript "acme-postrun" ''
-            cd /var/lib/self-signed/${escapeShellArg domain.name}
-            systemctl --no-block try-reload-or-restart haproxy.service ${
+          ExecStartPost = [
+            "+systemctl --no-block try-reload-or-restart haproxy.service ${
               concatStringsSep " " domain.reloadServices
-            }
-          '');
+            }"
+          ];
         };
         script = ''
           rm -rf ${domain.name}/*
