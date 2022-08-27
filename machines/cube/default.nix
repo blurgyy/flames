@@ -10,7 +10,6 @@ nixpkgs.lib.nixosSystem {
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn
     self.nixosModules.default
-    #inputs.nixos-generators.nixosModules.kexec  # nix build .#nixosConfigurations.cube.config.system.build.kexec_tarball --impure
     {
       nixpkgs.overlays = [
         self.overlays.default
