@@ -27,6 +27,7 @@ in lib.mkMerge [
     git-sync
     gnutar
     htop
+    hydra-check
     jq
     less
     lfs
@@ -40,6 +41,7 @@ in lib.mkMerge [
     python3
     ripgrep
     sdwrap
+    sops
     tex2nix
     tinytools
     unar
