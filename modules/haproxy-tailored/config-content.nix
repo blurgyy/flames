@@ -48,8 +48,8 @@ defaults
   timeout server  ${cfg.defaults.timeout.server}
 
 # FRONTENDS ########################################################################################
-${concatStringsSep "\n" (map mkFrontend cfg.frontends)}
+${concatStringsSep "\n" (attrValues (mapAttrs (name: frontendConfig: mkFrontend (frontendConfig // { inherit name; })) cfg.frontends))}
 
 # BACKENDS #########################################################################################
-${concatStringsSep "\n" (map mkBackend cfg.backends)}
+${concatStringsSep "\n" (attrValues (mapAttrs (name: backendConfig: mkBackend (backendConfig // { inherit name; })) cfg.backends))}
 ''

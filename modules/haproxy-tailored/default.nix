@@ -90,8 +90,8 @@ in {
     };
     user = mkOption { type = types.str; default = "haproxy"; };
     group = mkOption { type = types.str; default = "haproxy"; };
-    frontends = mkOption { type = types.listOf frontendModule; default = []; };
-    backends = mkOption { type = types.listOf backendModule; default = []; };
+    frontends = mkOption { type = types.attrsOf frontendModule; default = []; };
+    backends = mkOption { type = types.attrsOf backendModule; default = []; };
   };
 
   config = let
@@ -103,20 +103,20 @@ in {
     security.acme = {
       acceptTerms = true;
       certs = let
-        acmePairs = map (frontendConfig: let
+        acmePairs = attrValues (mapAttrs (_: frontendConfig: let
           hasRoot = frontendConfig.acmeRoot != null;
         in nameValuePair frontendConfig.domain.name {
           group = mkDefault cfg.group;
           dnsProvider = "cloudflare";
           inherit (frontendConfig.domain.acme) email credentialsFile;
           reloadServices = [ "haproxy.service" ];
-        }) (filter (frontendConfig: frontendConfig.domain != null && frontendConfig.domain.acme.enable) cfg.frontends);
+        }) (filterAttrs (_: frontendConfig: frontendConfig.domain != null && frontendConfig.domain.acme.enable) cfg.frontends));
       in listToAttrs acmePairs;
     };
     systemd.services = {
       haproxy = {
-        serviceConfig.ExecStartPre = mkBefore (concatLists (map
-          (frontendConfig: let
+        serviceConfig.ExecStartPre = mkBefore (concatLists (attrValues (mapAttrs
+          (_: frontendConfig: let
             certRoot = if frontendConfig.domain.acme.enable
               then "/var/lib/acme"
               else "/var/lib/self-signed";
@@ -126,8 +126,8 @@ in {
             # NOTE: use bash since systemd does not know how to treat redirection
             "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
           ])
-          (filter (frontendConfig: frontendConfig.domain != null) cfg.frontends)
-        ));
+          (filterAttrs (_: frontendConfig: frontendConfig.domain != null) cfg.frontends)
+        )));
         reloadTriggers = [
           (replaceStrings [ " " ] [ "" ]
             (concatStringsSep ""
@@ -216,12 +216,12 @@ in {
           chmod 640 *
         '';
       };
-    in listToAttrs (map
-      (frontendConfig: createServiceFor frontendConfig.domain)
-      (filter
-        (frontendConfig: frontendConfig.domain != null && (!frontendConfig.domain.acme.enable))
+    in listToAttrs (attrValues (mapAttrs
+      (_: frontendConfig: createServiceFor frontendConfig.domain)
+      (filterAttrs
+        (_: frontendConfig: frontendConfig.domain != null && (!frontendConfig.domain.acme.enable))
         cfg.frontends
-      ))
+      )))
     );
     systemd.timers = let
       createTimerFor = domain: nameValuePair "self-sign-${domain.name}" {
@@ -234,12 +234,12 @@ in {
           RandomizedDelaySec = "24h";
         };
       };
-    in listToAttrs (map
-      (frontendConfig: createTimerFor frontendConfig.domain)
-      (filter
-        (frontendConfig: frontendConfig.domain != null && (!frontendConfig.domain.acme.enable))
+    in listToAttrs (attrValues (mapAttrs
+      (_: frontendConfig: createTimerFor frontendConfig.domain)
+      (filterAttrs
+        (_: frontendConfig: frontendConfig.domain != null && (!frontendConfig.domain.acme.enable))
         cfg.frontends
       )
-    );
+    ));
   };
 }
