@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
   networking.firewall-tailored = {
     enable = true;
     acceptedPorts = [ "ssh" "http" "https" ];

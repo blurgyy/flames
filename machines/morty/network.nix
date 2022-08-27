@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, ... }: {
   sops.secrets = {
     wireless-environment-file = {};
 

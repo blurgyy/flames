@@ -1,4 +1,4 @@
-{ config, pkgs, modulesPath, ... }: {
+{ pkgs, modulesPath, ... }: {
   # needed for building sd-card image, REF: <https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
   imports = [ (modulesPath + "/installer/sd-card/sd-image-aarch64.nix") ];
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: let
+{ config, pkgs, ... }: let
   rathole-config-content = pkgs.toTOML {
     client.remote_addr = config.sops.placeholder."rathole/remote_addr";
     client.services = {

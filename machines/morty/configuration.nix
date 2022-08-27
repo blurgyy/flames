@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ pkgs, ... }: {
   networking.hostName = "morty";
 
   boot.loader.systemd-boot.enable = true;
