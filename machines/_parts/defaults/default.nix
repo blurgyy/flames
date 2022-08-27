@@ -1,4 +1,7 @@
-{ headless, withSecrets ? true }: [
+{ headless
+, isQemuGuest
+, withSecrets ? true
+}: [
   ./configuration.nix
   ./hardware.nix
   ./network
@@ -6,4 +9,8 @@
   ./secret
 ] else []) ++ (if (!headless) then [
   ./non-headless-extras.nix
-] else [])
+] else []) ++ (if isQemuGuest then [
+  ({ modulesPath, ... }: { imports = [ (modulesPath + "/profiles/qemu-guest.nix") ]; })
+] else [
+  ({ modulesPath, ... }: { imports = [ (modulesPath + "/installer/scan/not-detected.nix") ]; })
+])

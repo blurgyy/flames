@@ -1,5 +1,4 @@
 { config, lib, pkgs, modulesPath, ... }: {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
   #assertions = [{
   #  assertion = with config.boot.loader; (grub.enable || systemd-boot.enable || generic-extlinux-compatible.enable);
   #  message = ''
@@ -43,12 +42,7 @@
     initrd = {
       inherit supportedFilesystems;
       availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-      kernelModules = [  # modules to load in boot stage 1
-        "virtio_blk"  # for detecting /dev/vd* disks, REF: <https://intl.cloud.tencent.com/document/product/213/9929>
-        "virtio_scsi"  # for detecting SCSI root disk in boot stage 1, REF: <https://github.com/NixOS/nixpkgs/issues/76980>
-        "virtio_net"  # for sshd in boot stage 1
-        "virtio_pci"  # not sure what this does
-      ];  # NOTE: actually load the modules
+      kernelModules = [ ];  # There used to be virtio_{blk,scsi,pci,net} modules here, which should already be included in the (modulesPath + "/profiles/qemu-guest.nix") module.
       # REF: <https://github.com/NixOS/nixpkgs/issues/32588#issuecomment-725695984>
       network.ssh = let
         keys = [

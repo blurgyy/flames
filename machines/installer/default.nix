@@ -3,6 +3,7 @@ nixpkgs.lib.nixosSystem {
   inherit system;
   modules = (import ../_parts/defaults {
     headless = true;
+    isQemuGuest = true;
     withSecrets = false;
   }) ++ [
     ./configuration.nix

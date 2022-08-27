@@ -1,7 +1,10 @@
 { system, self, nixpkgs, inputs }:
 nixpkgs.lib.nixosSystem {
   inherit system;
-  modules = (import ../_parts/defaults { headless = true; }) ++ [
+  modules = (import ../_parts/defaults {
+    headless = false;
+    isQemuGuest = false;
+  }) ++ [
     ./configuration.nix
     ./network.nix
     inputs.sops-nix.nixosModules.sops
