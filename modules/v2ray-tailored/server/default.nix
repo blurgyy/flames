@@ -23,7 +23,10 @@
     map f
       (map (subPath: "${path}/${subPath}") (attrNames (readDir path)));
 in {
-  log = { loglevel = "warning"; };
+  log = {
+    loglevel = "warning";
+    access = "/var/log/v2ray/server.log";
+  };
   stats = {};
   api = {
     tag = "api";

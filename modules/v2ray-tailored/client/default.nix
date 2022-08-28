@@ -14,7 +14,7 @@
 in {
   log = {
     loglevel = "warning";
-    access = "none";
+    access = "/var/log/v2ray/client.log";
   };
   dns = import ./dns.nix { inherit extraHosts; };
   inbounds = mapDir (applyTag { inherit ports; }) ./inbounds;

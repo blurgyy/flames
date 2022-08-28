@@ -63,13 +63,32 @@ in {
       default = pkgs.v2ray-loyalsoldier;
     };
   };
-  config = mkIf (cfg.client.enable || cfg.server.enable) {
+  config = let
+    commonServiceConfig = {
+      User = config.users.users.v2ray.name;
+      Group = config.users.groups.v2ray.name;
+      LogsDirectory = "v2ray";
+      LogsDirectoryMode = "0700";
+      NoNewPrivileges = true;
+      ProtectSystem = "strict";
+      AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
+      LimitNOFILE = 1000000007;
+    };
+  in mkIf (cfg.client.enable || cfg.server.enable) {
     # Avoid collision with original v2ray service
     services.v2ray.enable = false;
+
+    users.users.v2ray = {
+      group = config.users.groups.v2ray.name;
+      isSystemUser = true;
+    };
+    users.groups.v2ray = {};
 
     # As client
     sops.templates.vclient-config = with cfg.client; mkIf enable {
       content = builtins.toJSON (import ./client { inherit config lib uuid extraHosts soMark fwMark ports remotes overseaSelectors; });
+      owner = config.users.users.v2ray.name;
+      group = config.users.groups.v2ray.name;
     };
     networking.firewall-tailored = mkIf (cfg.client.enable || cfg.server.reverse != null) {
       enable = true;
@@ -137,9 +156,8 @@ table ip transparent_proxy {
       description = "V2Ray client";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
+      serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vclient-config.path}";
-        LimitNOFILE = 1000000007;
       };
       restartTriggers = [ config.sops.templates.vclient-config.content ];
     };
@@ -180,14 +198,15 @@ table ip transparent_proxy {
     # As server
     sops.templates.vserver-config = with cfg.server; mkIf enable {
       content = builtins.toJSON (import ./server { inherit config lib usersInfo ports wsPath reverse; });
+      owner = config.users.users.v2ray.name;
+      group = config.users.groups.v2ray.name;
     };
     systemd.services.vserver = mkIf cfg.server.enable {
       description = "V2Ray server";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
+      serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vserver-config.path}";
-        LimitNOFILE = 1000000007;
       };
       restartTriggers = [ config.sops.templates.vserver-config.content ];
     };
