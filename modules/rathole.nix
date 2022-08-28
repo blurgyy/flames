@@ -33,6 +33,11 @@ in {
     server = mkOption { type = types.nullOr serverModule; default = null; };
   };
   config = mkIf cfg.enable {
+    users.users.rathole = {
+      group = config.users.groups.rathole.name;
+      isSystemUser = true;
+    };
+    users.groups.rathole = {};
     networking.firewall-tailored = mkIf (cfg.server != null) {
       acceptedPorts = [{
         port = cfg.server.bindPort;
@@ -49,6 +54,12 @@ in {
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
+          User = config.users.users.rathole.name;
+          Group = config.users.groups.rathole.name;
+          NoNewPrivileges = true;
+          ProtectSystem = "strict";
+          AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
+          LimitNOFILE = 1000000007;
           ExecStart = "${cfg.package}/bin/rathole --client ${config.sops.templates.rathole-config.path}";
           Restart = "on-failure";
           RestartSec = 5;
@@ -59,6 +70,12 @@ in {
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
+          User = config.users.users.rathole.name;
+          Group = config.users.groups.rathole.name;
+          NoNewPrivileges = true;
+          ProtectSystem = "strict";
+          AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
+          LimitNOFILE = 1000000007;
           ExecStart = "${cfg.package}/bin/rathole --server ${config.sops.templates.rathole-config.path}";
           Restart = "on-failure";
           RestartSec = 5;
@@ -66,27 +83,31 @@ in {
         restartTriggers = [ (replaceStrings [ " " ] [ "" ] (concatStringsSep "" (splitString "\n" config.sops.templates.rathole-config.content))) ];
       });
     };
-    sops.templates.rathole-config.content = let
-      liftClientServices = services: listToAttrs (map
-        (svc: nameValuePair svc.name { inherit (svc) token; local_addr = svc.localAddr; })
-        services
-      );
-      liftServerServices = services: listToAttrs (map
-        (svc: nameValuePair svc.name { inherit (svc) token; bind_addr = "${svc.bindAddr}:${svc.bindPort}"; })
-        services
-      );
-    in pkgs.toTOML (removeAttrs {
-      client = if (cfg.client != null) then {
-        remote_addr = cfg.client.remoteAddr;
-        services = liftClientServices cfg.client.services;
-      } else {};
-      server = if (cfg.server != null) then {
-        bind_addr = "${cfg.server.bindAddr}:${cfg.server.bindPort}";
-        services = liftServerServices cfg.server.services;
-      } else {};
-    } [
-      (if (cfg.client == null) then "client" else "")
-      (if (cfg.server == null) then "server" else "")
-    ]);
+    sops.templates.rathole-config = {
+      content = let
+        liftClientServices = services: listToAttrs (map
+          (svc: nameValuePair svc.name { inherit (svc) token; local_addr = svc.localAddr; })
+          services
+        );
+        liftServerServices = services: listToAttrs (map
+          (svc: nameValuePair svc.name { inherit (svc) token; bind_addr = "${svc.bindAddr}:${svc.bindPort}"; })
+          services
+        );
+      in pkgs.toTOML (removeAttrs {
+        client = if (cfg.client != null) then {
+          remote_addr = cfg.client.remoteAddr;
+          services = liftClientServices cfg.client.services;
+        } else {};
+        server = if (cfg.server != null) then {
+          bind_addr = "${cfg.server.bindAddr}:${cfg.server.bindPort}";
+          services = liftServerServices cfg.server.services;
+        } else {};
+      } [
+        (if (cfg.client == null) then "client" else "")
+        (if (cfg.server == null) then "server" else "")
+      ]);
+      owner = config.users.users.rathole.name;
+      group = config.users.groups.rathole.name;
+    };
   };
 }
