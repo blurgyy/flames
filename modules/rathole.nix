@@ -60,7 +60,7 @@ in {
           Group = config.users.groups.rathole.name;
           NoNewPrivileges = true;
           ProtectSystem = "strict";
-          AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
+          AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
           LimitNOFILE = 1000000007;
           ExecStart = "${cfg.package}/bin/rathole --client ${config.sops.templates.rathole-config.path}";
           Restart = "on-failure";
