@@ -180,18 +180,6 @@ in lib.mkMerge [
     };
   };
 
-  services = {
-    git-sync = {
-      enable = true;
-      repositories = {
-        logseq = {
-          interval = 1200;  # pull for changes 3 times per hour
-          path = "${myHome}/Repos/CHR/logseq";
-          uri = "git+ssh://git@github.com/blurgyy/logseq.git";
-        };
-      };
-    };
-  };
 }
 
 (if !headless then {  # For non-headless machines
@@ -384,6 +372,16 @@ in lib.mkMerge [
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
       };
       settings = callWithHelpers ./parts/dunst.nix { };
+    };
+    git-sync = {
+      enable = true;
+      repositories = {
+        logseq = {
+          interval = 1200;  # pull for changes 3 times per hour
+          path = "${myHome}/Repos/CHR/logseq";
+          uri = "git+ssh://git@github.com/blurgyy/logseq.git";
+        };
+      };
     };
   };
 } else {})
