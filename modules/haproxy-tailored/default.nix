@@ -140,6 +140,8 @@ in {
             domainName = frontendConfig.domain.name;
           in [
             "${pkgs.coreutils}/bin/mkdir -p /run/haproxy/${domainName}"
+            # HACK: wait for certificate and key files to be generated up to 3 seconds
+            "${pkgs.bash}/bin/bash -c 'for i in 1 2 3; do if [[ -e ${certRoot}/${domainName}/cert.pem ]] && [[ -e ${certRoot}/${domainName}/key.pem ]]; then echo certificate and key files are found; break; else sleep 1; echo waiting for certificate and key files \"(retry $i/3)\"; fi; done'"
             # NOTE: use bash since systemd does not know how to treat redirection
             "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
           ])
