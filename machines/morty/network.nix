@@ -18,7 +18,7 @@
     "v2ray/addresses/hk-00" = {};
     "v2ray/addresses/us-00" = {};
 
-    "rathole/remote_addr" = {};
+    "rathole/remote-addr" = {};
     "rathole/ssh/token" = {};
   };
   networking.wireless = {
@@ -40,7 +40,7 @@
   services.rathole = {
     enable = true;
     client = {
-      remoteAddr = config.sops.placeholder."rathole/remote_addr";
+      remoteAddr = config.sops.placeholder."rathole/remote-addr";
       services = [
         {
           name = "ssh-${config.networking.hostName}";
