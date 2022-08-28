@@ -60,6 +60,11 @@ in lib.mkMerge [
     else []
   );
 
+  nix.registry.hsz = {
+    from = { type = "indirect"; id = "hsz"; };
+    to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
+  };
+
   programs.gpg = {
     enable = true;
     homedir = "${config.xdg.stateHome}/gnupg";
