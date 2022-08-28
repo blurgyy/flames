@@ -33,11 +33,13 @@ in {
     server = mkOption { type = types.nullOr serverModule; default = null; };
   };
   config = mkIf cfg.enable {
-    users.users.rathole = {
-      group = config.users.groups.rathole.name;
-      isSystemUser = true;
+    users = {
+      users.rathole = {
+        group = config.users.groups.rathole.name;
+        isSystemUser = true;
+      };
+      groups.rathole = {};
     };
-    users.groups.rathole = {};
     networking.firewall-tailored = mkIf (cfg.server != null) {
       acceptedPorts = [{
         port = cfg.server.bindPort;

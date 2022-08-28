@@ -78,11 +78,13 @@ in {
     # Avoid collision with original v2ray service
     services.v2ray.enable = false;
 
-    users.users.v2ray = {
-      group = config.users.groups.v2ray.name;
-      isSystemUser = true;
+    users = {
+      users.v2ray = {
+        group = config.users.groups.v2ray.name;
+        isSystemUser = true;
+      };
+      groups.v2ray = {};
     };
-    users.groups.v2ray = {};
 
     # As client
     sops.templates.vclient-config = with cfg.client; mkIf enable {
