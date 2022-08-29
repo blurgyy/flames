@@ -14,10 +14,12 @@
   ({ lib, pkgs, modulesPath, ... }: {
     imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;
+    documentation.nixos.enable = lib.mkDefault false;
   })
 ] else [
   ({ lib, pkgs, modulesPath, ... }: {
     imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
+    documentation.nixos.enable = lib.mkDefault true;
   })
 ])
