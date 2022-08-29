@@ -17,7 +17,7 @@
     cindy = { hostname = "${cindy}"; };
     cube = { hostname = "${cube}"; };
 
-    gpp = { hostname = "${peterpan}"; user = "git"; };
+    gpp = { hostname = "${peterpan}"; port = 77; };
     ghooper = { hostname = "${hooper}"; user = "git"; };
 
     m = { hostname = "${relay}"; port = 10021; };
