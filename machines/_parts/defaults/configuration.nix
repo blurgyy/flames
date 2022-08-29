@@ -94,7 +94,7 @@
     logind.killUserProcesses = false;  # This is already the default
   };
 
-  environment.systemPackages = with pkgs; lib.mkDefault [
+  environment.systemPackages = with pkgs; [
     git
     neovim
     zsh fish fzf
