@@ -5,7 +5,7 @@
     isQemuGuest = false;
   }) ++ [
     ./configuration.nix
-    ./network.nix
+    ./network
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn
     inputs.acremote.nixosModules.${system}.default
