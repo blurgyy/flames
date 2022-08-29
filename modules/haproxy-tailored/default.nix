@@ -36,6 +36,7 @@
     options = {
       name = mkOption { type = types.str; };
       inherit mode;
+      options = mkOption { type = types.listOf types.str; default = []; };
       binds = mkOption {
         type = types.listOf types.str;
         example = [ "*:80" "0.0.0.0:8080" "127.0.0.1:10000-10086" "abns@/haproxy/server.sock" ];
@@ -68,6 +69,7 @@
   in {
     options = {
       name = mkOption { type = types.str; };
+      options = mkOption { type = types.listOf types.str; default = []; };
       inherit mode;
       inherit acls requestRules;
       server = mkOption { type = backendServerModule; };
@@ -76,6 +78,7 @@
   defaultsModule = types.submodule ({ ... }: {
     options = {
       inherit mode;
+      options = mkOption { type = types.listOf types.str; default = [ "dontlognull" ]; };
       timeout = mkOption {
         type = timeoutModule;
         default = { connect = "5s"; client = "300s"; server = "300s"; };

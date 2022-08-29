@@ -2,6 +2,7 @@
   mkFrontend = opts: ''
 frontend ${opts.name}
   mode ${opts.mode}
+  ${concatStringsSep "\n  " (map (opt: "option ${opt}") (opts.options))}
   ${concatStringsSep "\n  " (map
     (bind: "bind ${bind} ${optionalString opts.acceptProxy "accept-proxy"} ${optionalString (opts.domain != null)
       "ssl crt /run/haproxy/${opts.domain.name}/full.pem"
@@ -18,6 +19,7 @@ frontend ${opts.name}
   mkBackend = opts: ''
 backend ${opts.name}
   mode ${opts.mode}
+  ${concatStringsSep "\n  " (map (opt: "option ${opt}") (opts.options))}
   ${concatStringsSep "\n  " (map (acl: "acl ${acl.name} ${acl.body}") opts.acls)}
   ${concatStringsSep "\n  " (map (rule: "${opts.mode}-request ${rule}") opts.requestRules)}
   server ${opts.name}-server ${opts.server.address} ${concatStringsSep " " opts.server.extraArgs}
@@ -41,8 +43,9 @@ in ''
 
 defaults
   log global
-  option dontlognull
   mode ${cfg.defaults.mode}
+  ${concatStringsSep "\n  " (map (opt: "option ${opt}") (cfg.defaults.options))}
+  option dontlognull
   timeout connect ${cfg.defaults.timeout.connect}
   timeout client  ${cfg.defaults.timeout.client}
   timeout server  ${cfg.defaults.timeout.server}
