@@ -1,27 +1,8 @@
 { config, lib, ... }: let
   domainName = config.networking.fqdn;
 in {
-  sops.secrets = {
-    acme-credentials-file = { owner = config.users.users.haproxy.name; };
-    "v2ray/ports/api" = {};
-    "v2ray/ports/tcp" = {};
-    "v2ray/ports/wss" = {};
-    "v2ray/ws-path" = {};
-
-    "v2ray/users/00/uuid" = {};
-    "v2ray/users/01/uuid" = {};
-    "v2ray/users/02/uuid" = {};
-    "v2ray/users/03/uuid" = {};
-    "v2ray/users/04/uuid" = {};
-    "v2ray/users/05/uuid" = {};
-
-    "v2ray/users/00/email" = {};
-    "v2ray/users/01/email" = {};
-    "v2ray/users/02/email" = {};
-    "v2ray/users/03/email" = {};
-    "v2ray/users/04/email" = {};
-    "v2ray/users/05/email" = {};
-  };
+  imports = [ ./v2ray.nix ];
+  sops.secrets.acme-credentials-file = { owner = config.users.users.haproxy.name; };
   services = {
     haproxy-tailored = {
       enable = true;
@@ -40,9 +21,6 @@ in {
         web = { mode = "http"; server.address = "127.0.0.1:8080"; };
         pivot = { mode = "tcp"; server.address = "127.0.0.1:65092"; };
       };
-    };
-    v2ray-tailored = {
-      server = (import ../../_parts/v2ray.nix { inherit config; }).server;
     };
   };
 }
