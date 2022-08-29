@@ -5,7 +5,7 @@
     isQemuGuest = true;
   }) ++ [
     ./configuration.nix
-    ./network
+    ./services
     inputs.sops-nix.nixosModules.sops
     inputs.nixos-cn.nixosModules.nixos-cn
     self.nixosModules.default
