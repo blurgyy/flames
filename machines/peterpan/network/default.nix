@@ -23,6 +23,10 @@
   }) ratholeServiceNames));
 in {
   sops.secrets = {
+    "soft-serve/hostkey" = {
+      owner = config.users.users.softserve.name;
+      group = config.users.groups.softserve.name;
+    };
     "v2ray/id" = {};
     "v2ray/observatory-probe-url" = {};
     "v2ray/ws-path" = {};
@@ -130,7 +134,7 @@ in {
       bind.port = 77;
       display.name = "Git Server TUI (hosted with soft-serve on ${config.networking.hostName})";
       display.host = "${config.networking.fqdn}";
-      #keyFile
+      keyFile = config.sops.secrets."soft-serve/hostkey".path;
       #repoDirectory
       anonAccess = "no-access";
       allowKeyless = true;
