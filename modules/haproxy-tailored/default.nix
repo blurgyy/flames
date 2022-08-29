@@ -92,8 +92,8 @@ in {
     };
     user = mkOption { type = types.str; default = "haproxy"; };
     group = mkOption { type = types.str; default = "haproxy"; };
-    frontends = mkOption { type = types.attrsOf frontendModule; default = []; };
-    backends = mkOption { type = types.attrsOf backendModule; default = []; };
+    frontends = mkOption { type = types.nullOr (types.attrsOf frontendModule); default = null; };
+    backends = mkOption { type = types.nullOr (types.attrsOf backendModule); default = null; };
   };
 
   config = mkIf cfg.enable {
