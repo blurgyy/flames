@@ -75,7 +75,10 @@ Trouble Shooting
   bandwagon machine, adding an entry `virtio_scsi` to both `boot.initrd.availableKernelModules` and
   `boot.initrd.kernelModules` before installing solved this problem.
 
-  > See [./machines/cube/hardware.nix](./machines/cube/hardware.nix) for an concrete example.
+  **Edit**: Or, add `(modulesPath + "/profiles/qemu-guest.nix")` to the `imports` list.
+
+  > See [./nixos/_parts/defaults/default.nix](./nixos/_parts/defaults/default.nix) for an concrete
+  > example.
   > Related: <https://github.com/NixOS/nixpkgs/issues/76980>
 
 * To boot from an ISO located on a physical drive `/dev/vda3` at path `/live.iso`, use below grub

@@ -66,32 +66,32 @@
     nixosModules = import ./modules;
     overlays.default = my.overlay;
     nixosConfigurations = {
-      cindy = import ./machines/cindy {
+      cindy = import ./nixos/cindy {
         system = "aarch64-linux";
         inherit self nixpkgs inputs;
       };
-      cube = import ./machines/cube {
+      cube = import ./nixos/cube {
         system = "x86_64-linux";
         inherit self nixpkgs inputs;
       };
-      morty = import ./machines/morty {
+      morty = import ./nixos/morty {
         system = "x86_64-linux";
         inherit self nixpkgs inputs;
       };
-      peterpan = import ./machines/peterpan {
+      peterpan = import ./nixos/peterpan {
         system = "x86_64-linux";
         inherit self nixpkgs inputs;
       };
-      rpi = import ./machines/rpi {
+      rpi = import ./nixos/rpi {
         system = "aarch64-linux";
         inherit self nixpkgs inputs;
       };
     } // {
-      installer-aarch64 = import ./machines/installer {
+      installer-aarch64 = import ./nixos/installer {
         system = "aarch64-linux";
         inherit self nixpkgs inputs;
       };
-      installer-x86_64 = import ./machines/installer {
+      installer-x86_64 = import ./nixos/installer {
         system = "x86_64-linux";
         inherit self nixpkgs inputs;
       };
