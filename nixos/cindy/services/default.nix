@@ -19,15 +19,5 @@
         { name = "hydra"; condition = "if is_hydra"; }
       ];
     };
-    backends = {
-      vaultwarden = {
-        mode = "http";
-        server.address = "127.0.0.1:62332";
-      };
-      hydra = {
-        mode = "http";
-        server.address = "127.0.0.1:5813";
-      };
-    };
   };
 }

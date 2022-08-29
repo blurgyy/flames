@@ -6,10 +6,16 @@ in {
       acls = [ { name = "is_hydra"; body = "hdr(host) -i ${hydraDomain}"; } ];
       domain.extraNames = [ hydraDomain ];
     };
+    backends.hydra = {
+      mode = "http";
+      options = [ "forwardfor" ];
+      requestRules = [ "set-header X-Forwarded-Proto https" ];  # NOTE: Needed to prevent "Mixed Content" while loading website assets (like *.js and *.css)
+      server.address = "127.0.0.1:5813";
+    };
   };
   services.hydra = {
     enable = true;
-    hydraURL = "https://${hydraDomain}";
+    hydraURL = "${hydraDomain}";
     notificationSender = "hydra@${config.networking.domain}";
     listenHost = "127.0.0.1";
     port = 5813;

@@ -15,5 +15,9 @@
       acls = [ { name = "is_vaultwarden"; body = "hdr(host) -i vw.${config.networking.domain}"; } ];
       domain.extraNames = [ "vw.${config.networking.domain}" ];
     };
+    backends.vaultwarden = {
+      mode = "http";
+      server.address = "127.0.0.1:62332";
+    };
   };
 }
