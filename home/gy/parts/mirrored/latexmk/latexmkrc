@@ -1,0 +1,18 @@
+# Use xelatex
+$pdf_mode = 5;
+$xelatex_silent_switch = "-interaction=batch-mode";
+
+# Use zathura as pdf previewer
+$pdf_previewer = "zathura";
+
+# Save output pdf to directory 'lmkbuild/'
+$out_dir = "lmkbuild";
+
+# Read from these files to compile pdf, elements in arrays should be separated
+# by commas.
+@default_files = ('main.tex');
+
+# vim: set filetype=conf:
+
+# Author: Blurgy <gy@blurgy.xyz>
+# Date:   Oct 14 2020
