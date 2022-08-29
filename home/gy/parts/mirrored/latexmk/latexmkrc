@@ -13,6 +13,3 @@ $out_dir = "lmkbuild";
 @default_files = ('main.tex');
 
 # vim: set filetype=conf:
-
-# Author: Blurgy <gy@blurgy.xyz>
-# Date:   Oct 14 2020
