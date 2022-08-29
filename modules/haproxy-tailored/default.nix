@@ -115,6 +115,7 @@ in {
         with ".service"
       '';
     }];
+    services.haproxy-tailored.defaults.options = [ "dontlognull" ];
     services.haproxy = {
       enable = true;
       config = import ./config-content.nix { inherit lib cfg; };
