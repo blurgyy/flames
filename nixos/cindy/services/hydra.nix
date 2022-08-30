@@ -52,6 +52,7 @@ in {
       hostName = "81.69.28.75";
       sshUser = "hydra-builder";
       sshKey = config.sops.secrets.peterpan-hydra-builder-key.path;
+      publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
       system = "x86_64-linux";
       supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
