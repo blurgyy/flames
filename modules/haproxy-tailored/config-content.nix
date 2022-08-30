@@ -25,9 +25,9 @@ backend ${opts.name}
   server ${opts.name}-server ${opts.server.address} ${concatStringsSep " " opts.server.extraArgs}
 '';
 in ''
-## This 2 lines are already defined in module `services.haproxy`
-#global
-#  stats socket /run/haproxy/haproxy.sock mode 600 expose-fd listeners level user
+# This 2 lines are taken from the standard nixos module `services.haproxy`
+global
+  stats socket /run/haproxy/haproxy.sock mode 600 expose-fd listeners level user
   log stdout local0 info
   stats timeout 30s
   user ${cfg.user}

@@ -19,12 +19,12 @@ in {
     });
     clientModule = types.submodule ({ ... }: {
       options.remoteAddr = mkOption { type = types.str; };
-      options.services = mkOption { type = types.listOf clientServiceModule; default = []; };
+      options.services = mkOption { type = types.attrsOf clientServiceModule; default = []; };
     });
     serverModule = types.submodule ({ ... }: {
       options.bindAddr = mkOption { type = types.str; };
       options.bindPort = mkOption { type = with types; oneOf [ str int ]; };
-      options.services = mkOption { type = types.listOf serverServiceModule; default = []; };
+      options.services = mkOption { type = types.attrsOf serverServiceModule; default = []; };
     });
   in {
     enable = mkEnableOption "Reverse proxy with rathole";
@@ -45,11 +45,11 @@ in {
         port = cfg.server.bindPort;
         protocols = [ "tcp" ];
         comment = "allow traffic on rathole control channel";
-      }] ++ (map (svc: {
+      }] ++ (attrValues (mapAttrs (svcName: svc: {
         port = svc.bindPort;
         protocols = [ "tcp" "udp" ];
-        comment = "allow traffic for rathole service '${svc.name}'";
-      }) cfg.server.services);
+        comment = "allow traffic for rathole service '${svcName}'";
+      }) cfg.server.services));
     };
     systemd.services = {
       rathole-client = mkIf (cfg.client != null) (with pkgs; {
@@ -86,28 +86,28 @@ in {
       });
     };
     sops.templates.rathole-config = {
-      content = let
-        liftClientServices = services: listToAttrs (map
-          (svc: nameValuePair svc.name { inherit (svc) token; local_addr = svc.localAddr; })
-          services
-        );
-        liftServerServices = services: listToAttrs (map
-          (svc: nameValuePair svc.name { inherit (svc) token; bind_addr = "${svc.bindAddr}:${svc.bindPort}"; })
-          services
-        );
-      in pkgs.toTOML (removeAttrs {
-        client = if (cfg.client != null) then {
-          remote_addr = cfg.client.remoteAddr;
-          services = liftClientServices cfg.client.services;
-        } else {};
-        server = if (cfg.server != null) then {
-          bind_addr = "${cfg.server.bindAddr}:${cfg.server.bindPort}";
-          services = liftServerServices cfg.server.services;
-        } else {};
-      } [
-        (if (cfg.client == null) then "client" else "")
-        (if (cfg.server == null) then "server" else "")
-      ]);
+      content = ''
+        ${optionalString (cfg.client != null)
+''
+[client]
+remote_addr = "${cfg.client.remoteAddr}"
+  ${concatStringsSep "\n" (attrValues (mapAttrs (svcName: svc: ''
+    [client.services.${svcName}]
+    token = "${svc.token}"
+    local_addr = "${svc.localAddr}"
+  '') cfg.client.services))}
+  ''}
+
+  ${optionalString (cfg.server != null) ''
+[server]
+bind_addr = "${cfg.server.bindAddr}:${cfg.server.bindPort}"
+  ${concatStringsSep "\n" (attrValues (mapAttrs (svcName: svc: ''
+    [server.services.${svcName}]
+    token = "${svc.token}"
+    bind_addr = "${svc.bindAddr}:${svc.bindPort}"
+  '') cfg.server.services))}
+  ''}
+'';
       owner = config.users.users.rathole.name;
       group = config.users.groups.rathole.name;
     };

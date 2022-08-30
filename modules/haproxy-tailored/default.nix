@@ -116,9 +116,18 @@ in {
       '';
     }];
     services.haproxy-tailored.defaults.options = [ "dontlognull" ];
-    services.haproxy = {
-      enable = true;
-      config = import ./config-content.nix { inherit lib cfg; };
+    services.haproxy.enable = false;
+    users = {
+      users.haproxy = {
+        group = config.users.groups.haproxy.name;
+        isSystemUser = true;
+      };
+      groups.haproxy = {};
+    };
+    sops.templates.haproxy-cfg = {
+      content = import ./config-content.nix { inherit lib cfg; };
+      owner = config.users.users.haproxy.name;
+      group = config.users.groups.haproxy.name;
     };
     security.acme = {
       acceptTerms = true;
@@ -136,25 +145,57 @@ in {
     };
     systemd.services = {
       haproxy = {
-        serviceConfig.ExecStartPre = mkBefore (concatLists (attrValues (mapAttrs
-          (_: frontendConfig: let
-            certRoot = if frontendConfig.domain.acme.enable
-              then "/var/lib/acme"
-              else "/var/lib/self-signed";
-            domainName = frontendConfig.domain.name;
-          in [
-            "${pkgs.coreutils}/bin/mkdir -p /run/haproxy/${domainName}"
-            # HACK: wait for certificate and key files to be generated up to 3 seconds
-            "${pkgs.bash}/bin/bash -c 'for i in 1 2 3; do if [[ -e ${certRoot}/${domainName}/cert.pem ]] && [[ -e ${certRoot}/${domainName}/key.pem ]]; then echo certificate and key files are found; break; else sleep 1; echo waiting for certificate and key files \"(retry $i/3)\"; fi; done'"
-            # NOTE: use bash since systemd does not know how to treat redirection
-            "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
-          ])
-          (filterAttrs (_: frontendConfig: frontendConfig.domain != null) cfg.frontends)
-        )));
+        serviceConfig = {
+          User = config.users.users.haproxy.name;
+          Group = config.users.groups.haproxy.name;
+          Type = "notify";
+          ExecStartPre = (concatLists (attrValues (mapAttrs
+            (_: frontendConfig: let
+              certRoot = if frontendConfig.domain.acme.enable
+                then "/var/lib/acme"
+                else "/var/lib/self-signed";
+              domainName = frontendConfig.domain.name;
+            in [
+              "${pkgs.coreutils}/bin/mkdir -p /run/haproxy/${domainName}"
+              # HACK: wait for certificate and key files to be generated up to 3 seconds
+              "${pkgs.bash}/bin/bash -c 'for i in 1 2 3; do if [[ -e ${certRoot}/${domainName}/cert.pem ]] && [[ -e ${certRoot}/${domainName}/key.pem ]]; then echo certificate and key files are found; break; else sleep 1; echo waiting for certificate and key files \"(retry $i/3)\"; fi; done'"
+              # NOTE: use bash since systemd does not know how to treat redirection
+              "${pkgs.bash}/bin/bash -c '${pkgs.coreutils}/bin/cat ${certRoot}/${domainName}/cert.pem ${certRoot}/${domainName}/key.pem >/run/haproxy/${domainName}/full.pem'"
+            ])
+            (filterAttrs (_: frontendConfig: frontendConfig.domain != null) cfg.frontends)
+          ))) ++ [
+            # when the master process receives USR2, it reloads itself using exec(argv[0]),
+            # so we create a symlink there and update it before reloading
+            "${pkgs.coreutils}/bin/ln -sf ${pkgs.haproxy}/sbin/haproxy /run/haproxy/haproxy"
+            # when running the config test, don't be quiet so we can see what goes wrong
+            "/run/haproxy/haproxy -c -f ${config.sops.templates.haproxy-cfg.path}"
+          ];
+          ExecStart = "/run/haproxy/haproxy -Ws -f ${config.sops.templates.haproxy-cfg.path} -p /run/haproxy/haproxy.pid";
+          # support reloading
+          ExecReload = [
+            "${pkgs.haproxy}/sbin/haproxy -c -f ${config.sops.templates.haproxy-cfg.path}"
+            "${pkgs.coreutils}/bin/ln -sf ${pkgs.haproxy}/sbin/haproxy /run/haproxy/haproxy"
+            "${pkgs.coreutils}/bin/kill -USR2 $MAINPID"
+          ];
+          KillMode = "mixed";
+          SuccessExitStatus = "143";
+          Restart = "always";
+          RuntimeDirectory = "haproxy";
+          # upstream hardening options
+          NoNewPrivileges = true;
+          ProtectHome = true;
+          ProtectSystem = "strict";
+          ProtectKernelTunables = true;
+          ProtectKernelModules = true;
+          ProtectControlGroups = true;
+          SystemCallFilter= "~@cpu-emulation @keyring @module @obsolete @raw-io @reboot @swap @sync";
+          # needed in case we bind to port < 1024
+          AmbientCapabilities = "CAP_NET_BIND_SERVICE";
+        };
         reloadTriggers = [
           (replaceStrings [ " " ] [ "" ]
             (concatStringsSep ""
-              (splitString "\n" config.services.haproxy.config)
+              (splitString "\n" config.sops.templates.haproxy-cfg.content)
             )
           )
         ];
