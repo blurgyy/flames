@@ -24,6 +24,7 @@
   in flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs {
       inherit system;
+      config.allowUnfree = true;
       overlays = [ self.overlays.default ];
     };
   in rec {
@@ -40,7 +41,8 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
-    hydraJobs = with builtins; (listToAttrs (attrValues (mapAttrs
+    hydraJobs = with builtins; self.packages.x86_64-linux //
+    (listToAttrs (attrValues (mapAttrs
       (name: _: {
         inherit name;
         value = self.homeConfigurations.${name}.activationPackage;
