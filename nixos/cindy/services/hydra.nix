@@ -2,6 +2,7 @@
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
 in {
+  sops.secrets.nix-serve-key = {};
   services.haproxy-tailored = {
     frontends.tls-offload-front = {
       acls = [
@@ -15,6 +16,10 @@ in {
       options = [ "forwardfor" ];
       requestRules = [ "set-header X-Forwarded-Proto https" ];  # NOTE: Needed to prevent "Mixed Content" while loading website assets (like *.js and *.css)
       server.address = "127.0.0.1:${toString config.services.hydra.port}";
+    };
+    backends.cache = {
+      mode = "http";
+      server.address = "127.0.0.1:${toString config.services.nix-serve.port}";
     };
   };
   services.hydra = {
@@ -33,4 +38,10 @@ in {
       supportedFeatures = [ "nixos-test" "benchmark" ];
     }
   ];
+  services.nix-serve = {
+    enable = true;
+    bindAddress = "127.0.0.1";
+    port = 25369;
+    secretKeyFile = config.sops.secrets.nix-serve-key.path;
+  };
 }
