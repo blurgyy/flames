@@ -40,6 +40,18 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
+    hydraJobs = with builtins; (listToAttrs (attrValues (mapAttrs
+      (name: _: {
+        inherit name;
+        value = self.homeConfigurations.${name}.activationPackage;
+      }) self.homeConfigurations
+    ))) // (listToAttrs (attrValues (mapAttrs
+      (name: _: {
+        inherit name;
+        value = self.nixosConfigurations.${name}.config.system.build.toplevel;
+      }) self.nixosConfigurations
+    )));
+  } // {
     homeConfigurations = let
       lib = nixpkgs.lib;
       x86_64-non-headless = {
