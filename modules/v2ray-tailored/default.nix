@@ -43,6 +43,7 @@ in {
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
       remotes = mkOption { type = with types; listOf remoteModule; };
       overseaSelectors = mkOption { type = types.listOf types.str; };
+      proxyBypassedIPs = mkOption { type = types.listOf types.str; default = []; };
       proxiedSystemServices = mkOption { type = types.listOf types.str; default = [ "nix-daemon.service" ]; };
     };
     server = {
@@ -116,7 +117,8 @@ define proxy_bypassed_IPs = {
   224.0.0.0/4,
   240.0.0.0/4,
   255.255.255.255/32,
-  ${concatStringsSep "," ((map (x: toString x.address) (filter (x: x.wsPath == null) remotes))
+  ${concatStringsSep "," (cfg.client.proxyBypassedIPs
+    ++ (map (x: toString x.address) (filter (x: x.wsPath == null) remotes))
     ++ (if (cfg.server.reverse != null) then [ (toString cfg.server.reverse.port) ] else []))}
 }
 table ip transparent_proxy
