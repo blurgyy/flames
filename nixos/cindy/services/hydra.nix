@@ -2,7 +2,13 @@
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
 in {
-  sops.secrets.nix-serve-key = {};
+  sops.secrets = {
+    nix-serve-key = {};
+    peterpan-hydra-builder-key = {
+      owner = config.users.users.hydra.name;
+      group = config.users.groups.hydra.name;
+    };
+  };
   nix.extraOptions = ''
     # Allow hydra to build homeConfigurations.*.activationPackage
     # REF: <https://github.com/cleverca22/nixos-configs/blob/33d05ae5881f637bec254b545b323f37ba3acf2e/nas-hydra.nix#L17>
@@ -40,8 +46,14 @@ in {
   systemd.services.hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
   nix.buildMachines = [{
       hostName = "localhost";
-      systems = [ "builtin" "x86_64-linux" "aarch64-linux" ];
+      system = "aarch64-linux";
       supportedFeatures = [ "benchmark" "big-parallel" "gccarch-armv8-a" "kvm" "nixos-test" ];
+  } {
+      hostName = "81.69.28.75";
+      sshUser = "hydra-builder";
+      sshKey = config.sops.secrets.peterpan-hydra-builder-key.path;
+      system = "x86_64-linux";
+      supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
   services.nix-serve = {
     enable = true;
