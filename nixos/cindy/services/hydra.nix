@@ -38,13 +38,11 @@ in {
     buildMachinesFiles = [ "/etc/nix/machines" ];
   };
   systemd.services.hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
-  nix.buildMachines = [
-    {
+  nix.buildMachines = [{
       hostName = "localhost";
       systems = [ "builtin" "x86_64-linux" "aarch64-linux" ];
-      supportedFeatures = [ "nixos-test" "benchmark" ];
-    }
-  ];
+      supportedFeatures = [ "benchmark" "big-parallel" "gccarch-armv8-a" "kvm" "nixos-test" ];
+  }];
   services.nix-serve = {
     enable = true;
     bindAddress = "127.0.0.1";
