@@ -4,9 +4,8 @@
 in {
   sops.secrets = {
     nix-serve-key = {};
-    peterpan-hydra-builder-key = {
-      owner = config.users.users.hydra.name;
-      group = config.users.groups.hydra.name;
+    peterpan-hydrabuilder-key = {
+      owner = config.users.users.hydra-queue-runner.name;
     };
   };
   nix.extraOptions = ''
@@ -45,13 +44,9 @@ in {
   };
   systemd.services.hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
   nix.buildMachines = [{
-    hostName = "localhost";
-    system = "aarch64-linux";
-    supportedFeatures = [ "benchmark" "big-parallel" "gccarch-armv8-a" "kvm" "nixos-test" ];
-  } {
     hostName = "81.69.28.75";
-    sshUser = "hydra-builder";
-    sshKey = config.sops.secrets.peterpan-hydra-builder-key.path;
+    sshUser = "hydrabuilder";
+    sshKey = config.sops.secrets.peterpan-hydrabuilder-key.path;
     publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
     system = "x86_64-linux";
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
