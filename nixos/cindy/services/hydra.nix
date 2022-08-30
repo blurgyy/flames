@@ -3,6 +3,12 @@
   cacheDomain = "cache.${config.networking.domain}";
 in {
   sops.secrets.nix-serve-key = {};
+  nix.extraOptions = ''
+    # Allow hydra to build homeConfigurations.*.activationPackage
+    # REF: <https://github.com/cleverca22/nixos-configs/blob/33d05ae5881f637bec254b545b323f37ba3acf2e/nas-hydra.nix#L17>
+    # Related: <https://github.com/NixOS/nix/issues/1888>
+    allowed-uris = https://github.com/cleverca22/nix-tests https://gitlab.com/api/v4/projects/rycee%2Fnmd
+  '';
   services.haproxy-tailored = {
     frontends.tls-offload-front = {
       acls = [
