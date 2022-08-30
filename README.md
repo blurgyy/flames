@@ -117,3 +117,13 @@ Trouble Shooting
   ```bash
   $ sudo NIXOS_INSTALL_BOOTLOADER=1 /nix/var/nix/profiles/system/bin/switch-to-configuration boot
   ```
+
+* If hydra jobset evaluation fails and shows only "evaluation failed with exit code 255" on the web
+  frontend, it may be caused by changing jobset/project name earlier.  Log into the hydra machine
+  and confirm this with `journalctl -eu hydra-evaluator`, journal will contain a line like
+
+  ```log
+  /nix/store/n1hh77ld9bl8rawad1y68sfy9jsrc6ml-hydra-2022-08-08/bin/.hydra-eval-jobset-wrapped: evaluation of jobset ‘configs:all (jobset#4)’ failed with exit code 255
+  ```
+
+  Restart `hydra-evaluator.service` fixed this issue.
