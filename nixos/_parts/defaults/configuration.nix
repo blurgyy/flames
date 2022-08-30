@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: rec {
+{ config, lib, pkgs, ... }: rec {
   nix = {
     package = lib.mkDefault pkgs.nixUnstable;
     registry.hsz = {
@@ -44,6 +44,15 @@
       wlan0.useDHCP = true;
     };
     firewall.enable = lib.mkDefault false;
+    hosts = {
+      "81.69.28.75" = [
+        "peterpan"
+        "peterpan.${config.networking.domain}"
+        "pp.${config.networking.domain}"
+      ];
+      "130.61.57.3" = [ "cindy" ];
+      "45.78.17.205" = [ "cube" ];
+    };
   };
   services.resolved.enable = lib.mkDefault true;
 
@@ -121,6 +130,22 @@
       enable = true;  # NOTE: OpenSSH is disabled by default!
       passwordAuthentication = false;
       #permitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
+      knownHosts = let
+        appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
+      in {
+        peterpan = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINcvCSwJMACvxaTZFeXenI/HuSEEMpfBmJwYQE0RswmN";
+          extraHostNames = lib.remove "peterpan" config.networking.hosts."81.69.28.75";
+        };
+        cindy = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICVZBVwrNaYFiY5rmAIzTYWiqK5D/t1ZM+07LL7ok7g6";
+          extraHostNames = appendDomain [ "cindy" "hydra" "cache" ];
+        };
+        cube = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILGJoWFP3Mc4D5JyAmObLl96c6zrD2nZ6UfmT6Trz5NN";
+          extraHostNames = appendDomain [ "cube" ];
+        };
+      };
     };
   };
 }
