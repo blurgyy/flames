@@ -47,7 +47,14 @@ in {
     hostName = "81.69.28.75";
     sshUser = "hydrabuilder";
     sshKey = config.sops.secrets.peterpan-hydrabuilder-key.path;
-    publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
+    ## A publicHostKey entry in /etc/nix/machines will be recognized as in the "mandatory features"
+    ## field, causing no build being distributed to the machine.  Currently working around this by
+    ## accepting host key via:
+    ## ```shell
+    ## $ sudo su - hydra-queue-runner`
+    ## $ nix store ping --store ssh://<user>@<host>?ssh-key=<keypath>  # Accept host key here
+    ## ```
+    #publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
     system = "x86_64-linux";
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
