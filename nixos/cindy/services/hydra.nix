@@ -1,10 +1,14 @@
 { config, ... }: let
   hydraDomain = "hydra.${config.networking.domain}";
+  cacheDomain = "cache.${config.networking.domain}";
 in {
   services.haproxy-tailored = {
     frontends.tls-offload-front = {
-      acls = [ { name = "is_hydra"; body = "hdr(host) -i ${hydraDomain}"; } ];
-      domain.extraNames = [ hydraDomain ];
+      acls = [
+        { name = "is_hydra"; body = "hdr(host) -i ${hydraDomain}"; }
+        { name = "is_cache"; body = "hdr(host) -i ${cacheDomain}"; }
+      ];
+      domain.extraNames = [ hydraDomain cacheDomain ];
     };
     backends.hydra = {
       mode = "http";

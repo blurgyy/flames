@@ -17,6 +17,7 @@
       backends = [
         { name = "vaultwarden"; isDefault = true; condition = "if is_vaultwarden"; }
         { name = "hydra"; condition = "if is_hydra"; }
+        { name = "cache"; condition = "if is_cache"; }
       ];
     };
   };
