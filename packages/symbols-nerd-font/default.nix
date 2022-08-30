@@ -1,9 +1,14 @@
-{ source, stdenv, lib }: stdenv.mkDerivation rec {
+{ source, stdenv, lib
+, unzip
+}: stdenv.mkDerivation rec {
   inherit (source) pname version src;
 
-  phases = [ "installPhase" ];
+  phases = [ "unpackPhase" "installPhase" ];
+  unpackPhase = ''
+    ${unzip}/bin/unzip $src
+  '';
   installPhase = ''
-    install -Dt $out/share/truetype -m444 $src
+    install -Dt $out/share/truetype -m444 'Symbols-2048-em Nerd Font Complete.ttf'
   '';
 
   meta = {
