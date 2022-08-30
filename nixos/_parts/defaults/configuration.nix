@@ -9,16 +9,16 @@
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
       substituters = [
+        "https://cache.blurgy.xyz"
         "https://nix-community.cachix.org"
         "https://nixos-cn.cachix.org"
         "https://highsunz.cachix.org"
-        "https://cache.blurgy.xyz"
       ];
       trusted-public-keys = [
+        "cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
         "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
-        "cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4="
       ];
       auto-optimise-store = true;
       # REF: <https://docs.cachix.org/faq#frequently-asked-questions>
