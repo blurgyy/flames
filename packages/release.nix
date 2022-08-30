@@ -1,15 +1,17 @@
-{ self
-, nixpkgs
+{ nixpkgs
 , useCross ? false
-, crossSystem ? "x86_64-linux"
-, scrubJobs ? true  # Strip most of the attributes when evaluating to spare memory usage (REF: <https://github.com/NixOS/nixpkgs/blob/master/pkgs/top-level/release-cross.nix>
-, nixpkgsArgs ? { config = { allowUnfree = true; inHydra = true; }; }
+, crossPlatform ? "x86_64-pc-linux-gnu"  # NOTE: see available names from <https://github.com/NixOS/nixpkgs/blob/master/lib/systems/examples.nix>
+, ignoredPkgs ? []
 }: let
-  args = nixpkgsArgs // { overlays = [ (import ./.).overlay ]; };
-  pkgs = import <nixpkgs> (if useCross then
-    (args // {
-      crossSystem = (import <nixpkgs/lib>).systems.examples."${crossSystem}-multiplatform";
-    })
-    else args
+  lib = import <nixpkgs/lib>;
+  nixpkgsArgs = {
+    system = "aarch64-linux";
+    config.allowUnfree = true;
+    config.inHydra = true;
+    overlays = [ (import ./.).overlay ];
+  } // (if useCross
+    then { crossSystem.config = crossPlatform; }
+    else {}
   );
-in ((import ./.).packages pkgs)
+  pkgs = import <nixpkgs> nixpkgsArgs;
+in builtins.removeAttrs ((import ./.).packages pkgs) ignoredPkgs
