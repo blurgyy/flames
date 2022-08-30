@@ -1,4 +1,4 @@
-{ config, ... }: let
+{ config, lib, ... }: let
   ratholeServiceNames = [
     "ssh-morty"
     "ssh-rpi"
@@ -30,8 +30,7 @@ in {
     server = {
       bindAddr = config.sops.placeholder."rathole/bind-addr";
       bindPort = config.sops.placeholder."rathole/bind-port";
-      services = map (name: {
-        inherit name;
+      services = with lib; listToAttrs (map (name: nameValuePair name {
         token = config.sops.placeholder."rathole/${name}/token";
         bindAddr = config.sops.placeholder."rathole/${name}/addr";
         bindPort = config.sops.placeholder."rathole/${name}/port";
@@ -43,7 +42,12 @@ in {
         "ssh-lab-shared"
         "coderp-watson"
         "acremote-rpi"
-      ];
+      ]);
     };
+  };
+  services.haproxy-tailored.backends.web = {
+    mode = "http";
+    requestRules = [ "replace-uri /zju(.*)$ \\1" ];
+    server.address = "127.0.0.1:${config.services.rathole.server.services.coderp-watson.bindPort}";
   };
 }

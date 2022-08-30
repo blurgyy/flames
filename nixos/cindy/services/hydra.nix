@@ -14,7 +14,7 @@ in {
       mode = "http";
       options = [ "forwardfor" ];
       requestRules = [ "set-header X-Forwarded-Proto https" ];  # NOTE: Needed to prevent "Mixed Content" while loading website assets (like *.js and *.css)
-      server.address = "127.0.0.1:5813";
+      server.address = "127.0.0.1:${toString config.services.hydra.port}";
     };
   };
   services.hydra = {

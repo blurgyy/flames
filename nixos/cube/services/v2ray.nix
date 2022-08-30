@@ -20,4 +20,8 @@
     "v2ray/users/05/email" = {};
   };
   services.v2ray-tailored.server = (import ../../_parts/v2ray.nix { inherit config; }).server;
+  services.haproxy-tailored.backends.v2ray = {
+    mode = "tcp";
+    server.address = "127.0.0.1:${toString config.services.v2ray-tailored.server.ports.tcp}";
+  };
 }

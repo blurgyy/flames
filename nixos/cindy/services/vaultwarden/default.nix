@@ -17,7 +17,7 @@
     };
     backends.vaultwarden = {
       mode = "http";
-      server.address = "127.0.0.1:62332";
+      server.address = "127.0.0.1:${toString config.services.vaultwarden.config.rocketPort}";
     };
   };
 }
