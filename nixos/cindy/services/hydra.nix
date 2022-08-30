@@ -20,6 +20,13 @@ in {
     listenHost = "127.0.0.1";
     port = 5813;
     useSubstitutes = true;
-    buildMachinesFiles = [];
+    buildMachinesFiles = [ "/etc/nix/machines" ];
   };
+  nix.buildMachines = [
+    {
+      hostName = "localhost";
+      systems = [ "builtin" "x86_64-linux" "aarch64-linux" ];
+      supportedFeatures = [ "nixos-test" "benchmark" ];
+    }
+  ];
 }
