@@ -6,4 +6,5 @@
   };
   users.groups.hydra-builder = {};
   nix.settings.trusted-users = [ config.users.users.hydra-builder.name ];
+  services.v2ray-tailored.client.proxyBypassedIPs = [ "130.61.57.3" ];
 }
