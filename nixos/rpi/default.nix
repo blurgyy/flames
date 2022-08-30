@@ -1,7 +1,7 @@
 { system, self, nixpkgs, inputs }: nixpkgs.lib.nixosSystem {
   inherit system;
   modules = (import ../_parts/defaults {
-    headless = false;
+    headless = true;
     isQemuGuest = false;
   }) ++ [
     ./configuration.nix
