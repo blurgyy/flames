@@ -1,5 +1,22 @@
-{ config }: {
-  client = {
+{ config, ... }: {
+  sops.secrets = {
+    "v2ray/observatory-probe-url" = {};
+    "v2ray/ports/http" = {};
+    "v2ray/ports/socks" = {};
+    "v2ray/ports/tproxy" = {};
+    "v2ray/ws-path" = {};
+    "v2ray/id" = {};
+    "v2ray/domains/eu-00" = {};
+    "v2ray/domains/hk-00" = {};
+    "v2ray/domains/us-00" = {};
+    "v2ray/domains/wss-eu-00" = {};
+    "v2ray/domains/wss-us-00" = {};
+    "v2ray/addresses/cn-00" = {};
+    "v2ray/addresses/eu-00" = {};
+    "v2ray/addresses/hk-00" = {};
+    "v2ray/addresses/us-00" = {};
+  };
+  services.v2ray-tailored.client = {
     enable = true;
     uuid = config.sops.placeholder."v2ray/id";
     soMark = 27;
@@ -54,46 +71,5 @@
       }
     ];
     overseaSelectors = [ "hk" "us" "wss" ];
-  };
-  server = {
-    enable = true;
-    ports.api = config.sops.placeholder."v2ray/ports/api";
-    ports.tcp = config.sops.placeholder."v2ray/ports/tcp";
-    ports.wss = config.sops.placeholder."v2ray/ports/wss";
-    wsPath = config.sops.placeholder."v2ray/ws-path";
-    usersInfo = let
-      level = 1;
-    in [
-      {
-        uuid = config.sops.placeholder."v2ray/users/00/uuid";
-        email = config.sops.placeholder."v2ray/users/00/email";
-        inherit level;
-      }
-      {
-        uuid = config.sops.placeholder."v2ray/users/01/uuid";
-        email = config.sops.placeholder."v2ray/users/01/email";
-        inherit level;
-      }
-      {
-        uuid = config.sops.placeholder."v2ray/users/02/uuid";
-        email = config.sops.placeholder."v2ray/users/02/email";
-        inherit level;
-      }
-      {
-        uuid = config.sops.placeholder."v2ray/users/03/uuid";
-        email = config.sops.placeholder."v2ray/users/03/email";
-        inherit level;
-      }
-      {
-        uuid = config.sops.placeholder."v2ray/users/04/uuid";
-        email = config.sops.placeholder."v2ray/users/04/email";
-        inherit level;
-      }
-      {
-        uuid = config.sops.placeholder."v2ray/users/05/uuid";
-        email = config.sops.placeholder."v2ray/users/05/email";
-        inherit level;
-      }
-    ];
   };
 }

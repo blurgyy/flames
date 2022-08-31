@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./rathole.nix
-    ./v2ray.nix
+    ../../_parts/vclient.nix
     ./wlan.nix
   ];
 }
