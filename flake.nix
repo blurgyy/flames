@@ -41,18 +41,28 @@
     };
     commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
-    hydraJobs = with builtins; self.packages.x86_64-linux //
-    (listToAttrs (attrValues (mapAttrs
-      (name: _: {
-        inherit name;
-        value = self.homeConfigurations.${name}.activationPackage;
-      }) self.homeConfigurations
-    ))) // (listToAttrs (attrValues (mapAttrs
-      (name: _: {
-        inherit name;
-        value = self.nixosConfigurations.${name}.config.system.build.toplevel;
-      }) self.nixosConfigurations
-    )));
+    hydraJobs = with builtins; let
+      packageSets = let
+        builtSystems = [ "aarch64-linux" "x86_64-linux" ];
+        removedSystems = attrNames (removeAttrs self.packages builtSystems);
+      in removeAttrs self.packages removedSystems;
+      allPackages = listToAttrs (concatLists (attrValues (mapAttrs
+        (sys: pkgSet: attrValues (mapAttrs (pname: pkg: { name = "${pname}-${sys}"; value = pkg; }) pkgSet))
+        packageSets
+      )));
+      allNixosConfigurations = listToAttrs (attrValues (mapAttrs
+        (name: _: {
+          inherit name;
+          value = self.homeConfigurations.${name}.activationPackage;
+        }) self.homeConfigurations
+      ));
+      allHomeConfigurations = listToAttrs (attrValues (mapAttrs
+        (name: _: {
+          inherit name;
+          value = self.nixosConfigurations.${name}.config.system.build.toplevel;
+        }) self.nixosConfigurations
+      ));
+    in allPackages // allNixosConfigurations // allHomeConfigurations;
   } // {
     homeConfigurations = let
       lib = nixpkgs.lib;
