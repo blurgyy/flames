@@ -41,6 +41,11 @@ in {
     port = 5813;
     useSubstitutes = true;
     buildMachinesFiles = [ "/etc/nix/machines" ];
+    extraConfig = ''
+      <dynamicruncommand>
+        enable = 1
+      </dynamicruncommand>
+    '';
   };
   systemd.services.hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
   nix.buildMachines = [{

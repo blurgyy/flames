@@ -1,0 +1,72 @@
+{
+  "aarch64-linux": {
+    "enabled": 1,
+    "hidden": false,
+    "description": "Custom packages built for aarch64-linux",
+    "nixexprinput": "self",
+    "nixexprpath": "packages/release.nix",
+    "checkinterval": 300,
+    "schedulingshares": 100,
+    "enableemail": false,
+    "enable_dynamic_run_command": false,
+    "emailoverride": "",
+    "keepnr": 16,
+    "inputs": {
+      "self": {
+        "type": "git",
+        "value": "https://gitlab.com/highsunz/flames.git main",
+        "emailresponsible": false
+      },
+      "nixpkgs": {
+        "type": "git",
+        "value": "https://github.com/NixOS/nixpkgs.git nixos-unstable-small",
+        "emailresponsible": false
+      },
+      "system": {
+        "type": "string",
+        "value": "aarch64-linux",
+        "emailresponsible": false
+      },
+      "ignoredPkgs": {
+        "type": "nix",
+        "value": "[ \"tdesktop-megumifox\" \"gpustat-rs\" ]",
+        "emailresponsible": false
+      }
+    }
+  },
+  "x86_64-linux": {
+    "enabled": 1,
+    "hidden": false,
+    "description": "Custom packages built for x86_64-linux",
+    "nixexprinput": "self",
+    "nixexprpath": "packages/release.nix",
+    "checkinterval": 300,
+    "schedulingshares": 100,
+    "enableemail": false,
+    "enable_dynamic_run_command": false,
+    "emailoverride": "",
+    "keepnr": 16,
+    "inputs": {
+      "self": {
+        "type": "git",
+        "value": "https://gitlab.com/highsunz/flames.git main",
+        "emailresponsible": false
+      },
+      "nixpkgs": {
+        "type": "git",
+        "value": "https://github.com/NixOS/nixpkgs.git nixos-unstable-small",
+        "emailresponsible": false
+      },
+      "system": {
+        "type": "string",
+        "value": "x86_64-linux",
+        "emailresponsible": false
+      },
+      "ignoredPkgs": {
+        "type": "nix",
+        "value": "[]",
+        "emailresponsible": false
+      }
+    }
+  }
+}
