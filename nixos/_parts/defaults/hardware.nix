@@ -67,7 +67,7 @@
   zramSwap = {  # REF: <https://unix.stackexchange.com/a/596929>
     enable = true;
     priority = 32767;
-    memoryPercent = 150;
+    memoryPercent = 200;
   };
 
   networking.useDHCP = lib.mkDefault false;
