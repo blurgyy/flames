@@ -51,6 +51,7 @@ in {
   nix.buildMachines = [{
     hostName = "localhost";
     system = "aarch64-linux";
+    maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   } {
     hostName = "peterpan";
@@ -67,6 +68,7 @@ in {
     ## to be a better approach.
     #publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
     systems = [ "x86_64-linux" "i686-linux" ];
+    maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
   services.nix-serve = {
