@@ -44,6 +44,10 @@ in {
   };
   systemd.services.hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
   nix.buildMachines = [{
+    hostName = "cindy";
+    system = "aarch64-linux";
+    supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
+  } {
     hostName = "peterpan";
     sshUser = "hydrabuilder";
     sshKey = config.sops.secrets.peterpan-hydrabuilder-key.path;
