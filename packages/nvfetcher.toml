@@ -46,6 +46,10 @@ fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"
 
+[wakapi]
+src.github = "muety/wakapi"
+fetch.github = "muety/wakapi"
+
 [xtables-addons-perl-scripts]
 # curl https://inai.de/projects/xtables-addons/ | rg -i 'Latest release:' | sed -Ee 's:.*<b>([0-9]+\.[0-9]+)</b>.*:\1:'
 src.cmd = "curl https://inai.de/projects/xtables-addons/ | rg -i 'Latest release:' | sed -Ee 's:.*<b>([0-9]+\\.[0-9]+)</b>.*:\\1:'"

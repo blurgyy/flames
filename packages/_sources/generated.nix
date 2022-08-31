@@ -126,6 +126,17 @@
       sha256 = "sha256-5Hhqnwh9/s2rnITtcGnsR3M0DouTUh8CMLxgX5xrnyg=";
     });
   };
+  wakapi = {
+    pname = "wakapi";
+    version = "2.3.7";
+    src = fetchFromGitHub ({
+      owner = "muety";
+      repo = "wakapi";
+      rev = "2.3.7";
+      fetchSubmodules = false;
+      sha256 = "sha256-hElbCoXTU0D58Ng0qj6FpE+lIthDjtnrBXZYUR/UpEE=";
+    });
+  };
   xtables-addons-perl-scripts = {
     pname = "xtables-addons-perl-scripts";
     version = "3.21";

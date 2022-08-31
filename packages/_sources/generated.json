@@ -202,6 +202,25 @@
         },
         "version": "0.0.32"
     },
+    "wakapi": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "wakapi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "muety",
+            "repo": "wakapi",
+            "rev": "2.3.7",
+            "sha256": "sha256-hElbCoXTU0D58Ng0qj6FpE+lIthDjtnrBXZYUR/UpEE=",
+            "type": "github"
+        },
+        "version": "2.3.7"
+    },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,
         "extract": null,
