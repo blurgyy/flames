@@ -71,7 +71,7 @@ table inet filter {
 
     ${concatStringsSep "\n    " (map (portInfo: with builtins;
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
-      then "meta l4proto tcp th dport ${portInfo} accept"
+      then "meta l4proto tcp th dport ${toString portInfo} accept"
       else "${if (portInfo.predicate != null)
           then portInfo.predicate
           else ""
