@@ -2,9 +2,9 @@
   "aarch64-linux": {
     "enabled": 1,
     "hidden": false,
-    "description": "Custom packages built for aarch64-linux",
+    "description": "Custom packages built for aarch64-linux on latest nixos-unstable-small",
     "nixexprinput": "self",
-    "nixexprpath": "packages/release.nix",
+    "nixexprpath": ".hydra/projects/pkgs",
     "checkinterval": 300,
     "schedulingshares": 100,
     "enableemail": false,
@@ -37,9 +37,9 @@
   "x86_64-linux": {
     "enabled": 1,
     "hidden": false,
-    "description": "Custom packages built for x86_64-linux",
+    "description": "Custom packages built for x86_64-linux on latest nixos-unstable-small",
     "nixexprinput": "self",
-    "nixexprpath": "packages/release.nix",
+    "nixexprpath": ".hydra/projects/pkgs",
     "checkinterval": 300,
     "schedulingshares": 100,
     "enableemail": false,
