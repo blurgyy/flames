@@ -57,7 +57,7 @@ in {
     ## Currently this configuration adds peterpan's host key to system-wide known hosts, which seems
     ## to be a better approach.
     #publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
-    system = "x86_64-linux";
+    systems = [ "x86_64-linux" "i686-linux" ];
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
   services.nix-serve = {
