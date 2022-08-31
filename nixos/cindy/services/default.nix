@@ -2,6 +2,7 @@
   imports = [
     ./hydra.nix
     ./vaultwarden
+    ./webdav.nix
   ];
   sops.secrets.acme-credentials-file = { owner = config.users.users.haproxy.name; };
   services.haproxy-tailored = {
@@ -18,6 +19,7 @@
         { name = "vaultwarden"; isDefault = true; condition = "if is_vaultwarden"; }
         { name = "hydra"; condition = "if is_hydra"; }
         { name = "cache"; condition = "if is_cache"; }
+        { name = "webdav"; condition = "if is_webdav"; }
       ];
     };
   };
