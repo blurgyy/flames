@@ -132,6 +132,7 @@ in {
         git push soft main
       '';
     in {
+      after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       environment = {
         SOFT_SERVE_PORT = toString cfg.bind.port;

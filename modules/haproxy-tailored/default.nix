@@ -145,6 +145,7 @@ in {
     };
     systemd.services = {
       haproxy = {
+        after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
           User = config.users.users.haproxy.name;
