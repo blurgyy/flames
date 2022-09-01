@@ -73,10 +73,10 @@
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
-    version = "2022-08";
+    version = "2022-09";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2022-08.csv.gz";
-      sha256 = "sha256-tJz7MoaiRQ4OFBsXTRNGNusAydDT8wIkBCWNulISpB4=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2022-09.csv.gz";
+      sha256 = "sha256-wyKmAT9kVS5gJmlBUhhyOiLmTXu1MzSH7IrI1VQ9i9A=";
     };
   };
   symbols-nerd-font = {
