@@ -92,6 +92,14 @@
   alias xargs='xargs '
   alias parallel='${parallel}/bin/parallel '
 
+  alias bak='${tinytools}/bin/tt bak'
+  alias debak='${tinytools}/bin/tt debak'
+  function cg() {
+    if local cur="$(${tinytools}/bin/tt gr 2>/dev/null)"; then
+      cd "$cur"
+    fi
+  }
+
   mkdir -p ''${PARALLEL_HOME:-$HOME/.parallel}
   touch ''${PARALLEL_HOME:-$HOME/.parallel}/will-cite
 
