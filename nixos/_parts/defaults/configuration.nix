@@ -28,7 +28,8 @@
     };
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "Sat *-*-* 03:15:00";
+      randomizedDelaySec = "3h45min";
       options = "--delete-older-than 7d";
     };
   };
