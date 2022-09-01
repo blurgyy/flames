@@ -21,6 +21,10 @@ in {
         { name = "is_cache"; body = "hdr(host) -i ${cacheDomain}"; }
       ];
       domain.extraNames = [ hydraDomain cacheDomain ];
+      backends = [
+        { name = "hydra"; condition = "if is_hydra"; }
+        { name = "cache"; condition = "if is_cache"; }
+      ];
     };
     backends.hydra = {
       mode = "http";

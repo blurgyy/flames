@@ -45,9 +45,12 @@ in {
       ]);
     };
   };
-  services.haproxy-tailored.backends.web = {
-    mode = "http";
-    requestRules = [ "replace-uri /zju(.*)$ \\1" ];
-    server.address = "127.0.0.1:${config.services.rathole.server.services.coderp-watson.bindPort}";
+  services.haproxy-tailored = {
+    frontends.tls-offload-front.backends = [ { name = "web"; condition = "if HTTP"; } ];
+    backends.web = {
+      mode = "http";
+      requestRules = [ "replace-uri /zju(.*)$ \\1" ];
+      server.address = "127.0.0.1:${config.services.rathole.server.services.coderp-watson.bindPort}";
+    };
   };
 }

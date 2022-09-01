@@ -33,6 +33,7 @@ in {
     frontends.tls-offload-front = {
       acls = [ { name = "is_webdav"; body = "hdr(host) -i ${webdavDomain}"; } ];
       domain.extraNames = [ webdavDomain ];
+      backends = [ { name = "webdav"; condition = "if is_webdav"; } ];
     };
     backends.webdav = {
       mode = "http";

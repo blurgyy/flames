@@ -14,6 +14,7 @@
     frontends.tls-offload-front = {
       acls = [ { name = "is_vaultwarden"; body = "hdr(host) -i vw.${config.networking.domain}"; } ];
       domain.extraNames = [ "vw.${config.networking.domain}" ];
+      backends = [ { name = "vaultwarden"; isDefault = true; condition = "if is_vaultwarden"; } ];
     };
     backends.vaultwarden = {
       mode = "http";

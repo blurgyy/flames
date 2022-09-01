@@ -33,6 +33,7 @@ in {
       frontends.tls-offload-front = {
         acls = [ { name = "is_wakapi"; body = "hdr(host) -i ${wakapiDomain}"; } ];
         domain.extraNames = [ wakapiDomain ];
+        backends = [ { name = "wakapi"; condition = "if is_wakapi"; } ];
       };
       backends.wakapi = {
         mode = "http";
