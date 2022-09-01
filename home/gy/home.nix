@@ -180,6 +180,8 @@ in lib.mkMerge [
     };
   };
 
+  # So that fish can complete `man` commands
+  programs.man.generateCaches = true;
 }
 
 (if !headless then {  # For non-headless machines
