@@ -118,6 +118,7 @@
     exa bat fd ripgrep procs dua
     htop
     file
+    strace lsof
     zip unzip unar
     plocate
     jq libqalculate

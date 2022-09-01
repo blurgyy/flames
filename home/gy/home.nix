@@ -34,6 +34,7 @@ in lib.mkMerge [
     libime-history-merge
     libqalculate
     lnav
+    lsof
     miniserve
     parallel
     patchelf
@@ -42,6 +43,7 @@ in lib.mkMerge [
     ripgrep
     sdwrap
     sops
+    strace
     tex2nix
     tinytools
     unar
