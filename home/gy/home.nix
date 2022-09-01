@@ -388,5 +388,6 @@ in lib.mkMerge [
       };
     };
   };
+  systemd.user.services.git-sync-logseq.Service.Environment = [ "PATH=${lib.makeBinPath [ pkgs.openssh ]}" ];
 } else {})
 ]
