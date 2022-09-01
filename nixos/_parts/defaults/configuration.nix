@@ -105,6 +105,12 @@
     logind.killUserProcesses = false;  # This is already the default
   };
 
+  # Add necessary paths to environment.pathsToLink to enable fish completion and generates man-db
+  # cache.
+  programs.fish.enable = true;
+  # Similar for zsh.
+  programs.zsh.enable = true;
+
   environment.systemPackages = with pkgs; [
     git
     neovim
