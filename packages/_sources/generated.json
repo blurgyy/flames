@@ -143,7 +143,7 @@
     "tinytools": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./tinytools-refs/tags/v1.1.2/Cargo.lock",
+                "./tinytools-v1.1.2/Cargo.lock",
                 {}
             ]
         },
@@ -158,11 +158,11 @@
             "name": null,
             "owner": "blurgyy",
             "repo": "tinytools",
-            "rev": "refs/tags/v1.1.2",
+            "rev": "v1.1.2",
             "sha256": "sha256-OjnSbiil2zx1sT93T6nPJXg+rwZYgryiT+DrpolrW7M=",
             "type": "github"
         },
-        "version": "refs/tags/v1.1.2"
+        "version": "v1.1.2"
     },
     "ttf-google-sans": {
         "cargoLocks": null,

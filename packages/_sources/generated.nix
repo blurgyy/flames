@@ -89,16 +89,16 @@
   };
   tinytools = {
     pname = "tinytools";
-    version = "refs/tags/v1.1.2";
+    version = "v1.1.2";
     src = fetchFromGitHub ({
       owner = "blurgyy";
       repo = "tinytools";
-      rev = "refs/tags/v1.1.2";
+      rev = "v1.1.2";
       fetchSubmodules = false;
       sha256 = "sha256-OjnSbiil2zx1sT93T6nPJXg+rwZYgryiT+DrpolrW7M=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./tinytools-refs/tags/v1.1.2/Cargo.lock;
+      lockFile = ./tinytools-v1.1.2/Cargo.lock;
       outputHashes = {
         
       };

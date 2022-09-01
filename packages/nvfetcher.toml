@@ -34,7 +34,7 @@ src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://github.com/ryanoasis/nerd-fonts/releases/download/$ver/NerdFontsSymbolsOnly.zip"
 
 [tinytools]
-src.github = "blurgyy/tinytools"
+src.github_tag = "blurgyy/tinytools"
 fetch.github = "blurgyy/tinytools"
 cargo_locks = ["Cargo.lock"]
 
