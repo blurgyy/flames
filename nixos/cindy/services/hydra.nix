@@ -4,7 +4,7 @@
 in {
   sops.secrets = {
     nix-serve-key = {};
-    hydra-distributed-builder-key = {
+    hydra-git-fetcher-ssh-key = {
       owner = config.users.users.hydra-queue-runner.name;
     };
   };
@@ -54,28 +54,11 @@ in {
   };
   systemd.services = {
     hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
-    hydra-queue-runner.environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-distributed-builder-key.path} -oKnownHostsFile=/etc/ssh/ssh_known_hosts";
+    hydra-queue-runner.environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-git-fetcher-ssh-key.path}";
   };
   nix.buildMachines = [{
     hostName = "localhost";
-    system = "aarch64-linux";
-    maxJobs = 4;
-    supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
-  } {
-    hostName = "peterpan";
-    sshUser = "hydra-distributed-builder";
-    sshKey = config.sops.secrets.hydra-distributed-builder-key.path;
-    ## A publicHostKey entry in /etc/nix/machines will be recognized as in the "mandatory features"
-    ## field, causing no build being distributed to the machine.  A hacky work around is to accept
-    ## the host key via:
-    ## ```shell
-    ## $ sudo su - hydra-queue-runner`
-    ## $ nix store ping --store ssh://<user>@<host>?ssh-key=<keypath>  # Accept host key here
-    ## ```
-    ## Currently this configuration adds peterpan's host key to system-wide known hosts, which seems
-    ## to be a better approach.
-    #publicHostKey = "c3NoLWVkMjU1MTkgQUFBQUMzTnphQzFsWkRJMU5URTVBQUFBSU5jdkNTd0pNQUN2eGFUWkZlWGVuSS9IdVNFRU1wZkJtSndZUUUwUnN3bU4gcm9vdEBwZXRlcnBhbgo=";
-    systems = [ "x86_64-linux" "i686-linux" ];
+    systems = [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
