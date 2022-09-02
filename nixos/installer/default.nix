@@ -4,6 +4,7 @@
     headless = true;
     isQemuGuest = true;
     withSecrets = false;
+    withBinfmtEmulation = false;
   }) ++ [
     ./configuration.nix
     inputs.nixos-cn.nixosModules.nixos-cn
