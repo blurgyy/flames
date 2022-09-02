@@ -50,6 +50,8 @@
         "peterpan"
         "peterpan.${config.networking.domain}"
         "pp.${config.networking.domain}"
+        "soft-serve"
+        "softserve"
       ];
       "130.61.57.3" = [ "cindy" ];
       "45.78.17.205" = [ "cube" ];
@@ -141,18 +143,23 @@
       knownHosts = let
         appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
       in {
-        peterpan = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINcvCSwJMACvxaTZFeXenI/HuSEEMpfBmJwYQE0RswmN";
-          extraHostNames = lib.remove "peterpan" config.networking.hosts."81.69.28.75";
-        };
         cindy = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICVZBVwrNaYFiY5rmAIzTYWiqK5D/t1ZM+07LL7ok7g6";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnwu0GiLryvIUhfdFUeUpUSDz2Bl1Qm+Qjcez59Ae4W";
           extraHostNames = appendDomain [ "cindy" "hydra" "cache" ];
         };
         cube = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILGJoWFP3Mc4D5JyAmObLl96c6zrD2nZ6UfmT6Trz5NN";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINrvX4v1owLzBORvMsR/sz1gvnURbB+hvopbmeZVdSa1";
           extraHostNames = appendDomain [ "cube" ];
         };
+        peterpan = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIMVSMfJiqZOuJCUAyRI5tRdfjhhW2HgdIbEBcY7bVXY";
+          extraHostNames = lib.remove "peterpan" config.networking.hosts."81.69.28.75";
+        };
+
+        morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKK2mpm37mEuWPfQl4b0b5DDErQEEA2aOexKbZ0mPIFK";
+        rpi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFSXSu9PRjEcondJFHiq6gMD2u2m/LmazmLYp6yJwm3a";
+
+        soft-serve.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmbUnIXgTu63E4t4BMLe9MtWi9jv1dhkCnUa8AWpkqE";
       };
     };
   };

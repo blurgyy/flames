@@ -11,6 +11,7 @@ in {
     secrets = {
       "passwords/root".neededForUsers = true;
       "passwords/gy".neededForUsers = true;
+      hostKey = {};
     };
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
@@ -31,7 +32,7 @@ in {
     ];
   in {
     mutableUsers = false;
-    groups.plocate = { };  # for plocate-updatedb.service
+    groups.plocate = {};  # for plocate-updatedb.service
     users.root = {
       passwordFile = config.sops.secrets."passwords/root".path;
       openssh.authorizedKeys.keys = keys;
@@ -49,4 +50,8 @@ in {
       openssh.authorizedKeys.keys = keys;
     };
   };
+  services.openssh.hostKeys = [{
+    path = config.sops.secrets.hostKey.path;
+    type = "ed25519";
+  }];
 }
