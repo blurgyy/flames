@@ -75,7 +75,6 @@
     signByDefault = true;
   };
   extraConfig = {
-    diff.sopsdiff.textconv = "sops -d";
     merge.tool = "vimdiff";
     mergetool.vimdiff.cmd = "nvim -d $MERGED $LOCAL $REMOTE -c 'wincmd J'";
     mergetool.keepBackup = false;
