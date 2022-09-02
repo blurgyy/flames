@@ -170,6 +170,8 @@ in lib.mkMerge [
     } // (manifestXdgConfigFilesFrom ./parts/mirrored);
   };
 
+  systemd.user.startServices = true;
+
   systemd.user = {
     services.blackd = {
       Unit.Documentation = "https://black.readthedocs.io/en/stable/usage_and_configuration/black_as_a_server.html";
@@ -291,8 +293,6 @@ in lib.mkMerge [
     MOZ_ENABLE_WAYLAND = 1;  # TODO: with `config.firefox.package.forceWayland` set to true, maybe this can be removed?
     _JAVA_AWT_WM_NONREPARENTING = 1;
   };
-  systemd.user.sessionVariables = config.home.sessionVariables;
-  pam.sessionVariables = config.home.sessionVariables;
 
   xdg = {
     enable = true;
