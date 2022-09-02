@@ -46,6 +46,7 @@ in {
     useSubstitutes = true;
     buildMachinesFiles = [ "/etc/nix/machines" ];
     extraConfig = ''
+      max_output_size = ${toString (8 * 1024 * 1024 * 1024)}
       <dynamicruncommand>
         enable = 1
       </dynamicruncommand>
