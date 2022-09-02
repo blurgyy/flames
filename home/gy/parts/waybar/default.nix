@@ -5,7 +5,7 @@
     margin-left = 12;
     margin-right = 12;
     height = 36;
-    layer = "top";
+    layer = "bottom";
     modules-left = [
       "custom/menu"
       "custom/separator"
