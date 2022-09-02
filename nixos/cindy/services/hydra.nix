@@ -4,7 +4,7 @@
 in {
   sops.secrets = {
     nix-serve-key = {};
-    hydra-queue-runner-key = {
+    hydra-distributed-builder-key = {
       owner = config.users.users.hydra-queue-runner.name;
     };
   };
@@ -54,7 +54,7 @@ in {
   };
   systemd.services = {
     hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
-    hydra-queue-runner.environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-queue-runner-key.path} -oKnownHostsFile=/etc/ssh/ssh_known_hosts";
+    hydra-queue-runner.environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-distributed-builder-key.path} -oKnownHostsFile=/etc/ssh/ssh_known_hosts";
   };
   nix.buildMachines = [{
     hostName = "localhost";
@@ -63,8 +63,8 @@ in {
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   } {
     hostName = "peterpan";
-    sshUser = config.users.users.hydra-queue-runner.name;
-    sshKey = config.sops.secrets.hydra-queue-runner-key.path;
+    sshUser = "hydra-distributed-builder";
+    sshKey = config.sops.secrets.hydra-distributed-builder-key.path;
     ## A publicHostKey entry in /etc/nix/machines will be recognized as in the "mandatory features"
     ## field, causing no build being distributed to the machine.  A hacky work around is to accept
     ## the host key via:
