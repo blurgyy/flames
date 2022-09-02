@@ -42,7 +42,10 @@
 
   time.timeZone = "Asia/Shanghai";
 
-  services.acremote.enable = true;
+  services = {
+    acremote.enable = true;
+    btrfs.autoScrub.fileSystems = [ "/elements" ];
+  };
 
   environment.systemPackages = with pkgs; [
     v4l-utils  # for `ir-ctl` executable
