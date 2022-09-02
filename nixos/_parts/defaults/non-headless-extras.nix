@@ -95,6 +95,7 @@
       source-han-serif
       source-code-pro
       font-awesome
+      freefont_ttf
       liberation_ttf
       lxgw-wenkai
       harmonyos-sans
