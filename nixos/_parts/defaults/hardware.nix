@@ -57,7 +57,7 @@
         authorizedKeys = keys;
       };
     };
-    binfmt.emulatedSystems = lib.mkDefault [ (if (pkgs.system == "x86_64-linux") then "aarch64-linux" else "x86_64-linux") ];
+    binfmt.emulatedSystems = lib.remove pkgs.system [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
     tmpOnTmpfs = true;
     tmpOnTmpfsSize = "100%";
   };
