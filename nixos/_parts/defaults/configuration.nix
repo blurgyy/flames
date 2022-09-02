@@ -150,22 +150,22 @@
         appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
       in {
         cindy = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINnwu0GiLryvIUhfdFUeUpUSDz2Bl1Qm+Qjcez59Ae4W";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLYPC2blW9f6nkGH1gII8/YhfTTOnBu5bCoRX9h1BWJ";
           extraHostNames = appendDomain [ "cindy" "hydra" "cache" ];
         };
         cube = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINrvX4v1owLzBORvMsR/sz1gvnURbB+hvopbmeZVdSa1";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL+Cx6XqOJr1Wr9wIRFOheLpbnoBMt5Nxr50Z0mMYB3C";
           extraHostNames = appendDomain [ "cube" ];
         };
         peterpan = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIMVSMfJiqZOuJCUAyRI5tRdfjhhW2HgdIbEBcY7bVXY";
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy5KB6KAHZuedlEjcWTYSSurh3yCz7QweMqZAvnixv1";
           extraHostNames = lib.remove "peterpan" config.networking.hosts."81.69.28.75";
         };
 
-        morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKK2mpm37mEuWPfQl4b0b5DDErQEEA2aOexKbZ0mPIFK";
-        rpi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFSXSu9PRjEcondJFHiq6gMD2u2m/LmazmLYp6yJwm3a";
+        morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";
+        rpi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5h1Ml9C6A78lElY4fGEyB2aLGLFU1OfqgwnDrj/bXC";
 
-        soft-serve.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKmbUnIXgTu63E4t4BMLe9MtWi9jv1dhkCnUa8AWpkqE";
+        soft-serve.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9rzg0Pw5saEXxRlML1W5lWjtmREyjTVu032nqNIEW";
       };
     };
   };
