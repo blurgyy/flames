@@ -331,6 +331,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-difftastic-terminal-width-fix": {
+      "locked": {
+        "lastModified": 1662172318,
+        "narHash": "sha256-Y2l2z8xOlXxUTwagcqzHEjTe4T/PhjMDXgwktNHCxrg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f9b34059ff47056e87c67a2e2693b3f9bc1392cc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/189540/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-regression": {
       "locked": {
         "lastModified": 1643052045,
@@ -397,6 +413,7 @@
         "nixos-cn": "nixos-cn",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
+        "nixpkgs-difftastic-terminal-width-fix": "nixpkgs-difftastic-terminal-width-fix",
         "nvfetcher": "nvfetcher",
         "sops-nix": "sops-nix",
         "tex2nix": "tex2nix"

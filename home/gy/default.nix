@@ -6,6 +6,7 @@
       self.overlays.default
       (final: prev: {
         tex2nix = inputs.tex2nix.packages.${system}.tex2nix;
+        difftastic = (import inputs.nixpkgs-difftastic-terminal-width-fix { inherit system; }).difftastic;
       })
     ];
   };

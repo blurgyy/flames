@@ -13,9 +13,13 @@
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
     tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
 
-    "nix-2.10.3" = { url = github:NixOS/nix/2.10.3; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote = { url = gitlab:highsunz/acremote; inputs.nixpkgs.follows = "nixpkgs"; };
+
+    # See <https://github.com/NixOS/nix/issues/6981>
+    "nix-2.10.3" = { url = github:NixOS/nix/2.10.3; inputs.nixpkgs.follows = "nixpkgs"; };
+    # Wait for <https://github.com/NixOS/nixpkgs/pull/189540>
+    nixpkgs-difftastic-terminal-width-fix.url = github:NixOS/nixpkgs/pull/189540/head;
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
@@ -27,7 +31,6 @@
       inherit system;
       config.allowUnfree = true;
       overlays = [
-        inputs."nix-2.10.3".overlays.default
         self.overlays.default
       ];
     };
