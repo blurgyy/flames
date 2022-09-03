@@ -12,17 +12,17 @@
     hooper = "64.64.244.30";
     relay = peterpan;
   in {
-    pp = { hostname = "${peterpan}"; };
-    hooper = { hostname = "${hooper}"; };
-    cindy = { hostname = "${cindy}"; };
-    cube = { hostname = "${cube}"; };
+    pp = { hostname = peterpan; };
+    hooper = { hostname = hooper; };
+    cindy = { hostname = cindy; };
+    cube = { hostname = cube; };
 
-    gpp = { hostname = "${peterpan}"; port = 77; };
-    ghooper = { hostname = "${hooper}"; user = "git"; };
+    gpp = { hostname = peterpan; port = 77; };
+    ghooper = { hostname = hooper; user = "git"; };
 
-    m = { hostname = "${relay}"; port = 10021; };
+    m = { hostname = relay; port = 10021; };
     w = {
-      hostname = "${relay}";
+      hostname = relay;
       port = 10020;
       localForwards = [
         { host.port = 3000; bind.port = 43000; host.address = "localhost"; }
@@ -30,16 +30,16 @@
         { host.port = 9091; bind.port = 49091; host.address = "localhost"; }
       ];
     };
-    pi = { hostname = "${relay}"; port = 10013; };
+    pi = { hostname = relay; port = 10013; };
 
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
     "2x1080ti" = {
-      hostname = "${relay}";
+      hostname = relay;
       port = 10023;
     };
     shared = {
-      hostname = "${relay}";
+      hostname = relay;
       port = 10025;
     };
 
