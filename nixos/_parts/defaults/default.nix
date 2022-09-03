@@ -16,6 +16,7 @@
     nixpkgs.overlays = [
       self.overlays.default
       inputs.nixos-cn.overlay
+      inputs."nix-2.10.3".overlays.default
     ];
   }
 ]

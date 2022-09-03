@@ -13,19 +13,23 @@
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
     tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
 
+    "nix-2.10.3" = { url = github:NixOS/nix/2.10.3; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote = { url = gitlab:highsunz/acremote; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
   # specified in the `inputs` attribute above.
-  outputs = inputs@{ self, nixpkgs, flake-utils, nixos-cn, ... }: let
+  outputs = inputs@{ self, nixpkgs, flake-utils, ... }: let
     my = import ./packages;
   in flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
-      overlays = [ self.overlays.default ];
+      overlays = [
+        inputs."nix-2.10.3".overlays.default
+        self.overlays.default
+      ];
     };
   in rec {
     packages = my.packages pkgs;
