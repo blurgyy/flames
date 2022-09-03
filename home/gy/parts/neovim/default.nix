@@ -5,9 +5,9 @@
   vimAlias = true;
   vimdiffAlias = true;
 
-  plugins = with pkgs; [
+  plugins = (with pkgs; [
     lsp-format-nvim
-  ] ++ (with pkgs.vimPlugins; [
+  ]) ++ (with pkgs.vimPlugins; [
     nvim-lspconfig
     null-ls-nvim
     nvim-cmp
