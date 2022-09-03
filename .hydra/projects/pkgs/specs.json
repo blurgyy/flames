@@ -2,7 +2,7 @@
   "aarch64-linux": {
     "enabled": 1,
     "hidden": false,
-    "description": "Custom packages built for aarch64-linux on latest nixos-unstable-small",
+    "description": "Custom packages built for aarch64-linux on latest nixpkgs",
     "nixexprinput": "self",
     "nixexprpath": ".hydra/projects/pkgs",
     "checkinterval": 60,
@@ -19,7 +19,7 @@
       },
       "nixpkgs": {
         "type": "git",
-        "value": "https://github.com/NixOS/nixpkgs.git nixos-unstable-small",
+        "value": "https://github.com/NixOS/nixpkgs.git",
         "emailresponsible": false
       },
       "system": {
@@ -37,7 +37,7 @@
   "x86_64-linux": {
     "enabled": 1,
     "hidden": false,
-    "description": "Custom packages built for x86_64-linux on latest nixos-unstable-small",
+    "description": "Custom packages built for x86_64-linux on latest nixpkgs",
     "nixexprinput": "self",
     "nixexprpath": ".hydra/projects/pkgs",
     "checkinterval": 60,
@@ -54,7 +54,7 @@
       },
       "nixpkgs": {
         "type": "git",
-        "value": "https://github.com/NixOS/nixpkgs.git nixos-unstable-small",
+        "value": "https://github.com/NixOS/nixpkgs.git",
         "emailresponsible": false
       },
       "system": {
