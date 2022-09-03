@@ -1,4 +1,7 @@
-{ headless
+{ self
+, inputs
+, system
+, headless
 , isQemuGuest
 , withSecrets ? true
 , withBinfmtEmulation ? true
@@ -7,10 +10,19 @@
   ./hardware.nix
   ./network
   ./haproxy.nix
+  inputs.nixos-cn.nixosModules.nixos-cn
+  self.nixosModules.default
+  {
+    nixpkgs.overlays = [
+      self.overlays.default
+      inputs.nixos-cn.overlay
+    ];
+  }
 ]
 
 ++ (if withSecrets then [
   ./secret
+  inputs.sops-nix.nixosModules.sops
 ] else [])
 
 ++ (if (!headless) then [
