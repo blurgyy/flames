@@ -85,6 +85,8 @@
     pyright
     shfmt
     sumneko-lua-language-server
+    taplo-lsp
+    texlab
     yaml-language-server
   ];
 }

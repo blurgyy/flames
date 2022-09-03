@@ -347,6 +347,7 @@ local enabled_lsps = {
   "sumneko_lua",
   "taplo",
   "yamlls",
+  "texlab",
 }
 local settings = {
   pyright = {
