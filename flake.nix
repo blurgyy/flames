@@ -30,6 +30,8 @@
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
+      config.allowUnsupportedSystem = true;
+      config.allowBroken = true;
       overlays = [
         self.overlays.default
       ];
