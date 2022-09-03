@@ -44,6 +44,8 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 
 vim.g.mapleader = " "
+vim.g.tex_flavor = "latex" -- sets default filetype for .tex files to 'tex', REF: <https://superuser.com/a/676732>
+
 vim.o.timeoutlen = 500
 vim.o.ttimeout = false -- Disable <Esc> wait time
 vim.o.updatetime = 75
@@ -57,7 +59,8 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = -1
 vim.o.expandtab = true
 
-vim.o.formatoptions = "croqnlm2B"
+-- 't' for text auto-wrap (see :h fo-table for full specs)
+vim.o.formatoptions = "croqtnlm2B"
 
 vim.o.textwidth = 100
 vim.o.colorcolumn = "101"
@@ -137,17 +140,21 @@ end
 
 -- Autocmds
 local lowtab_fts = {
+  "context",
   "dts",
   "fish",
   "gitcommit",
   "javascript",
   "json",
   "jsonc",
+  "latex",
   "lua",
   "markdown",
   "nix",
+  "plaintex",
   "sh",
   "sshconfig",
+  "tex",
   "toml",
   "vue",
   "yaml",
