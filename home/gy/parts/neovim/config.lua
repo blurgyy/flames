@@ -578,7 +578,7 @@ vim.keymap.set("", "[h", "<CMD>Gitsigns prev_hunk<CR>", opts)
 vim.keymap.set("", "]h", "<CMD>Gitsigns next_hunk<CR>", opts)
 vim.keymap.set("", "<leader>hs", "<CMD>Gitsigns stage_hunk<CR>", opts)
 -- TODO: Deprecate this after the feature mentioned in <https://github.com/lewis6991/gitsigns.nvim/issues/510> is implemented
-vim.keymap.set("n", "<leader>hu", "<CMD>Gdiffsplit<BAR>diffput<BAR>wq<CR>", opts)
+vim.keymap.set("n", "<leader>hu", "<CMD>Gitsigns reset_hunk<CR>", opts)
 
 vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", opts)
 
