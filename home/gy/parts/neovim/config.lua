@@ -151,6 +151,7 @@ local lowtab_fts = {
   "lua",
   "markdown",
   "nix",
+  "norg",
   "plaintex",
   "sh",
   "sshconfig",
