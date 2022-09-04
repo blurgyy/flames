@@ -114,6 +114,7 @@
     fi
   }
   alias lpvcc='yes x | lpvc'
+  alias waitfor='tail --follow /dev/null --pid'
 
   mkdir -p ''${PARALLEL_HOME:-$HOME/.parallel}
   touch ''${PARALLEL_HOME:-$HOME/.parallel}/will-cite
