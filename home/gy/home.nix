@@ -49,6 +49,7 @@ in lib.mkMerge [
     unar
     unzip
     viddy
+    waypipe
     wget
     zellij-hirr
     zip
@@ -238,7 +239,6 @@ in lib.mkMerge [
     logseq
     meshlab
     tdesktop-megumifox
-    waypipe
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     xfce.thunar
     xfce.thunar-volman
