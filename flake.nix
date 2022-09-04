@@ -20,8 +20,6 @@
     "nix-2.10.3" = { url = github:NixOS/nix/2.10.3; inputs.nixpkgs.follows = "nixpkgs"; };
     # Wait for <https://github.com/NixOS/nixpkgs/pull/189540>
     nixpkgs-difftastic-terminal-width-fix.url = github:NixOS/nixpkgs/pull/189540/head;
-    # Neorg plugin requires neovim 0.8+
-    neovim-nightly-overlay = { url = github:nix-community/neovim-nightly-overlay; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   # `self` denotes this flake, otther function arguments are the flakes

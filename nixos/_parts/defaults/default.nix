@@ -17,7 +17,6 @@
       self.overlays.default
       inputs.nixos-cn.overlay
       inputs."nix-2.10.3".overlays.default
-      inputs.neovim-nightly-overlay.overlay
       (final: prev: {
         difftastic = inputs.nixpkgs-difftastic-terminal-width-fix.packages.${system}.difftastic;
       })

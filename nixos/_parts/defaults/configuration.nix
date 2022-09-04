@@ -122,7 +122,7 @@
 
   environment.systemPackages = with pkgs; [
     git
-    neovim-nightly
+    neovim
     zsh fish fzf
     exa bat fd ripgrep procs dua
     htop
