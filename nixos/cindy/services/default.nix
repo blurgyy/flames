@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [
+    ./v2ray.nix
     ./hydra.nix
     ./vaultwarden
     ./wakapi.nix
