@@ -18,6 +18,7 @@
 
     # Waiting for nixpkgs/nixos-unstable-small to bump
     nixpkgs-difftastic-terminal-width-fix.url = github:NixOS/nixpkgs/pull/189540/head;
+    neovim = { url = github:neovim/neovim?dir=contrib; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
