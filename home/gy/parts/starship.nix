@@ -8,7 +8,10 @@
     character = {
       success_symbol = "[](bold green)";
       error_symbol = "[✗](bold red)";
-      vicmd_symbol = "[](bold blue)";
+      vimcmd_symbol = "[](bold blue)";
+      vimcmd_replace_one_symbol = "[](bold purple)";
+      vimcmd_replace_symbol = "[](bold underline purple)";
+      vimcmd_visual_symbol = "[…](bold underline yellow)";
     };
     time = {
       disabled = false;
