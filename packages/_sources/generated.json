@@ -140,6 +140,20 @@
         },
         "version": "v2.2.1"
     },
+    "telegram-send": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "telegram-send",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-KR9mU8FvA+vOz4FCIljrFk9XCNthC8d55of5Pta/oyQ=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/t/telegram-send/telegram-send-0.34.tar.gz"
+        },
+        "version": "0.34"
+    },
     "tinytools": {
         "cargoLocks": {
             "Cargo.lock": [

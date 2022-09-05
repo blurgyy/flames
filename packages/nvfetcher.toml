@@ -33,6 +33,10 @@ fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
 src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://github.com/ryanoasis/nerd-fonts/releases/download/$ver/NerdFontsSymbolsOnly.zip"
 
+[telegram-send]
+src.pypi = "telegram-send"
+fetch.pypi = "telegram-send"
+
 [tinytools]
 src.github_tag = "blurgyy/tinytools"
 fetch.github = "blurgyy/tinytools"

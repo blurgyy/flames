@@ -87,6 +87,14 @@
       sha256 = "sha256-mLhcPVoNXWXKoZYleptkduXL5U5fIeWxMkLJ6MgFvWM=";
     };
   };
+  telegram-send = {
+    pname = "telegram-send";
+    version = "0.34";
+    src = fetchurl {
+      url = "https://pypi.io/packages/source/t/telegram-send/telegram-send-0.34.tar.gz";
+      sha256 = "sha256-KR9mU8FvA+vOz4FCIljrFk9XCNthC8d55of5Pta/oyQ=";
+    };
+  };
   tinytools = {
     pname = "tinytools";
     version = "v1.1.2";
