@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: rec {
   nix = {
-    package = lib.mkDefault pkgs.nixUnstable;
+    package = lib.mkDefault pkgs.nixVersions.nix_2_10;
     registry.hsz = {
       from = { type = "indirect"; id = "hsz"; };
       to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
