@@ -2,8 +2,8 @@
 $pdf_mode = 5;
 $xelatex_silent_switch = "-interaction=batch-mode";
 
-# Use zathura as pdf previewer
-$pdf_previewer = "zathura";
+# Use evince as pdf previewer
+$pdf_previewer = "evince";
 
 # Save output pdf to directory 'lmkbuild/'
 $out_dir = "lmkbuild";
@@ -12,4 +12,4 @@ $out_dir = "lmkbuild";
 # by commas.
 @default_files = ('main.tex');
 
-# vim: set filetype=conf:
+# vim: ft=perl:
