@@ -5,8 +5,9 @@
     overlays = [
       self.overlays.default
       (final: prev: {
-        tex2nix = inputs.tex2nix.packages.${system}.tex2nix;
-        difftastic = (import inputs.nixpkgs-difftastic-terminal-width-fix { inherit system; }).difftastic;
+        inherit (inputs.tex2nix.packages.${system}) tex2nix;
+        inherit (inputs.home-manager.packages.${system}) home-manager;
+        inherit (import inputs.nixpkgs-difftastic-terminal-width-fix { inherit system; }) difftastic;
       })
     ];
   };
