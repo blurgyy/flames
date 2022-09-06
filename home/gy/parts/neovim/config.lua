@@ -685,13 +685,13 @@ require("neorg").setup({
   load = {
     -- Enable all default modules
     ["core.defaults"] = {},
-    ---- Export to markdown via command `:Neorg export to-file <name>.md`
-    --["core.export"] = {},
-    --["core.export.markdown"] = {
-    --  config = {
-    --    extensions = "all";
-    --  },
-    --},
+    -- Export to markdown via command `:Neorg export to-file <name>.md`
+    ["core.export"] = {},
+    ["core.export.markdown"] = {
+      config = {
+        extensions = "all";
+      },
+    },
   },
 })
 
