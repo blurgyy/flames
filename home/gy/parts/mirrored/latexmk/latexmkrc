@@ -8,8 +8,7 @@ $pdf_previewer = "evince";
 # Save output pdf to directory 'lmkbuild/'
 $out_dir = "lmkbuild";
 
-# Read from these files to compile pdf, elements in arrays should be separated
-# by commas.
+# Read from these files to compile pdf, elements in arrays should be separated by commas.
 @default_files = ('main.tex');
 
 # vim: ft=perl:
