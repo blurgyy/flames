@@ -49,8 +49,8 @@ Trouble Shooting
   > The image can be built with `nix build .#nixosConfigurations.rpi.config.system.build.sdImage`.
 
 * On a machine with tight memory budgets, the `/nix/store` in an live environment might not have
-  sufficient space for a installation.  The path `/nix/.rw-store` should be of type `tmpfs` at this
-  moment, remount it to gain more spaces:
+  sufficient space for an installation.  The path `/nix/.rw-store` should be of type `tmpfs` at this
+  moment, remount it to gain more space:
 
   ```bash
   $ mount -oremount,size=100% /nix/.rw-store
@@ -96,7 +96,7 @@ Trouble Shooting
 
   > **Note that the kernel params are copied from inside the ISO image**.
 
-* If the live environment cannot pass through stage 1 due to `/dev/root` not appearing, a workaround
+* If the live environment cannot boot through stage 1 due to `/dev/root` not appearing, a workaround
   is to copy all contents of the ISO image to a standalong partition and use it as the `root=`
   parameter, e.g.
   ```bash
@@ -107,7 +107,7 @@ Trouble Shooting
   ```
   And The `linux (loop)$linux_path ...` line in the above menuentry becomes:
   ```
-    linux (loop)$linux_path init=/nix/store/69d87r2dvhhbbq17lsw04msvcq0y0kg0-nixos-system-nixos-22.05.2676.b9fd420fa53/init root=LABEL=nixos-minimal-22.05-x86_64 boot.shell_on_fail loglevel=4 copytoram
+    linux (loop)$linux_path init=/nix/store/69d87r2dvhhbbq17lsw04msvcq0y0kg0-nixos-system-nixos-22.05.2676.b9fd420fa53/init root=LABEL=fresh-partition boot.shell_on_fail loglevel=4 copytoram
   ```
   Where the `/dev/disk/by-label/fresh-partition` should be the partition to create and put all
   contents in.
