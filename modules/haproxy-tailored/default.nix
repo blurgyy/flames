@@ -42,7 +42,7 @@
         example = [ "*:80" "0.0.0.0:8080" "127.0.0.1:10000-10086" "abns@/haproxy/server.sock" ];
       };
       alpns = mkOption {
-        type = types.listOf (types.enum [ "http/1.1" "h2" ]);
+        type = types.listOf (types.enum [ "http/1.1" "h2" "h3" ]);
         default = [ "http/1.1" ];
       };
       acceptProxy = mkOption { type = types.bool; default = false; };

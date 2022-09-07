@@ -11,7 +11,7 @@
       tls-in = {
         mode = "tcp";
         binds = [ "*:443" ];
-        alpns = [ "h2" "http/1.1" ];
+        alpns = [ "h3" "h2" "http/1.1" ];
         requestRules = [
           "inspect-delay 5s"
           "content accept if { req_ssl_hello_type 1 }"
@@ -23,7 +23,7 @@
       tls-offload-front = {
         mode = "tcp";
         binds = [ "/run/haproxy/tls-offload.sock" ];
-        alpns = [ "http/1.1" ];
+        alpns = [ "h3" "h2" "http/1.1" ];
         domain.name= lib.mkDefault config.networking.fqdn;
         acceptProxy = true;
         requestRules = [
