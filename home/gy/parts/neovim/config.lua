@@ -384,6 +384,9 @@ local settings = {
       require("lspconfig").util.find_git_ancestor()
     )
   },
+  texlab = {
+    formatterLineLength = vim.o.textwidth,
+  },
 }
 local opts = { buffer = true, noremap = true, silent = true }
 local on_attach = function(client, _) -- The two parameters are client and bufnr, respectively
