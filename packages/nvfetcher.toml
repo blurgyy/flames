@@ -21,10 +21,6 @@ src.github_tag = "blurgyy/libime-history-merge"
 fetch.github = "blurgyy/libime-history-merge"
 cargo_locks = ["Cargo.lock"]
 
-[lsp-format-nvim]
-src.github = "lukas-reineke/lsp-format.nvim"
-fetch.github = "lukas-reineke/lsp-format.nvim"
-
 [nftables-geoip-db]
 src.cmd = "date +'%Y-%m'"
 fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"

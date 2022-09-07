@@ -6,10 +6,9 @@
   vimAlias = true;
   vimdiffAlias = true;
 
-  plugins = (with pkgs; [
-    lsp-format-nvim
-  ]) ++ (with pkgs.vimPlugins; [
+  plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
+    lsp-format-nvim
     null-ls-nvim
     nvim-cmp
     luasnip
@@ -71,7 +70,7 @@
     vim-fugitive
     vim-smoothie
     vim-wakatime
-  ]);
+  ];
   extraConfig = ''
     let g:catppuccin_flavour = "mocha"
     colorscheme catppuccin
