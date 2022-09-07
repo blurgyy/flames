@@ -60,17 +60,6 @@
       };
     };
   };
-  lsp-format-nvim = {
-    pname = "lsp-format-nvim";
-    version = "v2.5.0";
-    src = fetchFromGitHub ({
-      owner = "lukas-reineke";
-      repo = "lsp-format.nvim";
-      rev = "v2.5.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-oa5gRKDSzsnk8+1t1eaAUX8OOjyWV7sssSl2xApNoOs=";
-    });
-  };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
     version = "2022-09";

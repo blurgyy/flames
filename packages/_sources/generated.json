@@ -93,25 +93,6 @@
         },
         "version": "v0.2.0"
     },
-    "lsp-format-nvim": {
-        "cargoLocks": null,
-        "extract": null,
-        "name": "lsp-format-nvim",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "lukas-reineke",
-            "repo": "lsp-format.nvim",
-            "rev": "v2.5.0",
-            "sha256": "sha256-oa5gRKDSzsnk8+1t1eaAUX8OOjyWV7sssSl2xApNoOs=",
-            "type": "github"
-        },
-        "version": "v2.5.0"
-    },
     "nftables-geoip-db": {
         "cargoLocks": null,
         "extract": null,
