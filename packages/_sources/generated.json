@@ -106,11 +106,11 @@
             "name": null,
             "owner": "lukas-reineke",
             "repo": "lsp-format.nvim",
-            "rev": "v2.4.1",
-            "sha256": "sha256-xFA+9JO3Rnj/CAYXb+oOnbslH3jgEapHA67I6dMFRFI=",
+            "rev": "v2.5.0",
+            "sha256": "sha256-oa5gRKDSzsnk8+1t1eaAUX8OOjyWV7sssSl2xApNoOs=",
             "type": "github"
         },
-        "version": "v2.4.1"
+        "version": "v2.5.0"
     },
     "nftables-geoip-db": {
         "cargoLocks": null,
@@ -229,11 +229,11 @@
             "name": null,
             "owner": "muety",
             "repo": "wakapi",
-            "rev": "2.3.7",
-            "sha256": "sha256-hElbCoXTU0D58Ng0qj6FpE+lIthDjtnrBXZYUR/UpEE=",
+            "rev": "2.3.8",
+            "sha256": "sha256-c00G1rdGp4eZ8TLYmBLwmNjdh83v7dFNt8XAbg5MPHo=",
             "type": "github"
         },
-        "version": "2.3.7"
+        "version": "2.3.8"
     },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,

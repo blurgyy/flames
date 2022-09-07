@@ -62,13 +62,13 @@
   };
   lsp-format-nvim = {
     pname = "lsp-format-nvim";
-    version = "v2.4.1";
+    version = "v2.5.0";
     src = fetchFromGitHub ({
       owner = "lukas-reineke";
       repo = "lsp-format.nvim";
-      rev = "v2.4.1";
+      rev = "v2.5.0";
       fetchSubmodules = false;
-      sha256 = "sha256-xFA+9JO3Rnj/CAYXb+oOnbslH3jgEapHA67I6dMFRFI=";
+      sha256 = "sha256-oa5gRKDSzsnk8+1t1eaAUX8OOjyWV7sssSl2xApNoOs=";
     });
   };
   nftables-geoip-db = {
@@ -136,13 +136,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.3.7";
+    version = "2.3.8";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.3.7";
+      rev = "2.3.8";
       fetchSubmodules = false;
-      sha256 = "sha256-hElbCoXTU0D58Ng0qj6FpE+lIthDjtnrBXZYUR/UpEE=";
+      sha256 = "sha256-c00G1rdGp4eZ8TLYmBLwmNjdh83v7dFNt8XAbg5MPHo=";
     });
   };
   xtables-addons-perl-scripts = {
