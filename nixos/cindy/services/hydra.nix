@@ -1,4 +1,4 @@
-{ config, ... }: let
+{ config, pkgs, ... }: let
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
 in {
@@ -39,6 +39,7 @@ in {
   };
   services.hydra = {
     enable = true;
+    package = pkgs.hydra;
     hydraURL = "${hydraDomain}";
     notificationSender = "hydra@${config.networking.domain}";
     listenHost = "127.0.0.1";
