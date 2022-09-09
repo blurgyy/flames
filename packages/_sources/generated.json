@@ -115,11 +115,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-mLhcPVoNXWXKoZYleptkduXL5U5fIeWxMkLJ6MgFvWM=",
+            "sha256": "sha256-/xugzPGY3ZKoDcpI5l8hG/f2s4dAMnhRyZtTEyhcadk=",
             "type": "url",
-            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/NerdFontsSymbolsOnly.zip"
+            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/NerdFontsSymbolsOnly.zip"
         },
-        "version": "v2.2.1"
+        "version": "v2.2.2"
     },
     "telegram-send": {
         "cargoLocks": null,
@@ -233,7 +233,7 @@
     "zellij-hirr": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./zellij-hirr-v0.31.3/Cargo.lock",
+                "./zellij-hirr-v0.31.4/Cargo.lock",
                 {}
             ]
         },
@@ -248,10 +248,10 @@
             "name": null,
             "owner": "zellij-org",
             "repo": "zellij",
-            "rev": "v0.31.3",
-            "sha256": "sha256-4iljPNw/tS/COStARg2PlrCoeE0lkSQ5+r8BrnxFLMo=",
+            "rev": "v0.31.4",
+            "sha256": "sha256-eULdBwQNquk4jj1SjdMsAN7S7mBSZs7jVAwMyFvOlWk=",
             "type": "github"
         },
-        "version": "v0.31.3"
+        "version": "v0.31.4"
     }
 }

@@ -2352,7 +2352,7 @@ version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "011cbb39cf7c1f62871aea3cc46e5817b0937b49e9447370c93cacbe93a766d8"
 dependencies = [
- "vte",
+ "vte 0.10.1",
 ]
 
 [[package]]
@@ -2819,6 +2819,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6cbce692ab4ca2f1f3047fcf732430249c0e971bfdd2b234cf2c47ad93af5983"
 dependencies = [
  "arrayvec 0.5.2",
+ "utf8parse",
+ "vte_generate_state_changes",
+]
+
+[[package]]
+name = "vte"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1aae21c12ad2ec2d168c236f369c38ff332bc1134f7246350dca641437365045"
+dependencies = [
  "utf8parse",
  "vte_generate_state_changes",
 ]
@@ -3296,7 +3306,7 @@ dependencies = [
 
 [[package]]
 name = "zellij"
-version = "0.31.3"
+version = "0.31.4"
 dependencies = [
  "anyhow",
  "dialoguer",
@@ -3314,7 +3324,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-client"
-version = "0.31.3"
+version = "0.31.4"
 dependencies = [
  "insta",
  "log",
@@ -3324,7 +3334,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-server"
-version = "0.31.3"
+version = "0.31.4"
 dependencies = [
  "ansi_term",
  "arrayvec 0.7.2",
@@ -3353,7 +3363,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-tile"
-version = "0.31.3"
+version = "0.31.4"
 dependencies = [
  "clap",
  "serde",
@@ -3365,14 +3375,14 @@ dependencies = [
 
 [[package]]
 name = "zellij-tile-utils"
-version = "0.31.3"
+version = "0.31.4"
 dependencies = [
  "ansi_term",
 ]
 
 [[package]]
 name = "zellij-utils"
-version = "0.31.3"
+version = "0.31.4"
 dependencies = [
  "anyhow",
  "async-std",
@@ -3405,7 +3415,7 @@ dependencies = [
  "thiserror",
  "unicode-width",
  "url",
- "vte",
+ "vte 0.11.0",
 ]
 
 [[package]]

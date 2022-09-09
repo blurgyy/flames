@@ -70,10 +70,10 @@
   };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
-    version = "v2.2.1";
+    version = "v2.2.2";
     src = fetchurl {
-      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.1/NerdFontsSymbolsOnly.zip";
-      sha256 = "sha256-mLhcPVoNXWXKoZYleptkduXL5U5fIeWxMkLJ6MgFvWM=";
+      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/NerdFontsSymbolsOnly.zip";
+      sha256 = "sha256-/xugzPGY3ZKoDcpI5l8hG/f2s4dAMnhRyZtTEyhcadk=";
     };
   };
   telegram-send = {
@@ -144,16 +144,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.31.3";
+    version = "v0.31.4";
     src = fetchFromGitHub ({
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.31.3";
+      rev = "v0.31.4";
       fetchSubmodules = false;
-      sha256 = "sha256-4iljPNw/tS/COStARg2PlrCoeE0lkSQ5+r8BrnxFLMo=";
+      sha256 = "sha256-eULdBwQNquk4jj1SjdMsAN7S7mBSZs7jVAwMyFvOlWk=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.31.3/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.31.4/Cargo.lock;
       outputHashes = {
         
       };
