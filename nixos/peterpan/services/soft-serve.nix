@@ -24,5 +24,4 @@
     protocols = [ "tcp" ];
     comment = "Allow traffic on soft-serve's hosting port";
   }];
-  services.v2ray-tailored.client.proxyBypassedIPs = [ "130.61.57.3" ];
 }

@@ -7,6 +7,9 @@ in {
     hydra-git-fetcher-ssh-key = {
       owner = config.users.users.hydra-queue-runner.name;
     };
+    hydra-distributed-builder-ssh-key = {
+      owner = config.users.users.hydra-queue-runner.name;
+    };
   };
   nix.extraOptions = ''
     # Allow hydra to build homeConfigurations.*.activationPackage
@@ -59,7 +62,14 @@ in {
   };
   nix.buildMachines = [{
     hostName = "localhost";
-    systems = [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
+    systems = [ "aarch64-linux" "i686-linux" ];
+    maxJobs = 4;
+    supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
+  } {
+    hostName = "peterpan";
+    sshUser = "hydra-distributed-builder";
+    sshKey = config.sops.secrets.hydra-distributed-builder-ssh-key.path;
+    systems = [ "x86_64-linux" "i686-linux" ];
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
