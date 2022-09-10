@@ -29,7 +29,7 @@
       },
       "ignoredPkgs": {
         "type": "nix",
-        "value": "[ \"tdesktop-megumifox\" \"gpustat-rs\" ]",
+        "value": "[]",
         "emailresponsible": false
       }
     }
