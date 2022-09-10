@@ -62,14 +62,14 @@ in {
   };
   nix.buildMachines = [{
     hostName = "localhost";
-    systems = [ "aarch64-linux" "i686-linux" ];
+    systems = [ "aarch64-linux" "aarch64-darwin" "i686-linux" ];
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   } {
     hostName = "peterpan";
     sshUser = "hydra-distributed-builder";
     sshKey = config.sops.secrets.hydra-distributed-builder-ssh-key.path;
-    systems = [ "x86_64-linux" "i686-linux" ];
+    systems = [ "x86_64-linux" "x86_64-darwin" "i686-linux" ];
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
