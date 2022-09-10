@@ -43,6 +43,17 @@
       sha256 = "sha256-0jIaSp3WJ9jiTFS9nhwUo27N8WWne/yW9Y8vQ+sgHoI=";
     };
   };
+  import-ply-as-verts-for-blender = {
+    pname = "import-ply-as-verts-for-blender";
+    version = "v2.1";
+    src = fetchFromGitHub ({
+      owner = "TombstoneTumbleweedArt";
+      repo = "import-ply-as-verts";
+      rev = "v2.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-uH0PADYv2hbDxPSuS5ckuov9mJ8pYuWt8hp18rXll6Y=";
+    });
+  };
   libime-history-merge = {
     pname = "libime-history-merge";
     version = "v0.2.0";

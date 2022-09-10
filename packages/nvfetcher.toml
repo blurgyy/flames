@@ -16,6 +16,10 @@ fetch.github = "sxqsfun/fcitx5-sogou-themes"
 src.git = "https://gitee.com/openharmony/resources"
 fetch.git = "https://gitee.com/openharmony/resources"
 
+[import-ply-as-verts-for-blender]
+src.github_tag = "TombstoneTumbleweedArt/import-ply-as-verts"
+fetch.github = "TombstoneTumbleweedArt/import-ply-as-verts"
+
 [libime-history-merge]
 src.github_tag = "blurgyy/libime-history-merge"
 fetch.github = "blurgyy/libime-history-merge"
