@@ -21,6 +21,14 @@ src.github_tag = "blurgyy/libime-history-merge"
 fetch.github = "blurgyy/libime-history-merge"
 cargo_locks = ["Cargo.lock"]
 
+[loyalsoldier-geoip]
+src.github = "loyalsoldier/v2ray-rules-dat"
+fetch.url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$ver/geoip.dat"
+
+[loyalsoldier-geosite]
+src.github = "loyalsoldier/v2ray-rules-dat"
+fetch.url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$ver/geosite.dat"
+
 [nftables-geoip-db]
 src.cmd = "date +'%Y-%m'"
 fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"

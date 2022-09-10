@@ -60,6 +60,22 @@
       };
     };
   };
+  loyalsoldier-geoip = {
+    pname = "loyalsoldier-geoip";
+    version = "202209092213";
+    src = fetchurl {
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209092213/geoip.dat";
+      sha256 = "sha256-TXKzy6c+ktmbVxfQtjABgswvL61zcWqqnlOc0Bse+QA=";
+    };
+  };
+  loyalsoldier-geosite = {
+    pname = "loyalsoldier-geosite";
+    version = "202209092213";
+    src = fetchurl {
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209092213/geosite.dat";
+      sha256 = "sha256-wA7WGy095P0Tgg9MhPuJ4vc5io7+kQkGmNdkerENlDI=";
+    };
+  };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
     version = "2022-09";

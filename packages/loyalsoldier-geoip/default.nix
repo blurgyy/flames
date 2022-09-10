@@ -1,0 +1,18 @@
+# Shared nix expression for loyalsoldier-geo{ip,site}
+{ source, lib, stdenv }: stdenv.mkDerivation rec {
+  inherit (source) pname version src;
+
+  phases = [ "installPhase" ];
+  installPhase = ''
+    install -Dm444 $src $out/share/v2ray/${builtins.head (lib.reverseList (lib.splitString "-" pname))}.dat
+  '';
+
+  meta = {
+    homepage = "https://github.com/Loyalsoldier/v2ray-rules-dat";
+    description = ''
+      Enhanced edition of V2Ray rules dat files, compatible with Xray-core, Shadowsocks-windows,
+      Trojan-Go and leaf.
+    '';
+    license = lib.licenses.gpl3;
+  };
+}
