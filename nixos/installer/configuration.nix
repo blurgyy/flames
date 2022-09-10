@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   boot.binfmt.emulatedSystems = [];
 
   users.users.root.openssh.authorizedKeys.keys = [
@@ -24,7 +24,7 @@
   time.timeZone = "Asia/Shanghai";
 
   services.udisks2.enable = false;
-  environment.systemPackages = with pkgs; [ git ];
+  environment.systemPackages = with pkgs; lib.mkForce [ git neovim ];
   programs.dconf.enable = false;
 
   system.stateVersion = "22.11";
