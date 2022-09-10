@@ -9,3 +9,5 @@ creation_rules:
     age: age1nk4n332ht4hpqyxkt4tnk4fecgrhemf5e0yk6zs9sut820zj8q9q4yqe0k
   - path_regex: cindy/*
     age: age1cacy7w6e0cln0xhje8n2wrq3lxhqhkf5gjjc3erhst39fnv3hggscqzq84
+  - path_regex: trigo/*
+    age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v

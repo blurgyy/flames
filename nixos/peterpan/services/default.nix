@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
   imports = [
     ./hydra.nix
     ./rathole.nix

@@ -19,6 +19,10 @@
     system = "aarch64-linux";
     inherit self nixpkgs inputs;
   };
+  trigo = import ../nixos/trigo {
+    system = "x86_64-linux";
+    inherit self nixpkgs inputs;
+  };
 } // {
   installer-aarch64 = import ../nixos/installer {
     system = "aarch64-linux";
