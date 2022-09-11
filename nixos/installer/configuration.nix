@@ -2,6 +2,7 @@
   imports = [
     "${modulesPath}/profiles/minimal.nix"
     "${modulesPath}/profiles/qemu-guest.nix"
+    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
   ];
 
   boot = {
@@ -9,7 +10,10 @@
     supportedFilesystems = [ "btrfs" ];
   };
 
-  users.users.root.openssh.authorizedKeys.keys = import ../_parts/defaults/public-keys.nix;
+  users.users.root = {
+    openssh.authorizedKeys.keys = import ../_parts/defaults/public-keys.nix;
+    password = "1";
+  };
   services.openssh.enable = true;
 
   networking = {
