@@ -82,7 +82,7 @@ Trouble Shooting
   > Related: <https://github.com/NixOS/nixpkgs/issues/76980>
 
 * To boot from an ISO located on a physical drive `/dev/vda3` at path `/live.iso`, use below grub
-  entry:
+  entry (on Arch, add this content to `/etc/grub.d/40_custom`):
   ```
   menuentry "NixOS minimal ISO" --class nixos {
     set isofile="/live.iso"
