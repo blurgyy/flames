@@ -10,24 +10,16 @@
     supportedFilesystems = [ "btrfs" ];
   };
 
-  users.users.root = {
-    openssh.authorizedKeys.keys = import ../_parts/defaults/public-keys.nix;
-    password = "1";
+  users.users.root.openssh.authorizedKeys.keys = import ../_parts/defaults/public-keys.nix;
+  services = {
+    udisks2.enable = false;
+    openssh.enable = true;
   };
-  services.openssh.enable = true;
 
   networking = {
     hostName = "installer";
     useNetworkd = true;
     firewall.enable = false;
-  };
-  i18n.defaultLocale = "en_US.UTF-8";
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e,caps:escape";
-  console = {
-    useXkbConfig = true;
-    font = "ter-i24b";
-    packages = with pkgs; [ terminus_font ];
   };
   time.timeZone = "UTC";
 
