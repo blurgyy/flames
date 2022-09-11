@@ -92,6 +92,14 @@ Trouble Shooting
     linux (loop)$linux_path init=/nix/store/69d87r2dvhhbbq17lsw04msvcq0y0kg0-nixos-system-nixos-22.05.2676.b9fd420fa53/init root=LABEL=nixos-minimal-22.05-x86_64 boot.shell_on_fail loglevel=4 copytoram
     initrd (loop)$initrd_path
   }
+menuentry "NixOS minimal ISO" --class nixos {
+  set isofile="/live.iso"
+  set linux_path="/boot/bzImage"
+  set initrd_path="/boot/initrd"
+  loopback loop (hd0,3)$isofile  # /dev/vda3
+  linux (loop)$linux_path findiso=(hd0,3)$isofile init=/nix/store/39ajmfiwqsxmjlql9k8bm998d47cb4y3-nixos-system-installer-22.11.20220909.cc6ef94/init root=LABEL=isoroot boot.shell_on_fail net.ifnames=0 ip=154.9.139.26::154.9.139.1:255.255.255.0::eth0:dhcp loglevel=4 copytoram
+  initrd (loop)$initrd_path
+}
   ```
 
   > **Note that the kernel params are copied from inside the ISO image**.
@@ -127,3 +135,53 @@ Trouble Shooting
   ```
 
   Restart `hydra-evaluator.service` fixed this issue.
+
+* Adding a `netboot.xyz` entry to GRUB:
+  - Download the `.lkrn` file:
+    ```bash
+    $ wget https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn -O /boot/netboot.xyz.lkrn
+    ```
+  - Add below entry to `/etc/grub.d/40_custom`:
+    ```
+    menuentry "netboot.xyz.lkrn" {
+        linux16 (hd0,msdos1)/netboot.xyz.lkrn # /boot is (hd0,msdos1) drive
+    }
+    ```
+  - Update GRUB config and reboot:
+    ```bash
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+    $ reboot
+    ```
+  - Example network config:
+    ```
+    Set network interface nummber: 0
+    IP:203.0.113.2
+    Subnet mask:255.255.255.0
+    Gateway:203.0.113.1
+    DNS:8.8.8.8
+    ```
+
+  > Reference: <https://gist.github.com/AndersonIncorp/9fb7402cf69a0994e175ebec8194847c>
+
+* If after partitioning, no partition under `/dev` is shown, only the disk itself appears under
+  `/dev`, use `mknod`.  Usage of `mknod` is `mknod [OPTION]... NAME TYPE [MAJOR MINOR]`.  We will
+  create a block device by specifying `b` as TYPE, the MAJOR and MINOR can be read from
+  `/proc/partitions`,  e.g.:
+  ```bash
+  $ cat /proc/partitions
+    major minor  #blocks  name
+
+       8        0 3907018584 sda
+       8        1 3907017543 sda1
+     259        0  488386584 nvme0n1
+     259        1     102400 nvme0n1p1
+     259        2      16384 nvme0n1p2
+     259        3  182573029 nvme0n1p3
+     259        4   16777216 nvme0n1p4
+     259        5     512000 nvme0n1p5
+     259        6  288404487 nvme0n1p6
+     254        0   32487424 zram0
+  $ mknod /dev/nvme0n1p4 b 259 4
+  ```
+
+  > Reference: <https://superuser.com/questions/120905/fdisk-l-shows-a-partition-is-not-in-dev-directory>
