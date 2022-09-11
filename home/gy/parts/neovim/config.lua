@@ -329,7 +329,28 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "path" },
+    {
+      name = "path",
+      option = {
+        get_cwd = function ()
+          local buffer_name = vim.api.nvim_buf_get_name(0)
+          if buffer_name == nil then
+            return vim.fn.getcwd()
+          end
+          local ret = vim.fn.fnamemodify(buffer_name, ":h")
+          if vim.bo.filetype == "tex" then
+            local cwd = ret
+            while cwd ~= "/" do
+              if vim.fn.filereadable(cwd .. "/main.tex") == 1 then
+                ret = cwd
+              end
+              cwd = vim.fn.fnamemodify(cwd, ":h")
+            end
+          end
+          return ret
+        end
+      };
+    },
     { name = "nvim_lsp_signature_help" },
   }, {
     { name = "buffer" },
