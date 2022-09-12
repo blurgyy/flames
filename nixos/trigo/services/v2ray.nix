@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   imports = [ ../../_parts/vserver.nix ];
   services.haproxy-tailored = {
     frontends.tls-offload-front.backends = [{ name = "pivot"; condition = "unless HTTP"; }];

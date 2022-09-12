@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [ ./v2ray.nix ];
+  sops.secrets.acme-credentials-file = { owner = config.users.users.haproxy.name; };
   services.haproxy-tailored = {
     enable = true;
     frontends.tls-offload-front = {
