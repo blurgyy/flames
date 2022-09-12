@@ -1,19 +1,19 @@
-{ lib, pkgs, modulesPath, ... }: {
+{ config, pkgs, modulesPath, ... }: {
   imports = [
     "${modulesPath}/profiles/minimal.nix"
     "${modulesPath}/profiles/qemu-guest.nix"
-    "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
+    "${modulesPath}/installer/netboot/netboot.nix"
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "btrfs" ];
   };
 
   users.users.root.openssh.authorizedKeys.keys = import ../_parts/defaults/public-keys.nix;
   services = {
-    udisks2.enable = false;
     openssh.enable = true;
+    udisks2.enable = false;
   };
 
   networking = {
@@ -23,7 +23,18 @@
   };
   time.timeZone = "UTC";
 
-  environment.systemPackages = with pkgs; lib.mkForce [ git neovim ];
+  environment.systemPackages = with pkgs; [ bash git neovim ];
+
+  system.build.netboot = let
+    build = config.system.build;
+    kernelTarget = pkgs.stdenv.hostPlatform.linux-kernel.target;
+  in with pkgs; runCommand "installer-${pkgs.system}-netboot" {} ''
+    mkdir -p $out
+    ln -s ${build.kernel}/${kernelTarget}         $out/${kernelTarget}
+    ln -s ${build.netbootRamdisk}/initrd          $out/initrd
+    ln -s ${build.netbootIpxeScript}/netboot.ipxe $out/ipxe
+  '';
+  #${zstd}/bin/zstd -d ${build.netbootRamdisk}/initrd -o $out/initrd
 
   system.stateVersion = "22.11";
 }
