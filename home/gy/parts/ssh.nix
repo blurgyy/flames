@@ -10,12 +10,14 @@
     cindy = "130.61.57.3";
     cube = "45.78.17.205";
     hooper = "64.64.244.30";
+    trigo = "154.9.139.26";
     relay = peterpan;
   in {
     pp = { hostname = peterpan; };
     hooper = { hostname = hooper; };
     cindy = { hostname = cindy; };
     cube = { hostname = cube; };
+    trigo = { hostname = trigo; };
 
     gpp = { hostname = peterpan; port = 77; };
     ghooper = { hostname = hooper; user = "git"; };

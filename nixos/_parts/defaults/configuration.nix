@@ -55,6 +55,7 @@
       ];
       "130.61.57.3" = [ "cindy" ];
       "45.78.17.205" = [ "cube" ];
+      "154.9.139.26" = [ "trigo" ];
     };
   };
   services.resolved.enable = lib.mkDefault true;
@@ -160,6 +161,10 @@
         peterpan = {
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy5KB6KAHZuedlEjcWTYSSurh3yCz7QweMqZAvnixv1";
           extraHostNames = lib.remove "peterpan" config.networking.hosts."81.69.28.75";
+        };
+        trigo = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOx4SzE+6UBW4eYgxYZSaBD3U/BoYARhBBLnsxPdi8t0";
+          extraHostNames = appendDomain [ "trigo" ];
         };
 
         morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";
