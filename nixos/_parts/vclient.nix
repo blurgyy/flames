@@ -9,12 +9,14 @@
     "v2ray/domains/eu-00" = {};
     "v2ray/domains/hk-00" = {};
     "v2ray/domains/us-00" = {};
+    "v2ray/domains/us-01" = {};
     "v2ray/domains/wss-eu-00" = {};
     "v2ray/domains/wss-us-00" = {};
     "v2ray/addresses/cn-00" = {};
     "v2ray/addresses/eu-00" = {};
     "v2ray/addresses/hk-00" = {};
     "v2ray/addresses/us-00" = {};
+    "v2ray/addresses/us-01" = {};
   };
   services.v2ray-tailored.client = {
     enable = true;
@@ -28,6 +30,13 @@
     remotes = [
       rec {
         tag = "us-00";
+        address = config.sops.placeholder."v2ray/addresses/${tag}";
+        port = 443;
+        domain = config.sops.placeholder."v2ray/domains/${tag}";
+        wsPath = null;
+      }
+      rec {
+        tag = "us-01";
         address = config.sops.placeholder."v2ray/addresses/${tag}";
         port = 443;
         domain = config.sops.placeholder."v2ray/domains/${tag}";
