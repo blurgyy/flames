@@ -139,12 +139,12 @@ menuentry "NixOS minimal ISO" --class nixos {
 * Adding a `netboot.xyz` entry to GRUB:
   - Download the `.lkrn` file:
     ```bash
-    $ wget https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn -O /boot/netboot.xyz.lkrn
+    $ curl -L https://boot.netboot.xyz/ipxe/netboot.xyz.lkrn -o /netboot.xyz.lkrn
     ```
   - Add below entry to `/etc/grub.d/40_custom`:
     ```
     menuentry "netboot.xyz.lkrn" {
-        linux16 (hd0,msdos1)/netboot.xyz.lkrn # /boot is (hd0,msdos1) drive
+        linux16 (hd0,2)/netboot.xyz.lkrn  # /dev/*da2
     }
     ```
   - Update GRUB config and reboot:
