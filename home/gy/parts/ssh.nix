@@ -11,6 +11,7 @@
     cube = "45.78.17.205";
     hooper = "64.64.244.30";
     trigo = "154.9.139.26";
+    tetra = "154.12.36.120";
     relay = peterpan;
   in {
     pp = { hostname = peterpan; };
@@ -18,6 +19,7 @@
     cindy = { hostname = cindy; };
     cube = { hostname = cube; };
     trigo = { hostname = trigo; };
+    tetra = { hostname = tetra; };
 
     gpp = { hostname = peterpan; port = 77; };
     ghooper = { hostname = hooper; user = "git"; };
