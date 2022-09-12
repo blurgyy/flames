@@ -7,6 +7,5 @@
   }) ++ [
     ./configuration.nix
     ./services
-    { nixpkgs.overlays = [ inputs.hydra-master.overlays.default ]; }
   ];
 }
