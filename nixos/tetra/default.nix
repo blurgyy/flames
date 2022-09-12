@@ -6,6 +6,6 @@
     isQemuGuest = true;
   }) ++ [
     ./configuration.nix
-    #./services
+    ./services
   ];
 }
