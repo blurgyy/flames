@@ -49,6 +49,7 @@
 
   environment.systemPackages = with pkgs; [
     v4l-utils  # for `ir-ctl` executable
+    transmission
   ];
 
   documentation.nixos.enable = false;
