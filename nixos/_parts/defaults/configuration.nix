@@ -56,6 +56,7 @@
       "130.61.57.3" = [ "cindy" ];
       "45.78.17.205" = [ "cube" ];
       "154.9.139.26" = [ "trigo" ];
+      "154.12.36.120" = [ "tetra" ];
     };
   };
   services.resolved.enable = lib.mkDefault true;
@@ -165,6 +166,10 @@
         trigo = {
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOx4SzE+6UBW4eYgxYZSaBD3U/BoYARhBBLnsxPdi8t0";
           extraHostNames = appendDomain [ "trigo" ];
+        };
+        tetra = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMcsDGzKkN8WQS+yqQfjczReJ+3WPao34Tn5fJv3/pE2";
+          extraHostNames = appendDomain [ "tetra" ];
         };
 
         morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";

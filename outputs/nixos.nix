@@ -23,6 +23,10 @@
     system = "x86_64-linux";
     inherit self nixpkgs inputs;
   };
+  tetra = import ../nixos/tetra {
+    system = "x86_64-linux";
+    inherit self nixpkgs inputs;
+  };
 } // {
   installer-aarch64 = import ../nixos/installer {
     system = "aarch64-linux";

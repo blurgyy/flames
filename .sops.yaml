@@ -11,3 +11,5 @@ creation_rules:
     age: age1cacy7w6e0cln0xhje8n2wrq3lxhqhkf5gjjc3erhst39fnv3hggscqzq84
   - path_regex: trigo/*
     age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
+  - path_regex: tetra/*
+    age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
