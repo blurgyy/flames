@@ -59,7 +59,10 @@
       "154.12.36.120" = [ "tetra" ];
     };
   };
-  services.resolved.enable = lib.mkDefault true;
+  services.resolved = {
+    enable = lib.mkDefault true;
+    dnssec = lib.mkDefault "false";
+  };
 
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
