@@ -8,7 +8,6 @@
 
   plugins = with pkgs.vimPlugins; [
     nvim-lspconfig
-    lsp-format-nvim
     null-ls-nvim
     nvim-cmp
     luasnip
