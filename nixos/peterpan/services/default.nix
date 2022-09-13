@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./hydra.nix
     ./rathole.nix
     ./soft-serve.nix
     ./v2ray.nix
