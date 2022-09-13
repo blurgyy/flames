@@ -3,9 +3,7 @@
     "acremote": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "lastModified": 1661846874,
@@ -251,7 +249,7 @@
     "nixos-generators": {
       "inputs": {
         "nixlib": "nixlib",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1660727616,
@@ -269,16 +267,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1637186689,
-        "narHash": "sha256-NU7BhgnwA/3ibmCeSzFK6xGi+Bari9mPfn+4cBmyEjw=",
+        "lastModified": 1663040518,
+        "narHash": "sha256-p4aLXWET8PMvQBpI23ljN3/rOW9sBUyDSOQEu5vckpY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7fad01d9d5a3f82081c00fb57918d64145dc904c",
+        "rev": "98854cc86ccc85ce639f750dafcaa0eeef209c20",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -317,6 +314,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1637186689,
+        "narHash": "sha256-NU7BhgnwA/3ibmCeSzFK6xGi+Bari9mPfn+4cBmyEjw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7fad01d9d5a3f82081c00fb57918d64145dc904c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1663003609,
         "narHash": "sha256-u8adhENruVszvQm4EEb68tLvKriL7o/xNCmhTfmklak=",
         "owner": "NixOS",
@@ -342,7 +355,7 @@
         "nixgl": "nixgl",
         "nixos-cn": "nixos-cn",
         "nixos-generators": "nixos-generators",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-difftastic-terminal-width-fix": "nixpkgs-difftastic-terminal-width-fix",
         "sops-nix": "sops-nix",
         "tex2nix": "tex2nix"
