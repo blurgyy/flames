@@ -5,10 +5,7 @@
     "${modulesPath}/installer/netboot/netboot.nix"
   ];
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    supportedFilesystems = [ "btrfs" ];
-  };
+  boot.supportedFilesystems = [ "btrfs" ];
 
   users.users.root.openssh.authorizedKeys.keys = import ../_parts/defaults/public-keys.nix;
   services = {
