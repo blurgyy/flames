@@ -12,6 +12,8 @@
     };
   };
 
+  nix.settings.sandbox-dev-shm-size = "300%";
+
   networking.hostName = "peterpan";
   time.timeZone = "Asia/Shanghai";
 
