@@ -1,13 +1,17 @@
 let
+  filterAttrs = predicate: attrs: with builtins; listToAttrs (filter
+    (v: v != null)
+    (attrValues (mapAttrs
+      (name: value: if (predicate name value) then { inherit name value; } else null)
+      attrs)
+    )
+  );
   mapPackage = f: with builtins; listToAttrs (map
     (name: { inherit name; value = f name; })
-    (filter
-        (v: v != null)
-        (attrValues (mapAttrs
-          (path: type: if type == "directory" && path != "_sources" then path else null)
-          (readDir ./.)
-        ))
-    )
+    (attrNames (filterAttrs
+      (name: type: type == "directory" && name != "_sources")
+      (readDir ./.)
+    ))
   );
 in {
   packages = pkgs: mapPackage (name: pkgs.${name});
