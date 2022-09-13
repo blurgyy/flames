@@ -1,5 +1,6 @@
 { ... }: {
   boot.loader.grub.device = "/dev/vda";
+  boot.tmpOnTmpfsSize = "300%";
   fileSystems = {
     "/" = {  
       device = "/dev/disk/by-label/nixos-root";
@@ -11,8 +12,6 @@
       fsType = "vfat";
     };
   };
-
-  nix.settings.sandbox-dev-shm-size = "300%";
 
   networking.hostName = "peterpan";
   time.timeZone = "Asia/Shanghai";
