@@ -17,6 +17,7 @@ in lib.mkMerge [
     cachix
     dua
     exa
+    exiftool
     fd
     file
     fish
