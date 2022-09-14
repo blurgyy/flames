@@ -1,4 +1,7 @@
 { ... }: {
+  networking.hostName = "cube";
+  time.timeZone = "Asia/Hong_Kong";
+
   boot.loader.grub.device = "/dev/sda";
   fileSystems = {
     "/" = {  
@@ -11,10 +14,6 @@
       fsType = "vfat";
     };
   };
-
-
-  networking.hostName = "cube";
-  time.timeZone = "Asia/Hong_Kong";
 
   services.udisks2.enable = false;
 

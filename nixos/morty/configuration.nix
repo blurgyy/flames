@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   networking.hostName = "morty";
+  time.timeZone = "Asia/Shanghai";
 
   boot.loader.systemd-boot.enable = true;
   fileSystems = {
@@ -21,8 +22,6 @@
   swapDevices = [
     { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
   ];
-
-  time.timeZone = "Asia/Shanghai";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

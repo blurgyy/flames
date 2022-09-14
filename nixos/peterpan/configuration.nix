@@ -1,4 +1,7 @@
 { ... }: {
+  networking.hostName = "peterpan";
+  time.timeZone = "Asia/Shanghai";
+
   boot.loader.grub.device = "/dev/vda";
   fileSystems = {
     "/" = {  
@@ -14,9 +17,6 @@
   swapDevices = [
     { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
   ];
-
-  networking.hostName = "peterpan";
-  time.timeZone = "Asia/Shanghai";
 
   services.udisks2.enable = false;
 

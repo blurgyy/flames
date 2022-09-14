@@ -1,4 +1,7 @@
 { ... }: {
+  networking.hostName = "cindy";
+  time.timeZone = "Europe/Berlin";
+
   boot.loader.systemd-boot.enable = true;
   fileSystems = {
     "/" = {  
@@ -11,9 +14,6 @@
       fsType = "vfat";
     };
   };
-
-  networking.hostName = "cindy";
-  time.timeZone = "Europe/Berlin";
 
   system.stateVersion = "22.11";
 }

@@ -1,4 +1,7 @@
 { pkgs, modulesPath, ... }: {
+  networking.hostName = "rpi";
+  time.timeZone = "Asia/Shanghai";
+
   # needed for building sd-card image, REF: <https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
   imports = [ (modulesPath + "/installer/sd-card/sd-image-aarch64.nix") ];
 
@@ -21,8 +24,6 @@
     options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
   };
 
-  networking.hostName = "rpi";
-
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
   hardware.deviceTree = {
@@ -39,8 +40,6 @@
     min-free = ${toString (100 * 1024 * 1024)}
     max-free = ${toString (1024 * 1024 * 1024)}
   '';
-
-  time.timeZone = "Asia/Shanghai";
 
   services = {
     acremote.enable = true;

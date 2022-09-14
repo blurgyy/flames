@@ -1,4 +1,7 @@
 { ... }: {
+  networking.hostName = "trigo";
+  time.timeZone = "America/Los_Angeles";
+
   boot.loader.grub.device = "/dev/vda";
   fileSystems = {
     "/" = {  
@@ -11,9 +14,6 @@
       fsType = "vfat";
     };
   };
-
-  networking.hostName = "trigo";
-  time.timeZone = "America/Los_Angeles";
 
   services.udisks2.enable = false;
 
