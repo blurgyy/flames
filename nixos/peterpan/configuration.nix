@@ -1,7 +1,5 @@
 { ... }: {
   boot.loader.grub.device = "/dev/vda";
-  boot.tmpOnTmpfsSize = "300%";
-  zramSwap.memoryPercent = 300;
   fileSystems = {
     "/" = {  
       device = "/dev/disk/by-label/nixos-root";
@@ -13,6 +11,9 @@
       fsType = "vfat";
     };
   };
+  swapDevices = [
+    { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
+  ];
 
   networking.hostName = "peterpan";
   time.timeZone = "Asia/Shanghai";
