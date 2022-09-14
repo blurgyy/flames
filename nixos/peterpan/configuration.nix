@@ -1,6 +1,7 @@
 { ... }: {
   boot.loader.grub.device = "/dev/vda";
   boot.tmpOnTmpfsSize = "300%";
+  zramSwap.memoryPercent = 300;
   fileSystems = {
     "/" = {  
       device = "/dev/disk/by-label/nixos-root";

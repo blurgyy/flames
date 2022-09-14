@@ -63,7 +63,7 @@
 
   #kexec.autoReboot = false;  # Use this with inputs.nixos-generators.nixosModules.kexec in `./default.nix`
 
-  zramSwap = {  # REF: <https://unix.stackexchange.com/a/596929>
+  zramSwap = lib.mkDefault {  # REF: <https://unix.stackexchange.com/a/596929>
     enable = true;
     priority = 32767;
     memoryPercent = 200;
