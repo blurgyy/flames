@@ -331,6 +331,7 @@ in lib.mkMerge [
         "text/html" = "firefox.desktop";
         "text/markdown" = "marktext.desktop";
         "text/x-markdown" = "marktext.desktop";
+        "video/x-matroska" = "mpv.desktop";
         "video/mp4" = "mpv.desktop";
         "video/vnd.uvvu.mp4" = "mpv.desktop";
         "x-scheme-handler/element" = "io.element.Element.desktop";
