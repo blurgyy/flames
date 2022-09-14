@@ -302,6 +302,9 @@ in lib.mkMerge [
 
   xdg = {
     enable = true;
+    systemDirs.data = [
+      "${myHome}/.nix-profile/share"
+    ];
     mimeApps = {
       enable = true;
       defaultApplications = {
