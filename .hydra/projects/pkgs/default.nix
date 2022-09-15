@@ -1,7 +1,7 @@
 { nixpkgs
 , system
 , ignoredPkgs ? []
-}: let
+}: with builtins; let
   this = import ../../../packages;
   nixpkgsArgs = {
     inherit system;
@@ -10,4 +10,9 @@
     overlays = [ this.overlay ];
   };
   pkgs = import <nixpkgs> nixpkgsArgs;
-in builtins.removeAttrs (this.packages pkgs) ignoredPkgs
+  packages = this.packages pkgs;
+in 
+  removeAttrs (this.filterAttrs
+    (name: pkg: !hasAttr "platforms" pkg.meta || elem system pkg.meta.platforms)
+    packages
+  ) ignoredPkgs

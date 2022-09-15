@@ -53,6 +53,9 @@
         builtSystems = [ "aarch64-linux" "x86_64-linux" ];
         removedSystems = attrNames (removeAttrs self.packages builtSystems);
       in removeAttrs self.packages removedSystems;
+      builtPackages = mapAttrs
+        (sys: pkgset: my.filterAttrs (name: pkg: !hasAttr "platforms" pkg.meta || elem sys pkg.meta.platforms) pkgset)
+        allPackages;
       allNixosConfigurations = listToAttrs (attrValues (mapAttrs
         (name: _: {
           inherit name;
@@ -65,7 +68,7 @@
           value = self.nixosConfigurations.${name}.config.system.build.toplevel;
         }) self.nixosConfigurations
       ));
-    in allPackages // allNixosConfigurations // allHomeConfigurations;
+    in builtPackages // allNixosConfigurations // allHomeConfigurations;
   } // {
     nixosModules = import ./modules;
     overlays.default = my.overlay;

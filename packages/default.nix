@@ -14,6 +14,7 @@ let
     ))
   );
 in {
+  inherit filterAttrs;
   packages = pkgs: mapPackage (name: pkgs.${name});
   overlay = final: prev: mapPackage (name: let
     generated = (import ./_sources/generated.nix) { inherit (final) fetchurl fetchgit fetchFromGitHub; };
