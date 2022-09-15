@@ -13,7 +13,7 @@
     tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
 
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
-    acremote = { url = gitlab:highsunz/acremote; };
+    acremote.url = gitlab:highsunz/acremote;
 
     # Waiting for nixpkgs/nixos-unstable-small to bump
     nixpkgs-difftastic-terminal-width-fix.url = github:NixOS/nixpkgs/pull/189540/head;
