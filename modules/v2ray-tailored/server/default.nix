@@ -1,4 +1,4 @@
-{ config, lib, usersInfo, ports, wsPath, reverse }: with builtins; let
+{ config, lib, logging, usersInfo, ports, wsPath, reverse }: with builtins; let
   applyTag = overrides: path: {
     tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
   } // (with builtins; let
@@ -25,7 +25,18 @@
 in {
   log = {
     loglevel = "warning";
-    access = "/var/log/v2ray/server.log";
+    access = if logging.access == null || logging.access == false then
+        "none"
+      else if logging.access == true then 
+        "/var/log/v2ray/access.log"
+      else
+        logging.access;
+    error = if logging.error == false then
+        "none"
+      else if logging.error == true then
+        ""
+      else
+        logging.error;
   };
   stats = {};
   api = {

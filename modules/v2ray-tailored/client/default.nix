@@ -1,4 +1,4 @@
-{ config, lib, uuid, extraHosts, soMark, fwMark, ports, remotes, overseaSelectors }: with builtins; let
+{ config, lib, uuid, logging, extraHosts, soMark, fwMark, ports, remotes, overseaSelectors }: with builtins; let
   applyTag = overrides: path: {
     tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
   } // (with builtins; let
@@ -13,8 +13,19 @@
       (map (subPath: "${path}/${subPath}") (attrNames (readDir path)));
 in {
   log = {
-    loglevel = "warning";
-    access = "/var/log/v2ray/client.log";
+    loglevel = logging.level;
+    access = if logging.access == false then
+        "none"
+      else if logging.access == null || logging.access == true then 
+        "/var/log/v2ray/access.log"
+      else
+        logging.access;
+    error = if logging.error == false then
+        "none"
+      else if logging.error == true then
+        ""
+      else
+        logging.error;
   };
   dns = import ./dns.nix { inherit extraHosts; };
   inbounds = mapDir (applyTag { inherit ports; }) ./inbounds;
