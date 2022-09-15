@@ -9,21 +9,24 @@
     ../../_parts/vserver.nix
   ];
   services.v2ray-tailored = {
-    server.reverse = {
-      counterpartName = "watson";
-      position = "world";
-      port = 10024;
-      id = config.sops.placeholder."v2ray/users/reverse/uuid";
-      proxiedDomains = [
-        "cc98"
-        "domain:nexushd"
-        "domain:zju.edu.cn"
-      ];
-      proxiedIPs = [
-        "10.10.0.0/22"
-        "223.4.64.9/32"
-        "10.76.0.0/21"
-      ];
+    server = {
+      logging.access = true;
+      reverse = {
+        counterpartName = "watson";
+        position = "world";
+        port = 10024;
+        id = config.sops.placeholder."v2ray/users/reverse/uuid";
+        proxiedDomains = [
+          "cc98"
+          "domain:nexushd"
+          "domain:zju.edu.cn"
+        ];
+        proxiedIPs = [
+          "10.10.0.0/22"
+          "223.4.64.9/32"
+          "10.76.0.0/21"
+        ];
+      };
     };
   };
   services.haproxy-tailored = {
