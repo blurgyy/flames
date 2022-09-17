@@ -64,6 +64,7 @@ in lib.mkMerge [
       matplotlib
       numpy
       pillow
+      plyfile
       tqdm
     ]))
     #texlive.combined.scheme-full  # NOTE: use tex2nix
