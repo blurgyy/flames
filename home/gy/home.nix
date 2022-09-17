@@ -48,6 +48,7 @@ in lib.mkMerge [
     tinytools
     unar
     unzip
+    util-linux
     viddy
     waypipe
     wget
