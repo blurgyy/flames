@@ -96,6 +96,7 @@ fixTypo "blurgy" [
   "vmi"
   "vmj"
   "vmk"
+  "vmki"
   "voim"
   "vom"
   "vuim"
