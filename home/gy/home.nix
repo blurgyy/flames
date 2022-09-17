@@ -44,6 +44,7 @@ in lib.mkMerge [
     ripgrep
     sdwrap
     sops
+    sshfs
     strace
     tex2nix
     tinytools
