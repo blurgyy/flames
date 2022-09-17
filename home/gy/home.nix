@@ -29,6 +29,7 @@ in lib.mkMerge [
     gnutar
     htop
     hydra-check
+    imagemagick
     jq
     less
     lfs
