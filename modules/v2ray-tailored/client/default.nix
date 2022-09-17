@@ -17,7 +17,7 @@ in {
     access = if logging.access == false then
         "none"
       else if logging.access == null || logging.access == true then 
-        "/var/log/v2ray/access.log"
+        "/var/log/v2ray/client.log"
       else
         logging.access;
     error = if logging.error == false then
