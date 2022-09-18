@@ -255,6 +255,8 @@ in lib.mkMerge [
     zotero
   ];
   programs = {
+    fish.shellAliases.meshlab = with pkgs;
+      "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
     mpv = {
       enable = true;
       config = {
