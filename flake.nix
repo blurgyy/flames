@@ -11,9 +11,11 @@
     sops-nix = { url = github:Mic92/sops-nix; inputs.nixpkgs.follows = "nixpkgs"; };
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
     tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
+    nickcao = { url = github:NickCao/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
 
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = gitlab:highsunz/acremote;
+    carinae.url = github:NickCao/carinae;
 
     # Waiting for nixpkgs/nixos-unstable-small to bump
     nixpkgs-difftastic-terminal-width-fix.url = github:NixOS/nixpkgs/pull/189540/head;

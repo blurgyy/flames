@@ -1,9 +1,10 @@
-{ config, ... }: let
+{ config, pkgs, ... }: let
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
+  cachePort = 25369;
 in {
   sops.secrets = {
-    nix-serve-key = {};
+    cache-key-env = {};
     hydra-git-fetcher-ssh-key = {
       owner = config.users.users.hydra-queue-runner.name;
     };
@@ -37,8 +38,12 @@ in {
     };
     backends.cache = {
       mode = "http";
-      server.address = "127.0.0.1:${toString config.services.nix-serve.port}";
+      server.address = "127.0.0.1:${toString cachePort}";
     };
+  };
+  cloud.services.carinae.config = {
+    ExecStart = "${pkgs.carinae}/bin/carinae -l 127.0.0.1:${toString cachePort}";
+    EnvironmentFile = config.sops.secrets.cache-key-env.path;
   };
   services.hydra = {
     enable = true;
@@ -72,10 +77,4 @@ in {
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   }];
-  services.nix-serve = {
-    enable = true;
-    bindAddress = "127.0.0.1";
-    port = 25369;
-    secretKeyFile = config.sops.secrets.nix-serve-key.path;
-  };
 }
