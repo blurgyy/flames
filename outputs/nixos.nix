@@ -23,7 +23,7 @@
     system = "x86_64-linux";
     inherit self nixpkgs inputs;
   };
-  tetra = import ../nixos/tetra {
+  rubik = import ../nixos/rubik {
     system = "x86_64-linux";
     inherit self nixpkgs inputs;
   };

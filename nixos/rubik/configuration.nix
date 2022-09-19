@@ -1,6 +1,6 @@
 { ... }: {
-  networking.hostName = "tetra";
-  time.timeZone = "America/Los_Angeles";
+  networking.hostName = "rubik";
+  time.timeZone = "Asia/Tokyo";
 
   boot.loader.grub.device = "/dev/vda";
   fileSystems = {
