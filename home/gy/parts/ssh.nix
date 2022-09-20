@@ -10,6 +10,7 @@
     cindy = "130.61.57.3";
     cube = "45.78.17.205";
     hooper = "64.64.244.30";
+    rubik = "193.32.151.152";
     trigo = "154.9.139.26";
     tetra = "154.12.36.120";
     relay = peterpan;
@@ -18,6 +19,7 @@
     hooper = { hostname = hooper; };
     cindy = { hostname = cindy; };
     cube = { hostname = cube; };
+    rubik = { hostname = rubik; };
     trigo = { hostname = trigo; };
     tetra = { hostname = tetra; };
 
