@@ -136,7 +136,6 @@
     file
     strace lsof
     zip unzip unar
-    plocate
     jq libqalculate
     sops age
     hydra-check cachix
@@ -149,6 +148,13 @@
 
   # Enable the OpenSSH daemon.
   services = {
+    locate = {
+      enable = true;
+      locate = pkgs.plocate;
+      # mlocate and plocate do not support the services.locate.localuser option. updatedb will run
+      # as root.  Silence this warning by setting services.locate.localuser = null
+      localuser = null;
+    };
     openssh = {
       enable = true;  # NOTE: OpenSSH is disabled by default!
       passwordAuthentication = false;
