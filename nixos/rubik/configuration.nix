@@ -15,6 +15,17 @@
     };
   };
 
+  networking = {
+    defaultGateway = "193.32.148.1";
+    interfaces.eth0 = {
+      useDHCP = false;
+      ipv4.addresses = [{
+        address = "193.32.151.152";
+        prefixLength = 22;
+      }];
+    };
+  };
+
   services.udisks2.enable = false;
 
   system.stateVersion = "22.11";

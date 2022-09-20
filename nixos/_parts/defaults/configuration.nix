@@ -40,9 +40,9 @@
     domain = "blurgy.xyz";
     useNetworkd = lib.mkDefault true;
     interfaces = {
-      eth0.useDHCP = true;
-      wlo1.useDHCP = true;
-      wlan0.useDHCP = true;
+      eth0.useDHCP = lib.mkDefault true;
+      wlo1.useDHCP = lib.mkDefault true;
+      wlan0.useDHCP = lib.mkDefault true;
     };
     firewall.enable = lib.mkDefault false;
     hosts = {
