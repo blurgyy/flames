@@ -75,8 +75,9 @@
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = lib.mkDefault "en_US.UTF-8";
+    defaultLocale = lib.mkDefault "C.UTF-8";
     supportedLocales = lib.mkDefault [
+      "${config.i18n.defaultLocale}/UTF-8"
       "en_US.UTF-8/UTF-8"
       "zh_CN.UTF-8/UTF-8"
     ];
