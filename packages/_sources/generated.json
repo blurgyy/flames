@@ -120,11 +120,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-TXKzy6c+ktmbVxfQtjABgswvL61zcWqqnlOc0Bse+QA=",
+            "sha256": "sha256-iQ0Q+FuHY1BsXhWOTp5BkJFX3i7dojgM1Vv8ZmCJ9ME=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209132214/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209212214/geoip.dat"
         },
-        "version": "202209132214"
+        "version": "202209212214"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -134,11 +134,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-J9IlruI7iF6J8TWu4xcS1VaB7TNxWgN2W46FXIyhGk0=",
+            "sha256": "sha256-pQXUzX232M7QIj8KBUIWsqVYsBwJWclgAggh/8e4LuA=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209132214/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209212214/geosite.dat"
         },
-        "version": "202209132214"
+        "version": "202209212214"
     },
     "nftables-geoip-db": {
         "cargoLocks": null,
