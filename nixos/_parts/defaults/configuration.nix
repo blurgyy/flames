@@ -8,14 +8,19 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
-      substituters = [
-        "https://mirror.sjtu.edu.cn/nix-channels/store"
+      substituters = (
+        if config.time.timeZone == "Asia/Shanghai" then
+          [ "https://mirror.sjtu.edu.cn/nix-channels/store" ]
+        else
+          []
+      ) ++[
         "https://nixos-cn.cachix.org"
         "https://highsunz.cachix.org"
         "https://nix-community.cachix.org"
         "https://cache.blurgy.xyz"
       ];
       trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg="
         "highsunz.cachix.org-1:N6cys3jW6l0LHswstLwYi4UhGvuen91N3L3DkoLIgmY="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
