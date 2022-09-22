@@ -136,7 +136,7 @@
     git
     neovim
     zsh fish fzf
-    exa bat fd ripgrep procs dua
+    exa bat fd ripgrep procs dua dogdns
     htop
     file
     strace lsof
