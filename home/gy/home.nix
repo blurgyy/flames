@@ -16,6 +16,7 @@ in lib.mkMerge [
     btop
     cachix
     dua
+    dogdns
     exa
     exiftool
     fd
@@ -41,6 +42,7 @@ in lib.mkMerge [
     parallel
     patchelf
     procs
+    q-text-as-data
     ripgrep
     sdwrap
     sops
