@@ -7,7 +7,6 @@
       (final: prev: {
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
-        inherit (import inputs.nixpkgs-difftastic-terminal-width-fix { inherit system; }) difftastic;
         inherit (inputs.neovim.packages.${system}) neovim;
 	vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
 	  #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
