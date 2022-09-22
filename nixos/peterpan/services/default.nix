@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./hydra.nix
+    ../../_parts/hydra-distributed-builder.nix
     ./rathole.nix
     ./soft-serve.nix
     ./v2ray.nix
