@@ -12,6 +12,7 @@
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
     tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
     nickcao = { url = github:NickCao/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
+    nvfetcher = { url = github:berberman/nvfetcher; inputs.nixpkgs.follows = "nixpkgs"; };
 
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = gitlab:highsunz/acremote;
@@ -51,8 +52,20 @@
     hydraJobs = with builtins; let
       allPackages = let
         builtSystems = [ "aarch64-linux" "x86_64-linux" ];
-        removedSystems = attrNames (removeAttrs self.packages builtSystems);
-      in removeAttrs self.packages removedSystems;
+        preserveOnlyFrom = keys: attrset: foldl' (lhs: rhs: lhs // rhs) {} (map (key: { "${key}" = attrset.${key}; }) keys);
+        preserveOnlyAmong = keys: attrsets: foldl'
+          (lhs: rhs: listToAttrs (map
+            (key: {
+              name = key;
+              value = (if (hasAttr key lhs) then lhs.${key} else {}) // (if (hasAttr key rhs) then rhs.${key} else {});
+            })
+            keys))
+          {}
+          (map (attrset: preserveOnlyFrom keys attrset) attrsets);
+      in preserveOnlyAmong builtSystems [
+        self.packages
+        inputs.nvfetcher.packages
+      ];
       builtPackages = mapAttrs
         (sys: pkgset: my.filterAttrs (name: pkg: !hasAttr "platforms" pkg.meta || elem sys pkg.meta.platforms) pkgset)
         allPackages;
