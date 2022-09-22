@@ -3,6 +3,16 @@
   cacheDomain = "cache.${config.networking.domain}";
   cachePort = 25369;
 in {
+  users = {
+    users.hydra-distributed-builder = {
+      group = config.users.groups.hydra-distributed-builder.name;
+      isSystemUser = true;
+      openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHtriLxUenvpPNbs7hDcAdlJjXmrl170dOjsoDXPWK2Q" ];
+      shell = pkgs.bash;
+    };
+    groups.hydra-distributed-builder = {};
+  };
+  nix.settings.trusted-users = [ config.users.users.hydra-distributed-builder.name ];
   sops.secrets = {
     cache-key-env = {};
     hydra-git-fetcher-ssh-key = {
@@ -65,7 +75,9 @@ in {
     hydra-queue-runner.environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-git-fetcher-ssh-key.path}";
   };
   nix.buildMachines = [{
-    hostName = "localhost";
+    hostName = "cindy";
+    sshUser = "hydra-distributed-builder";
+    sshKey = config.sops.secrets.hydra-distributed-builder-ssh-key.path;
     systems = [ "aarch64-linux" "aarch64-darwin" "i686-linux" ];
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
