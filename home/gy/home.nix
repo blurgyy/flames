@@ -56,7 +56,6 @@ in lib.mkMerge [
     viddy
     waypipe
     wget
-    zellij-hirr
     zip
     zsh
     zstd
@@ -133,6 +132,10 @@ in lib.mkMerge [
       tmux.enableShellIntegration = true;
     };
     fish = callWithHelpers ./parts/fish { };
+    zellij = {
+      enable = true;
+      package = pkgs.zellij-hirr;
+    };
   };
   home.sessionVariables = {
     EDITOR = "nvim";
