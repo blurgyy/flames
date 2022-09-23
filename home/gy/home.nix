@@ -56,6 +56,7 @@ in lib.mkMerge [
     viddy
     waypipe
     wget
+    yt-dlp
     zip
     zsh
     zstd
