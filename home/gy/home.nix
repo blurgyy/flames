@@ -136,6 +136,7 @@ in lib.mkMerge [
     tmux = {
       enable = true;
       keyMode = "vi";
+      clock24 = true;
       historyLimit = 100000;
       sensibleOnTop = true;
       plugins = [{
