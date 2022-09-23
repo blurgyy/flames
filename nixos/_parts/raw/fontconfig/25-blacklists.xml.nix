@@ -1,3 +1,41 @@
+''
+<!--
+    Do not handle these codes with Noto Sans/HarmonyOS Sans (not sure).
+    Source: <https://github.com/rydesun/dotfiles/blob/62528f95e11784cb438d5c8f5c169cb9c260e6a3/.config/fontconfig/conf.d/50-generic.conf#L73>
+-->
+<match target="scan">
+    <test name="family" compare="contains">
+        <string>Noto Sans</string>
+    </test>
+    <edit name="charset" mode="assign">
+        <minus>
+            <name>charset</name>
+            <charset>
+                <range>
+                    <int>0xF900</int>
+                    <int>0xFAFF</int>
+                </range>
+            </charset>
+        </minus>
+    </edit>
+</match>
+<match target="scan">
+    <test name="family" compare="contains">
+        <string>HarmonyOS Sans</string>
+    </test>
+    <edit name="charset" mode="assign">
+        <minus>
+            <name>charset</name>
+            <charset>
+                <range>
+                    <int>0xE78D</int>
+                    <int>0xE796</int>
+                </range>
+            </charset>
+        </minus>
+    </edit>
+</match>
+
 <!--
     Blacklist vscode-codicons' codepoints from all other font
 -->
@@ -48,3 +86,6 @@
         </minus>
     </edit>
 </match>
+''
+
+# vim: ft=xml:

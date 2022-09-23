@@ -1,3 +1,4 @@
+''
 <!--
     Substitute non-canonical font names into canonical ones.
 
@@ -159,6 +160,16 @@
 <!-- Set default monospace fonts requested by applications to monospace -->
 <match target="pattern">
     <test name="family">
+        <string>mono</string>
+    </test>
+    <edit name="family" mode="assign" binding="same">
+        <string>monospace</string>
+    </edit>
+</match>
+
+<!-- ui-monospace -->
+<match target="pattern">
+    <test name="family">
         <string>ui-monospace</string>
     </test>
     <edit name="family" mode="assign" binding="same">
@@ -214,10 +225,36 @@
 </match>
 
 <match target="pattern">
-    <test qual="any" name="family">
+    <test name="family">
         <string>Symbola</string>
     </test>
     <edit name="family" mode="assign" binding="same">
         <string>emoji</string>
     </edit>
 </match>
+
+<!-- Replace requested Noto fonts -->
+<!-- Simplified Chinese characters -->
+<match target="pattern">
+    <test name="family">
+        <string>Noto Sans CJK SC</string>
+    </test>
+    <edit name="family" mode="prepend" binding="same">
+        <string>Rubik</string>
+        <string>HarmonyOS Sans SC</string>
+    </edit>
+</match>
+
+<!-- Traditional Chinese characters -->
+<match target="pattern">
+    <test name="family">
+        <string>Noto Sans CJK TC</string>
+    </test>
+    <edit name="family" mode="prepend" binding="same">
+        <string>Rubik</string>
+        <string>HarmonyOS Sans TC</string>
+    </edit>
+</match>
+''
+
+# vim: ft=xml:

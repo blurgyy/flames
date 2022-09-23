@@ -47,65 +47,34 @@
     enableDefaultFonts = false;
     fontconfig = {
       enable = true;
-      defaultFonts = let
-        generic-fallbacks = [
-          "emoji"
-          "codicon"
-          "Font Awesome 6 Free"
-          "Font Awesome 6 Brands"
-          "Font Awesome 5 Free"
-          "Font Awesome 5 Brands"
-          "Symbols Nerd Font"
-        ];
-      in rec {
-        serif = [
-          "Source Serif Pro"
-          "Source Han Serif SC"
-          "Source Han Serif TC"
-          "Source Han Serif HC"
-          "Source Han Serif K"
-          "LXGW Wenkai"
-        ] ++ generic-fallbacks;
+      defaultFonts = {
+        serif = [];
         # NOTE: "HarmonyOS Sans" won't work.  Use "HarmonyOS Sans SC", etc.
-        sansSerif = [
-          "Rubik"
-          "HarmonyOS Sans SC"
-          "HarmonyOS Sans TC"
-          "Source Sans Pro"
-          "Source Han Sans SC"
-          "Source Han Sans TC"
-          "Source Han Sans HC"
-          "Source Han Sans K"
-          "LXGW Wenkai"
-        ] ++ generic-fallbacks;
-        monospace = [
-          "Iosevka Fixed"
-          "Source Code Pro"
-        ] ++ sansSerif;
-        emoji = [ "Apple Color Emoji" ];
+        sansSerif = [];
+        monospace = [];
+        emoji = [];
       };
-      # includeUserConf = true;
       localConf = with builtins;
         ''<?xml version="1.0" encoding="UTF-8"?>
         <!DOCTYPE fontconfig SYSTEM "url:fontconfig:fonts.dtd">
         <fontconfig>
         '' +
-        concatStringsSep "\n" (
-          map (f: readFile "${fontConfsRoot}/${f}") (
-            attrNames (readDir fontConfsRoot)
-          )
-        ) +
+        concatStringsSep "\n" [
+          (import ../raw/fontconfig/00-generic-substitutions.xml.nix)
+          (import ../raw/fontconfig/10-defaults.xml.nix)
+          (import ../raw/fontconfig/25-blacklists.xml.nix)
+          (import ../raw/fontconfig/30-emoji.xml.nix { emojiFontName = "Apple Color Emoji"; })
+        ] +
         "</fontconfig>";
     };
     fonts = with pkgs; [
       rubik
       (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
       (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
-      source-sans-pro
-      source-han-sans
-      source-serif-pro
-      source-han-serif
-      source-code-pro
+      noto-fonts
+      noto-fonts-extra
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
       font-awesome
       freefont_ttf
       liberation_ttf
