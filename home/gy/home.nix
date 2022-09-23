@@ -123,7 +123,15 @@ in lib.mkMerge [
         fi
       '';
     };
-    fzf = { enable = true; };
+    fzf = {
+      enable = true;
+      defaultOptions = [
+        "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD"
+        "--color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96"
+        "--color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
+      ];
+      tmux.enableShellIntegration = true;
+    };
     fish = callWithHelpers ./parts/fish { };
   };
   home.sessionVariables = {
@@ -145,8 +153,7 @@ in lib.mkMerge [
     WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     PYTHONDONTWRITEBYTECODE = 1;
     WINEPREFIX = "${config.xdg.dataHome}/wine";
-    FZF_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
-    SKIM_DEFAULT_OPTS = "--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD";
+    SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
   } // (if proxy != null then {
     http_proxy = "http://${proxy.addr}:${proxy.port}";
     https_proxy = "http://${proxy.addr}:${proxy.port}";
