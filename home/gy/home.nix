@@ -137,7 +137,6 @@ in lib.mkMerge [
       enable = true;
       keyMode = "vi";
       historyLimit = 100000;
-      newSession = true;
       sensibleOnTop = true;
       plugins = [{
         plugin = pkgs.tmux-plugin-catppuccin;
