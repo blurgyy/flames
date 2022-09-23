@@ -12,7 +12,7 @@
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
     tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
     nickcao = { url = github:NickCao/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
-    nvfetcher = { url = github:berberman/nvfetcher; inputs.nixpkgs.follows = "nixpkgs"; };
+    nvfetcher = { url = github:berberman/nvfetcher; };
 
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = gitlab:highsunz/acremote;
