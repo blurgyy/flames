@@ -135,7 +135,13 @@ in lib.mkMerge [
     fish = callWithHelpers ./parts/fish { };
     tmux = {
       enable = true;
-      historyLimit = 10000;
+      historyLimit = 100000;
+      sensibleOnTop = true;
+      plugins = [{
+        plugin = pkgs.tmux-plugin-catppuccin;
+        extraConfig = "set -g @catppuccin_flavour 'mocha'";
+      }];
+      extraConfig = builtins.readFile ./parts/raw/tmux.conf;
     };
     zellij = {
       enable = true;
