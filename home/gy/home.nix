@@ -135,6 +135,7 @@ in lib.mkMerge [
     fish = callWithHelpers ./parts/fish { };
     tmux = {
       enable = true;
+      keyMode = "vi";
       historyLimit = 100000;
       newSession = true;
       sensibleOnTop = true;
