@@ -1,90 +1,90 @@
 ''
 <!--
-    Do not handle these codes with Noto Sans/HarmonyOS Sans (not sure).
-    Source: <https://github.com/rydesun/dotfiles/blob/62528f95e11784cb438d5c8f5c169cb9c260e6a3/.config/fontconfig/conf.d/50-generic.conf#L73>
+  Do not handle these codes with Noto Sans/HarmonyOS Sans (not sure).
+  Source: <https://github.com/rydesun/dotfiles/blob/62528f95e11784cb438d5c8f5c169cb9c260e6a3/.config/fontconfig/conf.d/50-generic.conf#L73>
 -->
 <match target="scan">
-    <test name="family" compare="contains">
-        <string>Noto Sans</string>
-    </test>
-    <edit name="charset" mode="assign">
-        <minus>
-            <name>charset</name>
-            <charset>
-                <range>
-                    <int>0xF900</int>
-                    <int>0xFAFF</int>
-                </range>
-            </charset>
-        </minus>
-    </edit>
+  <test name="family" compare="contains">
+    <string>Noto Sans</string>
+  </test>
+  <edit name="charset" mode="assign">
+    <minus>
+      <name>charset</name>
+      <charset>
+        <range>
+          <int>0xF900</int>
+          <int>0xFAFF</int>
+        </range>
+      </charset>
+    </minus>
+  </edit>
 </match>
 <match target="scan">
-    <test name="family" compare="contains">
-        <string>HarmonyOS Sans</string>
-    </test>
-    <edit name="charset" mode="assign">
-        <minus>
-            <name>charset</name>
-            <charset>
-                <range>
-                    <int>0xE78D</int>
-                    <int>0xE796</int>
-                </range>
-            </charset>
-        </minus>
-    </edit>
+  <test name="family" compare="contains">
+    <string>HarmonyOS Sans</string>
+  </test>
+  <edit name="charset" mode="assign">
+    <minus>
+      <name>charset</name>
+      <charset>
+        <range>
+          <int>0xE78D</int>
+          <int>0xE796</int>
+        </range>
+      </charset>
+    </minus>
+  </edit>
 </match>
 
 <!--
-    Blacklist vscode-codicons' codepoints from all other font
+  Blacklist vscode-codicons' codepoints from all other font
 -->
 <match target="scan">
-    <test name="family" compare="not_contains">
-        <string>codicon</string>
-    </test>
-    <edit name="charset" mode="assign">
-        <minus>
-            <name>charset</name>
-            <charset>
-                <range>
-                    <!-- REF: <https://github.com/mortepau/codicons.nvim> -->
-                    <int>0xEA60</int>
-                    <int>0xEBC3</int>
-                </range>
-            </charset>
-        </minus>
-    </edit>
+  <test name="family" compare="not_contains">
+    <string>codicon</string>
+  </test>
+  <edit name="charset" mode="assign">
+    <minus>
+      <name>charset</name>
+      <charset>
+        <range>
+          <!-- REF: <https://github.com/mortepau/codicons.nvim> -->
+          <int>0xEA60</int>
+          <int>0xEBC3</int>
+        </range>
+      </charset>
+    </minus>
+  </edit>
 </match>
 
 <!-- Blacklist private range codepoints from non-nerd fonts and non-fontawesome fonts -->
 <match target="scan">
-    <!-- Any font that is not "Symbols Nerd Font" -->
-    <test name="family" compare="not_contains">
-        <string>Nerd</string>
-    </test>
-    <!-- Any font that does not provide FontAwesome fonts -->
-    <test name="family" compare="not_contains">
-        <string>Font Awesome</string>
-    </test>
-    <test name="family" compare="not_contains">
-        <string>codicon</string>
-    </test>
-    <test name="family" compare="not_contains">
-        <string>FontAwesome</string>
-    </test>
-    <edit name="charset" mode="assign">
-        <minus>
-            <name>charset</name>
-            <charset>
-                <range>
-                    <!-- REF: <https://the.exa.website/features/icons> -->
-                    <int>0xE000</int>
-                    <int>0xF8FF</int>
-                </range>
-            </charset>
-        </minus>
-    </edit>
+  <!-- Any font that is not "Symbols Nerd Font" -->
+  <test name="family" compare="not_contains">
+    <string>Nerd</string>
+  </test>
+  <!-- Any font that does not provide FontAwesome fonts -->
+  <test name="family" compare="not_contains">
+    <string>Font Awesome</string>
+  </test>
+  <test name="family" compare="not_contains">
+    <string>codicon</string>
+  </test>
+  <test name="family" compare="not_contains">
+    <string>FontAwesome</string>
+  </test>
+  <edit name="charset" mode="assign">
+    <minus>
+      <name>charset</name>
+      <charset>
+        <range>
+          <!-- REF: <https://the.exa.website/features/icons> -->
+          <int>0xE000</int>
+          <int>0xF8FF</int>
+        </range>
+      </charset>
+    </minus>
+  </edit>
 </match>
 ''
 

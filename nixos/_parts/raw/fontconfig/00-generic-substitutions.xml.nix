@@ -1,259 +1,259 @@
 ''
 <!--
-    Substitute non-canonical font names into canonical ones.
+  Substitute non-canonical font names into canonical ones.
 
-    Reference:
-        - <https://catcat.cc/post/2020-10-31/#css-font-family>
-        - <https://github.com/rydesun/dotfiles/blob/62528f95e11784cb438d5c8f5c169cb9c260e6a3/.config/fontconfig/conf.d/50-generic.conf#L5>
-        - <https://aur.archlinux.org/cgit/aur.git/tree/75-noto-color-emoji.conf?h=noto-color-emoji-fontconfig>
+  Reference:
+    - <https://catcat.cc/post/2020-10-31/#css-font-family>
+    - <https://github.com/rydesun/dotfiles/blob/62528f95e11784cb438d5c8f5c169cb9c260e6a3/.config/fontconfig/conf.d/50-generic.conf#L5>
+    - <https://aur.archlinux.org/cgit/aur.git/tree/75-noto-color-emoji.conf?h=noto-color-emoji-fontconfig>
 -->
 
 <!--
-    Undesired fonts that messes up webpages, e.g. rendering spaces with
-    Emoji fonts, making them display much wider.
+  Undesired fonts that messes up webpages, e.g. rendering spaces with
+  Emoji fonts, making them display much wider.
 -->
 <!-- As system-ui -->
 <match target="pattern">
-    <test name="family">
-        <string>Segoe</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>system-ui</string>
-    </edit>
+  <test name="family">
+    <string>Segoe</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>system-ui</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>Segoe UI</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>system-ui</string>
-    </edit>
+  <test name="family">
+    <string>Segoe UI</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>system-ui</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>Lato</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>system-ui</string>
-    </edit>
+  <test name="family">
+    <string>Lato</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>system-ui</string>
+  </edit>
 </match>
 
 <!-- As emoji -->
 <match target="pattern">
-    <test name="family">
-        <string>Segoe UI Emoji</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>emoji</string>
-    </edit>
+  <test name="family">
+    <string>Segoe UI Emoji</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>emoji</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>Segoe UI Symbol</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>emoji</string>
-    </edit>
+  <test name="family">
+    <string>Segoe UI Symbol</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>emoji</string>
+  </edit>
 </match>
 
 <!--
-    Treat "-apple-system" and "BlinkMacSystemFont" as System-UI for joint
-    handling.
+  Treat "-apple-system" and "BlinkMacSystemFont" as System-UI for joint
+  handling.
 -->
 <match target="pattern">
-    <test name="family">
-        <string>-apple-system</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>system-ui</string>
-    </edit>
+  <test name="family">
+    <string>-apple-system</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>system-ui</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>BlinkMacSystemFont</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>system-ui</string>
-    </edit>
+  <test name="family">
+    <string>BlinkMacSystemFont</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>system-ui</string>
+  </edit>
 </match>
 
 <!-- Alternative names of system-ui -->
 <match target="pattern">
-    <test name="family">
-        <string>system ui</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>system-ui</string>
-    </edit>
+  <test name="family">
+    <string>system ui</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>system-ui</string>
+  </edit>
 </match>
 
 <!-- Set default System-UI font to sans-serif -->
 <match target="pattern">
-    <test name="family">
-        <string>system-ui</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>system-ui</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>sans-serif</string>
+  </edit>
 </match>
 
 <!-- Alternative names for sans-serif -->
 <match target="pattern">
-    <test name="family">
-        <string>sans serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>sans serif</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>sans-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>sans</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>sans</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>sans-serif</string>
+  </edit>
 </match>
 
 <!-- Condensed sans serif -->
 <match target="pattern">
-    <test name="family">
-        <string>condensed</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>condensed-sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>condensed</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>condensed-sans-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>condensed-sans</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>condensed-sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>condensed-sans</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>condensed-sans-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>condensed sans</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>condensed-sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>condensed sans</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>condensed-sans-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>condensed sans serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>condensed-sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>condensed sans serif</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>condensed-sans-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>condensed sans-serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>condensed-sans-serif</string>
-    </edit>
+  <test name="family">
+    <string>condensed sans-serif</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>condensed-sans-serif</string>
+  </edit>
 </match>
 
 <!-- Set default monospace fonts requested by applications to monospace -->
 <match target="pattern">
-    <test name="family">
-        <string>mono</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>monospace</string>
-    </edit>
+  <test name="family">
+    <string>mono</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>monospace</string>
+  </edit>
 </match>
 
 <!-- ui-monospace -->
 <match target="pattern">
-    <test name="family">
-        <string>ui-monospace</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>monospace</string>
-    </edit>
+  <test name="family">
+    <string>ui-monospace</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>monospace</string>
+  </edit>
 </match>
 
 <!-- Alternative names of ui-monospace -->
 <match target="pattern">
-    <test name="family">
-        <string>ui monospace</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>monospace</string>
-    </edit>
+  <test name="family">
+    <string>ui monospace</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>monospace</string>
+  </edit>
 </match>
 
 <!-- Add a generic family `slab-serif` -->
 <!-- Accept "slab serif"/"slab" and treat them as slab-serif -->
 <match target="pattern">
-    <test name="family">
-        <string>slab</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>slab-serif</string>
-    </edit>
+  <test name="family">
+    <string>slab</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>slab-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>slab serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>slab-serif</string>
-    </edit>
+  <test name="family">
+    <string>slab serif</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>slab-serif</string>
+  </edit>
 </match>
 <match target="pattern">
-    <test name="family">
-        <string>slab serif</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>slab-serif</string>
-    </edit>
+  <test name="family">
+    <string>slab serif</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>slab-serif</string>
+  </edit>
 </match>
 
 <!-- As emoji -->
 <match target="pattern">
-    <test name="family" compare="contains">
-        <string>emoji</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>emoji</string>
-    </edit>
+  <test name="family" compare="contains">
+    <string>emoji</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>emoji</string>
+  </edit>
 </match>
 
 <match target="pattern">
-    <test name="family">
-        <string>Symbola</string>
-    </test>
-    <edit name="family" mode="assign" binding="same">
-        <string>emoji</string>
-    </edit>
+  <test name="family">
+    <string>Symbola</string>
+  </test>
+  <edit name="family" mode="assign" binding="same">
+    <string>emoji</string>
+  </edit>
 </match>
 
 <!-- Replace requested Noto fonts -->
 <!-- Simplified Chinese characters -->
 <match target="pattern">
-    <test name="family">
-        <string>Noto Sans CJK SC</string>
-    </test>
-    <edit name="family" mode="prepend" binding="same">
-        <string>Rubik</string>
-        <string>HarmonyOS Sans SC</string>
-    </edit>
+  <test name="family">
+    <string>Noto Sans CJK SC</string>
+  </test>
+  <edit name="family" mode="prepend" binding="same">
+    <string>Rubik</string>
+    <string>HarmonyOS Sans SC</string>
+  </edit>
 </match>
 
 <!-- Traditional Chinese characters -->
 <match target="pattern">
-    <test name="family">
-        <string>Noto Sans CJK TC</string>
-    </test>
-    <edit name="family" mode="prepend" binding="same">
-        <string>Rubik</string>
-        <string>HarmonyOS Sans TC</string>
-    </edit>
+  <test name="family">
+    <string>Noto Sans CJK TC</string>
+  </test>
+  <edit name="family" mode="prepend" binding="same">
+    <string>Rubik</string>
+    <string>HarmonyOS Sans TC</string>
+  </edit>
 </match>
 ''
 
