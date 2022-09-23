@@ -4,6 +4,10 @@
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
 
+[tmux-plugin-catppuccin]
+src.git = "https://github.com/catppuccin/tmux"
+fetch.github = "catppuccin/tmux"
+
 [fcitx5-fluent-dark-theme]
 src.git = "https://github.com/Reverier-Xu/FluentDark-fcitx5"
 fetch.github = "Reverier-Xu/FluentDark-fcitx5"

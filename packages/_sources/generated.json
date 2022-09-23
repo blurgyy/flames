@@ -206,6 +206,25 @@
         },
         "version": "v1.1.2"
     },
+    "tmux-plugin-catppuccin": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "tmux-plugin-catppuccin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "catppuccin",
+            "repo": "tmux",
+            "rev": "97183fc51071fa9ff20da6c208c9922ec319b1df",
+            "sha256": "sha256-Gy150PYRsZxpvbw615Ojj150fgbkqESkmLfx7iS6Uko=",
+            "type": "github"
+        },
+        "version": "97183fc51071fa9ff20da6c208c9922ec319b1df"
+    },
     "ttf-google-sans": {
         "cargoLocks": null,
         "extract": null,

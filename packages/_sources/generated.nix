@@ -128,6 +128,17 @@
       };
     };
   };
+  tmux-plugin-catppuccin = {
+    pname = "tmux-plugin-catppuccin";
+    version = "97183fc51071fa9ff20da6c208c9922ec319b1df";
+    src = fetchFromGitHub ({
+      owner = "catppuccin";
+      repo = "tmux";
+      rev = "97183fc51071fa9ff20da6c208c9922ec319b1df";
+      fetchSubmodules = false;
+      sha256 = "sha256-Gy150PYRsZxpvbw615Ojj150fgbkqESkmLfx7iS6Uko=";
+    });
+  };
   ttf-google-sans = {
     pname = "ttf-google-sans";
     version = "b1826355d8212378e5fd6094bbe504268fa6f85d";
