@@ -132,6 +132,10 @@ in lib.mkMerge [
       tmux.enableShellIntegration = true;
     };
     fish = callWithHelpers ./parts/fish { };
+    tmux = {
+      enable = true;
+      historyLimit = 10000;
+    };
     zellij = {
       enable = true;
       package = pkgs.zellij-hirr;
