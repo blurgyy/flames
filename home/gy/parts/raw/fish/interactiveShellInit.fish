@@ -107,14 +107,14 @@ else if test 0 -eq (id -u)  # Do not autostart tmux as root
   echo "Not autostarting terminal multiplexer as root" >&2
 else if set -q ZELLIJ  # Do not nest zellij session
 else if set -q TMUX  # Do not nest tmux session
-else if type -q zellij  # Try zellij first
+else if type -q tmux
+  exec_tmux
+else if type -q zellij
   if zellij setup --check >/dev/null 2>/dev/null
     exec_zellij
-  else
+  else if type -q tmux
     exec_tmux
   end
-else if type -q tmux  # If tmux is installed
-  exec_tmux
 end
 
 bootstrap
