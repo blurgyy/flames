@@ -41,51 +41,6 @@
     ];
   };
 
-  fonts = let
-    fontConfsRoot = ../raw/fontconfig;
-  in {
-    enableDefaultFonts = false;
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-        serif = [];
-        # NOTE: "HarmonyOS Sans" won't work.  Use "HarmonyOS Sans SC", etc.
-        sansSerif = [];
-        monospace = [];
-        emoji = [];
-      };
-      localConf = with builtins;
-        ''<?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE fontconfig SYSTEM "url:fontconfig:fonts.dtd">
-        <fontconfig>
-        '' +
-        concatStringsSep "\n" [
-          (import ../raw/fontconfig/00-generic-substitutions.xml.nix)
-          (import ../raw/fontconfig/10-defaults.xml.nix)
-          (import ../raw/fontconfig/25-blacklists.xml.nix)
-          (import ../raw/fontconfig/30-emoji.xml.nix { emojiFontName = "Apple Color Emoji"; })
-        ] +
-        "</fontconfig>";
-    };
-    fonts = with pkgs; [
-      rubik
-      (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
-      (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
-      noto-fonts
-      noto-fonts-extra
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
-      font-awesome
-      freefont_ttf
-      liberation_ttf
-      lxgw-wenkai
-      harmonyos-sans
-      symbols-nerd-font
-      vscode-codicons
-      apple-color-emoji
-    ];
-  };
-
   xdg.portal = {
     enable = lib.mkDefault true;
     wlr.enable = lib.mkDefault true;
