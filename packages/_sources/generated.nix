@@ -31,6 +31,17 @@
       sha256 = "sha256-+Q8VNtAFWWD0UbF9nN+7FsCpcwUIi7HFJRbTeHU3HLo=";
     });
   };
+  fish-plugin-tide = {
+    pname = "fish-plugin-tide";
+    version = "v5.5.1";
+    src = fetchFromGitHub ({
+      owner = "IlanCosman";
+      repo = "tide";
+      rev = "v5.5.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-vi4sYoI366FkIonXDlf/eE2Pyjq7E/kOKBrQS+LtE+M=";
+    });
+  };
   gdb-dashboard = {
     pname = "gdb-dashboard";
     version = "v0.16.0";
