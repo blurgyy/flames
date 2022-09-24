@@ -205,6 +205,7 @@ in lib.mkMerge [
     enable = true;
     configFile = with builtins; {
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
+      "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
     } // (manifestXdgConfigFilesFrom ./parts/mirrored);
   };
 
