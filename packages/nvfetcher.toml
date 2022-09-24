@@ -20,6 +20,10 @@ fetch.github = "sxqsfun/fcitx5-sogou-themes"
 src.github = "IlanCosman/tide"
 fetch.github = "IlanCosman/tide"
 
+[fish-plugin-catppuccin]
+src.git = "https://github.com/catppuccin/fish"
+fetch.github = "catppuccin/fish"
+
 [gdb-dashboard]
 src.github_tag = "cyrus-and/gdb-dashboard"
 fetch.github = "cyrus-and/gdb-dashboard"

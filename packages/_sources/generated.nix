@@ -31,6 +31,17 @@
       sha256 = "sha256-+Q8VNtAFWWD0UbF9nN+7FsCpcwUIi7HFJRbTeHU3HLo=";
     });
   };
+  fish-plugin-catppuccin = {
+    pname = "fish-plugin-catppuccin";
+    version = "62dae5f4268d1480636cb5a095ad7ea7943865fa";
+    src = fetchFromGitHub ({
+      owner = "catppuccin";
+      repo = "fish";
+      rev = "62dae5f4268d1480636cb5a095ad7ea7943865fa";
+      fetchSubmodules = false;
+      sha256 = "sha256-21RrG+m4G5BhOVNYxp6m+/WpWzpzyyT93zA2ze8Nf28=";
+    });
+  };
   fish-plugin-tide = {
     pname = "fish-plugin-tide";
     version = "v5.5.1";
