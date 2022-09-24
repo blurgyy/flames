@@ -16,6 +16,10 @@ fetch.github = "Reverier-Xu/FluentDark-fcitx5"
 src.git = "https://github.com/sxqsfun/fcitx5-sogou-themes"
 fetch.github = "sxqsfun/fcitx5-sogou-themes"
 
+[fish-plugin-tide]
+src.github = "IlanCosman/tide"
+fetch.github = "IlanCosman/tide"
+
 [gdb-dashboard]
 src.github_tag = "cyrus-and/gdb-dashboard"
 fetch.github = "cyrus-and/gdb-dashboard"

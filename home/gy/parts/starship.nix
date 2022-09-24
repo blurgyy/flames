@@ -1,5 +1,6 @@
 {
   enable = true;
+  enableFishIntegration = false;
   settings = {
     format = "$all";
     scan_timeout = 30;

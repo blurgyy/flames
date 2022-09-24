@@ -41,7 +41,6 @@
       body = readFile ../raw/fish/functions/crm.fish;
     };
   };
-  interactiveShellInit = readFile ../raw/fish/interactiveShellInit.fish;
   shellAbbrs = import ./abbrs.nix { inherit pkgs; };
   shellAliases = with pkgs; {
     #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";
@@ -50,4 +49,17 @@
     shome = "${pkgs.home-manager}/bin/home-manager switch -v --flake";
     ssys = "nixos-rebuild switch --use-remote-sudo -v --flake";
   };
+  plugins = [{
+    name = "tide";
+    src = pkgs.fish-plugin-tide.src;
+  }];
+  interactiveShellInit = (
+    readFile ../raw/fish/interactiveShellInit.fish
+  ) + ''
+    source ${pkgs.fish-plugin-tide}/share/fish/vendor_functions.d/_tide_sub_configure.fish
+    sed -Ee 's/^/set -U /' \
+      ${pkgs.fish-plugin-tide}/share/fish/vendor_functions.d/tide/configure/configs/lean.fish \
+      | source
+    set -g tide_prompt_add_newline_before false
+  '';
 }
