@@ -497,6 +497,10 @@ null_ls.setup({
 
 --- lualine
 require("lualine").setup({
+  options = {
+    section_separators = "",
+    component_separators = "|",
+  };
   sections = {
     lualine_b = {
       "branch",
