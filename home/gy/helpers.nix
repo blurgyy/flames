@@ -79,13 +79,16 @@
     colors."${name}";
 
   mirrorDirsAsXdg = let
+    loadFile = path: if lib.hasSuffix ".asnix" path
+      then import path
+      else readFile path;
     mirrorSingleDirAsXdgInner = pathPrefix: path: mapAttrs
         (subPath: type:
           if type == "regular" then
             {
-              name = "${path}/${subPath}";
+              name = "${path}/${lib.removeSuffix ".asnix" subPath}";
               value = {
-                text = readFile (pathPrefix + "/${path}/${subPath}");
+                text = loadFile (pathPrefix + "/${path}/${subPath}");
                 # setting force=true will unconditionally replace target path
                 force = true;  # REF: https://github.com/nix-community/home-manager/issues/6#issuecomment-693001293
               };
@@ -102,6 +105,6 @@
       (path: mirrorDirAsXdg pathPrefix path)
       paths);
   manifestXdgConfigFilesFrom = dir: mirrorDirsAsXdg dir (map
-    (path: lib.lists.last (lib.strings.splitString "/" path))
+    (path: lib.last (lib.splitString "/" path))
     (attrNames (readDir dir)));
 }

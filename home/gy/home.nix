@@ -281,6 +281,22 @@ in lib.mkMerge [
     xfce.thunar
     xfce.thunar-volman
     zotero
+  ] ++ [  # fonts
+    rubik
+    (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
+    (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
+    noto-fonts
+    noto-fonts-extra
+    noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    font-awesome
+    freefont_ttf
+    liberation_ttf
+    lxgw-wenkai
+    harmonyos-sans
+    symbols-nerd-font
+    vscode-codicons
+    apple-color-emoji
   ];
   programs = {
     fish.shellAliases.meshlab = with pkgs;
