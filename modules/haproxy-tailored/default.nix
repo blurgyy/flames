@@ -266,10 +266,16 @@ in {
           ];
         };
         script = ''
+          if [[ -e ${domain.name}/chain.pem ]] \
+            && [[ -e ${domain.name}/cert.pem ]] \
+            && [[ -e ${domain.name}/key.pem ]]; then
+            echo "Self-signed cert exists, won't re-issue cert"
+            exit 0
+          fi
           rm -rf ${domain.name}/*
           mkdir -p ca
           ${pkgs.minica}/bin/minica \
-            --ca-key ca/key.pem \
+            --ca-key /dev/null \
             --ca-cert ca/cert.pem \
             --domains ${escapeShellArg domain.name}
           # Create files to match directory layout for real certificates
