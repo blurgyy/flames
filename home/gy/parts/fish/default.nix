@@ -60,6 +60,7 @@
     sed -Ee 's/^/set -U /' \
       ${pkgs.fish-plugin-tide}/share/fish/vendor_functions.d/tide/configure/configs/lean.fish \
       | source
+    set -g tide_right_prompt_items $tide_right_prompt_items time
     set -g tide_prompt_add_newline_before false
   '';
 }
