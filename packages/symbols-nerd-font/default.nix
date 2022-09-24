@@ -8,7 +8,7 @@
     ${unzip}/bin/unzip $src
   '';
   installPhase = ''
-    install -Dt $out/share/truetype -m444 'Symbols-2048-em Nerd Font Complete.ttf'
+    install -Dm644 'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/truetype/'Symbols-2048-em Nerd Font Complete.ttf'
   '';
 
   meta = {

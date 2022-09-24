@@ -3,7 +3,7 @@
 
   phases = [ "installPhase" ];
   installPhase = ''
-    install -Dt $out/share/truetype -m444 $src/fonts/*
+    install -Dt $out/share/fonts/truetype -m444 $src/fonts/*
   '';
 
   meta = {

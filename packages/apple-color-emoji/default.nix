@@ -3,7 +3,7 @@
 
   phases = [ "installPhase" ];
   installPhase = ''
-    install -Dt $out/share/truetype/ $src
+    install -Dm644 $src $out/share/fonts/truetype/AppleColorEmoji.ttf
   '';
 
   meta = {

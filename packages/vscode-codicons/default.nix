@@ -3,7 +3,7 @@
 
   phases = [ "installPhase" ];
   installPhase = ''
-    install -Dt $out/share/truetype $src/dist/codicon.ttf
+    install -Dm644 $src/dist/codicon.ttf $out/share/fonts/truetype/codicon.ttf
     install -Dt $out/share/doc/${pname} $src/dist/codicon.{css,csv,html,svg}
   '';
 
