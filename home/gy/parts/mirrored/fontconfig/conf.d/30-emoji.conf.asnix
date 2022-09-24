@@ -1,8 +1,8 @@
 let
   emojiFontName = "Apple Color Emoji";
 in ''
-<?xml version='1.0'?>
-<!DOCTYPE fontconfig SYSTEM 'urn:fontconfig:fonts.dtd'>
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">
 <fontconfig>
 <match target="pattern">
   <test qual="any" name="family">
@@ -181,9 +181,9 @@ in ''
     <string>${emojiFontName}</string>
   </edit>
 </match>
-</fontconfig>
 
 <!--
   vim: ft=xml ts=2 sts=2 sw=2 et:
 -->
+</fontconfig>
 ''
