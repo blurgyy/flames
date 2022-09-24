@@ -33,7 +33,7 @@ function exec_tmux
 end
 
 function bootstrap
-  fish_config theme choose mocha
+  fish_config theme choose catppuccin
 
   # Use vi-like keybindings
   fish_vi_key_bindings

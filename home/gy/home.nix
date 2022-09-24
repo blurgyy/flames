@@ -207,6 +207,7 @@ in lib.mkMerge [
     configFile = with builtins; {
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
       "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
+      "fish/themes/catppuccin.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
     } // (manifestXdgConfigFilesFrom ./parts/mirrored);
   };
 
