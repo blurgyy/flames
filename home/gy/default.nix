@@ -8,6 +8,7 @@
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
         inherit (inputs.neovim.packages.${system}) neovim;
+        inherit (inputs.nixgl.packages.${system}) nixGLIntel;
         vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
           #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
           #  src = prev.fetchFromGitHub {
