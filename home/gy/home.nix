@@ -143,7 +143,8 @@ in lib.mkMerge [
         plugin = pkgs.tmux-plugin-catppuccin;
         extraConfig = "set -g @catppuccin_flavour 'mocha'";
       }] ++ (with pkgs.tmuxPlugins; [
-        better-mouse-mode extrakto
+        better-mouse-mode
+        extrakto
       ]);
       extraConfig = builtins.readFile ./parts/raw/tmux.conf;
     };
