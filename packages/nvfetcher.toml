@@ -16,6 +16,10 @@ fetch.github = "Reverier-Xu/FluentDark-fcitx5"
 src.git = "https://github.com/sxqsfun/fcitx5-sogou-themes"
 fetch.github = "sxqsfun/fcitx5-sogou-themes"
 
+[gdb-dashboard]
+src.github_tag = "cyrus-and/gdb-dashboard"
+fetch.github = "cyrus-and/gdb-dashboard"
+
 [harmonyos-sans]
 src.git = "https://gitee.com/openharmony/resources"
 fetch.git = "https://gitee.com/openharmony/resources"

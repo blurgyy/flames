@@ -51,6 +51,25 @@
         },
         "version": "fbc1e34179cb6a37f0ddb28024f9bf94f0cbd70d"
     },
+    "gdb-dashboard": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "gdb-dashboard",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "cyrus-and",
+            "repo": "gdb-dashboard",
+            "rev": "v0.16.0",
+            "sha256": "sha256-sk638bMM96Nuv+tcNsJANhj6EOaqjN8CRmG8kvFEceY=",
+            "type": "github"
+        },
+        "version": "v0.16.0"
+    },
     "harmonyos-sans": {
         "cargoLocks": null,
         "extract": null,

@@ -31,6 +31,17 @@
       sha256 = "sha256-+Q8VNtAFWWD0UbF9nN+7FsCpcwUIi7HFJRbTeHU3HLo=";
     });
   };
+  gdb-dashboard = {
+    pname = "gdb-dashboard";
+    version = "v0.16.0";
+    src = fetchFromGitHub ({
+      owner = "cyrus-and";
+      repo = "gdb-dashboard";
+      rev = "v0.16.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-sk638bMM96Nuv+tcNsJANhj6EOaqjN8CRmG8kvFEceY=";
+    });
+  };
   harmonyos-sans = {
     pname = "harmonyos-sans";
     version = "0d79cad76b37ba0f3ccb1323c83833c78e0860de";
