@@ -2,6 +2,9 @@
   inherit (source) version src;
   pluginName = source.pname;
   rtpFilePath = "catppuccin.tmux";
+  patches = [
+    ./0001-customize-status-right.patch
+  ];
   meta = {
     homepage = "https://github.com/catppuccin/tmux";
     licence = lib.licenses.mit;
