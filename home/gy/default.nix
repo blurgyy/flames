@@ -8,16 +8,16 @@
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
         inherit (inputs.neovim.packages.${system}) neovim;
-	vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
-	  #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
-	  #  src = prev.fetchFromGitHub {
-	  #    owner = "lewis6991";
-	  #    repo = "gitsigns.nvim";
-	  #    rev = "refs/tags/v0.5";
-	  #    sha256 = "sha256-kyiQoboYq4iNLOj1iKA2cfXQ9FFiRYdvf55bX5Xvj8A=";
-	  #  };
-	  #});
-	});
+        vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
+          #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
+          #  src = prev.fetchFromGitHub {
+          #    owner = "lewis6991";
+          #    repo = "gitsigns.nvim";
+          #    rev = "refs/tags/v0.5";
+          #    sha256 = "sha256-kyiQoboYq4iNLOj1iKA2cfXQ9FFiRYdvf55bX5Xvj8A=";
+          #  };
+          #});
+        });
       })
     ];
   };
