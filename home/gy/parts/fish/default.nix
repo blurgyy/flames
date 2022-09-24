@@ -56,9 +56,9 @@
   interactiveShellInit = (
     readFile ../raw/fish/interactiveShellInit.fish
   ) + ''
-    source ${pkgs.fish-plugin-tide}/share/fish/vendor_functions.d/_tide_sub_configure.fish
+    source ${pkgs.fish-plugin-tide}/share/fish/functions/_tide_sub_configure.fish
     sed -Ee 's/^/set -U /' \
-      ${pkgs.fish-plugin-tide}/share/fish/vendor_functions.d/tide/configure/configs/lean.fish \
+      ${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/configs/lean.fish \
       | source
     set -g tide_right_prompt_items $tide_right_prompt_items time
     set -g tide_prompt_add_newline_before false
