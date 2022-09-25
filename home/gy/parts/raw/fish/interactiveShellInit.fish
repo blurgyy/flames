@@ -28,8 +28,7 @@ function exec_tmux
   end
 
   exec tmux new-session -t $tsess \; \
-    new-window -n $wname \; \
-    select-window -t $wname
+    new-window
 end
 
 function bootstrap
