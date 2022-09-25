@@ -269,6 +269,7 @@ in {
         repeat_rate = "30";  # Larger value results in higher recurring rate while repeating keys
         xkb_options = "caps:escape";
       };
+      "1155:20786:CATEX_TECH._68EC-S".xkb_file = toString pkgs.niz-68ec-keymap;
     };
     fonts = {
       names = [ "slab-serif" ];
