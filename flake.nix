@@ -18,7 +18,7 @@
     acremote.url = gitlab:highsunz/acremote;
     carinae.url = github:NickCao/carinae;
 
-    neovim = { url = github:neovim/neovim?dir=contrib; inputs.nixpkgs.follows = "nixpkgs"; };
+    neovim = { url = github:neovim/neovim/nightly?dir=contrib; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
