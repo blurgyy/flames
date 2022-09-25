@@ -1,4 +1,4 @@
-{
+{ name }: {
   enable = true;
   controlMaster = "auto";
   controlPath = "~/.ssh/master-%r@%n:%p";
@@ -40,11 +40,15 @@
 
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
-    "2x1080ti" = {
+    "2x1080ti" = if name == "gy@watson" || name == "gy@cadliu" || name == "gy@cad-liu" then {
+      hostname = "192.168.1.22";
+    } else {
       hostname = relay;
       port = 10023;
     };
-    shared = {
+    shared = if name == "gy@watson" || name == "gy@cadliu" || name == "gy@cad-liu" then {
+      hostname =  "192.168.1.23";
+    } else {
       hostname = relay;
       port = 10025;
     };
