@@ -219,18 +219,6 @@ in lib.mkMerge [
 
   systemd.user.startServices = true;
 
-  systemd.user = {
-    services.blackd = {
-      Unit.Documentation = "https://black.readthedocs.io/en/stable/usage_and_configuration/black_as_a_server.html";
-      Service = {
-        ExecStart = "${pkgs.black}/bin/blackd";
-        Restart = "always";
-        RestartSec = 5;
-      };
-      Install.WantedBy = [ "default.target" ];
-    };
-  };
-
   # So that fish can complete `man` commands
   programs.man.generateCaches = true;
 }
