@@ -1,11 +1,11 @@
-{ lib, pkgs, config, headless ? true, proxy ? null, ... }: let
+{ lib, pkgs, config, name, headless ? true, proxy ? null, ... }: let
   myName = "gy";
   myHome = "/home/${myName}";
   helpers = import ./helpers.nix { inherit lib; };
   callWithHelpers = path: overrides: with builtins; let
     f = import path;
   in if (typeOf f) == "set" then f else let
-    args = (intersectAttrs (functionArgs f) { inherit pkgs lib config; } // overrides);
+    args = (intersectAttrs (functionArgs f) { inherit pkgs lib config name; } // overrides);
   in f ((intersectAttrs (functionArgs f) helpers) // args);
 in lib.mkMerge [
 {  # Generic

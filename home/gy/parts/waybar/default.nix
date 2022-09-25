@@ -1,4 +1,4 @@
-{ pkgs, themeColor }: with pkgs; {
+{ pkgs, themeColor, name }: with pkgs; {
   mainBar = {
     posiiton = "top";
     margin-top = 4;
@@ -119,7 +119,7 @@
       ];
     };
     "network#download" = {
-      interface = "w*";
+      interface = if name == "gy@watson" then "enp0s20f0u4" else "w*";
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthDownBits}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
@@ -130,7 +130,7 @@
       on-click = "${sway}/bin/swaymsg 'workspace 8'";
     };
     "network#upload" = {
-      interface = "w*";
+      interface = if name == "gy@watson" then "enp0s20f0u4" else "w*";
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthUpBits}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";

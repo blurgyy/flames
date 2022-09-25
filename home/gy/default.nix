@@ -1,4 +1,4 @@
-{ system, nixpkgs, inputs, self, headless ? true, proxy ? null, ... }: let
+{ system, nixpkgs, inputs, self, name, headless ? true, proxy ? null, ... }: let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
@@ -32,5 +32,5 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     ./home.nix
     { home.stateVersion = "22.11"; }
   ];
-  extraSpecialArgs = { inherit headless proxy; };
+  extraSpecialArgs = { inherit name headless proxy; };
 }

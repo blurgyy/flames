@@ -1,5 +1,8 @@
 { self, nixpkgs, inputs }: let
   lib = nixpkgs.lib;
+  apply = attrs: builtins.mapAttrs (name: params:
+    import ../home/gy (params // { inherit name; })
+  ) attrs;
   x86_64-non-headless = {
     system = "x86_64-linux";
     headless = false;
@@ -13,12 +16,12 @@
     system = "aarch64-linux";
     inherit self nixpkgs inputs;
   };
-in rec {
-  "gy@cindy" = import ../home/gy aarch64-headless;
-  "gy@cadliu" = import ../home/gy (x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; });
+in apply rec {
+  "gy@cindy" = aarch64-headless;
+  "gy@cadliu" = x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; };
   "gy@cad-liu" = self.homeConfigurations."gy@cadliu";
-  "gy@morty" = import ../home/gy x86_64-non-headless;
-  "gy@watson" = import ../home/gy x86_64-non-headless;
-  "gy@rpi" = import ../home/gy aarch64-headless;
-  gy = import ../home/gy x86_64-headless;
+  "gy@morty" = x86_64-non-headless;
+  "gy@watson" = x86_64-non-headless;
+  "gy@rpi" = aarch64-headless;
+  gy = x86_64-headless;
 }
