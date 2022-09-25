@@ -1,18 +1,5 @@
-From 9fdbad713a165b3f08f5411eb4137057dfed8a66 Mon Sep 17 00:00:00 2001
-From: Gaoyang Zhang <gy@blurgy.xyz>
-Date: Sun, 25 Sep 2022 09:50:29 +0800
-Subject: [PATCH] customize status-right
-
-Signed-off-by: Gaoyang Zhang <gy@blurgy.xyz>
----
- catppuccin-frappe.tmuxtheme    | 6 +++---
- catppuccin-latte.tmuxtheme     | 6 +++---
- catppuccin-macchiato.tmuxtheme | 6 +++---
- catppuccin-mocha.tmuxtheme     | 6 +++---
- 4 files changed, 12 insertions(+), 12 deletions(-)
-
 diff --git a/catppuccin-frappe.tmuxtheme b/catppuccin-frappe.tmuxtheme
-index 6c3fc7b..1d69e51 100755
+index 6c3fc7b..9c68d25 100755
 --- a/catppuccin-frappe.tmuxtheme
 +++ b/catppuccin-frappe.tmuxtheme
 @@ -56,11 +56,11 @@ setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
@@ -26,12 +13,12 @@ index 6c3fc7b..1d69e51 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#{b:pane_current_path} "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 diff --git a/catppuccin-latte.tmuxtheme b/catppuccin-latte.tmuxtheme
-index 1ddb188..ea9022c 100755
+index 1ddb188..be2aeea 100755
 --- a/catppuccin-latte.tmuxtheme
 +++ b/catppuccin-latte.tmuxtheme
 @@ -56,11 +56,11 @@ setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
@@ -45,12 +32,12 @@ index 1ddb188..ea9022c 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#{b:pane_current_path} "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 diff --git a/catppuccin-macchiato.tmuxtheme b/catppuccin-macchiato.tmuxtheme
-index cdaaa89..e8dabc0 100755
+index cdaaa89..feb1e8a 100755
 --- a/catppuccin-macchiato.tmuxtheme
 +++ b/catppuccin-macchiato.tmuxtheme
 @@ -56,11 +56,11 @@ setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
@@ -64,12 +51,12 @@ index cdaaa89..e8dabc0 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#{b:pane_current_path} "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
 diff --git a/catppuccin-mocha.tmuxtheme b/catppuccin-mocha.tmuxtheme
-index e8178ec..9e29865 100755
+index e8178ec..869779d 100755
 --- a/catppuccin-mocha.tmuxtheme
 +++ b/catppuccin-mocha.tmuxtheme
 @@ -56,11 +56,11 @@ setw window-status-style "fg=${thm_fg},bg=${thm_bg},none"
@@ -83,10 +70,7 @@ index e8178ec..9e29865 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#{b:pane_current_path} "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
--- 
-2.37.2
-
