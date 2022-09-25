@@ -39,6 +39,7 @@ in lib.mkMerge [
     lnav
     lsof
     miniserve
+    nixGLIntel
     parallel
     patchelf
     procs
@@ -275,7 +276,6 @@ in lib.mkMerge [
     libnotify
     logseq
     meshlab
-    nixGLIntel
     tdesktop-megumifox
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     xfce.thunar
