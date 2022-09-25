@@ -10,6 +10,9 @@
         inherit (inputs.neovim.packages.${system}) neovim;
         inherit (inputs.nixgl.packages.${system}) nixGLIntel;
         vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
+          vim-wakatime = prevPlugins.vim-wakatime.overrideAttrs (o: {
+            patches = o.patches or [] ++ [ ./vim-wakatime-disdable-interactive-secret-prompt.patch ];
+          });
           #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
           #  src = prev.fetchFromGitHub {
           #    owner = "lewis6991";
