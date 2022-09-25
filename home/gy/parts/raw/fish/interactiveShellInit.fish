@@ -90,7 +90,7 @@ if string match --quiet --entire --regex '^/dev/tty2$' (tty)
       # card0 is iGPU or dGPU).
       #set -x WLR_DRM_DEVICES "/dev/dri/card0:/dev/dri/card1"
 
-      exec nixGLIntel -- sway --unsupported-gpu >>"$XDG_RUNTIME_DIR/sway.log" 2>&1
+      exec sway --unsupported-gpu >>"$XDG_RUNTIME_DIR/sway.log" 2>&1
     else
       exec sway >>"$XDG_RUNTIME_DIR/sway.log" 2>&1
     end

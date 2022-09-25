@@ -116,6 +116,12 @@ in lib.mkMerge [
       initExtraFirst = ''
         typeset -T INFOPATH infopath
         typeset -U PATH MANPATH INFOPATH
+        # test variable is set, REF: <https://stackoverflow.com/a/42655305/13482274>
+        if [[ -z "''${__tested_os_release+1}" ]]; then
+          source /etc/os-release
+          [[ "NixOS" == "$NAME" ]] || source <(sed -Ee '/exec/d' $(which nixGLIntel))
+          export __tested_os_release=1
+        fi
         if [[ -o interactive ]]; then
           if [[ -z "$noexecfish" ]]; then
             exec fish
