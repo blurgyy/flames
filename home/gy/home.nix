@@ -92,8 +92,8 @@ in lib.mkMerge [
   };
 
   programs = {
-    git = import ./parts/git.nix;
-    ssh = import ./parts/ssh.nix;
+    git = callWithHelpers ./parts/git.nix {};
+    ssh = callWithHelpers ./parts/ssh.nix {};
     readline = {
       enable = true;
       variables = {
@@ -101,7 +101,7 @@ in lib.mkMerge [
         completion-ignore-case = "On";
       };
     };
-    neovim = import ./parts/neovim { inherit pkgs; };
+    neovim = callWithHelpers ./parts/neovim {};
     bat = {
       enable = true;
       config = {
@@ -109,7 +109,7 @@ in lib.mkMerge [
         style = "numbers,changes,header-filename,header-filesize";
       };
     };
-    starship = import ./parts/starship.nix;
+    starship = callWithHelpers ./parts/starship.nix {};
     bash = { enable = true; };
     zsh = {
       enable = true;
@@ -138,7 +138,7 @@ in lib.mkMerge [
       ];
       tmux.enableShellIntegration = true;
     };
-    fish = callWithHelpers ./parts/fish { };
+    fish = callWithHelpers ./parts/fish {};
     tmux = {
       enable = true;
       keyMode = "vi";
@@ -245,7 +245,7 @@ in lib.mkMerge [
     size = 24;
     gtk.enable = true;
   };
-  wayland.windowManager.sway = callWithHelpers ./parts/sway.nix { };
+  wayland.windowManager.sway = callWithHelpers ./parts/sway.nix {};
   fonts.fontconfig.enable = true;
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -323,14 +323,14 @@ in lib.mkMerge [
     alacritty = {
       enable = true;
       package = pkgs.alacritty-swarm;
-      settings = import ./parts/alacritty.nix;
+      settings = callWithHelpers ./parts/alacritty.nix {};
     };
 
-    firefox = callWithHelpers ./parts/firefox.nix { };
+    firefox = callWithHelpers ./parts/firefox.nix {};
 
     waybar = {
-      settings = callWithHelpers ./parts/waybar { };
-      style = callWithHelpers ./parts/waybar/style.css.nix { };
+      settings = callWithHelpers ./parts/waybar {};
+      style = callWithHelpers ./parts/waybar/style.css.nix {};
       systemd = {
         enable = true;
         target = "sway-session.target";
@@ -425,14 +425,14 @@ in lib.mkMerge [
         };
       };
     };
-    flameshot = import ./parts/flameshot.nix;
+    flameshot = callWithHelpers ./parts/flameshot.nix {};
     dunst = rec {
       enable = true;
       iconTheme = {
         name = "Flat-Remix-Yellow-Dark";
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
       };
-      settings = callWithHelpers ./parts/dunst.nix { };
+      settings = callWithHelpers ./parts/dunst.nix {};
     };
     git-sync = {
       enable = true;
