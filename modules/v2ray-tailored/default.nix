@@ -111,6 +111,7 @@ in {
 
     # As client
     sops.templates.vclient-config = with cfg.client; mkIf enable {
+      name = "vclient.json";
       content = builtins.toJSON (import ./client { inherit config lib uuid logging extraHosts soMark fwMark ports remotes overseaSelectors; });
       owner = config.users.users.v2ray.name;
       group = config.users.groups.v2ray.name;
@@ -183,7 +184,7 @@ table ip transparent_proxy {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = commonServiceConfig // {
-        ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vclient-config.path}";
+        ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vclient-config.path}";
       };
       restartTriggers = [ config.sops.templates.vclient-config.content ];
     };
@@ -223,6 +224,7 @@ table ip transparent_proxy {
 
     # As server
     sops.templates.vserver-config = with cfg.server; mkIf enable {
+      name = "vserver.json";
       content = builtins.toJSON (import ./server { inherit config lib logging usersInfo ports wsPath reverse; });
       owner = config.users.users.v2ray.name;
       group = config.users.groups.v2ray.name;
@@ -232,7 +234,7 @@ table ip transparent_proxy {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = commonServiceConfig // {
-        ExecStart = "${cfg.package}/bin/v2ray -config ${config.sops.templates.vserver-config.path}";
+        ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vserver-config.path}";
       };
       restartTriggers = [ config.sops.templates.vserver-config.content ];
     };
