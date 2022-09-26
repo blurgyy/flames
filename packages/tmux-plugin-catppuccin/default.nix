@@ -7,7 +7,7 @@
   ];
   meta = {
     homepage = "https://github.com/catppuccin/tmux";
-    licence = lib.licenses.mit;
+    license = lib.licenses.mit;
     description = "Soothing pastel theme for Tmux";
   };
 }

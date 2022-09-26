@@ -654,6 +654,21 @@
         "type": "github"
       }
     },
+    "nixpkgs_6": {
+      "locked": {
+        "lastModified": 1614934292,
+        "narHash": "sha256-TyKuSbTiUZcfrCx3G7ipLb2GzTGc/bf5qYPu8gGdkwI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1d73b07d8746ed62cce744d8ed6a99a7398ec276",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nvfetcher": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -814,9 +829,7 @@
     "tex2nix": {
       "inputs": {
         "flake-utils": "flake-utils_9",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs_6"
       },
       "locked": {
         "lastModified": 1646670117,

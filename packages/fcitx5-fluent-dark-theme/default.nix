@@ -1,4 +1,4 @@
-{ source, stdenv }: stdenv.mkDerivation rec {
+{ source, lib, stdenv }: stdenv.mkDerivation rec {
   inherit (source) pname version src;
 
   phases = [ "installPhase" ];
@@ -10,6 +10,6 @@
   meta = {
     homepage = "https://github.com/Reverier-Xu/FluentDark-fcitx5";
     description = "A Fluent-Design dark theme with blur effect and shadow";
-    license = null;
+    license = lib.licenses.unfree;
   };
 }

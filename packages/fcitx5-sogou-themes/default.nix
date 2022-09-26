@@ -1,4 +1,4 @@
-{ source, stdenv }: stdenv.mkDerivation rec {
+{ source, lib, stdenv }: stdenv.mkDerivation rec {
   inherit (source) pname version src;
 
   phases = [ "installPhase" ];
@@ -13,6 +13,6 @@
   meta = {
     homepage = "https://github.com/sxqsfun/fcitx5-sogou-themes";
     description = "Fcitx5 themes converted from sogou pinyin";
-    license = null;
+    license = lib.licenses.unfree;
   };
 }

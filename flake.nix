@@ -10,7 +10,7 @@
     home-manager = { url = github:nix-community/home-manager; inputs.nixpkgs.follows = "nixpkgs"; };
     sops-nix = { url = github:Mic92/sops-nix; inputs.nixpkgs.follows = "nixpkgs"; };
     nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
-    tex2nix = { url = github:Mic92/tex2nix; inputs.nixpkgs.follows = "nixpkgs"; };
+    tex2nix = { url = github:Mic92/tex2nix; };
     nickcao = { url = github:NickCao/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
     nvfetcher = { url = github:berberman/nvfetcher; };
 
