@@ -297,11 +297,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1663932797,
-        "narHash": "sha256-IH8ZBW99W2k7wKLS+Sat9HiKX1TPZjFTnsPizK5crok=",
+        "lastModified": 1664146938,
+        "narHash": "sha256-fIvsJ3qWiD6o3qH9iU66OsL8uG5C1FGXcuaNEctJv8M=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "de3758e31a3a1bc79d569f5deb5dac39791bf9b6",
+        "rev": "9e7394523eb4f298528d457e316fc752bdf07151",
         "type": "github"
       },
       "original": {
@@ -439,11 +439,11 @@
         "terrasops": "terrasops"
       },
       "locked": {
-        "lastModified": 1663990179,
-        "narHash": "sha256-jH4MS2qKK0DQdLXcfC63+nm0CopBuN4/GYCwD798wQE=",
+        "lastModified": 1664125249,
+        "narHash": "sha256-aCOqZy9fkykfRGMscqA+X572xhQHpw7SlSOXtuNVbgs=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "2f6d4aec2b9393a66a398f212bff1d3fc93b6b6c",
+        "rev": "a0b52783a14fa91829ca0bd2c982795c95c91fe7",
         "type": "github"
       },
       "original": {
@@ -560,11 +560,11 @@
     },
     "nixpkgs-22_05": {
       "locked": {
-        "lastModified": 1663433994,
-        "narHash": "sha256-Bpthhv1PdZRrIFct8KbHACNvOu9bsYAMEaqoH83cvqM=",
+        "lastModified": 1664063819,
+        "narHash": "sha256-5wXa+9uboo7UizMDeUTMoANv3pm0g9ze1NdTleY3rCE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "17989edb05615c4f61803b9c427d80b84c289c6b",
+        "rev": "aee4db5b9eaccd3fb7f16c742685fef9dc355077",
         "type": "github"
       },
       "original": {
@@ -624,11 +624,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1664088614,
-        "narHash": "sha256-cGoNOmtH3b20/wCOztcVm/4vn2aqUEc4ovy40EzuyDg=",
+        "lastModified": 1664131120,
+        "narHash": "sha256-y7Y5eTuGz3GRqdO9839Efov3AfwxUcDXu3UBl45FVjU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c1339f7f5b582166ee34385e239100ede72ebbd7",
+        "rev": "5fa1488e2b0effad849125784310f17b16f59004",
         "type": "github"
       },
       "original": {
@@ -686,11 +686,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1659438818,
-        "narHash": "sha256-Nb5qZNH0pDnDWeGmfUEmhOyNea6Xw0olco/ozVpMfAM=",
+        "lastModified": 1664124164,
+        "narHash": "sha256-e5Jk+ZcJh16aV2h/rHe6C4SgzlXCpKcaO6ISatwRhvE=",
         "owner": "SCP-2000",
         "repo": "ranet",
-        "rev": "248b82ee9e6d2929ec2d704c9579f11d78765ff6",
+        "rev": "7243443c280c86b459f01cb8d711031cd3fbff08",
         "type": "github"
       },
       "original": {
@@ -752,11 +752,11 @@
         "nixpkgs-22_05": "nixpkgs-22_05"
       },
       "locked": {
-        "lastModified": 1663475375,
-        "narHash": "sha256-uIhMyLFkU8Tp0uxLd7tKn++G/yHsB9r7YRvsBdoGvsk=",
+        "lastModified": 1664080128,
+        "narHash": "sha256-obau1+3+QiTtNGfoTcbSYB5Z4Gvf4o0Or85yLttSYt8=",
         "owner": "Mic92",
         "repo": "sops-nix",
-        "rev": "bae718a9d1e31ec478ddfcb75149f66e9625a825",
+        "rev": "17f009daf09992d2342657f9bd7b44d877cd00e1",
         "type": "github"
       },
       "original": {
