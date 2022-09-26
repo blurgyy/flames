@@ -185,3 +185,9 @@ menuentry "NixOS minimal ISO" --class nixos {
   ```
 
   > Reference: <https://superuser.com/questions/120905/fdisk-l-shows-a-partition-is-not-in-dev-directory>
+
+* On non-nixos machines, do not install `gcc` or `python` with home-manager, as they silently cause
+  problems during compiling (default C compiler is set to `~/.nix-profile/bin/cc` by cmake) and
+  package installing (pacman installs system-level python packages like `python-catkin_pkg` to
+  somewhere like
+  `/nix/store/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-python3-3.10.6-env/lib/python3.10/site-packages/`).
