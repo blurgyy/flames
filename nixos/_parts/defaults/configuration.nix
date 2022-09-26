@@ -144,6 +144,7 @@
     jq libqalculate
     sops age
     hydra-check cachix
+    xdg-utils
   ];
 
   environment.variables = {
