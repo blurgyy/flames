@@ -13,7 +13,7 @@ index 6c3fc7b..9c68d25 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_black4,bg=$thm_bg] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_black4][#[fg=$thm_fg,bold]#W#[fg=$thm_black4,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
@@ -32,7 +32,7 @@ index 1ddb188..be2aeea 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_black4,bg=$thm_bg] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_black4][#[fg=$thm_fg,bold]#W#[fg=$thm_black4,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
@@ -51,7 +51,7 @@ index cdaaa89..feb1e8a 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_black4,bg=$thm_bg] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_black4][#[fg=$thm_fg,bold]#W#[fg=$thm_black4,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
@@ -70,7 +70,7 @@ index e8178ec..869779d 100755
 -setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 -setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +setw window-status-format "#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_black4,bg=$thm_bg] [#W] "
-+setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[bold][#W]#[nobold]@#[underscore]#{b:pane_current_path}#[nounderscore] "
++setw window-status-current-format "#[fg=$thm_bg,bg=$thm_orange] #I#{?window_zoomed_flag,*,} #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_black4][#[fg=$thm_fg,bold]#W#[fg=$thm_black4,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
  
  # parent_dir/current_dir
  # setw window-status-format "#[fg=colour232,bg=colour111] #I #[fg=colour222,bg=colour235] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
