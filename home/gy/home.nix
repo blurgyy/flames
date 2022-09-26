@@ -23,7 +23,6 @@ in lib.mkMerge [
     file
     fish
     fzf
-    gcc
     gdb
     git
     git-sync
