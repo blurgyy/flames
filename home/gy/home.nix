@@ -126,6 +126,7 @@ in lib.mkMerge [
           }
           export __tested_os_release=1
         fi
+        ${lib.optionalString (!headless) "export QT_PLUGIN_PATH=${pkgs.libsForQt5.fcitx5-qt}/${pkgs.qt6.qtbase.qtPluginPrefix}\${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}"}
         if [[ -o interactive ]]; then
           if [[ -z "$noexecfish" ]]; then
             exec fish
