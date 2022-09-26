@@ -125,6 +125,7 @@ in {
       groups.haproxy = {};
     };
     sops.templates.haproxy-cfg = {
+      name = "haproxy.cfg";
       content = import ./config-content.nix { inherit lib cfg; };
       owner = config.users.users.haproxy.name;
       group = config.users.groups.haproxy.name;
