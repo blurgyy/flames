@@ -144,6 +144,16 @@
     zip unzip unar
     jq libqalculate
     sops age
+    (python3.withPackages (p: with p; [
+      click
+      icecream
+      ipython
+      matplotlib
+      numpy
+      pillow
+      plyfile
+      tqdm
+    ]))
     hydra-check cachix
     xdg-utils
   ];

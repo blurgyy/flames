@@ -61,16 +61,6 @@ in lib.mkMerge [
     zip
     zsh
     zstd
-    (python3.withPackages (p: with p; [
-      click
-      icecream
-      ipython
-      matplotlib
-      numpy
-      pillow
-      plyfile
-      tqdm
-    ]))
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
