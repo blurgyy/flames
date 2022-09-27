@@ -86,6 +86,7 @@ in {
       });
     };
     sops.templates.rathole-config = {
+      name = "rathole.toml";
       content = ''
         ${optionalString (cfg.client != null)
 ''

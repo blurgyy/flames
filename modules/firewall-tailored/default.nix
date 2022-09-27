@@ -42,7 +42,9 @@ in {
     networking.nftables.enable = false;
     boot.blacklistedKernelModules = [ "ip_tables" ];
     environment.systemPackages = [ pkgs.nftables ];
-    sops.templates.nftables-rules.content = ''
+    sops.templates.nftables-rules = {
+      name = "nftables.conf";
+      content = ''
 flush ruleset
 
 table inet filter
@@ -89,6 +91,7 @@ table inet filter {
 
 ${concatStringsSep "\n" cfg.extraRulesAfter}
       '';
+    };
     systemd.services = {
       nftables = {
         description = "nftables firewall";
