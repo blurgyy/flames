@@ -269,6 +269,7 @@ in lib.mkMerge [
     meshlab
     tdesktop-megumifox
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
+    wpsoffice-cn
     xfce.thunar
     xfce.thunar-volman
     zotero
