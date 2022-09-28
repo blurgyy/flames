@@ -48,6 +48,7 @@ in lib.mkMerge [
     sops
     sshfs
     strace
+    telegram-send
     tex2nix
     tinytools
     unar
@@ -62,7 +63,6 @@ in lib.mkMerge [
     zsh
     zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
-    #nixos-cn.re-export.telegram-send
     #nixos-cn.dingtalk
   ];
 
