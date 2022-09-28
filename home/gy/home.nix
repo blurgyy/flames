@@ -390,14 +390,11 @@ in lib.mkMerge [
   systemd.user = {
     targets.sway-session.Unit.Wants = [
       "thunar.service"
-      "xdg-desktop-autostart.target"
       "systembus-notify.service"
     ];
     services.flameshot = {
       Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
     };
-    # HACK: Do not enable fcitx5-daemon.service because xdg-desktop-autostart.target already pulls another fcitx5 service
-    services.fcitx5-daemon.Install.WantedBy = lib.mkForce [ ];
     services.waybar.Unit.PartOf = [ "tray.target" ];
   };
 
