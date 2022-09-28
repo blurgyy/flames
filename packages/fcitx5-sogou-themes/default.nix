@@ -13,6 +13,6 @@
   meta = {
     homepage = "https://github.com/sxqsfun/fcitx5-sogou-themes";
     description = "Fcitx5 themes converted from sogou pinyin";
-    license = lib.licenses.unfree;
+    license = lib.licenses.unfreeRedistributable;
   };
 }

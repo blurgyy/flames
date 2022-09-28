@@ -10,6 +10,6 @@
   meta = {
     homepage = "https://github.com/Reverier-Xu/FluentDark-fcitx5";
     description = "A Fluent-Design dark theme with blur effect and shadow";
-    license = lib.licenses.unfree;
+    license = lib.licenses.unfreeRedistributable;
   };
 }
