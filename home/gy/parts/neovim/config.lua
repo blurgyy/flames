@@ -197,7 +197,7 @@ end
 ---- REF: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#user-content-change-prefixcharacter-preceding-the-diagnostics-virtual-text
 vim.diagnostic.config({
   virtual_text = {
-    prefix = "▎",
+    prefix = ">",
     source = "if_many",
   },
   float = {
@@ -589,9 +589,9 @@ vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTre
 --- gitsigns
 require("gitsigns").setup({
   signs = {
-    add = { text = "🮇" },
-    change = { text = "🮇" },
-    delete = { text = "🮇" },
+    add = { text = "+" },
+    change = { text = "#" },
+    delete = { text = "-" },
   },
   current_line_blame = false,
 })
