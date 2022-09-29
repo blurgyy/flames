@@ -120,6 +120,17 @@
       sha256 = "sha256-D926rc9lz9fINYUX4UnHJuW2QPTBJkzA6CFClqFBUOE=";
     };
   };
+  luarock-dbus_proxy = {
+    pname = "luarock-dbus_proxy";
+    version = "v0.10.3";
+    src = fetchFromGitHub ({
+      owner = "stefano-m";
+      repo = "lua-dbus_proxy";
+      rev = "v0.10.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-Yd8TN/vKiqX7NOZyy8OwOnreWS5gdyVMTAjFqoAuces=";
+    });
+  };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
     version = "2022-10";

@@ -49,6 +49,10 @@ fetch.url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$
 src.github = "loyalsoldier/v2ray-rules-dat"
 fetch.url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$ver/geosite.dat"
 
+[luarock-dbus_proxy]
+src.github_tag = "stefano-m/lua-dbus_proxy"
+fetch.github = "stefano-m/lua-dbus_proxy"
+
 [nftables-geoip-db]
 src.cmd = "date +'%Y-%m'"
 fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
