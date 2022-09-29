@@ -38,7 +38,6 @@ in lib.mkMerge [
     lnav
     lsof
     miniserve
-    nixGLIntel
     parallel
     patchelf
     procs
@@ -111,8 +110,8 @@ in lib.mkMerge [
         if [[ -z "''${__tested_os_release+1}" ]]; then
           source /etc/os-release
           [[ "NixOS" == "$NAME" ]] || {
-            source <(sed -Ee '/exec/d' $(which nixGLIntel))
-            systemctl --user import-environment $(grep 'export.*=' $(which nixGLIntel) | cut -d= -f1 | cut -d' ' -f2)
+            source <(sed -Ee '/exec/d' ${pkgs.nixGLIntel}/bin/nixGLIntel)
+            systemctl --user import-environment $(grep -E 'export \w+=' ${pkgs.nixGLIntel}/bin/nixGLIntel | cut -d= -f1 | cut -d' ' -f2)
           }
           export __tested_os_release=1
         fi
