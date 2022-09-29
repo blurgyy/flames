@@ -194,6 +194,18 @@
       sha256 = "sha256-KJsLM0NkhxGtJ2GGTzIUjh3lWIdQFZQoD5c3AG2ApTg=";
     });
   };
+  vim-plugin-fcitx5-ui-nvim = {
+    pname = "vim-plugin-fcitx5-ui-nvim";
+    version = "fd0390cfa59c25cd71b80440052498ddd6764160";
+    src = fetchFromGitHub ({
+      owner = "black-desk";
+      repo = "fcitx5-ui.nvim";
+      rev = "fd0390cfa59c25cd71b80440052498ddd6764160";
+      fetchSubmodules = false;
+      sha256 = "sha256-zeCLbSfkpv/2wq73+Ji5kTmJVt9zK0tWTwBpOXeXgCw=";
+    });
+    date = "2022-04-19";
+  };
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.32";

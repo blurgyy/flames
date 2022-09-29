@@ -321,6 +321,26 @@
         },
         "version": "b1826355d8212378e5fd6094bbe504268fa6f85d"
     },
+    "vim-plugin-fcitx5-ui-nvim": {
+        "cargoLocks": null,
+        "date": "2022-04-19",
+        "extract": null,
+        "name": "vim-plugin-fcitx5-ui-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "black-desk",
+            "repo": "fcitx5-ui.nvim",
+            "rev": "fd0390cfa59c25cd71b80440052498ddd6764160",
+            "sha256": "sha256-zeCLbSfkpv/2wq73+Ji5kTmJVt9zK0tWTwBpOXeXgCw=",
+            "type": "github"
+        },
+        "version": "fd0390cfa59c25cd71b80440052498ddd6764160"
+    },
     "vscode-codicons": {
         "cargoLocks": null,
         "extract": null,
