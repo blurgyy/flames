@@ -92,14 +92,14 @@ Trouble Shooting
     linux (loop)$linux_path init=/nix/store/69d87r2dvhhbbq17lsw04msvcq0y0kg0-nixos-system-nixos-22.05.2676.b9fd420fa53/init root=LABEL=nixos-minimal-22.05-x86_64 boot.shell_on_fail loglevel=4 copytoram
     initrd (loop)$initrd_path
   }
-menuentry "NixOS minimal ISO" --class nixos {
-  set isofile="/live.iso"
-  set linux_path="/boot/bzImage"
-  set initrd_path="/boot/initrd"
-  loopback loop (hd0,3)$isofile  # /dev/vda3
-  linux (loop)$linux_path findiso=(hd0,3)$isofile init=/nix/store/39ajmfiwqsxmjlql9k8bm998d47cb4y3-nixos-system-installer-22.11.20220909.cc6ef94/init root=LABEL=isoroot boot.shell_on_fail net.ifnames=0 ip=154.9.139.26::154.9.139.1:255.255.255.0::eth0:dhcp loglevel=4 copytoram
-  initrd (loop)$initrd_path
-}
+  menuentry "NixOS minimal ISO" --class nixos {
+    set isofile="/live.iso"
+    set linux_path="/boot/bzImage"
+    set initrd_path="/boot/initrd"
+    loopback loop (hd0,3)$isofile  # /dev/vda3
+    linux (loop)$linux_path findiso=(hd0,3)$isofile init=/nix/store/39ajmfiwqsxmjlql9k8bm998d47cb4y3-nixos-system-installer-22.11.20220909.cc6ef94/init root=LABEL=isoroot boot.shell_on_fail net.ifnames=0 ip=154.9.139.26::154.9.139.1:255.255.255.0::eth0:dhcp loglevel=4 copytoram
+    initrd (loop)$initrd_path
+  }
   ```
 
   > **Note that the kernel params are copied from inside the ISO image**.
