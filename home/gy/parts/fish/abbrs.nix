@@ -52,6 +52,8 @@ fixTypo "blurgy" [
 ] // fixTypo "sudo" [
   "sdo"
   "sduo"
+  "sodu"
+  "sud"
   "suddo"
   "sudi"
   "sudoo"
