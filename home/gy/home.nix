@@ -63,7 +63,10 @@ in lib.mkMerge [
     zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.dingtalk
-  ];
+  ] ++ (if ((pkgs.system == "x86_64-linux") || (pkgs.system == "i686-linux"))
+    then [ steam-run ]
+    else []
+  );
 
   nix.registry.hsz = {
     from = { type = "indirect"; id = "hsz"; };
