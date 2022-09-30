@@ -43,10 +43,11 @@
 })])
 
 ++ (if withBinfmtEmulation then [({ lib, pkgs, ... }: {
-  boot.binfmt.emulatedSystems = with lib;
-    mkDefault (remove pkgs.system [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-    ]);
+  boot.binfmt.emulatedSystems = with lib; let
+    getEmulation = system: {
+      "aarch64-linux" = [ "x86_64-linux" ];
+      "x86_64-linux" = [ "aarch64-linux" "i686-linux" ];
+    }.${system};
+  in
+    mkDefault (getEmulation pkgs.system);
 })] else [])
