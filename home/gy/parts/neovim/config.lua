@@ -718,6 +718,26 @@ require("neorg").setup({
   },
 })
 
+-- fcitx5-ui
+local lualine_cfg = require("lualine").get_config()
+local function get_im()
+  local mapping = {
+    [""] = " ",
+    ["keyboard-us"] = " ",
+    ["pinyin"] = "中",
+  }
+  return mapping[require("fcitx5-ui").getCurrentIM()]
+end
+if not GET_IM_INSERTED then
+  table.insert(lualine_cfg.sections.lualine_y, get_im)
+  GET_IM_INSERTED = true
+end
+require("lualine").setup(lualine_cfg)
+vim.keymap.set({ "i", "n" }, [[<C-\>]], function()
+  require("fcitx5-ui").toggle()
+  return "<Ignore>"
+end, { buffer = true, expr = true })
+
 ----- gutentags
 ------ Project root patterns
 --vim.g.gutentags_project_root = { ".git", "Makefile", ".thisisroot" }

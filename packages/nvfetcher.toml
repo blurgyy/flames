@@ -74,6 +74,10 @@ cargo_locks = ["Cargo.lock"]
 src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
 fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 
+[vim-plugin-fcitx5-ui-nvim]
+src.git = "https://github.com/black-desk/fcitx5-ui.nvim"
+fetch.github = "black-desk/fcitx5-ui.nvim"
+
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"

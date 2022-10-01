@@ -19,7 +19,10 @@ in {
   overlay = final: prev: mapPackage (name: let
     generated = (import ./_sources/generated.nix) { inherit (final) fetchurl fetchgit fetchFromGitHub; };
     package = import ./${name};
-    args = with builtins; intersectAttrs (functionArgs package) { source = generated.${name}; };
+    args = with builtins; intersectAttrs (functionArgs package) {
+      inherit generated;
+      source = generated.${name};
+    };
   in
     final.callPackage package args
   );
