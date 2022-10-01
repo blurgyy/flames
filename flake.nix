@@ -58,7 +58,7 @@
           (lhs: rhs: listToAttrs (map
             (key: {
               name = key;
-              value = (if (hasAttr key lhs) then lhs.${key} else {}) // (if (hasAttr key rhs) then rhs.${key} else {});
+              value = lhs.${key} or {} // rhs.${key} or {};
             })
             keys))
           {}
