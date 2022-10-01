@@ -6,7 +6,7 @@ rec {
     decorations = "full";
     startup_mode = "Maximized";
     title = "Alacritty";
-    gtk_theme_variant = null;
+    decorations_theme_variant = null;
   };
 
   font = {
