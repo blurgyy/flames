@@ -183,6 +183,18 @@ in lib.mkMerge [
   systemd.user.sessionVariables = config.home.sessionVariables;
   pam.sessionVariables = config.home.sessionVariables;
 
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-chinese-addons
+      fcitx5-gtk
+      fcitx5-lua
+      libsForQt5.fcitx5-qt
+      fcitx5-sogou-themes
+      fcitx5-fluent-dark-theme
+    ];
+  };
+
   home.file = {
     ipythonConfig = {
       text = ''
@@ -251,17 +263,6 @@ in lib.mkMerge [
       monospace-font-name = "ui-monospace 10";
       text-scaling-factor = 1.5;
     };
-  };
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-gtk
-      fcitx5-lua
-      libsForQt5.fcitx5-qt
-      fcitx5-sogou-themes
-      fcitx5-fluent-dark-theme
-    ];
   };
   home.packages = with pkgs; [
     evince
