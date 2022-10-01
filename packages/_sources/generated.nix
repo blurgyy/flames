@@ -33,13 +33,13 @@
   };
   fish-plugin-catppuccin = {
     pname = "fish-plugin-catppuccin";
-    version = "62dae5f4268d1480636cb5a095ad7ea7943865fa";
+    version = "fc840f3262e080e2bcc0347c0d0f16a7d558d76f";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "fish";
-      rev = "62dae5f4268d1480636cb5a095ad7ea7943865fa";
+      rev = "fc840f3262e080e2bcc0347c0d0f16a7d558d76f";
       fetchSubmodules = false;
-      sha256 = "sha256-21RrG+m4G5BhOVNYxp6m+/WpWzpzyyT93zA2ze8Nf28=";
+      sha256 = "sha256-aweKiR9X1aOgTo7By+UvBTCLUOsTcsWwBO7pAzsl0Kk=";
     });
   };
   fish-plugin-tide = {
@@ -106,26 +106,26 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202209232216";
+    version = "202209302215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209232216/geoip.dat";
-      sha256 = "sha256-DY+ynkNSSGIF2NrmCrRVs+adUJEd8ulKhUy/HXCSGBM=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209302215/geoip.dat";
+      sha256 = "sha256-qs6nzb8LiYEbkfAFfqK7pEDWM/xqXS+nYpN0FZAVycg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202209232216";
+    version = "202209302215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209232216/geosite.dat";
-      sha256 = "sha256-mK8OkqdHZ5UBG85O329Jvb6JEg1hWY4n8YwqcfJ1XWw=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209302215/geosite.dat";
+      sha256 = "sha256-D926rc9lz9fINYUX4UnHJuW2QPTBJkzA6CFClqFBUOE=";
     };
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
-    version = "2022-09";
+    version = "2022-10";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2022-09.csv.gz";
-      sha256 = "sha256-wyKmAT9kVS5gJmlBUhhyOiLmTXu1MzSH7IrI1VQ9i9A=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2022-10.csv.gz";
+      sha256 = "sha256-w3Q+nPOgFB3AJkzsskbw5w0O6INFY5Mz9Qiekud/fnU=";
     };
   };
   symbols-nerd-font = {
@@ -163,13 +163,13 @@
   };
   tmux-plugin-catppuccin = {
     pname = "tmux-plugin-catppuccin";
-    version = "97183fc51071fa9ff20da6c208c9922ec319b1df";
+    version = "bd1ea4b86a159faddbb049e6be8082217348234d";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "tmux";
-      rev = "97183fc51071fa9ff20da6c208c9922ec319b1df";
+      rev = "bd1ea4b86a159faddbb049e6be8082217348234d";
       fetchSubmodules = false;
-      sha256 = "sha256-Gy150PYRsZxpvbw615Ojj150fgbkqESkmLfx7iS6Uko=";
+      sha256 = "sha256-Mf+aTMJyViFIT2bz/CgWg5Oqfc3+yx69rehFt1HLKL4=";
     });
   };
   ttf-google-sans = {
