@@ -400,7 +400,7 @@
       "inputs": {
         "flake-utils": "flake-utils_4",
         "nixpkgs": [
-          "nixpkgs"
+          "neovim-libvterm-fix-nixpkgs"
         ]
       },
       "locked": {
@@ -417,6 +417,22 @@
         "owner": "neovim",
         "ref": "nightly",
         "repo": "neovim",
+        "type": "github"
+      }
+    },
+    "neovim-libvterm-fix-nixpkgs": {
+      "locked": {
+        "lastModified": 1664536748,
+        "narHash": "sha256-vnu2ItGd620RVK3CwmSOqGJM+HyEYMN1939PhW1I08A=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "963a660fd51beacab245cad8eb022f37caac5e23",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "pull/193677/head",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -747,6 +763,7 @@
         "home-manager": "home-manager",
         "nbfc-linux": "nbfc-linux",
         "neovim": "neovim",
+        "neovim-libvterm-fix-nixpkgs": "neovim-libvterm-fix-nixpkgs",
         "nickcao": "nickcao",
         "nix-std": "nix-std",
         "nixgl": "nixgl",
