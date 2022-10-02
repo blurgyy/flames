@@ -17,9 +17,6 @@
     nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = gitlab:highsunz/acremote;
     carinae.url = github:NickCao/carinae;
-
-    neovim = { url = github:neovim/neovim/nightly?dir=contrib; inputs.nixpkgs.follows = "neovim-libvterm-fix-nixpkgs"; };
-    neovim-libvterm-fix-nixpkgs = { url = github:nixos/nixpkgs/pull/193677/head; };
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
