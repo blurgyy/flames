@@ -8,6 +8,7 @@
   plugins = with pkgs.vimPlugins; [
     pkgs.vim-plugin-fcitx5-ui-nvim  # NOTE: Must configure fcitx5 with `ShareInputState=no` (see ../../parts/mirrored/fcitx5/config
 
+    comment-nvim
     nvim-lspconfig
     null-ls-nvim
     nvim-cmp

@@ -738,6 +738,9 @@ vim.keymap.set({ "i", "n" }, [[<C-\>]], function()
   return "<Ignore>"
 end, { buffer = true, expr = true })
 
+-- comment.nvim
+require("Comment").setup()
+
 ----- gutentags
 ------ Project root patterns
 --vim.g.gutentags_project_root = { ".git", "Makefile", ".thisisroot" }
