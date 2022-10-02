@@ -99,6 +99,7 @@ fixTypo "blurgy" [
   "vmj"
   "vmk"
   "vmki"
+  "vni"
   "voim"
   "vom"
   "vuim"
@@ -153,6 +154,7 @@ fixTypo "blurgy" [
   "gco." = "git checkout .";
   gd = "git diff";
   dg = "git diff";
+  dgd = "git diff";
   ggd = "git diff";
   gdc = "git diff --cached";
   gddc = "git diff --cached";
