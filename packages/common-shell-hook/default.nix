@@ -1,4 +1,19 @@
-{ pkgs }: with pkgs; ''
+{ writeText
+, bat
+, exa
+, fd
+, fzf
+, git
+, htop
+, libqalculate
+, lnav
+, parallel
+, procs
+, ripgrep
+, rsync
+, starship
+, tinytools
+}: writeText "hook" ''
   set -o vi
   shopt -s failglob
   shopt -u progcomp
@@ -81,7 +96,7 @@
 
   # Neovim from nixpkgs is statically linked while on Arch it's not.  Don't assume a flake will
   # be run on a NixOS machine.
-  # alias vim='${neovim}/bin/nvim'
+  # alias vim='$ {neovim}/bin/nvim'
   alias vi='nvim'
   alias vim='nvim'
 

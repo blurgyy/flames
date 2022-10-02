@@ -48,7 +48,6 @@
       type = "app";
       program = "${gpustat-wrapped}/bin/gpustat";
     };
-    commonShellHook = import ./outputs/commonShellHook.nix { inherit pkgs; };
   }) // {
     hydraJobs = with builtins; let
       allPackages = let
