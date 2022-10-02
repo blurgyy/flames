@@ -106,18 +106,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202209302215";
+    version = "202210012213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209302215/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210012213/geoip.dat";
       sha256 = "sha256-qs6nzb8LiYEbkfAFfqK7pEDWM/xqXS+nYpN0FZAVycg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202209302215";
+    version = "202210012213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202209302215/geosite.dat";
-      sha256 = "sha256-D926rc9lz9fINYUX4UnHJuW2QPTBJkzA6CFClqFBUOE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210012213/geosite.dat";
+      sha256 = "sha256-JMOIvipI67IhU4A+bDpiVw3mhh7KxzBYMp+qvj+zbUc=";
     };
   };
   luarock-dbus_proxy = {
@@ -204,7 +204,6 @@
       fetchSubmodules = false;
       sha256 = "sha256-zeCLbSfkpv/2wq73+Ji5kTmJVt9zK0tWTwBpOXeXgCw=";
     });
-    date = "2022-04-19";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
@@ -219,13 +218,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.3.8";
+    version = "2.4.0";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.3.8";
+      rev = "2.4.0";
       fetchSubmodules = false;
-      sha256 = "sha256-c00G1rdGp4eZ8TLYmBLwmNjdh83v7dFNt8XAbg5MPHo=";
+      sha256 = "sha256-XXjdCDukvKYQVeQAC6uZaDU8QUCzUFQSRdE2m6H745g=";
     });
   };
   xtables-addons-perl-scripts = {

@@ -1,6 +1,6 @@
 { source, lib, buildGoModule }: buildGoModule rec {
   inherit (source) pname version src;
-  vendorSha256 = "sha256-dbh0Kd0qzPJs1RMicLquH6ao7OlfvluDcNL0m2fWUg8=";
+  vendorSha256 = "sha256-REa3q3xkgaVtPTOl4DuwpBRP3UYmrGWVrGihG3UeENI=";
 
   meta = {
     homepage = "https://github.com/muety/wakapi";
