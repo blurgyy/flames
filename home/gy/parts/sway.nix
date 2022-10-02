@@ -162,6 +162,8 @@ in {
 
       "Return" = ''mode "default"'';
       "Escape" = ''mode "default"'';
+      "Space" = ''mode "default"'';
+      "${modifier}+r" = ''mode "default"'';
     };
     assigns = {
       "1" = [
