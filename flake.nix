@@ -1,22 +1,21 @@
 {
   description = "highsunz's flakes";
   inputs = {
-    nixpkgs.url = github:NixOS/nixpkgs/nixos-unstable-small;
-    nix-std.url = github:chessai/nix-std;
-    flake-utils.url = github:numtide/flake-utils;
-    nixos-generators.url = github:nix-community/nixos-generators;
-    #nixpkgs.url = github:NixOS/nixpkgs;
-    nixos-cn = { url = github:nixos-cn/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
-    home-manager = { url = github:nix-community/home-manager; inputs.nixpkgs.follows = "nixpkgs"; };
-    sops-nix = { url = github:Mic92/sops-nix; inputs.nixpkgs.follows = "nixpkgs"; };
-    nixgl = { url = github:guibou/nixGL; inputs.nixpkgs.follows = "nixpkgs"; };
-    tex2nix = { url = github:Mic92/tex2nix; };
-    nickcao = { url = github:NickCao/flakes; inputs.nixpkgs.follows = "nixpkgs"; };
-    nvfetcher = { url = github:berberman/nvfetcher; };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+    nix-std.url = "github:chessai/nix-std";
+    flake-utils.url = "github:numtide/flake-utils";
+    nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-cn = { url = "github:nixos-cn/flakes"; inputs.nixpkgs.follows = "nixpkgs"; };
+    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
+    sops-nix = { url = "github:Mic92/sops-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixgl = { url = "github:guibou/nixGL"; inputs.nixpkgs.follows = "nixpkgs"; };
+    tex2nix = { url = "github:Mic92/tex2nix"; };
+    nickcao = { url = "github:NickCao/flakes"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nvfetcher = { url = "github:berberman/nvfetcher"; };
 
-    nbfc-linux = { url = github:nbfc-linux/nbfc-linux; inputs.nixpkgs.follows = "nixpkgs"; };
-    acremote.url = gitlab:highsunz/acremote;
-    carinae.url = github:NickCao/carinae;
+    nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
+    acremote.url = "gitlab:highsunz/acremote";
+    carinae.url = "github:NickCao/carinae";
   };
 
   # `self` denotes this flake, otther function arguments are the flakes

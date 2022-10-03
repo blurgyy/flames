@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }: rec {
+{ lib, pkgs, ... }: {
   boot.initrd.kernelModules = [ "i915" "amdgpu" ];
 
   programs = {

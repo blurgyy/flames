@@ -133,9 +133,7 @@ in {
     security.acme = {
       acceptTerms = true;
       certs = let
-        acmePairs = attrValues (mapAttrs (_: frontendConfig: let
-          hasRoot = frontendConfig.acmeRoot != null;
-        in nameValuePair frontendConfig.domain.name {
+        acmePairs = attrValues (mapAttrs (_: frontendConfig: nameValuePair frontendConfig.domain.name {
           group = mkDefault cfg.group;
           dnsProvider = "cloudflare";
           extraDomainNames = frontendConfig.domain.extraNames;

@@ -1,4 +1,4 @@
-{ source, lib, buildGoModule }: buildGoModule rec {
+{ source, lib, buildGoModule }: buildGoModule {
   inherit (source) pname version src;
   vendorSha256 = "sha256-REa3q3xkgaVtPTOl4DuwpBRP3UYmrGWVrGihG3UeENI=";
 

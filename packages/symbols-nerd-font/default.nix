@@ -1,6 +1,6 @@
 { source, stdenv, lib
 , unzip
-}: stdenv.mkDerivation rec {
+}: stdenv.mkDerivation {
   inherit (source) pname version src;
 
   phases = [ "unpackPhase" "installPhase" ];

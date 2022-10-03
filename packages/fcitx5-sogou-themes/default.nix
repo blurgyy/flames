@@ -1,4 +1,4 @@
-{ source, lib, stdenv }: stdenv.mkDerivation rec {
+{ source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
 
   phases = [ "installPhase" ];

@@ -1,6 +1,4 @@
-{ config, lib, ... }: let
-  domainName = config.networking.fqdn;
-in {
+{ config, lib, ... }: {
   imports = [ ./v2ray.nix ];
   sops.secrets.acme-credentials-file = { owner = config.users.users.haproxy.name; };
   services = {

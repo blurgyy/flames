@@ -4,7 +4,7 @@
 , perlPackages
 }: let
   perlBuilder = perl.withPackages (pp: with pp; [ TextCSV_XS NetCIDRLite ]);
-in stdenv.mkDerivation rec {
+in stdenv.mkDerivation {
   inherit (source) pname version src;
 
   unpackPhase = "${gzip}/bin/gunzip -c $src >geoip.csv";

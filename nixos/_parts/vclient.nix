@@ -82,14 +82,14 @@
         wsPath = null;
         allowInsecure = true;
       }
-      rec {
+      {
         tag = "wss-us-00";
         address = config.sops.placeholder."v2ray/domains/us-00";
         port = 443;
         domain = config.sops.placeholder."v2ray/domains/us-00";
         wsPath = config.sops.placeholder."v2ray/ws-path";
       }
-      rec {
+      {
         tag = "wss-eu-00";
         address = config.sops.placeholder."v2ray/domains/eu-00";
         port = 443;

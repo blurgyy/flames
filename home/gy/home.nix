@@ -422,7 +422,7 @@ in lib.mkMerge [
       };
     };
     flameshot = callWithHelpers ./parts/flameshot.nix {};
-    dunst = rec {
+    dunst = {
       enable = true;
       iconTheme = {
         name = "Flat-Remix-Yellow-Dark";

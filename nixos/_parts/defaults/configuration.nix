@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: rec {
+{ config, lib, pkgs, ... }: {
   nix = {
     package = lib.mkDefault pkgs.nixUnstable;
     registry.hsz = {

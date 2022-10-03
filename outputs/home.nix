@@ -1,5 +1,4 @@
 { self, nixpkgs, inputs }: let
-  lib = nixpkgs.lib;
   apply = attrs: builtins.mapAttrs (name: params:
     import ../home/gy (params // { inherit name; })
   ) attrs;
