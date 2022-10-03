@@ -1,6 +1,5 @@
 { self
 , inputs
-, system
 , headless
 , isQemuGuest
 , withSecrets ? true
@@ -44,7 +43,7 @@
     getEmulation = system: {
       "aarch64-linux" = [ "x86_64-linux" ];
       "x86_64-linux" = [ "aarch64-linux" "i686-linux" ];
-    }.${system};
+    }.${pkgs.system};
   in
     mkDefault (getEmulation pkgs.system);
 })] else [])
