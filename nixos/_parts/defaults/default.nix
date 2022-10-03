@@ -16,9 +16,6 @@
     nixpkgs.overlays = [
       self.overlays.default
       inputs.nixos-cn.overlay
-      (final: prev: {
-        difftastic = inputs.nixpkgs-difftastic-terminal-width-fix.packages.${system}.difftastic;
-      })
     ];
   }
 ]
