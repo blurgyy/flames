@@ -372,6 +372,7 @@ local enabled_lsps = {
   "bashls",
   "ccls",
   "pyright",
+  "nil_ls",
   "rust_analyzer",
   "sumneko_lua",
   "taplo",

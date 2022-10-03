@@ -83,6 +83,7 @@
     ccls
     clang
     ctags
+    nil
     pyright
     shfmt
     sumneko-lua-language-server
