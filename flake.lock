@@ -6,11 +6,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1661846874,
-        "narHash": "sha256-aL/uOV+QnnGXx5N/lh5MVWyRU/v5O+Qt7gbRU+TnSIA=",
+        "lastModified": 1664820150,
+        "narHash": "sha256-NcjQdk212OgLtfRlRIpVEvWYfEPu5uhSgiPZlWdqaEc=",
         "owner": "highsunz",
         "repo": "acremote",
-        "rev": "ae7dcb82a15476fdfa951b554df8686eb8c6e051",
+        "rev": "a91e375fdd784b95c4c01e5f97fd5b91ce407eb6",
         "type": "gitlab"
       },
       "original": {
