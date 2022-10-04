@@ -14,17 +14,6 @@
     trigo = "154.9.139.26";
     tetra = "154.12.36.120";
     relay = peterpan;
-  in {
-    pp = { hostname = peterpan; };
-    hooper = { hostname = hooper; };
-    cindy = { hostname = cindy; };
-    cube = { hostname = cube; };
-    rubik = { hostname = rubik; };
-    trigo = { hostname = trigo; };
-    tetra = { hostname = tetra; };
-
-    gpp = { hostname = peterpan; port = 77; };
-    ghooper = { hostname = hooper; user = "git"; };
 
     m = { hostname = relay; port = 10021; };
     w = {
@@ -37,6 +26,22 @@
       ];
     };
     pi = { hostname = relay; port = 10013; };
+  in {
+    inherit m w pi;
+    morty = m;
+    watson = w;
+    rpi = pi;
+
+    pp = { hostname = peterpan; };
+    hooper = { hostname = hooper; };
+    cindy = { hostname = cindy; };
+    cube = { hostname = cube; };
+    rubik = { hostname = rubik; };
+    trigo = { hostname = trigo; };
+    tetra = { hostname = tetra; };
+
+    gpp = { hostname = peterpan; port = 77; };
+    ghooper = { hostname = hooper; user = "git"; };
 
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
