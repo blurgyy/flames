@@ -12,6 +12,7 @@
     tex2nix = { url = "github:Mic92/tex2nix"; };
     nickcao = { url = "github:NickCao/flakes"; inputs.nixpkgs.follows = "nixpkgs"; };
     nvfetcher = { url = "github:berberman/nvfetcher"; };
+    colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";
@@ -83,5 +84,6 @@
     overlays.default = my.overlay;
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
+    colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
   };
 }

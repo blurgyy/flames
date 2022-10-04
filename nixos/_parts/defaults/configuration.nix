@@ -144,6 +144,7 @@
     zip unzip unar
     jq libqalculate
     sops age
+    colmena
     (python3.withPackages (p: with p; [
       click
       icecream

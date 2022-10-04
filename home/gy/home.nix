@@ -265,6 +265,7 @@ in lib.mkMerge [
     };
   };
   home.packages = with pkgs; [
+    colmena
     evince
     imv
     libnotify

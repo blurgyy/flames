@@ -13,4 +13,5 @@
       })];
     }
   ];
+  extraModules = [ inputs.colmena.nixosModules.deploymentOptions ];
 }
