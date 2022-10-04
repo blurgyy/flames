@@ -1,30 +1,19 @@
-{ self, nixpkgs, inputs }: {
-  cindy = import ../nixos/cindy {
+{ self, nixpkgs, inputs }: let
+  apply = attrs: builtins.mapAttrs (name: params: import ../nixos/${name} params) attrs;
+  aarch64 = {
     system = "aarch64-linux";
     inherit self nixpkgs inputs;
   };
-  cube = import ../nixos/cube {
+  x86_64 = {
     system = "x86_64-linux";
     inherit self nixpkgs inputs;
   };
-  morty = import ../nixos/morty {
-    system = "x86_64-linux";
-    inherit self nixpkgs inputs;
-  };
-  peterpan = import ../nixos/peterpan {
-    system = "x86_64-linux";
-    inherit self nixpkgs inputs;
-  };
-  rpi = import ../nixos/rpi {
-    system = "aarch64-linux";
-    inherit self nixpkgs inputs;
-  };
-  trigo = import ../nixos/trigo {
-    system = "x86_64-linux";
-    inherit self nixpkgs inputs;
-  };
-  rubik = import ../nixos/rubik {
-    system = "x86_64-linux";
-    inherit self nixpkgs inputs;
-  };
+in apply {
+  cindy = aarch64;
+  cube = x86_64;
+  morty = x86_64;
+  peterpan = x86_64;
+  rpi = aarch64;
+  rubik = x86_64;
+  trigo = x86_64;
 }
