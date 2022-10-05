@@ -4,10 +4,15 @@
 
   boot.loader.systemd-boot.enable = true;
   fileSystems = {
-    "/" = {  
+    "/" = {
       device = "/dev/disk/by-label/nixos-root";
       fsType = "btrfs";
-      options = [ "noatime" "compress-force=zstd:3" "discard=async" ];
+      options = [ "noatime" "compress-force=zstd:3" "discard=async" "subvol=root" ];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-label/nixos-root";
+      fsType = "btrfs";
+      options = [ "noatime" "compress-force=zstd:3" "discard=async" "subvol=nix" ];
     };
     "/boot" = {
       device = "/dev/disk/by-label/nixos-esp";
