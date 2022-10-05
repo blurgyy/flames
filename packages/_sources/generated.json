@@ -1,6 +1,7 @@
 {
     "apple-color-emoji": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "apple-color-emoji",
         "passthru": null,
@@ -15,6 +16,7 @@
     },
     "fcitx5-fluent-dark-theme": {
         "cargoLocks": null,
+        "date": "2022-05-26",
         "extract": null,
         "name": "fcitx5-fluent-dark-theme",
         "passthru": null,
@@ -34,6 +36,7 @@
     },
     "fcitx5-sogou-themes": {
         "cargoLocks": null,
+        "date": "2021-08-26",
         "extract": null,
         "name": "fcitx5-sogou-themes",
         "passthru": null,
@@ -53,6 +56,7 @@
     },
     "fish-plugin-catppuccin": {
         "cargoLocks": null,
+        "date": "2022-09-27",
         "extract": null,
         "name": "fish-plugin-catppuccin",
         "passthru": null,
@@ -72,6 +76,7 @@
     },
     "fish-plugin-tide": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "fish-plugin-tide",
         "passthru": null,
@@ -91,6 +96,7 @@
     },
     "gdb-dashboard": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "gdb-dashboard",
         "passthru": null,
@@ -110,6 +116,7 @@
     },
     "harmonyos-sans": {
         "cargoLocks": null,
+        "date": "2022-05-28",
         "extract": null,
         "name": "harmonyos-sans",
         "passthru": null,
@@ -128,6 +135,7 @@
     },
     "import-ply-as-verts-for-blender": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "import-ply-as-verts-for-blender",
         "passthru": null,
@@ -152,6 +160,7 @@
                 {}
             ]
         },
+        "date": null,
         "extract": null,
         "name": "libime-history-merge",
         "passthru": null,
@@ -171,6 +180,7 @@
     },
     "loyalsoldier-geoip": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "loyalsoldier-geoip",
         "passthru": null,
@@ -179,26 +189,28 @@
             "name": null,
             "sha256": "sha256-qs6nzb8LiYEbkfAFfqK7pEDWM/xqXS+nYpN0FZAVycg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210032215/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210042214/geoip.dat"
         },
-        "version": "202210032215"
+        "version": "202210042214"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "loyalsoldier-geosite",
         "passthru": null,
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-83m04sQlF7yC2d8XRXGhapk+MS4+z955WamsjZP4q5Y=",
+            "sha256": "sha256-x54erVwzLKzJ+Cn3qYxBahguAmI6uNnLBHuT7D08JF0=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210032215/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210042214/geosite.dat"
         },
-        "version": "202210032215"
+        "version": "202210042214"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "luarock-dbus_proxy",
         "passthru": null,
@@ -218,6 +230,7 @@
     },
     "nftables-geoip-db": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "nftables-geoip-db",
         "passthru": null,
@@ -232,6 +245,7 @@
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "symbols-nerd-font",
         "passthru": null,
@@ -246,6 +260,7 @@
     },
     "telegram-send": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "telegram-send",
         "passthru": null,
@@ -265,6 +280,7 @@
                 {}
             ]
         },
+        "date": null,
         "extract": null,
         "name": "tinytools",
         "passthru": null,
@@ -284,6 +300,7 @@
     },
     "tmux-plugin-catppuccin": {
         "cargoLocks": null,
+        "date": "2022-10-01",
         "extract": null,
         "name": "tmux-plugin-catppuccin",
         "passthru": null,
@@ -303,6 +320,7 @@
     },
     "ttf-google-sans": {
         "cargoLocks": null,
+        "date": "2018-08-01",
         "extract": null,
         "name": "ttf-google-sans",
         "passthru": null,
@@ -322,6 +340,7 @@
     },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,
+        "date": "2022-04-19",
         "extract": null,
         "name": "vim-plugin-fcitx5-ui-nvim",
         "passthru": null,
@@ -341,6 +360,7 @@
     },
     "vscode-codicons": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "vscode-codicons",
         "passthru": null,
@@ -360,6 +380,7 @@
     },
     "wakapi": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "wakapi",
         "passthru": null,
@@ -379,6 +400,7 @@
     },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "xtables-addons-perl-scripts",
         "passthru": null,
@@ -398,6 +420,7 @@
                 {}
             ]
         },
+        "date": null,
         "extract": null,
         "name": "zellij-hirr",
         "passthru": null,

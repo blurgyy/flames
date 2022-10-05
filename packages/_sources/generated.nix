@@ -19,6 +19,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-om3jI6XNpkmFBXarwROKb6ldvCKaKzrBkLAdPmCxWkU=";
     });
+    date = "2022-05-26";
   };
   fcitx5-sogou-themes = {
     pname = "fcitx5-sogou-themes";
@@ -30,6 +31,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-+Q8VNtAFWWD0UbF9nN+7FsCpcwUIi7HFJRbTeHU3HLo=";
     });
+    date = "2021-08-26";
   };
   fish-plugin-catppuccin = {
     pname = "fish-plugin-catppuccin";
@@ -41,6 +43,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-aweKiR9X1aOgTo7By+UvBTCLUOsTcsWwBO7pAzsl0Kk=";
     });
+    date = "2022-09-27";
   };
   fish-plugin-tide = {
     pname = "fish-plugin-tide";
@@ -75,6 +78,7 @@
       leaveDotGit = false;
       sha256 = "sha256-0jIaSp3WJ9jiTFS9nhwUo27N8WWne/yW9Y8vQ+sgHoI=";
     };
+    date = "2022-05-28";
   };
   import-ply-as-verts-for-blender = {
     pname = "import-ply-as-verts-for-blender";
@@ -106,18 +110,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210032215";
+    version = "202210042214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210032215/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210042214/geoip.dat";
       sha256 = "sha256-qs6nzb8LiYEbkfAFfqK7pEDWM/xqXS+nYpN0FZAVycg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210032215";
+    version = "202210042214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210032215/geosite.dat";
-      sha256 = "sha256-83m04sQlF7yC2d8XRXGhapk+MS4+z955WamsjZP4q5Y=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210042214/geosite.dat";
+      sha256 = "sha256-x54erVwzLKzJ+Cn3qYxBahguAmI6uNnLBHuT7D08JF0=";
     };
   };
   luarock-dbus_proxy = {
@@ -182,6 +186,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-Mf+aTMJyViFIT2bz/CgWg5Oqfc3+yx69rehFt1HLKL4=";
     });
+    date = "2022-10-01";
   };
   ttf-google-sans = {
     pname = "ttf-google-sans";
@@ -193,6 +198,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-KJsLM0NkhxGtJ2GGTzIUjh3lWIdQFZQoD5c3AG2ApTg=";
     });
+    date = "2018-08-01";
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
@@ -204,6 +210,7 @@
       fetchSubmodules = false;
       sha256 = "sha256-zeCLbSfkpv/2wq73+Ji5kTmJVt9zK0tWTwBpOXeXgCw=";
     });
+    date = "2022-04-19";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
