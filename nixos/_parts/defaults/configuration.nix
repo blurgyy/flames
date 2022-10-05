@@ -147,6 +147,7 @@
     colmena
     (python3.withPackages (p: with p; [
       click
+      h5py
       icecream
       ipython
       matplotlib
