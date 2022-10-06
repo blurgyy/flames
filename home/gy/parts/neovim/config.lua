@@ -411,7 +411,50 @@ local settings = {
   },
 }
 local opts = { buffer = true, noremap = true, silent = true }
-local on_attach = function(client, _) -- The two parameters are client and bufnr, respectively
+local navic = require("nvim-navic")
+navic.setup({
+  icons = {
+    File = ' ',
+    Module = ' ',
+    Namespace = ' ',
+    Package = ' ',
+    Class = ' ',
+    Method = ' ',
+    Property = ' ',
+    Field = ' ',
+    Constructor = ' ',
+    Enum = ' ',
+    Interface = ' ',
+    Function = ' ',
+    Variable = ' ',
+    Constant = ' ',
+    String = ' ',
+    Number = ' ',
+    Boolean = ' ',
+    Array = ' ',
+    Object = ' ',
+    Key = ' ',
+    Null = ' ',
+    EnumMember = ' ',
+    Struct = ' ',
+    Event = ' ',
+    Operator = ' ',
+    TypeParameter = ' ',
+  },
+})
+local winbar = {
+  lualine_b = {
+    { navic.get_location, cond = navic.is_available },
+  },
+  lualine_z = {
+    { "filename" }
+  },
+}
+require("lualine").setup({
+  winbar = winbar,
+  inactive_winbar = winbar,
+})
+local on_attach = function(client, bufnr)
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -420,12 +463,14 @@ local on_attach = function(client, _) -- The two parameters are client and bufnr
   vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
   vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
   vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-  local previewer = require("telescope.builtin")
   vim.keymap.set("n", "\\D", previewer.lsp_type_definitions, opts)
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>qf", previewer.quickfix, opts)
   vim.keymap.set("n", "gr", previewer.lsp_references, opts)
   vim.keymap.set("n", "<leader>a", previewer.diagnostics, opts)
+  if client.server_capabilities.documentSymbolProvider then
+    navic.attach(client, bufnr)
+  end
 end
 for _, lspname in pairs(enabled_lsps) do
   local lsp_settings = settings[lspname] or {}
@@ -518,6 +563,13 @@ require("lualine").setup({
     lualine_x = { "encoding", "fileformat", "filetype" },
   },
 })
+
+-- --- winbar
+-- require("winbar").setup({
+--   enabled = true,
+--   show_file_path = true,
+--   show_symbols = true,
+-- })
 
 --- nvim-tree
 require("nvim-tree").setup({
