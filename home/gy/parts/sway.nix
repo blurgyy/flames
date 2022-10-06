@@ -146,7 +146,7 @@ in {
       "${mod}+minus" = "scratchpad show";
       "${mod}+Shift+minus" = "move scratchpad";
 
-      "${mod}+Escape" = "exec ${pkgs.swaylock-effects}/bin/swaylock";
+      "${mod}+Escape" = "exec swaylock";
 
       "${mod}+r" = ''mode "resize"'';
     };
@@ -294,7 +294,7 @@ in {
     bars = [ ];
   };
   extraConfig = ''
-    bindswitch lid:on exec "${pkgs.swaylock-effects}/bin/swaylock"
+    bindswitch lid:on exec swaylock
     titlebar_border_thickness 3
     titlebar_padding 3 3
   '';

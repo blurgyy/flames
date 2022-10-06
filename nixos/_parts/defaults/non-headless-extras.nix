@@ -1,6 +1,10 @@
 { lib, pkgs, ... }: {
   boot.initrd.kernelModules = [ "i915" "amdgpu" ];
 
+  environment.systemPackages = with pkgs; [
+    swaylock-effects
+  ];
+
   programs = {
     light.enable = lib.mkDefault true;
   };
