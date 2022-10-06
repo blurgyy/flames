@@ -297,6 +297,9 @@ in {
         adaptive_sync = "off";
       };
       eDP-1 = { };
+      "Philips Consumer Electronics Company PHL275E9 0x000023C6" = {
+        mode = "2560x1440@74.968Hz";
+      };
     };
     bars = [ ];
   };
