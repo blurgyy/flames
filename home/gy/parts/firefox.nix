@@ -30,6 +30,7 @@
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.startup.homepage" = "https://github.com/";
+        "browser.warnOnQuitShortcut" = false;
         "fission.autostart" = true;
         "layout.css.prefers-color-scheme.content-override" = 0;  # REF: <https://support.mozilla.org/bm/questions/1364502>
         "media.ffmpeg.vaapi.enabled" = true;
