@@ -255,6 +255,13 @@ in {
         childBorder = themeColor "black";
       };
     };
+    # Cursor theme and size.  Note that according to man:sway(1)#ENVIRONMENT, environment variables
+    # "XCURSOR_THEME" and "XCURSOR_SIZE" are **set** by sway instead of having an effect on sway, so
+    # setting XCURSOR_THEME/XCURSOR_SIZE outside sway cannot change the cursor's appearance in any
+    # way.  Below line is documented from man:sway-input(5).
+    seat."*" = {
+      xcursor_theme = "${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}";
+    };
     input = {
       "type:touchpad" = {
         accel_profile = "adaptive";  # Available values: (adaptive|flat)
