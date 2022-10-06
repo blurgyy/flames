@@ -118,7 +118,6 @@ in lib.mkMerge [
           }
           export __tested_os_release=1
         fi
-        ${lib.optionalString (!headless) "export QT_PLUGIN_PATH=${pkgs.libsForQt5.fcitx5-qt}/${pkgs.qt6.qtbase.qtPluginPrefix}\${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}"}
         if [[ -o interactive ]]; then
           if [[ -z "$noexecfish" ]]; then
             exec fish
@@ -344,6 +343,7 @@ in lib.mkMerge [
     SDL_VIDEODRIVER = "wayland";
     MOZ_ENABLE_WAYLAND = 1;  # TODO: with `config.firefox.package.forceWayland` set to true, maybe this can be removed?
     _JAVA_AWT_WM_NONREPARENTING = 1;
+    QT_PLUGIN_PATH = "${pkgs.libsForQt5.fcitx5-qt}/${pkgs.qt6.qtbase.qtPluginPrefix}\${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}";
   };
 
   xdg = {
