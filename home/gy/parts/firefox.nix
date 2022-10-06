@@ -37,35 +37,21 @@
         "media.rdd-ffmpeg.enabled" = true;
         "widget.gtk.overlay-scrollbars.enabled" = false;
       };
-      ExtensionSettings = {
-        "uBlock0@raymondhill.net" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-        };
-        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
-        };
-        "tridactyl.vim@cmcaine.co.uk" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/tridactyl-vim/latest.xpi";
-        };
-        "jid1-Om7eJGwA1U8Akg@jetpack" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/octotree/latest.xpi";
-        };
-        "zotero@chnm.gmu.edu" = {
-          installation_mode = "force_installed";
-          install_url = "https://www.zotero.org/download/connector/dl?browser=firefox";
-        };
-        "{36bdf805-c6f2-4f41-94d2-9b646342c1dc}" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/export-cookies-txt/latest.xpi";
-        };
-        "addon@darkreader.org" = {
-          installation_mode = "force_installed";
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
-        };
+      ExtensionSettings = let
+        mkForceInstalled = extensions: builtins.mapAttrs 
+          (name: cfg: { installation_mode = "force_installed"; } // cfg)
+          extensions;
+      in mkForceInstalled {
+        "addon@darkreader.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+        "enhancerforyoutube@maximerf.addons.mozilla.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi";
+        "jid1-93WyvpgvxzGATw@jetpack".install_url = "https://addons.mozilla.org/firefox/downloads/latest/to-google-translate/latest.xpi";
+        "jid1-Om7eJGwA1U8Akg@jetpack".install_url = "https://addons.mozilla.org/firefox/downloads/latest/octotree/latest.xpi";
+        "spdyindicator@chengsun.github.com".install_url = "https://addons.mozilla.org/firefox/downloads/latest/http2-indicator/latest.xpi";
+        "tridactyl.vim@cmcaine.co.uk".install_url = "https://addons.mozilla.org/firefox/downloads/latest/tridactyl-vim/latest.xpi";
+        "uBlock0@raymondhill.net".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+        "zotero@chnm.gmu.edu".install_url = "https://www.zotero.org/download/connector/dl?browser=firefox";
+        "{36bdf805-c6f2-4f41-94d2-9b646342c1dc}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/export-cookies-txt/latest.xpi";
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
       };
     };
   };
