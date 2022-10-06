@@ -344,6 +344,7 @@ in lib.mkMerge [
     MOZ_ENABLE_WAYLAND = 1;  # TODO: with `config.firefox.package.forceWayland` set to true, maybe this can be removed?
     _JAVA_AWT_WM_NONREPARENTING = 1;
     QT_PLUGIN_PATH = "${pkgs.libsForQt5.fcitx5-qt}/${pkgs.qt6.qtbase.qtPluginPrefix}\${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}";
+    NO_AT_BRIDGE = 1;  # REF: <https://github.com/NixOS/nixpkgs/issues/16327#issuecomment-315729994>
   };
 
   xdg = {
