@@ -447,7 +447,7 @@ local winbar = {
     { navic.get_location, cond = navic.is_available },
   },
   lualine_z = {
-    { "filename" }
+    { "filename", cond = function () return vim.bo.buftype ~= "nofile" end }
   },
 }
 require("lualine").setup({
