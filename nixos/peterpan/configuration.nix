@@ -3,6 +3,7 @@
   time.timeZone = "Asia/Shanghai";
 
   boot.loader.grub.device = "/dev/vda";
+  boot.tmpOnTmpfs = false;
   fileSystems = {
     "/" = {  
       device = "/dev/disk/by-label/nixos-root";
@@ -14,9 +15,6 @@
       fsType = "vfat";
     };
   };
-  swapDevices = [
-    { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
-  ];
 
   services.udisks2.enable = false;
 
