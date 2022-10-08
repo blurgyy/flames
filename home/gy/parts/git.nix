@@ -62,7 +62,7 @@
     "*.py    text=auto diff=python"
     "*.rb    text=auto diff=ruby"
     "*.rs    text=auto diff=rust"
-    "*.tex   text=auto diff=latex"
+    "*.tex   text=auto diff=tex"
     "*.txt   text=auto"
     "*.TXT   text=auto"
   ];
