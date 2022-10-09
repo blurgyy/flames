@@ -110,18 +110,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210062214";
+    version = "202210082213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210062214/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210082213/geoip.dat";
       sha256 = "sha256-ooVqSlKt9vSzMF4xhF212LkjOmVkDN8XQ2EDirdqZhA=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210062214";
+    version = "202210082213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210062214/geosite.dat";
-      sha256 = "sha256-TYz1uCIj2wIom2yI0YP/ejYmgqx+4P0m4XeS8fel+EM=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210082213/geosite.dat";
+      sha256 = "sha256-n8yTFCnus+9v4E2Qot3Ry19C8pi+CleUKOgJjF7WALg=";
     };
   };
   luarock-dbus_proxy = {
@@ -202,15 +202,15 @@
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
-    version = "fd0390cfa59c25cd71b80440052498ddd6764160";
+    version = "72a93f81a270b38f94fcc784500fba69556f43d6";
     src = fetchFromGitHub ({
       owner = "black-desk";
       repo = "fcitx5-ui.nvim";
-      rev = "fd0390cfa59c25cd71b80440052498ddd6764160";
+      rev = "72a93f81a270b38f94fcc784500fba69556f43d6";
       fetchSubmodules = false;
-      sha256 = "sha256-zeCLbSfkpv/2wq73+Ji5kTmJVt9zK0tWTwBpOXeXgCw=";
+      sha256 = "sha256-/LblTpv8ZMZ7iXH/mYrDAwWDKNrBHt6eOua5OX0zRYg=";
     });
-    date = "2022-04-19";
+    date = "2022-10-09";
   };
   vim-plugin-nvim-navic = {
     pname = "vim-plugin-nvim-navic";
@@ -237,13 +237,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.5.0";
+    version = "2.5.1";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.5.0";
+      rev = "2.5.1";
       fetchSubmodules = false;
-      sha256 = "sha256-89MdKbutBx91qi/sXcetr0J/elost4mpDOKz4ZS2QE8=";
+      sha256 = "sha256-odfBUCksAMYEvu5MC36+FrDpy7KOlXbm4lC71ZqLk/A=";
     });
   };
   xtables-addons-perl-scripts = {
