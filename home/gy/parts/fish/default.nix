@@ -42,12 +42,13 @@
     };
   };
   shellAbbrs = import ./abbrs.nix { inherit pkgs; };
-  shellAliases = {
+  shellAliases = with pkgs; {
     #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";
-    bhome = "${pkgs.home-manager}/bin/home-manager build -v --flake";
-    bsys = "nixos-rebuild build --use-remote-sudo -v --flake";
-    shome = "${pkgs.home-manager}/bin/home-manager switch -v --flake";
-    ssys = "nixos-rebuild switch --use-remote-sudo -v --flake";
+    bhome = "${home-manager}/bin/home-manager build -v --flake";
+    bsys = "nixos-rebuild build --use-remote-sudo -L -v --flake";
+    shome = "${home-manager}/bin/home-manager switch -v --flake";
+    ssys = "nixos-rebuild switch --use-remote-sudo -L -v --flake";
+    meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
   };
   plugins = [{
     name = "tide";
