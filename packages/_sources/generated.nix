@@ -35,15 +35,15 @@
   };
   fish-plugin-catppuccin = {
     pname = "fish-plugin-catppuccin";
-    version = "fc840f3262e080e2bcc0347c0d0f16a7d558d76f";
+    version = "0fd0c48a844636c6082f633cc4f2800abb4b6413";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "fish";
-      rev = "fc840f3262e080e2bcc0347c0d0f16a7d558d76f";
+      rev = "0fd0c48a844636c6082f633cc4f2800abb4b6413";
       fetchSubmodules = false;
-      sha256 = "sha256-aweKiR9X1aOgTo7By+UvBTCLUOsTcsWwBO7pAzsl0Kk=";
+      sha256 = "sha256-GLb1BkN0nQ4M60JcVIGMnr9C7RKhpev5FUoQjZS5G2A=";
     });
-    date = "2022-09-27";
+    date = "2022-10-11";
   };
   fish-plugin-tide = {
     pname = "fish-plugin-tide";
@@ -110,18 +110,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210092213";
+    version = "202210102215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210092213/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210102215/geoip.dat";
       sha256 = "sha256-ooVqSlKt9vSzMF4xhF212LkjOmVkDN8XQ2EDirdqZhA=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210092213";
+    version = "202210102215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210092213/geosite.dat";
-      sha256 = "sha256-bc05NPFVRkldY45KPXzL0fbQs8A8MLj3z1gTTeqEX18=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210102215/geosite.dat";
+      sha256 = "sha256-iK7U0ntdIycfaV/rVP0+LhJgeDxbTGJfnXtUUpN99bk=";
     };
   };
   luarock-dbus_proxy = {
