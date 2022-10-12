@@ -204,7 +204,7 @@ in {
         { app_id = "org.fcitx.fcitx5-config-qt|flameshot|kvantummanager|qt5ct|pavucontrol|swappy|zenity|CrashReportClient"; }
         {
           app_id = "firefox";
-          title = "Picture-in-Picture|Library|Extension: .*|Close Firefox|Firefox - Choose User Profile|(Delete|Rename) Profile|Create Profile Wizard";
+          title = "^(Picture-in-Picture|Library|Extension: .*|Close Firefox|Firefox - Choose User Profile|(Delete|Rename) Profile|Create Profile Wizard)$";
         }
         { class = "Zotero"; title = "Software Update"; }
         {
