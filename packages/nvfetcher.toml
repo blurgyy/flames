@@ -4,10 +4,6 @@
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
 
-[tmux-plugin-catppuccin]
-src.git = "https://github.com/catppuccin/tmux"
-fetch.github = "catppuccin/tmux"
-
 [fcitx5-fluent-dark-theme]
 src.git = "https://github.com/Reverier-Xu/FluentDark-fcitx5"
 fetch.github = "Reverier-Xu/FluentDark-fcitx5"
@@ -69,6 +65,10 @@ fetch.pypi = "telegram-send"
 src.github_tag = "blurgyy/tinytools"
 fetch.github = "blurgyy/tinytools"
 cargo_locks = ["Cargo.lock"]
+
+[tmux-plugin-catppuccin]
+src.git = "https://github.com/catppuccin/tmux"
+fetch.github = "catppuccin/tmux"
 
 [ttf-google-sans]
 src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
