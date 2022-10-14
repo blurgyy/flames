@@ -34,7 +34,7 @@
             "owner": "blurgyy",
             "repo": "dt",
             "rev": "v0.7.10",
-            "sha256": "sha256-guTqOmrJLow84jUG6po6nfSFGFGEIdj6nf5Rm3GcLOg=",
+            "sha256": "sha256-OA/aViRitE7/2m/BUa04COL5xgS35ybnf7SKw698Iuc=",
             "type": "github"
         },
         "version": "v0.7.10"
@@ -212,11 +212,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ooVqSlKt9vSzMF4xhF212LkjOmVkDN8XQ2EDirdqZhA=",
+            "sha256": "sha256-BIebPJuRtIfBhc1AP+1BGC6vEPcP5Kvy1I6zgyRiWTg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210112214/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210132216/geoip.dat"
         },
-        "version": "202210112214"
+        "version": "202210132216"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -227,11 +227,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-B7MDoTTJaAS3uPBI6DeFM8N6KWAV2liGbtxv9GBgFEU=",
+            "sha256": "sha256-7PQOjcbY4GVG/hZ178dSX1hO2S/5c4OI+Dpaw/gemy4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210112214/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210132216/geosite.dat"
         },
-        "version": "202210112214"
+        "version": "202210132216"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,

@@ -17,7 +17,7 @@
       repo = "dt";
       rev = "v0.7.10";
       fetchSubmodules = false;
-      sha256 = "sha256-guTqOmrJLow84jUG6po6nfSFGFGEIdj6nf5Rm3GcLOg=";
+      sha256 = "sha256-OA/aViRitE7/2m/BUa04COL5xgS35ybnf7SKw698Iuc=";
     });
     cargoLock."Cargo.lock" = {
       lockFile = ./dt-v0.7.10/Cargo.lock;
@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210112214";
+    version = "202210132216";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210112214/geoip.dat";
-      sha256 = "sha256-ooVqSlKt9vSzMF4xhF212LkjOmVkDN8XQ2EDirdqZhA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210132216/geoip.dat";
+      sha256 = "sha256-BIebPJuRtIfBhc1AP+1BGC6vEPcP5Kvy1I6zgyRiWTg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210112214";
+    version = "202210132216";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210112214/geosite.dat";
-      sha256 = "sha256-B7MDoTTJaAS3uPBI6DeFM8N6KWAV2liGbtxv9GBgFEU=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210132216/geosite.dat";
+      sha256 = "sha256-7PQOjcbY4GVG/hZ178dSX1hO2S/5c4OI+Dpaw/gemy4=";
     };
   };
   luarock-dbus_proxy = {
