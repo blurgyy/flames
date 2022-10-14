@@ -14,6 +14,31 @@
         },
         "version": "ios-15.4"
     },
+    "dt": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./dt-v0.7.10/Cargo.lock",
+                {}
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "dt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "blurgyy",
+            "repo": "dt",
+            "rev": "v0.7.10",
+            "sha256": "sha256-guTqOmrJLow84jUG6po6nfSFGFGEIdj6nf5Rm3GcLOg=",
+            "type": "github"
+        },
+        "version": "v0.7.10"
+    },
     "fcitx5-fluent-dark-theme": {
         "cargoLocks": null,
         "date": "2022-05-26",

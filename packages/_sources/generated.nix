@@ -9,6 +9,23 @@
       sha256 = "sha256-CDmtLCzlytCZyMBDoMrdvs3ScHkMipuiXoNfc6bfimw=";
     };
   };
+  dt = {
+    pname = "dt";
+    version = "v0.7.10";
+    src = fetchFromGitHub ({
+      owner = "blurgyy";
+      repo = "dt";
+      rev = "v0.7.10";
+      fetchSubmodules = false;
+      sha256 = "sha256-guTqOmrJLow84jUG6po6nfSFGFGEIdj6nf5Rm3GcLOg=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./dt-v0.7.10/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+  };
   fcitx5-fluent-dark-theme = {
     pname = "fcitx5-fluent-dark-theme";
     version = "77556203063760d87b87fb0b3b82f14cbe190193";

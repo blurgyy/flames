@@ -4,6 +4,11 @@
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
 
+[dt]
+src.github = "blurgyy/dt"
+fetch.github = "blurgyy/dt"
+cargo_locks = ["Cargo.lock"]
+
 [fcitx5-fluent-dark-theme]
 src.git = "https://github.com/Reverier-Xu/FluentDark-fcitx5"
 fetch.github = "Reverier-Xu/FluentDark-fcitx5"
