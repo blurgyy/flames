@@ -10,7 +10,9 @@
       trusted-users = [ "root" "gy" ];
       substituters = (
         if config.time.timeZone == "Asia/Shanghai" then
-          [ "https://mirror.sjtu.edu.cn/nix-channels/store" ]
+          [
+            # "https://mirror.sjtu.edu.cn/nix-channels/store"
+          ]
         else
           []
       ) ++[
