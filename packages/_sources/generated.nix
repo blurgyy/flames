@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210152213";
+    version = "202210162213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210152213/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210162213/geoip.dat";
       sha256 = "sha256-BIebPJuRtIfBhc1AP+1BGC6vEPcP5Kvy1I6zgyRiWTg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210152213";
+    version = "202210162213";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210152213/geosite.dat";
-      sha256 = "sha256-30zxbf33FCf8lRTd83pH8AnwBx8ARap+Z3Vpi2v3+QE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210162213/geosite.dat";
+      sha256 = "sha256-wjRaGk2TfNnqXI/A8E6qN1v6gr7OO3vvJBs9fXsTcYw=";
     };
   };
   luarock-dbus_proxy = {
@@ -195,15 +195,15 @@
   };
   tmux-plugin-catppuccin = {
     pname = "tmux-plugin-catppuccin";
-    version = "a26f31a7dc977e1b1e37706b847d932d06031c79";
+    version = "d9e5c6d1e3b2c6f6f344f7663691c4c8e7ebeb4c";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "tmux";
-      rev = "a26f31a7dc977e1b1e37706b847d932d06031c79";
+      rev = "d9e5c6d1e3b2c6f6f344f7663691c4c8e7ebeb4c";
       fetchSubmodules = false;
-      sha256 = "sha256-C+g9ibV0ty3VedEGbMgwLBtJWqQw81Y/l2/MOpMAN9U=";
+      sha256 = "sha256-k0nYjGjiTS0TOnYXoZg7w9UksBMLT+Bq/fJI3f9qqBg=";
     });
-    date = "2022-10-12";
+    date = "2022-10-17";
   };
   ttf-google-sans = {
     pname = "ttf-google-sans";
