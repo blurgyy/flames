@@ -13,3 +13,5 @@ creation_rules:
     age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
   - path_regex: rubik/*
     age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
+  - path_regex: quad/*
+    age: age1zl7ugkws9cr55zz8t6zuvuj66ppv0qgutmqqyg7dnnsj5yqrgqjsfzk9jz

@@ -65,6 +65,7 @@
       "45.78.17.205" = [ "cube" ];
       "154.9.139.26" = [ "trigo" ];
       "193.32.151.152" = [ "rubik" ];
+      "45.139.193.21" = [ "quad" ];
     };
   };
   services.resolved = {
@@ -202,6 +203,10 @@
         rubik = {
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMcsDGzKkN8WQS+yqQfjczReJ+3WPao34Tn5fJv3/pE2";
           extraHostNames = appendDomain [ "rubik" ];
+        };
+        quad = {
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHzxbziJTDlsV9/g3PlQIekZtNzVMshjgc6pZFadS0n/";
+          extraHostNames = appendDomain [ "quad" ];
         };
 
         morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";
