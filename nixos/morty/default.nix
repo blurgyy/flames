@@ -1,4 +1,4 @@
-{ system, self, nixpkgs, inputs }: nixpkgs.lib.nixosSystem {
+{ system, name, self, nixpkgs, inputs }: nixpkgs.lib.nixosSystem {
   inherit system;
   modules = (import ../_parts/defaults {
     inherit self inputs;
@@ -12,6 +12,7 @@
         nbfc-linux = inputs.nbfc-linux.defaultPackage.${system};
       })];
     }
+    { networking.hostName = name; }
   ];
   extraModules = [ inputs.colmena.nixosModules.deploymentOptions ];
 }

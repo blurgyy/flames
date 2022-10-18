@@ -1,5 +1,4 @@
 { ... }: {
-  networking.hostName = "peterpan";
   time.timeZone = "Asia/Shanghai";
 
   boot.loader.grub.device = "/dev/vda";

@@ -1,5 +1,4 @@
 { ... }: {
-  networking.hostName = "cube";
   time.timeZone = "Asia/Hong_Kong";
 
   boot.loader.grub.device = "/dev/sda";

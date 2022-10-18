@@ -1,5 +1,7 @@
 { self, nixpkgs, inputs }: let
-  apply = attrs: builtins.mapAttrs (name: params: import ../nixos/${name} params) attrs;
+  apply = attrs: builtins.mapAttrs
+    (name: params: import ../nixos/${name} (params // { inherit name; }))
+    attrs;
   aarch64 = {
     system = "aarch64-linux";
     inherit self nixpkgs inputs;

@@ -1,5 +1,4 @@
 { ... }: {
-  networking.hostName = "quad";
   time.timeZone = "America/Los_Angeles";
 
   boot.loader.grub.device = "/dev/vda";

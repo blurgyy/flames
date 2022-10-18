@@ -1,4 +1,4 @@
-{ system, self, nixpkgs, inputs }: nixpkgs.lib.nixosSystem {
+{ system, name, self, nixpkgs, inputs }: nixpkgs.lib.nixosSystem {
   inherit system;
   modules = (import ../_parts/defaults {
     inherit self inputs;
@@ -13,5 +13,6 @@
         carinae = inputs.carinae.packages.${system}.default;
       })];
     }
+    { networking.hostName = name; }
   ];
 }

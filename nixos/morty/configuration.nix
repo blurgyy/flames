@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  networking.hostName = "morty";
   time.timeZone = "Asia/Shanghai";
 
   boot.loader.systemd-boot.enable = true;

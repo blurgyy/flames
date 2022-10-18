@@ -1,5 +1,4 @@
 { ... }: {
-  networking.hostName = "rubik";
   time.timeZone = "Asia/Tokyo";
 
   boot.loader.grub.device = "/dev/vda";
