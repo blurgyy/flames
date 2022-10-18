@@ -48,7 +48,7 @@
     bsys = "nixos-rebuild build --use-remote-sudo -L -v --flake";
     shome = "${home-manager}/bin/home-manager switch -v --flake";
     ssys = "nixos-rebuild switch --use-remote-sudo -L -v --flake";
-    meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap ${meshlab}/bin/meshlab";
+    meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap meshlab";
   };
   plugins = [{
     name = "tide";
