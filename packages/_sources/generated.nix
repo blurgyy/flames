@@ -17,7 +17,7 @@
       repo = "dt";
       rev = "v0.7.10";
       fetchSubmodules = false;
-      sha256 = "sha256-OA/aViRitE7/2m/BUa04COL5xgS35ybnf7SKw698Iuc=";
+      sha256 = "sha256-guTqOmrJLow84jUG6po6nfSFGFGEIdj6nf5Rm3GcLOg=";
     });
     cargoLock."Cargo.lock" = {
       lockFile = ./dt-v0.7.10/Cargo.lock;
