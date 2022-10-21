@@ -1,10 +1,11 @@
 { pkgs, config, themeColor }: let
   terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
-  bgimg = pkgs.fetchurl {
+  forest = pkgs.fetchurl {
     url = "https://i.redd.it/a8kxowakxbe81.jpg";
     name = "forest.jpg";
-    sha256 = "0c8347785a375596e054452527f96f4e1bd1e4a5915f22a8368e84a368cb603c";
+    sha256 = "sha256-DINHeFo3VZbgVEUlJ/lvThvR5KWRXyKoNo6Eo2jLYDw=";
   };
+  bgimg = forest;
 in {
   enable = true;
   xwayland = true;
