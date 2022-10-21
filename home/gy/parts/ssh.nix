@@ -5,6 +5,9 @@
   compression = true;
   serverAliveInterval = 60;
   serverAliveCountMax = 3;
+  includes = [
+    "config.d/*"
+  ];
   matchBlocks = let 
     peterpan = "81.69.28.75";
     cindy = "130.61.57.3";
