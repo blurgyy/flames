@@ -1,0 +1,40 @@
+#!/bin/sh
+if [ true != "$INIT_D_SCRIPT_SOURCED" ] ; then
+    set "$0" "$@"; INIT_D_SCRIPT_SOURCED=true . /lib/init/init-d-script
+fi
+
+set -e
+
+COMMAND="/nix/var/nix/profiles/default/bin/nix-daemon"
+NAME="nix-daemon"
+USER=root
+
+start_cmd() {
+	export http_proxy=
+	export https_proxy="$http_proxy"
+	"$COMMAND" >/var/log/nix-daemon.log 2>/var/log/nix-daemon.err &
+	echo "nix-daemon has been started"
+}
+
+stop_cmd() {
+	pid=`ps -ef | grep "$COMMAND" | grep -v grep | awk '{ print $2 }'`
+	[ "$pid"X != "X" ] && kill $pid
+	echo "nix-daemon has been killed"
+}
+
+case "$1" in
+start)
+	start_cmd
+	;;
+
+stop)
+	stop_cmd
+	;;
+restart)
+	stop_cmd
+	start_cmd
+	;;
+*)
+	echo "No action provided (provide one of start|stop|restart)"
+	;;
+esac
