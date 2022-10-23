@@ -42,13 +42,13 @@
 
   services = {
     acremote.enable = true;
+    rustdesk-server.enable = true;
     btrfs.autoScrub.fileSystems = [ "/elements" ];
   };
 
   environment.systemPackages = with pkgs; [
     v4l-utils  # for `ir-ctl` executable
     transmission
-    rustdesk-server
   ];
 
   documentation.nixos.enable = false;
