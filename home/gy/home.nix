@@ -270,7 +270,7 @@ in lib.mkMerge [
     libnotify
     logseq
     meshlab
-    rustdesk
+    rustdesk-with-x11-desktopentry
     tdesktop-megumifox
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wpsoffice-cn
