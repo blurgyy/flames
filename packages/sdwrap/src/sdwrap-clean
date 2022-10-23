@@ -1,5 +1,3 @@
-#!@bash@/bin/bash
-
 # Wrap a command with `systemd-run`[0], the stdout/stderr of the command are redirected into
 # systemd's journal, the wrapped process is attached to a transient systemd service[2] called
 # "sdwrap-$command.service".
@@ -21,7 +19,7 @@
 command="$1"
 shift 1
 
-unit_name="sdwrap-$(awk -F'/' '{ print $NF }' <<<"$command")"
+unit_name="$(mktemp -u "sdwrap-$(awk -F'/' '{ print $NF }' <<<"$command")-XXX")"
 
 if systemctl --user is-failed "$unit_name.service" >/dev/null; then
   systemctl --user reset-failed "$unit_name.service"
@@ -32,6 +30,8 @@ if systemctl --user is-active "$unit_name.service" >/dev/null; then
   pid=$(jobs -p)
   if busctl --user call org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager AttachProcessesToUnit ssau "$unit_name.service" / 1 "$pid"; then
     echo "Attached new process of '$command $*'($pid) to '$unit_name.service'"
+  else
+    echo "Failed to attach new process of '$command $*'($pid) to '$unit_name.service'" >&2
   fi
 else
   # NOTE: Must specify `Delegate=yes` as property for process to attach.
@@ -42,5 +42,6 @@ fi
 
 disown
 
+# vim: ft=sh:
 # Author: Blurgy <gy@blurgy.xyz>
 # Date:   Mar 22 2022, 11:50 [CST]
