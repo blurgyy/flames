@@ -58,6 +58,11 @@ fetch.github = "stefano-m/lua-dbus_proxy"
 src.cmd = "date +'%Y-%m'"
 fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
 
+[rustdesk-server]
+src.github = "rustdesk/rustdesk-server"
+fetch.github = "rustdesk/rustdesk-server"
+cargo_locks = ["Cargo.lock"]
+
 [symbols-nerd-font]
 src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://github.com/ryanoasis/nerd-fonts/releases/download/$ver/NerdFontsSymbolsOnly.zip"

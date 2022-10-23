@@ -160,6 +160,25 @@
       sha256 = "sha256-w3Q+nPOgFB3AJkzsskbw5w0O6INFY5Mz9Qiekud/fnU=";
     };
   };
+  rustdesk-server = {
+    pname = "rustdesk-server";
+    version = "1.1.6";
+    src = fetchFromGitHub ({
+      owner = "rustdesk";
+      repo = "rustdesk-server";
+      rev = "1.1.6";
+      fetchSubmodules = false;
+      sha256 = "sha256-GFrdZx6xy6A7QrFh7UQuKbwFh+ZI0FL9LU2YwyEiyUs=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./rustdesk-server-1.1.6/Cargo.lock;
+      outputHashes = {
+        "confy-0.4.0" = "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=";
+        "async-speed-limit-0.3.1" = "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=";
+        "tokio-socks-0.5.1" = "sha256-inmAJk0fAlsVNIwfD/M+htwIdQHwGSTRrEy6N/mspMI=";
+      };
+    };
+  };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
     version = "v2.2.2";
