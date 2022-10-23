@@ -4,6 +4,7 @@
     inherit self inputs;
     headless = false;
     isQemuGuest = false;
+    withBinfmtEmulation = true;
   }) ++ [
     ./configuration.nix
     ./network

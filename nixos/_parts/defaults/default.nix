@@ -3,7 +3,7 @@
 , headless
 , isQemuGuest
 , withSecrets ? true
-, withBinfmtEmulation ? true
+, withBinfmtEmulation ? false
 }: [
   ./configuration.nix
   ./hardware.nix

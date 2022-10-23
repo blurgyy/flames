@@ -4,6 +4,7 @@
     inherit self inputs;
     headless = true;
     isQemuGuest = true;
+    withBinfmtEmulation = true;
   }) ++ [
     ./configuration.nix
     ./services
