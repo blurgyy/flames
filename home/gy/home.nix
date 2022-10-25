@@ -38,6 +38,7 @@ in lib.mkMerge [
     lnav
     lsof
     miniserve
+    nix
     parallel
     patchelf
     procs
