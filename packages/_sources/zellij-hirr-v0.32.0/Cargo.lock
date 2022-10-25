@@ -40,6 +40,9 @@ name = "anyhow"
 version = "1.0.57"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08f9b8508dccb7687a1d6c4ce66b2b0ecef467c94667de27d8d7fe1f8d2a9cdc"
+dependencies = [
+ "backtrace",
+]
 
 [[package]]
 name = "arc-swap"
@@ -702,6 +705,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "destructure_traitobject"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3c877555693c14d2f84191cfd3ad8582790fc52b5e2274b40b59cf5f5cea25c7"
+
+[[package]]
 name = "dialoguer"
 version = "0.10.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1226,6 +1235,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "kdl"
+version = "4.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a8388a371e0e2ede18bbd94e476fcd45b4ac65cefcedf0c06fd13bd8389574a6"
+dependencies = [
+ "miette 5.3.0",
+ "nom 7.1.1",
+ "thiserror",
+]
+
+[[package]]
 name = "kv-log-macro"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1329,9 +1349,9 @@ checksum = "a94d21414c1f4a51209ad204c1776a3d0765002c76c6abcb602a6f09f1e881c7"
 
 [[package]]
 name = "log4rs"
-version = "1.1.1"
+version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "893eaf59f4bef8e2e94302adf56385db445a0306b9823582b0b8d5a06d8822f3"
+checksum = "d36ca1786d9e79b8193a68d480a0907b612f109537115c6ff655a3a1967533fd"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -1349,7 +1369,7 @@ dependencies = [
  "serde_yaml",
  "thiserror",
  "thread-id",
- "typemap",
+ "typemap-ors",
  "winapi",
 ]
 
@@ -1412,7 +1432,7 @@ checksum = "cd2adcfcced5d625bf90a958a82ae5b93231f57f3df1383fee28c9b5096d35ed"
 dependencies = [
  "atty",
  "backtrace",
- "miette-derive",
+ "miette-derive 3.3.0",
  "once_cell",
  "owo-colors",
  "supports-color",
@@ -1421,6 +1441,18 @@ dependencies = [
  "terminal_size",
  "textwrap 0.14.2",
  "thiserror",
+]
+
+[[package]]
+name = "miette"
+version = "5.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a28d6092d7e94a90bb9ea8e6c26c99d5d112d49dda2afdb4f7ea8cf09e1a5a6d"
+dependencies = [
+ "miette-derive 5.3.0",
+ "once_cell",
+ "thiserror",
+ "unicode-width",
 ]
 
 [[package]]
@@ -1433,6 +1465,23 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "miette-derive"
+version = "5.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f2485ed7d1fe80704928e3eb86387439609bd0c6bb96db8208daa364cfd1e09"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "minimal-lexical"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
 
 [[package]]
 name = "miniz_oxide"
@@ -1501,6 +1550,16 @@ checksum = "ffb4262d26ed83a1c0a33a38fe2bb15797329c85770da05e6b828ddb782627af"
 dependencies = [
  "memchr",
  "version_check",
+]
+
+[[package]]
+name = "nom"
+version = "7.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a8903e5a29a317527874d0402f867152a3d21c908bb0b933e416c65e301d4c36"
+dependencies = [
+ "memchr",
+ "minimal-lexical",
 ]
 
 [[package]]
@@ -2501,7 +2560,7 @@ checksum = "76971977e6121664ec1b960d1313aacfa75642adc93b9d4d53b247bd4cb1747e"
 dependencies = [
  "dirs",
  "fnv",
- "nom",
+ "nom 5.1.2",
  "phf",
  "phf_codegen",
 ]
@@ -2660,18 +2719,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "traitobject"
-version = "0.1.0"
+name = "typemap-ors"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "efd1f82c56340fdf16f2a953d7bda4f8fdffba13d93b00844c25572110b26079"
-
-[[package]]
-name = "typemap"
-version = "0.3.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "653be63c80a3296da5551e1bfd2cca35227e13cdd08c6668903ae2f4f77aa1f6"
+checksum = "a68c24b707f02dd18f1e4ccceb9d49f2058c2fb86384ef9972592904d7a28867"
 dependencies = [
- "unsafe-any",
+ "unsafe-any-ors",
 ]
 
 [[package]]
@@ -2753,12 +2806,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3ed742d4ea2bd1176e236172c8429aaf54486e7ac098db29ffe6529e0ce50973"
 
 [[package]]
-name = "unsafe-any"
-version = "0.4.2"
+name = "unsafe-any-ors"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f30360d7979f5e9c6e6cea48af192ea8fab4afb3cf72597154b8f08935bc9c7f"
+checksum = "e0a303d30665362d9680d7d91d78b23f5f899504d4f08b3c4cf08d055d87c0ad"
 dependencies = [
- "traitobject",
+ "destructure_traitobject",
 ]
 
 [[package]]
@@ -3306,17 +3359,18 @@ dependencies = [
 
 [[package]]
 name = "zellij"
-version = "0.31.4"
+version = "0.32.0"
 dependencies = [
  "anyhow",
  "dialoguer",
  "insta",
  "log",
- "miette",
+ "miette 3.3.0",
  "names",
  "rand 0.8.5",
  "ssh2",
  "suggest",
+ "thiserror",
  "zellij-client",
  "zellij-server",
  "zellij-utils",
@@ -3324,17 +3378,20 @@ dependencies = [
 
 [[package]]
 name = "zellij-client"
-version = "0.31.4"
+version = "0.32.0"
 dependencies = [
  "insta",
  "log",
  "mio",
+ "serde",
+ "serde_yaml",
+ "url",
  "zellij-utils",
 ]
 
 [[package]]
 name = "zellij-server"
-version = "0.31.4"
+version = "0.32.0"
 dependencies = [
  "ansi_term",
  "arrayvec 0.7.2",
@@ -3348,6 +3405,7 @@ dependencies = [
  "highway",
  "insta",
  "log",
+ "semver",
  "serde_json",
  "sixel-image",
  "sixel-tokenizer",
@@ -3363,7 +3421,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-tile"
-version = "0.31.4"
+version = "0.32.0"
 dependencies = [
  "clap",
  "serde",
@@ -3375,14 +3433,14 @@ dependencies = [
 
 [[package]]
 name = "zellij-tile-utils"
-version = "0.31.4"
+version = "0.32.0"
 dependencies = [
  "ansi_term",
 ]
 
 [[package]]
 name = "zellij-utils"
-version = "0.31.4"
+version = "0.32.0"
 dependencies = [
  "anyhow",
  "async-std",
@@ -3393,19 +3451,20 @@ dependencies = [
  "colorsys",
  "crossbeam",
  "directories-next",
+ "insta",
  "interprocess",
+ "kdl",
  "lazy_static",
  "libc",
  "log",
  "log4rs",
- "miette",
+ "miette 3.3.0",
  "nix",
  "once_cell",
  "regex",
  "rmp-serde",
  "serde",
  "serde_json",
- "serde_yaml",
  "signal-hook 0.3.14",
  "strip-ansi-escapes",
  "strum",

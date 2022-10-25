@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210240717";
+    version = "202210242215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210240717/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210242215/geoip.dat";
       sha256 = "sha256-dOP99QI1NHFYfFR13n/UaHQa5S6uhJdTahAx5cUKze8=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210240717";
+    version = "202210242215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210240717/geosite.dat";
-      sha256 = "sha256-FUNIMJYwxInPuoNtDWyodofCdyKw7jyEd4H4VikQUFk=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210242215/geosite.dat";
+      sha256 = "sha256-IJNogOSZhbKKXdorzFjtXZsZnEmRdTbn5YQzICMYQhQ=";
     };
   };
   luarock-dbus_proxy = {
@@ -284,24 +284,24 @@
   };
   xtables-addons-perl-scripts = {
     pname = "xtables-addons-perl-scripts";
-    version = "3.21";
+    version = "3.22";
     src = fetchurl {
-      url = "https://inai.de/files/xtables-addons/xtables-addons-3.21.tar.xz";
-      sha256 = "sha256-LgmsEpoU9enCOxFevN//SqhOKuuhJo2985stdSvXHhk=";
+      url = "https://inai.de/files/xtables-addons/xtables-addons-3.22.tar.xz";
+      sha256 = "sha256-+qFqJxZida+/6N9gX1XDqBrGk78Z2mdNRc7e1BN64hc=";
     };
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.31.4";
+    version = "v0.32.0";
     src = fetchFromGitHub ({
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.31.4";
+      rev = "v0.32.0";
       fetchSubmodules = false;
-      sha256 = "sha256-eULdBwQNquk4jj1SjdMsAN7S7mBSZs7jVAwMyFvOlWk=";
+      sha256 = "sha256-AZSchcWYg9G7lps6EgupPksXbvKzrs8wlse1jsbC8Rs=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.31.4/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.32.0/Cargo.lock;
       outputHashes = {
         
       };
