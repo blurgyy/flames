@@ -15,7 +15,6 @@ in lib.mkMerge [
     bat
     btop
     cachix
-    dua
     dogdns
     exa
     exiftool
@@ -24,6 +23,7 @@ in lib.mkMerge [
     fish
     fzf
     gdb
+    gdu
     git
     git-sync
     gnutar
