@@ -57,7 +57,7 @@ in lib.mkMerge [
     viddy
     waypipe
     wget
-    xdg-utils
+    xdg-open-handlr
     yt-dlp
     zip
     zsh
@@ -367,30 +367,20 @@ in lib.mkMerge [
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "wps-office-et.desktop";
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "wps-office-wps.desktop";
         "application/x-zerosize" = "nvim.desktop";
-        "audio/aac" = "mpv.desktop";
-        "audio/mp3" = "mpv.desktop";
-        "audio/mp4" = "mpv.desktop";
-        "audio/mpeg" = "mpv.desktop";
-        "audio/wave" = "mpv.desktop";
-        "audio/x-wav" = "mpv.desktop";
-        "audio/x-wave" = "mpv.desktop";
-        "image/bmp" = "imv.desktop";
-        "image/gif" = "imv.desktop";
-        "image/jpeg" = "imv.desktop";
-        "image/png" = "imv.desktop";
-        "image/tiff" = "imv.desktop";
         "inode/directory" = "thunar.desktop";
         "text/html" = "firefox.desktop";
         "text/markdown" = "marktext.desktop";
         "text/x-markdown" = "marktext.desktop";
-        "video/x-matroska" = "mpv.desktop";
-        "video/mp4" = "mpv.desktop";
-        "video/vnd.uvvu.mp4" = "mpv.desktop";
         "x-scheme-handler/element" = "io.element.Element.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
         "x-scheme-handler/terminal" = "Alacritty.desktop";
         "x-scheme-handler/tg" = "telegramdesktop.desktop";
+
+        # wildcards (use with `handlr open`)
+        "audio/*" = "mpv.desktop";
+        "video/*" = "mpv.desktop";
+        "image/*" = "imv.desktop";
       };
     };
   };
