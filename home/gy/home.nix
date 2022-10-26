@@ -265,6 +265,7 @@ in lib.mkMerge [
     };
   };
   home.packages = with pkgs; [
+    cider
     colmena
     evince
     imv
