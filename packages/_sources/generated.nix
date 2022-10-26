@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210242215";
+    version = "202210252215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210242215/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210252215/geoip.dat";
       sha256 = "sha256-dOP99QI1NHFYfFR13n/UaHQa5S6uhJdTahAx5cUKze8=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210242215";
+    version = "202210252215";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210242215/geosite.dat";
-      sha256 = "sha256-IJNogOSZhbKKXdorzFjtXZsZnEmRdTbn5YQzICMYQhQ=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210252215/geosite.dat";
+      sha256 = "sha256-wNzRSKHm23t2OP0XENcKJL6K4YvFe48cblEm7jH/nDA=";
     };
   };
   luarock-dbus_proxy = {
@@ -250,15 +250,15 @@
   };
   vim-plugin-nvim-navic = {
     pname = "vim-plugin-nvim-navic";
-    version = "132b273773768b36e9ecab2138b82234a9faf5ed";
+    version = "9f7f0b797096ee852106c4fd47b6b13d0ebb364e";
     src = fetchFromGitHub ({
       owner = "SmiteshP";
       repo = "nvim-navic";
-      rev = "132b273773768b36e9ecab2138b82234a9faf5ed";
+      rev = "9f7f0b797096ee852106c4fd47b6b13d0ebb364e";
       fetchSubmodules = false;
-      sha256 = "sha256-OzzH/DNZk2g8HPbYw6ulM+ScxQW6NU3YZxTgLycWQOM=";
+      sha256 = "sha256-W8DbHrgqaI8RqkquTC9Qr5jEYvlEPC3tgLLeC07QC/8=";
     });
-    date = "2022-09-30";
+    date = "2022-10-25";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
