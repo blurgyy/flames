@@ -248,18 +248,6 @@
     });
     date = "2022-10-09";
   };
-  vim-plugin-nvim-navic = {
-    pname = "vim-plugin-nvim-navic";
-    version = "9f7f0b797096ee852106c4fd47b6b13d0ebb364e";
-    src = fetchFromGitHub ({
-      owner = "SmiteshP";
-      repo = "nvim-navic";
-      rev = "9f7f0b797096ee852106c4fd47b6b13d0ebb364e";
-      fetchSubmodules = false;
-      sha256 = "sha256-W8DbHrgqaI8RqkquTC9Qr5jEYvlEPC3tgLLeC07QC/8=";
-    });
-    date = "2022-10-25";
-  };
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.32";

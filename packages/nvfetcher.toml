@@ -88,10 +88,6 @@ fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 src.git = "https://github.com/black-desk/fcitx5-ui.nvim"
 fetch.github = "black-desk/fcitx5-ui.nvim"
 
-[vim-plugin-nvim-navic]
-src.git = "https://github.com/SmiteshP/nvim-navic"
-fetch.github = "SmiteshP/nvim-navic"
-
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"
