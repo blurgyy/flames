@@ -184,7 +184,7 @@ table ip transparent_proxy {
       serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vclient-config.path}";
       };
-      restartTriggers = [ config.sops.templates.vclient-config.content ];
+      restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.vclient-config.content) ];
     };
     networking.resolvconf.extraConfig = mkIf cfg.client.enable "name_servers=127.0.0.53";  # REF: man:resolvconf.conf(5)
     services.resolved.enable = mkIf cfg.client.enable (mkForce false);
@@ -234,7 +234,7 @@ table ip transparent_proxy {
       serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vserver-config.path}";
       };
-      restartTriggers = [ config.sops.templates.vserver-config.content ];
+      restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.vserver-config.content) ];
     };
   };
 }

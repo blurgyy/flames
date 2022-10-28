@@ -66,7 +66,7 @@ in {
           Restart = "on-failure";
           RestartSec = 5;
         };
-        restartTriggers = [ (replaceStrings [ " " ] [ "" ] (concatStringsSep "" (splitString "\n" config.sops.templates.rathole-config.content))) ];
+        restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.rathole-config.content) ];
       });
       rathole-server = mkIf (cfg.server != null) (with pkgs; {
         after = [ "network.target" ];
@@ -82,7 +82,7 @@ in {
           Restart = "on-failure";
           RestartSec = 5;
         };
-        restartTriggers = [ (replaceStrings [ " " ] [ "" ] (concatStringsSep "" (splitString "\n" config.sops.templates.rathole-config.content))) ];
+        restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.rathole-config.content) ];
       });
     };
     sops.templates.rathole-config = {
