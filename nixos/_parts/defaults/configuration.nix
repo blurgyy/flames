@@ -55,17 +55,11 @@
     firewall.enable = lib.mkDefault false;
     hosts = {
       "81.69.28.75" = [
-        "peterpan"
         "peterpan.${config.networking.domain}"
         "pp.${config.networking.domain}"
         "soft-serve"
         "softserve"
       ];
-      "130.61.57.3" = [ "cindy" ];
-      "45.78.17.205" = [ "cube" ];
-      "154.9.139.26" = [ "trigo" ];
-      "193.32.151.152" = [ "rubik" ];
-      "45.139.193.21" = [ "quad" ];
       "10.50.200.245" = [ "net.zju.edu.cn" ];
       "10.50.200.3" = [ "net2.zju.edu.cn" ];
     };

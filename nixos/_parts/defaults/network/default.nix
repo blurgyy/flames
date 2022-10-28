@@ -1,5 +1,6 @@
-{ config, ... }: {
+{ config, lib, ... }: {
   services.tailscale.enable = true;
+  networking.resolvconf.extraConfig = lib.mkAfter "search_domains=tail7a730.ts.net";  # use `tailscale up --accept-dns=false`
   networking.firewall-tailored = {
     enable = true;
     acceptedPorts = [ "ssh" "http" "https" ] ++ [{

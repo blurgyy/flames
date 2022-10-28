@@ -6,6 +6,11 @@
   } // extraHosts;
   servers = [
     {
+      address = "100.100.100.100";  # MagicDNS of tailscale, setup tailscale with `tailscale up --accept-dns=false`
+      domains = [ "domain:ts.net" ];
+      skipFallback = true;
+    }
+    {
       address = "10.10.0.21";
       port = 53;
       domains = [ "cc98" "nexushd" "domain:zju.edu.cn" ];
