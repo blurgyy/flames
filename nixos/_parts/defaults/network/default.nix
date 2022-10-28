@@ -1,7 +1,12 @@
-{ ... }: {
+{ config, ... }: {
+  services.tailscale.enable = true;
   networking.firewall-tailored = {
     enable = true;
-    acceptedPorts = [ "ssh" "http" "https" ];
+    acceptedPorts = [ "ssh" "http" "https" ] ++ [{
+      port = config.services.tailscale.port;
+      protocols = [ "udp" ];
+      comment = "tailscale tunnel listening port";
+    }];
     rejectedAddrGroups = [{
       addrs = (import ./banned-ips/ssh-scanners.nix);
       comment = "reject known ssh scanners";
