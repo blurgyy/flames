@@ -5,7 +5,7 @@
   callWithHelpers = path: overrides: with builtins; let
     f = import path;
   in if (typeOf f) == "set" then f else let
-    args = (intersectAttrs (functionArgs f) { inherit pkgs lib config name; } // overrides);
+    args = (intersectAttrs (functionArgs f) { inherit pkgs lib config name callWithHelpers; } // overrides);
   in f ((intersectAttrs (functionArgs f) helpers) // args);
 in lib.mkMerge [
 {  # Generic
@@ -326,17 +326,7 @@ in lib.mkMerge [
     };
 
     firefox = callWithHelpers ./parts/firefox.nix {};
-
-    waybar = {
-      enable = true;
-      package = pkgs.waybar;
-      settings = callWithHelpers ./parts/waybar {};
-      style = callWithHelpers ./parts/waybar/style.css.nix {};
-      systemd = {
-        enable = true;
-        target = "sway-session.target";
-      };
-    };
+    waybar = callWithHelpers ./parts/waybar {};
   };
   home.sessionVariables = {
     XDG_SESSION_DESKTOP = "sway";
