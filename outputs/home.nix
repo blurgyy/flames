@@ -17,8 +17,9 @@
   };
 in apply {
   "gy@cindy" = aarch64-headless;
-  "gy@cadliu" = x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; };
-  "gy@cad-liu" = x86_64-headless // { proxy = { addr = "192.168.1.25"; port = "9990"; }; };
+  # use `sudo systemd-resolve --interface tailscale0 --set-dns 100.100.100.100 --set-domain tail7a730.ts.net`
+  "gy@cadliu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
+  "gy@cad-liu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
   "gy@morty" = x86_64-non-headless;
   "gy@watson" = x86_64-non-headless;
   "gy@rpi" = aarch64-headless;
