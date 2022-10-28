@@ -141,6 +141,7 @@ end
 -- Autocmds
 local lowtab_fts = {
   "context",
+  "css",
   "dts",
   "fish",
   "gitcommit",
