@@ -47,6 +47,17 @@ in {
       content = ''
 flush ruleset
 
+define private_range = {
+  100.64.0.0/10,
+  127.0.0.0/8,
+  169.254.0.0/16,
+  172.16.0.0/12,
+  192.168.0.0/16,
+  224.0.0.0/4,
+  240.0.0.0/4,
+  255.255.255.255/32,
+}
+
 table inet filter
 delete table inet filter
 table inet filter {
@@ -93,19 +104,20 @@ ${concatStringsSep "\n" cfg.extraRulesAfter}
       '';
     };
     systemd.services = {
-      nftables = {
+      nftables = let
+        ruleFile = config.sops.templates.nftables-rules;
+      in {
         description = "nftables firewall";
         before = [ "network-pre.target" ];
         wants = [ "network-pre.target" ];
         wantedBy = [ "multi-user.target" ];
         reloadIfChanged = true;
-        serviceConfig = let
-          ruleFilePath = config.sops.templates.nftables-rules.path;
-        in {
+        restartTriggers = [ (builtins.hashString "sha512" ruleFile.content) ];
+        serviceConfig = {
           Type = "oneshot";
           RemainAfterExit = true;
-          ExecStart = "${pkgs.nftables}/bin/nft -f ${ruleFilePath}";
-          ExecReload = "${pkgs.nftables}/bin/nft -f ${ruleFilePath}";
+          ExecStart = "${pkgs.nftables}/bin/nft -f ${ruleFile.path}";
+          ExecReload = "${pkgs.nftables}/bin/nft -f ${ruleFile.path}";
           ExecStop = "${pkgs.nftables}/bin/nft flush ruleset";
         };
       };

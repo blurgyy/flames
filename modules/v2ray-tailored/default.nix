@@ -122,7 +122,12 @@ in {
         port = 9990;
         protocols = [ "tcp" ];
         comment = "allow machines from private network ranges to access http proxy";
-        predicate = "ip saddr { 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 }";
+        predicate = "ip saddr $private_range";
+      } {
+        port = 9999;
+        protocols = [ "tcp" ];
+        comment = "allow machines from private network ranges to access socks proxy";
+        predicate = "ip saddr $private_range";
       }] else []) ++ (if cfg.server.reverse != null then [{
         port = cfg.server.reverse.port;
         protocols = [ "tcp" ];
@@ -132,14 +137,6 @@ in {
       extraRulesAfter = with builtins; with cfg.client; [''
 include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
 define proxy_bypassed_IPs = {
-  100.64.0.0/10,
-  127.0.0.0/8,
-  169.254.0.0/16,
-  172.16.0.0/12,
-  192.168.0.0/16,
-  224.0.0.0/4,
-  240.0.0.0/4,
-  255.255.255.255/32,
   ${concatStringsSep "," (cfg.client.proxyBypassedIPs
     ++ (map (x: toString x.address) (filter (x: x.wsPath == null) remotes))
     ++ (if (cfg.server.reverse != null) then [ (toString cfg.server.reverse.port) ] else []))}
@@ -153,6 +150,7 @@ table ip transparent_proxy {
 
     iifname != "lo" return
 
+    ip daddr $private_range return
     ip daddr $proxy_bypassed_IPs return
 
     meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString fwMark} return
