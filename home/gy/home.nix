@@ -328,13 +328,14 @@ in lib.mkMerge [
     firefox = callWithHelpers ./parts/firefox.nix {};
 
     waybar = {
+      enable = true;
+      package = pkgs.waybar;
       settings = callWithHelpers ./parts/waybar {};
       style = callWithHelpers ./parts/waybar/style.css.nix {};
       systemd = {
         enable = true;
         target = "sway-session.target";
       };
-      enable = true;
     };
   };
   home.sessionVariables = {

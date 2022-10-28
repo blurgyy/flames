@@ -2,9 +2,12 @@
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
-    overlays = [
+    overlays = let
+      waybar913-nixpkgs = builtins.getFlake "github:nixos/nixpkgs/b3c0c4979e3405f3b267e9fd1c81c4f82d8ba44d";
+    in [
       self.overlays.default
       (final: prev: {
+        inherit (waybar913-nixpkgs.legacyPackages.${system}) waybar;
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
         inherit (inputs.nixgl.packages.${system}) nixGLIntel;
