@@ -64,9 +64,15 @@
       "10.50.200.3" = [ "net2.zju.edu.cn" ];
     };
   };
-  services.resolved = {
+  services.resolved = let
+    dnsServers = [ "1.0.0.1" "1.1.1.1" "8.8.4.4" "8.8.8.8" ];
+  in {
     enable = lib.mkDefault true;
     dnssec = lib.mkDefault "false";
+    fallbackDns = lib.mkDefault dnsServers;
+    extraConfig = ''
+      DNS=${toString dnsServers}
+    '';
   };
 
   systemd = {
