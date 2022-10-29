@@ -52,7 +52,7 @@ in {
       }) cfg.server.services));
     };
     systemd.services = {
-      rathole-client = mkIf (cfg.client != null) (with pkgs; {
+      rathole-client = mkIf (cfg.client != null) {
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
@@ -67,8 +67,8 @@ in {
           RestartSec = 5;
         };
         restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.rathole-config.content) ];
-      });
-      rathole-server = mkIf (cfg.server != null) (with pkgs; {
+      };
+      rathole-server = mkIf (cfg.server != null) {
         after = [ "network.target" ];
         wantedBy = [ "multi-user.target" ];
         serviceConfig = {
@@ -83,7 +83,7 @@ in {
           RestartSec = 5;
         };
         restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.rathole-config.content) ];
-      });
+      };
     };
     sops.templates.rathole-config = {
       name = "rathole.toml";
