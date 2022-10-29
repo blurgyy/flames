@@ -162,6 +162,7 @@ table ip transparent_proxy {
     type route hook output priority mangle
     policy accept
 
+    ip daddr $private_range return
     ip daddr $proxy_bypassed_IPs return
     ip daddr $geoip4_iso_country_CN return
 
