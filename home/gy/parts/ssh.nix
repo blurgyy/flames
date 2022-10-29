@@ -28,7 +28,6 @@
 
     applyHostname = hostnames: map (hostname: { ${hostname} = { inherit hostname; }; }) hostnames;
   in (builtins.foldl' (x: y: x // y) {} (applyHostname [
-    "2x1080ti"
     "cindy"
     "cube"
     "hooper"
@@ -37,11 +36,13 @@
     "quad"
     "rpi"
     "rubik"
-    "shared"
     "trigo"
     "watson"
   ])) // {
     inherit morty-relay watson-relay rpi-relay "2x1080ti-relay" shared-relay;
+
+    "2x1080ti" = { hostname = "2x1080ti"; proxyJump = "watson"; };
+    "shared" = { hostname = "shared"; proxyJump = "watson"; };
 
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
     gpp = { hostname = "peterpan"; port = 77; };
