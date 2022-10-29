@@ -1,4 +1,4 @@
-{ name }: {
+{ lib, name }: {
   enable = true;
   controlMaster = "auto";
   controlPath = "~/.ssh/master-%r@%n:%p";
@@ -26,6 +26,8 @@
     "2x1080ti-relay" = { hostname = relay; port = 10023; };
     shared-relay = { hostname = relay; port = 10025; };
 
+    jumpWatson = lib.optionalAttrs (name != "watson") { proxyJump = "watson"; };
+
     applyHostname = hostnames: map (hostname: { ${hostname} = { inherit hostname; }; }) hostnames;
   in (builtins.foldl' (x: y: x // y) {} (applyHostname [
     "cindy"
@@ -41,8 +43,8 @@
   ])) // {
     inherit morty-relay watson-relay rpi-relay "2x1080ti-relay" shared-relay;
 
-    "2x1080ti" = { hostname = "2x1080ti"; proxyJump = "watson"; };
-    "shared" = { hostname = "shared"; proxyJump = "watson"; };
+    "2x1080ti" = { hostname = "2x1080ti"; } // jumpWatson;
+    "shared" = { hostname = "shared"; } // jumpWatson;
 
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
     gpp = { hostname = "peterpan"; port = 77; };
