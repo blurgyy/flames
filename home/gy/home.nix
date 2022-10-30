@@ -138,6 +138,8 @@ in lib.mkMerge [
     fish = callWithHelpers ./parts/fish {};
     tmux = {
       enable = true;
+      escapeTime = 0;
+      prefix = "C-s";
       keyMode = "vi";
       clock24 = true;
       historyLimit = 100000;
