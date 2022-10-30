@@ -18,6 +18,8 @@ in {
     acceptedPorts = mkOption { type = types.listOf (types.oneOf [ portType portModule ]); default = []; };
     rejectedAddrGroups = mkOption { type = types.listOf AddrGroupModule; default = []; };
     extraRulesAfter = mkOption { type = types.listOf types.lines; default = []; };
+    extraForwardRules = mkOption { type = types.listOf types.lines; default = []; };
+    extraOutputRules = mkOption { type = types.listOf types.lines; default = []; };
     referredServices = mkOption {
       type = types.listOf types.str;
       description = ''
@@ -101,6 +103,12 @@ table inet filter {
   chain forward {
     type filter hook forward priority filter
     policy drop
+    ${concatStringsSep "\n" cfg.extraForwardRules}
+  }
+  chain output {
+    type filter hook output priority filter
+    policy accept
+    ${concatStringsSep "\n" cfg.extraOutputRules}
   }
 }
 
