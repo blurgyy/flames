@@ -26,8 +26,6 @@
     "2x1080ti-relay" = { hostname = relay; port = 10023; };
     shared-relay = { hostname = relay; port = 10025; };
 
-    jumpWatson = lib.optionalAttrs (name != "watson") { proxyJump = "watson"; };
-
     applyHostname = hostnames: map (hostname: { ${hostname} = { inherit hostname; }; }) hostnames;
   in (builtins.foldl' (x: y: x // y) {} (applyHostname [
     "cindy"
@@ -43,8 +41,10 @@
   ])) // {
     inherit morty-relay watson-relay rpi-relay "2x1080ti-relay" shared-relay;
 
-    "2x1080ti" = { hostname = "2x1080ti"; } // jumpWatson;
-    "shared" = { hostname = "shared"; } // jumpWatson;
+    # Subnet routes via watson. use with `tailscale up --advertise-routes=192.168.1.0/24` on watson
+    # and `tailscale up --accept-routes` on client machines.
+    "2x1080ti".hostname = "192.168.1.22";
+    shared.hostname = "192.168.1.23";
 
     glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
     gpp = { hostname = "peterpan"; port = 77; };
