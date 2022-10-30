@@ -150,8 +150,11 @@ table ip transparent_proxy {
 
     iifname != "lo" return
 
-    ip daddr $private_range return
-    ip daddr $proxy_bypassed_IPs return
+    ip daddr {
+      $private_range,
+      $proxy_bypassed_IPs,
+      $geoip4_iso_country_CN,
+    } return
 
     meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString fwMark} return
     meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString soMark} return
@@ -162,9 +165,11 @@ table ip transparent_proxy {
     type route hook output priority mangle
     policy accept
 
-    ip daddr $private_range return
-    ip daddr $proxy_bypassed_IPs return
-    ip daddr $geoip4_iso_country_CN return
+    ip daddr {
+      $private_range,
+      $proxy_bypassed_IPs,
+      $geoip4_iso_country_CN,
+    } return
 
     socket cgroupv2 level 1 "system.slice" ${optionalString
       ((length cfg.client.proxiedSystemServices) > 0)
