@@ -98,6 +98,10 @@ table inet filter {
     pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited
     counter
   }
+  chain forward {
+    type filter hook forward priority filter
+    policy drop
+  }
 }
 
 ${concatStringsSep "\n" cfg.extraRulesAfter}
