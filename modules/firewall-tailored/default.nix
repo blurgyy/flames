@@ -18,6 +18,7 @@ in {
     acceptedPorts = mkOption { type = types.listOf (types.oneOf [ portType portModule ]); default = []; };
     rejectedAddrGroups = mkOption { type = types.listOf AddrGroupModule; default = []; };
     extraRulesAfter = mkOption { type = types.listOf types.lines; default = []; };
+    extraInputRules = mkOption { type = types.listOf types.lines; default = []; };
     extraForwardRules = mkOption { type = types.listOf types.lines; default = []; };
     extraOutputRules = mkOption { type = types.listOf types.lines; default = []; };
     referredServices = mkOption {
@@ -98,17 +99,20 @@ table inet filter {
     cfg.acceptedPorts)}
 
     pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited
+    ${concatStringsSep "\n" cfg.extraInputRules}
     counter
   }
   chain forward {
     type filter hook forward priority filter
     policy drop
     ${concatStringsSep "\n" cfg.extraForwardRules}
+    counter
   }
   chain output {
     type filter hook output priority filter
     policy accept
     ${concatStringsSep "\n" cfg.extraOutputRules}
+    counter
   }
 }
 
