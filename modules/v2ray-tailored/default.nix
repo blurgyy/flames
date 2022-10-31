@@ -153,7 +153,6 @@ table ip transparent_proxy {
     ip daddr {
       $private_range,
       $proxy_bypassed_IPs,
-      $geoip4_iso_country_CN,
     } return
 
     meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString fwMark} return
