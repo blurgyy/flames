@@ -17,7 +17,7 @@
   };
 in apply {
   "gy@cindy" = aarch64-headless;
-  # use `sudo systemd-resolve --interface tailscale0 --set-dns 100.100.100.100 --set-domain tail7a730.ts.net`
+  # set IP of watson in hosts
   "gy@cadliu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
   "gy@cad-liu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
   "gy@morty" = x86_64-non-headless;
