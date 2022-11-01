@@ -17,7 +17,9 @@ in {
   inherit filterAttrs;
   packages = pkgs: mapPackage (name: pkgs.${name});
   overlay = final: prev: mapPackage (name: let
-    generated = (import ./_sources/generated.nix) { inherit (final) fetchurl fetchgit fetchFromGitHub; };
+    generated = (import ./_sources/generated.nix) {
+      inherit (final) fetchurl fetchgit fetchFromGitHub dockerTools;
+    };
     package = import ./${name};
     args = with builtins; intersectAttrs (functionArgs package) {
       inherit generated;
