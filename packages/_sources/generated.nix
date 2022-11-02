@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202210302212";
+    version = "202211012214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210302212/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211012214/geoip.dat";
       sha256 = "sha256-mKWw55EEQZ7utkUa31yRup3RYqqOC3nFO++UMTlmoIo=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202210302212";
+    version = "202211012214";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210302212/geosite.dat";
-      sha256 = "sha256-zmr+Dv4irtrPNOobJtKZN5PEJk6KnMlxEI25YUmyuiM=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211012214/geosite.dat";
+      sha256 = "sha256-FGhyCvufQdRezG2qWVQnSjyKAoLOSsJqhcCobGs20cE=";
     };
   };
   luarock-dbus_proxy = {
@@ -154,10 +154,10 @@
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
-    version = "2022-10";
+    version = "2022-11";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2022-10.csv.gz";
-      sha256 = "sha256-w3Q+nPOgFB3AJkzsskbw5w0O6INFY5Mz9Qiekud/fnU=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2022-11.csv.gz";
+      sha256 = "sha256-0uCyjNWPlkc+YquPdvn4t4LX3FGjxxfw2p+oz1z8Dy0=";
     };
   };
   rustdesk-server = {
