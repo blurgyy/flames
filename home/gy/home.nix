@@ -319,7 +319,9 @@ in lib.mkMerge [
       location = "center";
       plugins = [ pkgs.rofi-emoji ];
       theme = "catppuccin";
-      extraConfig = { };
+      extraConfig = {
+        ssh-client = "waypipe ssh";
+      };
     };
     alacritty = {
       enable = true;
