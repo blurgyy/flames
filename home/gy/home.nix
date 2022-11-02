@@ -60,7 +60,6 @@ in lib.mkMerge [
     xdg-open-handlr
     yt-dlp
     zip
-    zsh
     zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.dingtalk
@@ -123,6 +122,11 @@ in lib.mkMerge [
           if [[ -z "$noexecfish" ]]; then
             exec fish
           fi
+        fi
+      '';
+      envExtra = ''
+        if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+          . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
         fi
       '';
     };
