@@ -14,7 +14,9 @@
   hardware.enableRedistributableFirmware = lib.mkDefault true;
 
   boot = let
-    supportedFilesystems = lib.mkDefault [ "btrfs" "ext4" ];
+    supportedFilesystems = lib.mkForce [  # Remove zfs from supportedFilesystems
+      "btrfs" "cifs" "ext4" "f2fs" "ntfs" "reiserfs" "vfat" "xfs"
+    ];
   in {
     inherit supportedFilesystems;
     loader.efi.canTouchEfiVariables = lib.mkDefault config.boot.loader.systemd-boot.enable;
