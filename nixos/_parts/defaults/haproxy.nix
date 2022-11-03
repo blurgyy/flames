@@ -23,7 +23,7 @@
       tls-offload-front = {
         mode = "tcp";
         binds = [ "/run/haproxy/tls-offload.sock" ];
-        alpns = [ "h3" "h2" "http/1.1" ];
+        alpns = [ "http/1.1" ];
         domain.name= lib.mkDefault config.networking.fqdn;
         acceptProxy = true;
         requestRules = [
