@@ -25,7 +25,7 @@
 ] else [])
 
 ++ (if (!headless) then [
-  ./non-headless-extras.nix
+  ./headful.nix
 ] else [])
 
 ++ (if isQemuGuest then [({ lib, pkgs, modulesPath, ... }: {
