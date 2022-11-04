@@ -28,11 +28,24 @@
     ];
   };
   lib = nixpkgs.lib;
+  myName = "gy";
+  myHome = "/home/${myName}";
+  helpers = import ./helpers.nix { inherit lib; };
+  callWithHelpers = path: overrides: with builtins; let
+    f = import path;
+    args = (intersectAttrs (functionArgs f) { inherit pkgs lib name callWithHelpers; } // overrides);
+  in if (typeOf f) == "set"
+    then f
+    else f ((intersectAttrs (functionArgs f) helpers) // args);
 in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
   modules = [
     ./home.nix
+    (lib.optionalAttrs (!headless) ./headful.nix)
     { home.stateVersion = "22.11"; }
   ];
-  extraSpecialArgs = { inherit name headless proxy; };
+  extraSpecialArgs = {
+    inherit name headless proxy;
+    inherit myName myHome helpers callWithHelpers;
+  };
 }
