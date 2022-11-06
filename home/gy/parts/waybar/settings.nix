@@ -109,8 +109,8 @@
         ""
         ""
       ];
-      on-scroll-up = "light -A 1";
-      on-scroll-down = "light -U 1";
+      on-scroll-up = "${light}/bin/light -A 1";
+      on-scroll-down = "${light}/bin/light -U 1";
     };
     "group/network" = {
       modules = [
@@ -141,8 +141,10 @@
       on-click = "${sway}/bin/swaymsg 'workspace 8'";
     };
     pulseaudio = {
-      on-scroll-up = "pactl set-sink-volume @DEFAULT_SINK@ +1%";
-      on-scroll-down = "pactl set-sink-volume @DEFAULT_SINK@ -1%";
+      on-click = "${pavucontrol}/bin/pavucontrol";
+      on-click-right = "${pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && ${notification-scripts}/bin/volume-notify";
+      on-scroll-up = "${pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +1%";
+      on-scroll-down = "${pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -1%";
       format = "<span color='${themeColor "purple"}'>{icon}</span> {volume}";
       format-muted = "<span color='${themeColor "red"}'></span>";
       format-bluetooth = "<span color='${themeColor "purple"}'>{icon}</span> {volume}";
@@ -162,8 +164,6 @@
           ""
         ];
       };
-      on-click = "${pavucontrol}/bin/pavucontrol";
-      on-click-right = "${pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle && ${notification-scripts}/bin/volume-notify";
     };
     "custom/menu" = {
       # format = " ";
