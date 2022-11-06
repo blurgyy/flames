@@ -44,6 +44,7 @@ fixTypo "blurgy" [
   "mkae"
   "mke"
 ] // fixTypo "nix" [
+  "ix"
   "nxi"
   "xni"
   "xin"
