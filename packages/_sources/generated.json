@@ -214,9 +214,9 @@
             "name": null,
             "sha256": "sha256-ZbPP8Ivtc5DrpDy3LPF1dJr1IWh0CxEEM6gA8U2Qe+k=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211052211/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211062212/geoip.dat"
         },
-        "version": "202211052211"
+        "version": "202211062212"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -227,11 +227,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-lQuz8vpxAGXcXcwqV+Ms8WJ0c1+As2mDZW5nbeTNYTI=",
+            "sha256": "sha256-QKfUTH9hPirVUVDir7bVC7epuURUBtWdv1KoEeFBjLg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211052211/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211062212/geosite.dat"
         },
-        "version": "202211052211"
+        "version": "202211062212"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -271,7 +271,7 @@
     "rustdesk-server": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./rustdesk-server-1.1.6/Cargo.lock",
+                "./rustdesk-server-1.1.6-1/Cargo.lock",
                 {
                     "async-speed-limit-0.3.1": "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=",
                     "confy-0.4.0": "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=",
@@ -291,11 +291,11 @@
             "name": null,
             "owner": "rustdesk",
             "repo": "rustdesk-server",
-            "rev": "1.1.6",
-            "sha256": "sha256-GFrdZx6xy6A7QrFh7UQuKbwFh+ZI0FL9LU2YwyEiyUs=",
+            "rev": "1.1.6-1",
+            "sha256": "sha256-21PHplA0PGdXXakyt+50KFJHLpMvSBUqHnIxdYNnaB4=",
             "type": "github"
         },
-        "version": "1.1.6"
+        "version": "1.1.6-1"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,

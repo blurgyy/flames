@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202211052211";
+    version = "202211062212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211052211/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211062212/geoip.dat";
       sha256 = "sha256-ZbPP8Ivtc5DrpDy3LPF1dJr1IWh0CxEEM6gA8U2Qe+k=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202211052211";
+    version = "202211062212";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211052211/geosite.dat";
-      sha256 = "sha256-lQuz8vpxAGXcXcwqV+Ms8WJ0c1+As2mDZW5nbeTNYTI=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211062212/geosite.dat";
+      sha256 = "sha256-QKfUTH9hPirVUVDir7bVC7epuURUBtWdv1KoEeFBjLg=";
     };
   };
   luarock-dbus_proxy = {
@@ -162,16 +162,16 @@
   };
   rustdesk-server = {
     pname = "rustdesk-server";
-    version = "1.1.6";
+    version = "1.1.6-1";
     src = fetchFromGitHub ({
       owner = "rustdesk";
       repo = "rustdesk-server";
-      rev = "1.1.6";
+      rev = "1.1.6-1";
       fetchSubmodules = false;
-      sha256 = "sha256-GFrdZx6xy6A7QrFh7UQuKbwFh+ZI0FL9LU2YwyEiyUs=";
+      sha256 = "sha256-21PHplA0PGdXXakyt+50KFJHLpMvSBUqHnIxdYNnaB4=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./rustdesk-server-1.1.6/Cargo.lock;
+      lockFile = ./rustdesk-server-1.1.6-1/Cargo.lock;
       outputHashes = {
         "confy-0.4.0" = "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=";
         "async-speed-limit-0.3.1" = "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=";
