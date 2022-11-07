@@ -5,6 +5,7 @@
   imports = [ (modulesPath + "/installer/sd-card/sd-image-aarch64.nix") ];
 
   boot = {
+    kernelPackages = pkgs.linuxPackages_rpi4;
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
     # ttyAMA0 is the serial console broken out to the GPIO
     kernelParams = [
