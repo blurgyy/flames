@@ -83,9 +83,7 @@
       location = "center";
       plugins = [ pkgs.rofi-emoji ];
       theme = "catppuccin";
-      extraConfig = {
-        ssh-client = "waypipe ssh";
-      };
+      # extraConfig.ssh-client = "waypipe ssh";
     };
     alacritty = {
       enable = true;
