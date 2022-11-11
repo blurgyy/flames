@@ -212,11 +212,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ZbPP8Ivtc5DrpDy3LPF1dJr1IWh0CxEEM6gA8U2Qe+k=",
+            "sha256": "sha256-U0jDnr3mmo7sT+kon9Q++k7mSCHN2rzu26ADqNEWAGA=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211082213/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211102212/geoip.dat"
         },
-        "version": "202211082213"
+        "version": "202211102212"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -227,11 +227,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-NCBKCDTipviruAJ189oWg4oVoc7Ijqjp1Zvrop8w2BM=",
+            "sha256": "sha256-cFZal1sEJrTZzOUAQk4C5kT4LHCf43ktLCZvE9Re7vI=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211082213/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211102212/geosite.dat"
         },
-        "version": "202211082213"
+        "version": "202211102212"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -470,7 +470,7 @@
     "zellij-hirr": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./zellij-hirr-v0.32.0/Cargo.lock",
+                "./zellij-hirr-v0.33.0/Cargo.lock",
                 {}
             ]
         },
@@ -486,10 +486,10 @@
             "name": null,
             "owner": "zellij-org",
             "repo": "zellij",
-            "rev": "v0.32.0",
-            "sha256": "sha256-AZSchcWYg9G7lps6EgupPksXbvKzrs8wlse1jsbC8Rs=",
+            "rev": "v0.33.0",
+            "sha256": "sha256-u+D7DKa2hb6kd6LPcJydkkChsPKW101bJWXx6C87rPs=",
             "type": "github"
         },
-        "version": "v0.32.0"
+        "version": "v0.33.0"
     }
 }
