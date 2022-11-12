@@ -238,7 +238,6 @@ require("bufferline").setup({
     diagnostics = "nvim_lsp",
   },
 })
-vim.cmd("autocmd TabEnter * :BufferLineSortByTabs")
 
 -- telescope
 require("telescope").setup({
