@@ -49,7 +49,8 @@ window#waybar.hidden {
   text-shadow: inherit;
 }
 
-#workspaces button.focused {
+#workspaces button.focused,
+#workspaces button.active {
   background: inherit;
   color: ${themeColor "foreground"};
   border-bottom: 4px solid ${themeColor "white"};
@@ -57,8 +58,9 @@ window#waybar.hidden {
   /* border-bottom: 5px solid #547daf; */
 }
 
-#workspaces button.focused:hover {
-  background-color: inherit;
+#workspaces button.focused:hover,
+#workspaces button.active:hover {
+  background-color: ${themeColor "lightgray"}
 }
 
 #workspaces button.urgent {
@@ -69,7 +71,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent:hover {
-  background-color: ${themeColor "darkgray"};
+  background-color: ${themeColor "red"};
 }
 
 /* https://stackoverflow.com/a/16344389/13482274 */

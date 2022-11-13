@@ -12,6 +12,7 @@
       "sway/window"
     ];
     modules-center = [
+      "wlr/workspaces"
       "sway/workspaces"
       "sway/mode"
       "custom/separator"
@@ -31,6 +32,24 @@
       "custom/separator"
       "tray"
     ];
+    "wlr/workspaces" = {
+      all-outputs = true;
+      format = "{icon}";
+      format-icons = {
+        "1" = "";
+        "2" = "";
+        "3" = "";
+        "8" = "";
+        "9" = "";
+        "10" = "";
+        "11" = "";
+        "16" = "";
+        urgent = "";
+        focused = "";
+        default = "";
+      };
+      active-only = false;  # whether to show only focused workspace
+    };
     "sway/workspaces" = {
       disable-scroll = true;
       all-outputs = true;
