@@ -24,6 +24,7 @@ in [
   (includeIf withSecrets inputs.sops-nix.nixosModules.sops)
 
   (includeIf (!headless) ./headful.nix)
+  (includeIf (!headless) ./gaming.nix)
 
   (includeIf isQemuGuest ({ lib, pkgs, modulesPath, ... }: {
     imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
