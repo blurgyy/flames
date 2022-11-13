@@ -36,6 +36,7 @@
     nix
     parallel
     patchelf
+    pciutils
     procs
     q-text-as-data
     ripgrep
