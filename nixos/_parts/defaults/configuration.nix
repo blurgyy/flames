@@ -140,7 +140,7 @@
     gcc
     htop
     file
-    strace lsof
+    pciutils strace lsof
     zip unzip unar
     jq libqalculate
     sops age
