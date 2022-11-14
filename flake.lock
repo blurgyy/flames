@@ -443,6 +443,27 @@
         "type": "github"
       }
     },
+    "hyprland": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "wlroots": "wlroots"
+      },
+      "locked": {
+        "lastModified": 1668369690,
+        "narHash": "sha256-XHk8F8Rb/Sqt0EEmAms5GWC9keyrL84Qfl2CCGIsMO0=",
+        "owner": "hyprwm",
+        "repo": "hyprland",
+        "rev": "0634abf168c2f4a6a418743cb1daa0d940271d59",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hyprwm",
+        "repo": "hyprland",
+        "type": "github"
+      }
+    },
     "impermanence": {
       "locked": {
         "lastModified": 1661933071,
@@ -870,6 +891,7 @@
         "colmena": "colmena",
         "flake-utils": "flake-utils_4",
         "home-manager": "home-manager",
+        "hyprland": "hyprland",
         "nbfc-linux": "nbfc-linux",
         "nickcao": "nickcao",
         "nix-std": "nix-std",
@@ -1016,6 +1038,24 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "wlroots": {
+      "flake": false,
+      "locked": {
+        "host": "gitlab.freedesktop.org",
+        "lastModified": 1668292512,
+        "narHash": "sha256-lCMnIguyZgAGq7W2IwIVPoQS8fAfZ/XFwz/1TQ53eI8=",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "rev": "627a5c511278e67c3c308cdc6a639cbb490f48c3",
+        "type": "gitlab"
+      },
+      "original": {
+        "host": "gitlab.freedesktop.org",
+        "owner": "wlroots",
+        "repo": "wlroots",
+        "type": "gitlab"
       }
     }
   },

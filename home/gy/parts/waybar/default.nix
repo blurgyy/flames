@@ -1,6 +1,6 @@
 { pkgs, callWithHelpers }: {
   enable = true;
-  package = pkgs.waybar-experimental.overrideAttrs (o: {
+  package = pkgs.waybar-hyprland.overrideAttrs (o: {
     src = pkgs.fetchFromGitHub {
       owner = "Alexays";
       repo = "Waybar";

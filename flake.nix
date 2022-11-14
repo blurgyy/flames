@@ -14,6 +14,7 @@
     nvfetcher = { url = "github:berberman/nvfetcher"; };
     colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
 
+    hyprland = { url = "github:hyprwm/hyprland"; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";
     carinae.url = "github:NickCao/carinae";
@@ -30,6 +31,7 @@
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
       overlays = [
+        inputs.hyprland.overlays.default
         self.overlays.default
       ];
     };
