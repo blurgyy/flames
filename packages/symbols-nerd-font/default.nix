@@ -3,7 +3,9 @@
 }: stdenv.mkDerivation {
   inherit (source) pname version src;
 
+  buildInputs = [ unzip ];
   phases = [ "unpackPhase" "installPhase" ];
+
   unpackPhase = ''
     ${unzip}/bin/unzip $src
   '';
