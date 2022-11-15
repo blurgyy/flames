@@ -179,6 +179,14 @@
       };
     };
   };
+  simple-icons = {
+    pname = "simple-icons";
+    version = "7.19.0";
+    src = fetchurl {
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/7.19.0/simple-icons-font-7.19.0.zip";
+      sha256 = "sha256-KqqPoU4YefDJo0547wdzarbT4ZUytbM74wxR/Vy35EA=";
+    };
+  };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
     version = "v2.2.2";

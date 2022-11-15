@@ -297,6 +297,21 @@
         },
         "version": "1.1.6-1"
     },
+    "simple-icons": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "simple-icons",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-KqqPoU4YefDJo0547wdzarbT4ZUytbM74wxR/Vy35EA=",
+            "type": "url",
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/7.19.0/simple-icons-font-7.19.0.zip"
+        },
+        "version": "7.19.0"
+    },
     "symbols-nerd-font": {
         "cargoLocks": null,
         "date": null,
