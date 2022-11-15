@@ -1,15 +1,50 @@
-{ pkgs, themeColor, name }: with pkgs; {
+{ pkgs, themeColor, name }: with pkgs; let
+  workspaceModule = {
+    disable-scroll = true;
+    all-outputs = true;
+    format = "{icon}";
+    format-icons = {
+      "1" = "";
+      "2" = "";
+      "3" = "";
+      "8" = "";
+      "9" = "";
+      "10" = "";
+      "11" = "";
+      "16" = "";
+      urgent = "";
+      focused = "";
+      default = "";
+    };
+    persistent_workspaces = {
+      "1" = [];
+    };
+    active-only = false;  # whether to show only focused workspace
+    sort-by-number = true;
+    on-click = "activate";
+  };
+  windowModule = {
+    icon = false;
+    rewrite = {
+      "^\\[(\\S+)(\\s?.*?)\\s+@ (/.*?)\\] @ ([\\w-_\\.]+)$" = "<span weight='bold' foreground='${themeColor "green"}'>$4</span>:<span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$1</span>$2 @ <span underline='single'>$3</span><span foreground='${themeColor "yellow"}'>]</span>";
+      "^Zellij \\(.*@(.*)\\) - (\\S+)(\\s?.*?)\\s+@ (/.*?)$" = "<span weight='bold' foreground='${themeColor "green"}'>$1</span><span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$2</span>$3 @ <span underline='single'>$4</span><span foreground='${themeColor "yellow"}'>]</span>";
+      "^/home/gy/Zotero/storage/[A-Z0-9]{8}/(.*)$" = "$1";
+      "(.*) .*? Mozilla Firefox$" = "$1";
+    };
+  };
+in {
   mainBar = {
     posiiton = "top";
     margin-top = 4;
     margin-left = 12;
     margin-right = 12;
     height = 36;
-    layer = "bottom";
+    layer = "top";
     modules-left = [
       "custom/menu"
       "custom/separator"
       "sway/window"
+      "hyprland/window"
     ];
     modules-center = [
       "wlr/workspaces"
@@ -32,54 +67,10 @@
       "custom/separator"
       "tray"
     ];
-    "wlr/workspaces" = {
-      all-outputs = true;
-      format = "{icon}";
-      format-icons = {
-        "1" = "";
-        "2" = "";
-        "3" = "";
-        "8" = "";
-        "9" = "";
-        "10" = "";
-        "11" = "";
-        "16" = "";
-        urgent = "";
-        focused = "";
-        default = "";
-      };
-      active-only = false;  # whether to show only focused workspace
-    };
-    "sway/workspaces" = {
-      disable-scroll = true;
-      all-outputs = true;
-      format = "{icon}";
-      format-icons = {
-        "1" = "";
-        "2" = "";
-        "3" = "";
-        "8" = "";
-        "9" = "";
-        "10" = "";
-        "11" = "";
-        "16" = "";
-        urgent = "";
-        focused = "";
-        default = "";
-      };
-      persistent_workspaces = {
-        "1" = [];
-      };
-    };
-    "sway/window" = {
-      icon = false;
-      rewrite = {
-        "^\\[(\\S+)(\\s?.*?)\\s+@ (/.*?)\\] @ ([\\w-_\\.]+)$" = "<span weight='bold' foreground='${themeColor "green"}'>$4</span>:<span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$1</span>$2 @ <span underline='single'>$3</span><span foreground='${themeColor "yellow"}'>]</span>";
-        "^Zellij \\(.*@(.*)\\) - (\\S+)(\\s?.*?)\\s+@ (/.*?)$" = "<span weight='bold' foreground='${themeColor "green"}'>$1</span><span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$2</span>$3 @ <span underline='single'>$4</span><span foreground='${themeColor "yellow"}'>]</span>";
-        "^/home/gy/Zotero/storage/[A-Z0-9]{8}/(.*)$" = "$1";
-        "(.*) .*? Mozilla Firefox$" = "$1";
-      };
-    };
+    "wlr/workspaces" = workspaceModule;
+    "sway/workspaces" = workspaceModule;
+    "sway/window" = windowModule;
+    "hyprland/window" = windowModule;
     "sway/mode" = {
       format = "mode: {}";
     };
