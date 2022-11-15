@@ -60,8 +60,7 @@ window#waybar.hidden {
 
 #workspaces button.focused:hover,
 #workspaces button.active:hover {
-  background-color: inherit;
-  color: ${themeColor "yellow"};
+  background-color: ${themeColor "darkgray"};
 }
 
 #workspaces button.urgent {
