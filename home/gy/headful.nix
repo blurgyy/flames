@@ -38,8 +38,10 @@
     libnotify
     logseq
     meshlab
+    obs-studio
     rustdesk-with-x11-desktopentry
     tdesktop-megumifox
+    wf-recorder
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wpsoffice-cn
     xfce.thunar
