@@ -1,5 +1,6 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.steam.enable = true;
+  environment.systemPackages = with pkgs; [ minecraft ];
   networking.firewall-tailored = {
     acceptedPorts = [{
       port = 27036;
