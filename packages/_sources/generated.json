@@ -461,11 +461,11 @@
             "name": null,
             "owner": "muety",
             "repo": "wakapi",
-            "rev": "2.5.2",
-            "sha256": "sha256-UZa5q1efERlSny9eyXDECtg4iCRTCXYomaYq3m5Dc2E=",
+            "rev": "2.5.3",
+            "sha256": "sha256-KwOPIMtmy7ldNi34te0KY5RNIFfb7wOl/lVe+a7t/a0=",
             "type": "github"
         },
-        "version": "2.5.2"
+        "version": "2.5.3"
     },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,

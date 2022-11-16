@@ -269,13 +269,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.5.2";
+    version = "2.5.3";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.5.2";
+      rev = "2.5.3";
       fetchSubmodules = false;
-      sha256 = "sha256-UZa5q1efERlSny9eyXDECtg4iCRTCXYomaYq3m5Dc2E=";
+      sha256 = "sha256-KwOPIMtmy7ldNi34te0KY5RNIFfb7wOl/lVe+a7t/a0=";
     });
   };
   xtables-addons-perl-scripts = {
