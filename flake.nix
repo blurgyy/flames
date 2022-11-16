@@ -31,7 +31,9 @@
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
       overlays = [
-        inputs.hyprland.overlays.default
+        (final: prev: {
+          inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;
+        })
         self.overlays.default
       ];
     };
