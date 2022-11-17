@@ -1,5 +1,5 @@
 { pkgs, lib }: with builtins; rec {
-  mergeAttrList = attrList: foldl' (x: y: x // y) {} attrList;
+  mergeAttrsList = attrList: foldl' (x: y: x // y) {} attrList;
 
   nordColor = id: let
     colors = {
@@ -108,7 +108,7 @@
       (x: x ? name && x ? value)
       (mirrorSingleDirAsXdgInner pathPrefix path));
   in
-    pathPrefix: paths: foldl' (x: y: x // y) {} (map
+    pathPrefix: paths: mergeAttrsList (map
       (path: mirrorDirAsXdg pathPrefix path)
       paths);
   manifestXdgConfigFilesFrom = dir: mirrorDirsAsXdg dir (map

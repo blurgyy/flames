@@ -1,4 +1,4 @@
-{ lib, name }: {
+{ lib, name, mergeAttrsList }: {
   enable = true;
   controlMaster = "auto";
   controlPath = "~/.ssh/master-%r@%n:%p";
@@ -27,7 +27,7 @@
     shared-relay = { hostname = relay; port = 10025; };
 
     applyHostname = hostnames: map (hostname: { ${hostname} = { inherit hostname; }; }) hostnames;
-  in (builtins.foldl' (x: y: x // y) {} (applyHostname [
+  in (mergeAttrsList (applyHostname [
     "cindy"
     "cube"
     "hooper"
