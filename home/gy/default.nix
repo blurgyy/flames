@@ -3,7 +3,6 @@
     inherit system;
     config.allowUnfree = true;
     overlays = [
-      self.overlays.default
       (final: prev: {
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
@@ -22,6 +21,7 @@
           #});
         });
       })
+      self.overlays.default
     ];
   };
   lib = nixpkgs.lib;
