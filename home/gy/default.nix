@@ -27,7 +27,7 @@
   lib = nixpkgs.lib;
   myName = "gy";
   myHome = "/home/${myName}";
-  helpers = import ./helpers.nix { inherit lib; };
+  helpers = import ./helpers.nix { inherit pkgs lib; };
   callWithHelpers = path: overrides: with builtins; let
     f = import path;
     args = (intersectAttrs (functionArgs f) { inherit pkgs lib name callWithHelpers; } // overrides);

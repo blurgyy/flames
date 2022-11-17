@@ -1,4 +1,4 @@
-{ lib }: with builtins; rec {
+{ pkgs, lib }: with builtins; rec {
   mergeAttrList = attrList: foldl' (x: y: x // y) {} attrList;
 
   nordColor = id: let
@@ -79,8 +79,15 @@
     colors."${name}";
 
   mirrorDirsAsXdg = let
-    loadFile = path: if lib.hasSuffix ".asnix" path
-      then import path
+    loadFile = with builtins; path: if lib.hasSuffix ".asnix" path
+      then let
+        f = import path;
+        type = typeOf f;
+      in if type == "lambda"
+        then let
+            args = (intersectAttrs (functionArgs f) { inherit pkgs lib themeColor; });
+          in f args
+        else f
       else readFile path;
     mirrorSingleDirAsXdgInner = pathPrefix: path: mapAttrs
         (subPath: type:
