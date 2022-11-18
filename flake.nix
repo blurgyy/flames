@@ -38,6 +38,7 @@
       ];
     };
   in rec {
+    pkgsInUse = pkgs;  # For use in hydra jobsets (`pkgs.${system}`)
     packages = my.packages pkgs;
     apps.gpustat = let
       gpustat-wrapped = pkgs.writeShellScriptBin "gpustat" ''

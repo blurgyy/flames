@@ -2,14 +2,8 @@
 , system
 , ignoredPkgs ? []
 }: with builtins; let
+  pkgs = (getFlake "gitlab:highsunz/flames").pkgsInUse.${system};
   this = import ../../../packages;
-  nixpkgsArgs = {
-    inherit system;
-    config.allowUnfree = true;
-    config.inHydra = true;
-    overlays = [ this.overlay ];
-  };
-  pkgs = import <nixpkgs> nixpkgsArgs;
   packages = this.packages pkgs;
 in 
   removeAttrs (this.filterAttrs
