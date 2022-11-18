@@ -81,7 +81,7 @@
     },
     "fish-plugin-catppuccin": {
         "cargoLocks": null,
-        "date": "2022-10-11",
+        "date": "2022-11-18",
         "extract": null,
         "name": "fish-plugin-catppuccin",
         "passthru": null,
@@ -93,11 +93,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "fish",
-            "rev": "0fd0c48a844636c6082f633cc4f2800abb4b6413",
-            "sha256": "sha256-GLb1BkN0nQ4M60JcVIGMnr9C7RKhpev5FUoQjZS5G2A=",
+            "rev": "8d0b07ad927f976708a1f875eb9aacaf67876137",
+            "sha256": "sha256-/JIKRRHjaO2jC0NNPBiSaLe8pR2ASv24/LFKOJoZPjk=",
             "type": "github"
         },
-        "version": "0fd0c48a844636c6082f633cc4f2800abb4b6413"
+        "version": "8d0b07ad927f976708a1f875eb9aacaf67876137"
     },
     "fish-plugin-tide": {
         "cargoLocks": null,
@@ -212,11 +212,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-U0jDnr3mmo7sT+kon9Q++k7mSCHN2rzu26ADqNEWAGA=",
+            "sha256": "sha256-aw9PSSFcul7YZsw8Tqc2GRJLc0sm//A7fRf+M2ZJfhg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211162211/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211172211/geoip.dat"
         },
-        "version": "202211162211"
+        "version": "202211172211"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -227,11 +227,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Zm+zhoBcN6TdDpfCiDxOb6EPsCwQSSfUAxgxr/7NxtQ=",
+            "sha256": "sha256-RXw7JA6TusuJiyinj5p61hEDWNyZ2mmFKBOFk+r1aNY=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211162211/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211172211/geosite.dat"
         },
-        "version": "202211162211"
+        "version": "202211172211"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
