@@ -35,6 +35,7 @@ in [
     imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     documentation.nixos.enable = lib.mkDefault true;
+    environment.systemPackages = with pkgs; [ man-pages man-pages-posix ];
   }))
 
   (includeIf withBinfmtEmulation ({ lib, pkgs, ... }: {
