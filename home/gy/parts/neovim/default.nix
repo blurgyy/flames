@@ -82,7 +82,7 @@
   '';
   extraPackages = with pkgs; [
     ccls
-    clang
+    clang-tools
     ctags
     nil
     pyright
