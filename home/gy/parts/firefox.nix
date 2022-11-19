@@ -15,14 +15,20 @@
   package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {
     forceWayland = true;
     extraPolicies = {
+      DisableTelemetry = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = false;
       PasswordManagerEnabled = false;
       DisableFirefoxAccounts = false;
-      DisablePocket = true;
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
         Cryptomining = true;
         Fingerprinting = true;
+      };
+      UserMessaging = {
+        ExtensionRecommendations = false;
+        SkipOnboarding = true;
       };
       Preferences = {
         "browser.newtab.extensionControlled" = false;
