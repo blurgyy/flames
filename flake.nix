@@ -25,20 +25,21 @@
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }: let
     my = import ./packages;
   in flake-utils.lib.eachDefaultSystem (system: let
+    overlaysInUse = [
+      (final: prev: {
+        inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;
+      })
+      self.overlays.default
+    ];
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
-      overlays = [
-        (final: prev: {
-          inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;
-        })
-        self.overlays.default
-      ];
+      overlays = overlaysInUse;
     };
   in rec {
-    pkgsInUse = pkgs;  # For use in hydra jobsets (`pkgs.${system}`)
+    inherit overlaysInUse;  # For use in hydra jobsets (`overlays.${system}`)
     packages = my.packages pkgs;
     apps.gpustat = let
       gpustat-wrapped = pkgs.writeShellScriptBin "gpustat" ''
