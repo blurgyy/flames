@@ -97,6 +97,8 @@
     waybar = callWithHelpers ./parts/waybar {};
   };
   home.sessionVariables = {
+    XCURSOR_THEME = config.home.pointerCursor.name;
+    XCURSOR_SIZE = toString config.home.pointerCursor.size;
     XDG_SESSION_DESKTOP = "sway";
     QT_QPA_PLATFORM = "wayland";
     CLUTTER_BACKEND = "wayland";
