@@ -370,7 +370,7 @@ local caps = require("cmp_nvim_lsp").default_capabilities(
 )
 local enabled_lsps = {
   "bashls",
-  "ccls",
+  "clangd",
   "pyright",
   "nil_ls",
   "rust_analyzer",
@@ -493,7 +493,7 @@ null_ls.setup({
   sources = {
     -- null_ls.builtins.formatting.stylua,
     -- null_ls.builtins.completion.spell,
-    null_ls.builtins.formatting.clang_format,
+    -- null_ls.builtins.formatting.clang_format,
     -- Custom sh/bash/zsh script formatter
     h.make_builtin({
       name = "shfmt",
