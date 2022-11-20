@@ -446,7 +446,7 @@
     "hyprland": {
       "inputs": {
         "nixpkgs": [
-          "nixpkgs"
+          "libdrm-nixpkgs"
         ],
         "wlroots": "wlroots"
       },
@@ -501,6 +501,22 @@
       "original": {
         "owner": "NickCao",
         "repo": "knot-sys",
+        "type": "github"
+      }
+    },
+    "libdrm-nixpkgs": {
+      "locked": {
+        "lastModified": 1668898345,
+        "narHash": "sha256-+KjrGwpHra/1HNgKvz7YgxtQ5ZORlNh5DsZCl4rgGZw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5b5f2e1e0786ecf3b70dc0c9d2d3220bef973180",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "pull/201977/head",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
@@ -892,6 +908,7 @@
         "flake-utils": "flake-utils_4",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "libdrm-nixpkgs": "libdrm-nixpkgs",
         "nbfc-linux": "nbfc-linux",
         "nickcao": "nickcao",
         "nix-std": "nix-std",
