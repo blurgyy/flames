@@ -451,11 +451,11 @@
         "wlroots": "wlroots"
       },
       "locked": {
-        "lastModified": 1668886636,
-        "narHash": "sha256-T6+vLjaU34xIb+Fc3sL0YrqHX/hBSndn327b1IlG6Xo=",
+        "lastModified": 1668958451,
+        "narHash": "sha256-ieFtyVWTjhPTblmYOAqIW1BC9iwmc2LcMNOcetYTQr4=",
         "owner": "hyprwm",
         "repo": "hyprland",
-        "rev": "c03e4c36b0796e5ab49768e28183a4aecb257bb5",
+        "rev": "11e841580fdd630e8cfd32c2a7d89f71999cb67a",
         "type": "github"
       },
       "original": {
