@@ -14,9 +14,7 @@
     nvfetcher = { url = "github:berberman/nvfetcher"; };
     colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
 
-    libdrm-nixpkgs.url = "github:nixos/nixpkgs/pull/201977/head";
-
-    hyprland = { url = "github:hyprwm/hyprland"; inputs.nixpkgs.follows = "libdrm-nixpkgs"; };
+    hyprland = { url = "github:hyprwm/hyprland"; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";
     carinae.url = "github:NickCao/carinae";
