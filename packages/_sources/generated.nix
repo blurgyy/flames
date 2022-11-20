@@ -181,10 +181,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "7.19.0";
+    version = "7.20.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/7.19.0/simple-icons-font-7.19.0.zip";
-      sha256 = "sha256-KqqPoU4YefDJo0547wdzarbT4ZUytbM74wxR/Vy35EA=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/7.20.0/simple-icons-font-7.20.0.zip";
+      sha256 = "sha256-9k+PWzbZc31SZMeHhkkXK+1moMH9dU07JTjZdrdUa80=";
     };
   };
   symbols-nerd-font = {
