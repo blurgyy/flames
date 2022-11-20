@@ -1,0 +1,21 @@
+{ pkgs, ricing }: let
+  inherit (ricing) wallpaper;
+in ''
+# Format:
+# preload = <path1>
+# preload = <path2>
+# ...
+# wallpaper = <monitor>,<path1>
+# wallpaper = <monitor2>,<path2>
+# wallpaper = ,<path>
+# ...
+#
+# Note:
+# No space between comma and <path> in `wallpaper =` line
+# Leave <monitor> empty to use <path> as deafult
+
+preload = ${wallpaper}
+wallpaper = ,${wallpaper}
+''
+
+# vim: ft=nix:

@@ -1,4 +1,4 @@
-{ config, pkgs, myHome, callWithHelpers, ... }: {  # For non-headless machines
+{ config, pkgs, lib, myHome, callWithHelpers, ... }: {  # For non-headless machines
   gtk = {
     enable = true;
     theme = {
@@ -20,7 +20,10 @@
     size = 24;
     gtk.enable = true;
   };
-  wayland.windowManager.sway = callWithHelpers ./parts/sway.nix { inherit config; };
+  wayland.windowManager = {
+    sway = callWithHelpers ./parts/sway.nix { inherit config; };
+    hyprland = callWithHelpers ./parts/hyprland.nix { inherit config; };
+  };
   fonts.fontconfig.enable = true;
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -146,14 +149,32 @@
     };
   };
   systemd.user = {
-    targets.sway-session.Unit.Wants = [
-      "thunar.service"
-      "systembus-notify.service"
-    ];
+    targets = let
+      wm-session-wants = [
+        "thunar.service"
+        "systembus-notify.service"
+      ];
+    in {
+      sway-session.Unit.Wants = wm-session-wants;
+    } // (lib.optionalAttrs config.wayland.windowManager.hyprland.enable {
+      hyprland-session.Unit.Wants = wm-session-wants;
+    });
     services.flameshot = {
       Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
     };
-    services.waybar.Unit.PartOf = [ "tray.target" ];
+    services.hyprpaper = lib.optionalAttrs config.wayland.windowManager.hyprland.enable {
+      Unit.X-Restart-Triggers = [ (with builtins; hashString "sha512" (readFile ./parts/mirrored/hypr/hyprpaper.conf.asnix)) ];
+      Service = {
+        ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
+        Restart = "always";
+      };
+      Install.WantedBy = [ "hyprland-session.target" ];
+    };
+    services.waybar = {
+      Service.Environment = [ "PATH=${lib.makeBinPath [ pkgs.hyprland-XDG_CURRENT_DESKTOP-sway ]}" ];
+      Install.WantedBy = [ "graphical-session.target" ]
+        ++ (lib.optional config.wayland.windowManager.hyprland.enable "hyprland-session.target");
+    };
   };
 
   services = {

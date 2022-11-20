@@ -1,5 +1,7 @@
 { lib, pkgs, config, ricing }: let
   inherit (ricing) themeColor;
+  themeColorTransparency = "cc";
+  transparentThemeColor = name: "${themeColor name}${themeColorTransparency}";
 in {
   global = {
     # Which monitor should the notifications be displayed on.
@@ -313,28 +315,28 @@ in {
     mouse_right_click = "close_current";
   };
   urgency_low = {
-    background = themeColor "background";
+    background = transparentThemeColor "background";
     foreground = themeColor "foreground";
-    frame_color = themeColor "background";
+    frame_color = transparentThemeColor "background";
     timeout = 10;
   };
   urgency_normal = {
-    background = themeColor "background";
+    background = transparentThemeColor "background";
     foreground = themeColor "foreground";
-    highlight = themeColor "blue";
+    highlight = transparentThemeColor "blue";
     timeout = 10;
   };
   urgency_critical = {
-    background = themeColor "background";
+    background = transparentThemeColor "background";
     foreground = themeColor "foreground";
-    frame_color = themeColor "orange";
-    highlight = themeColor "blue";
+    frame_color = transparentThemeColor "orange";
+    highlight = transparentThemeColor "blue";
     timeout = 0;
   };
   warning_message = {
     icon = "dialog-warning";
-    background = themeColor "background";
+    background = transparentThemeColor "background";
     foreground = themeColor "foreground";
-    frame_color = themeColor "orange";
+    frame_color = transparentThemeColor "orange";
   };
 }

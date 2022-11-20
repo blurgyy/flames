@@ -7,6 +7,16 @@
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
         inherit (inputs.nixgl.packages.${system}) nixGLIntel;
+        inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;
+        inherit (inputs.hyprpaper.packages.${system}) hyprpaper;
+        hypr-execonce-helper = inputs.hypr-execonce-helper.packages.${system}.default;
+        hyprland-XDG_CURRENT_DESKTOP-sway = inputs.hyprland.packages.${system}.hyprland.overrideAttrs (o: {
+          # set XDG_CURRENT_DESKTOP to sway and export it to systemd and dbus to use flameshot
+          # properly
+          postPatch = ''
+            sed -Ee 's/"XDG_CURRENT_DESKTOP", "Hyprland"/"XDG_CURRENT_DESKTOP", "sway"/' -i src/Compositor.cpp 
+          '';
+        });
         vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
           vim-wakatime = prevPlugins.vim-wakatime.overrideAttrs (o: {
             patches = o.patches or [] ++ [ ./vim-wakatime-disdable-interactive-secret-prompt.patch ];
@@ -39,6 +49,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   modules = [
     ./home.nix
     (lib.optionalAttrs (!headless) ./headful.nix)
+    (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
     { home.stateVersion = "22.11"; }
   ];
   extraSpecialArgs = {
