@@ -11,6 +11,16 @@
     name = "cozy.jpg";
     hash = "sha256-L5v9S6aXo4fbEZOHLnIC04xJc6C0/pW8S8sXF+GW7rY=";
   };
+  cats = pkgs.fetchurl {
+    url = "https://i.redd.it/3wdudrbvap0a1.png";
+    name = "cats.png";
+    hash = "sha256-zkbzVUjhixbiiE7N8uvVuIbTdU79XWy57tY19ZlwTBU";
+  };
+  spacecraft = pkgs.fetchurl {
+    url = "https://i.redd.it/iau1mmmtig991.jpg";
+    name = "spacecraft.jpg";
+    hash = "sha256-PDkbNlvzB5MBcm0Z74vBLaCM0Qf+D6E6k9IJ14FK+7c=";
+  };
 
   ricing.wallpaper = cozy;
 
