@@ -1,4 +1,6 @@
-{ themeColor }: ''
+{ ricing }: let
+  inherit (ricing) themeColor;
+in ''
 @define-color nocolor rgba(0, 0, 0, 0);
 * {
   min-height: 0;

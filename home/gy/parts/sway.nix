@@ -1,11 +1,6 @@
-{ pkgs, config, themeColor }: let
+{ pkgs, config, ricing }: let
   terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
-  forest = pkgs.fetchurl {
-    url = "https://i.redd.it/a8kxowakxbe81.jpg";
-    name = "forest.jpg";
-    sha256 = "sha256-DINHeFo3VZbgVEUlJ/lvThvR5KWRXyKoNo6Eo2jLYDw=";
-  };
-  bgimg = forest;
+  inherit (ricing) wallpaper themeColor;
 in {
   enable = true;
   xwayland = true;
@@ -293,7 +288,7 @@ in {
     };
     output = {
       "*" = {
-        bg = "${bgimg} fill";
+        bg = "${wallpaper} fill";
         subpixel = "none";
         adaptive_sync = "off";
       };

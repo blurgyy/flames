@@ -1,6 +1,19 @@
 { pkgs, lib }: with builtins; rec {
   mergeAttrsList = attrList: foldl' (x: y: x // y) {} attrList;
 
+  forest = pkgs.fetchurl {
+    url = "https://i.redd.it/a8kxowakxbe81.jpg";
+    name = "forest.jpg";
+    hash = "sha256-DINHeFo3VZbgVEUlJ/lvThvR5KWRXyKoNo6Eo2jLYDw=";
+  };
+  cozy = pkgs.fetchurl {
+    url = "https://i.redd.it/0oui0mtf451a1.jpg";
+    name = "cozy.jpg";
+    hash = "sha256-L5v9S6aXo4fbEZOHLnIC04xJc6C0/pW8S8sXF+GW7rY=";
+  };
+
+  ricing.wallpaper = cozy;
+
   nordColor = id: let
     colors = {
       "0" = "#2e3440";
@@ -55,7 +68,7 @@
   in
     colors."${name}";
 
-  themeColor = name: let
+  ricing.themeColor = name: let
     colors = {
       background = catppuccinColor "base";
       foreground = catppuccinColor "text";
@@ -85,7 +98,7 @@
         type = typeOf f;
       in if type == "lambda"
         then let
-            args = (intersectAttrs (functionArgs f) { inherit pkgs lib themeColor; });
+            args = (intersectAttrs (functionArgs f) { inherit pkgs lib ricing; });
           in f args
         else f
       else readFile path;

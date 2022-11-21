@@ -1,4 +1,6 @@
-{ lib, pkgs, config, themeColor }: {
+{ lib, pkgs, config, ricing }: let
+  inherit (ricing) themeColor;
+in {
   global = {
     # Which monitor should the notifications be displayed on.
     monitor = 0;
