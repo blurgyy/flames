@@ -6,7 +6,7 @@
   src = fetchCrate {
     pname = "gpustat";
     inherit version;
-    sha256 = "sha256-TSqxHuvAcujCqJpGFItTOlfB0J9Bo8GZP3GkhKtgqQ0=";
+    hash = "sha256-TSqxHuvAcujCqJpGFItTOlfB0J9Bo8GZP3GkhKtgqQ0=";
   };
 
   meta = {

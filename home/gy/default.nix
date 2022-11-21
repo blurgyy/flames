@@ -16,7 +16,7 @@
           #    owner = "lewis6991";
           #    repo = "gitsigns.nvim";
           #    rev = "refs/tags/v0.5";
-          #    sha256 = "sha256-kyiQoboYq4iNLOj1iKA2cfXQ9FFiRYdvf55bX5Xvj8A=";
+          #    hash = "sha256-kyiQoboYq4iNLOj1iKA2cfXQ9FFiRYdvf55bX5Xvj8A=";
           #  };
           #});
         });

@@ -5,7 +5,7 @@
       owner = "Alexays";
       repo = "Waybar";
       rev = "master";
-      sha256 = "sha256-sR7RAVCODYtQsQzL0lxs0SbH+yZiKvE/TApuDsYM/Bw=";
+      hash = "sha256-sR7RAVCODYtQsQzL0lxs0SbH+yZiKvE/TApuDsYM/Bw=";
     };
   });
   settings = callWithHelpers ./settings.nix {};
