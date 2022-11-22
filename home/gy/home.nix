@@ -22,6 +22,7 @@
     git
     git-sync
     gnutar
+    hexyl
     htop
     hydra-check
     imagemagick
