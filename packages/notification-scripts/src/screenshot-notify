@@ -51,7 +51,7 @@ if [[ "$type" == "pixel" ]]; then
   fi
 elif [[ "$type" == "region" ]]; then
   if "$flameshot_bin" gui --raw >"$flameshot_raw_output" &&
-    [[ $(stat --format="%s" "flameshot_raw_output") -gt 0 ]]; then
+    [[ $(stat --format="%s" "$flameshot_raw_output") -gt 0 ]]; then
     # Only touch the clipboard if flameshot is not canceled
     "$cat_bin" "$flameshot_raw_output" | "$wlcopy_bin" --type image/png
   fi
