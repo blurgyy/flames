@@ -135,7 +135,7 @@
     git
     neovim
     zsh fish fzf
-    exa bat fd ripgrep procs dogdns
+    exa bat fd ripgrep procs dogdns hexyl
     gdu
     gcc
     htop
