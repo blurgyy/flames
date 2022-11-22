@@ -41,7 +41,7 @@ if [[ "$type" == "pixel" ]]; then
       cut -d' ' -f4 |
       tr -d '\n' |
       "$wlcopy_bin"
-    exec "$dunstify_bin" \
+    "$dunstify_bin" \
       --replace=-2 \
       --urgency=low \
       --timeout=5000 \
