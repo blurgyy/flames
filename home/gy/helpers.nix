@@ -16,9 +16,9 @@
     name = "cats.png";
     hash = "sha256-zkbzVUjhixbiiE7N8uvVuIbTdU79XWy57tY19ZlwTBU";
   };
-  spacecraft = pkgs.fetchurl {
+  gateway = pkgs.fetchurl {
     url = "https://i.redd.it/iau1mmmtig991.jpg";
-    name = "spacecraft.jpg";
+    name = "gateway.jpg";
     hash = "sha256-PDkbNlvzB5MBcm0Z74vBLaCM0Qf+D6E6k9IJ14FK+7c=";
   };
 
