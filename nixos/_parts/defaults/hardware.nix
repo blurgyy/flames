@@ -37,6 +37,9 @@
       "vm.vfs_cache_pressure" = 50;
       "vm.dirty_background_ratio" = 5;
       "vm.dirty_ratio" = 80;
+      # REF: <https://www.ibm.com/docs/de/smpi/10.2?topic=mpi-tuning-your-linux-system>
+      "net.core.wmem_default" = 2097152;
+      "net.core.wmem_max" = 4194304;
     };
     initrd = {
       inherit supportedFilesystems;
