@@ -132,7 +132,7 @@ in {
     "network#download" = {
       interface = if name == "gy@watson" then "enp0s20f0u4" else "w*";
       interval = 2;
-      format = "<span color='${themeColor "green"}'></span> {bandwidthDownBits}";
+      format = "<span color='${themeColor "green"}'></span> {bandwidthDownBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
       tooltip-format-wifi = " {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}";
       tooltip-format-ethernet = " {ifname}: {ipaddr}/{cidr}";
@@ -143,7 +143,7 @@ in {
     "network#upload" = {
       interface = if name == "gy@watson" then "enp0s20f0u4" else "w*";
       interval = 2;
-      format = "<span color='${themeColor "green"}'></span> {bandwidthUpBits}";
+      format = "<span color='${themeColor "green"}'></span> {bandwidthUpBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
       tooltip-format-wifi = " {essid} ({signalStrength}%)\n{ifname}: {ipaddr}/{cidr}";
       tooltip-format-ethernet = " {ifname}: {ipaddr}/{cidr}";
