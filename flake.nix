@@ -14,7 +14,6 @@
     nvfetcher = { url = "github:berberman/nvfetcher"; };
     colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
 
-    hyprland = { url = "github:hyprwm/hyprland"; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";
     carinae.url = "github:NickCao/carinae";
@@ -26,9 +25,6 @@
     my = import ./packages;
   in flake-utils.lib.eachDefaultSystem (system: let
     overlaysInUse = [
-      (final: prev: {
-        inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;
-      })
       self.overlays.default
     ];
     pkgs = import nixpkgs {
