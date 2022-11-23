@@ -15,7 +15,6 @@ flameshot_bin="@flameshot@/bin/flameshot"
 wlcopy_bin="@wl-clipboard@/bin/wl-copy"
 wlpaste_bin="@wl-clipboard@/bin/wl-paste"
 rm_bin="@coreutils@/bin/rm"
-diff_bin="@diffutils@/bin/diff"
 cat_bin="@coreutils@/bin/cat"
 
 type="${1:-full}"
@@ -48,7 +47,7 @@ if [[ "$type" == "pixel" ]]; then
       --timeout=5000 \
       --icon=applications-graphics-drawing \
       "Color picked (pixel)" \
-      "<tt><span background='$(wl-paste)' foreground='${negated}'>$(wl-paste)</span></tt>"
+      "<tt><span background='$("$wlpaste_bin")' foreground='${negated}'>$("$wlpaste_bin")</span></tt>"
   fi
 elif [[ "$type" == "region" ]]; then
   if "$flameshot_bin" gui --raw >"$flameshot_raw_output" &&
