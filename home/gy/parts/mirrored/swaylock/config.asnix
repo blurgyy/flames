@@ -1,0 +1,79 @@
+{ ricing }: let
+  inherit (ricing) themeColor;
+  themeColorHex = name: builtins.replaceStrings [ "#" ] [ "" ] (themeColor name);
+in ''
+##############################################################################
+# config for swaylock-effect #################################################
+##############################################################################
+
+# Use a screenshot as lock screen background
+screenshots
+
+# Show a clock in the center
+clock
+
+# Fork process to background
+daemonize
+
+show-failed-attempts
+
+# Do not unlock in grace period in response to a mouse event
+grace-no-mouse
+# Do not unlock in grace period in response to a touchpad event
+grace-no-touch
+
+# Use jointly with `grace` to only show indicator after grace period
+indicator-idle-visible
+
+# man:strftime(3)
+timestr=%H:%M
+datestr=%a, %b.%d
+
+font=condensed-sans-serif
+# font-size=36
+
+indicator-radius=128
+indicator-thickness=6
+
+effect-blur=16x9
+effect-vignette=0.5:0.5
+key-hl-color=${themeColorHex "gray"}44
+
+# Colors between border and inside of the indicator
+line-color=${themeColorHex "black"}
+line-clear-color=${themeColorHex "black"}
+line-ver-color=${themeColorHex "green"}
+line-wrong-color=${themeColorHex "black"}
+
+# Colors inside indicator
+inside-color=${themeColorHex "black"}aa
+inside-clear-color=${themeColorHex "black"}aa
+inside-caps-lock-color=${themeColorHex "black"}aa
+inside-ver-color=${themeColorHex "black"}aa
+inside-wrong-color=${themeColorHex "black"}aa
+
+# Colors of texts inside indicator
+text-color=${themeColorHex "white"}ff
+text-clear-color=${themeColorHex "green"}ff
+text-caps-lock-color=${themeColorHex "lightgray"}ff
+text-ver-color=${themeColorHex "cyan"}ff
+text-wrong-color=${themeColorHex "red"}ff
+
+# Colors on the border of indicator
+ring-color=${themeColorHex "white"}ff
+ring-clear-color=${themeColorHex "green"}ff
+ring-caps-lock-color=${themeColorHex "orange"}ff
+ring-ver-color=${themeColorHex "lightgray"}ff
+ring-wrong-color=${themeColorHex "red"}ff
+
+# On keyboard press
+key-hl-color=${themeColorHex "blue"}ff
+bs-hl-color=${themeColorHex "yellow"}ff
+
+# Require a password after 1s
+grace=0.2
+# Gradually fade into lock screen with blur/pixelate animation
+fade-in=0.2
+''
+
+# vim: ft=nix:
