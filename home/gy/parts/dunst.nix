@@ -160,7 +160,7 @@ in {
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<span color='#5e81ac' weight='bold'>%s</span>\\n%b";
+    format = "<span color='${themeColor "blue"}' weight='bold'>%s</span>\\n%b";
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
