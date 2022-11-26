@@ -10,6 +10,7 @@
     bat
     btop
     cachix
+    clang-tools
     dogdns
     exa
     exiftool
