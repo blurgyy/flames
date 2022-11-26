@@ -148,7 +148,7 @@ window#waybar.hidden {
 }
 
 #network {
-  min-width: 7em;
+  min-width: 6em;
   margin: 0;
 }
 #network.disconnected {
