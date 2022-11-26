@@ -1,13 +1,6 @@
 { pkgs, callWithHelpers }: {
   enable = true;
-  package = pkgs.waybar-hyprland.overrideAttrs (o: {
-    src = pkgs.fetchFromGitHub {
-      owner = "Alexays";
-      repo = "Waybar";
-      rev = "master";
-      hash = "sha256-sR7RAVCODYtQsQzL0lxs0SbH+yZiKvE/TApuDsYM/Bw=";
-    };
-  });
+  package = pkgs.waybar-hyprland;
   settings = callWithHelpers ./settings.nix {};
   style = callWithHelpers ./style.css.nix {};
   systemd = {
