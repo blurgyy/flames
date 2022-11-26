@@ -191,3 +191,15 @@ Trouble Shooting
   package installing (pacman installs system-level python packages like `python-catkin_pkg` to
   somewhere like
   `/nix/store/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-python3-3.10.6-env/lib/python3.10/site-packages/`).
+
+* In case the local nix store is corrupted, the corrupted path can be found via 
+  ```bash
+  $ nix store verify --all
+  ```
+  Then the found corrupted path can be repaired with
+  ```bash
+  $ sudo nix store repair /nix/store/<hash>-<name>
+  ```
+  > :warning:
+  >
+  > Consult the "Description" section of `nix store repair --help` for caveats of this approach.
