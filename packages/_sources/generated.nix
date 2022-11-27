@@ -127,18 +127,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202211252210";
+    version = "202211262210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211252210/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211262210/geoip.dat";
       sha256 = "sha256-KEj/NO2cVwFJRjgT7Ut0CJsHyHkudduWLypylOIZrSU=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202211252210";
+    version = "202211262210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211252210/geosite.dat";
-      sha256 = "sha256-WtRXDjx7B8cq4SnfuWlI9A1B0TIC2Yrx8DsK6xMcUTs=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202211262210/geosite.dat";
+      sha256 = "sha256-u7IzKCAV95SqK9hGxIaHTV4BELYcD4YICq5P+DHolqU=";
     };
   };
   luarock-dbus_proxy = {
@@ -181,10 +181,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "7.20.0";
+    version = "7.21.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/7.20.0/simple-icons-font-7.20.0.zip";
-      sha256 = "sha256-9k+PWzbZc31SZMeHhkkXK+1moMH9dU07JTjZdrdUa80=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/7.21.0/simple-icons-font-7.21.0.zip";
+      sha256 = "sha256-VF3apRq6AWVjcnRVgR+yezmxnkUoOE4+isU11fsh5v0=";
     };
   };
   symbols-nerd-font = {
