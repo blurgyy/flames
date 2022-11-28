@@ -33,9 +33,7 @@ in [
   }))
   (includeIf (!isQemuGuest) ({ lib, pkgs, modulesPath, ... }: {
     imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-    boot.kernelPackages = lib.mkDefault (if headless
-      then pkgs.linuxPackages_latest
-      else pkgs.linuxPackages_zen);
+    boot.kernelPackages = lib.mkDefault pkgs.linuxPackages_latest;
     documentation.nixos.enable = lib.mkDefault true;
     environment.systemPackages = with pkgs; [ man-pages man-pages-posix ];
   }))
