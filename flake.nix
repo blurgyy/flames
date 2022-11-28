@@ -15,7 +15,7 @@
     colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
 
     hyprland = { url = "github:hyprwm/hyprland"; inputs.nixpkgs.follows = "nixpkgs"; };
-    hypr-execonce-helper = { url = "gitlab:highsunz/hypr-execonce-helper"; inputs.nixpkgs.follows = "nixpkgs"; };
+    hypr-msg-handler = { url = "gitlab:highsunz/hypr-msg-handler"; inputs.nixpkgs.follows = "nixpkgs"; };
     hyprpaper = { url = "github:hyprwm/hyprpaper"; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";

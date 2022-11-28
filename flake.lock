@@ -114,16 +114,16 @@
       "inputs": {
         "flake-utils": "flake-utils_5",
         "nixpkgs": [
-          "hypr-execonce-helper",
+          "hypr-msg-handler",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1669445715,
-        "narHash": "sha256-XxHjxI8LTIB9bkzp1Kcnnznkh4h13c/0XThP1h9dbRA=",
+        "lastModified": 1669615486,
+        "narHash": "sha256-mwX30FRBgqpIH6hNmC+Ts01AxmbAMkAhHGSs6pCnpro=",
         "owner": "highsunz",
         "repo": "cli2b",
-        "rev": "4e09809b444f22338963076180a27a9a52859631",
+        "rev": "fe7d87e44345cd328fa3445b03ec2b373a8b0d25",
         "type": "gitlab"
       },
       "original": {
@@ -517,7 +517,7 @@
         "type": "github"
       }
     },
-    "hypr-execonce-helper": {
+    "hypr-msg-handler": {
       "inputs": {
         "cli2b": "cli2b",
         "flake-utils": "flake-utils_6",
@@ -526,16 +526,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1669460248,
-        "narHash": "sha256-ZN2eod4FnFrwevaPT13YJ9+M/SSPmqefYwFsdsvRbyc=",
+        "lastModified": 1669618306,
+        "narHash": "sha256-tJDQB1XADxTkUcR9xqrAK+bd+xuTxkcvjhNH7BI9a0g=",
         "owner": "highsunz",
-        "repo": "hypr-execonce-helper",
-        "rev": "806724178ab188a4992afd66182a28f1f8eba5b0",
+        "repo": "hypr-msg-handler",
+        "rev": "a874987d1e49815ed537e7ebff73a27689e8b59a",
         "type": "gitlab"
       },
       "original": {
         "owner": "highsunz",
-        "repo": "hypr-execonce-helper",
+        "repo": "hypr-msg-handler",
         "type": "gitlab"
       }
     },
@@ -1008,7 +1008,7 @@
         "colmena": "colmena",
         "flake-utils": "flake-utils_4",
         "home-manager": "home-manager",
-        "hypr-execonce-helper": "hypr-execonce-helper",
+        "hypr-msg-handler": "hypr-msg-handler",
         "hyprland": "hyprland",
         "hyprpaper": "hyprpaper",
         "nbfc-linux": "nbfc-linux",

@@ -12,6 +12,7 @@ in {
   recommendedEnvironment = true;
   extraConfig = let
     hypr-execonce-helper = "${pkgs.hypr-execonce-helper}";
+    hypr-last-workspace-recorder = "${pkgs.hypr-last-workspace-recorder}";
     backlight-notify = "${pkgs.notification-scripts}/bin/backlight-notify";
     volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
     screenshot-notify = "${pkgs.notification-scripts}/bin/screenshot-notify";
@@ -24,6 +25,9 @@ in {
     $mainMod = SUPER
 
     exec-once = hyprctl setcursor ${with config.home.pointerCursor; "${name} ${toString size}"}
+
+    # Record last workspace for later use with $mainMod+tab
+    exec-once = ${hypr-last-workspace-recorder}
 
     # Workspace assignments for applications that does not autostart on hyprland launch
     windowrulev2 = workspace 2, class:^chromium-browser$
@@ -253,7 +257,7 @@ in {
     bind = $mainMod, minus, togglespecialworkspace,
 
     # Relative **active** workspace navigating
-    bind = $mainMod, tab, workspace, previous
+    bind = $mainMod, tab, exec, hyprctl dispatch workspace $(cat /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.last-workspace)
     # Relative **active** workspace navigating
     bind = $mainMod, bracketleft, workspace, e-1
     bind = $mainMod, bracketright, workspace, e+1

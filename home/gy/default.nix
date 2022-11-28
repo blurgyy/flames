@@ -9,7 +9,7 @@
         inherit (inputs.nixgl.packages.${system}) nixGLIntel;
         inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;
         inherit (inputs.hyprpaper.packages.${system}) hyprpaper;
-        hypr-execonce-helper = inputs.hypr-execonce-helper.packages.${system}.default;
+        inherit (inputs.hypr-msg-handler.packages.${system}) hypr-execonce-helper hypr-last-workspace-recorder;
         hyprland-XDG_CURRENT_DESKTOP-sway = inputs.hyprland.packages.${system}.hyprland.overrideAttrs (o: {
           # set XDG_CURRENT_DESKTOP to sway and export it to systemd and dbus to use flameshot
           # properly
