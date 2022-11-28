@@ -103,7 +103,7 @@ in {
 
     binds {
       allow_workspace_cycles = true
-      workspace_back_and_forth = true
+      workspace_back_and_forth = false  # obsolete with hypr-last-workspace-recorder
     }
 
     decoration {
