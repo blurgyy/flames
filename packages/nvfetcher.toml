@@ -55,7 +55,7 @@ src.github_tag = "stefano-m/lua-dbus_proxy"
 fetch.github = "stefano-m/lua-dbus_proxy"
 
 [nftables-geoip-db]
-src.cmd = "date +'%Y-%m'"
+src.cmd = "curl -L https://db-ip.com/db/download/ip-to-country-lite | grep 'Download IP to Country Lite CSV' | sed -Ee 's|^.*https://download.db-ip.com/free/dbip-country-lite-([0-9]{4}-[0-9]{2}).csv.gz.*$|\\1|'"
 fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
 
 [rustdesk-server]
