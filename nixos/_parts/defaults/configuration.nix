@@ -8,8 +8,7 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "root" "gy" ];
-      substituters = [
-        (lib.mkIf (config.time.timeZone == "Asia/Shanghai") "https://mirror.sjtu.edu.cn/nix-channels/store")
+      substituters = (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirrors.bfsu.edu.cn/nix-channels/store") ++ [
         "https://nixos-cn.cachix.org"
         "https://highsunz.cachix.org"
         "https://nix-community.cachix.org"
