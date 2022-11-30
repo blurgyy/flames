@@ -70,6 +70,8 @@ in {
     server = {
       enable = mkEnableOption "Tailored V2Ray service (as server)";
       logging = mkOption { type = loggingModule; default = {}; };
+      ports.http = mkOption { type = with types; oneOf [ str int ]; };
+      ports.socks = mkOption { type = with types; oneOf [ str int ]; };
       ports.api = mkOption { type = with types; oneOf [ str int ]; };
       ports.tcp = mkOption { type = with types; oneOf [ str int ]; };
       ports.wss = mkOption { type = with types; oneOf [ str int ]; };
@@ -116,29 +118,39 @@ in {
       owner = config.users.users.v2ray.name;
       group = config.users.groups.v2ray.name;
     };
-    networking.firewall-tailored = mkIf (cfg.client.enable || cfg.server.reverse != null) {
+    networking.firewall-tailored = mkIf (cfg.client.enable || cfg.server.enable || cfg.server.reverse != null) {
       enable = true;
-      acceptedPorts = (if cfg.client.enable then [{
-        port = 9990;
+      acceptedPorts = (lib.optional cfg.client.enable {
+        port = cfg.client.ports.http;
         protocols = [ "tcp" ];
-        comment = "allow machines from private network ranges to access http proxy";
+        comment = "allow machines from private network ranges to access http proxy (vclient)";
         predicate = "ip saddr $private_range";
-      } {
-        port = 9999;
-        protocols = [ "tcp" ];
-        comment = "allow machines from private network ranges to access socks proxy";
-        predicate = "ip saddr $private_range";
-      }] else []) ++ (if cfg.server.reverse != null then [{
-        port = cfg.server.reverse.port;
-        protocols = [ "tcp" ];
-        comment = "allow traffic on V2Ray reverse proxy control channel";
-      }] else []);
-      referredServices = cfg.client.proxiedSystemServices;
-      extraRulesAfter = with builtins; with cfg.client; [''
+      }) ++ (lib.optional cfg.client.enable {
+            port = cfg.client.ports.socks;
+            protocols = [ "tcp" ];
+            comment = "allow machines from private network ranges to access socks proxy (vclient)";
+            predicate = "ip saddr $private_range";
+      }) ++ (lib.optional cfg.server.enable {
+          port = cfg.server.ports.http;
+          protocols = [ "tcp" ];
+          comment = "allow machines from private network ranges to access http proxy (vserver)";
+          predicate = "ip saddr $private_range";
+      }) ++ (lib.optional cfg.server.enable {
+            port = cfg.server.ports.socks;
+            protocols = [ "tcp" ];
+            comment = "allow machines from private network ranges to access socks proxy (vserver)";
+            predicate = "ip saddr $private_range";
+      }) ++ (lib.optional (cfg.server.reverse != null) {
+          port = cfg.server.reverse.port;
+          protocols = [ "tcp" ];
+          comment = "allow traffic on V2Ray reverse proxy control channel";
+      });
+      referredServices = mkIf cfg.client.enable cfg.client.proxiedSystemServices;
+      extraRulesAfter = with builtins; mkIf cfg.client.enable [''
 include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
 define proxy_bypassed_IPs = {
   ${concatStringsSep "," (cfg.client.proxyBypassedIPs
-    ++ (map (x: toString x.address) (filter (x: x.wsPath == null) remotes))
+    ++ (map (x: toString x.address) (filter (x: x.wsPath == null) cfg.client.remotes))
     ++ (if (cfg.server.reverse != null) then [ (toString cfg.server.reverse.port) ] else []))}
 }
 table ip transparent_proxy
@@ -155,9 +167,9 @@ table ip transparent_proxy {
       $proxy_bypassed_IPs,
     } return
 
-    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString fwMark} return
-    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString soMark} return
-    meta l4proto {tcp,udp} meta mark ${toString fwMark} tproxy to :${toString ports.tproxy}
+    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.fwMark} return
+    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.soMark} return
+    meta l4proto {tcp,udp} meta mark ${toString cfg.client.fwMark} tproxy to :${toString cfg.client.ports.tproxy}
   }
 
   chain output {
@@ -178,7 +190,7 @@ table ip transparent_proxy {
         )
       )
     } return
-    meta l4proto {tcp,udp} meta mark set ${toString fwMark} 
+    meta l4proto {tcp,udp} meta mark set ${toString cfg.client.fwMark} 
   }
 }''];
     };
