@@ -183,7 +183,7 @@ in {
       ];
       "10" = [
         { class = "TelegramDesktop|Element|discord|com.alibabainc.dingtalk|weixin"; }
-        { app_id = "telegramdesktop"; }
+        { app_id = "telegramdesktop|org.telegram.desktop"; }
       ];
       "11" = [
         { class = "GStreamer"; title = "rpiplay"; }

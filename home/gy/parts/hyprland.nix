@@ -32,7 +32,7 @@ in {
     # Workspace assignments for applications that does not autostart on hyprland launch
     windowrulev2 = workspace 2, class:^chromium-browser$
     windowrulev2 = workspace 3, class:^Logseq$
-    windowrulev2 = workspace 10, class:^telegramdesktop$
+    windowrulev2 = workspace 10, class:^(telegramdesktop|org.telegram.desktop)$
     windowrulev2 = workspace 16 silent, class:^Steam$
     windowrulev2 = workspace 32 silent, class:^minecraft-launcher$
 
