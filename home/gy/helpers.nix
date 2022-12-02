@@ -1,33 +1,33 @@
 { pkgs, lib }: with builtins; rec {
   mergeAttrsList = attrList: foldl' (x: y: x // y) {} attrList;
 
-  forest = pkgs.fetchurl {
+  forest-8k = pkgs.fetchurl {
     url = "https://i.redd.it/a8kxowakxbe81.jpg";
     name = "forest.jpg";
     hash = "sha256-DINHeFo3VZbgVEUlJ/lvThvR5KWRXyKoNo6Eo2jLYDw=";
   };
-  cozy = pkgs.fetchurl {
+  cozy-8k = pkgs.fetchurl {
     url = "https://i.redd.it/0oui0mtf451a1.jpg";
     name = "cozy.jpg";
     hash = "sha256-L5v9S6aXo4fbEZOHLnIC04xJc6C0/pW8S8sXF+GW7rY=";
   };
-  cats = pkgs.fetchurl {
+  cats-8k = pkgs.fetchurl {
     url = "https://i.redd.it/3wdudrbvap0a1.png";
     name = "cats.png";
     hash = "sha256-zkbzVUjhixbiiE7N8uvVuIbTdU79XWy57tY19ZlwTBU";
   };
-  gateway = pkgs.fetchurl {
+  gateway-8k = pkgs.fetchurl {
     url = "https://i.redd.it/iau1mmmtig991.jpg";
     name = "gateway.jpg";
     hash = "sha256-PDkbNlvzB5MBcm0Z74vBLaCM0Qf+D6E6k9IJ14FK+7c=";
   };
-  winter = pkgs.fetchurl {
+  winter-4k = pkgs.fetchurl {
     url = "https://i.redd.it/mqjnbna9y53a1.jpg";
     name = "winter.jpg";
     hash = "sha256-JDXYkEaCeHsIft34uwkk6eJcNN9NgSLkM9JqM+ocnNs=";
   };
 
-  ricing.wallpaper = cozy;
+  ricing.wallpaper = cozy-8k;
 
   nordColor = id: let
     colors = {
