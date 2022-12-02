@@ -21,6 +21,11 @@
     name = "gateway.jpg";
     hash = "sha256-PDkbNlvzB5MBcm0Z74vBLaCM0Qf+D6E6k9IJ14FK+7c=";
   };
+  winter = pkgs.fetchurl {
+    url = "https://i.redd.it/mqjnbna9y53a1.jpg";
+    name = "winter.jpg";
+    hash = "sha256-JDXYkEaCeHsIft34uwkk6eJcNN9NgSLkM9JqM+ocnNs=";
+  };
 
   ricing.wallpaper = cozy;
 
