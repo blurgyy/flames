@@ -10,7 +10,6 @@
       trusted-users = [ "root" "gy" ];
       substituters = (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirrors.bfsu.edu.cn/nix-channels/store") ++ [
         "https://nixos-cn.cachix.org"
-        "https://highsunz.cachix.org"
         "https://nix-community.cachix.org"
         "https://cache.blurgy.xyz"
       ];
