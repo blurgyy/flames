@@ -27,7 +27,7 @@
     };
   in {
     password-backup = {
-      onCalendar = "00/8:*:*";  # Every 8 hours since midnight
+      onCalendar = "00/8:00:00";  # Every 8 hours since midnight
       settings = globalCfg // {
         subvolume."ssh://cindy/var/lib/bitwarden_rs" = {
           target = "/elements/.btrbk/backups";  # this directory needs to be created manually
@@ -43,7 +43,7 @@
       };
     };
     codingstats-backup = {
-      onCalendar = "06:*:* CST";  # morning 06:00 every day
+      onCalendar = "06:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
         subvolume."ssh://cindy/var/lib/wakapi" = {
           target = "/elements/.btrbk/backups";
