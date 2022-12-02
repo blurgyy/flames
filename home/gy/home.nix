@@ -207,14 +207,6 @@
       '';
       target = ".ipython/profile_default/ipython_config.py";
     };
-    netrc = {
-      text = ''
-        machine api.wandb.ai
-          login user
-          password 0d2ab588e76b70e4af8e6725d73c7df8e141f0ad
-      '';
-      target = ".netrc";
-    };
     condarc = {
       source = ./parts/raw/condarc.yaml;
       target = ".condarc";

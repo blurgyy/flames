@@ -15,3 +15,5 @@ creation_rules:
     age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
   - path_regex: quad/*
     age: age1zl7ugkws9cr55zz8t6zuvuj66ppv0qgutmqqyg7dnnsj5yqrgqjsfzk9jz
+  - path_regex: home/gy/secrets/*
+    age: age16930mvdme8ul9z42x7fvg4tjgqjpwwkarq5lwkke8le3nyp0vqusdjdzc9

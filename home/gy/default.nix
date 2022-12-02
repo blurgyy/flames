@@ -48,6 +48,8 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
   modules = [
     ./home.nix
+    ./secrets
+    inputs.sops-nix-hm.homeManagerModules.sops
     (lib.optionalAttrs (!headless) ./headful.nix)
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
     { home.stateVersion = "22.11"; }
