@@ -3,11 +3,7 @@
 in {
   sops = {
     defaultSopsFile = ../../../${config.networking.hostName}/secrets.yaml;
-    age = {
-      keyFile = sops-key-file;
-      sshKeyPaths = [ ];  # Do not import ssh keys
-    };
-    gnupg.sshKeyPaths = [ ];  # Do not import ssh keys  
+    age.keyFile = sops-key-file;
     secrets = {
       "passwords/root".neededForUsers = true;
       "passwords/gy".neededForUsers = true;
