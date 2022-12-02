@@ -118,6 +118,7 @@
       "${myHome}/.nix-profile/share"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"  # REF: <https://github.com/NixOS/nixpkgs/issues/72282#issuecomment-549651957>
     ];
+    configFile."hypr/hyprland.conf".onChange = lib.mkForce "";
     mimeApps = {
       enable = true;
       defaultApplications = {
