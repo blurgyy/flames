@@ -62,6 +62,7 @@
 in {
   options.services.wakapi = {
     enable = mkEnableOption "Enable coding statistics tracker via wakapi";
+    package = mkOption { type = types.package; default = pkgs.wakapi; };
     server = mkOption { type = serverOptions; };
     app = mkOption { type = appOptions; default = {}; };
     dbFileName = mkOption { type = types.str; default = "db.sqlite"; };
@@ -70,6 +71,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [ cfg.package ];
     users = {
       users.wakapi = {
         group = config.users.groups.wakapi.name;
@@ -95,7 +97,7 @@ in {
         NoNewPrivileges = true;
         PrivateTmp = true;
         ExecStart = [
-          "${pkgs.wakapi}/bin/wakapi -config ${config.sops.templates."wakapi.yaml".path}"
+          "${cfg.package}/bin/wakapi -config ${config.sops.templates."wakapi.yaml".path}"
         ];
       };
     };

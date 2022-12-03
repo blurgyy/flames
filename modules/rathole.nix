@@ -33,6 +33,7 @@ in {
     server = mkOption { type = types.nullOr serverModule; default = null; };
   };
   config = mkIf cfg.enable {
+    environment.systemPackages = [ cfg.package ];
     users = {
       users.rathole = {
         group = config.users.groups.rathole.name;

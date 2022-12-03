@@ -102,6 +102,7 @@ in {
   in mkIf (cfg.client.enable || cfg.server.enable) {
     # Avoid collision with original v2ray service
     services.v2ray.enable = false;
+    environment.systemPackages = [ cfg.package ];
 
     users = {
       users.v2ray = {

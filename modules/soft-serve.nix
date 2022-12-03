@@ -27,6 +27,7 @@ in {
     });
   in {
     enable = mkEnableOption "Enable soft-serve, a tasty, self-hostable Git server for the command line.";
+    package = mkOption { type = types.package; default = pkgs.soft-serve; };
     bind = mkOption { type = bindModule; };
     display = mkOption { type = displayModule; description = "Information to be displayed in the TUI"; };
     keyFile = mkOption {
@@ -60,6 +61,7 @@ in {
       assertion = builtins.any (user: user.isAdmin) (attrValues cfg.users);
       message = "At least one user should be set as admin for services.soft-serve";
     }];
+    environment.systemPackages = [ cfg.package ];
     users = {
       users.softserve = {
         group = config.users.groups.softserve.name;
@@ -152,7 +154,7 @@ in {
         ProtectSystem = "strict";
         AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
         ExecStartPre = [ "${config-setup}/bin/soft-serve-config-setup" ];
-        ExecStart = "${pkgs.soft-serve}/bin/soft serve";
+        ExecStart = "${cfg.package}/bin/soft serve";
       };
     };
   };

@@ -6,6 +6,8 @@ in {
     package = mkOption { type = types.package; default = pkgs.rustdesk-server; };
   };
   config = mkIf cfg.enable {
+    environment.systemPackages = [ cfg.package ];
+
     users = {
       users.rustdesk = {
         group = config.users.groups.rustdesk.name;

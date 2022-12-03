@@ -115,6 +115,7 @@ in {
         with ".service"
       '';
     }];
+    environment.systemPackages = [ cfg.package ];
     services.haproxy-tailored.defaults.options = [ "dontlognull" ];
     services.haproxy.enable = false;
     users = {
