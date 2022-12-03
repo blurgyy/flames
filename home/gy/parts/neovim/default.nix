@@ -69,6 +69,7 @@
     # lualine-lsp-progress  # Not tested
     # tabby  # Not provided by nixpkgs
 
+    vim-cool
     vim-fugitive
     vim-smoothie
     vim-wakatime
