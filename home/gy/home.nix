@@ -24,6 +24,7 @@
     git-sync
     gnutar
     hexyl
+    home-manager
     htop
     hydra-check
     imagemagick

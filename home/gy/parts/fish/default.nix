@@ -44,9 +44,9 @@
   shellAbbrs = import ./abbrs.nix { inherit pkgs; };
   shellAliases = with pkgs; {
     #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";
-    bhome = "${home-manager}/bin/home-manager build -v --flake";
+    bhome = "home-manager build -v --flake";
     bsys = "nixos-rebuild build --use-remote-sudo -L -v --flake";
-    shome = "${home-manager}/bin/home-manager switch -v --flake";
+    shome = "home-manager switch -v --flake";
     ssys = "nixos-rebuild switch --use-remote-sudo -L -v --flake";
     meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap meshlab";
   };
