@@ -18,7 +18,27 @@
         });
         vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
           vim-wakatime = prevPlugins.vim-wakatime.overrideAttrs (o: {
-            patches = o.patches or [] ++ [ ./vim-wakatime-disdable-interactive-secret-prompt.patch ];
+            patches = o.patches or [] ++ [ (pkgs.writeText "vim-wakatime-disdable-interactive-secret-prompt.patch" ''
+              ---
+               plugin/wakatime.vim | 3 ---
+               1 file changed, 3 deletions(-)
+
+              diff --git a/plugin/wakatime.vim b/plugin/wakatime.vim
+              index 375e668..32b1d4e 100644
+              --- a/plugin/wakatime.vim
+              +++ b/plugin/wakatime.vim
+              @@ -679,9 +679,6 @@ EOF
+                       if api_key == '''
+                           let api_key = s:GetIniSetting('settings', 'apikey')
+                       endif
+              -
+              -        let api_key = inputsecret("[WakaTime] Enter your wakatime.com api key: ", api_key)
+              -        call s:SetIniSetting('settings', 'api_key', api_key)
+                   endfunction
+               
+                   function! s:EnableDebugMode()
+              -- 
+            '') ];
           });
           #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
           #  src = prev.fetchFromGitHub {
