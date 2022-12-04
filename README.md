@@ -200,6 +200,6 @@ Trouble Shooting
   ```bash
   $ sudo nix store repair /nix/store/<hash>-<name>
   ```
-  > :warning:
-  >
+  > **Warning**
+  > 
   > Consult the "Description" section of `nix store repair --help` for caveats of this approach.
