@@ -1,5 +1,9 @@
 # To update, run `nix run github:berberman/nvfetcher`
 
+[adobe-flash-player]
+src.cmd = "echo 20220331041116"
+fetch.url = "http://web.archive.org/web/20220331041116/https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux.x86_64.tar.gz"
+
 [apple-color-emoji]
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"

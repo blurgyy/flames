@@ -1,4 +1,19 @@
 {
+    "adobe-flash-player": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "adobe-flash-player",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-iD96ojMB/IDeh5UBFXUzpKzb/uByHtfFdnbcAy/flsM=",
+            "type": "url",
+            "url": "http://web.archive.org/web/20220331041116/https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux.x86_64.tar.gz"
+        },
+        "version": "20220331041116"
+    },
     "apple-color-emoji": {
         "cargoLocks": null,
         "date": null,
