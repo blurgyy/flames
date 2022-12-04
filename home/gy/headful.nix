@@ -46,6 +46,7 @@
     tdesktop-megumifox
     wf-recorder
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
+    wlr-randr
     wpsoffice-cn
     xfce.thunar
     xfce.thunar-volman
