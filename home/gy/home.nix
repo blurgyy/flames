@@ -212,6 +212,10 @@
       source = ./parts/raw/condarc.yaml;
       target = ".condarc";
     };
+    gduConfig = {
+      source = ./parts/raw/gdu.yaml;
+      target = ".gdu.yaml";
+    };
   };
 
   xdg = with helpers; {
