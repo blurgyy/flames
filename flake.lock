@@ -526,11 +526,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1670060839,
-        "narHash": "sha256-pa/rv6Eww47mZqB2t/M3mbjLuhElhuSkgpXQOVz5SmA=",
+        "lastModified": 1670248382,
+        "narHash": "sha256-vb4sfknGOQpnK2xY6x2FY52oWesqY9GtsU5TjPO1RZ8=",
         "owner": "highsunz",
         "repo": "hypr-msg-handler",
-        "rev": "274d2cc7997a7b352eeb9a7fc05b10786112a77c",
+        "rev": "381bcb72a0a3c46cb54c8a600d1933ee3b92f962",
         "type": "gitlab"
       },
       "original": {
