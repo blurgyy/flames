@@ -37,8 +37,8 @@
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
-          target_preserve_min = "1d";
-          target_preserve = "14d 8w *m";
+          target_preserve_min = "latest";
+          target_preserve = "8w *m";
         };
       };
     };
@@ -53,7 +53,7 @@
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
-          target_preserve_min = "3d";
+          target_preserve_min = "latest";
           target_preserve = "8w";
         };
       };
