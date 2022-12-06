@@ -138,6 +138,7 @@
     gcc
     htop
     file
+    ffmpeg-full
     pciutils strace lsof
     zip unzip unar
     jq libqalculate
