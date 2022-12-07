@@ -141,7 +141,7 @@
         "x-scheme-handler/http" = "firefox.desktop";
         "x-scheme-handler/https" = "firefox.desktop";
         "x-scheme-handler/terminal" = "Alacritty.desktop";
-        "x-scheme-handler/tg" = "telegramdesktop.desktop";
+        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
 
         # wildcards (use with `handlr open`)
         "audio/*" = "mpv.desktop";
