@@ -13,6 +13,6 @@
   packages = this.packages pkgs;
 in 
   removeAttrs (this.filterAttrs
-    (name: pkg: !hasAttr "platforms" pkg.meta || elem system pkg.meta.platforms)
+    (name: pkg: hasAttr "meta" pkg && (!hasAttr "platforms" pkg.meta || elem system pkg.meta.platforms))
     packages
   ) ignoredPkgs

@@ -16,7 +16,7 @@
     (mapAttrs (sys: pkg: { nvfetcher = pkg; }) inputs.nvfetcher.defaultPackage)
   ];
   builtPackages = mapAttrs
-    (sys: pkgset: my.filterAttrs (name: pkg: !hasAttr "platforms" pkg.meta || elem sys pkg.meta.platforms) pkgset)
+    (sys: pkgset: my.filterAttrs (name: pkg: hasAttr "meta" pkg && (!hasAttr "platforms" pkg.meta || elem sys pkg.meta.platforms)) pkgset)
     allPackages;
   allNixosConfigurations = listToAttrs (attrValues (mapAttrs
     (name: _: {
