@@ -34,6 +34,7 @@
         "browser.newtabpage.activity-stream.default.sites" = "https://arxiv.org/list/cs.CV/pastweek?show=397";
         "browser.newtabpage.activity-stream.feeds.topsites" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.shell.checkDefaultBrowser" = false;
         "browser.startup.homepage" = "https://github.com/";
         "browser.warnOnQuitShortcut" = false;
         "fission.autostart" = true;
