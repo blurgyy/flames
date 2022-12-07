@@ -122,7 +122,7 @@
     configFile."hypr/hyprland.conf".onChange = lib.mkForce "";
     mimeApps = {
       enable = true;
-      defaultApplications = {
+      defaultApplications = builtins.mapAttrs (_: app: "supervised-" + app) {
         "application/mp4" = "mpv.desktop";
         "application/octet-stream" = "firefox.desktop";
         "application/pdf" = "org.gnome.Evince.desktop";
