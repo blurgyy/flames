@@ -72,7 +72,12 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     (lib.optionalAttrs (!headless) ./headful.nix)
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
     ({ config, pkgs, ... }: {
-      home.packages = [ (pkgs.supervisedDesktopEntries config.home.packages) ];
+      home.packages = [
+        (pkgs.supervisedDesktopEntries {
+          inputPackages = config.home.packages;
+          mark = "supervised";
+        })
+      ];
       home.stateVersion = "22.11";
     })
   ];

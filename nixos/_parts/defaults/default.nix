@@ -14,7 +14,12 @@ in [
   inputs.nixos-cn.nixosModules.nixos-cn
   self.nixosModules.default
   ({ config, pkgs, ... }: {
-    environment.systemPackages = [ (pkgs.supervisedDesktopEntries config.environment.systemPackages) ];
+    environment.systemPackages = [
+      (pkgs.supervisedDesktopEntries {
+        inputPackages = config.environment.systemPackages;
+        mark = "supervised";
+      })
+    ];
     nixpkgs.overlays = [
       self.overlays.default
       inputs.nixos-cn.overlay
