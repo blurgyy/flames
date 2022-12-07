@@ -71,7 +71,10 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     inputs.sops-nix-hm.homeManagerModules.sops
     (lib.optionalAttrs (!headless) ./headful.nix)
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
-    { home.stateVersion = "22.11"; }
+    ({ config, pkgs, ... }: {
+      home.packages = [ (pkgs.supervisedDesktopEntries config.home.packages) ];
+      home.stateVersion = "22.11";
+    })
   ];
   extraSpecialArgs = {
     inherit name headless proxy;
