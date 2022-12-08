@@ -58,14 +58,7 @@ end
 #end
 
 # 05: start-gui
-function register_alacritty_socket_cleaner_hook  # HACK: This seems too hacky
-  trap "
-  netstat -anp | rg 'alacritty-ipc-"(cat /proc/sys/kernel/random/boot_id)".sock' | sed -Ee 's/\\s+/ /g' -e 's|.* ([0-9]+)/alacritty .*|\\1|'
-  rm -vf $XDG_RUNTIME_DIR/alacritty-ipc-"(cat /proc/sys/kernel/random/boot_id)".sock
-  " EXIT
-end
 if string match --quiet --entire --regex '^/dev/tty2$' (tty)
-  register_alacritty_socket_cleaner_hook
   if lsmod | grep -q nvidia
     # Do not disable hardware cursors when using iGPU, because it leads to cursors fail to hide
     # when taking screenshots, it's a wlroots bug:
