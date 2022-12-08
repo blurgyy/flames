@@ -27,7 +27,7 @@ in {
     exec-once = hyprctl setcursor ${with config.home.pointerCursor; "${name} ${toString size}"}
 
     # Record last workspace for later use with $mainMod+tab
-    exec-once = ${hypr-last-workspace-recorder}
+    exec-once = sdwrap ${hypr-last-workspace-recorder}
 
     # Workspace assignments for applications that does not autostart on hyprland launch
     windowrulev2 = workspace 2, class:^chromium-browser$
@@ -36,18 +36,18 @@ in {
     windowrulev2 = workspace 16 silent, class:^Steam$
     windowrulev2 = workspace 32 silent, class:^minecraft-launcher$
 
-    # Terminal on first workspace
+    # Terminal on first workspace, don't sdwrap this one
     exec-once = alacritty
 
     # Firefox on workspace 2
     windowrulev2 = workspace 2 silent, class:^firefox$
-    exec-once = firefox
+    exec-once = sdwrap firefox
     # System monitor on workspace 8
     windowrulev2 = workspace 8 silent, class:^sysmon$
-    exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" alacritty --class sysmon -e sh -c 'while true; do echo "I: starting /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop"; if ! /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop; then echo "E: /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop was closed unexpectedly" >&2; else echo "I: /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop was closed successfully"; fi done'
+    exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap alacritty --class sysmon -e sh -c 'while true; do echo "I: starting /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop"; if ! /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop; then echo "E: /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop was closed unexpectedly" >&2; else echo "I: /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop was closed successfully"; fi done'
     # Zotero on workspace 9
     windowrulev2 = workspace 9 silent, class:^Zotero$
-    exec-once = zotero
+    exec-once = sdwrap zotero
 
     # Use exec here to always reset the window rules at each config reload
     exec = ${hypr-execonce-helper} ${lib.concatStringsSep " " (map

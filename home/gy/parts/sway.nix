@@ -18,10 +18,10 @@ in {
     in [
       { command = "systemctl --user reset-failed"; }
       { command = "${terminal} --class sway_autostart_alacritty"; }
-      { command = "firefox"; }
-      { command = "zotero"; }
+      { command = "sdwrap firefox"; }
+      { command = "sdwrap zotero"; }
       { command = ''
-        ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
+        ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
         ''; }
     ];
     keybindings = let
