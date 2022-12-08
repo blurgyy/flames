@@ -17,17 +17,18 @@ in {
     volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
     screenshot-notify = "${pkgs.notification-scripts}/bin/screenshot-notify";
   in ''
+    exec-once = systemctl --user --reset-failed
+    exec-once = hyprctl setcursor ${with config.home.pointerCursor; "${name} ${toString size}"}
+
+    # Record last workspace for later use with $mainMod+tab
+    exec-once = sdwrap ${hypr-last-workspace-recorder}
+
     # REF: <https://wiki.hyprland.org/Configuring/Monitors/>
     monitor=desc:Philips Consumer Electronics Company PHL275E9 0x000023C6,2560x1440@74.968002,auto,1
     monitor=desc:LGD 0x0519,1920x1080@60.020000,auto,1
     monitor=,preferred,auto,1
 
     $mainMod = SUPER
-
-    exec-once = hyprctl setcursor ${with config.home.pointerCursor; "${name} ${toString size}"}
-
-    # Record last workspace for later use with $mainMod+tab
-    exec-once = sdwrap ${hypr-last-workspace-recorder}
 
     # Workspace assignments for applications that does not autostart on hyprland launch
     windowrulev2 = workspace 2, class:^chromium-browser$
