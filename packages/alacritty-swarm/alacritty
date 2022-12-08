@@ -60,3 +60,5 @@ if is-applicable-for-subcommand "$@"; then
 else
   exec "$alacritty_bin" --socket="$alacritty_sock" "$@"
 fi
+
+# vim: ft=sh:
