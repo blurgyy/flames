@@ -17,7 +17,7 @@ in {
     volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
     screenshot-notify = "${pkgs.notification-scripts}/bin/screenshot-notify";
   in ''
-    exec-once = systemctl --user --reset-failed
+    exec-once = systemctl --user reset-failed
     exec-once = hyprctl setcursor ${with config.home.pointerCursor; "${name} ${toString size}"}
 
     # Record last workspace for later use with $mainMod+tab
