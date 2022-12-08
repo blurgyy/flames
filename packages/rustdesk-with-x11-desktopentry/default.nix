@@ -1,9 +1,15 @@
-{ stdenv, rustdesk, makeDesktopItem }: stdenv.mkDerivation rec {
+{ stdenv, rustdesk, makeDesktopItem }: let
+  rustdesk-fixed = rustdesk.overrideAttrs (o: {
+    postPatch = o.postPatch or "" + ''
+      sed -Ee '/let _ =/s/(.*)/#\[allow\(let_underscore_lock\)\]\n\1/' -i libs/hbb_common/src/config.rs
+    '';
+  });
+in stdenv.mkDerivation rec {
   pname = "rustdesk-with-x11-desktopentry";
   inherit (rustdesk) version meta;
   desktopItems = [(makeDesktopItem {
     name = "rustdesk-x11";
-    exec = ''env -u WAYLAND_DISPLAY ${rustdesk}/bin/${rustdesk.meta.mainProgram}'';
+    exec = ''env -u WAYLAND_DISPLAY ${rustdesk-fixed}/bin/${rustdesk.meta.mainProgram}'';
     icon = "rustdesk";
     desktopName = "RustDesk (X11)";
     comment = rustdesk.meta.description;
