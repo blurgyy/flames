@@ -12,5 +12,6 @@
   installPhase = ''
     install -Dm555 $src $out/bin/alacritty
     substituteAllInPlace $out/bin/alacritty
+    install -Dm 444 ${alacritty}/share/applications/Alacritty.desktop $out/share/applications/Alacritty.desktop
   '';
 }
