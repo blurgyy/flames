@@ -1,5 +1,6 @@
 { config, lib, pkgs, ... }: {
   nix = {
+    nrBuildUsers = 0;
     package = lib.mkDefault pkgs.nixUnstable;
     registry.hsz = {
       from = { type = "indirect"; id = "hsz"; };
@@ -7,6 +8,8 @@
     };
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
+      auto-allocate-uids = true;
+      use-cgroups = true;
       trusted-users = [ "root" "gy" ];
       substituters = (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirrors.bfsu.edu.cn/nix-channels/store") ++ [
         "https://nixos-cn.cachix.org"
