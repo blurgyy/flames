@@ -75,6 +75,17 @@
   programs.gpg = {
     enable = true;
     homedir = "${config.xdg.stateHome}/gnupg";
+    settings = {
+      keyserver = "hkps://keyserver.ubuntu.com";
+      keyserver-options = [
+        "timeout=10"
+        "import-clean"
+        "no-self-sigs-only"
+      ];
+      no-greeting = true;
+      no-permission-warning = true;
+      lock-never = true;
+    };
   };
   services.gpg-agent = {
     enable = true;
