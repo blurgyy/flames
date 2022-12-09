@@ -7,7 +7,7 @@
       to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
     };
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       auto-allocate-uids = true;
       use-cgroups = true;
       trusted-users = [ "root" "gy" ];
