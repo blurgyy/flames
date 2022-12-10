@@ -78,15 +78,21 @@ in {
       follow_mouse = 1
 
       touchpad {
-          natural_scroll = true
-          scroll_factor = 0.25
+        disable_while_typing = true
+        middle_button_emulation = true
+        natural_scroll = true
+        scroll_factor = 0.25
       }
 
       sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+      accel_profile = flat
     }
     # REF: <https://wiki.hyprland.org/Configuring/Keywords/#executing>
     device:CATEX TECH. 68EC-S {
       kb_file = ${toString pkgs.niz-68ec-keymap}
+    }
+    device:synps/2-synaptics-touchpad {
+      accel_profile = adaptive
     }
 
     general {  # REF: <https://wiki.hyprland.org/Configuring/Variables/>
