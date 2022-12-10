@@ -15,12 +15,12 @@
     nvfetcher = { url = "github:berberman/nvfetcher"; };
     colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
 
+    carinae = { url = "github:NickCao/carinae"; inputs.nixpkgs.follows = "nixpkgs"; };
     hyprland = { url = "https://github.com/hyprwm/hyprland"; flake = true; type = "git"; submodules = true; inputs.nixpkgs.follows = "nixpkgs"; };
     hypr-msg-handler = { url = "gitlab:highsunz/hypr-msg-handler"; inputs.nixpkgs.follows = "nixpkgs"; };
     hyprpaper = { url = "github:hyprwm/hyprpaper"; inputs.nixpkgs.follows = "nixpkgs"; };
     nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";
-    carinae.url = "github:NickCao/carinae";
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
