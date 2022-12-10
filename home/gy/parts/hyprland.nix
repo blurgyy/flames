@@ -71,6 +71,10 @@ in {
       repeat_delay = 500  # Start repeating keys after 500 ms
       repeat_rate = 30  # Larger value results in higher recurring rate while repeating keys
 
+      # 0 - Cursor movement will not change focus.
+      # 1 - Cursor movement will always change focus to the window under the cursor.
+      # 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
+      # 3 - Cursor focus will be completely separate from keyboard focus. Clicking on a window will not change keyboard focus.
       follow_mouse = 1
 
       touchpad {
