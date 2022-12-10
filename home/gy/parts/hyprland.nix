@@ -92,6 +92,7 @@ in {
       kb_file = ${toString pkgs.niz-68ec-keymap}
     }
     device:synps/2-synaptics-touchpad {
+      natural_scroll = true
       accel_profile = adaptive
     }
 
