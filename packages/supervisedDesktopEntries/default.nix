@@ -49,6 +49,7 @@
         -e 's#^Name=(.*)$#Name=\1 (${mark})#' \
         -e 's#^Exec=(.*)$#Exec=${sdwrap}/bin/sdwrap \1#' \
         $desktop >$out/share/applications/${mark}-''${desktop##*/}
+      echo "+ $desktop"
     done
   '';
 
