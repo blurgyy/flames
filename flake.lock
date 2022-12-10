@@ -1257,11 +1257,11 @@
         "xdph": "xdph_2"
       },
       "locked": {
-        "lastModified": 1670598058,
-        "narHash": "sha256-EjihOxd7wUs+bbyilZRLAMYz9WZcxLFazxMwRN7W92M=",
+        "lastModified": 1670685340,
+        "narHash": "sha256-HuP1IucMyJ6LE+60+WuYLYX0odek3MM6n2Pi9pg8uNY=",
         "ref": "refs/heads/main",
-        "rev": "b9812f8bc0f372875af8c332e4537fdbf2b99c23",
-        "revCount": 2179,
+        "rev": "c3f1dc3f526a7f94c37d72f8314bc4bce969f0d8",
+        "revCount": 2184,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/hyprland"
@@ -1765,11 +1765,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1670550583,
-        "narHash": "sha256-hsNcknpDRrRVSEupuajf7nszHxp7ELuTemJXKkUgQAA=",
+        "lastModified": 1670636471,
+        "narHash": "sha256-vObS4tQDRlkdkQDCmF7gIG9WPlm+LnGBmwk/FN+AaBs=",
         "owner": "nixos-cn",
         "repo": "flakes",
-        "rev": "0ed2279690211af0accf28bb7da7b15930d05d55",
+        "rev": "3d2737fd16194c3a2dc8207d203e50ce2cfb5ea6",
         "type": "github"
       },
       "original": {
@@ -2070,11 +2070,11 @@
     },
     "nixpkgs_9": {
       "locked": {
-        "lastModified": 1670566912,
-        "narHash": "sha256-xOmQ1V8DvmgnlCqx/gQGrRctVnujTWBp4N9A+wr4+50=",
+        "lastModified": 1670657915,
+        "narHash": "sha256-8otbCnGfuap6QgMws5hntqupj6sxJxsGX6LqkoF1z5Q=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "9e4a15be2c56ef710392d3464ce68b298fcafe84",
+        "rev": "78c259e2dc87b6039af1436e1d3fd6a76c9fbff8",
         "type": "github"
       },
       "original": {
