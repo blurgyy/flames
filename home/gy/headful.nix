@@ -44,6 +44,7 @@
     obs-studio
     rustdesk-with-x11-desktopentry
     tdesktop-megumifox
+    re-export.wemeet-linyinfeng
     wf-recorder-respect-pixel-format
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wlr-randr
