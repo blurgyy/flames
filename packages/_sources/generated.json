@@ -229,9 +229,9 @@
             "name": null,
             "sha256": "sha256-90qcsKLjOq7Fu20cKpoXxqmAlVQq6c9Mh9OOe/Hi8Dk=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212092210/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212102209/geoip.dat"
         },
-        "version": "202212092210"
+        "version": "202212102209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -242,11 +242,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-lNJJYEev/23Wzpx9V0wPv1ye0rZsuUOLbQvJ3PuFoS8=",
+            "sha256": "sha256-UeLz9gJ/FGlgOQBasUg4Dioagod3hWwd9bd+WWiZyms=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212092210/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212102209/geosite.dat"
         },
-        "version": "202212092210"
+        "version": "202212102209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -321,11 +321,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-yoD7YxDZxFQE52yCO8EQtYAGZExQjukoLJXdXraIzZs=",
+            "sha256": "sha256-Cc89i/T5t3m83B8NC1VjrJGPrOMZGq0DPR33uZfIZSw=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.0.0/simple-icons-font-8.0.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.1.0/simple-icons-font-8.1.0.zip"
         },
-        "version": "8.0.0"
+        "version": "8.1.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
