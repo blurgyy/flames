@@ -53,7 +53,7 @@
     };
   }) // {
     hydraJobs = import ./outputs/jobs.nix { inherit inputs self my; };
-    nixosModules = import ./modules;
+    nixosModules = import ./nixos/_modules;
     overlays.default = my.overlay;
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
