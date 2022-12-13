@@ -6,6 +6,7 @@
 }: {
   home.username = myName;
   home.homeDirectory = myHome;
+  programs.supervisedDesktopEntries.enable = true;
   home.packages = with pkgs; [
     bat
     btop

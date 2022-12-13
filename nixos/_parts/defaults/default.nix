@@ -13,18 +13,12 @@ in [
   ./haproxy.nix
   inputs.nixos-cn.nixosModules.nixos-cn
   self.nixosModules.default
-  ({ config, pkgs, ... }: {
-    environment.systemPackages = [
-      (pkgs.supervisedDesktopEntries {
-        inputPackages = config.environment.systemPackages;
-        mark = "supervised";
-      })
-    ];
+  {
     nixpkgs.overlays = [
       self.overlays.default
       inputs.nixos-cn.overlay
     ];
-  })
+  }
 
   (includeIf withSecrets ./secret)
   (includeIf withSecrets inputs.sops-nix.nixosModules.sops)

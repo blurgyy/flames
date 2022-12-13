@@ -70,17 +70,10 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     ./home.nix
     ./secrets
     inputs.sops-nix-hm.homeManagerModules.sops
+    self.homeManagerModules.default
     (lib.optionalAttrs (!headless) ./headful.nix)
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
-    ({ config, pkgs, ... }: {
-      home.packages = [
-        (pkgs.supervisedDesktopEntries {
-          inputPackages = config.home.packages;
-          mark = "supervised";
-        })
-      ];
-      home.stateVersion = "22.11";
-    })
+    ({ home.stateVersion = "22.11"; })
   ];
   extraSpecialArgs = {
     inherit name headless proxy;

@@ -132,6 +132,7 @@
   # Similar for zsh.
   programs.zsh.enable = true;
 
+  programs.supervisedDesktopEntries.enable = true;
   environment.systemPackages = with pkgs; [
     git
     neovim

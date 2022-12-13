@@ -56,6 +56,7 @@
     nixosModules = import ./nixos/_modules;
     overlays.default = my.overlay;
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
+    homeManagerModules = import ./home/_modules;
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
   };
