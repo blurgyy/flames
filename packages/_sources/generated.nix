@@ -135,18 +135,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202212112209";
+    version = "202212122210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212112209/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212122210/geoip.dat";
       sha256 = "sha256-5srWWcA1KUeEcYzZF8Jy6+IGCt9pZ6cuYDhUuP+3teg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202212112209";
+    version = "202212122210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212112209/geosite.dat";
-      sha256 = "sha256-qpinvgVS3kNUEZyiQq0j3XnOa8vEKQv4cxCae92JO8A=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212122210/geosite.dat";
+      sha256 = "sha256-OrRbzX3wrkX9sho/PYP4hiAwStO7mQnseiNUvTjEDCE=";
     };
   };
   luarock-dbus_proxy = {
@@ -296,16 +296,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.34.3";
+    version = "v0.34.4";
     src = fetchFromGitHub ({
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.34.3";
+      rev = "v0.34.4";
       fetchSubmodules = false;
-      sha256 = "sha256-Va+99+plrRFZNkK8e3BhMTZC6NREziKwjO4vODm6PyI=";
+      sha256 = "sha256-ILjORslelnMTXfuVHS9UPa5qkXuYup/+wT/s1rTSpIY=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.34.3/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.34.4/Cargo.lock;
       outputHashes = {
         
       };
