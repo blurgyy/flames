@@ -1,19 +1,21 @@
-{
+{ ricing }: let
+  inherit (ricing) themeColor;
+in {
   enable = true;
   settings = {
     General = {
       contrastOpacity = "160";
-      contrastUiColor = "#eceff4";
+      contrastUiColor = "${themeColor "lightgray"}";
       disabledTrayIcon = false;
-      drawColor = "#ebcb8b";
+      drawColor = "${themeColor "yellow"}";
       drawThickness = "3";
       saveAsFileExtension = "png";
       savePath = "/home/gy/Pictures/screenshots";
       savePathFixed = false;
       showStartupLaunchMessage = false;
       startupLaunch = true;
-      uiColor = "#88C0D0";
-      userColors = "picker, #2e3440, #bf616a, #ebcb8b, #a3be8c, #8fbcbb, #5e81ac, #b48ead, #eceff4";
+      uiColor = "${themeColor "cyan"}";
+      userColors = "picker, ${themeColor "red"}, ${themeColor "green"}, ${themeColor "blue"}, ${themeColor "yellow"}, ${themeColor "black"}, ${themeColor "white"}, ${themeColor "orange"}, ${themeColor "purple"}";
     };
     Shortcuts = {
       TYPE_ACCEPT = "Return";

@@ -1,4 +1,4 @@
-{ pkgs }: {
+{ pkgs, callWithHelpers }: {
   enable = true;
 
   viAlias = true;
@@ -78,7 +78,7 @@
     let g:catppuccin_flavour = "mocha"
     colorscheme catppuccin
     lua <<EOF
-    ${builtins.readFile ./config.lua}
+    ${callWithHelpers ./config.lua.nix {}}
     EOF
   '';
   extraPackages = with pkgs; [
