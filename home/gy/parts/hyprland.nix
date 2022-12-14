@@ -202,6 +202,7 @@ in {
     bind = ALT, r, exec, rofi -show drun
     bind = ALT SHIFT, r, exec, rofi -show run
     bind = ALT, s, exec, rofi -show ssh
+    bind = ALT SHIFT, s, exec, rofi -ssh-client 'waypipe ssh' -show ssh
     # bind = $mainMod, e, pseudo, # dwindle
     # bind = $mainMod, e, togglesplit, # dwindle
 
