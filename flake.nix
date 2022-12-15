@@ -53,10 +53,10 @@
     };
   }) // {
     hydraJobs = import ./outputs/jobs.nix { inherit inputs self my; };
-    nixosModules = import ./nixos/_modules;
+    nixosModules = import ./nixos/_modules { inherit (nixpkgs) lib; inherit my; };
     overlays.default = my.overlay;
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
-    homeManagerModules = import ./home/_modules;
+    homeManagerModules = import ./home/_modules { inherit (nixpkgs) lib; inherit my; };
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
   };

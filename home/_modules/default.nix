@@ -1,9 +1,1 @@
-{
-  default = with builtins; {
-    imports = map
-      (entry: import ./${entry})
-      (filter
-        (name: name != "default.nix")
-        (attrNames (readDir ./.)));
-  };
-}
+../../nixos/_modules/default.nix
