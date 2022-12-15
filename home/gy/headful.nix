@@ -60,6 +60,7 @@
     noto-fonts-extra
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
+    gsfonts
     font-awesome
     freefont_ttf
     liberation_ttf
