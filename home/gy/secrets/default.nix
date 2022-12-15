@@ -44,7 +44,7 @@
     secretsLink = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
       ${header}
       ${lib.concatStringsSep "\n" (map
-        (pair: "$DRY_RUN_CMD ln -sf $VERBOSE_ARG ${pair.source} ${pair.target}")
+        (pair: "[[ -e ${pair.target} ]] || $DRY_RUN_CMD ln -sf $VERBOSE_ARG ${pair.source} ${pair.target}")
         sourceTargetPairs
       )}
     '';
