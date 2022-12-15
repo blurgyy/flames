@@ -236,9 +236,7 @@
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
       "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
       "fish/themes/catppuccin.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
-    } // (lib.mapAttrs'
-      (name: value: lib.nameValuePair name { source = ./parts/mirrored/${name}; recursive = true; })
-      (readDir ./parts/mirrored));
+    } // (manifestXdgConfigFilesFrom ./parts/mirrored);
     mimeApps = {
       enable = true;
       defaultApplications = builtins.mapAttrs (_: app: let
