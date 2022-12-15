@@ -129,7 +129,9 @@
     )'';
     mimeApps = {
       enable = true;
-      defaultApplications = builtins.mapAttrs (_: app: "supervised-" + app) {
+      defaultApplications = builtins.mapAttrs (_: app: let
+        sde = config.programs.supervisedDesktopEntries;
+      in if sde.enable then "${sde.mark}-${app}" else app) {
         "application/mp4" = "mpv.desktop";
         "application/octet-stream" = "firefox.desktop";
         "application/pdf" = "org.gnome.Evince.desktop";
