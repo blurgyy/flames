@@ -105,41 +105,4 @@
     };
   in
     colors."${name}";
-
-  mirrorDirsAsXdg = let
-    loadFile = with builtins; path: if lib.hasSuffix ".asnix" path
-      then let
-        f = import path;
-        type = typeOf f;
-      in if type == "lambda"
-        then let
-            args = (intersectAttrs (functionArgs f) { inherit pkgs lib ricing; });
-          in f args
-        else f
-      else readFile path;
-    mirrorSingleDirAsXdgInner = pathPrefix: path: mapAttrs
-        (subPath: type:
-          if type == "regular" then
-            {
-              name = "${path}/${lib.removeSuffix ".asnix" subPath}";
-              value = {
-                text = loadFile (pathPrefix + "/${path}/${subPath}");
-                # setting force=true will unconditionally replace target path
-                force = true;  # REF: https://github.com/nix-community/home-manager/issues/6#issuecomment-693001293
-              };
-            }
-          else
-            (mirrorSingleDirAsXdgInner pathPrefix "${path}/${subPath}")
-        )
-        (readDir (pathPrefix + "/${path}"));
-    mirrorDirAsXdg = pathPrefix: path: listToAttrs (lib.collect
-      (x: x ? name && x ? value)
-      (mirrorSingleDirAsXdgInner pathPrefix path));
-  in
-    pathPrefix: paths: mergeAttrsList (map
-      (path: mirrorDirAsXdg pathPrefix path)
-      paths);
-  manifestXdgConfigFilesFrom = dir: mirrorDirsAsXdg dir (map
-    (path: lib.last (lib.splitString "/" path))
-    (attrNames (readDir dir)));
 }
