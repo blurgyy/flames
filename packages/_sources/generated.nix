@@ -92,6 +92,17 @@
       sha256 = "sha256-sk638bMM96Nuv+tcNsJANhj6EOaqjN8CRmG8kvFEceY=";
     });
   };
+  gsfonts = {
+    pname = "gsfonts";
+    version = "20200910";
+    src = fetchFromGitHub ({
+      owner = "ArtifexSoftware";
+      repo = "urw-base35-fonts";
+      rev = "20200910";
+      fetchSubmodules = false;
+      sha256 = "sha256-YQl5IDtodcbTV3D6vtJi7CwxVtHHl58fG6qCAoSaP4U=";
+    });
+  };
   harmonyos-sans = {
     pname = "harmonyos-sans";
     version = "0d79cad76b37ba0f3ccb1323c83833c78e0860de";

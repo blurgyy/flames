@@ -33,6 +33,10 @@ fetch.github = "catppuccin/fish"
 src.github_tag = "cyrus-and/gdb-dashboard"
 fetch.github = "cyrus-and/gdb-dashboard"
 
+[gsfonts]
+src.github = "ArtifexSoftware/urw-base35-fonts"
+fetch.github = "ArtifexSoftware/urw-base35-fonts"
+
 [harmonyos-sans]
 src.git = "https://gitee.com/openharmony/resources"
 fetch.git = "https://gitee.com/openharmony/resources"

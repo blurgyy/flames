@@ -154,6 +154,26 @@
         },
         "version": "v0.16.0"
     },
+    "gsfonts": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "gsfonts",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ArtifexSoftware",
+            "repo": "urw-base35-fonts",
+            "rev": "20200910",
+            "sha256": "sha256-YQl5IDtodcbTV3D6vtJi7CwxVtHHl58fG6qCAoSaP4U=",
+            "type": "github"
+        },
+        "version": "20200910"
+    },
     "harmonyos-sans": {
         "cargoLocks": null,
         "date": "2022-05-28",
