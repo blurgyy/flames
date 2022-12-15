@@ -148,6 +148,7 @@
       Service = {
         ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
         Restart = "always";
+        RestartSec = 1;
       };
       Install.WantedBy = [ "hyprland-session.target" ];
     };
