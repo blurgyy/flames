@@ -127,37 +127,6 @@
           || true  # ignore dead instance(s)
       done
     )'';
-    mimeApps = {
-      enable = true;
-      defaultApplications = builtins.mapAttrs (_: app: let
-        sde = config.programs.supervisedDesktopEntries;
-      in if sde.enable then "${sde.mark}-${app}" else app) {
-        "application/mp4" = "mpv.desktop";
-        "application/octet-stream" = "firefox.desktop";
-        "application/pdf" = "org.gnome.Evince.desktop";
-        "application/vnd.ms-excel" = "wps-office-et.desktop";
-        "application/vnd.ms-powerpoint" = "wps-office-wpp.desktop";
-        "application/vnd.ms-word" = "wps-office-wps.desktop";
-        "application/vnd.openxmlformats-officedocument.presentationml.presentation" = "wps-office-wpp.desktop";
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" = "wps-office-et.desktop";
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "wps-office-wps.desktop";
-        "application/x-zerosize" = "nvim.desktop";
-        "inode/directory" = "thunar.desktop";
-        "text/html" = "firefox.desktop";
-        "text/markdown" = "marktext.desktop";
-        "text/x-markdown" = "marktext.desktop";
-        "x-scheme-handler/element" = "io.element.Element.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/terminal" = "Alacritty.desktop";
-        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
-
-        # wildcards (use with `handlr open`)
-        "audio/*" = "mpv.desktop";
-        "video/*" = "mpv.desktop";
-        "image/*" = "imv.desktop";
-      };
-    };
   };
   systemd.user = {
     targets = let
