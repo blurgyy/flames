@@ -53,10 +53,10 @@
     };
   }) // {
     hydraJobs = import ./outputs/jobs.nix { inherit inputs self my; };
-    nixosModules = import ./nixos/_modules { inherit (nixpkgs) lib; inherit my; };
+    nixosModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./nixos/_modules; };
     overlays.default = my.overlay;
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
-    homeManagerModules = import ./home/_modules { inherit (nixpkgs) lib; inherit my; };
+    homeManagerModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./home/_modules; };
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
   };
