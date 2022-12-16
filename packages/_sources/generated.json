@@ -29,6 +29,26 @@
         },
         "version": "ios-15.4"
     },
+    "async-speed-limit-tokio1": {
+        "cargoLocks": null,
+        "date": "2022-07-14",
+        "extract": null,
+        "name": "async-speed-limit-tokio1",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "open-trade",
+            "repo": "async-speed-limit",
+            "rev": "8d1851d967b1014eb263bae23053a0e513431a9f",
+            "sha256": "sha256-OCO8sYXPbMUTUlGW2F7I0jsjCic+jHKnC8qEh+1Kll4=",
+            "type": "github"
+        },
+        "version": "8d1851d967b1014eb263bae23053a0e513431a9f"
+    },
     "dt": {
         "cargoLocks": {
             "Cargo.lock": [
