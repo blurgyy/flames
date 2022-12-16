@@ -34,6 +34,7 @@
     };
   };
   home.packages = with pkgs; [
+    cage
     cider
     colmena
     evince
