@@ -679,7 +679,7 @@ in ''
       colors = { -- Rearranged from aurora colors, reference: <https://www.nordtheme.com/docs/colors-and-palettes>
         "${themeColor "yellow"}",
         "${themeColor "blue"}",
-        "${themeColor "orange"}",
+        "${themeColor "white"}",
         "${themeColor "purple"}",
         "${themeColor "red"}",
       },
