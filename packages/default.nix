@@ -6,13 +6,11 @@ let
       attrs)
     )
   );
-  mapPackage = f: with builtins; listToAttrs (map
-    (name: { inherit name; value = f name; })
-    (attrNames (filterAttrs
+  mapPackage = f: with builtins; mapAttrs
+    (name: _: f name)
+    (filterAttrs
       (name: type: type == "directory" && name != "_sources")
-      (readDir ./.)
-    ))
-  );
+      (readDir ./.));
 in {
   inherit filterAttrs;
   packages = pkgs: mapPackage (name: pkgs.${name});
