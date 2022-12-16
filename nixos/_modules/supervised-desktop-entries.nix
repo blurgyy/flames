@@ -16,7 +16,7 @@ in {
   config = lib.mkIf cfg.enable {
     environment.systemPackages = [
       (
-        (pkgs.callPackage ../../outputs/supervisedDesktopEntries.nix {})
+        (pkgs.callPackage ../../packages/supervisedDesktopEntries.nix {})
         {
           inputPackages = config.environment.systemPackages;
           mark = cfg.mark;
