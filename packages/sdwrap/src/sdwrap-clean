@@ -36,7 +36,7 @@ if systemctl --user is-active "$unit_name.service" >/dev/null; then
 else
   # NOTE: Must specify `Delegate=yes` as property for process to attach.
   systemd-run --user \
-    --same-dir --unit="$unit_name" --property=Delegate=yes \
+    --setenv=PATH --same-dir --unit="$unit_name" --property=Delegate=yes \
     systemd-cat "$command" "$@" &
 fi
 
