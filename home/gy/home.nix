@@ -266,7 +266,7 @@
         # wildcards (use with `handlr open`)
         "audio/*" = "mpv.desktop";
         "video/*" = "mpv.desktop";
-        "image/*" = "imv.desktop";
+        "image/*" = "imv-folder.desktop";
       };
     };
   };
