@@ -1,4 +1,4 @@
-if not set -l _conda_root (__find_conda_root)
+if not set -l _conda_bin (__find_conda_bin)
   return 1
 end
 

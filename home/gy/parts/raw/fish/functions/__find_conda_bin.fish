@@ -10,8 +10,11 @@ set --local --append conda_search_path $HOME/anaconda
 set --local --append conda_search_path /opt/miniconda
 set --local --append conda_search_path /opt/anaconda
 for csp in $conda_search_path
-  if test -d "$csp"
-    echo "$csp"
+  if test -x "$csp/condabin/conda"
+    echo "$csp/condabin/conda"
+    return
+  else if test -x "$csp/bin/conda"
+    echo "$csp/bin/conda"
     return
   end
 end
