@@ -9,8 +9,10 @@ if set -q CONDA_PREFIX
 end
 if test (count $argv) -gt 0
   $_conda_bin shell.fish activate $argv[1] | source
+  set -e PIP_REQUIRE_VIRTUALENV  # Allow pip to run inside conda environment
 else if set -l cur (basename (tt gr) 2>/dev/null)
   $_conda_bin shell.fish activate $cur | source
+  set -e PIP_REQUIRE_VIRTUALENV  # Allow pip to run inside conda environment
 else
   echo "Usage: "(status current-command)" <env-name>" >&2
   return 3
