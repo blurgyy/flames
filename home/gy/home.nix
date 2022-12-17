@@ -12,6 +12,7 @@
     btop
     cachix
     clang-tools
+    conda
     dogdns
     exa
     exiftool
