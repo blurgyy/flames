@@ -5,6 +5,7 @@
       body = callWithHelpers ../raw/fish/functions/__notify_when_long_running_process_finishes.fish.nix {};
       onEvent = "fish_postexec";
     };
+    _tide_item_conda.body = readFile ../raw/fish/functions/_tide_item_conda.fish;
     fish_title.body = readFile ../raw/fish/functions/fish_title.fish;
     gcnt.body = readFile ../raw/fish/functions/gcnt.fish;
     private.body = readFile ../raw/fish/functions/private.fish;
@@ -62,6 +63,7 @@
       ${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/configs/lean.fish \
       | source
     set -g tide_right_prompt_items $tide_right_prompt_items time
+    set -g tide_left_prompt_items pwd git nix_shell conda newline character
     set -g tide_prompt_add_newline_before false
   '';
 }
