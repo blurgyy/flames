@@ -1,4 +1,4 @@
-set --local conda_search_path /opt/miniconda /opt/anaconda
+set --local conda_search_path $HOME/.conda  # default installation prefix of nixpkgs#conda
 set --local --append conda_search_path $HOME/.local/lib/miniconda3
 set --local --append conda_search_path $HOME/.local/lib/miniconda
 set --local --append conda_search_path $HOME/miniconda3
@@ -7,7 +7,8 @@ set --local --append conda_search_path $HOME/.local/lib/anaconda3
 set --local --append conda_search_path $HOME/.local/lib/anaconda
 set --local --append conda_search_path $HOME/anaconda3
 set --local --append conda_search_path $HOME/anaconda
-set --local --append conda_search_path $HOME/.conda
+set --local --append conda_search_path /opt/miniconda
+set --local --append conda_search_path /opt/anaconda
 for csp in $conda_search_path
   if test -d "$csp"
     echo "$csp"
