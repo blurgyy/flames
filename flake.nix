@@ -55,6 +55,7 @@
     hydraJobs = import ./outputs/jobs.nix { inherit inputs self my; };
     nixosModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./nixos/_modules; };
     overlays.default = my.overlay;
+    templates = import ./outputs/templates { inherit my; };
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
     homeManagerModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./home/_modules; };
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
