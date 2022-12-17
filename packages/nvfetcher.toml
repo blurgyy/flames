@@ -8,6 +8,10 @@ fetch.url = "http://web.archive.org/web/20220331041116/https://fpdownload.macrom
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
 
+[async-speed-limit-tokio1]
+src.git = "https://github.com/open-trade/async-speed-limit"
+fetch.github = "open-trade/async-speed-limit"
+
 [dt]
 src.github = "blurgyy/dt"
 fetch.github = "blurgyy/dt"
@@ -69,7 +73,6 @@ fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
 [rustdesk-server]
 src.github = "rustdesk/rustdesk-server"
 fetch.github = "rustdesk/rustdesk-server"
-cargo_locks = ["Cargo.lock"]
 
 [simple-icons]
 src.github = "simple-icons/simple-icons-font"
