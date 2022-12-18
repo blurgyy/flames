@@ -2,6 +2,7 @@
   mkFrontend = opts: ''
 frontend ${opts.name}
   mode ${opts.mode}
+  ${optionalString (opts.mode == "tcp") "option tcplog"}
   ${concatStringsSep "\n  " (map (opt: "option ${opt}") (opts.options))}
   ${concatStringsSep "\n  " (map
     (bind: "bind ${bind} ${optionalString opts.acceptProxy "accept-proxy"} ${optionalString (opts.domain != null)
@@ -19,6 +20,7 @@ frontend ${opts.name}
   mkBackend = opts: ''
 backend ${opts.name}
   mode ${opts.mode}
+  ${optionalString (opts.mode == "tcp") "option tcplog"}
   ${concatStringsSep "\n  " (map (opt: "option ${opt}") (opts.options))}
   ${concatStringsSep "\n  " (map (acl: "acl ${acl.name} ${acl.body}") opts.acls)}
   ${concatStringsSep "\n  " (map (rule: "${opts.mode}-request ${rule}") opts.requestRules)}
