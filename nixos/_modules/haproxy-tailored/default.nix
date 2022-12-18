@@ -20,7 +20,7 @@
     options.client = mkOption { type = types.str; default = "300s"; };
     options.server = mkOption { type = types.str; default = "300s"; };
   });
-  mode = mkOption { type = types.enum [ "tcp" "http" ]; default = "tcp"; };
+  mode = mkOption { type = types.enum [ "tcp" "http" ]; };
   acmeModule = types.submodule ({ ... }: {
     options.enable = mkEnableOption "Whether to enable Let's Encrypt certificate issuing via ACME";
     options.email = mkOption { type = types.nullOr types.str; default = null; };
@@ -77,7 +77,6 @@
   });
   defaultsModule = types.submodule ({ ... }: {
     options = {
-      inherit mode;
       options = mkOption { type = types.listOf types.str; default = [ "dontlognull" ]; };
       timeout = mkOption {
         type = timeoutModule;

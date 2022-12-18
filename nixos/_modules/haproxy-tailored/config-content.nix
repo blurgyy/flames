@@ -43,7 +43,6 @@ global
 
 defaults
   log global
-  mode ${cfg.defaults.mode}
   ${concatStringsSep "\n  " (map (opt: "option ${opt}") (cfg.defaults.options))}
   option dontlognull
   timeout connect ${cfg.defaults.timeout.connect}
