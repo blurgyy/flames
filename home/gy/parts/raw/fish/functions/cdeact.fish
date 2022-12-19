@@ -7,6 +7,8 @@ function __conda_envunset
   else
     set -e fish_history
   end
+  # remove from global function space
+  functions --erase __conda_envunset
 end
 
 if not set -l _conda_bin (__find_conda_bin)
