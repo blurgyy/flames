@@ -1,3 +1,13 @@
+function __conda_envset
+  set -e PIP_REQUIRE_VIRTUALENV
+  if set -q fish_history
+    set -gx old_fish_history "$fish_history"
+  end
+  set -gx fish_history "condaenv-$argv[1]"
+  # remove from global function space
+  functions --erase __conda_envset
+end
+
 if not set -l _conda_bin (__find_conda_bin)
   return 1
 end
@@ -8,16 +18,14 @@ if set -q CONDA_PREFIX
   return 2
 end
 if test (count $argv) -gt 0
-  $_conda_bin shell.fish activate $argv[1] | source
+  $_conda_bin shell.fish activate "$argv[1]" | source
   if test "$pipestatus[1]" -eq 0
-    # Allow pip to run inside conda environment
-    set -e PIP_REQUIRE_VIRTUALENV
+    __conda_envset "$argv[1]"
   end
 else if set -l cur (basename (tt gr) 2>/dev/null)
-  $_conda_bin shell.fish activate $cur | source
+  $_conda_bin shell.fish activate "$cur" | source
   if test "$pipestatus[1]" -eq 0
-    # Allow pip to run inside conda environment
-    set -e PIP_REQUIRE_VIRTUALENV
+    __conda_envset "$cur"
   end
 else
   echo "Usage: "(status current-command)" <env-name>" >&2
