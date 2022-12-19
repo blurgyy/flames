@@ -1,26 +1,27 @@
-{ stdenv, rustdesk, makeDesktopItem }: let
-  rustdesk-fixed = rustdesk.overrideAttrs (o: {
-    postPatch = o.postPatch or "" + ''
-      sed -Ee '/let _ =/s/(.*)/#\[allow\(let_underscore_lock\)\]\n\1/' -i libs/hbb_common/src/config.rs
-    '';
-  });
-in stdenv.mkDerivation rec {
+{ lib, rustdesk, makeDesktopItem }: rustdesk.overrideAttrs (o: {
   pname = "rustdesk-with-x11-desktopentry";
-  inherit (rustdesk) version meta;
-  desktopItems = [(makeDesktopItem {
+  desktopItems = o.desktopItems ++ [(makeDesktopItem {
     name = "rustdesk-x11";
-    exec = ''env -u WAYLAND_DISPLAY ${rustdesk-fixed}/bin/${rustdesk.meta.mainProgram}'';
+    exec = ''env -u WAYLAND_DISPLAY ${rustdesk}/bin/${rustdesk.meta.mainProgram}'';
     icon = "rustdesk";
     desktopName = "RustDesk (X11)";
     comment = rustdesk.meta.description;
     genericName = "Remote Desktop";
     categories = ["Network"];
   })];
-  phases = [ "installPhase" ];
-  installPhase = ''
-    mkdir $out/share/applications -p
-    for desktop in ${toString desktopItems}; do
-      cp $desktop/share/applications/* $out/share/applications
-    done
+  buildCommand = ''
+    set -euo pipefail
+    ${  # REF: <https://stackoverflow.com/a/68523368/13482274>
+      lib.concatStringsSep "\n" (map (outputName: ''
+        echo "Copying output ${outputName}"
+        set -x
+        cp -rs --no-preserve=mode "${rustdesk.${outputName}}" "''$${outputName}"
+        set +x
+      '')
+      (o.outputs or ["out"]))
+    }
+    sed -Ee 's/Exec=/Exec=env -u WAYLAND_DISPLAY/' \
+      $out/share/applications/${(builtins.elemAt o.desktopItems 0).name} \
+      > $out/share/applications/x11-${(builtins.elemAt o.desktopItems 0).name}
   '';
-}
+})
