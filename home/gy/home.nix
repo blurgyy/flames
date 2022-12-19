@@ -130,10 +130,9 @@
           }
           export __tested_os_release=1
         fi
-        if [[ -o interactive ]]; then
-          if [[ -z "$noexecfish" ]]; then
-            exec fish
-          fi
+        if [[ -o interactive
+           && -z "''${noexecfish+1}" ]]; then
+          exec fish
         fi
       '';
       envExtra = ''
