@@ -1,8 +1,7 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
 
-  phases = [ "installPhase" ];
-  installPhase = ''
+  buildCommand = ''
     cd $src
     for i in *; do
       if [[ -f "$i" ]]; then continue; fi

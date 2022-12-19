@@ -1,9 +1,8 @@
 { source, stdenv, lib }: stdenv.mkDerivation {
   inherit (source) pname version src;
 
-  phases = [ "installPhase" ];
-  installPhase = ''
-    install -Dt $out/share/fonts/truetype -m444 $src/fonts/*
+  buildCommand = ''
+    install -Dvm444 -t $out/share/fonts/truetype $src/fonts/*
   '';
 
   meta = {

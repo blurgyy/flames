@@ -1,11 +1,11 @@
 { source, stdenv, lib }: stdenv.mkDerivation {
   inherit (source) pname version src;
 
-  phases = [ "unpackPhase" "installPhase" ];
+  dontConfigure = true;
   installPhase = ''
-    install -Dt $out/lib/geoip -m444 geoip/xt_geoip_query
-    install -Dt $out/lib/geoip -m444 geoip/xt_geoip_build
-    install -Dt $out/lib/geoip -m444 geoip/xt_geoip_build_maxmind
+    install -Dvm444 -t $out/lib/geoip geoip/xt_geoip_query
+    install -Dvm444 -t $out/lib/geoip geoip/xt_geoip_build
+    install -Dvm444 -t $out/lib/geoip geoip/xt_geoip_build_maxmind
   '';
 
   meta = {

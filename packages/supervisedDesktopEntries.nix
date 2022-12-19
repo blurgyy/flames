@@ -28,19 +28,7 @@
 
 { inputPackages, mark ? "supervised"}: stdenv.mkDerivation rec {
   name = "${mark}-desktop-entries";
-  # desktopItems = lib.foldl' (x: y: x ++ y) [] (map
-  #   (pkg: pkg.desktopItems)
-  #   (builtins.filter
-  #     (pkg:
-  #       (pkg.name != name) &&
-  #       (builtins.hasAttr "desktopItems" pkg) &&
-  #         ((builtins.length pkg.desktopItems) > 0)
-  #     )
-  #     inputPackages
-  #   )
-  # );
-  phases = [ "installPhase" ];
-  installPhase = let
+  buildCommand = let
     packages = builtins.filter (pkg: pkg.name != name) inputPackages;
   in ''
     mkdir $out/share/applications -p

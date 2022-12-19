@@ -1,8 +1,7 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
 
-  phases = [ "installPhase" ];
-  installPhase = ''
+  buildCommand = ''
     install -Dvm644 -t $out/share/fcitx5/themes/FluentDark $src/FluentDark/*
   '';
 

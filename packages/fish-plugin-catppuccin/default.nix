@@ -1,7 +1,6 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
-  phases = [ "installPhase" ];
-  installPhase = ''
+  buildCommand = ''
     install -Dt $out/share/fish/tools/web_config/themes -m644 $src/themes/*
   '';
   meta = {

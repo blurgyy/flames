@@ -4,12 +4,9 @@
   inherit (source) pname version src;
 
   buildInputs = [ unzip ];
-  phases = [ "unpackPhase" "installPhase" ];
 
-  unpackPhase = ''
+  buildCommand = ''
     unzip $src
-  '';
-  installPhase = ''
     install -Dm644 -t $out/share/fonts/opentype font/SimpleIcons.otf 
     install -Dm644 -t $out/share/fonts/truetype font/SimpleIcons.ttf 
   '';

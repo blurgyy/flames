@@ -1,7 +1,6 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
-  phases = [ "installPhase" ];
-  installPhase = ''
+  buildCommand = ''
     install -Dm644 $src/.gdbinit $out/share/gdb-dashboard/gdbinit
   '';
   meta = {

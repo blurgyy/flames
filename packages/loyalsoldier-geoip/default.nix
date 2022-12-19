@@ -2,9 +2,8 @@
 { source, lib, stdenv }: stdenv.mkDerivation rec {
   inherit (source) pname version src;
 
-  phases = [ "installPhase" ];
-  installPhase = ''
-    install -Dm444 $src $out/share/v2ray/${builtins.head (lib.reverseList (lib.splitString "-" pname))}.dat
+  buildCommand = ''
+    install -Dvm444 $src $out/share/v2ray/${builtins.head (lib.reverseList (lib.splitString "-" pname))}.dat
   '';
 
   meta = {

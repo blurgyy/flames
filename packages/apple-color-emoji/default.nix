@@ -1,9 +1,8 @@
 { source, stdenv, lib, ... }: stdenv.mkDerivation rec {
   inherit (source) pname version src;
 
-  phases = [ "installPhase" ];
-  installPhase = ''
-    install -Dm644 $src $out/share/fonts/truetype/AppleColorEmoji.ttf
+  buildCommand = ''
+    install -Dvm644 $src $out/share/fonts/truetype/AppleColorEmoji.ttf
   '';
 
   meta = {
