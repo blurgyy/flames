@@ -21,6 +21,7 @@ in apply {
   "gy@cadliu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
   "gy@cad-liu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
   "gy@morty" = x86_64-non-headless;
+  "gy@john" = x86_64-non-headless;
   "gy@watson" = x86_64-non-headless;
   "gy@rpi" = aarch64-headless;
   gy = x86_64-headless;
