@@ -29,7 +29,7 @@
   ];
 
   unpackPhase = "${gnutar}/bin/tar -xf $src";
-  installPhase = "install -Dm755 flashplayer $out/bin/flashplayer";
+  installPhase = "install -Dvm755 flashplayer $out/bin/flashplayer";
 
   dontStrip = true;
 

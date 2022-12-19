@@ -1,7 +1,7 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
   buildCommand = ''
-    install -Dm644 $src/.gdbinit $out/share/gdb-dashboard/gdbinit
+    install -Dvm644 $src/.gdbinit $out/share/gdb-dashboard/gdbinit
   '';
   meta = {
     homepage = "https://github.com/cyrus-and/gdb-dashboard";

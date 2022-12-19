@@ -1,7 +1,7 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
   buildCommand = ''
-    install -Dt $out/share/fish/tools/web_config/themes -m644 $src/themes/*
+    install -Dvm644 -t $out/share/fish/tools/web_config/themes $src/themes/*
   '';
   meta = {
     homepage = "https://github.com/catppuccin/fish";

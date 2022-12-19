@@ -7,7 +7,7 @@
 
   buildCommand = ''
     unzip $src
-    install -Dm644 'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/truetype/'Symbols-2048-em Nerd Font Complete.ttf'
+    install -Dvm644 'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/truetype/'Symbols-2048-em Nerd Font Complete.ttf'
   '';
 
   meta = {

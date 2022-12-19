@@ -1,8 +1,8 @@
 { source, lib, stdenv }: stdenv.mkDerivation {
   inherit (source) pname version src;
   buildCommand = ''
-    install -Dm644 -t $out/share/fish/completions $src/completions/*
-    install -Dm644 -t $out/share/fish/conf.d $src/conf.d/*
+    install -Dvm644 -t $out/share/fish/completions $src/completions/*
+    install -Dvm644 -t $out/share/fish/conf.d $src/conf.d/*
     cp -r $src/functions $out/share/fish
   '';
   meta = {
