@@ -3,8 +3,7 @@
 
   phases = [ "installPhase" ];
   installPhase = ''
-    install -dm755 $out/share/fcitx5/themes
-    cp -rv $src/FluentDark $out/share/fcitx5/themes
+    install -Dvm644 -t $out/share/fcitx5/themes/FluentDark $src/FluentDark/*
   '';
 
   meta = {

@@ -3,10 +3,10 @@
 
   phases = [ "installPhase" ];
   installPhase = ''
-    install -dm755 $out/share/fcitx5/themes
-    for i in "$src"/*; do
-      if [[ $i == */readme.md ]]; then continue; fi
-      cp -rv $i $out/share/fcitx5/themes
+    cd $src
+    for i in *; do
+      if [[ -f "$i" ]]; then continue; fi
+      install -Dvm644 -t "$out/share/fcitx5/themes/$i" "$i"/*
     done
   '';
 

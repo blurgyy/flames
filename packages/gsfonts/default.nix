@@ -4,15 +4,12 @@
   inherit (source) pname version src;
 
   nativeBuildInputs = [ util-linux ];
+  # REF: <https://archlinux.org/packages/extra/any/gsfonts/>
   installPhase = ''
-    # REF: <https://archlinux.org/packages/extra/any/gsfonts/>
-    mkdir -p $out/share/{fonts/postscript,fontconfig/conf.{avail,default}} $out/etc/fonts/conf.d
-    cp $src/fonts/*.otf $out/share/fonts/postscript
+    install -Dvm644 -t $out/share/fonts/opentype $src/fonts/*.otf
     for fc in $src/fontconfig/*.conf; do
-      cp $fc $out/share/fontconfig/conf.avail/69-''${fc##*/}
+      install -Dvm644 $fc $out/etc/fonts/conf.d/69-''${fc##*/}
     done
-    ln -s $out/share/fontconfig/conf.avail/* $out/share/fontconfig/conf.default
-    ln -s $out/share/fontconfig/conf.avail/* $out/etc/fonts/conf.d
   '';
 
   meta = {

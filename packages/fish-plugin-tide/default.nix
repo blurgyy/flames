@@ -2,11 +2,9 @@
   inherit (source) pname version src;
   phases = [ "installPhase" ];
   installPhase = ''
-    set -x
-    mkdir -p $out/share/fish/{conf.d,completions,functions}
-    cp -r $src/completions/* $out/share/fish/completions
-    cp -r $src/conf.d/* $out/share/fish/conf.d
-    cp -r $src/functions/* $out/share/fish/functions
+    install -Dm644 -t $out/share/fish/completions $src/completions/*
+    install -Dm644 -t $out/share/fish/conf.d $src/conf.d/*
+    cp -r $src/functions $out/share/fish
   '';
   meta = {
     homepage = "https://github.com/IlanCosman/tide";
