@@ -6,6 +6,7 @@
       onEvent = "fish_postexec";
     };
     _tide_item_conda.body = readFile ../raw/fish/functions/_tide_item_conda.fish;
+    _tide_item_fhs.body = readFile ../raw/fish/functions/_tide_item_fhs.fish;
     fish_title.body = readFile ../raw/fish/functions/fish_title.fish;
     gcnt.body = readFile ../raw/fish/functions/gcnt.fish;
     private.body = readFile ../raw/fish/functions/private.fish;
@@ -64,7 +65,7 @@
       | source
     set -U tide_git_icon 
     set -g tide_right_prompt_items status cmd_duration context node virtual_env rustc java php chruby go kubectl toolbox terraform aws crystal time
-    set -g tide_left_prompt_items pwd git nix_shell conda jobs newline character
+    set -g tide_left_prompt_items fhs pwd git nix_shell conda jobs newline character
     set -g tide_prompt_add_newline_before false
   '';
 }
