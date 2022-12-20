@@ -18,24 +18,27 @@
 
 command="$1"
 shift 1
+if [[ "$(id -u)" -ne 0 ]]; then
+  user_flag="--user"
+fi
 
 unit_name="$(mktemp -u "sdwrap-$(awk -F'/' '{ print $NF }' <<<"$command")-XXX")"
 
-if systemctl --user is-failed "$unit_name.service" >/dev/null; then
-  systemctl --user reset-failed "$unit_name.service"
+if systemctl $user_flag is-failed "$unit_name.service" >/dev/null; then
+  systemctl $user_flag reset-failed "$unit_name.service"
 fi
 
-if systemctl --user is-active "$unit_name.service" >/dev/null; then
+if systemctl $user_flag is-active "$unit_name.service" >/dev/null; then
   systemd-cat "$command" "$@" &
   pid=$(jobs -p)
-  if busctl --user call org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager AttachProcessesToUnit ssau "$unit_name.service" / 1 "$pid"; then
+  if busctl $user_flag call org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager AttachProcessesToUnit ssau "$unit_name.service" / 1 "$pid"; then
     echo "Attached new process of '$command $*'($pid) to '$unit_name.service'"
   else
     echo "Failed to attach new process of '$command $*'($pid) to '$unit_name.service'" >&2
   fi
 else
   # NOTE: Must specify `Delegate=yes` as property for process to attach.
-  systemd-run --user \
+  systemd-run $user_flag \
     --setenv=PATH --same-dir --unit="$unit_name" --property=Delegate=yes \
     systemd-cat "$command" "$@" &
 fi
