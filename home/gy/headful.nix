@@ -65,6 +65,7 @@
     font-awesome
     freefont_ttf
     liberation_ttf
+    libertine
     lxgw-wenkai
     harmonyos-sans
     symbols-nerd-font
