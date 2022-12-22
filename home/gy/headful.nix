@@ -131,9 +131,9 @@
       ];
     in {
       sway-session.Unit.Wants = wm-session-wants;
-    } // (lib.optionalAttrs config.wayland.windowManager.hyprland.enable {
-      hyprland-session.Unit.Wants = wm-session-wants;
-    });
+      hyprland-session.Unit.Wants = lib.mkIf config.wayland.windowManager.hyprland.enable wm-session-wants;
+      xdg-desktop-autostart.Install.WantedBy = [ "default.target" ];
+    };
     services.flameshot = {
       Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
     };
@@ -151,6 +151,7 @@
       Install.WantedBy = [ "graphical-session.target" ]
         ++ (lib.optional config.wayland.windowManager.hyprland.enable "hyprland-session.target");
     };
+    services.fcitx5-daemon.Install.WantedBy = lib.mkForce [];
   };
 
   services = {
