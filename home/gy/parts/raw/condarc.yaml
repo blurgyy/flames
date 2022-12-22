@@ -2,32 +2,31 @@ auto_activate_base: false
 changeps1: false
 channels:
   - defaults
-  - pytorch
 show_channel_urls: true
 
-# Add python-coding-related packages by default when creating a new env
-create_default_packages:
-  # Use older python for better compatibility, I don't rely on latest python
-  # features anyway.
-  - python=3.8
-  # # Handled by Pacman
-  # # NVim + Coc
-  # - pynvim
-  # - dbus-python
-  # linters, refactoring tools
-  # - jedi
-  # ML
-  - pytorch
-  - cudatoolkit=11.3
-  # - wandb  # from conda-forge
-  # misc
-  - numpy
-  - ipython
-  - ipykernel
-  - matplotlib
-  - pillow
-  - configargparse
-  - scikit-image
+# # Add python-coding-related packages by default when creating a new env
+# create_default_packages:
+#   # Use older python for better compatibility, I don't rely on latest python
+#   # features anyway.
+#   - python=3.8
+#   # # Handled by Pacman
+#   # # NVim + Coc
+#   # - pynvim
+#   # - dbus-python
+#   # linters, refactoring tools
+#   # - jedi
+#   # ML
+#   - pytorch
+#   - cudatoolkit=11.3
+#   # - wandb  # from conda-forge
+#   # misc
+#   - numpy
+#   - ipython
+#   - ipykernel
+#   - matplotlib
+#   - pillow
+#   - configargparse
+#   - scikit-image
 
   # - plyfile  # from conda-forge
   # - trimesh  # from conda-forge
