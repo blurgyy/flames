@@ -122,13 +122,6 @@
       "${myHome}/.nix-profile/share"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"  # REF: <https://github.com/NixOS/nixpkgs/issues/72282#issuecomment-549651957>
     ];
-    configFile."hypr/hyprland.conf".onChange = lib.mkForce ''(  # execute in subshell so that `shopt` won't affect other scripts
-      shopt -s nullglob  # so that nothing is done if /tmp/hypr/ does not exist or is empty
-      for instance in /tmp/hypr/*; do
-        HYPRLAND_INSTANCE_SIGNATURE=''${instance##*/} ${config.wayland.windowManager.hyprland.package}/bin/hyprctl reload config-only \
-          || true  # ignore dead instance(s)
-      done
-    )'';
   };
   systemd.user = {
     targets = let
