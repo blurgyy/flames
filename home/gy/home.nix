@@ -24,6 +24,7 @@
     gdu
     git
     git-sync
+    glow
     gnutar
     hexyl
     home-manager
