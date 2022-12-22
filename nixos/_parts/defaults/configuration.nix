@@ -134,21 +134,36 @@
 
   programs.supervisedDesktopEntries.enable = true;
   environment.systemPackages = with pkgs; [
-    git
-    neovim
-    zsh fish fzf
-    exa bat fd ripgrep procs dogdns hexyl
-    gdu
-    gcc
-    htop
-    file
-    ffmpeg-full
-    pciutils strace lsof
-    zip unzip unar
-    jq libqalculate
-    sops age
+    age
+    bat
     colmena
+    dogdns
+    exa
+    fd
+    ffmpeg-full
+    file
+    fish
+    fzf
+    gcc
+    gdu
+    git
+    glow
+    hexyl
+    htop
+    jq
+    libqalculate
+    lsof
+    neovim
+    pciutils
+    procs
+    ripgrep
     sdwrap
+    sops
+    strace
+    unar
+    unzip
+    zip
+    zsh
     (python3.withPackages (p: with p; [
       click
       h5py
