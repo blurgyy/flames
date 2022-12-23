@@ -113,51 +113,67 @@
   in
     _.${palette}.${name};
 
-in {
-  options.ricing = with lib; {
-    theme = mkOption { type = types.enum [ "light" "dark" ]; };
-    wallpaper = mkOption { };
-    themeColor = mkOption { };
+  colors = colorFn: {
+    background = colorFn "base";
+    foreground = colorFn "text";
+
+    black = colorFn "crust";
+    white = colorFn "rosewater";
+    gray = colorFn "overlay0";
+    lightgray = colorFn "overlay2";
+    darkgray = colorFn "surface1";
+
+    red = colorFn "red";
+    green = colorFn "green";
+    blue = colorFn "blue";
+    cyan = colorFn "sky";
+    ocean = colorFn "sapphire";
+    yellow = colorFn "yellow";
+    orange = colorFn "peach";
+    purple = colorFn "mauve";
+    pink = colorFn "flamingo";
+    magenta = colorFn "pink";
+    teal = colorFn "teal";
+    lavender = colorFn "lavender";
+  };
+in with lib; {
+  options.ricing = {
+    headful = {
+      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); };
+      wallpaper = mkOption { };
+      themeColor = mkOption { };
+    };
+    textual = {
+      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); };
+      themeColor = mkOption { };
+    };
   };
 
   config = {
     ricing = {
-      wallpaper = cozy-8k;
-      themeColor = name: let
-        colorFn = catppuccinColor (if cfg.theme == "light" then "latte" else "mocha");
-        colors = {
-          background = colorFn "base";
-          foreground = colorFn "text";
-
-          black = colorFn "crust";
-          white = colorFn "rosewater";
-          gray = colorFn "overlay0";
-          lightgray = colorFn "overlay2";
-          darkgray = colorFn "surface1";
-
-          red = colorFn "red";
-          green = colorFn "green";
-          blue = colorFn "blue";
-          cyan = colorFn "sky";
-          yellow = colorFn "yellow";
-          orange = colorFn "peach";
-          purple = colorFn "mauve";
-          pink = colorFn "pink";
-        };
-      in
-        colors."${name}";
+      headful = mkIf (cfg.headful != null) {
+        wallpaper = cozy-8k;
+        themeColor = name: let
+          colorFn = catppuccinColor (if cfg.headful.theme == "light" then "latte" else "mocha");
+        in
+          (colors colorFn)."${name}";
+      };
+      textual.themeColor = mkIf (cfg.textual != null) (name: let
+          colorFn = catppuccinColor (if cfg.textual.theme == "light" then "latte" else "mocha");
+        in
+          (colors colorFn)."${name}");
     };
-    gtk = {
+    gtk = mkIf (cfg.headful != null) {
       enable = true;
       theme = {
         package = pkgs.catppuccin-gtk;
-        name = if cfg.theme == "light"
+        name = if cfg.headful.theme == "light"
           then "Catppuccin-Yellow-Light"
           else "Catppuccin-Yellow-Dark";
       };
       iconTheme = {
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
-        name = if cfg.theme == "light"
+        name = if cfg.headful.theme == "light"
           then "Flat-Remix-Yellow-Light"
           else "Flat-Remix-Yellow-Dark";
       };

@@ -1,6 +1,6 @@
 { pkgs, config }: let
   terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
-  inherit (config.ricing) wallpaper themeColor;
+  inherit (config.ricing.headful) wallpaper themeColor;
 in {
   enable = true;
   xwayland = true;

@@ -1,5 +1,5 @@
 { config }: let
-  inherit (config.ricing) themeColor;
+  inherit (config.ricing.headful) themeColor;
 in ''
   set command_status "$status"
   set notify_threshold 30000

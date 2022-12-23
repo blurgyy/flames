@@ -1,6 +1,7 @@
-/* REF: https://github.com/catppuccin/rofi */
-
-configuration {
+{ config }: let
+  inherit (config.ricing.headful) themeColor;
+in ''
+configuration {  /* REF: https://github.com/catppuccin/rofi */
   modi: "run,drun,ssh";
   icon-theme: "Oranchelo";
   drun-display-format: "{icon} {name}";
@@ -15,14 +16,14 @@ configuration {
 
 * {
   font: "slab-serif 15";
-  bg-col:  #1e1e2e;
-  bg-col-light: #1e1e2e;
-  border-col: #1e1e2e;
-  selected-col: #1e1e2e;
-  blue: #89b4fa;
-  fg-col: #cdd6f4;
-  fg-col2: #f38ba8;
-  grey: #6c7086;
+  bg-col: ${themeColor "background"};
+  bg-col-light: ${themeColor "background"};
+  border-col: ${themeColor "background"};
+  selected-col: ${themeColor "background"};
+  blue: ${themeColor "blue"};
+  fg-col: ${themeColor "foreground"};
+  fg-col2: ${themeColor "red"};
+  grey: ${themeColor "gray"};
   width: 600;
 }
 
@@ -114,3 +115,4 @@ button selected {
 /*
  * vim: ft=css:
  */
+''

@@ -1,0 +1,48 @@
+{ config }: let
+  inherit (config.ricing.textual) themeColor;
+in ''
+theme[main_bg]=${themeColor "background"}
+theme[main_fg]=${themeColor "foreground"}
+theme[title]=${themeColor "foreground"}
+theme[hi_fg]=${themeColor "blue"}
+theme[selected_bg]=${themeColor "darkgray"}
+theme[selected_fg]=${themeColor "blue"}
+theme[inactive_fg]=${themeColor "lightgray"}
+theme[graph_text]=${themeColor "white"}
+theme[meter_bg]=${themeColor "darkgray"}
+theme[proc_misc]=${themeColor "white"}
+theme[cpu_box]=${themeColor "ocean"}
+theme[mem_box]=${themeColor "green"}
+theme[net_box]=${themeColor "purple"}
+theme[proc_box]=${themeColor "pink"}
+theme[div_line]=${themeColor "gray"}
+theme[temp_start]=${themeColor "yellow"}
+theme[temp_mid]=${themeColor "orange"}
+theme[temp_end]=${themeColor "red"}
+theme[cpu_start]=${themeColor "ocean"}
+theme[cpu_mid]=${themeColor "cyan"}
+theme[cpu_end]=${themeColor "teal"}
+theme[free_start]=${themeColor "teal"}
+theme[free_mid]=${themeColor "teal"}
+theme[free_end]=${themeColor "green"}
+theme[cached_start]=${themeColor "magenta"}
+theme[cached_mid]=${themeColor "magenta"}
+theme[cached_end]=${themeColor "purple"}
+theme[available_start]=${themeColor "white"}
+theme[available_mid]=${themeColor "pink"}
+theme[available_end]=${themeColor "pink"}
+theme[used_start]=${themeColor "orange"}
+theme[used_mid]=${themeColor "orange"}
+theme[used_end]=${themeColor "red"}
+theme[download_start]=${themeColor "lavender"}
+theme[download_mid]=${themeColor "lavender"}
+theme[download_end]=${themeColor "purple"}
+theme[upload_start]=${themeColor "lavender"}
+theme[upload_mid]=${themeColor "lavender"}
+theme[upload_end]=${themeColor "purple"}
+theme[process_start]=${themeColor "ocean"}
+theme[process_mid]=${themeColor "cyan"}
+theme[process_end]=${themeColor "teal"}
+''
+
+# vim: ft=nix:

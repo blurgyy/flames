@@ -75,11 +75,11 @@
     vim-wakatime
   ];
   extraConfig = ''
-    let g:catppuccin_flavour = "${if config.ricing.theme == "light" then "latte" else "mocha"}"
-    colorscheme catppuccin
     lua <<EOF
     ${callWithHelpers ./config.lua.nix {}}
     EOF
+    colorscheme catppuccin
+    set background=${config.ricing.textual.theme}
   '';
   extraPackages = with pkgs; [
     ccls

@@ -1,5 +1,5 @@
 { config }: let
-  inherit (config.ricing) themeColor;
+  inherit (config.ricing.headful) themeColor;
 in ''
 @define-color nocolor rgba(0, 0, 0, 0);
 * {

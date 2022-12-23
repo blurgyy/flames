@@ -8,6 +8,7 @@
 in {
   home.username = myName;
   home.homeDirectory = myHome;
+  ricing.textual.theme = "light";
   programs.supervisedDesktopEntries.enable = true;
   home.packages = with pkgs; [
     bat
@@ -164,7 +165,7 @@ in {
       sensibleOnTop = true;
       plugins = [{
         plugin = pkgs.tmux-plugin-catppuccin;
-        extraConfig = "set -g @catppuccin_flavour 'mocha'";
+        extraConfig = "set -g @catppuccin_flavour '${if config.ricing.textual.theme == "light" then "latte" else "mocha"}'";
       }] ++ (with pkgs.tmuxPlugins; [
         better-mouse-mode
         extrakto
@@ -240,7 +241,8 @@ in {
     configFile = with builtins; {
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
       "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
-      "fish/themes/catppuccin.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
+      "fish/themes/Catppuccin Latte.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Latte.theme";
+      "fish/themes/Catppuccin Mocha.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
     } // (manifestXdgConfigFilesFrom { inherit config; pathPrefix = ./parts/mirrored; });
     mimeApps = {
       enable = true;

@@ -1,5 +1,5 @@
 { config }: let
-  inherit (config.ricing) themeColor;
+  inherit (config.ricing.textual) themeColor;
 in ''
   vim = vim or {};
 
@@ -185,6 +185,14 @@ in ''
   ]])
 
   -- Plugins
+  -- catppuccin
+  require("catppuccin").setup({
+    background = {
+      light = "latte",
+      dark = "mocha",
+    },
+  })
+
   --- lspconfig
   ---- Custom signs
   ---- REF: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#user-content-change-diagnostic-symbols-in-the-sign-column-gutter
@@ -676,7 +684,7 @@ in ''
     rainbow = {
       enable = true,
       extended_mode = true, -- Highlight also non-parentheses delimiters, like html tags, boolean or table: lang -> boolean
-      colors = { -- Rearranged from aurora colors, reference: <https://www.nordtheme.com/docs/colors-and-palettes>
+      colors = {
         "${themeColor "yellow"}",
         "${themeColor "blue"}",
         "${themeColor "white"}",
