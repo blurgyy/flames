@@ -29,6 +29,7 @@
     ports.tcp = config.sops.placeholder."v2ray/ports/tcp";
     ports.wss = config.sops.placeholder."v2ray/ports/wss";
     wsPath = config.sops.placeholder."v2ray/ws-path";
+    logging.access = true;
     usersInfo = let
       level = 1;
     in [
