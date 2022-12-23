@@ -17,6 +17,7 @@ in {
     clang-tools
     conda
     dogdns
+    dufs
     exa
     exiftool
     fd
@@ -41,7 +42,6 @@ in {
     libqalculate
     lnav
     lsof
-    miniserve
     nix
     parallel
     patchelf
