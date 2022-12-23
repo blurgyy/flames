@@ -8,7 +8,7 @@
 in {
   home.username = myName;
   home.homeDirectory = myHome;
-  ricing.textual.theme = "light";
+  ricing.textual.theme = "dark";
   programs.supervisedDesktopEntries.enable = true;
   home.packages = with pkgs; [
     bat

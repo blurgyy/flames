@@ -57,7 +57,7 @@
     src = pkgs.fish-plugin-tide.src;
   }];
   interactiveShellInit = (
-    readFile ../raw/fish/interactiveShellInit.fish
+    callWithHelpers ../raw/fish/interactiveShellInit.fish {}
   ) + ''
     source ${pkgs.fish-plugin-tide}/share/fish/functions/_tide_sub_configure.fish
     sed -Ee 's/^/set -U /' \

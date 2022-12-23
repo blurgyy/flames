@@ -1,3 +1,4 @@
+{ config }: ''
 ## starship is managed by nix
 #starship init fish | source
 
@@ -32,7 +33,7 @@ function exec_tmux
 end
 
 function bootstrap
-  fish_config theme choose 'Catppuccin Latte'
+  fish_config theme choose 'Catppuccin ${if config.ricing.textual.theme == "light" then "Latte" else "Mocha"}'
 
   # Use vi-like keybindings
   fish_vi_key_bindings
@@ -109,3 +110,4 @@ else if type -q zellij
 end
 
 bootstrap
+''
