@@ -138,6 +138,7 @@
     bat
     colmena
     dogdns
+    dufs
     exa
     fd
     ffmpeg-full
