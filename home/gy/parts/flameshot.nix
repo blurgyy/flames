@@ -1,5 +1,5 @@
-{ ricing }: let
-  inherit (ricing) themeColor;
+{ config }: let
+  inherit (config.ricing) themeColor;
 in {
   enable = true;
   settings = {

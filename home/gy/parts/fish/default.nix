@@ -1,4 +1,4 @@
-{ pkgs, callWithHelpers }: with builtins; {
+{ config, pkgs, callWithHelpers }: with builtins; {
   enable = true;
   functions = {
     __notify_when_long_running_process_finishes = {

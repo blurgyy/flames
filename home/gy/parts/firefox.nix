@@ -38,7 +38,7 @@
         "browser.startup.homepage" = "https://github.com/";
         "browser.warnOnQuitShortcut" = false;
         "fission.autostart" = true;
-        "layout.css.prefers-color-scheme.content-override" = 0;  # REF: <https://support.mozilla.org/bm/questions/1364502>
+        "layout.css.prefers-color-scheme.content-override" = 2;  # REF: <https://support.mozilla.org/bm/questions/1364502>
         "media.ffmpeg.vaapi.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
         "widget.gtk.overlay-scrollbars.enabled" = false;

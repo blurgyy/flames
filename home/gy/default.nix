@@ -58,9 +58,12 @@
   myName = "gy";
   myHome = "/home/${myName}";
   helpers = import ./helpers.nix { inherit pkgs lib; };
-  callWithHelpers = path: overrides: with builtins; let
+  __callWithHelpers = path: overrides: with builtins; let
     f = import path;
-    args = (intersectAttrs (functionArgs f) { inherit pkgs lib name callWithHelpers; } // overrides);
+    args = (intersectAttrs
+      (functionArgs f)
+      ({ inherit pkgs lib name __callWithHelpers; } // overrides)
+    );
   in if (typeOf f) == "set"
     then f
     else f ((intersectAttrs (functionArgs f) helpers) // args);
@@ -77,6 +80,6 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   ];
   extraSpecialArgs = {
     inherit name headless proxy;
-    inherit myName myHome helpers callWithHelpers;
+    inherit myName myHome helpers __callWithHelpers;
   };
 }

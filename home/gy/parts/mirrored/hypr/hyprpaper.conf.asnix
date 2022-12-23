@@ -1,5 +1,5 @@
-{ pkgs, ricing }: let
-  inherit (ricing) wallpaper;
+{ pkgs, config }: let
+  inherit (config.ricing) wallpaper;
 in ''
 # Format:
 # preload = <path1>

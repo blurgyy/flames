@@ -1,5 +1,5 @@
-{ config, pkgs, lib, ricing }: let
-  inherit (ricing) themeColor;
+{ config, pkgs, lib }: let
+  inherit (config.ricing) themeColor;
   themeColorHex = name: builtins.replaceStrings [ "#" ] [ "" ] (themeColor name);
 in {
   enable = true;

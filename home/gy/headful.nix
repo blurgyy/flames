@@ -1,15 +1,7 @@
-{ config, pkgs, lib, myHome, callWithHelpers, ... }: {  # For non-headless machines
-  gtk = {
-    enable = true;
-    theme = {
-      package = pkgs.catppuccin-gtk;
-      name = "Catppuccin-Yellow-Dark";
-    };
-    iconTheme = {
-      package = pkgs.flat-remix-icon-theme-proper-trayicons;
-      name = "Flat-Remix-Yellow-Dark";
-    };
-  };
+{ config, pkgs, lib, myHome, __callWithHelpers, ... }: let
+  callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
+in {  # For non-headless machines
+  ricing.theme = "dark";
   qt = {
     enable = true;
     platformTheme = "gtk";
@@ -21,8 +13,8 @@
     gtk.enable = true;
   };
   wayland.windowManager = {
-    sway = callWithHelpers ./parts/sway.nix { inherit config; };
-    hyprland = callWithHelpers ./parts/hyprland.nix { inherit config; };
+    sway = callWithHelpers ./parts/sway.nix {};
+    hyprland = callWithHelpers ./parts/hyprland.nix {};
   };
   fonts.fontconfig.enable = true;
   dconf.settings = {
@@ -101,7 +93,7 @@
       settings = callWithHelpers ./parts/alacritty.nix {};
     };
 
-    firefox = callWithHelpers ./parts/firefox.nix { inherit config; };
+    firefox = callWithHelpers ./parts/firefox.nix {};
     waybar = callWithHelpers ./parts/waybar {};
   };
   home.sessionVariables = {
@@ -180,7 +172,7 @@
         name = "Flat-Remix-Yellow-Dark";
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
       };
-      settings = callWithHelpers ./parts/dunst.nix { inherit config; };
+      settings = callWithHelpers ./parts/dunst.nix {};
     };
     git-sync = {
       enable = true;

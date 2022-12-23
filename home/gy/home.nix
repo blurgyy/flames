@@ -1,9 +1,11 @@
 { lib, pkgs, config
 , name, myName, myHome
 , headless ? true, proxy ? null
-, helpers, callWithHelpers
+, helpers, __callWithHelpers
 , ...
-}: {
+}: let
+  callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
+in {
   home.username = myName;
   home.homeDirectory = myHome;
   programs.supervisedDesktopEntries.enable = true;
@@ -239,7 +241,7 @@
       "wakatime/.wakatime.cfg".text = readFile ./parts/raw/wakatime;
       "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
       "fish/themes/catppuccin.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
-    } // (manifestXdgConfigFilesFrom ./parts/mirrored);
+    } // (manifestXdgConfigFilesFrom { inherit config; pathPrefix = ./parts/mirrored; });
     mimeApps = {
       enable = true;
       defaultApplications = builtins.mapAttrs (_: app: let

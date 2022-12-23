@@ -1,5 +1,5 @@
-{ pkgs, name, ricing }: with pkgs; let
-  inherit (ricing) themeColor;
+{ pkgs, name, config }: with pkgs; let
+  inherit (config.ricing) themeColor;
   workspaceModule = {
     disable-scroll = true;
     all-outputs = true;

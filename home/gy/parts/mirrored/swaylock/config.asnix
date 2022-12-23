@@ -1,5 +1,5 @@
-{ ricing }: let
-  inherit (ricing) themeColor;
+{ config }: let
+  inherit (config.ricing) themeColor;
   themeColorHex = name: builtins.replaceStrings [ "#" ] [ "" ] (themeColor name);
 in ''
 ##############################################################################

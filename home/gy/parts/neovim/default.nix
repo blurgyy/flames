@@ -1,4 +1,4 @@
-{ pkgs, callWithHelpers }: {
+{ config, pkgs, callWithHelpers }: {
   enable = true;
 
   viAlias = true;
@@ -75,7 +75,7 @@
     vim-wakatime
   ];
   extraConfig = ''
-    let g:catppuccin_flavour = "mocha"
+    let g:catppuccin_flavour = "${if config.ricing.theme == "light" then "latte" else "mocha"}"
     colorscheme catppuccin
     lua <<EOF
     ${callWithHelpers ./config.lua.nix {}}
