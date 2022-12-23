@@ -139,12 +139,12 @@
 in with lib; {
   options.ricing = {
     headful = {
-      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); };
+      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); default = null; };
       wallpaper = mkOption { };
       themeColor = mkOption { };
     };
     textual = {
-      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); };
+      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); default = null; };
       themeColor = mkOption { };
     };
   };
