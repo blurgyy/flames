@@ -25,6 +25,7 @@ configuration {  /* REF: https://github.com/catppuccin/rofi */
   fg-col2: ${themeColor "red"};
   grey: ${themeColor "gray"};
   width: 600;
+  border-radius: 3px;
 }
 
 element-text, element-icon , mode-switcher {

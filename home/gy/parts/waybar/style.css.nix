@@ -5,6 +5,7 @@ in ''
 * {
   min-height: 0;
   font-family: slab-serif;
+  border-radius: 3px;
   /*
    * Adding this will make workspace border to be vertical, while omitting
    * this will make workspasce border to be a trapezoid.
