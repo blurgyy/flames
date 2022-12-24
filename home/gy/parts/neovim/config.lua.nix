@@ -33,8 +33,27 @@ in ''
   end
 
   --- Enable undo file and directory
-  os.execute("mkdir -p " .. os.getenv("HOME") .. "/.cache/nvim/undotree")
-  vim.o.undodir = os.getenv("HOME") .. "/.cache/nvim/undotree"
+  function exists(file)  -- REF: <https://stackoverflow.com/questions/1340230/check-if-directory-exists-in-lua>
+    local ok, err, code = os.rename(file, file)
+    if not ok then
+      if code == 13 then
+        -- Permission denied, but it exists
+        return true
+      end
+    end
+    return ok, err
+  end
+  function isdir(path)
+    return exists(path .. "/")
+  end
+  if os.getenv("XDG_STATE_HOME") then
+    vim.o.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undotree"
+  else
+    vim.o.undodir = os.getenv("HOME") .. "/.local/state/nvim/undotree"
+  end
+  if not isdir(vim.o.undodir) then
+    os.execute("mkdir -p " .. vim.o.undodir)
+  end
   vim.o.undofile = true
 
   vim.o.mouse = "a"
@@ -810,11 +829,12 @@ in ''
   --vim.g.gutentags_project_root = { ".git", "Makefile", ".thisisroot" }
   ------ Name of generated data file
   --vim.g.gutentags_ctags_tagfile = ".tags"
-  ------ Move all generated data file to ~/.cache/nvim/gutentags
-  --local vim_tags = vim.fn.expand(
-  --  os.getenv("XDG_CACHE_HOME") .. "/nvim/gutentags"
-  --)
-  --vim.g.gutentags_cache_dir = vim_tags
+  ------ Move all generated data file to ~/.local/state/nvim/gutentags
+  if os.getenv("XDG_STATE_HOME") then
+    vim.g.gutentags_cache_dir = os.getenv("XDG_STATE_HOME") .. "/nvim/gutentags"
+  else
+    vim.o.gutentags_cache_dir = os.getenv("HOME") .. "/.local/state/nvim/gutentags"
+  end
   ------ Ctags parameters yanked from: https://www.zhihu.com/question/47691414
   --vim.g.gutentags_ctags_extra_args = {
   --  "--fields=+nialmzS",
