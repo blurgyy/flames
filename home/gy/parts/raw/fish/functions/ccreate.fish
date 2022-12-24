@@ -11,7 +11,7 @@ if not set -q _flag_name
       # Omit `env` here (use `conda` instead of `conda env`).
       # Reference:
       # https://github.com/conda/conda/issues/3859#issuecomment-260001212
-      $_conda_bin create -n "$cur"
+      $_conda_bin create -n "$cur" $_flag_no_default_packages $_flag_y $argv
     end
   end
 else if string length -q $_flag_name
