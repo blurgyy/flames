@@ -49,6 +49,11 @@ in {  # For non-headless machines
     rubik
     (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
     (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
+    source-serif-pro
+    source-sans-pro
+    source-code-pro
+    source-han-serif
+    source-han-sans
     noto-fonts
     noto-fonts-extra
     noto-fonts-cjk-sans
@@ -57,7 +62,6 @@ in {  # For non-headless machines
     font-awesome
     freefont_ttf
     liberation_ttf
-    libertine
     lxgw-wenkai
     harmonyos-sans
     symbols-nerd-font
