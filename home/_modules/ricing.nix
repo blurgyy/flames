@@ -178,6 +178,7 @@ in with lib; {
           else "Flat-Remix-Yellow-Dark";
       };
     };
+    services.dunst.iconTheme = config.gtk.iconTheme;
     # NOTE: Add `"layout.css.prefers-color-scheme.content-override" = 2;` to `Preferences` of
     # pacakge wrap options for firefox.
     # REF: <https://support.mozilla.org/bm/questions/1364502>

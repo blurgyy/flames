@@ -168,10 +168,6 @@ in {  # For non-headless machines
     flameshot = callWithHelpers ./parts/flameshot.nix {};
     dunst = {
       enable = true;
-      iconTheme = {
-        name = "Flat-Remix-Yellow-Dark";
-        package = pkgs.flat-remix-icon-theme-proper-trayicons;
-      };
       settings = callWithHelpers ./parts/dunst.nix {};
     };
     git-sync = {
