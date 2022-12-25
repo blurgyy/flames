@@ -9,10 +9,17 @@
     }];
     rejectedAddrGroups = [{
       addrs = (import ./banned-ips/ssh-scanners.nix);
+      countPackets = true;
       comment = "reject known ssh scanners";
     } {
       addrs = (import ./banned-ips/smtp-scanners.nix);
+      countPackets = true;
       comment = "reject known smtp scanners";
+    }];
+    acceptedAddrGroups = [{
+      addrs = [ "$private_range" ];
+      countPackets = true;
+      comment = "allow machiines from private network to access arbitrary port";
     }];
     referredServices = [];
   };

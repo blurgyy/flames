@@ -15,12 +15,17 @@
 in {
   options.networking.firewall-tailored = {
     enable = mkEnableOption "Tailored firewall module";
+
     acceptedPorts = mkOption { type = types.listOf (types.oneOf [ portType portModule ]); default = []; };
+    rejectedPorts = mkOption { type = types.listOf (types.oneOf [ portType portModule ]); default = []; };
+    acceptedAddrGroups = mkOption { type = types.listOf AddrGroupModule; default = []; };
     rejectedAddrGroups = mkOption { type = types.listOf AddrGroupModule; default = []; };
+
     extraRulesAfter = mkOption { type = types.listOf types.lines; default = []; };
     extraInputRules = mkOption { type = types.listOf types.lines; default = []; };
     extraForwardRules = mkOption { type = types.listOf types.lines; default = []; };
     extraOutputRules = mkOption { type = types.listOf types.lines; default = []; };
+
     referredServices = mkOption {
       type = types.listOf types.str;
       description = ''
@@ -71,8 +76,11 @@ table inet filter {
     ct state invalid drop comment "early drop of invalid connections"
     ct state {established, related} accept comment "allow tracked connections"
     iifname lo accept comment "allow from loopback"
-    ip protocol icmp accept comment "allow icmp"
 
+    meta l4proto icmp accept comment "allow icmp"
+    meta l4proto ipv6-icmp accept comment "allow icmp v6"
+
+    # Rejected address groups
     ${concatStringsSep "\n    " (map (addrGroup:
       "ip saddr {${concatStringsSep "," addrGroup.addrs}} ${
         optionalString addrGroup.countPackets "counter"
@@ -81,8 +89,28 @@ table inet filter {
       }")
       cfg.rejectedAddrGroups)}
 
-    meta l4proto ipv6-icmp accept comment "allow icmp v6"
+    # Accepted address groups
+    ${concatStringsSep "\n    " (map (addrGroup:
+      "ip saddr {${concatStringsSep "," addrGroup.addrs}} ${
+        optionalString addrGroup.countPackets "counter"
+      } accept ${
+        optionalString (addrGroup.comment != null) "comment \"${addrGroup.comment}\""
+      }")
+      cfg.acceptedAddrGroups)}
 
+    # Rejected ports
+    ${concatStringsSep "\n    " (map (portInfo: with builtins;
+    if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
+      then "meta l4proto tcp th dport ${toString portInfo} drop"
+      else "${
+        optionalString(portInfo.predicate != null) portInfo.predicate
+      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} drop ${
+        optionalString (portInfo.comment != null) "comment \"${portInfo.comment}\""
+      }"
+    )
+    cfg.rejectedPorts)}
+
+    # Accepted ports
     ${concatStringsSep "\n    " (map (portInfo: with builtins;
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
       then "meta l4proto tcp th dport ${toString portInfo} accept"
