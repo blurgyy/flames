@@ -1,17 +1,21 @@
 { config, lib, pkgs, ... }: with lib; let
   cfg = config.networking.firewall-tailored;
   portType = with types; oneOf [ int str ];
+  comment = mkOption { type = types.nullOr types.str; default = null; };
+  countPackets = mkOption { type = types.bool; default = true; };
   portModule = types.submodule ({ ... }: {
-    options.port = mkOption { type = portType; };
-    options.protocols = mkOption { type = types.listOf types.str; };
-    options.predicate = mkOption { type = types.nullOr types.str; default = null; };
-    options.comment = mkOption { type = types.nullOr types.str; default = null; };
-    options.countPackets = mkOption { type = types.bool; default = true; };
+    options = {
+      inherit comment countPackets;
+      port = mkOption { type = portType; };
+      protocols = mkOption { type = types.listOf types.str; };
+      predicate = mkOption { type = types.nullOr types.str; default = null; };
+    };
   });
   AddrGroupModule = types.submodule ({ ... }: {
-    options.addrs = mkOption { type = types.listOf types.str; };
-    options.comment = mkOption { type = types.nullOr types.str; default = null; };
-    options.countPackets = mkOption { type = types.bool; default = true; };
+    options = {
+      inherit comment countPackets;
+      addrs = mkOption { type = types.listOf types.str; };
+    };
   });
 in {
   options.networking.firewall-tailored = {
