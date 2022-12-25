@@ -74,12 +74,10 @@ table inet filter {
     ip protocol icmp accept comment "allow icmp"
 
     ${concatStringsSep "\n    " (map (addrGroup:
-      "ip saddr {${concatStringsSep "," addrGroup.addrs}} ${if addrGroup.countPackets
-        then "counter"
-        else ""
-      } drop ${if (addrGroup.comment != null)
-        then "comment \"${addrGroup.comment}\""
-        else ""
+      "ip saddr {${concatStringsSep "," addrGroup.addrs}} ${
+        optionalString addrGroup.countPackets "counter"
+      } drop ${
+        optionalString (addrGroup.comment != null) "comment \"${addrGroup.comment}\""
       }")
       cfg.rejectedAddrGroups)}
 
@@ -88,14 +86,12 @@ table inet filter {
     ${concatStringsSep "\n    " (map (portInfo: with builtins;
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
       then "meta l4proto tcp th dport ${toString portInfo} accept"
-      else "${if (portInfo.predicate != null)
-          then portInfo.predicate
-          else ""
-        } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} accept ${if (portInfo.comment != null)
-          then "comment \"${portInfo.comment}\""
-          else ""
-        }"
-      )
+      else "${
+        optionalString(portInfo.predicate != null) portInfo.predicate
+      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} accept ${
+        optionalString (portInfo.comment != null) "comment \"${portInfo.comment}\""
+      }"
+    )
     cfg.acceptedPorts)}
 
     pkttype host limit rate 5/second counter reject with icmpx type admin-prohibited
