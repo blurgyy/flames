@@ -6,6 +6,7 @@
     options.protocols = mkOption { type = types.listOf types.str; };
     options.predicate = mkOption { type = types.nullOr types.str; default = null; };
     options.comment = mkOption { type = types.nullOr types.str; default = null; };
+    options.countPackets = mkOption { type = types.bool; default = true; };
   });
   AddrGroupModule = types.submodule ({ ... }: {
     options.addrs = mkOption { type = types.listOf types.str; };
@@ -103,8 +104,10 @@ table inet filter {
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
       then "meta l4proto tcp th dport ${toString portInfo} drop"
       else "${
-        optionalString(portInfo.predicate != null) portInfo.predicate
-      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} drop ${
+        optionalString (portInfo.predicate != null) portInfo.predicate
+      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} ${
+        optionalString portInfo.countPackets "counter"
+      } drop ${
         optionalString (portInfo.comment != null) "comment \"${portInfo.comment}\""
       }"
     )
@@ -115,8 +118,10 @@ table inet filter {
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
       then "meta l4proto tcp th dport ${toString portInfo} accept"
       else "${
-        optionalString(portInfo.predicate != null) portInfo.predicate
-      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} accept ${
+        optionalString (portInfo.predicate != null) portInfo.predicate
+      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} ${
+        optionalString portInfo.countPackets "counter"
+      } accept ${
         optionalString (portInfo.comment != null) "comment \"${portInfo.comment}\""
       }"
     )
