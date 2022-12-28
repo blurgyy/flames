@@ -30,6 +30,7 @@ in {  # For non-headless machines
     cider
     colmena
     evince
+    gimp
     imv
     libnotify
     logseq
