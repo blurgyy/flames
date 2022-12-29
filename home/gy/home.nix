@@ -277,7 +277,10 @@ in {
     };
   };
 
-  systemd.user.startServices = true;
+  systemd.user = {
+    startServices = true;
+    targets.xdg-desktop-autostart.Install.WantedBy = [ "default.target" ];
+  };
 
   # So that fish can complete `man` commands
   programs.man.generateCaches = true;
