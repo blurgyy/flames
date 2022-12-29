@@ -99,6 +99,7 @@ else if test 0 -eq (id -u)  # Do not autostart tmux as root
   echo "Not autostarting terminal multiplexer as root" >&2
 else if set -q ZELLIJ  # Do not nest zellij session
 else if set -q TMUX  # Do not nest tmux session
+else if set -q noexecmultiplexer  # explicitly not executing
 else if type -q tmux
   exec_tmux
 else if type -q zellij
