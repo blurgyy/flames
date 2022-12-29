@@ -72,15 +72,15 @@
   };
   fish-plugin-catppuccin = {
     pname = "fish-plugin-catppuccin";
-    version = "8d0b07ad927f976708a1f875eb9aacaf67876137";
+    version = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "fish";
-      rev = "8d0b07ad927f976708a1f875eb9aacaf67876137";
+      rev = "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba";
       fetchSubmodules = false;
-      sha256 = "sha256-/JIKRRHjaO2jC0NNPBiSaLe8pR2ASv24/LFKOJoZPjk=";
+      sha256 = "sha256-wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=";
     });
-    date = "2022-11-18";
+    date = "2022-12-29";
   };
   fish-plugin-tide = {
     pname = "fish-plugin-tide";
@@ -158,18 +158,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202212272209";
+    version = "202212282209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212272209/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212282209/geoip.dat";
       sha256 = "sha256-y7KZZ94MFOiBCd3atv5IdGBsdWvIejHTCLM5pz39v6U=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202212272209";
+    version = "202212282209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212272209/geosite.dat";
-      sha256 = "sha256-knerqDv9QLwTzrguR7Xd6QEIRuAM/FXaYnBcaizyFTQ=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202212282209/geosite.dat";
+      sha256 = "sha256-iEDDUDGIKxyLwBuVranpShbqDwv+OfRAtU3n39zrU38=";
     };
   };
   luarock-dbus_proxy = {
@@ -204,10 +204,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "8.1.0";
+    version = "8.2.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.1.0/simple-icons-font-8.1.0.zip";
-      sha256 = "sha256-Cc89i/T5t3m83B8NC1VjrJGPrOMZGq0DPR33uZfIZSw=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.2.0/simple-icons-font-8.2.0.zip";
+      sha256 = "sha256-S703EqzJEoS6ekSCrjmWgSbcPGKc1VBqirVBXvE342Q=";
     };
   };
   symbols-nerd-font = {
