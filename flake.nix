@@ -2,7 +2,6 @@
   description = "highsunz's flakes";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
-    nix-std.url = "github:chessai/nix-std";
     flake-utils.url = "github:numtide/flake-utils";
     nixos-generators.url = "github:nix-community/nixos-generators";
     nixos-cn = { url = "github:nixos-cn/flakes"; inputs.nixpkgs.follows = "nixpkgs"; };

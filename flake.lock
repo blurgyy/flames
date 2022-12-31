@@ -1647,21 +1647,6 @@
         "type": "github"
       }
     },
-    "nix-std_2": {
-      "locked": {
-        "lastModified": 1671250799,
-        "narHash": "sha256-uPIakP98gOf6504NtrAb2/0O0BgRRXNShM0PTV8z+T0=",
-        "owner": "chessai",
-        "repo": "nix-std",
-        "rev": "b300fd6dfeae8cc331c7d8cde0e81b404d50d40c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chessai",
-        "repo": "nix-std",
-        "type": "github"
-      }
-    },
     "nixgl": {
       "inputs": {
         "flake-utils": "flake-utils_14",
@@ -2230,7 +2215,6 @@
         "hyprpaper": "hyprpaper_2",
         "nbfc-linux": "nbfc-linux_2",
         "nickcao": "nickcao_2",
-        "nix-std": "nix-std_2",
         "nixgl": "nixgl_2",
         "nixos-cn": "nixos-cn_2",
         "nixos-generators": "nixos-generators_2",
