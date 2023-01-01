@@ -41,12 +41,10 @@
   ])) // {
     inherit morty-relay watson-relay rpi-relay "2x1080ti-relay" shared-relay;
 
-    # Subnet routes via watson. use with `tailscale up --advertise-routes=192.168.1.0/24` on watson
+    # Subnet routes via watson. use with `tailscale up --advertise-routes=10.76.0.0/21` on watson
     # and `tailscale up --accept-routes` on client machines.
-    "2x1080ti".hostname = "192.168.1.22";
-    shared.hostname = "192.168.1.23";
+    shared.hostname = "10.76.2.83";
 
-    glab = { hostname = "10.76.2.83"; user = "git"; port = 9962; };
     gpp = { hostname = "peterpan"; port = 77; };
     ghooper = { hostname = "hooper"; user = "git"; };
 
