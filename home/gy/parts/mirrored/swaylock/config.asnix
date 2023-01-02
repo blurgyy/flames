@@ -53,21 +53,21 @@ inside-ver-color=${themeColorHex "black"}aa
 inside-wrong-color=${themeColorHex "black"}aa
 
 # Colors of texts inside indicator
-text-color=${themeColorHex "white"}ff
+text-color=${themeColorHex "foreground"}ff
 text-clear-color=${themeColorHex "green"}ff
 text-caps-lock-color=${themeColorHex "lightgray"}ff
 text-ver-color=${themeColorHex "cyan"}ff
 text-wrong-color=${themeColorHex "red"}ff
 
 # Colors on the border of indicator
-ring-color=${themeColorHex "white"}ff
+ring-color=${themeColorHex "foreground"}ff
 ring-clear-color=${themeColorHex "green"}ff
 ring-caps-lock-color=${themeColorHex "orange"}ff
 ring-ver-color=${themeColorHex "lightgray"}ff
 ring-wrong-color=${themeColorHex "red"}ff
 
 # On keyboard press
-key-hl-color=${themeColorHex "blue"}ff
+key-hl-color=${themeColorHex "ocean"}ff
 bs-hl-color=${themeColorHex "yellow"}ff
 
 # Require a password after 1s
