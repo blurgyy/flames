@@ -196,7 +196,7 @@
     };
     openssh = {
       enable = true;  # NOTE: OpenSSH is disabled by default!
-      passwordAuthentication = false;
+      passwordAuthentication = lib.mkDefault false;
       forwardX11 = lib.mkDefault true;
       #permitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
       knownHosts = let
