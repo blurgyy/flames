@@ -158,18 +158,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202301012209";
+    version = "202301022209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301012209/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301022209/geoip.dat";
       sha256 = "sha256-FBhTJK/ST5A8t1JVquY40C3lT3eSYQ7RJNCl9oigAus=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202301012209";
+    version = "202301022209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301012209/geosite.dat";
-      sha256 = "sha256-+NB+F6nfKZ6TomFF2Gb4OuIt9oBA+mo26yJe11Ac06k=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301022209/geosite.dat";
+      sha256 = "sha256-uNmAoWpGV9X1h680PmWH7iln6dQ1YGfXSRxrk8+Uwbo=";
     };
   };
   luarock-dbus_proxy = {
@@ -292,13 +292,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.5.4";
+    version = "2.6.0";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.5.4";
+      rev = "2.6.0";
       fetchSubmodules = false;
-      sha256 = "sha256-IWTSxfpJ1zQImo6rxnSPgGte83VSRrF7Bkhv2r6KkRo=";
+      sha256 = "sha256-6ANCItJT5xHSGZCjCjDXMHD36LkV9QDd6ydlaGrSFX8=";
     });
   };
   xtables-addons-perl-scripts = {

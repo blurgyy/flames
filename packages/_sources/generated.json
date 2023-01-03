@@ -269,9 +269,9 @@
             "name": null,
             "sha256": "sha256-FBhTJK/ST5A8t1JVquY40C3lT3eSYQ7RJNCl9oigAus=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301012209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301022209/geoip.dat"
         },
-        "version": "202301012209"
+        "version": "202301022209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -282,11 +282,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-+NB+F6nfKZ6TomFF2Gb4OuIt9oBA+mo26yJe11Ac06k=",
+            "sha256": "sha256-uNmAoWpGV9X1h680PmWH7iln6dQ1YGfXSRxrk8+Uwbo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301012209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301022209/geosite.dat"
         },
-        "version": "202301012209"
+        "version": "202301022209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -507,11 +507,11 @@
             "name": null,
             "owner": "muety",
             "repo": "wakapi",
-            "rev": "2.5.4",
-            "sha256": "sha256-IWTSxfpJ1zQImo6rxnSPgGte83VSRrF7Bkhv2r6KkRo=",
+            "rev": "2.6.0",
+            "sha256": "sha256-6ANCItJT5xHSGZCjCjDXMHD36LkV9QDd6ydlaGrSFX8=",
             "type": "github"
         },
-        "version": "2.5.4"
+        "version": "2.6.0"
     },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,
