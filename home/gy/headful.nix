@@ -34,7 +34,7 @@ in {  # For non-headless machines
     imv
     libnotify
     logseq
-    #meshlab
+    meshlab
     obs-studio
     rustdesk-with-x11-desktopentry
     tdesktop-megumifox
