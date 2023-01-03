@@ -186,7 +186,6 @@
     PIP_REQUIRE_VIRTUALENV = "1";
   };
 
-  # Enable the OpenSSH daemon.
   services = {
     locate = {
       enable = true;
@@ -198,6 +197,7 @@
     openssh = {
       enable = true;  # NOTE: OpenSSH is disabled by default!
       passwordAuthentication = false;
+      forwardX11 = lib.mkDefault true;
       #permitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
       knownHosts = let
         appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
