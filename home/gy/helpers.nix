@@ -14,20 +14,17 @@
       else readFile path;
     mirrorSingleDirAsXdgInner = { config, pathPrefix, path }: mapAttrs
         (subPath: type:
-          if type == "regular" then
-            {
-              name = "${path}/${lib.removeSuffix ".asnix" subPath}";
-              value = {
-                text = loadFile { inherit config; path = (pathPrefix + "/${path}/${subPath}"); };
-                # setting force=true will unconditionally replace target path
-                force = true;  # REF: https://github.com/nix-community/home-manager/issues/6#issuecomment-693001293
-              };
-            }
-          else
-            (mirrorSingleDirAsXdgInner {
-              inherit config pathPrefix;
-              path = "${path}/${subPath}";
-            })
+          if type == "regular" then {
+            name = "${path}/${lib.removeSuffix ".asnix" subPath}";
+            value = {
+              text = loadFile { inherit config; path = (pathPrefix + "/${path}/${subPath}"); };
+              # setting force=true will unconditionally replace target path
+              force = true;  # REF: <https://github.com/nix-community/home-manager/issues/6#issuecomment-693001293>
+            };
+          } else (mirrorSingleDirAsXdgInner {
+            inherit config pathPrefix;
+            path = "${path}/${subPath}";
+          })
         )
         (readDir (pathPrefix + "/${path}"));
     mirrorDirAsXdg = { config, pathPrefix, path }: listToAttrs (lib.collect
