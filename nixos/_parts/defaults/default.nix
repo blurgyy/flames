@@ -12,6 +12,7 @@ in [
   ./network
   ./haproxy.nix
   inputs.nixos-cn.nixosModules.nixos-cn
+  inputs.nix-index-db.nixosModules.nix-index
   self.nixosModules.default
   {
     nixpkgs.overlays = [
