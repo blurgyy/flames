@@ -15,5 +15,4 @@
     }
     { networking.hostName = name; }
   ];
-  extraModules = [ inputs.colmena.nixosModules.deploymentOptions ];
 }
