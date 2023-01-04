@@ -206,7 +206,7 @@ in {
         { class = "Zotero"; title = "Software Update"; }
         {
           class = "Steam";
-          title = "Steam Login|Friends List|Music Player|Allow game launch\\\\?|Steam - (Self Updater|News.*)";
+          title = "Steam Login|Friends List|好友列表|Music Player|Allow game launch\\\\?|Steam - (Self Updater|News.*)";
         }
         {
           class = "steam_app_\\\\d{6}";

@@ -184,7 +184,7 @@ in {
     # REF: <https://wiki.hyprland.org/Configuring/Window-Rules/>
     windowrulev2 = float, class:^(Thunar|org.fcitx.fcitx5-config-qt|flameshot|kvantummanager|qt5ct|pavucontrol|swappy|zenity|CrashReportClient)$
     windowrulev2 = float, class:firefox, title:^(Picture-in-Picture|Library|Extension: .*|Close Firefox|Firefox (-|—) (Choose User Profile|Sharing Indicator)|(Delete|Rename) Profile|Create Profile Wizard)$
-    windowrulev2 = float, class:Steam, title:Steam Login|Friends List|Music Player|Allow game launch?|Steam - (Self Updater|News.*)
+    windowrulev2 = float, class:Steam, title:Steam Login|Friends List|好友列表|Music Player|Allow game launch?|Steam - (Self Updater|News.*)
     windowrulev2 = float, class:steam_app_\d{6}, title:Uplay|LariLauncher
     windowrulev2 = float, class:^CloudCompare$, title:Ply File Open
     windowrulev2 = float, class:com.alibabainc.dingtalk, title: |分享的图片
