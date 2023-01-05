@@ -11,6 +11,7 @@ in {
   };
   recommendedEnvironment = true;
   extraConfig = let
+    topprg = lib.getExe pkgs.btop;
     hypr-execonce-helper = "${pkgs.hypr-execonce-helper}";
     hypr-last-workspace-recorder = "${pkgs.hypr-last-workspace-recorder}";
     backlight-notify = "${pkgs.notification-scripts}/bin/backlight-notify";
@@ -45,7 +46,7 @@ in {
     exec-once = sdwrap firefox
     # System monitor on workspace 8
     windowrulev2 = workspace 8 silent, class:^sysmon$
-    exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap alacritty --class sysmon -e sh -c 'while true; do echo "I: starting /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop"; if ! /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop; then echo "E: /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop was closed unexpectedly" >&2; else echo "I: /nix/store/rx3pv3a7r2zk1z9zazmdkfqf1l0n3926-btop-1.2.13/bin/btop was closed successfully"; fi done'
+    exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap alacritty --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
     # Zotero on workspace 9
     windowrulev2 = workspace 9 silent, class:^Zotero$
     exec-once = sdwrap zotero
