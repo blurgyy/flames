@@ -174,6 +174,7 @@
       numpy
       pillow
       plyfile
+      pudb
       tqdm
     ]))
     hydra-check cachix
