@@ -196,6 +196,7 @@ in {
     WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     PYTHONDONTWRITEBYTECODE = 1;
     PYTHONUNBUFFERED = 1;
+    PYTHONBREAKPOINT = "pudb.set_trace";  # NOTE: use `breakpoint()` in script to trigger debugger
     PIP_REQUIRE_VIRTUALENV = 1;
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
