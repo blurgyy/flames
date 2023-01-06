@@ -280,7 +280,7 @@ in {
 
   systemd.user = {
     startServices = true;
-    targets.xdg-desktop-autostart.Install.WantedBy = [ "default.target" ];
+    services.fcitx5-daemon.Install.WantedBy = [ "default.target" ];
   };
 
   # So that fish can complete `man` commands
