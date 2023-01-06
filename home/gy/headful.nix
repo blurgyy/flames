@@ -147,7 +147,7 @@ in {  # For non-headless machines
       Install.WantedBy = [ "graphical-session.target" ]
         ++ (lib.optional config.wayland.windowManager.hyprland.enable "hyprland-session.target");
     };
-    services.fcitx5-daemon.Install.WantedBy = lib.mkForce [ "graphical-session.target" ];
+    services.fcitx5-daemon.Service.ExecStart = lib.mkForce "${config.i18n.inputMethod.package}/bin/fcitx5 --replace";
   };
 
   services = {
