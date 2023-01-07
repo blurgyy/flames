@@ -2174,11 +2174,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1672980560,
-        "narHash": "sha256-Pzx7az57SiUS1xhvKesTb1rhO9w9lWy9mecIqVjcKzo=",
+        "lastModified": 1673089714,
+        "narHash": "sha256-D58SGNOVe+s7r2iewnCA8q68gyrfQcOnD1TdJo1wFLY=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "1786883425208d3bf726ab6a1889beddeb46cdbc",
+        "rev": "9e565f0d9d41c19a94f55af205c328ec5177fc0a",
         "type": "github"
       },
       "original": {
@@ -2836,11 +2836,11 @@
         "xdph": "xdph_4"
       },
       "locked": {
-        "lastModified": 1673018030,
-        "narHash": "sha256-lytCOa237cqyiLQEwlXD7EwbjjNoufch6pTwI3bwvc4=",
+        "lastModified": 1673095759,
+        "narHash": "sha256-re3A1NkGNdkWo2EodZtlbUdhJtk67Dtc8PTWZ7odOBk=",
         "ref": "refs/heads/main",
-        "rev": "464dd79246eedb0da00514b5b9c68a8969b47df0",
-        "revCount": 2297,
+        "rev": "af4b9700b7a1a1b36439dc51334b9aeaadcfcd41",
+        "revCount": 2301,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/hyprland"
@@ -3424,11 +3424,11 @@
         "terrasops": "terrasops_4"
       },
       "locked": {
-        "lastModified": 1672969629,
-        "narHash": "sha256-/ujJfo7aCDpf352cMWyLtp+SKbJSLkLKeRcx0FrzY24=",
+        "lastModified": 1673095695,
+        "narHash": "sha256-h4uLv0rT3L/iWYpxnDUoFYVCdRhosDjgSSLDvluED8o=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "33f3981a9e7201612b5fa10dbfc40311f4bc37b4",
+        "rev": "c7248911e9d0f4f4d60cdb1ae09f8622bfd35348",
         "type": "github"
       },
       "original": {
@@ -4421,11 +4421,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1672926560,
-        "narHash": "sha256-jXfJt/YxnWGXWfFO26JGtqUjuowjZyC3NBC+aHovIuI=",
+        "lastModified": 1673039641,
+        "narHash": "sha256-Bc9FVhyLxp2mX2SXr0N4Fj4St7o4yaYEXpd12etSNBY=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "eda35f193e526d557a1a9929a4141979df601337",
+        "rev": "d9f73e41fd3c8e85b266bdb91cb7535600010798",
         "type": "github"
       },
       "original": {
