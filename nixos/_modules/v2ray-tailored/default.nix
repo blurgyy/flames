@@ -166,8 +166,6 @@ table ip transparent_proxy {
     ip daddr {
       $private_range,
       $proxy_bypassed_IPs,
-    } ip daddr != {
-      10.0.0.0/8,  # NOTE: internal ZJU addresses need to be proxied
     } return
 
     meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.fwMark} return
@@ -183,8 +181,6 @@ table ip transparent_proxy {
       $private_range,
       $proxy_bypassed_IPs,
       $geoip4_iso_country_CN,
-    } ip daddr != {
-      10.0.0.0/8,  # NOTE: internal ZJU addresses need to be proxied
     } return
 
     socket cgroupv2 level 1 "system.slice" ${optionalString
