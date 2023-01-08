@@ -4,23 +4,65 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     flake-utils.url = "github:numtide/flake-utils";
     nixos-generators.url = "github:nix-community/nixos-generators";
-    nixos-cn = { url = "github:nixos-cn/flakes"; inputs.nixpkgs.follows = "nixpkgs"; };
-    home-manager = { url = "github:nix-community/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
-    sops-nix = { url = "github:Mic92/sops-nix"; inputs.nixpkgs.follows = "nixpkgs"; };
-    sops-nix-hm = { url = "github:Mic92/sops-nix/feat/home-manager"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nix-index-db = { url = "github:Mic92/nix-index-database"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nixgl = { url = "github:guibou/nixGL"; inputs.nixpkgs.follows = "nixpkgs"; };
-    tex2nix = { url = "github:Mic92/tex2nix"; };
-    nickcao = { url = "github:NickCao/flakes"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nvfetcher = { url = "github:berberman/nvfetcher"; };
-    colmena = { url = "github:zhaofengli/colmena"; inputs.nixpkgs.follows = "nixpkgs"; };
+    nixos-cn = {
+      url = "github:nixos-cn/flakes";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix-hm = {
+      url = "github:Mic92/sops-nix/feat/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-db = {
+      url = "github:Mic92/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixgl = {
+      url = "github:guibou/nixGL";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    nickcao = {
+      url = "github:NickCao/flakes";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    carinae = {
+      url = "github:NickCao/carinae";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    hyprland = {
+      url = "https://github.com/hyprwm/hyprland";
+      flake = true;
+      type = "git";
+      submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hypr-msg-handler = {
+      url = "gitlab:highsunz/hypr-msg-handler";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nbfc-linux = {
+      url = "github:nbfc-linux/nbfc-linux";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    carinae = { url = "github:NickCao/carinae"; inputs.nixpkgs.follows = "nixpkgs"; };
-    hyprland = { url = "https://github.com/hyprwm/hyprland"; flake = true; type = "git"; submodules = true; inputs.nixpkgs.follows = "nixpkgs"; };
-    hypr-msg-handler = { url = "gitlab:highsunz/hypr-msg-handler"; inputs.nixpkgs.follows = "nixpkgs"; };
-    hyprpaper = { url = "github:hyprwm/hyprpaper"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nbfc-linux = { url = "github:nbfc-linux/nbfc-linux"; inputs.nixpkgs.follows = "nixpkgs"; };
     acremote.url = "gitlab:highsunz/acremote";
+    nvfetcher.url = "github:berberman/nvfetcher";
+    tex2nix.url = "github:Mic92/tex2nix";
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
