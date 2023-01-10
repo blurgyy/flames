@@ -29,26 +29,6 @@
         },
         "version": "ios-15.4"
     },
-    "async-speed-limit-tokio1": {
-        "cargoLocks": null,
-        "date": "2022-07-14",
-        "extract": null,
-        "name": "async-speed-limit-tokio1",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "open-trade",
-            "repo": "async-speed-limit",
-            "rev": "8d1851d967b1014eb263bae23053a0e513431a9f",
-            "sha256": "sha256-OCO8sYXPbMUTUlGW2F7I0jsjCic+jHKnC8qEh+1Kll4=",
-            "type": "github"
-        },
-        "version": "8d1851d967b1014eb263bae23053a0e513431a9f"
-    },
     "dt": {
         "cargoLocks": {
             "Cargo.lock": [
@@ -324,7 +304,16 @@
         "version": "2023-01"
     },
     "rustdesk-server": {
-        "cargoLocks": null,
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./rustdesk-server-1.1.7-1/Cargo.lock",
+                {
+                    "async-speed-limit-0.3.1": "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=",
+                    "confy-0.4.0": "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=",
+                    "tokio-socks-0.5.1": "sha256-inmAJk0fAlsVNIwfD/M+htwIdQHwGSTRrEy6N/mspMI="
+                }
+            ]
+        },
         "date": null,
         "extract": null,
         "name": "rustdesk-server",
@@ -337,11 +326,11 @@
             "name": null,
             "owner": "rustdesk",
             "repo": "rustdesk-server",
-            "rev": "1.1.7",
-            "sha256": "sha256-bPb9LQxQdo+SgEwW5nZcJD6FVW0+DN3Zymuaa21CfAU=",
+            "rev": "1.1.7-1",
+            "sha256": "sha256-O03hn53DaSksyz0aIKDZaqHg1Sj3M585uuext+lNS08=",
             "type": "github"
         },
-        "version": "1.1.7"
+        "version": "1.1.7-1"
     },
     "simple-icons": {
         "cargoLocks": null,

@@ -17,18 +17,6 @@
       sha256 = "sha256-CDmtLCzlytCZyMBDoMrdvs3ScHkMipuiXoNfc6bfimw=";
     };
   };
-  async-speed-limit-tokio1 = {
-    pname = "async-speed-limit-tokio1";
-    version = "8d1851d967b1014eb263bae23053a0e513431a9f";
-    src = fetchFromGitHub ({
-      owner = "open-trade";
-      repo = "async-speed-limit";
-      rev = "8d1851d967b1014eb263bae23053a0e513431a9f";
-      fetchSubmodules = false;
-      sha256 = "sha256-OCO8sYXPbMUTUlGW2F7I0jsjCic+jHKnC8qEh+1Kll4=";
-    });
-    date = "2022-07-14";
-  };
   dt = {
     pname = "dt";
     version = "v0.7.10";
@@ -193,14 +181,22 @@
   };
   rustdesk-server = {
     pname = "rustdesk-server";
-    version = "1.1.7";
+    version = "1.1.7-1";
     src = fetchFromGitHub ({
       owner = "rustdesk";
       repo = "rustdesk-server";
-      rev = "1.1.7";
+      rev = "1.1.7-1";
       fetchSubmodules = false;
-      sha256 = "sha256-bPb9LQxQdo+SgEwW5nZcJD6FVW0+DN3Zymuaa21CfAU=";
+      sha256 = "sha256-O03hn53DaSksyz0aIKDZaqHg1Sj3M585uuext+lNS08=";
     });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./rustdesk-server-1.1.7-1/Cargo.lock;
+      outputHashes = {
+        "confy-0.4.0" = "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=";
+        "async-speed-limit-0.3.1" = "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=";
+        "tokio-socks-0.5.1" = "sha256-inmAJk0fAlsVNIwfD/M+htwIdQHwGSTRrEy6N/mspMI=";
+      };
+    };
   };
   simple-icons = {
     pname = "simple-icons";
