@@ -269,9 +269,9 @@
             "name": null,
             "sha256": "sha256-bZ7LBj9upCmhd5VOLrbg632bERUJGAt0FR331cq6LF4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301082209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301092210/geoip.dat"
         },
-        "version": "202301082209"
+        "version": "202301092210"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -282,11 +282,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ZFOD+cjt3DlCVHjHZpZllLDKJIVI0MWiJW2sw8UTn+g=",
+            "sha256": "sha256-V5J/Iy1LXBkW2IBSQ+BcINfhXWKiiFy5DOObVLmQVFw=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301082209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301092210/geosite.dat"
         },
-        "version": "202301082209"
+        "version": "202301092210"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -337,11 +337,11 @@
             "name": null,
             "owner": "rustdesk",
             "repo": "rustdesk-server",
-            "rev": "1.1.6-2",
-            "sha256": "sha256-Bcl3PREvr76qIvuPC4wxd6HBXG9Xw4sJapaY3B/DGbY=",
+            "rev": "1.1.7",
+            "sha256": "sha256-bPb9LQxQdo+SgEwW5nZcJD6FVW0+DN3Zymuaa21CfAU=",
             "type": "github"
         },
-        "version": "1.1.6-2"
+        "version": "1.1.7"
     },
     "simple-icons": {
         "cargoLocks": null,
