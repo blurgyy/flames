@@ -59,7 +59,7 @@
       nvim-ts-rainbow
     neorg
     catppuccin-nvim
-    bufferline-nvim
+    barbar-nvim
     lualine-nvim
       nvim-web-devicons
     todo-comments-nvim
