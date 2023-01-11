@@ -829,7 +829,7 @@ in ''
       colors = {
         "${themeColor "yellow"}",
         "${themeColor "blue"}",
-        "${themeColor "white"}",
+        "${themeColor "highlight"}",
         "${themeColor "purple"}",
         "${themeColor "red"}",
       },

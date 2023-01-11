@@ -56,7 +56,7 @@ window#waybar.hidden {
 #workspaces button.active {
   background: inherit;
   color: ${themeColor "foreground"};
-  border-bottom: 4px solid ${themeColor "white"};
+  border-bottom: 4px solid ${themeColor "highlight"};
   /* font-weight: bold; */
   /* border-bottom: 5px solid #547daf; */
 }
@@ -69,7 +69,7 @@ window#waybar.hidden {
 #workspaces button.urgent {
   border-bottom: 4px solid ${themeColor "orange"};
   background-color: inherit;
-  color: ${themeColor "white"};
+  color: ${themeColor "highlight"};
   animation: blinker 0.7s linear infinite;
 }
 

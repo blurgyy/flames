@@ -118,7 +118,7 @@
     foreground = colorFn "text";
 
     black = colorFn "crust";
-    white = colorFn "rosewater";
+    highlight = colorFn "rosewater";
     gray = colorFn "overlay0";
     lightgray = colorFn "overlay2";
     darkgray = colorFn "surface1";

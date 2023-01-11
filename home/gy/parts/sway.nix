@@ -228,7 +228,7 @@ in {
         background = themeColor "blue";
         text = themeColor "background";
         indicator = themeColor "green";
-        childBorder = themeColor "white";
+        childBorder = themeColor "highlight";
       };
       unfocused = {
         border = themeColor "darkgray";

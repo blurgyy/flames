@@ -15,7 +15,7 @@ in {
       showStartupLaunchMessage = false;
       startupLaunch = true;
       uiColor = "${themeColor "cyan"}";
-      userColors = "picker, ${themeColor "red"}, ${themeColor "green"}, ${themeColor "blue"}, ${themeColor "yellow"}, ${themeColor "black"}, ${themeColor "white"}, ${themeColor "orange"}, ${themeColor "purple"}";
+      userColors = "picker, ${themeColor "red"}, ${themeColor "green"}, ${themeColor "blue"}, ${themeColor "yellow"}, ${themeColor "background"}, ${themeColor "foreground"}, ${themeColor "orange"}, ${themeColor "purple"}";
     };
     Shortcuts = {
       TYPE_ACCEPT = "Return";

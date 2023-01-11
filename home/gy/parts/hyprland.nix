@@ -101,7 +101,7 @@ in {
       gaps_in = 2
       gaps_out = 8
       border_size = 3
-      col.active_border = rgba(${themeColorHex "white"}ee)
+      col.active_border = rgba(${themeColorHex "highlight"}ee)
       col.inactive_border = rgba(${themeColorHex "gray"}aa)
       layout = dwindle
       apply_sens_to_raw = true
@@ -156,7 +156,7 @@ in {
       # See <https://wiki.hyprland.org/Configuring/Dwindle-Layout/> for more
       pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
       preserve_split = true # you probably want this
-      col.group_border_active = rgba(${themeColorHex "white"}ee)
+      col.group_border_active = rgba(${themeColorHex "highlight"}ee)
       col.group_border = rgba(${themeColorHex "gray"}aa)
       # 0: open new split window at mouse location
       # 1: always left/top
