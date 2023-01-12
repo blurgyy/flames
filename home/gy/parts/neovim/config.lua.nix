@@ -802,9 +802,9 @@ in ''
   --- gitsigns
   require("gitsigns").setup({
     signs = {
-      add = { text = "+" },
-      change = { text = "#" },
-      delete = { text = "-" },
+      add = { text = "┃" },
+      change = { text = "┃" },
+      delete = { text = "┃" },
     },
     current_line_blame = true,
   })
