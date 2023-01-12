@@ -782,6 +782,15 @@ in ''
     },
     update_focused_file = { enable = true },
     diagnostics = { enable = true },
+    hijack_cursor = true,  -- keep the cursor on first character
+    -- TODO: awaiting <https://github.com/nvim-tree/nvim-tree.lua/issues/1669>
+    open_on_setup = false,  -- Do not open&focus on nvim-tree on new empty buffer
+    open_on_setup_file = true,
+    ignore_buffer_on_setup = true,
+    ignore_ft_on_setup = {
+      "gitcommit",
+      "gitrebase",
+    },
     actions = {
       open_file = {
         quit_on_open = false,
