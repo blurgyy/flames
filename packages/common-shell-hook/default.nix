@@ -97,8 +97,10 @@
   # Neovim from nixpkgs is statically linked while on Arch it's not.  Don't assume a flake will
   # be run on a NixOS machine.
   # alias vim='$ {neovim}/bin/nvim'
+  alias v='nvim'
   alias vi='nvim'
   alias vim='nvim'
+  alias vm='nvim'
 
   alias rg='${ripgrep}/bin/rg'
   alias fd='${fd}/bin/fd'
