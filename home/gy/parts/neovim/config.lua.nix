@@ -158,8 +158,6 @@ in ''
     end
   end
 
-  -- vim.api.nvim_set_keymap("n", "Q", '<Nop>', {})
-
   -- Autocmds
   local lowtab_fts = {
     "context",
@@ -359,27 +357,27 @@ in ''
   })
   local opts = { noremap = true, silent = true }
   -- next/prev
-  vim.api.nvim_set_keymap("n", "<M-,>", "<Cmd>BufferPrevious<CR>", opts)
-  vim.api.nvim_set_keymap("n", "<M-.>", "<Cmd>BufferNext<CR>", opts)
+  vim.keymap.set("n", "<M-,>", "<Cmd>BufferPrevious<CR>", opts)
+  vim.keymap.set("n", "<M-.>", "<Cmd>BufferNext<CR>", opts)
   -- move to next/prev
-  vim.api.nvim_set_keymap("n", "<M-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-  vim.api.nvim_set_keymap("n", "<M->>", "<Cmd>BufferMoveNext<CR>", opts)
+  vim.keymap.set("n", "<M-<>", "<Cmd>BufferMovePrevious<CR>", opts)
+  vim.keymap.set("n", "<M->>", "<Cmd>BufferMoveNext<CR>", opts)
   -- Quick go-to
-  vim.api.nvim_set_keymap('n', '<M-1>', '<Cmd>BufferGoto 1<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-2>', '<Cmd>BufferGoto 2<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-3>', '<Cmd>BufferGoto 3<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-4>', '<Cmd>BufferGoto 4<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-5>', '<Cmd>BufferGoto 5<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-6>', '<Cmd>BufferGoto 6<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-7>', '<Cmd>BufferGoto 7<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-8>', '<Cmd>BufferGoto 8<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<M-9>', '<Cmd>BufferLast<CR>', opts)
+  vim.keymap.set('n', '<M-1>', '<Cmd>BufferGoto 1<CR>', opts)
+  vim.keymap.set('n', '<M-2>', '<Cmd>BufferGoto 2<CR>', opts)
+  vim.keymap.set('n', '<M-3>', '<Cmd>BufferGoto 3<CR>', opts)
+  vim.keymap.set('n', '<M-4>', '<Cmd>BufferGoto 4<CR>', opts)
+  vim.keymap.set('n', '<M-5>', '<Cmd>BufferGoto 5<CR>', opts)
+  vim.keymap.set('n', '<M-6>', '<Cmd>BufferGoto 6<CR>', opts)
+  vim.keymap.set('n', '<M-7>', '<Cmd>BufferGoto 7<CR>', opts)
+  vim.keymap.set('n', '<M-8>', '<Cmd>BufferGoto 8<CR>', opts)
+  vim.keymap.set('n', '<M-9>', '<Cmd>BufferLast<CR>', opts)
   -- Pick
-  vim.api.nvim_set_keymap('n', '<M-p>', '<Cmd>BufferPick<CR>', opts)
+  vim.keymap.set('n', '<M-p>', '<Cmd>BufferPick<CR>', opts)
   -- Pin/Unpin
-  vim.api.nvim_set_keymap('n', '<M-P>', '<Cmd>BufferPin<CR>', opts)
+  vim.keymap.set('n', '<M-P>', '<Cmd>BufferPin<CR>', opts)
   -- Close buffer
-  vim.api.nvim_set_keymap('n', '<M-c>', '<Cmd>BufferClose<CR>', opts)
+  vim.keymap.set('n', '<M-c>', '<Cmd>BufferClose<CR>', opts)
   
   -- REF: <https://github.com/romgrk/barbar.nvim/#user-content-integration-with-filetree-plugins>
   require("nvim-tree.events").subscribe("TreeOpen", function()
@@ -797,7 +795,7 @@ in ''
       },
     },
   })
-  vim.keymap.set("n", "<leader>d", "<CMD>NvimTreeToggle<CR>", { silent = true, noremap = true })
+  vim.keymap.set("n", "<leader>d", require("nvim-tree.api").tree.toggle, { silent = true, noremap = true })
   ---- REF: https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
   vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
