@@ -46,6 +46,11 @@ function bootstrap
     __notify_when_long_running_process_finishes
   end
 
+  # abbr
+  function __last_history_item
+      echo $history[1]
+  end
+  abbr -a !! --position anywhere --function __last_history_item
 
   # Volatile environment variables
   set -gx GPG_TTY (tty)
