@@ -129,16 +129,16 @@
   };
   libime-history-merge = {
     pname = "libime-history-merge";
-    version = "v0.2.0";
+    version = "v0.3.0";
     src = fetchFromGitHub ({
       owner = "blurgyy";
       repo = "libime-history-merge";
-      rev = "v0.2.0";
+      rev = "v0.3.0";
       fetchSubmodules = false;
-      sha256 = "sha256-k8I/uUFjqUecPgsrJl+X8tZajkfdW35ahMSJeZZn8jY=";
+      sha256 = "sha256-aq8wRW+YFNNM1y6QzZzJDpisMJieURXjbKVoiRgtryE=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./libime-history-merge-v0.2.0/Cargo.lock;
+      lockFile = ./libime-history-merge-v0.3.0/Cargo.lock;
       outputHashes = {
         
       };
@@ -146,18 +146,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202301112211";
+    version = "202301122210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301112211/geoip.dat";
-      sha256 = "sha256-bZ7LBj9upCmhd5VOLrbg632bERUJGAt0FR331cq6LF4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301122210/geoip.dat";
+      sha256 = "sha256-QjLvzynx9R2qzHoMkyfeOnnyHPFVfutd3CCNNvoaW9o=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202301112211";
+    version = "202301122210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301112211/geosite.dat";
-      sha256 = "sha256-/+kuUvGlnne7+WTF6JuwAGGESJH1VeOW4M/AhOuf6XE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301122210/geosite.dat";
+      sha256 = "sha256-2xXWQKJgeLKbUW+OsK15Wro/vZZiCYaGnJTG5k/5sc8=";
     };
   };
   luarock-dbus_proxy = {
@@ -299,10 +299,10 @@
   };
   xtables-addons-perl-scripts = {
     pname = "xtables-addons-perl-scripts";
-    version = "3.22";
+    version = "3.23";
     src = fetchurl {
-      url = "https://inai.de/files/xtables-addons/xtables-addons-3.22.tar.xz";
-      sha256 = "sha256-+qFqJxZida+/6N9gX1XDqBrGk78Z2mdNRc7e1BN64hc=";
+      url = "https://inai.de/files/xtables-addons/xtables-addons-3.23.tar.xz";
+      sha256 = "sha256-JWk8aa/HVihwWLQi5sGGGPcnCMfh2YRkesfRGYoxaRQ=";
     };
   };
   zellij-hirr = {
