@@ -13,6 +13,7 @@
 , rsync
 , starship
 , tinytools
+, tokei
 }: writeText "hook" ''
   set -o vi
   shopt -s failglob
@@ -115,13 +116,14 @@
   alias ctd='cargo test --debug'
   alias ctr='cargo test --release'
 
-  alias rg='${ripgrep}/bin/rg'
   alias fd='${fd}/bin/fd'
-  alias procs='${procs}/bin/procs'
   alias htop='${htop}/bin/htop'
   alias lnav='${lnav}/bin/lnav'
-  alias rsync='${rsync}/bin/rsync'
+  alias procs='${procs}/bin/procs'
   alias qalc='${libqalculate}/bin/qalc'
+  alias rg='${ripgrep}/bin/rg'
+  alias rsync='${rsync}/bin/rsync'
+  alias token='${tokei}/bin/tokei'
 
   alias xargs='xargs '
   alias parallel='${parallel}/bin/parallel '
