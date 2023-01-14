@@ -2819,11 +2819,11 @@
         "xdph": "xdph_4"
       },
       "locked": {
-        "lastModified": 1673609484,
-        "narHash": "sha256-/xa1NNrCUoM1dFbnPiRDJDL0y66e1OqVVuezfkCHfhw=",
+        "lastModified": 1673644024,
+        "narHash": "sha256-el5v3pXx9O3LjHzmfyr5u7CKLCJLfID8atQVhTKxSFA=",
         "ref": "refs/heads/main",
-        "rev": "9c77415cda40eb334dd9306c504c0003dc14b53f",
-        "revCount": 2321,
+        "rev": "b3012d97ab32abb6915f6ed496a04e206a9f0b0b",
+        "revCount": 2324,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/hyprland"
@@ -3412,11 +3412,11 @@
         "terrasops": "terrasops_4"
       },
       "locked": {
-        "lastModified": 1673500941,
-        "narHash": "sha256-VzYcmqqZe4kQQbCaLB1haOqjCE7vimVjIcJK+lkFuUU=",
+        "lastModified": 1673667905,
+        "narHash": "sha256-L/UVrY/H7Le+NA2joTDPa+Utcp47kDp3xjT5vaSMRrU=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "b67c0aa651efdaffd50f6d90ed88e2791225e72e",
+        "rev": "ce9f7f20c6917fa58c0c4b8f35d4c250e7bcd6c3",
         "type": "github"
       },
       "original": {
@@ -3989,11 +3989,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673574362,
-        "narHash": "sha256-YDnpzZZTtRqvG9hzwDRkf5jgt/5V61Zw/D/3iyK86U8=",
+        "lastModified": 1673660556,
+        "narHash": "sha256-zYRUlYl6vTF5grPbgWA+WHkc+s1SOgA+DHFlpW+lgJ4=",
         "owner": "nixos-cn",
         "repo": "flakes",
-        "rev": "549d0bdbde8c747972a3457dc5424dc412bf0d70",
+        "rev": "a12f6519bf4c895fc5ba69349b135004b288920b",
         "type": "github"
       },
       "original": {
@@ -5821,11 +5821,11 @@
       "flake": false,
       "locked": {
         "host": "gitlab.freedesktop.org",
-        "lastModified": 1671183014,
-        "narHash": "sha256-oMWT5Zbe/3HFINAk38jNVxiZ4PCYvPJj2Jo4iiyBtm0=",
+        "lastModified": 1672824257,
+        "narHash": "sha256-SbYoZj57VlopTzI+OSW9jlgYxN1gI1KLg/s/HV+87eE=",
         "owner": "wlroots",
         "repo": "wlroots",
-        "rev": "dc7cc98cf21a8dc19ab8895505500e3700646af0",
+        "rev": "5f264a7d6c8af27d41ff440c05262b022c055593",
         "type": "gitlab"
       },
       "original": {
