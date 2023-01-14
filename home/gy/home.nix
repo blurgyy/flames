@@ -34,6 +34,7 @@ in {
     home-manager
     htop
     hydra-check
+    hyperfine
     imagemagick
     jq
     less
