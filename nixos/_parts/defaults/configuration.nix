@@ -150,6 +150,7 @@
     glow
     hexyl
     htop
+    hyperfine
     jq
     libqalculate
     lsof
