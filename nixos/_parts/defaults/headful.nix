@@ -20,16 +20,19 @@
 
   # Enable pipewire (see NixOS Wiki)
   security.rtkit.enable = lib.mkDefault true;
-  services.pipewire = {
-    enable = lib.mkDefault true;
-    alsa.enable = lib.mkDefault true;
-    alsa.support32Bit = lib.mkDefault true;
-    pulse.enable = lib.mkDefault true;
-    jack.enable = lib.mkDefault true;
-    wireplumber.enable = lib.mkDefault true;
-    media-session.enable = lib.mkDefault false;
-    config.pipewire = {
-      "log.level" = 2;
+  services = {
+    tumbler.enable = true;  # Thumbnail support in Thunar
+    pipewire = {
+      enable = lib.mkDefault true;
+      alsa.enable = lib.mkDefault true;
+      alsa.support32Bit = lib.mkDefault true;
+      pulse.enable = lib.mkDefault true;
+      jack.enable = lib.mkDefault true;
+      wireplumber.enable = lib.mkDefault true;
+      media-session.enable = lib.mkDefault false;
+      config.pipewire = {
+        "log.level" = 2;
+      };
     };
   };
 
