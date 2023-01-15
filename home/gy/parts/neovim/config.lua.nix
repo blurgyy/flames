@@ -381,10 +381,10 @@ in ''
   
   -- REF: <https://github.com/romgrk/barbar.nvim/#user-content-integration-with-filetree-plugins>
   require("nvim-tree.events").subscribe("TreeOpen", function()
-    require("bufferline.api").set_offset(require("nvim-tree.view").View.width)
+    require("bufferline.api").set_offset(require("nvim-tree.view").View.width + 1)
   end)
   require("nvim-tree.events").subscribe("Resize", function()
-    require("bufferline.api").set_offset(require("nvim-tree.view").View.width)
+    require("bufferline.api").set_offset(require("nvim-tree.view").View.width + 1)
   end)
   require("nvim-tree.events").subscribe("TreeClose", function()
     require("bufferline.api").set_offset(0)
