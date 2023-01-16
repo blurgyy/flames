@@ -1,5 +1,6 @@
 { self
 , inputs
+, system
 , headless
 , isQemuGuest
 , withSecrets ? true
@@ -16,8 +17,9 @@ in [
   self.nixosModules.default
   {
     nixpkgs.overlays = [
-      self.overlays.default
       inputs.nixos-cn.overlay
+      self.overlays.default
+      self.overlays.profilesShared.${system}
     ];
   }
 

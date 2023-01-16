@@ -41,17 +41,10 @@
               -- 
             '') ];
           });
-          #gitsigns-nvim = prevPlugins.gitsigns-nvim.overrideAttrs (o: {
-          #  src = prev.fetchFromGitHub {
-          #    owner = "lewis6991";
-          #    repo = "gitsigns.nvim";
-          #    rev = "refs/tags/v0.5";
-          #    hash = "sha256-kyiQoboYq4iNLOj1iKA2cfXQ9FFiRYdvf55bX5Xvj8A=";
-          #  };
-          #});
         });
       })
       self.overlays.default
+      self.overlays.profilesShared.${system}
     ];
   };
   lib = nixpkgs.lib;
