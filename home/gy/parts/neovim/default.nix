@@ -33,6 +33,7 @@
         tree-sitter-cpp
         tree-sitter-css
         tree-sitter-cuda
+        tree-sitter-elm
         tree-sitter-fish
         # tree-sitter-help  # Not provided by nixpkgs
         tree-sitter-html
@@ -85,6 +86,7 @@
     ccls
     clang-tools
     ctags
+    elmPackages.elm-language-server
     nil
     pyright
     shfmt

@@ -522,15 +522,21 @@ in ''
   local enabled_lsps = {
     "bashls",
     "clangd",
-    "pyright",
+    "elmls",
     "nil_ls",
+    "pyright",
     "rust_analyzer",
     "sumneko_lua",
     "taplo",
-    "yamlls",
     "texlab",
+    "yamlls",
   }
   local settings = {
+    elm = {
+      codeLens = {
+        enable = true,
+      },
+    },
     pyright = {
       settings = {
         python = {
