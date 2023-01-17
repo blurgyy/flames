@@ -2,6 +2,7 @@
   inherit (config.ricing.textual) themeColor;
 in ''
   vim = vim or {};
+  table.unpack = table.unpack or unpack
 
   -- Options
   vim.o.number = true
@@ -147,17 +148,7 @@ in ''
       { name = "gs", target = ":%s//g<Left><Left>" },
     },
   }
-  for mode, map in pairs(mappings) do
-    for _, entry in ipairs(map) do
-      local options = mapping_options
-      if entry.options ~= nil then
-        for k, v in pairs(entry.options) do
-          options[k] = v
-        end
-      end
-      vim.keymap.set(mode, entry.name, entry.target, options)
-    end
-  end
+  -- NOTE: mappings are set at last
 
   -- Autocmds
   local lowtab_fts = {
@@ -357,29 +348,35 @@ in ''
     no_name_title = nil,
   })
   local opts = { noremap = true, silent = true }
-  -- next/prev
-  vim.keymap.set("n", "<M-,>", "<Cmd>BufferPrevious<CR>", opts)
-  vim.keymap.set("n", "<M-.>", "<Cmd>BufferNext<CR>", opts)
-  -- move to next/prev
-  vim.keymap.set("n", "<M-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-  vim.keymap.set("n", "<M->>", "<Cmd>BufferMoveNext<CR>", opts)
-  -- Quick go-to
-  vim.keymap.set('n', '<M-1>', '<Cmd>BufferGoto 1<CR>', opts)
-  vim.keymap.set('n', '<M-2>', '<Cmd>BufferGoto 2<CR>', opts)
-  vim.keymap.set('n', '<M-3>', '<Cmd>BufferGoto 3<CR>', opts)
-  vim.keymap.set('n', '<M-4>', '<Cmd>BufferGoto 4<CR>', opts)
-  vim.keymap.set('n', '<M-5>', '<Cmd>BufferGoto 5<CR>', opts)
-  vim.keymap.set('n', '<M-6>', '<Cmd>BufferGoto 6<CR>', opts)
-  vim.keymap.set('n', '<M-7>', '<Cmd>BufferGoto 7<CR>', opts)
-  vim.keymap.set('n', '<M-8>', '<Cmd>BufferGoto 8<CR>', opts)
-  vim.keymap.set('n', '<M-9>', '<Cmd>BufferLast<CR>', opts)
-  -- Pick
-  vim.keymap.set('n', '<M-p>', '<Cmd>BufferPick<CR>', opts)
-  -- Pin/Unpin
-  vim.keymap.set('n', '<M-P>', '<Cmd>BufferPin<CR>', opts)
-  -- Close buffer
-  vim.keymap.set('n', '<M-c>', '<Cmd>BufferClose<CR>', opts)
-  
+  -- keymaps for barbar
+  mappings.n = {
+    -- next/prev
+    { name = "<M-,>", target = "<CMD>BufferPrevious<CR>" },
+    { name = "<M-.>", target = "<CMD>BufferNext<CR>" },
+    -- move to next/prev
+    { name = "<M-<>", target = "<CMD>BufferMovePrevious<CR>" },
+    { name = "<M->>", target = "<CMD>BufferMoveNext<CR>" },
+    -- Quick go-to
+    { name = "<M-1>", target = "<CMD>BufferGoto 1<CR>" },
+    { name = "<M-2>", target = "<CMD>BufferGoto 2<CR>" },
+    { name = "<M-3>", target = "<CMD>BufferGoto 3<CR>" },
+    { name = "<M-4>", target = "<CMD>BufferGoto 4<CR>" },
+    { name = "<M-5>", target = "<CMD>BufferGoto 5<CR>" },
+    { name = "<M-6>", target = "<CMD>BufferGoto 6<CR>" },
+    { name = "<M-7>", target = "<CMD>BufferGoto 7<CR>" },
+    { name = "<M-8>", target = "<CMD>BufferGoto 8<CR>" },
+    { name = "<M-9>", target = "<CMD>BufferLast<CR>" },
+    -- Pick
+    { name = "<M-p>", target = "<CMD>BufferPick<CR>" },
+    -- Pin/Unpin
+    { name = "<M-P>", target = "<CMD>BufferPin<CR>" },
+    -- Close buffer
+    { name = "<M-c>", target = "<CMD>BufferClose<CR>" },
+    -- Concatentation.  Note that this must be at the end.
+    -- REF: <https://stackoverflow.com/questions/1410862/concatenation-of-tables-in-lua#comments-54352037>
+    table.unpack(mappings.n or {}),
+  }
+
   -- REF: <https://github.com/romgrk/barbar.nvim/#user-content-integration-with-filetree-plugins>
   require("nvim-tree.events").subscribe("TreeOpen", function()
     require("bufferline.api").set_offset(require("nvim-tree.view").View.width + 1)
@@ -418,16 +415,20 @@ in ''
     }
   })
   local previewer = require("telescope.builtin")
-  vim.keymap.set("n", "<C-p>", previewer.find_files, { noremap = true })
-  vim.keymap.set("n", "\\g", previewer.git_files, { noremap = true })
-  -- Search for a string in cwd and get results as you type
-  vim.keymap.set("n", "<leader>g", previewer.live_grep, { noremap = true })
-  -- Searches for the string under cursor in cwd
-  vim.keymap.set("n", "z*", previewer.grep_string, { noremap = true })
-  vim.keymap.set("n", "z#", previewer.grep_string, { noremap = true })
-  vim.keymap.set("n", "<leader>b", previewer.buffers, { noremap = true })
-  vim.keymap.set("n", "<leader>fh", previewer.help_tags, { noremap = true })
-  vim.keymap.set("n", "<leader>v", previewer.treesitter, { noremap = true })
+  mappings.n = {
+    { name = "n", target = "<C-p>" },
+    { name = "n", target = "\\g" },
+    -- Search for a string in cwd and get results as you type
+    { name = "<leader>g", target = previewer.live_grep, options = { noremap = true } },
+    -- Searches for the string under cursor in cwd
+    { name = "z*", target = previewer.grep_string, options = { noremap = true } },
+    { name = "z#", target = previewer.grep_string, options = { noremap = true } },
+    { name = "<leader>b", target = previewer.buffers, options = { noremap = true } },
+    { name = "<leader>fh", target = previewer.help_tags, options = { noremap = true } },
+    { name = "<leader>v", target = previewer.treesitter, options = { noremap = true } },
+    -- Concatentation with prev mappings
+    table.unpack(mappings.n or {}),
+  }
   require("telescope").setup({
     extensions = {
       fzf = {
@@ -802,7 +803,10 @@ in ''
       },
     },
   })
-  vim.keymap.set("n", "<leader>d", require("nvim-tree.api").tree.toggle, { silent = true, noremap = true })
+  mappings.n = {
+    { name = "<leader>d", target = require("nvim-tree.api").tree.toggle },
+    table.unpack(mappings.n or {}),
+  }
   ---- REF: https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
   vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
@@ -816,13 +820,16 @@ in ''
     current_line_blame = true,
   })
   local opts = { noremap = true, silent = true }
-  vim.keymap.set("", [[\h]], "<CMD>Gitsigns preview_hunk<CR>", opts)
-  vim.keymap.set("", "[h", "<CMD>Gitsigns prev_hunk<CR>", opts)
-  vim.keymap.set("", "]h", "<CMD>Gitsigns next_hunk<CR>", opts)
-  vim.keymap.set("", "<leader>hs", "<CMD>Gitsigns stage_hunk<CR>", opts)
-  -- TODO: Deprecate this after the feature mentioned in <https://github.com/lewis6991/gitsigns.nvim/issues/510> is implemented
-  vim.keymap.set("n", "<leader>hu", "<CMD>Gitsigns reset_hunk<CR>", opts)
-  vim.keymap.set("n", "<leader>gb", "<CMD>Gitsigns toggle_current_line_blame<CR>", opts)
+  mappings.n = {
+    { name = [[\h]], target = "<CMD>Gitsigns preview_hunk<CR>" },
+    { name = "[h", target = "<CMD>Gitsigns prev_hunk<CR>" },
+    { name = "]h", target = "<CMD>Gitsigns next_hunk<CR>" },
+    { name = "<leader>hs", target = "<CMD>Gitsigns stage_hunk<CR>" },
+    { name = "<leader>hd", target = "<CMD>Gitsigns undo_stage_hunk<CR>" },
+    { name = "<leader>hu", target = "<CMD>Gitsigns reset_hunk<CR>" },
+    { name = "<leader>gb", target = "<CMD>Gitsigns toggle_current_line_blame<CR>" },
+    table.unpack(mappings.n or {}),
+  }
 
   --- treesitter, ts-rainbow
   require("nvim-treesitter.configs").setup({
@@ -955,46 +962,30 @@ in ''
     GET_IM_INSERTED = true
   end
   require("lualine").setup(lualine_cfg)
-  vim.keymap.set({ "i", "n" }, [[<C-\>]], function()
-    require("fcitx5-ui").toggle()
-    return "<Ignore>"
-  end, { buffer = true, expr = true })
+  local toggle_fcitx5_mapping = {
+    name = [[<C-\>]],
+    target = require("fcitx5-ui").toggle,
+    options = { buffer = true },
+  }
+  mappings.ni = { toggle_fcitx5_mapping, table.unpack(mappings.ni or {}) }
 
   -- comment.nvim
   require("Comment").setup()
 
-  ----- gutentags
-  ------ Project root patterns
-  --vim.g.gutentags_project_root = { ".git", "Makefile", ".thisisroot" }
-  ------ Name of generated data file
-  --vim.g.gutentags_ctags_tagfile = ".tags"
-  ------ Move all generated data file to ~/.local/state/nvim/gutentags
-  if os.getenv("XDG_STATE_HOME") then
-    vim.g.gutentags_cache_dir = os.getenv("XDG_STATE_HOME") .. "/nvim/gutentags"
-  else
-    vim.o.gutentags_cache_dir = os.getenv("HOME") .. "/.local/state/nvim/gutentags"
+  -- keymaps
+  for mode, map in pairs(mappings) do
+    mode_list = {}
+    for i = 1, #mode do
+      table.insert(mode_list, mode:sub(i, i))
+    end
+    for _, entry in ipairs(map) do
+      local options = mapping_options
+      if entry.options ~= nil then
+        for k, v in pairs(entry.options) do
+          options[k] = v
+        end
+      end
+      vim.keymap.set(mode_list, entry.name, entry.target, options)
+    end
   end
-  ------ Ctags parameters yanked from: https://www.zhihu.com/question/47691414
-  --vim.g.gutentags_ctags_extra_args = {
-  --  "--fields=+nialmzS",
-  --  "--extra=+q",
-  --  "--guess-language-eagerly",
-  --  "--kinds-c++=+px",
-  --  "--kinds-c=+px",
-  --}
-  ------ Generate tags in most cases
-  --vim.g.gutentags_generate_on_new = true
-  --vim.g.gutentags_generate_on_missing = true
-  --vim.g.gutentags_generate_on_write = true
-  --vim.g.gutentags_generate_on_empty_buffer = false
-  ------ Create cache directory if it does not exist
-  --os.execute("mkdir -p " .. vim_tags)
-  ------ Ignore files properly
-  --vim.g.gutentags_file_list_command = "rg --files --hidden --ignore-files -g\"!.git/\""
-
-  ----- nvim-comment
-  --require("nvim_comment").setup({
-  --  comment_empty = false,
-  --  line_mapping = "<C-_>",
-  --})
 ''
