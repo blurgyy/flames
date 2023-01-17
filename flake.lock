@@ -2166,11 +2166,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1673815682,
-        "narHash": "sha256-zG7Rroki+89poCTr1D8BM/wTCl+DZJvU4IUE+5hxG7U=",
+        "lastModified": 1673948101,
+        "narHash": "sha256-cD0OzFfnLFeeaz4jVszH9QiMTn+PBxmcYzrp+xujpwM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "3e42035fc013ed4d8af6ee8dc0079c0c551c45a5",
+        "rev": "bd3efacb82c721edad1ce9eda583df5fb62ab00a",
         "type": "github"
       },
       "original": {
@@ -2819,11 +2819,11 @@
         "xdph": "xdph_4"
       },
       "locked": {
-        "lastModified": 1673881944,
-        "narHash": "sha256-cf+5D0Jlz96rrmCTg20NjW8WH6PVLsbs9J2eLY5KdOs=",
+        "lastModified": 1673958010,
+        "narHash": "sha256-0t/CoUywbyJ8j+k7o9xSdn2v+sTtlZrCoZ5/PI2ci24=",
         "ref": "refs/heads/main",
-        "rev": "589046ecf74965a8e22a9891290f4b289c60a334",
-        "revCount": 2328,
+        "rev": "c31c627cf85ea4fd40c1647c84d89b5e6f186785",
+        "revCount": 2333,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/hyprland"
@@ -3412,11 +3412,11 @@
         "terrasops": "terrasops_4"
       },
       "locked": {
-        "lastModified": 1673838043,
-        "narHash": "sha256-M9DNBo2Z/+++nJPERlmP3kEPhCfGadxaqTK8Rv9Xn+M=",
+        "lastModified": 1673955906,
+        "narHash": "sha256-YhCeCb7hJx1nSFUTiC0HfqvKx+UvZlkg4R2Hd1BVcCU=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "c9f6817cf8c7f566f1c901a2b135808f74a85e68",
+        "rev": "ea56e1e02e7be2ede8636b7996675b360c13e6f9",
         "type": "github"
       },
       "original": {
@@ -3989,11 +3989,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673833369,
-        "narHash": "sha256-mWhF8pOw085ya627bFoJh7/dvh2Xu7g/cYEzMecKiWI=",
+        "lastModified": 1673919287,
+        "narHash": "sha256-+iCkHG0+DoIDRjmxG5FtqD57CxSa3BgDWxR2O1yBQWk=",
         "owner": "nixos-cn",
         "repo": "flakes",
-        "rev": "e1557e403ed6ebe58ef614165284fbdfcbba4757",
+        "rev": "d4fc480a79f6434ea68e45a9bb69aa064103702c",
         "type": "github"
       },
       "original": {
@@ -4447,11 +4447,11 @@
     },
     "nixpkgs_16": {
       "locked": {
-        "lastModified": 1673855649,
-        "narHash": "sha256-Pc1VumquuFMDR1Ers1QOVDDabL/trVwfqWXeKJPXLQg=",
+        "lastModified": 1673954326,
+        "narHash": "sha256-oAKwsXTptcY6gRCBxJlZ+W1BrZHNr9a28+4fQMLuRu0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c85d08692966cf022b0a741a794cb1650602d8af",
+        "rev": "8fc3a1dcc98d3603221d4afd239e666eeedb6141",
         "type": "github"
       },
       "original": {
