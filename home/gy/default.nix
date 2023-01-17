@@ -42,6 +42,54 @@
             '') ];
           });
         });
+
+        python310 = prev.python310.override {
+          packageOverrides = python-final: python-prev: {
+            # Fixes built of bibata-cursors
+            clickgen = python-prev.clickgen.overridePythonAttrs (o: {
+              propagatedBuildInputs = o.propagatedBuildInputs or [] ++ [ python-prev.toml python-prev.numpy ];
+              postBuild = "";
+              postInstall = "";
+            });
+          };
+        };
+        # Fixes built of bibata-cursors
+        bibata-cursors = prev.stdenvNoCC.mkDerivation rec {
+          pname = "bibata-cursors";
+          version = "2.0.3";
+          src = prev.fetchFromGitHub {
+            owner = "ful1e5";
+            repo = "Bibata_Cursor";
+            rev = "v${version}";
+            hash = "sha256-zCk7qgPeae0BfzhxxU2Dk1SOWJQOxiWyJuzH/ri+Gq4=";
+          };
+
+          buildInputs = with prev.python310Packages; [
+            attrs
+            clickgen
+          ];
+
+          buildPhase = ''(
+            declare -A names
+            names["Bibata-Modern-Amber"]="Yellowish and rounded edge Bibata cursors."
+            names["Bibata-Modern-Classic"]="Black and rounded edge Bibata cursors."
+            names["Bibata-Modern-Ice"]="White and rounded edge Bibata cursors."
+            names["Bibata-Original-Amber"]="Yellowish and sharp edge Bibata cursors."
+            names["Bibata-Original-Classic"]="Black and sharp edge Bibata cursors."
+            names["Bibata-Original-Ice"]="White and sharp edge Bibata cursors."
+
+            for key in "''${!names[@]}"; do
+              comment="''${names[$key]}";
+              ctgen build.toml -p x11 -d "bitmaps/$key" -n "$key" -c "$comment" &
+              PID=$!
+              wait $PID
+            done
+          )'';
+          installPhase = ''
+            mkdir -p $out/share
+            cp -r themes $out/share/icons
+          '';
+        };
       })
       self.overlays.default
       self.overlays.profilesShared.${system}
