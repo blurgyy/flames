@@ -1,5 +1,6 @@
 {
   domain = [
+    "domain:cwcx.zju.edu.cn"
     "domain:imap.zju.edu.cn"
     "domain:mail.zju.edu.cn"
     "domain:mirrors.zju.edu.cn"
