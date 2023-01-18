@@ -146,18 +146,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202301162209";
+    version = "202301172210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301162209/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301172210/geoip.dat";
       sha256 = "sha256-QjLvzynx9R2qzHoMkyfeOnnyHPFVfutd3CCNNvoaW9o=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202301162209";
+    version = "202301172210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301162209/geosite.dat";
-      sha256 = "sha256-cIdaFniEcDjO8ETfDHL+m1nHkLQtmj1Cb4DhqVdtZb0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301172210/geosite.dat";
+      sha256 = "sha256-cOy626als9EJo6GcBfjNLgWdpc+Bn172Xzp9tOCprSo=";
     };
   };
   luarock-dbus_proxy = {
@@ -208,10 +208,10 @@
   };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
-    version = "v2.2.2";
+    version = "v2.3.0";
     src = fetchurl {
-      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/NerdFontsSymbolsOnly.zip";
-      sha256 = "sha256-/xugzPGY3ZKoDcpI5l8hG/f2s4dAMnhRyZtTEyhcadk=";
+      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/NerdFontsSymbolsOnly.zip";
+      sha256 = "sha256-2ybw+Nn6sZsm5oLg3w29eJM1LxiCU8yk1frGs97b8n0=";
     };
   };
   telegram-send = {
@@ -265,15 +265,15 @@
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
-    version = "72a93f81a270b38f94fcc784500fba69556f43d6";
+    version = "f11015ed8b75545a6f6b754bfca7ecfb1920ecdb";
     src = fetchFromGitHub ({
       owner = "black-desk";
       repo = "fcitx5-ui.nvim";
-      rev = "72a93f81a270b38f94fcc784500fba69556f43d6";
+      rev = "f11015ed8b75545a6f6b754bfca7ecfb1920ecdb";
       fetchSubmodules = false;
-      sha256 = "sha256-/LblTpv8ZMZ7iXH/mYrDAwWDKNrBHt6eOua5OX0zRYg=";
+      sha256 = "sha256-opi8DEILC08QrIBDNfMaGievzVrGbe79vdUI6dfK83o=";
     });
-    date = "2022-10-09";
+    date = "2023-01-18";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
