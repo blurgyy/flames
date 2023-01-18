@@ -57,6 +57,7 @@ in {
     telegram-send
     tex2nix
     tinytools
+    tokei
     unar
     unzip
     util-linux

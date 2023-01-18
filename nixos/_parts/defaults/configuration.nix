@@ -161,6 +161,7 @@
     sdwrap
     sops
     strace
+    tokei
     unar
     unzip
     zip
