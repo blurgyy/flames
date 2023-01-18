@@ -191,6 +191,7 @@ in {
     LESS_TERMCAP_se = "[m";
     LESSHISTFILE = "${config.xdg.stateHome}/lesshst";
     CARGO_HOME = "${config.xdg.stateHome}/cargo";
+    ELM_HOME = "${config.xdg.stateHome}/elm";
     PAGER = "less";
     MANPAGER = "less";
     MDCAT_PAGER = "less";
