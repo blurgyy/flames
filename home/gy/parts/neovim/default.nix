@@ -93,6 +93,7 @@
     sumneko-lua-language-server
     taplo-lsp
     texlab
+    wakatime
     yaml-language-server
   ];
 }
