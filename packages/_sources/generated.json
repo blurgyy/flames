@@ -249,9 +249,9 @@
             "name": null,
             "sha256": "sha256-QjLvzynx9R2qzHoMkyfeOnnyHPFVfutd3CCNNvoaW9o=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301172210/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301182210/geoip.dat"
         },
-        "version": "202301172210"
+        "version": "202301182210"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -262,11 +262,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cOy626als9EJo6GcBfjNLgWdpc+Bn172Xzp9tOCprSo=",
+            "sha256": "sha256-UmnjqCB6sdewy9m3UvVQ703XYJ4aiweFC1tOx/E/HXc=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301172210/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301182210/geosite.dat"
         },
-        "version": "202301172210"
+        "version": "202301182210"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -341,11 +341,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-S703EqzJEoS6ekSCrjmWgSbcPGKc1VBqirVBXvE342Q=",
+            "sha256": "sha256-xzVbd4E8blaiQMJ3vom7Tqkews2wGrXDYmMdMoXlxBE=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.2.0/simple-icons-font-8.2.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.3.0/simple-icons-font-8.3.0.zip"
         },
-        "version": "8.2.0"
+        "version": "8.3.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
@@ -358,9 +358,9 @@
             "name": null,
             "sha256": "sha256-2ybw+Nn6sZsm5oLg3w29eJM1LxiCU8yk1frGs97b8n0=",
             "type": "url",
-            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.0/NerdFontsSymbolsOnly.zip"
+            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.1/NerdFontsSymbolsOnly.zip"
         },
-        "version": "v2.3.0"
+        "version": "v2.3.1"
     },
     "telegram-send": {
         "cargoLocks": null,
