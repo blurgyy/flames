@@ -1014,11 +1014,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673833344,
-        "narHash": "sha256-fHbp3L925NbuMheylfRybiIYYJHm1cyvq8U+xAxBe2A=",
+        "lastModified": 1674131019,
+        "narHash": "sha256-NmbeqCEM9GwwlYPNmu4aWZX3nfBJuMvaJ7T7QzWd8MM=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "b1f64612554a1fd9b1892d16c7d96aeda302e957",
+        "rev": "e1eba38e8ea3ee6ca8ffef57668d4a37fff19ca4",
         "type": "github"
       },
       "original": {
@@ -2365,11 +2365,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1673948101,
-        "narHash": "sha256-cD0OzFfnLFeeaz4jVszH9QiMTn+PBxmcYzrp+xujpwM=",
+        "lastModified": 1674082145,
+        "narHash": "sha256-4IpEt5Jc6VrNcpIcrKMCZAyeJMLXaaHk+yOV9HusO/A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bd3efacb82c721edad1ce9eda583df5fb62ab00a",
+        "rev": "7026e1a934abfa02623c9870378dbcdac3cd7f80",
         "type": "github"
       },
       "original": {
@@ -2819,11 +2819,11 @@
         "xdph": "xdph_4"
       },
       "locked": {
-        "lastModified": 1674143063,
-        "narHash": "sha256-pMC+cLN9HJfXigSFl+wQVTYO0k8+0ZtbQcWjnmY7IJA=",
+        "lastModified": 1674227032,
+        "narHash": "sha256-PHCzQ4AxdC4mVZs5v8vkBl5/d5a/Uz2zxDKBjRFECDo=",
         "ref": "refs/heads/main",
-        "rev": "5112056fdbda989191310364444f328240bbf6f1",
-        "revCount": 2338,
+        "rev": "3436486575043a942d4733a019870713efbabcac",
+        "revCount": 2339,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/hyprland"
@@ -3161,11 +3161,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1673985422,
-        "narHash": "sha256-4a8O8gmDHvjSlC8kmff7abl/DPujEWeIj88pcY/Hnn4=",
+        "lastModified": 1674167873,
+        "narHash": "sha256-fhF1l3tPRbf+YnqC1h4kHnZwjx7tbjOdz1B6L06hwxU=",
         "owner": "nix-community",
         "repo": "lanzaboote",
-        "rev": "76d9cb9bf9ccb3c1591503e497e4aa9e79a22183",
+        "rev": "65896e03fa64c5a430ced5a41c1cb403f0b6f090",
         "type": "github"
       },
       "original": {
@@ -3412,11 +3412,11 @@
         "terrasops": "terrasops_4"
       },
       "locked": {
-        "lastModified": 1674025153,
-        "narHash": "sha256-tN1bVObMYxR9VXWhOL/5+HT7OsmGTdfDIQ2KZqfUrik=",
+        "lastModified": 1674203379,
+        "narHash": "sha256-psvDsTw3tchmy8hOgjz9cVj8rZQ8VBNH+z9VqB4e9yA=",
         "owner": "NickCao",
         "repo": "flakes",
-        "rev": "8809b93ff88d7168f665701754fc818f1a40b052",
+        "rev": "c0a2ab07dbe8d77df62b0885335dbf60517a3256",
         "type": "github"
       },
       "original": {
@@ -3989,11 +3989,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1674006737,
-        "narHash": "sha256-8MmGbZP8ybGGTHYU2RIEe3bdM4c7Kz3Dz3HV7s8AIBg=",
+        "lastModified": 1674179253,
+        "narHash": "sha256-z6woV/Fy5/bwPp1CVl4qDUqgZ8rP6/FJZ0GQIx5vxrM=",
         "owner": "nixos-cn",
         "repo": "flakes",
-        "rev": "5b52cb42a31af737d2ad5fa0a7334c0a57bf12de",
+        "rev": "bc5200a12468f55d6f3507343513dedc6ff61d1e",
         "type": "github"
       },
       "original": {
