@@ -198,9 +198,11 @@
     };
     openssh = {
       enable = true;  # NOTE: OpenSSH is disabled by default!
-      passwordAuthentication = lib.mkDefault false;
+      settings = {
+        PasswordAuthentication = lib.mkDefault false;
+        #PermitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
+      };
       forwardX11 = lib.mkDefault true;
-      #permitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
       knownHosts = let
         appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
       in {
