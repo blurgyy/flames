@@ -1,6 +1,6 @@
 { source, lib, buildGoModule }: buildGoModule {
   inherit (source) pname version src;
-  vendorSha256 = "sha256-PCqJhfm3Rif0TPMkHAETNcv/r80qrT8c4AH9Cijkw5I=";
+  vendorSha256 = "sha256-fkSXaP9hHCCyO8mFB5CKPExifuNjTvDnXupjCVllG9I=";
 
   subPackages = [ "." ];
 
