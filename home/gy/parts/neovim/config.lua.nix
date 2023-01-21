@@ -965,7 +965,6 @@ in ''
   local toggle_fcitx5_mapping = {
     name = [[<C-\>]],
     target = require("fcitx5-ui").toggle,
-    options = { buffer = true },
   }
   mappings.ni = { toggle_fcitx5_mapping, table.unpack(mappings.ni or {}) }
 
