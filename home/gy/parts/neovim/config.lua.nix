@@ -148,7 +148,7 @@ in ''
       { name = "gs", target = ":%s//g<Left><Left>" },
     },
   }
-  -- NOTE: mappings are set at last
+  -- NOTE: mappings are set on BufEnter, implemented at last
 
   -- Autocmds
   local lowtab_fts = {
@@ -972,19 +972,22 @@ in ''
   require("Comment").setup()
 
   -- keymaps
-  for mode, map in pairs(mappings) do
-    mode_list = {}
-    for i = 1, #mode do
-      table.insert(mode_list, mode:sub(i, i))
-    end
-    for _, entry in ipairs(map) do
-      local options = mapping_options
-      if entry.options ~= nil then
-        for k, v in pairs(entry.options) do
-          options[k] = v
-        end
+  local function set_keymaps()
+    for mode, map in pairs(mappings) do
+      mode_list = {}
+      for i = 1, #mode do
+        table.insert(mode_list, mode:sub(i, i))
       end
-      vim.keymap.set(mode_list, entry.name, entry.target, options)
+      for _, entry in ipairs(map) do
+        local options = mapping_options
+        if entry.options ~= nil then
+          for k, v in pairs(entry.options) do
+            options[k] = v
+          end
+        end
+        vim.keymap.set(mode_list, entry.name, entry.target, options)
+      end
     end
   end
+  vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, { callback = set_keymaps })
 ''
