@@ -146,18 +146,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202301202210";
+    version = "202301212209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301202210/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301212209/geoip.dat";
       sha256 = "sha256-TQsBuL/+frPkv1Wsnj0PeYLwXOPNuStIWgvUi8hgxI4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202301202210";
+    version = "202301212209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301202210/geosite.dat";
-      sha256 = "sha256-5CcWnGFe4DbXqO80YuklG/2PVRgui+Oykq4HC0ciMPI=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301212209/geosite.dat";
+      sha256 = "sha256-06FHYsTUCQTR8BUPu8qIeSCAkE1iOAqFvbUf6YpXe3Y=";
     };
   };
   luarock-dbus_proxy = {
