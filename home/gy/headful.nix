@@ -12,6 +12,19 @@ in {  # For non-headless machines
     size = 24;
     gtk.enable = true;
   };
+  gtk = {
+    cursorTheme = {
+      inherit (config.home.pointerCursor) package name size;
+    };
+    gtk3.bookmarks = [
+      "file:///elements"
+      "file:///home/gy/Downloads"
+      "file:///home/gy/Playground"
+      "file:///home/gy/Repos"
+      "file:///run/user/1000"
+      "file:///tmp"
+    ];
+  };
   wayland.windowManager = {
     sway = callWithHelpers ./parts/sway.nix {};
     hyprland = callWithHelpers ./parts/hyprland.nix {};
