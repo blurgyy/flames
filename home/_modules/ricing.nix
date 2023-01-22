@@ -166,10 +166,15 @@ in with lib; {
     gtk = mkIf (cfg.headful != null) {
       enable = true;
       theme = {
-        package = pkgs.catppuccin-gtk;
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ "yellow" ];
+          variant = if cfg.headful.theme == "light"
+            then "latte"
+            else "mocha";
+        };
         name = if cfg.headful.theme == "light"
-          then "Catppuccin-Yellow-Light"
-          else "Catppuccin-Yellow-Dark";
+          then "Catppuccin-Latte-Standard-Yellow-Light"
+          else "Catppuccin-Mocha-Standard-Yellow-Dark";
       };
       iconTheme = {
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
