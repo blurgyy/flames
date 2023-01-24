@@ -160,6 +160,7 @@ fixTypo "blurgy" [
   gdc = "git diff --cached";
   gddc = "git diff --cached";
   gdh = "git diff HEAD^ HEAD";
+  gdp = "git diff --no-ext-diff --patch";
   gf = "git fetch";
   gl = "git log --all --graph --decorate --oneline -8";
   gln = "git log --all --graph --decorate --oneline";
