@@ -1,7 +1,8 @@
 { config, ... }: {
   imports = [
-    ./hydra.nix
     ../../_parts/hydra-distributed-builder.nix
+    ./hydra.nix
+    ./rssbot.nix
     ./v2ray.nix
     ./vaultwarden
     ./wakapi.nix
