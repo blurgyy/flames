@@ -303,6 +303,33 @@
         },
         "version": "2023-01"
     },
+    "rssbot": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./rssbot-v2.0.0-alpha.11/Cargo.lock",
+                {
+                    "tbot-0.6.7": "sha256-gPfwPPJEYcgETvUlT9VGNOVKp19vKHu0sEuMiHaxWKs="
+                }
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "rssbot",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "iovxw",
+            "repo": "rssbot",
+            "rev": "v2.0.0-alpha.11",
+            "sha256": "sha256-gNCjphzJWGjdRsyytjp1l1eYqPYI3S+kpZJ/BpJl7ac=",
+            "type": "github"
+        },
+        "version": "v2.0.0-alpha.11"
+    },
     "rustdesk-server": {
         "cargoLocks": {
             "Cargo.lock": [

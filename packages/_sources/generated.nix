@@ -179,6 +179,23 @@
       sha256 = "sha256-P5v+IX0PD2gI/dsWskCn+TUFb3P60izWpX7j1Q0MOLU=";
     };
   };
+  rssbot = {
+    pname = "rssbot";
+    version = "v2.0.0-alpha.11";
+    src = fetchFromGitHub ({
+      owner = "iovxw";
+      repo = "rssbot";
+      rev = "v2.0.0-alpha.11";
+      fetchSubmodules = false;
+      sha256 = "sha256-gNCjphzJWGjdRsyytjp1l1eYqPYI3S+kpZJ/BpJl7ac=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./rssbot-v2.0.0-alpha.11/Cargo.lock;
+      outputHashes = {
+        "tbot-0.6.7" = "sha256-gPfwPPJEYcgETvUlT9VGNOVKp19vKHu0sEuMiHaxWKs=";
+      };
+    };
+  };
   rustdesk-server = {
     pname = "rustdesk-server";
     version = "1.1.7";

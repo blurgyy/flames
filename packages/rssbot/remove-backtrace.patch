@@ -1,0 +1,38 @@
+diff --git a/src/main.rs b/src/main.rs
+index dd4b0d3..22a2b91 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -1,4 +1,3 @@
+-#![feature(backtrace)]
+ #![recursion_limit = "256"]
+ 
+ use std::convert::TryInto;
+@@ -159,28 +158,4 @@ fn init_proxy() -> Option<Proxy> {
+ 
+ fn print_error<E: std::error::Error>(err: E) {
+     eprintln!("Error: {}", err);
+-    let mut deepest_backtrace = err.backtrace();
+-
+-    let mut err: &dyn std::error::Error = &err;
+-    if let Some(e) = err.source() {
+-        eprintln!("\nCaused by:");
+-        let multiple = e.source().is_some();
+-        let mut line_counter = 0..;
+-        while let (Some(e), Some(line)) = (err.source(), line_counter.next()) {
+-            if multiple {
+-                eprint!("{: >4}: ", line)
+-            } else {
+-                eprint!("    ")
+-            };
+-            eprintln!("{}", e);
+-            if let Some(backtrace) = e.backtrace() {
+-                deepest_backtrace = Some(backtrace);
+-            }
+-            err = e;
+-        }
+-    }
+-
+-    if let Some(backtrace) = deepest_backtrace {
+-        eprintln!("\nBacktrace:\n{}", backtrace);
+-    }
+ }
