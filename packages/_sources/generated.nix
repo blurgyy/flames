@@ -146,18 +146,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202301232209";
+    version = "202301242209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301232209/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301242209/geoip.dat";
       sha256 = "sha256-TQsBuL/+frPkv1Wsnj0PeYLwXOPNuStIWgvUi8hgxI4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202301232209";
+    version = "202301242209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301232209/geosite.dat";
-      sha256 = "sha256-Iybs7DKxj3PYbHqZ5Dq4fO3R9fZK8oY342JThRk9mOw=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301242209/geosite.dat";
+      sha256 = "sha256-y41Yr2UC3Mb9UrxzHNm58l6V0dbU1vQtJIDTCMTzZ00=";
     };
   };
   luarock-dbus_proxy = {
@@ -225,10 +225,10 @@
   };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
-    version = "v2.3.2";
+    version = "v2.3.3";
     src = fetchurl {
-      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/NerdFontsSymbolsOnly.zip";
-      sha256 = "sha256-E3+Z0LdaM9I/L7783Hd/WOAUocH9XTVeFWrzmEt0AjA=";
+      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/NerdFontsSymbolsOnly.zip";
+      sha256 = "sha256-nPDIAN6GvDHxEVsPR2LvjYCnSfbPpM90E7AfxWPMP2o=";
     };
   };
   telegram-send = {

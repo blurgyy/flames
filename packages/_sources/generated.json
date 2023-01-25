@@ -249,9 +249,9 @@
             "name": null,
             "sha256": "sha256-TQsBuL/+frPkv1Wsnj0PeYLwXOPNuStIWgvUi8hgxI4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301232209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301242209/geoip.dat"
         },
-        "version": "202301232209"
+        "version": "202301242209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -262,11 +262,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Iybs7DKxj3PYbHqZ5Dq4fO3R9fZK8oY342JThRk9mOw=",
+            "sha256": "sha256-y41Yr2UC3Mb9UrxzHNm58l6V0dbU1vQtJIDTCMTzZ00=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301232209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202301242209/geosite.dat"
         },
-        "version": "202301232209"
+        "version": "202301242209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -383,11 +383,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-E3+Z0LdaM9I/L7783Hd/WOAUocH9XTVeFWrzmEt0AjA=",
+            "sha256": "sha256-nPDIAN6GvDHxEVsPR2LvjYCnSfbPpM90E7AfxWPMP2o=",
             "type": "url",
-            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.2/NerdFontsSymbolsOnly.zip"
+            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/NerdFontsSymbolsOnly.zip"
         },
-        "version": "v2.3.2"
+        "version": "v2.3.3"
     },
     "telegram-send": {
         "cargoLocks": null,
