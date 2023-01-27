@@ -109,7 +109,6 @@ in ''
   local mappings = {
     n = {
       { name = "Q", target = "<Nop>" },
-      { name = "%", target = "v%" },
       { name = "Y", target = "y$" },
       { name = "n", target = "nzz" },
       { name = "N", target = "Nzz" },
