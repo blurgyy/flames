@@ -91,7 +91,7 @@ in {
       timezone = "Asia/Shanghai";
       interval = 1;
       format = "{:%a, %b.%d}";
-      tooltip-format = "<big><span color='${themeColor "green"}'></span> {:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+      tooltip-format = "<big><span color='${themeColor "green"}'></span> {:%B,%Y}</big>\n<tt><small>{calendar}</small></tt>";
       tooltip = true;
     };
     memory = {
