@@ -809,7 +809,7 @@ in ''
     },
   })
   mappings.n = {
-    { name = "<leader>d", target = require("nvim-tree.api").tree.toggle },
+    { name = "<leader>d", target = require("nvim-tree.api").tree.open },
     table.unpack(mappings.n or {}),
   }
   ---- REF: https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
