@@ -794,14 +794,6 @@ in ''
     update_focused_file = { enable = true },
     diagnostics = { enable = true },
     hijack_cursor = true,  -- keep the cursor on first character
-    -- TODO: awaiting <https://github.com/nvim-tree/nvim-tree.lua/issues/1669>
-    open_on_setup = false,  -- Do not open&focus on nvim-tree on new empty buffer
-    open_on_setup_file = true,
-    ignore_buffer_on_setup = true,
-    ignore_ft_on_setup = {
-      "gitcommit",
-      "gitrebase",
-    },
     actions = {
       open_file = {
         quit_on_open = false,
@@ -812,6 +804,20 @@ in ''
     { name = "<leader>d", target = require("nvim-tree.api").tree.open },
     table.unpack(mappings.n or {}),
   }
+  ---- Open on startup
+  local function open_nvim_tree()
+    local ignore_fts = {
+      "gitcommit",
+      "gitrebase",
+    }
+    local filetype = vim.bo.ft
+    -- REF: <https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup>
+    if vim.tbl_contains(ignore_fts, filetype) then
+      return
+    end
+    require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
+  end
+  vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
   ---- REF: https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
   vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
 
