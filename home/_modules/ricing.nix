@@ -183,6 +183,11 @@ in with lib; {
           else "Flat-Remix-Yellow-Dark";
       };
     };
+    programs.bat.themes.catppuccin = readFile "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
+      if cfg.textual.theme == "light"
+        then "latte"
+        else "mocha"
+    }.tmTheme";
     services.dunst.iconTheme = config.gtk.iconTheme;
     # NOTE: Add `"layout.css.prefers-color-scheme.content-override" = 2;` to `Preferences` of
     # pacakge wrap options for firefox.

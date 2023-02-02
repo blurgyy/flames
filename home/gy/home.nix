@@ -116,7 +116,7 @@ in {
     bat = {
       enable = true;
       config = {
-        theme = "Nord";
+        theme = "catppuccin";
         style = "numbers,changes,header-filename,header-filesize";
       };
     };
