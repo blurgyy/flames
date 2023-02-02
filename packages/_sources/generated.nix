@@ -17,6 +17,19 @@
       sha256 = "sha256-CDmtLCzlytCZyMBDoMrdvs3ScHkMipuiXoNfc6bfimw=";
     };
   };
+  bat-theme-catppuccin = {
+    pname = "bat-theme-catppuccin";
+    version = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
+    src = fetchgit {
+      url = "https://github.com/catppuccin/bat";
+      rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
+    };
+    date = "2022-11-10";
+  };
   dt = {
     pname = "dt";
     version = "v0.7.10";

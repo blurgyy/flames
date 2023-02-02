@@ -29,6 +29,25 @@
         },
         "version": "ios-15.4"
     },
+    "bat-theme-catppuccin": {
+        "cargoLocks": null,
+        "date": "2022-11-10",
+        "extract": null,
+        "name": "bat-theme-catppuccin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "ba4d16880d63e656acced2b7d4e034e4a93f74b1",
+            "sha256": "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=",
+            "type": "git",
+            "url": "https://github.com/catppuccin/bat"
+        },
+        "version": "ba4d16880d63e656acced2b7d4e034e4a93f74b1"
+    },
     "dt": {
         "cargoLocks": {
             "Cargo.lock": [

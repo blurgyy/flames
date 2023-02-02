@@ -8,6 +8,10 @@ fetch.url = "http://web.archive.org/web/20220331041116/https://fpdownload.macrom
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
 
+[bat-theme-catppuccin]
+src.git = "https://github.com/catppuccin/bat"
+fetch.git = "https://github.com/catppuccin/bat"
+
 [dt]
 src.github = "blurgyy/dt"
 fetch.github = "blurgyy/dt"
