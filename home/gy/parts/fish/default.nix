@@ -51,7 +51,7 @@
     shome = "home-manager switch -v --flake";
     ssys = "nixos-rebuild switch --use-remote-sudo -L -v --flake";
     meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap meshlab";
-    conda-shell = "conda-shell -c 'exec fish'";
+    conda-shell = "conda-shell -c 'fish_history=nix_conda_shell exec fish'";
   };
   plugins = [{
     name = "tide";
