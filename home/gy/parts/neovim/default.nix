@@ -81,7 +81,6 @@
     EOF
     colorscheme catppuccin
     set background=${config.ricing.textual.theme}
-    hi Normal ctermbg=none guibg=none
   '';
   extraPackages = with pkgs; [
     ccls

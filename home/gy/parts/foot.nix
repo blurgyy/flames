@@ -8,5 +8,4 @@
     hide-when-typing = "true";
     alternate-scroll-mode = "false";
   };
-  color.alpha = 0.75;
 }
