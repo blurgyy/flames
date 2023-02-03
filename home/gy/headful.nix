@@ -97,7 +97,7 @@ in {  # For non-headless machines
       enable = true;
       package = pkgs.rofi-wayland;
       font = "slab-serif 15";
-      terminal = "${pkgs.foot}/bin/footclient";
+      terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
       xoffset = 0;
       yoffset = 0;
       location = "center";
@@ -105,11 +105,10 @@ in {  # For non-headless machines
       theme = "catppuccin";
       # extraConfig.ssh-client = "waypipe ssh";
     };
-    foot = {
+    alacritty = {
       enable = true;
-      package = pkgs.foot;
-      server.enable = true;
-      settings = callWithHelpers ./parts/foot.nix {};
+      package = pkgs.alacritty-swarm;
+      settings = callWithHelpers ./parts/alacritty.nix {};
     };
 
     firefox = callWithHelpers ./parts/firefox.nix {};
