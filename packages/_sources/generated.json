@@ -153,6 +153,25 @@
         },
         "version": "v5.5.1"
     },
+    "foot-theme-catppuccin": {
+        "cargoLocks": null,
+        "date": "2022-12-26",
+        "extract": null,
+        "name": "foot-theme-catppuccin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "79ab526a1428318dba793d58afd1d2545ed3cb7c",
+            "sha256": "sha256-QojvIlaheEsHvv1vOIVEWg7eTo9zlcdkpb33BJLQB9M=",
+            "type": "git",
+            "url": "https://github.com/catppuccin/foot"
+        },
+        "version": "79ab526a1428318dba793d58afd1d2545ed3cb7c"
+    },
     "gdb-dashboard": {
         "cargoLocks": null,
         "date": null,

@@ -33,6 +33,10 @@ fetch.github = "IlanCosman/tide"
 src.git = "https://github.com/catppuccin/fish"
 fetch.github = "catppuccin/fish"
 
+[foot-theme-catppuccin]
+src.git = "https://github.com/catppuccin/foot"
+fetch.git = "https://github.com/catppuccin/foot"
+
 [gdb-dashboard]
 src.github_tag = "cyrus-and/gdb-dashboard"
 fetch.github = "cyrus-and/gdb-dashboard"

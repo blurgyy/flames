@@ -94,6 +94,19 @@
       sha256 = "sha256-vi4sYoI366FkIonXDlf/eE2Pyjq7E/kOKBrQS+LtE+M=";
     });
   };
+  foot-theme-catppuccin = {
+    pname = "foot-theme-catppuccin";
+    version = "79ab526a1428318dba793d58afd1d2545ed3cb7c";
+    src = fetchgit {
+      url = "https://github.com/catppuccin/foot";
+      rev = "79ab526a1428318dba793d58afd1d2545ed3cb7c";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-QojvIlaheEsHvv1vOIVEWg7eTo9zlcdkpb33BJLQB9M=";
+    };
+    date = "2022-12-26";
+  };
   gdb-dashboard = {
     pname = "gdb-dashboard";
     version = "v0.16.0";
