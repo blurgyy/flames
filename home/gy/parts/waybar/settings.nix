@@ -39,7 +39,7 @@ in {
     margin-top = 4;
     margin-left = 12;
     margin-right = 12;
-    height = 36;
+    height = 42;
     layer = "top";
     modules-left = [
       "custom/menu"
