@@ -228,6 +228,9 @@ in ''
     },
     float = {
       source = "always",
+      -- REF: <https://neovim.io/doc/user/api.html#nvim_open_win()>
+      -- none/single/double/rounded/solid/shadow
+      border = "double",
     },
     signs = true,
     underline = true,
@@ -618,6 +621,12 @@ in ''
     winbar = winbar,
     inactive_winbar = winbar,
   })
+  -- REF: :h vim.lsp.buf.hover
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+      border = "rounded"
+    }
+  )
   local on_attach = function(client, bufnr)
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
