@@ -188,6 +188,11 @@ in with lib; {
         then "latte"
         else "mocha"
     }.tmTheme";
+    programs.foot.settings.main.include = "${pkgs.foot-theme-catppuccin}/share/foot/themes/catppuccin-${
+      if cfg.textual.theme == "light"
+        then "latte"
+        else "mocha"
+    }.conf";
     services.dunst.iconTheme = config.gtk.iconTheme;
     # NOTE: Add `"layout.css.prefers-color-scheme.content-override" = 2;` to `Preferences` of
     # pacakge wrap options for firefox.

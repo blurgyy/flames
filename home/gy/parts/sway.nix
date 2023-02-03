@@ -1,5 +1,5 @@
 { pkgs, config }: let
-  terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
+  terminal = "footclient";
   inherit (config.ricing.headful) wallpaper themeColor;
 in {
   enable = true;
@@ -17,11 +17,11 @@ in {
       topprg = "${pkgs.btop}/bin/btop";
     in [
       { command = "systemctl --user reset-failed"; }
-      { command = "${terminal} --class sway_autostart_alacritty"; }
+      { command = "${terminal} --class sway_autostart_term"; }
       { command = "sdwrap firefox"; }
       { command = "sdwrap zotero"; }
       { command = ''
-        ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
+         sdwrap foot --app-id=sysmon sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
         ''; }
     ];
     keybindings = let
@@ -31,13 +31,12 @@ in {
       down = config.wayland.windowManager.sway.config.down;
       up = config.wayland.windowManager.sway.config.up;
       right = config.wayland.windowManager.sway.config.right;
-      rofi = "${pkgs.rofi-wayland}/bin/rofi";
       fm = "${pkgs.xfce.thunar}/bin/thunar ~";
       backlight-notify = "${pkgs.notification-scripts}/bin/backlight-notify";
       volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
       screenshot-notify = "${pkgs.notification-scripts}/bin/screenshot-notify";
     in {
-      "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
+      "${mod}+Return" = "exec ${term}";
       "${mod}+Alt+q" =  "exec swaymsg exit";
       "${mod}+e" = "exec ${fm}";
       "${mod}+w" = "kill";
@@ -164,7 +163,7 @@ in {
     };
     assigns = {
       "1" = [
-        { app_id = "sway_autostart_alacritty"; }
+        { app_id = "sway_autostart_term"; }
       ];
       "2" = [
         { app_id = "firefox"; }

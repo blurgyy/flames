@@ -1,6 +1,7 @@
 { config, pkgs, lib }: let
   inherit (config.ricing.headful) themeColor;
   themeColorHex = name: builtins.replaceStrings [ "#" ] [ "" ] (themeColor name);
+  term = "footclient";
 in {
   enable = true;
   package = pkgs.hyprland-XDG_CURRENT_DESKTOP-sway;
@@ -38,15 +39,15 @@ in {
     windowrulev2 = workspace 16 silent, class:^Steam$
     windowrulev2 = workspace 32 silent, class:^minecraft-launcher$
 
-    # Terminal on first workspace, don't sdwrap this one
-    exec-once = alacritty
+    # Terminal on first workspace
+    exec-once = sdwrap ${term}
 
     # Firefox on workspace 2
     windowrulev2 = workspace 2 silent, class:^firefox$
     exec-once = sdwrap firefox
     # System monitor on workspace 8
     windowrulev2 = workspace 8 silent, class:^sysmon$
-    exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap alacritty --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
+    exec-once = sdwrap foot --app-id=sysmon sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
     # Zotero on workspace 9
     windowrulev2 = workspace 9 silent, class:^Zotero$
     exec-once = sdwrap zotero
@@ -198,7 +199,7 @@ in {
     bind = $mainMod ALT, Q, exit,
 
     # REF: <https://wiki.hyprland.org/Configuring/Binds/>
-    bind = $mainMod, return, exec, alacritty
+    bind = $mainMod, return, exec, sdwrap ${term}
     bind = $mainMod, w, killactive,
     bind = $mainMod, e, exec, thunar
     bind = ALT, r, exec, rofi -show drun
