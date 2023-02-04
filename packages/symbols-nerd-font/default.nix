@@ -1,6 +1,6 @@
-{ source, stdenv, lib
+{ source, stdenvNoCC, lib
 , unzip
-}: stdenv.mkDerivation {
+}: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
 
   buildInputs = [ unzip ];

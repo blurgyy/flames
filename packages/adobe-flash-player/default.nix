@@ -1,4 +1,4 @@
-{ source, stdenv, lib
+{ source, stdenvNoCC, lib
 , autoPatchelfHook
 , gnutar
 , fontconfig
@@ -10,7 +10,7 @@
 , openssl
 , pango
 , xorg
-}: stdenv.mkDerivation {
+}: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
 
   nativeBuildInputs = [ autoPatchelfHook ];

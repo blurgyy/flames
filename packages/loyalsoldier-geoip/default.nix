@@ -1,5 +1,5 @@
 # Shared nix expression for loyalsoldier-geo{ip,site}
-{ source, lib, stdenv }: stdenv.mkDerivation rec {
+{ source, lib, stdenvNoCC }: stdenvNoCC.mkDerivation rec {
   inherit (source) pname version src;
 
   buildCommand = ''

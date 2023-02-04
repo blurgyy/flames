@@ -1,4 +1,4 @@
-{ stdenv, lib
+{ stdenvNoCC, lib
 , sdwrap
 }:
 
@@ -26,7 +26,7 @@
 #
 # NOTE: The insertion order of the expression can be arbitrary.
 
-{ inputPackages, mark ? "supervised"}: stdenv.mkDerivation rec {
+{ inputPackages, mark ? "supervised"}: stdenvNoCC.mkDerivation rec {
   name = "${mark}-desktop-entries";
   buildCommand = let
     packages = builtins.filter (pkg: pkg.name != name) inputPackages;

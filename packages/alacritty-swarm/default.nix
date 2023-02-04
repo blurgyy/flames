@@ -1,8 +1,8 @@
-{ stdenv
+{ stdenvNoCC
 , bash
 , alacritty
 , lsof
-}: stdenv.mkDerivation {
+}: stdenvNoCC.mkDerivation {
   name = "alacritty-swarm";
   src = ./alacritty;
 

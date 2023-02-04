@@ -1,4 +1,4 @@
-{ stdenv
+{ stdenvNoCC
 , bash
 , coreutils
 , dunst
@@ -9,7 +9,7 @@
 , pamixer
 , slurp
 , wl-clipboard
-}: stdenv.mkDerivation {
+}: stdenvNoCC.mkDerivation {
   name = "notification-scripts";
   src = ./src;
 

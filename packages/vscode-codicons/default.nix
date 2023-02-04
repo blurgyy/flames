@@ -1,4 +1,4 @@
-{ source, stdenv, lib }: stdenv.mkDerivation rec {
+{ source, stdenvNoCC, lib }: stdenvNoCC.mkDerivation rec {
   inherit (source) pname version src;
 
   buildCommand = ''

@@ -1,10 +1,10 @@
-{ source, stdenv, lib
+{ source, stdenvNoCC, lib
 , gzip
 , perl
 , perlPackages
 }: let
   perlBuilder = perl.withPackages (pp: with pp; [ TextCSV_XS NetCIDRLite ]);
-in stdenv.mkDerivation {
+in stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
 
   unpackPhase = "${gzip}/bin/gunzip -c $src >geoip.csv";

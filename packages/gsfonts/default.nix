@@ -1,6 +1,6 @@
-{ source, stdenv, lib
+{ source, stdenvNoCC, lib
 , util-linux
-}: stdenv.mkDerivation {
+}: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
 
   nativeBuildInputs = [ util-linux ];

@@ -1,4 +1,4 @@
-{ source, lib, stdenv }: stdenv.mkDerivation {
+{ source, lib, stdenvNoCC }: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
   buildCommand = ''
     install -Dvm644 -t $out/share/fish/tools/web_config/themes $src/themes/*
