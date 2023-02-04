@@ -1,4 +1,4 @@
-{
+{ pkgs }: {
   enable = true;
   userEmail = "gy@blurgy.xyz";
   userName = "Gaoyang Zhang";
@@ -75,6 +75,7 @@
     signByDefault = true;
   };
   extraConfig = {
+    core.pager = "${pkgs.less}/bin/less --quit-if-one-screen";
     merge.tool = "vimdiff";
     mergetool.vimdiff.cmd = "nvim -d $MERGED $LOCAL $REMOTE -c 'wincmd J'";
     mergetool.keepBackup = false;
