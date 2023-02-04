@@ -9,6 +9,17 @@
       sha256 = "sha256-iD96ojMB/IDeh5UBFXUzpKzb/uByHtfFdnbcAy/flsM=";
     };
   };
+  alist = {
+    pname = "alist";
+    version = "v3.9.2";
+    src = fetchFromGitHub ({
+      owner = "alist-org";
+      repo = "alist";
+      rev = "v3.9.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-eOr973nwjiKg+s1Mx0O674Z1b6pASsp6ZUp2q+z1RQA=";
+    });
+  };
   apple-color-emoji = {
     pname = "apple-color-emoji";
     version = "ios-15.4";
