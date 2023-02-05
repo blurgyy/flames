@@ -202,7 +202,7 @@ in with lib; {
     # pacakge wrap options for firefox.
     # REF: <https://support.mozilla.org/bm/questions/1364502>
 
-    home.activation.generateBatCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    home.activation.generateBatCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
       $DRY_RUN_CMD ${pkgs.bat}/bin/bat cache --build
     '';
   };
