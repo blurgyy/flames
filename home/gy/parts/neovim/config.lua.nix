@@ -162,6 +162,7 @@ in ''
     "dts",
     "fish",
     "gitcommit",
+    "html",
     "javascript",
     "json",
     "jsonc",
