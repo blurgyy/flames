@@ -14,6 +14,25 @@
         },
         "version": "20220331041116"
     },
+    "alacritty-theme-catppuccin": {
+        "cargoLocks": null,
+        "date": "2022-09-27",
+        "extract": null,
+        "name": "alacritty-theme-catppuccin",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "3c808cbb4f9c87be43ba5241bc57373c793d2f17",
+            "sha256": "sha256-w9XVtEe7TqzxxGUCDUR9BFkzLZjG8XrplXJ3lX6f+x0=",
+            "type": "git",
+            "url": "https://github.com/catppuccin/alacritty"
+        },
+        "version": "3c808cbb4f9c87be43ba5241bc57373c793d2f17"
+    },
     "alist": {
         "cargoLocks": null,
         "date": null,

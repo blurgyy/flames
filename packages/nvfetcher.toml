@@ -4,6 +4,10 @@
 src.cmd = "echo 20220331041116"
 fetch.url = "http://web.archive.org/web/20220331041116/https://fpdownload.macromedia.com/pub/flashplayer/updaters/32/flash_player_sa_linux.x86_64.tar.gz"
 
+[alacritty-theme-catppuccin]
+src.git = "https://github.com/catppuccin/alacritty"
+fetch.git = "https://github.com/catppuccin/alacritty"
+
 [alist]
 src.github = "alist-org/alist"
 fetch.github = "alist-org/alist"
