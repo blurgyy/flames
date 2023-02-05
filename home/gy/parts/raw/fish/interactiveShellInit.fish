@@ -53,7 +53,7 @@ function bootstrap
   abbr -a !! --position anywhere --function __last_history_item
 
   # Volatile environment variables
-  set -gx GPG_TTY (tty)
+  #set -gx GPG_TTY (tty)  # already set in .zshrc if `services.gpg-agent` is enabled
 end
 
 ## 03: fetch
