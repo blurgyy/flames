@@ -50,6 +50,23 @@
       };
     };
   };
+  aliyundrive-webdav = {
+    pname = "aliyundrive-webdav";
+    version = "v1.10.6";
+    src = fetchFromGitHub ({
+      owner = "messense";
+      repo = "aliyundrive-webdav";
+      rev = "v1.10.6";
+      fetchSubmodules = false;
+      sha256 = "sha256-S3LcA+hRzj3oHAMeyOfRrKC8Zr4YvnLL6b0jKd8yL/4=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./aliyundrive-webdav-v1.10.6/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+  };
   apple-color-emoji = {
     pname = "apple-color-emoji";
     version = "ios-15.4";

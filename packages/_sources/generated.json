@@ -78,6 +78,31 @@
         },
         "version": "v0.1.14"
     },
+    "aliyundrive-webdav": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./aliyundrive-webdav-v1.10.6/Cargo.lock",
+                {}
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "aliyundrive-webdav",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "messense",
+            "repo": "aliyundrive-webdav",
+            "rev": "v1.10.6",
+            "sha256": "sha256-S3LcA+hRzj3oHAMeyOfRrKC8Zr4YvnLL6b0jKd8yL/4=",
+            "type": "github"
+        },
+        "version": "v1.10.6"
+    },
     "apple-color-emoji": {
         "cargoLocks": null,
         "date": null,

@@ -17,6 +17,11 @@ src.github = "messense/aliyundrive-fuse"
 fetch.github = "messense/aliyundrive-fuse"
 cargo_locks = ["Cargo.lock"]
 
+[aliyundrive-webdav]
+src.github = "messense/aliyundrive-webdav"
+fetch.github = "messense/aliyundrive-webdav"
+cargo_locks = ["Cargo.lock"]
+
 [apple-color-emoji]
 src.github = "samuelngs/apple-emoji-linux"
 fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$ver/AppleColorEmoji.ttf"
