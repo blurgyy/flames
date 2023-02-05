@@ -183,6 +183,11 @@ in with lib; {
           else "Flat-Remix-Yellow-Dark";
       };
     };
+    programs.alacritty.settings.colors = builtins.fromJSON (readFile "${pkgs.alacritty-theme-catppuccin}/share/alacritty/themes/catppuccin-${
+      if cfg.textual.theme == "light"
+        then "latte"
+        else "mocha"
+    }.json");
     programs.bat.themes.catppuccin = readFile "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
       if cfg.textual.theme == "light"
         then "latte"
