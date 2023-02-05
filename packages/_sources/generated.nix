@@ -33,6 +33,23 @@
       sha256 = "sha256-eOr973nwjiKg+s1Mx0O674Z1b6pASsp6ZUp2q+z1RQA=";
     });
   };
+  aliyundrive-fuse = {
+    pname = "aliyundrive-fuse";
+    version = "v0.1.14";
+    src = fetchFromGitHub ({
+      owner = "messense";
+      repo = "aliyundrive-fuse";
+      rev = "v0.1.14";
+      fetchSubmodules = false;
+      sha256 = "sha256-YURzhdAMsCbECZDgb1gLRqgvs/p78C7Fo0g8v9h0ecs=";
+    });
+    cargoLock."Cargo.lock" = {
+      lockFile = ./aliyundrive-fuse-v0.1.14/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+  };
   apple-color-emoji = {
     pname = "apple-color-emoji";
     version = "ios-15.4";

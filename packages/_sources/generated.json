@@ -53,6 +53,31 @@
         },
         "version": "v3.9.2"
     },
+    "aliyundrive-fuse": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./aliyundrive-fuse-v0.1.14/Cargo.lock",
+                {}
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "aliyundrive-fuse",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "messense",
+            "repo": "aliyundrive-fuse",
+            "rev": "v0.1.14",
+            "sha256": "sha256-YURzhdAMsCbECZDgb1gLRqgvs/p78C7Fo0g8v9h0ecs=",
+            "type": "github"
+        },
+        "version": "v0.1.14"
+    },
     "apple-color-emoji": {
         "cargoLocks": null,
         "date": null,
