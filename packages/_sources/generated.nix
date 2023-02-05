@@ -54,6 +54,17 @@
     };
     date = "2022-11-10";
   };
+  dms = {
+    pname = "dms";
+    version = "v1.5.0";
+    src = fetchFromGitHub ({
+      owner = "anacrolix";
+      repo = "dms";
+      rev = "v1.5.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-cU9aN2qkJyuCKCxyHXVCNavRTZAlNKDmPQMm0HcaUCk=";
+    });
+  };
   dt = {
     pname = "dt";
     version = "v0.7.10";

@@ -87,6 +87,26 @@
         },
         "version": "ba4d16880d63e656acced2b7d4e034e4a93f74b1"
     },
+    "dms": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "dms",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "anacrolix",
+            "repo": "dms",
+            "rev": "v1.5.0",
+            "sha256": "sha256-cU9aN2qkJyuCKCxyHXVCNavRTZAlNKDmPQMm0HcaUCk=",
+            "type": "github"
+        },
+        "version": "v1.5.0"
+    },
     "dt": {
         "cargoLocks": {
             "Cargo.lock": [
