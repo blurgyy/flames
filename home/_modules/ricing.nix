@@ -193,6 +193,10 @@ in with lib; {
         then "latte"
         else "mocha"
     }.tmTheme";
+    programs.tmux.plugins = [{
+      plugin = pkgs.tmux-plugin-catppuccin;
+      extraConfig = "set -g @catppuccin_flavour '${if config.ricing.textual.theme == "light" then "latte" else "mocha"}'";
+    }];
     services.dunst.iconTheme = config.gtk.iconTheme;
     # NOTE: Add `"layout.css.prefers-color-scheme.content-override" = 2;` to `Preferences` of
     # pacakge wrap options for firefox.

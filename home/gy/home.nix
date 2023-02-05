@@ -165,13 +165,10 @@ in {
       clock24 = true;
       historyLimit = 100000;
       sensibleOnTop = true;
-      plugins = [{
-        plugin = pkgs.tmux-plugin-catppuccin;
-        extraConfig = "set -g @catppuccin_flavour '${if config.ricing.textual.theme == "light" then "latte" else "mocha"}'";
-      }] ++ (with pkgs.tmuxPlugins; [
+      plugins = with pkgs.tmuxPlugins; [
         better-mouse-mode
         extrakto
-      ]);
+      ];
       extraConfig = builtins.readFile ./parts/raw/tmux.conf;
     };
     zellij = {
