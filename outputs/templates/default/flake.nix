@@ -4,8 +4,20 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    hsz = { url = "gitlab:highsunz/flames"; inputs.nixpkgs.follows = "nixpkgs"; };
-    nixgl = { url = "github:guibou/nixgl"; inputs.nixpkgs.follows = "nixpkgs"; };
+    hsz = {
+      url = "gitlab:highsunz/flames";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    nixgl = {
+      url = "github:guibou/nixgl";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   outputs = inputs@{ nixpkgs, flake-utils, hsz, ... }: flake-utils.lib.eachDefaultSystem (system: let
