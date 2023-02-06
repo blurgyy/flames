@@ -177,6 +177,7 @@ in ''
     "tex",
     "toml",
     "vue",
+    "xml",
     "yaml",
     "zsh",
   }
