@@ -151,6 +151,7 @@
     hexyl
     htop
     hyperfine
+    inotify-tools
     jq
     libqalculate
     lsof

@@ -35,6 +35,7 @@ in {
     htop
     hydra-check
     hyperfine
+    inotify-tools
     imagemagick
     jq
     less
