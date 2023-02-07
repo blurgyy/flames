@@ -77,6 +77,7 @@
     enable = true;
     priority = 32767;
     memoryPercent = 200;
+    swapDevices = 1;  # NOTE: workwround <https://github.com/NixOS/nixpkgs/pull/214103>
   };
 
   networking.useDHCP = lib.mkDefault false;
