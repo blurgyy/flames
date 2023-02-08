@@ -1,11 +1,23 @@
-{ pkgs, modulesPath, ... }: {
+{ pkgs, lib, modulesPath, ... }: {
   time.timeZone = "Asia/Shanghai";
 
   # needed for building sd-card image, REF: <https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
-  imports = [ (modulesPath + "/installer/sd-card/sd-image-aarch64.nix") ];
+  imports = [
+    (modulesPath + "/installer/sd-card/sd-image-aarch64.nix")
+    (modulesPath + "/profiles/minimal.nix")
+  ];
 
-  boot = {
-    initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
+  boot = let
+    supportedFilesystems = lib.mkForce [  # Remove zfs from supportedFilesystems
+      "btrfs" "cifs" "ext4" "f2fs" "ntfs" "reiserfs" "vfat" "xfs"
+    ];
+  in {
+    kernelPackages = pkgs.linuxPackages_latest;
+    inherit supportedFilesystems;
+    initrd = {
+      inherit supportedFilesystems;
+      availableKernelModules = [ "usbhid" "usb_storage" ];
+    };
   };
 
   sdImage = {  # REF: <https://nixos.wiki/wiki/NixOS_on_ARM/Orange_Pi_Zero2_H616#Periphery>
