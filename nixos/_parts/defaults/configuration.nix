@@ -202,8 +202,8 @@
       settings = {
         PasswordAuthentication = lib.mkDefault false;
         #PermitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
+        X11Forwarding = lib.mkDefault true;
       };
-      forwardX11 = lib.mkDefault true;
       knownHosts = let
         appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
       in {
