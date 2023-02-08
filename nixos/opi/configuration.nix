@@ -8,6 +8,12 @@
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
   };
 
+  sdImage = {  # REF: <https://nixos.wiki/wiki/NixOS_on_ARM/Orange_Pi_Zero2_H616#Periphery>
+    postBuildCommands = ''
+      dd if=${pkgs.opi3lts-uboot}/u-boot-sunxi-with-spl.bin of=$img bs=8 seek=1024 conv=notrunc
+    '';
+  };
+
   # Required for the Wireless firmware
   hardware.enableRedistributableFirmware = true;
 
