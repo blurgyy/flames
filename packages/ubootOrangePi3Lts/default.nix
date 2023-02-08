@@ -1,140 +1,219 @@
-{ writeText, fetchurl, fetchFromGitHub, lib, stdenv
-, ncurses # tools/kwboot
-, bc
-, bison
-, dtc
-, flex
-, openssl
-, buildPackages
-, swig
-, which
-, libuuid
-, gnutls
+{ writeText, buildUBoot
 , armTrustedFirmwareAllwinnerH6
-}: let
-  defaultVersion = "2022.10";
-  defaultSrc = fetchurl {
-    url = "ftp://ftp.denx.de/pub/u-boot/u-boot-${defaultVersion}.tar.bz2";
-    hash = "sha256-ULRIKlBbwoG6hHDDmaPCbhReKbI1ALw1xQ3r1/pGvfg=";
-  };
-  buildUBoot = lib.makeOverridable ({
-    version ? null
-  , src ? null
-  , filesToInstall
-  , installDir ? "$out"
-  , defconfig
-  , extraConfig ? ""
-  , extraPatches ? []
-  , extraMakeFlags ? []
-  , extraMeta ? {}
-  , ... } @ args: stdenv.mkDerivation ({
-    pname = "uboot-${defconfig}";
-
-    version = if src == null then defaultVersion else version;
-
-    src = if src == null then defaultSrc else src;
-
-    patches = [
-      ./0001-configs-rpi-allow-for-bigger-kernels.patch
-
-      # NOTE: removed to allow patching
-      # # Make U-Boot forward some important settings from the firmware-provided FDT. Fixes booting on BCM2711C0 boards.
-      # # See also: https://github.com/NixOS/nixpkgs/issues/135828
-      # # Source: https://patchwork.ozlabs.org/project/uboot/patch/20210822143656.289891-1-sjoerd@collabora.com/
-      # ./0001-rpi-Copy-properties-from-firmware-dtb-to-the-loaded-.patch
-    ] ++ extraPatches;
-
-    postPatch = ''
-      patchShebangs tools
-      patchShebangs arch/arm/mach-rockchip
-    '';
-
-    nativeBuildInputs = [
-      ncurses # tools/kwboot
-      bc
-      bison
-      dtc
-      flex
-      openssl
-      (buildPackages.python3.withPackages (p: [
-        p.libfdt
-        p.setuptools # for pkg_resources
-      ]))
-      swig
-      which # for scripts/dtc-version.sh
-    ];
-    depsBuildBuild = [ buildPackages.stdenv.cc ];
-
-    buildInputs = [
-      ncurses # tools/kwboot
-      libuuid # tools/mkeficapsule
-      gnutls # tools/mkeficapsule
-    ];
-
-    hardeningDisable = [ "all" ];
-
-    enableParallelBuilding = true;
-
-    makeFlags = [
-      "DTC=dtc"
-      "CROSS_COMPILE=${stdenv.cc.targetPrefix}"
-    ] ++ extraMakeFlags;
-
-    passAsFile = [ "extraConfig" ];
-
-    # Workaround '-idirafter' ordering bug in staging-next:
-    #   https://github.com/NixOS/nixpkgs/pull/210004
-    # where libc '-idirafter' gets added after user's idirafter and
-    # breaks.
-    # TODO(trofi): remove it in staging once fixed in cc-wrapper.
-    preConfigure = ''
-      export NIX_CFLAGS_COMPILE_BEFORE_${lib.replaceStrings ["-" "."] ["_" "_"] buildPackages.stdenv.hostPlatform.config}=$(< ${buildPackages.stdenv.cc}/nix-support/libc-cflags)
-      export NIX_CFLAGS_COMPILE_BEFORE_${lib.replaceStrings ["-" "."] ["_" "_"]               stdenv.hostPlatform.config}=$(<               ${stdenv.cc}/nix-support/libc-cflags)
-    '';
-
-    configurePhase = ''
-      runHook preConfigure
-
-      make ${defconfig}
-
-      cat $extraConfigPath >> .config
-
-      runHook postConfigure
-    '';
-
-    installPhase = ''
-      runHook preInstall
-
-      mkdir -p ${installDir}
-      cp ${lib.concatStringsSep " " filesToInstall} ${installDir}
-
-      mkdir -p "$out/nix-support"
-      ${lib.concatMapStrings (file: ''
-        echo "file binary-dist ${installDir}/${builtins.baseNameOf file}" >> "$out/nix-support/hydra-build-products"
-      '') filesToInstall}
-
-      runHook postInstall
-    '';
-
-    dontStrip = true;
-
-    meta = with lib; {
-      homepage = "https://www.denx.de/wiki/U-Boot/";
-      description = "Boot loader for embedded systems";
-      license = licenses.gpl2;
-      maintainers = with maintainers; [ bartsch dezgeg samueldr lopsided98 ];
-    } // extraMeta;
-  } // removeAttrs args [ "extraMeta" ]));
-  opi-u-boot-src = fetchFromGitHub {
-    owner = "orangepi-xunlong";
-    repo = "u-boot-orangepi";
-    rev = "c97dbbcad55f5a1e40c28b1a9874b2e0b9f163c9";
-    hash = "sha256-1uTTXZDaxTP4Hm+GlR3c2zJBSLZaCd5gXZDOBOUnRtQ=";
-  };
-in buildUBoot {
-  src = opi-u-boot-src;
-  version = "unstable";  # NOTE: needed when setting src explicitly
-  defconfig = "orangepi_3_lts_defconfig";
+}: buildUBoot {
+  defconfig = "orangepi_3_defconfig";
+  extraPatches = [(writeText "add-orangepi-3-lts-dtb.patch" ''
+    diff --git a/arch/arm/dts/sun50i-h6-orangepi-3-lts.dts b/arch/arm/dts/sun50i-h6-orangepi-3-lts.dts
+    new file mode 100644
+    index 00000000..422a752a
+    --- /dev/null
+    +++ b/arch/arm/dts/sun50i-h6-orangepi-3-lts.dts
+    @@ -0,0 +1,180 @@
+    +// SPDX-License-Identifier: (GPL-2.0+ or MIT)
+    +/*
+    + * Copyright (C) 2018 Amarula Solutions
+    + * Author: Jagan Teki <jagan@amarulasolutions.com>
+    + */
+    +
+    +/dts-v1/;
+    +
+    +#include "sun50i-h6.dtsi"
+    +
+    +#include <dt-bindings/gpio/gpio.h>
+    +
+    +/ {
+    +	model = "OrangePi 3 LTS";
+    +	compatible = "xunlong,orangepi-3-lts", "allwinner,sun50i-h6";
+    +
+    +	aliases {
+    +		serial0 = &uart0;
+    +		ethernet0 = &emac;
+    +	};
+    +
+    +	chosen {
+    +		stdout-path = "serial0:115200n8";
+    +	};
+    +};
+    +
+    +&emac {
+    +	pinctrl-names = "default";
+    +	pinctrl-0 = <&ext_rgmii_pins>;
+    +	phy-mode = "rgmii";
+    +	phy-handle = <&ext_rgmii_phy>;
+    +	phy-supply = <&reg_aldo2>;
+    +	allwinner,rx-delay-ps = <200>;
+    +	allwinner,tx-delay-ps = <200>;
+    +	status = "okay";
+    +};
+    +
+    +&mdio {
+    +	ext_rgmii_phy: ethernet-phy@1 {
+    +		compatible = "ethernet-phy-ieee802.3-c22";
+    +		reg = <1>;
+    +	};
+    +};
+    +
+    +&mmc0 {
+    +	pinctrl-names = "default";
+    +	pinctrl-0 = <&mmc0_pins>;
+    +	vmmc-supply = <&reg_cldo1>;
+    +	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;
+    +	bus-width = <4>;
+    +	status = "okay";
+    +};
+    +
+    +&mmc2 {
+    +	pinctrl-names = "default";
+    +	pinctrl-0 = <&mmc2_pins>;
+    +	vmmc-supply = <&reg_cldo1>;
+    +	non-removable;
+    +	cap-mmc-hw-reset;
+    +	bus-width = <8>;
+    +	status = "okay";
+    +};
+    +
+    +&r_i2c {
+    +	status = "okay";
+    +
+    +	axp805: pmic@36 {
+    +		compatible = "x-powers,axp805", "x-powers,axp806";
+    +		reg = <0x36>;
+    +		interrupt-parent = <&r_intc>;
+    +		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
+    +		interrupt-controller;
+    +		#interrupt-cells = <1>;
+    +		x-powers,self-working-mode;
+    +
+    +		regulators {
+    +			reg_aldo1: aldo1 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <3300000>;
+    +				regulator-max-microvolt = <3300000>;
+    +				regulator-name = "vcc-pl";
+    +			};
+    +
+    +			reg_aldo2: aldo2 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <3300000>;
+    +				regulator-max-microvolt = <3300000>;
+    +				regulator-name = "vcc-ac200";
+    +			};
+    +
+    +			reg_aldo3: aldo3 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <3300000>;
+    +				regulator-max-microvolt = <3300000>;
+    +				regulator-name = "vcc25-dram";
+    +			};
+    +
+    +			reg_bldo1: bldo1 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <1800000>;
+    +				regulator-max-microvolt = <1800000>;
+    +				regulator-name = "vcc-bias-pll";
+    +			};
+    +
+    +			reg_bldo2: bldo2 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <1800000>;
+    +				regulator-max-microvolt = <1800000>;
+    +				regulator-name = "vcc-efuse-pcie-hdmi-io";
+    +			};
+    +
+    +			reg_bldo3: bldo3 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <1800000>;
+    +				regulator-max-microvolt = <1800000>;
+    +				regulator-name = "vcc-dcxoio";
+    +			};
+    +
+    +			bldo4 {
+    +				/* unused */
+    +			};
+    +
+    +			reg_cldo1: cldo1 {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <3300000>;
+    +				regulator-max-microvolt = <3300000>;
+    +				regulator-name = "vcc-3v3";
+    +			};
+    +
+    +			reg_cldo2: cldo2 {
+    +				regulator-min-microvolt = <3300000>;
+    +				regulator-max-microvolt = <3300000>;
+    +				regulator-name = "vcc-wifi-1";
+    +			};
+    +
+    +			reg_cldo3: cldo3 {
+    +				regulator-min-microvolt = <3300000>;
+    +				regulator-max-microvolt = <3300000>;
+    +				regulator-name = "vcc-wifi-2";
+    +			};
+    +
+    +			reg_dcdca: dcdca {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <810000>;
+    +				regulator-max-microvolt = <1080000>;
+    +				regulator-name = "vdd-cpu";
+    +			};
+    +
+    +			reg_dcdcc: dcdcc {
+    +				regulator-min-microvolt = <810000>;
+    +				regulator-max-microvolt = <1080000>;
+    +				regulator-name = "vdd-gpu";
+    +			};
+    +
+    +			reg_dcdcd: dcdcd {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <960000>;
+    +				regulator-max-microvolt = <960000>;
+    +				regulator-name = "vdd-sys";
+    +			};
+    +
+    +			reg_dcdce: dcdce {
+    +				regulator-always-on;
+    +				regulator-min-microvolt = <1200000>;
+    +				regulator-max-microvolt = <1200000>;
+    +				regulator-name = "vcc-dram";
+    +			};
+    +
+    +			sw {
+    +				/* unused */
+    +			};
+    +		};
+    +	};
+    +};
+    +
+    +&uart0 {
+    +	pinctrl-names = "default";
+    +	pinctrl-0 = <&uart0_ph_pins>;
+    +	status = "okay";
+    +};
+    diff --git a/configs/orangepi_3_lts_defconfig b/configs/orangepi_3_lts_defconfig
+    new file mode 100644
+    index 00000000..f119c349
+    --- /dev/null
+    +++ b/configs/orangepi_3_lts_defconfig
+    @@ -0,0 +1,18 @@
+    +CONFIG_ARM=y
+    +CONFIG_ARCH_SUNXI=y
+    +CONFIG_MACH_SUN50I_H6=y
+    +CONFIG_SUNXI_DRAM_H6_LPDDR3=y
+    +CONFIG_SUNXI_DRAM_DDR3=n
+    +CONFIG_DRAM_ODT_EN=y
+    +CONFIG_MMC0_CD_PIN="PF6"
+    +CONFIG_MMC_SUNXI_SLOT_EXTRA=2
+    +CONFIG_HDMI_DDC_EN="PH2"
+    +# CONFIG_PSCI_RESET is not set
+    +CONFIG_DEFAULT_DEVICE_TREE="sun50i-h6-orangepi-3-lts"
+    +# CONFIG_SYS_MALLOC_CLEAR_ON_INIT is not set
+    +CONFIG_SPL=y
+    +# CONFIG_CMD_FLASH is not set
+    +# CONFIG_CMD_FPGA is not set
+    +# CONFIG_SPL_DOS_PARTITION is not set
+    +# CONFIG_SPL_ISO_PARTITION is not set
+    +# CONFIG_SPL_EFI_PARTITION is not set
+  '')];
   extraMeta.platforms = ["aarch64-linux"];
   BL31 = "${armTrustedFirmwareAllwinnerH6}/bl31.bin";
   filesToInstall = ["u-boot-sunxi-with-spl.bin"];
