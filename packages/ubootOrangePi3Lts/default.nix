@@ -1,4 +1,4 @@
-{ writeText, buildUBoot
+{ buildUBoot
 , armTrustedFirmwareAllwinnerH6
 }: buildUBoot {
   defconfig = "orangepi_3_defconfig";
