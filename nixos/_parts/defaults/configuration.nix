@@ -234,6 +234,7 @@
 
         morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";
         rpi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5h1Ml9C6A78lElY4fGEyB2aLGLFU1OfqgwnDrj/bXC";
+        opi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSf8bkg1SEysraEcg5Muq+8yylCD+se5n9W7TDtFTJf";
 
         soft-serve.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9rzg0Pw5saEXxRlML1W5lWjtmREyjTVu032nqNIEW";
       };

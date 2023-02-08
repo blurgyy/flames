@@ -3,6 +3,8 @@ creation_rules:
     age: age17rhy32g9t89kspazenx4mtx74vy7e78rvq320u27k5tqmfmszv9qatg4d4
   - path_regex: rpi/.*
     age: age1wl5we8e8n3p77j8qm5fv9np8hz4ayv7vfduwpnuf577lex6l2cls3y70sc
+  - path_regex: opi/.*
+    age: age1gsewrrh6mw99xmqnfj6uly3xt6kedj9kp4c5s09us54686q7pelst27hvf
   - path_regex: cube/*
     age: age1kul2xj4dc3vgeqg9ls2pkfy0tex93stz0n5wzv0quvexhhwjhcpssttqyn
   - path_regex: peterpan/*

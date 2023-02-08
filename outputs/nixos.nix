@@ -17,6 +17,7 @@ in apply {
   peterpan = x86_64;
   quad = x86_64;
   rpi = aarch64;
+  opi = aarch64;
   rubik = x86_64;
   trigo = x86_64;
 }
