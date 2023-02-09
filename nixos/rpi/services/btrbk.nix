@@ -24,16 +24,16 @@
 
       stream_compress = "zstd";
       stream_buffer = "256m";
+
+      target = "/elements/.btrbk/backups";  # this directory needs to be created manually
+      snapshot_create = "ondemand";  # create if target is attached
+      snapshot_dir = "/.btrbk/snapshots";  # run `sudo mkdir /.btrbk/snapshots -p` on the remote machine
     };
   in {
     password-backup = {
       onCalendar = "00/8:00:00";  # Every 8 hours since midnight
       settings = globalCfg // {
         subvolume."ssh://cindy/var/lib/bitwarden_rs" = {
-          target = "/elements/.btrbk/backups";  # this directory needs to be created manually
-          snapshot_create = "ondemand";  # create if target is attached
-          snapshot_dir = "/.btrbk/snapshots";  # run `sudo mkdir /.btrbk/snapshots -p` on the remote machine
-
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
@@ -46,10 +46,6 @@
       onCalendar = "06:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
         subvolume."ssh://cindy/var/lib/wakapi" = {
-          target = "/elements/.btrbk/backups";
-          snapshot_create = "ondemand";
-          snapshot_dir = "/.btrbk/snapshots";
-
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
