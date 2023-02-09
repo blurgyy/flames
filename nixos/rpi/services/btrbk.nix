@@ -54,5 +54,17 @@
         };
       };
     };
+    rssbot-backup = {
+      onCalendar = "06:00:00 CST";  # morning 06:00 every day
+      settings = globalCfg // {
+        subvolume."ssh://cindy/var/lib/rssbot" = {
+          snapshot_preserve_min = "latest";
+          snapshot_preserve = "no";
+
+          target_preserve_min = "latest";
+          target_preserve = "1w *m";
+        };
+      };
+    };
   };
 }
