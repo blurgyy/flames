@@ -16,10 +16,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix-hm = {
-      url = "github:Mic92/sops-nix/feat/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
