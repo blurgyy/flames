@@ -130,7 +130,7 @@ in {
       ];
     };
     "network#download" = {
-      interface = if name == "gy@watson" then "enp0s20f0u4" else "w*";
+      interface = if name == "gy@watson" then "e*" else "w*";
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthDownBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
@@ -141,7 +141,7 @@ in {
       on-click = "${sway}/bin/swaymsg 'workspace 8'";
     };
     "network#upload" = {
-      interface = if name == "gy@watson" then "enp0s20f0u4" else "w*";
+      interface = if name == "gy@watson" then "e*" else "w*";
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthUpBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
