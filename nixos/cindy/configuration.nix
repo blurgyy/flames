@@ -2,6 +2,7 @@
   time.timeZone = "Europe/Berlin";
 
   boot.loader.systemd-boot.enable = true;
+  boot.tmpOnTmpfs = false;
   fileSystems = {
     "/" = {  
       device = "/dev/disk/by-label/nixos-root";
