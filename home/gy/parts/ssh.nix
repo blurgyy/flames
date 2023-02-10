@@ -41,11 +41,12 @@
   ])) // {
     inherit morty-relay watson-relay rpi-relay "2x1080ti-relay" shared-relay;
 
-    # Subnet routes via watson. use with `tailscale up --advertise-routes=10.76.0.0/21` on watson
-    # and `tailscale up --accept-routes` on client machines.
-    shared.hostname = "10.76.2.83";
+    # # Subnet routes via watson. use with `tailscale up --advertise-routes=10.76.0.0/21` on watson
+    # # and `tailscale up --accept-routes` on client machines.
+    # shared.hostname = "10.76.2.83";
 
     # Forwarded via rathole on watson
+    shared = { hostname = "watson"; port = 22548; };
     "2x1080ti" = { hostname = "watson"; port = 13815; };
 
     gpp = { hostname = "peterpan"; port = 77; };

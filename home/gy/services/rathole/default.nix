@@ -5,12 +5,12 @@
   hasServerCfgPredicate = with builtins; elem "rathole/server/${name}" (attrNames config.sops.secrets);
 in {
   sops.secrets = {
-    "rathole/client/gy@cadliu" = lib.mkIf (name == "gy@cadliu") {
-      path = "${config.xdg.configHome}/rathole/client.toml";
-    };
-    "rathole/server/gy@watson" = lib.mkIf (name == "gy@watson") {
-      path = "${config.xdg.configHome}/rathole/server.toml";
-    };
+    # client
+    "rathole/client/gy@cadliu" = lib.mkIf (name == "gy@cadliu") { path = clientCfgPath; };
+    "rathole/client/gy@cad-liu" = lib.mkIf (name == "gy@cad-liu") { path = clientCfgPath; };
+
+    # server
+    "rathole/server/gy@watson" = lib.mkIf (name == "gy@watson") { path = serverCfgPath; };
   };
 
   services.rathole = {
