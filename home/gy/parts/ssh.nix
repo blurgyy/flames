@@ -45,6 +45,9 @@
     # and `tailscale up --accept-routes` on client machines.
     shared.hostname = "10.76.2.83";
 
+    # Forwarded via rathole on watson
+    "2x1080ti" = { hostname = "watson"; port = 13815; };
+
     gpp = { hostname = "peterpan"; port = 77; };
     ghooper = { hostname = "hooper"; user = "git"; };
 

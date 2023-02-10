@@ -113,6 +113,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   modules = [
     ./home.nix
     ./secrets
+    ./services
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-db.hmModules.nix-index
     self.homeManagerModules.default
