@@ -81,5 +81,5 @@
   };
 
   networking.useDHCP = lib.mkDefault false;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 }
