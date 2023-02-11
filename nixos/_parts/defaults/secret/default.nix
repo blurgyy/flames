@@ -28,6 +28,7 @@ in {
         config.users.groups.wheel.name
         config.users.groups.video.name
         config.users.groups.plocate.name
+        config.users.groups.dialout.name
       ];
       shell = pkgs.zsh;
       openssh.authorizedKeys.keys = keys;
