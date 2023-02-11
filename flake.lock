@@ -12185,6 +12185,22 @@
     },
     "nixpkgs_43": {
       "locked": {
+        "lastModified": 1675879502,
+        "narHash": "sha256-pbgIW5VrIk00rKrhBvuMEcKP8XUuB39GYf9lHmrrOGc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "54ee2f301fa534cf0b0a20e0ce44152755e2f8a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_44": {
+      "locked": {
         "lastModified": 1675719097,
         "narHash": "sha256-UoQZ3q+7cPvYvWVXldv66tE/HyUkc1TjJtsKiGc56kQ=",
         "owner": "NixOS",
@@ -12474,6 +12490,24 @@
         "owner": "berberman",
         "repo": "nvfetcher",
         "type": "github"
+      }
+    },
+    "orangepi-3-lts-support": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_43"
+      },
+      "locked": {
+        "lastModified": 1676173558,
+        "narHash": "sha256-iHj9zr0BlloJ5B/g426ABHdDuM4vxOUqPjqVX+BWEH0=",
+        "owner": "highsunz",
+        "repo": "orangepi-3-lts-support",
+        "rev": "c052ac4615eb4a3a6f4d38d1121092f9a4f1faa2",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "highsunz",
+        "repo": "orangepi-3-lts-support",
+        "type": "gitlab"
       }
     },
     "pre-commit-hooks-nix": {
@@ -13330,6 +13364,7 @@
         "nixos-generators": "nixos-generators_10",
         "nixpkgs": "nixpkgs_41",
         "nvfetcher": "nvfetcher_10",
+        "orangepi-3-lts-support": "orangepi-3-lts-support",
         "sops-nix": "sops-nix_20",
         "tex2nix": "tex2nix_10"
       }
@@ -14930,7 +14965,7 @@
     "tex2nix_10": {
       "inputs": {
         "flake-utils": "flake-utils_81",
-        "nixpkgs": "nixpkgs_43"
+        "nixpkgs": "nixpkgs_44"
       },
       "locked": {
         "lastModified": 1675719328,

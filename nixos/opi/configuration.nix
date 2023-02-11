@@ -9,7 +9,7 @@
       "btrfs" "cifs" "ext4" "f2fs" "ntfs" "reiserfs" "vfat" "xfs"
     ];
   in {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackagesFor pkgs.opi3lts-kernel-latest;
     inherit supportedFilesystems;
     initrd = {
       inherit supportedFilesystems;
@@ -19,7 +19,7 @@
 
   sdImage = {  # REF: <https://nixos.wiki/wiki/NixOS_on_ARM/Orange_Pi_Zero2_H616#Periphery>
     postBuildCommands = ''
-      dd if=${pkgs.ubootOrangePi3Lts}/u-boot-sunxi-with-spl.bin of=$img bs=1k seek=8 conv=notrunc
+      dd if=${pkgs.opi3lts-uboot}/u-boot-sunxi-with-spl.bin of=$img bs=1k seek=8 conv=notrunc
     '';
   };
 
@@ -27,10 +27,7 @@
   hardware.enableRedistributableFirmware = true;
   hardware.deviceTree = {
     enable = true;
-    name = "allwinner/sun50i-h6-orangepi-3-lts.dtb";
-    kernelPackage = config.boot.kernelPackages.kernel.overrideAttrs (o: {
-      patches = o.patches or [] ++ [ ./add-orangepi-3-lts-device-tree.patch ];
-    });
+    name = "allwinner/sun50i-h6-orangepi-3-lts.dtb";  # needs gitlab:highsunz/orangepi-3-lts-support
   };
 
   # Free up to 1GiB whenever there is less than 100MiB left.
