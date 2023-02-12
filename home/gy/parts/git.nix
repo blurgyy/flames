@@ -17,7 +17,9 @@
     cinit = ''commit --allow-empty -m "chore: initalize repository (empty)"'';
     co = "checkout";
     d = "diff";
+    dp = "diff --no-ext-diff --patch";
     dc = "diff --cached";
+    dcp = "diff --cached --no-ext-diff --patch";
     f = "fetch";
     l = "log --all --graph --decorate --oneline -8";
     la = "log --all --graph --decorate --format=fuller";

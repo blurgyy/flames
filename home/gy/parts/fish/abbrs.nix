@@ -158,6 +158,7 @@ fixTypo "blurgy" [
   dgd = "git diff";
   ggd = "git diff";
   gdc = "git diff --cached";
+  gdcp = "git diff --cached --no-ext-diff --patch";
   gddc = "git diff --cached";
   gdh = "git diff HEAD^ HEAD";
   gdp = "git diff --no-ext-diff --patch";
