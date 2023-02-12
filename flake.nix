@@ -56,7 +56,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    orangepi-3-lts-support.url = "gitlab:highsunz/orangepi-3-lts-support";
+    orangepi-3-lts-support.url = "gitlab:highsunz/orangepi-3-lts-support/2709c35ceaae02256e445dba9d2311a86c4d221f";
     acremote.url = "gitlab:highsunz/acremote";
     nvfetcher.url = "github:berberman/nvfetcher";
     tex2nix.url = "github:Mic92/tex2nix";
