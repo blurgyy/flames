@@ -36,6 +36,7 @@
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
         "browser.shell.checkDefaultBrowser" = false;
         "browser.startup.homepage" = "https://github.com/";
+        "browser.toolbars.bookmarks.visibility" = "newtab";
         "browser.warnOnQuitShortcut" = false;
         "fission.autostart" = true;
         "layout.css.prefers-color-scheme.content-override" = 2;  # REF: <https://support.mozilla.org/bm/questions/1364502>
