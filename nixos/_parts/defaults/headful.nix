@@ -1,5 +1,9 @@
-{ lib, pkgs, ... }: {
-  boot.initrd.kernelModules = [ "i915" "amdgpu" ];
+{ config, lib, pkgs, ... }: {
+  boot = {
+    initrd.kernelModules = [ "i915" "amdgpu" ];
+    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+    kernelModules = [ "v4l2loopback" ];
+  };
 
   environment.systemPackages = with pkgs; [
     minicom

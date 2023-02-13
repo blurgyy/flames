@@ -28,11 +28,7 @@
       "boot.shell_on_fail"
       "loglevel=4"
     ];
-    extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
-    kernelModules = [
-      "tcp_bbr"
-      "v4l2loopback"
-    ];
+    kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.core.default_qdisc" = "fq";
       "net.ipv4.tcp_congestion_control" = "bbr";
