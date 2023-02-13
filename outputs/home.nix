@@ -23,6 +23,7 @@ in apply {
   "gy@morty" = x86_64-non-headless;
   "gy@john" = x86_64-non-headless;
   "gy@watson" = x86_64-non-headless;
+  "gy@opi" = aarch64-headless;
   "gy@rpi" = aarch64-headless;
   gy = x86_64-headless;
 }
