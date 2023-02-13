@@ -32,6 +32,7 @@
     "cube"
     "hooper"
     "morty"
+    "opi"
     "peterpan"
     "quad"
     "rpi"
