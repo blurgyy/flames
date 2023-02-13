@@ -15,7 +15,7 @@ no-color: false
 no-mouse: false
 non-interactive: false
 no-progress: false
-no-cross: false
+no-cross: true  # Do not cross filesystem boundaries
 no-hidden: false
 profiling: false
 const-gc: false
