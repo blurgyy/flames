@@ -48,6 +48,7 @@ in {  # For non-headless machines
     libnotify
     logseq
     meshlab
+    minicom
     obs-studio
     rustdesk-with-x11-desktopentry
     tdesktop-megumifox

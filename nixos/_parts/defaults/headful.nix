@@ -2,6 +2,7 @@
   boot.initrd.kernelModules = [ "i915" "amdgpu" ];
 
   environment.systemPackages = with pkgs; [
+    minicom
     swaylock-effects
   ];
 
