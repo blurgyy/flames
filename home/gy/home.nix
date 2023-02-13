@@ -53,7 +53,6 @@ in {
     ripgrep
     sdwrap
     sops
-    sshfs
     strace
     telegram-send
     tex2nix
