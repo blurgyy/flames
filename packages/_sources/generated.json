@@ -295,11 +295,11 @@
             "name": null,
             "owner": "cyrus-and",
             "repo": "gdb-dashboard",
-            "rev": "v0.16.0",
-            "sha256": "sha256-sk638bMM96Nuv+tcNsJANhj6EOaqjN8CRmG8kvFEceY=",
+            "rev": "v0.16.1",
+            "sha256": "sha256-xRsmxiT+/TVW8k1unsCASU1j40jxVGVhSgOblLFT5bE=",
             "type": "github"
         },
-        "version": "v0.16.0"
+        "version": "v0.16.1"
     },
     "gsfonts": {
         "cargoLocks": null,
@@ -396,9 +396,9 @@
             "name": null,
             "sha256": "sha256-05yBJC+yv6Rf54u9mwBuK73SJQsjpGqp6JlwzJhBFas=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302092210/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302122209/geoip.dat"
         },
-        "version": "202302092210"
+        "version": "202302122209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -409,11 +409,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-uOgKL1oSBlKA7A0T1n3uT3xC77PJSOVMP7QNRYfjXgk=",
+            "sha256": "sha256-1AdP4DqcciVfHC1Qjbo5aP3vqaQ5HfjDfju/svjXdrY=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302092210/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302122209/geosite.dat"
         },
-        "version": "202302092210"
+        "version": "202302122209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -515,11 +515,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-rXaDFH42FotW5z/OIOkQq6ycqiuVIPh1G1UF6xPfwKk=",
+            "sha256": "sha256-73Bw4HANSDubGj5CeWwZS8LU8EyTKs3Mm+eM1P3PC/A=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.4.0/simple-icons-font-8.4.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.5.0/simple-icons-font-8.5.0.zip"
         },
-        "version": "8.4.0"
+        "version": "8.5.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,

@@ -178,13 +178,13 @@
   };
   gdb-dashboard = {
     pname = "gdb-dashboard";
-    version = "v0.16.0";
+    version = "v0.16.1";
     src = fetchFromGitHub ({
       owner = "cyrus-and";
       repo = "gdb-dashboard";
-      rev = "v0.16.0";
+      rev = "v0.16.1";
       fetchSubmodules = false;
-      sha256 = "sha256-sk638bMM96Nuv+tcNsJANhj6EOaqjN8CRmG8kvFEceY=";
+      sha256 = "sha256-xRsmxiT+/TVW8k1unsCASU1j40jxVGVhSgOblLFT5bE=";
     });
   };
   gsfonts = {
@@ -241,18 +241,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202302092210";
+    version = "202302122209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302092210/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302122209/geoip.dat";
       sha256 = "sha256-05yBJC+yv6Rf54u9mwBuK73SJQsjpGqp6JlwzJhBFas=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202302092210";
+    version = "202302122209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302092210/geosite.dat";
-      sha256 = "sha256-uOgKL1oSBlKA7A0T1n3uT3xC77PJSOVMP7QNRYfjXgk=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302122209/geosite.dat";
+      sha256 = "sha256-1AdP4DqcciVfHC1Qjbo5aP3vqaQ5HfjDfju/svjXdrY=";
     };
   };
   luarock-dbus_proxy = {
@@ -312,10 +312,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "8.4.0";
+    version = "8.5.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.4.0/simple-icons-font-8.4.0.zip";
-      sha256 = "sha256-rXaDFH42FotW5z/OIOkQq6ycqiuVIPh1G1UF6xPfwKk=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.5.0/simple-icons-font-8.5.0.zip";
+      sha256 = "sha256-73Bw4HANSDubGj5CeWwZS8LU8EyTKs3Mm+eM1P3PC/A=";
     };
   };
   symbols-nerd-font = {
