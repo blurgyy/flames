@@ -149,6 +149,7 @@
     git
     glow
     hexyl
+    home-manager
     htop
     hyperfine
     inotify-tools
