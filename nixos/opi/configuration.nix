@@ -10,6 +10,11 @@
     ];
   in {
     kernelPackages = pkgs.linuxPackagesFor pkgs.opi3lts-kernel-latest;
+    kernelModules = [
+      # NOTE: Enables wireless driver for uwe5622 (though the borad says aw859a), needs
+      # /lib/firmware/wifi_2355b001_1ant.ini and /lib/firmware/wcnmodem.bin to work.
+      "sprdwl_ng"
+    ];
     inherit supportedFilesystems;
     initrd = {
       inherit supportedFilesystems;
@@ -17,7 +22,20 @@
     };
   };
 
-  sdImage = {  # REF: <https://nixos.wiki/wiki/NixOS_on_ARM/Orange_Pi_Zero2_H616#Periphery>
+  fileSystems."/lib/firmware" = {
+    device = "/dev/disk/by-label/${config.sdImage.firmwarePartitionName}";
+    fsType = "vfat";
+    options = [ "ro" "nofail" ];
+  };
+
+  sdImage = {
+    firmwarePartitionName = "FIRMWARE";
+    firmwareSize = 64;
+    populateFirmwareCommands = ''
+      rm -vrf firmware
+      cp -vr ${pkgs.opi-firmware}/lib/firmware .
+    '';
+    # REF: <https://nixos.wiki/wiki/NixOS_on_ARM/Orange_Pi_Zero2_H616#Periphery>
     postBuildCommands = ''
       dd if=${pkgs.opi3lts-uboot}/u-boot-sunxi-with-spl.bin of=$img bs=1k seek=8 conv=notrunc
     '';
