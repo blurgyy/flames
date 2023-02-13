@@ -153,8 +153,10 @@
     htop
     hyperfine
     inotify-tools
+    iotop
     jq
     libqalculate
+    lm_sensors
     lsof
     neovim
     pciutils

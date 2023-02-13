@@ -37,6 +37,7 @@ in {
     hyperfine
     inotify-tools
     imagemagick
+    iotop
     jq
     less
     lfs
