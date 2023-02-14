@@ -128,6 +128,7 @@ in {
       initExtraFirst = ''
         typeset -T INFOPATH infopath
         typeset -U PATH MANPATH INFOPATH
+      '' ++ lib.optionalString (pkgs.stdenv.hostPlatform.system == "x86_64-linux") ''
         # test variable is set, REF: <https://stackoverflow.com/a/42655305/13482274>
         if [[ -z "''${__tested_os_release+1}" ]]; then
           source /etc/os-release
@@ -137,6 +138,7 @@ in {
           }
           export __tested_os_release=1
         fi
+      '' ++ ''
         if [[ -o interactive
            && -z "''${noexecfish+1}" ]]; then
           exec fish
