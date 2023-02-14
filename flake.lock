@@ -12497,11 +12497,11 @@
         "nixpkgs": "nixpkgs_43"
       },
       "locked": {
-        "lastModified": 1676288333,
-        "narHash": "sha256-PlBLQAfiUf4Bgf2NqqGoZze8Nfc+dAfF9kLD2AKpkm0=",
+        "lastModified": 1676355444,
+        "narHash": "sha256-mkZG7EIqY7fdGEwXoNsh3cRvSvHpBO7huNUCX+lMOL8=",
         "owner": "highsunz",
         "repo": "orangepi-3-lts-support",
-        "rev": "8b13d23f66389b4e73f10e52a363537b16a025a0",
+        "rev": "4b5f0ea7a6992a73be0d234e0d1efb25528017f8",
         "type": "gitlab"
       },
       "original": {
