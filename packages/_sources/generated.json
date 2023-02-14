@@ -47,11 +47,11 @@
             "name": null,
             "owner": "alist-org",
             "repo": "alist",
-            "rev": "v3.10.1",
-            "sha256": "sha256-jldaXp2LGSsE4reL+q4v48IWpE0C4ngxhhILWn2A89I=",
+            "rev": "v3.11.0",
+            "sha256": "sha256-YXCcqKUtSp6r3guhkaquP80Pk3RwMkjZmgN8dayCiqQ=",
             "type": "github"
         },
-        "version": "v3.10.1"
+        "version": "v3.11.0"
     },
     "aliyundrive-fuse": {
         "cargoLocks": {
@@ -396,9 +396,9 @@
             "name": null,
             "sha256": "sha256-05yBJC+yv6Rf54u9mwBuK73SJQsjpGqp6JlwzJhBFas=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302122209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302132210/geoip.dat"
         },
-        "version": "202302122209"
+        "version": "202302132210"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -409,11 +409,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-1AdP4DqcciVfHC1Qjbo5aP3vqaQ5HfjDfju/svjXdrY=",
+            "sha256": "sha256-9IoYPaWsUYfrvKLbE/jXPznA2p8KpBwwsRsNqNZ0r+E=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302122209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302132210/geosite.dat"
         },
-        "version": "202302122209"
+        "version": "202302132210"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
