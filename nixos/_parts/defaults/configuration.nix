@@ -164,6 +164,7 @@
     ripgrep
     sdwrap
     sops
+    sshfs
     strace
     tokei
     unar
