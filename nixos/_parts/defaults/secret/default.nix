@@ -11,27 +11,12 @@ in {
     };
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
-  users = let
-    keys = import ../public-keys.nix;
-  in {
+  users = {
     mutableUsers = false;
-    groups.plocate = {};  # for plocate-updatedb.service
-    users.root = {
-      passwordFile = config.sops.secrets."passwords/root".path;
-      openssh.authorizedKeys.keys = keys;
-    };
+    users.root.passwordFile = config.sops.secrets."passwords/root".path;
     users.gy = {
       passwordFile = config.sops.secrets."passwords/gy".path;
       isNormalUser = true;
-      extraGroups = [
-        config.users.groups.keys.name 
-        config.users.groups.wheel.name
-        config.users.groups.video.name
-        config.users.groups.plocate.name
-        config.users.groups.dialout.name
-      ];
-      shell = pkgs.zsh;
-      openssh.authorizedKeys.keys = keys;
     };
   };
   services.openssh.hostKeys = [{

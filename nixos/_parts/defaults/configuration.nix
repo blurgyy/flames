@@ -1,4 +1,24 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, ... }: let
+  keys = import ./public-keys.nix;
+in {
+  users = {
+    groups.plocate = {};  # for plocate-updatedb.service
+    users = {
+      root.openssh.authorizedKeys.keys = keys.userKeys;
+      gy = {
+        openssh.authorizedKeys.keys = keys.userKeys;
+        extraGroups = [
+          config.users.groups.keys.name 
+          config.users.groups.wheel.name
+          config.users.groups.video.name
+          config.users.groups.plocate.name
+          config.users.groups.dialout.name
+        ];
+        shell = pkgs.zsh;
+      };
+    };
+  };
+
   nix = {
     nrBuildUsers = 0;
     package = lib.mkDefault pkgs.nixUnstable;
