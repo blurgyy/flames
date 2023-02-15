@@ -4,9 +4,9 @@ in {
   users = {
     groups.plocate = {};  # for plocate-updatedb.service
     users = {
-      root.openssh.authorizedKeys.keys = keys.userKeys;
+      root.openssh.authorizedKeys.keys = keys.users;
       gy = {
-        openssh.authorizedKeys.keys = keys.userKeys;
+        openssh.authorizedKeys.keys = keys.users;
         extraGroups = [
           config.users.groups.keys.name 
           config.users.groups.wheel.name
@@ -229,39 +229,24 @@ in {
         X11Forwarding = lib.mkDefault true;
       };
       knownHosts = let
-        appendDomain = names: map (x: "${x}.${config.networking.domain}") names;
-      in {
-        cindy = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJLYPC2blW9f6nkGH1gII8/YhfTTOnBu5bCoRX9h1BWJ";
-          extraHostNames = appendDomain [ "cindy" "hydra" "cache" ];
+        mkHost = name: aliases: {
+          publicKey = keys.hosts.${name};
+          extraHostNames = aliases;
         };
-        cube = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL+Cx6XqOJr1Wr9wIRFOheLpbnoBMt5Nxr50Z0mMYB3C";
-          extraHostNames = appendDomain [ "cube" ];
-        };
-        peterpan = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKy5KB6KAHZuedlEjcWTYSSurh3yCz7QweMqZAvnixv1";
-          extraHostNames = lib.remove "peterpan" config.networking.hosts."81.69.28.75";
-        };
-        trigo = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOx4SzE+6UBW4eYgxYZSaBD3U/BoYARhBBLnsxPdi8t0";
-          extraHostNames = appendDomain [ "trigo" ];
-        };
-        rubik = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMcsDGzKkN8WQS+yqQfjczReJ+3WPao34Tn5fJv3/pE2";
-          extraHostNames = appendDomain [ "rubik" ];
-        };
-        quad = {
-          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHzxbziJTDlsV9/g3PlQIekZtNzVMshjgc6pZFadS0n/";
-          extraHostNames = appendDomain [ "quad" ];
-        };
-
-        morty.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";
-        rpi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5h1Ml9C6A78lElY4fGEyB2aLGLFU1OfqgwnDrj/bXC";
-        opi.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILXGBSquhX8XxlKwxErRwdcV8H7DDEvPGUnkdHpYlAM5";
-
-        soft-serve.publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9rzg0Pw5saEXxRlML1W5lWjtmREyjTVu032nqNIEW";
-      };
+        mkHosts = hostDefs: lib.mapAttrs mkHost hostDefs;
+      in mkHosts {
+        cindy = [ "cindy" "hydra" "cache" ];
+        cube = [ "cube" ];
+        peterpan = [ "peterpan" ];
+        trigo = [ "trigo" ];
+        rubik = [ "rubik" ];
+        quad = [ "quad" ];
+        morty = [];
+        opi = [];
+        rpi = [];
+      } // (with keys.services; {
+        soft-serve.publicKey = soft-serve;
+      });
     };
   };
 }
