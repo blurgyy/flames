@@ -1,16 +1,10 @@
-{ source, stdenvNoCC, lib
-, yj
-, jq
-}: stdenvNoCC.mkDerivation {
+{ source, stdenvNoCC, lib }: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
-
-  buildInputs = [ yj jq ];
 
   buildCommand = ''
     mkdir -p $out/share/alacritty/themes
-    for th in $src/catppuccin-{frappe,latte,macchiato,mocha}.yml; do
-      cat $th | yj | jq -c .colors >$out/share/alacritty/themes/$(basename -s .yml $th).json
-    done
+    install -Dm644 -t $out/share/alacritty/themes \
+      $src/catppuccin-{frappe,latte,macchiato,mocha}.yml
   '';
 
   meta = {

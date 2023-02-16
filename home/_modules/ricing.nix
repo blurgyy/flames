@@ -183,16 +183,28 @@ in with lib; {
           else "Flat-Remix-Yellow-Dark";
       };
     };
-    programs.alacritty.settings.colors = builtins.fromJSON (readFile "${pkgs.alacritty-theme-catppuccin}/share/alacritty/themes/catppuccin-${
-      if cfg.textual.theme == "light"
-        then "latte"
-        else "mocha"
-    }.json");
-    programs.bat.themes.catppuccin = readFile "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
-      if cfg.textual.theme == "light"
-        then "latte"
-        else "mocha"
-    }.tmTheme";
+    programs.alacritty.settings = {
+      import = [
+        "${pkgs.alacritty-theme-catppuccin}/share/alacritty/themes/catppuccin-${
+          if cfg.textual.theme == "light"
+            then "latte"
+            else "mocha"
+        }.yml"
+      ];
+    };
+    # WARN: using readFile on derivations causes import-from-derivation.
+    # programs.bat.themes.catppuccin = readFile "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
+    #   if cfg.textual.theme == "light"
+    #     then "latte"
+    #     else "mocha"
+    # }.tmTheme";
+    xdg.configFile = {
+      "bat/themes/catppuccin.tmTheme".source = "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
+        if cfg.textual.theme == "light"
+          then "latte"
+          else "mocha"
+      }.tmTheme";
+    };
     programs.tmux.plugins = [{
       plugin = pkgs.tmux-plugin-catppuccin;
       extraConfig = "set -g @catppuccin_flavour '${if config.ricing.textual.theme == "light" then "latte" else "mocha"}'";
