@@ -32,6 +32,19 @@ in with lib; {
         extraSSHOptions = mkOption { type = with types; attrsOf str; default = {}; };
       };
     });
+    remoteServiceModule = types.submodule ({ ... }: {
+      options = {
+        port = mkOption {
+          type = with types; oneOf [ str int ];
+          default = null;
+        };
+        expose = mkOption {
+          type = types.bool;
+          default = false;
+          description = "Whether to expose this service's port to the public";
+        };
+      };
+    });
   in {
     instances = mkOption {
       type = types.attrsOf hostInstanceModule;
@@ -39,7 +52,7 @@ in with lib; {
     };
     server = {
       services = mkOption {
-        type = with types; attrsOf (oneOf [ int str ]);
+        type = with types; attrsOf remoteServiceModule;
         default = {};
       };
       extraKnownHosts = mkOption {
@@ -55,12 +68,19 @@ in with lib; {
   in {
     services.openssh.settings.GatewayPorts = mkIf asRemote "clientspecified";  # allow listening on all interfaces while using port forwarding
     networking.firewall-tailored.acceptedPorts = mkIf asRemote (let
-      mkPortCfg = svc: port: {
-        inherit port;
+      mkPortCfg = svc: svcCfg: {
+        inherit (svcCfg) port;
         comment = "Reverse ssh port forwarding for service '${svc}'";
         protocols = [ "tcp" ];  # ssh port forwarding works with TCP traffic
       };
-    in attrValues (mapAttrs mkPortCfg cfg.server.services));
+    in attrValues
+      (mapAttrs
+        mkPortCfg
+        (filterAttrs
+          (svc: svcCfg: svcCfg.expose)
+          cfg.server.services)
+        )
+      );
     users = mkIf asRemote {
       users.sshrp = {
         isSystemUser = true;
