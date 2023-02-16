@@ -2,6 +2,13 @@
   envDir = "${config.xdg.configHome}/sshrp";
 in {
   sops.secrets = {
+    "sshrp/ssh-watson-env" = lib.mkIf (name == "gy@watson") {
+      path = "${envDir}/ssh-watson-via-peterpan-env";
+    };
+    "sshrp/coderp-watson-env" = lib.mkIf (name == "gy@watson") {
+      path = "${envDir}/coderp-watson-via-peterpan-env";
+    };
+
     "sshrp/ssh-2x1080ti-via-watson-env" = lib.mkIf (name == "gy@cadliu") {
       path = "${envDir}/ssh-2x1080ti-via-watson-env";
     };
@@ -19,37 +26,45 @@ in {
 
   services.ssh-reverse-proxy.instances = let
     identityFile = config.sops.secrets."userKey/${name}".path;
-  in (if name == "gy@cadliu" then {
-    ssh-2x1080ti-via-watson = {
-      inherit identityFile;
-
-      environmentFile = config.sops.secrets."sshrp/ssh-2x1080ti-via-watson-env".path;
-      bindPort = 13815;
-      hostPort = 22222;
-      user = "gy";
+    cfgs = let
+      _mkInstance = instanceName: extraOpts: {
+        inherit identityFile;
+        environmentFile = config.sops.secrets."sshrp/${instanceName}-env".path;
+      } // extraOpts;
+      mkInstances = instances: builtins.mapAttrs _mkInstance instances;
+    in {
+      "gy@watson" = mkInstances {
+        ssh-watson = {
+          bindPort = 10020;
+          hostPort = 22222;
+        };
+        coderp-watson = {
+          bindPort = 1111;
+          hostPort = 22222;
+        };
+      };
+      "gy@cadliu" = mkInstances {
+        ssh-2x1080ti-via-watson = {
+          bindPort = 13815;
+          hostPort = 22222;
+          user = "gy";
+        };
+        ssh-2x1080ti-via-peterpan = {
+          bindPort = 10023;
+          hostPort = 22222;
+        };
+      };
+      "gy@cad-liu" = mkInstances {
+        ssh-shared-via-watson = {
+          bindPort = 22548;
+          hostPort = 22222;
+          user = "gy";
+        };
+        ssh-shared-via-peterpan = {
+          bindPort = 10025;
+          hostPort = 22222;
+        };
+      };
     };
-    ssh-2x1080ti-via-peterpan = {
-      inherit identityFile;
-
-      environmentFile = config.sops.secrets."sshrp/ssh-2x1080ti-via-peterpan-env".path;
-      bindPort = 10023;
-      hostPort = 22222;
-    };
-  } else if (name == "gy@cad-liu") then {
-    ssh-shared-via-watson = {
-      inherit identityFile;
-
-      environmentFile = config.sops.secrets."sshrp/ssh-shared-via-watson-env".path;
-      bindPort = 22548;
-      hostPort = 22222;
-      user = "gy";
-    };
-    ssh-shared-via-peterpan = {
-      inherit identityFile;
-
-      environmentFile = config.sops.secrets."sshrp/ssh-shared-via-peterpan-env".path;
-      bindPort = 10025;
-      hostPort = 22222;
-    };
-  } else {});
+  in cfgs.${name} or {};
 }
