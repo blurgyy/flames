@@ -42,11 +42,11 @@ in {
       "gy@watson" = mkInstances {
         ssh-watson = {
           bindPort = 10020;
-          hostPort = 22222;
+          hostPort = 22;
         };
         coderp-watson = {
           bindPort = 1111;
-          hostPort = 22222;
+          hostPort = 8081;
         };
       };
       "gy@cadliu" = mkInstances {
