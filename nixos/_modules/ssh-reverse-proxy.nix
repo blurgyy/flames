@@ -4,11 +4,6 @@ in with lib; {
   options.services.ssh-reverse-proxy = let
     hostInstanceModule = types.submodule ({ ... }: {
       options = {
-        name = mkOption {
-          type = types.str;
-          default = null;
-          description = "Name of this service";
-        };
         environmentFile = mkOption {
           type = types.str;
           default = null;
@@ -34,8 +29,8 @@ in with lib; {
     });
   in {
     instances = mkOption {
-      type = types.listOf hostInstanceModule;
-      default = [];
+      type = types.attrsOf hostInstanceModule;
+      default = {};
     };
     server = {
       services = mkOption {
@@ -74,8 +69,8 @@ in with lib; {
       groups.sshrp = {};
     };
     systemd.services = let
-      mkService = instance: {
-        name = "rp-${instance.name}";
+      mkService = name: instance: {
+        name = "rp-${name}";
         value = {
           path = [ pkgs.openssh ];
           after = [ "network.target" ];
@@ -106,7 +101,7 @@ in with lib; {
           '';
         };
       };
-      mkServices = instances: map mkService instances;
+      mkServices = instances: attrValues (mapAttrs mkService instances);
     in lib.listToAttrs (mkServices cfg.instances);
   };
 }
