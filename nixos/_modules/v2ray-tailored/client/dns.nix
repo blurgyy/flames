@@ -14,8 +14,11 @@
       domains = [ "cc98" "nexushd" "domain:zju.edu.cn" ];
       skipFallback = true;
     } {
-      address = "https://dns.alidns.com/dns-query";
-      domains = [ "domain:ntp.org" ];
+      address = "223.6.6.6";
+      domains = [
+        "domain:ntp.org"
+        "domain:time.apple.com"
+      ];
       skipFallback = true;
     } {
       address = "https://dns.alidns.com/dns-query";
