@@ -52,16 +52,16 @@
   };
   aliyundrive-webdav = {
     pname = "aliyundrive-webdav";
-    version = "v1.10.6";
+    version = "v1.11.0";
     src = fetchFromGitHub ({
       owner = "messense";
       repo = "aliyundrive-webdav";
-      rev = "v1.10.6";
+      rev = "v1.11.0";
       fetchSubmodules = false;
-      sha256 = "sha256-S3LcA+hRzj3oHAMeyOfRrKC8Zr4YvnLL6b0jKd8yL/4=";
+      sha256 = "sha256-TZY74iUFBz0GKW0+WlNZUtg0Paxo4KNInJwVM9kJAGY=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./aliyundrive-webdav-v1.10.6/Cargo.lock;
+      lockFile = ./aliyundrive-webdav-v1.11.0/Cargo.lock;
       outputHashes = {
         
       };
@@ -241,18 +241,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202302132210";
+    version = "202302152210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302132210/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302152210/geoip.dat";
       sha256 = "sha256-05yBJC+yv6Rf54u9mwBuK73SJQsjpGqp6JlwzJhBFas=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202302132210";
+    version = "202302152210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302132210/geosite.dat";
-      sha256 = "sha256-9IoYPaWsUYfrvKLbE/jXPznA2p8KpBwwsRsNqNZ0r+E=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302152210/geosite.dat";
+      sha256 = "sha256-5VViOoRtZRY8FKDwNcd9gOzWKus24mZKlgw/tLjbIFo=";
     };
   };
   luarock-dbus_proxy = {
