@@ -71,6 +71,8 @@ in with lib; {
     systemd.services = let
       mkService = name: instance: {
         name = "rp-${name}";
+        description = "Reverse ssh port forwarding for service '${svc}'";
+        documentation = [ "man:ssh(1)" ];
         value = {
           path = [ pkgs.openssh ];
           after = [ "network.target" ];
