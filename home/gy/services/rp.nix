@@ -16,6 +16,7 @@ in {
       identityFile = config.sops.secrets."userKey/${name}".path;
       bindPort = 13815;
       hostPort = 22222;
+      user = "gy";
     };
   } else if (name == "gy@cad-liu") then {
     ssh-shared-via-watson = {
@@ -23,6 +24,7 @@ in {
       identityFile = config.sops.secrets."userKey/${name}".path;
       bindPort = 22548;
       hostPort = 22222;
+      user = "gy";
     };
   } else {});
 }
