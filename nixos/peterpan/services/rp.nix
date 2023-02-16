@@ -8,9 +8,10 @@
       acremote-rpi = 21607;
       coderp-watson = 1111;
     };
-    extraKnownHosts = with config.services.openssh.knownHosts; [
-      morty.publicKey
-    ];
+    extraKnownHosts = let
+      keys = import ../../_parts/defaults/public-keys.nix;
+    in 
+      keys.users ++ (builtins.attrValues keys.hosts);
   };
   services.haproxy-tailored = {
     frontends.tls-offload-front.backends = [ { name = "web"; condition = "if HTTP"; } ];
