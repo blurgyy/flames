@@ -87,6 +87,7 @@ in with lib; {
               -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
               -oUserKnownHostsFile=/dev/null \
               -oUser=sshrp \
+              -oCompression=yes \
               -oControlMaster=no \
               -oServerAliveInterval=60 \
               -oServerAliveCountMax=3 \
