@@ -4,6 +4,8 @@
       ssh-morty = 10021;
       ssh-opi = 6229;
       ssh-rpi = 10013;
+      ssh-2x1080ti = 10023;
+      ssh-shared = 10025;
 
       acremote-rpi = 21607;
       coderp-watson = 1111;
