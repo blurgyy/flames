@@ -2,6 +2,7 @@
   envDir = "${config.xdg.configHome}/sshrp";
 in {
   sops.secrets = {
+    # watson
     "sshrp/ssh-watson-env" = lib.mkIf (name == "gy@watson") {
       path = "${envDir}/ssh-watson-via-peterpan-env";
     };
@@ -9,15 +10,20 @@ in {
       path = "${envDir}/coderp-watson-via-peterpan-env";
     };
 
+    # 2x1080ti
     "sshrp/ssh-2x1080ti-via-watson-env" = lib.mkIf (name == "gy@cadliu") {
       path = "${envDir}/ssh-2x1080ti-via-watson-env";
     };
-    "sshrp/ssh-shared-via-watson-env" = lib.mkIf (name == "gy@cad-liu") {
-      path = "${envDir}/ssh-shared-via-watson-env";
+    "sshrp/ssh-2x1080ti-via-shared-env" = lib.mkIf (name == "gy@cadliu") {
+      path = "${envDir}/ssh-2x1080ti-via-shared-env";
     };
-
     "sshrp/ssh-2x1080ti-via-peterpan-env" = lib.mkIf (name == "gy@cadliu") {
       path = "${envDir}/ssh-2x1080ti-via-peterpan-env";
+    };
+
+    # shared
+    "sshrp/ssh-shared-via-watson-env" = lib.mkIf (name == "gy@cad-liu") {
+      path = "${envDir}/ssh-shared-via-watson-env";
     };
     "sshrp/ssh-shared-via-peterpan-env" = lib.mkIf (name == "gy@cad-liu") {
       path = "${envDir}/ssh-shared-via-peterpan-env";
@@ -46,6 +52,11 @@ in {
       "gy@cadliu" = mkInstances {
         ssh-2x1080ti-via-watson = {
           bindPort = 13815;
+          hostPort = 22222;
+          user = "gy";
+        };
+        ssh-2x1080ti-via-shared = {
+          bindPort = 31413;
           hostPort = 22222;
           user = "gy";
         };
