@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ./rathole.nix
     ../../_parts/vclient.nix
+    ./rp.nix
     ./wlan.nix
   ];
   systemd.services.hp-keycodes = {
