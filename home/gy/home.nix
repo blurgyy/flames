@@ -174,7 +174,7 @@ in {
       extraConfig = builtins.readFile ./parts/raw/tmux.conf;
     };
     zellij = {
-      enable = true;
+      enable = false;
       package = pkgs.zellij-hirr;
     };
   };
