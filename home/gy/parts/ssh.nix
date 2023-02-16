@@ -22,6 +22,7 @@
         { host.port = 9091; bind.port = 49091; host.address = "localhost"; }
       ];
     };
+    opi-relay = { hostname = relay; port = 6229; };
     rpi-relay = { hostname = relay; port = 10013; };
     "2x1080ti-relay" = { hostname = relay; port = 10023; };
     shared-relay = { hostname = relay; port = 10025; };
@@ -40,7 +41,7 @@
     "trigo"
     "watson"
   ])) // {
-    inherit morty-relay watson-relay rpi-relay "2x1080ti-relay" shared-relay;
+    inherit morty-relay watson-relay opi-relay rpi-relay "2x1080ti-relay" shared-relay;
 
     # # Subnet routes via watson. use with `tailscale up --advertise-routes=10.76.0.0/21` on watson
     # # and `tailscale up --accept-routes` on client machines.

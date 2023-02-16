@@ -2,6 +2,7 @@
   services.ssh-reverse-proxy.server = {
     services = {
       ssh-morty = 10021;
+      ssh-opi = 6229;
       ssh-rpi = 10013;
 
       acremote-rpi = 21607;
