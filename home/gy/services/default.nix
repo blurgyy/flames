@@ -1,5 +1,5 @@
 { ... }: {
   imports = [
-    ./rathole.nix
+    ./rp.nix
   ];
 }
