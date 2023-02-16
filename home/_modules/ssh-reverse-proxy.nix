@@ -80,9 +80,10 @@ in with lib; {
 
     home.activation.ensureLingerEnabled = mkIf (builtins.length (attrValues cfg.instances) > 0)
       (hm.dag.entryBefore [ "writeBoundary" ] ''(
-        $DRY_RUN_CMD test -e /var/lib/systemd/linger/$USER || \
-          _iError "Linger should be enabled, otherwise reverse proxy won't run on machine start without logging in this user!" && \
-          exit 1
+        if ! test -e /var/lib/systemd/linger/$USER; then
+          _iError "Linger should be enabled, otherwise reverse proxy won't run on machine start without logging in this user!"
+          $DRY_RUN_CMD exit 1
+        fi
       )'');
   };
 }
