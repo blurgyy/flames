@@ -56,7 +56,7 @@
       };
     };
     rssbot-backup = {
-      onCalendar = "06:00:00 CST";  # morning 06:00 every day
+      onCalendar = "00:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
         subvolume."ssh://cindy/var/lib/rssbot" = subvolSharedCfg // {
           snapshot_preserve_min = "latest";
