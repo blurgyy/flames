@@ -1,7 +1,13 @@
-{ config, lib, name, helpers, ... }: {
+{ config, lib, name, helpers, ... }: let
+  envDir = "${config.xdg.configHome}/sshrp";
+in {
   sops.secrets = {
-    "sshrp/ssh-2x1080ti-via-watson-env" = lib.mkIf (name == "gy@cadliu") {};
-    "sshrp/ssh-shared-via-watson-env" = lib.mkIf (name == "gy@cad-liu") {};
+    "sshrp/ssh-2x1080ti-via-watson-env" = lib.mkIf (name == "gy@cadliu") {
+      path = "${envDir}/ssh-2x1080ti-via-watson-env";
+    };
+    "sshrp/ssh-shared-via-watson-env" = lib.mkIf (name == "gy@cad-liu") {
+      path = "${envDir}/ssh-shared-via-watson-env";
+    };
   };
 
   services.ssh-reverse-proxy.instances = (if name == "gy@cadliu" then {
