@@ -40,17 +40,15 @@ in with lib; {
         name = "rp-${instanceName}";
         value = {
           Unit = {
-            Description = "Reverse ssh port forwarding for service '${svc}'";
+            Description = "Reverse ssh port forwarding for service '${instanceName}'";
             Documentation = [ "man:ssh(1)" ];
           };
           Install.WantedBy = [ "default.target" ];
           Service = {
             Environment = [ "PATH=${lib.makeBinPath [pkgs.openssh]}" ];
-            serviceConfig = {
-              EnvironmentFile = instance.environmentFile;
-              Restart = "always";
-              RestartSec = 5;
-            };
+            EnvironmentFile = instance.environmentFile;
+            Restart = "always";
+            RestartSec = 5;
             ExecStart = let
               scriptName = "rp-${instanceName}-service-start-script";
               command = pkgs.writeShellScriptBin scriptName ''
