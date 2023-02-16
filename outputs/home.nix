@@ -16,14 +16,21 @@
     inherit self nixpkgs inputs;
   };
 in apply {
-  "gy@cindy" = aarch64-headless;
+  "gy@morty" = x86_64-non-headless;
+  "gy@john" = x86_64-non-headless;
+  "gy@rpi" = aarch64-headless;
+  "gy@opi" = aarch64-headless;
+
+  "gy@watson" = x86_64-non-headless;
+
   # set IP of watson in hosts
   "gy@cadliu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
   "gy@cad-liu" = x86_64-headless // { proxy = { addr = "watson"; port = "9990"; }; };
-  "gy@morty" = x86_64-non-headless;
-  "gy@john" = x86_64-non-headless;
-  "gy@watson" = x86_64-non-headless;
-  "gy@opi" = aarch64-headless;
-  "gy@rpi" = aarch64-headless;
-  gy = x86_64-headless;
+
+  "gy@cindy" = aarch64-headless;
+  "gy@cube" = x86_64-headless;
+  "gy@peterpan" = x86_64-headless;
+  "gy@quad" = x86_64-headless;
+  "gy@rubik" = x86_64-headless;
+  "gy@trigo" = x86_64-headless;
 }
