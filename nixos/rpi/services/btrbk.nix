@@ -43,6 +43,7 @@
         };
       };
     };
+
     codingstats-backup = {
       onCalendar = "06:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
@@ -55,6 +56,7 @@
         };
       };
     };
+
     rssbot-backup = {
       onCalendar = "00:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
@@ -64,6 +66,19 @@
 
           target_preserve_min = "latest";
           target_preserve = "1w 1m";
+        };
+      };
+    };
+
+    mail-backup = {
+      onCalendar = "08:00:00 CST";
+      settings = globalCfg // {
+        subvolume."ssh://rubik/var/spool/mail" = subvolSharedCfg // {
+          snapshot_preserve_min = "latest";
+          snapshot_preserve = "no";
+
+          target_preserve_min = "latest";
+          target_preserve = "1w 6m *y";
         };
       };
     };
