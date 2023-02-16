@@ -24,6 +24,11 @@ in with lib; {
           default = null;
           description = "Specify which port is connected to on the host machine";
         };
+        user = mkOption {
+          type = types.str;
+          default = "sshrp";
+          description = "Username on remote machine to accept login";
+        };
         extraSSHOptions = mkOption { type = with types; attrsOf str; default = {}; };
       };
     });
@@ -55,7 +60,7 @@ in with lib; {
                 ssh "$REMOTE" \
                   -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
                   -oUserKnownHostsFile=/dev/null \
-                  -oUser=sshrp \
+                  -oUser=${instance.user} \
                   -oCompression=yes \
                   -oControlMaster=no \
                   -oServerAliveInterval=60 \
