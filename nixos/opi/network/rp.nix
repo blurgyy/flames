@@ -2,7 +2,7 @@
   sops.secrets."sshrp/ssh-env" = {};
 
   services.ssh-reverse-proxy = {
-    instances = {
+    client.instances = {
       ssh = {
         environmentFile = config.sops.secrets."sshrp/ssh-env".path;
         identityFile = config.sops.secrets.hostKey.path;

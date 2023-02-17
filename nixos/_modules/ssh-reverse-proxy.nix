@@ -29,7 +29,11 @@ in with lib; {
           default = "sshrp";
           description = "Username on remote machine to accept login";
         };
-        extraSSHOptions = mkOption { type = with types; attrsOf str; default = {}; };
+        extraSSHOptions = mkOption {
+          type = with types;
+          attrsOf (oneOf [ str int ]);
+          default = {};
+        };
       };
     });
     remoteServiceModule = types.submodule ({ ... }: {
@@ -46,7 +50,12 @@ in with lib; {
       };
     });
   in {
-    instances = mkOption {
+    client.defaultSSHOptions = mkOption {
+      type = with types;
+      attrsOf (oneOf [ str int ]);
+      default = {};
+    };
+    client.instances = mkOption {
       type = types.attrsOf hostInstanceModule;
       default = {};
     };
@@ -66,6 +75,16 @@ in with lib; {
     nonEmpty = l: (builtins.length l) > 0;
     asRemote = nonEmpty (attrValues cfg.server.services);
   in {
+    services.ssh-reverse-proxy.client.defaultSSHOptions = {
+      Compression = "yes";
+      ControlMaster = "no";
+      IPQoS = "none";
+      ServerAliveCountMax = 3;
+      ServerAliveInterval = 60;
+      StrictHostKeyChecking = "no";
+      UserKnownHostsFile = "/dev/null";
+    };
+
     services.openssh.settings.GatewayPorts = mkIf asRemote "clientspecified";  # allow listening on all interfaces while using port forwarding
     networking.firewall-tailored.acceptedPorts = mkIf asRemote (let
       mkPortCfg = svc: svcCfg: {
@@ -94,6 +113,13 @@ in with lib; {
       groups.sshrp = {};
     };
     systemd.services = let
+      mkSSHOptions = sshOptions: concatStringsSep " "
+        (with builtins; attrValues
+          (mapAttrs
+            (k: v: "-o${k}=${toString v}")
+            sshOptions
+          )
+        );
       mkService = name: instance: {
         name = "rp-${name}";
         description = "Reverse ssh port forwarding for service '${svc}'";
@@ -110,27 +136,14 @@ in with lib; {
           script = ''
             ssh "$REMOTE" \
               -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
-              -oUserKnownHostsFile=/dev/null \
               -oUser=${instance.user} \
-              -oCompression=yes \
-              -oControlMaster=no \
-              -oServerAliveInterval=60 \
-              -oServerAliveCountMax=3 \
-              -oStrictHostKeyChecking=no \
               -oIdentityFile=${instance.identityFile} \
-              -oIPQoS=none \
-              ${lib.concatStringsSep " " (
-                with builtins;
-                  attrValues
-                    (mapAttrs
-                      (k: v: "-o${k}=${v}")
-                      instance.extraSSHOptions
-                    )
-              )}
+              ${mkSSHOptions cfg.client.defaultSSHOptions} \
+              ${mkSSHOptions instance.extraSSHOptions}
           '';
         };
       };
       mkServices = instances: attrValues (mapAttrs mkService instances);
-    in lib.listToAttrs (mkServices cfg.instances);
+    in lib.listToAttrs (mkServices cfg.client.instances);
   };
 }

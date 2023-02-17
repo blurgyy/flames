@@ -5,7 +5,7 @@
   };
 
   services.ssh-reverse-proxy = {
-    instances = let
+    client.instances = let
       identityFile = config.sops.secrets.hostKey.path;
     in {
       ssh = {

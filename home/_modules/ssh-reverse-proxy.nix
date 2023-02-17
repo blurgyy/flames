@@ -29,10 +29,19 @@ in with lib; {
           default = "sshrp";
           description = "Username on remote machine to accept login";
         };
-        extraSSHOptions = mkOption { type = with types; attrsOf str; default = {}; };
+        extraSSHOptions = mkOption {
+          type = with types;
+          attrsOf str;
+          default = {};
+        };
       };
     });
   in {
+    defaultSSHOptions = mkOption {
+      type = with types;
+      attrsOf str;
+      default = {};
+    };
     instances = mkOption {
       type = types.attrsOf hostInstanceModule;
       default = {};
@@ -40,7 +49,24 @@ in with lib; {
   };
 
   config = {
+    services.ssh-reverse-proxy.defaultSSHOptions = {
+      Compression = "yes";
+      ControlMaster = "no";
+      IPQoS = "none";
+      ServerAliveCountMax = 3;
+      ServerAliveInterval = 60;
+      StrictHostKeyChecking = "no";
+      UserKnownHostsFile = "/dev/null";
+    };
+
     systemd.user.services = let
+      mkSSHOptions = sshOptions: concatStringsSep " "
+        (with builtins; attrValues
+          (mapAttrs
+            (k: v: "-o${k}=${toString v}")
+            sshOptions
+          )
+        );
       mkService = instanceName: instance: {
         name = "rp-${instanceName}";
         value = {
@@ -59,23 +85,10 @@ in with lib; {
               command = pkgs.writeShellScriptBin scriptName ''
                 ssh "$REMOTE" \
                   -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
-                  -oUserKnownHostsFile=/dev/null \
                   -oUser=${instance.user} \
-                  -oCompression=yes \
-                  -oControlMaster=no \
-                  -oServerAliveInterval=60 \
-                  -oServerAliveCountMax=3 \
-                  -oStrictHostKeyChecking=no \
                   -oIdentityFile=${instance.identityFile} \
-                  -oIPQoS=none \
-                  ${lib.concatStringsSep " " (
-                    with builtins;
-                      attrValues
-                        (mapAttrs
-                          (k: v: "-o${k}=${v}")
-                          instance.extraSSHOptions
-                        )
-                  )}
+                  ${mkSSHOptions cfg.defaultSSHOptions} \
+                  ${mkSSHOptions instance.extraSSHOptions}
               '';
             in "${command}/bin/${scriptName}";
           };

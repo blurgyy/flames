@@ -30,15 +30,14 @@ in {
     };
   };
 
-  services.ssh-reverse-proxy.instances = let
+  services.ssh-reverse-proxy = let
     identityFile = config.sops.secrets."userKey/${name}".path;
-    cfgs = let
-      _mkInstance = instanceName: extraOpts: {
+    _mkInstance = instanceName: extraOpts: {
         inherit identityFile;
         environmentFile = config.sops.secrets."sshrp/${instanceName}-env".path;
       } // extraOpts;
-      mkInstances = instances: builtins.mapAttrs _mkInstance instances;
-    in {
+    mkInstances = instances: builtins.mapAttrs _mkInstance instances;
+    cfgs = {
       "gy@watson" = mkInstances {
         ssh-watson = {
           bindPort = 10020;
@@ -77,5 +76,7 @@ in {
         };
       };
     };
-  in cfgs.${name} or {};
+  in {
+    instances = cfgs.${name} or {};
+  };
 }
