@@ -203,6 +203,8 @@ in ''
   -- Plugins
   -- catppuccin
   require("catppuccin").setup({
+    -- REF: <https://github.com/catppuccin/nvim#user-content-config>
+    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     background = {
       light = "latte",
       dark = "mocha",
