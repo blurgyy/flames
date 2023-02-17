@@ -38,8 +38,7 @@ in with lib; {
     });
   in {
     defaultSSHOptions = mkOption {
-      type = with types;
-      attrsOf str;
+      type = with types; attrsOf (oneOf [ int str ]);
       default = {};
     };
     instances = mkOption {
