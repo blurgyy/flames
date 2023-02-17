@@ -67,6 +67,7 @@ in with lib; {
                   -oServerAliveCountMax=3 \
                   -oStrictHostKeyChecking=no \
                   -oIdentityFile=${instance.identityFile} \
+                  -oIPQoS=none \
                   ${lib.concatStringsSep " " (
                     with builtins;
                       attrValues
