@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ config, lib, pkgs, ... }: let
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
   cachePort = 25369;
@@ -65,13 +65,28 @@ in {
     '';
   };
   systemd.services = {
-    hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
     hydra-queue-runner = {
       path = [ pkgs.msmtp ];
       environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-git-fetcher-ssh-key.path}";
+      serviceConfig.EnvironmentFile = [ config.sops.secrets.hydra-email-secrets.path ];
     };
-    hydra-server.path = [ pkgs.msmtp ];
-    hydra-notify.serviceConfig.EnvironmentFile = config.sops.secrets.hydra-email-secrets.path;
+    hydra-server = {
+      path = [ pkgs.msmtp ];
+      serviceConfig.EnvironmentFile = [ config.sops.secrets.hydra-email-secrets.path ];
+    };
+    hydra-evaluator = {
+      path = [ pkgs.msmtp ];
+      environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
+      serviceConfig.EnvironmentFile = [ config.sops.secrets.hydra-email-secrets.path ];
+    };
+    hydra-notify = {
+      path = [ pkgs.msmtp ];
+      serviceConfig.EnvironmentFile = [ config.sops.secrets.hydra-email-secrets.path ];
+    };
+    hydra-send-stats = {
+      path = [ pkgs.msmtp ];
+      serviceConfig.EnvironmentFile = [ config.sops.secrets.hydra-email-secrets.path ];
+    };
   };
   nix.buildMachines = [{
     hostName = "cindy";
