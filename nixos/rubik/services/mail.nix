@@ -117,8 +117,8 @@ in {
       extraConfig = ''
         base_dir = ${dovecot2RuntimeDir}
 
-        mail_home = /var/spool/mail
-        mail_location = maildir:/var/spool/mail/%u
+        mail_home = ${mailHome}
+        mail_location = maildir:${mailHome}/%u
 
         passdb {
           args = scheme=PLAIN username_format=%n ${config.sops.secrets.dovecot-users.path}
@@ -142,11 +142,6 @@ in {
     };
   };
 
-  users.users = {
-    postfix.extraGroups = [ config.users.groups.haproxy.name ];
-    dovecot2.extraGroups = [ config.users.groups.haproxy.name ];
-  };
-
   sops.secrets = {
     dovecot-users = {
       owner = config.services.dovecot2.user;
@@ -154,8 +149,14 @@ in {
     };
   };
 
+  users.users = {
+    postfix.extraGroups = [ config.users.groups.haproxy.name ];
+    dovecot2.extraGroups = [ config.users.groups.haproxy.name ];
+    gy.extraGroups = [ config.services.dovecot2.group ];
+  };
+
   systemd.tmpfiles.rules = [
-    "d ${mailHome} 0700 ${config.services.postfix.user} ${config.services.postfix.group} -"
+    "d ${mailHome} 0770 ${config.services.dovecot2.user} ${config.services.dovecot2.group} -"
   ];
 
   networking.firewall-tailored = {
