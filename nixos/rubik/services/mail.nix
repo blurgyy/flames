@@ -177,5 +177,5 @@ in {
 
   services.haproxy-tailored.
     frontends.tls-offload-front.
-      domain.extraNames = [ imapDomain smtpDomain ];
+      domain.extraNames = [ imapDomain smtpDomain config.networking.domain ];
 }
