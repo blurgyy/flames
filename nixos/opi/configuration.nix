@@ -25,11 +25,13 @@
     };
   };
 
-  fileSystems."/lib/firmware" = {
-    device = "/dev/disk/by-label/${config.sdImage.firmwarePartitionName}";
-    fsType = "vfat";
-    options = [ "ro" "nofail" ];
-  };
+  # WARN: put firmwares into /lib/firmware and switch system profile to change them to read-only
+  # mode via chattr
+  # After this, the file `/lib/firmware/wcnmodem.bin` should exist for the wireless module to work.
+  # REF: man:tmpfiles.d(5), man:chattr(1)).
+  systemd.tmpfiles.rules = [
+    "H /lib/firmware/* - - - - i"
+  ];
 
   sdImage = {
     firmwarePartitionName = "FIRMWARE";
