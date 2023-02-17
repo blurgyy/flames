@@ -7,10 +7,6 @@
     (modulesPath + "/profiles/minimal.nix")
   ];
 
-  # revert enabled noXlibs from minimal.nix, as it dumps error about `egl` not found while building
-  # libdecor.
-  environment.noXlibs = false;
-
   boot = {
     kernelPackages = pkgs.linuxPackagesFor pkgs.opi3lts-kernel-latest;
     kernelModules = [

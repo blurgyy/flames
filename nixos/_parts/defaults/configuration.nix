@@ -214,6 +214,10 @@ in {
     PIP_REQUIRE_VIRTUALENV = "1";
   };
 
+  # Enabling this causes massive rebuilds and is poorly supported.
+  # related: <https://github.com/NixOS/nixpkgs/issues/179938#issuecomment-1173705936>
+  environment.noXlibs = lib.mkForce false;
+
   services = {
     locate = {
       enable = true;
