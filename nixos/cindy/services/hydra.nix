@@ -3,14 +3,13 @@
   cacheDomain = "cache.${config.networking.domain}";
   cachePort = 25369;
 in {
-  sops.secrets = {
+  sops.secrets = let
+    owner = config.users.users.hydra-queue-runner.name;
+  in {
     cache-key-env = {};
-    hydra-git-fetcher-ssh-key = {
-      owner = config.users.users.hydra-queue-runner.name;
-    };
-    hydra-distributed-builder-ssh-key = {
-      owner = config.users.users.hydra-queue-runner.name;
-    };
+    hydra-git-fetcher-ssh-key = { inherit owner; };
+    hydra-distributed-builder-ssh-key = { inherit owner; };
+    hydra-email-secrets = { inherit owner; };
   };
   nix.extraOptions = ''
     # Allow hydra to build homeConfigurations.*.activationPackage
@@ -54,7 +53,11 @@ in {
     useSubstitutes = true;
     buildMachinesFiles = [ "/etc/nix/machines" ];
     extraConfig = ''
+      # REF: <https://github.com/NixOS/hydra/blob/f48f00ee6d5727ae3e488cbf9ce157460853fea8/doc/manual/src/projects.md#email-notifications>
+      email_notification = 1
+
       max_output_size = ${toString (8 * 1024 * 1024 * 1024)}
+
       <dynamicruncommand>
         enable = 1
       </dynamicruncommand>
@@ -62,7 +65,12 @@ in {
   };
   systemd.services = {
     hydra-evaluator.environment.GC_DONT_GC = "true";  # REF: <https://github.com/NixOS/nix/issues/4178#issuecomment-738886808>
-    hydra-queue-runner.environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-git-fetcher-ssh-key.path}";
+    hydra-queue-runner = {
+      path = [ pkgs.msmtp ];
+      environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-git-fetcher-ssh-key.path}";
+    };
+    hydra-server.path = [ pkgs.msmtp ];
+    hydra-notify.serviceConfig.EnvironmentFile = config.sops.secrets.hydra-email-secrets.path;
   };
   nix.buildMachines = [{
     hostName = "cindy";
