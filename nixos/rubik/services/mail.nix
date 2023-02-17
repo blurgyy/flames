@@ -18,7 +18,11 @@ in {
       mapFiles.senders = builtins.toFile "senders" ''
         # [email_address]               [sasl_login_name]
         gy@blurgy.xyz                   gy
+
         notification-bot@blurgy.xyz     notification-bot
+        hydra@blurgy.xyz                notification-bot
+        wakapi@blurgy.xyz               notification-bot
+
         benetjohn0@blurgy.xyz           benetjohn0
       '';
       extraAliases = ''

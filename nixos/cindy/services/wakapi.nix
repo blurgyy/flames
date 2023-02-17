@@ -21,7 +21,7 @@ in {
       };
       smtp = {
         enable = true;
-        sender = "Wakapi <notification-bot@${config.networking.domain}>";
+        sender = "Wakapi <wakapi@${config.networking.domain}>";
         host = config.networking.domain;
         port = 587;
         username = config.sops.placeholder."wakapi/smtp/username";

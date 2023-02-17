@@ -47,7 +47,7 @@ in {
   services.hydra = {
     enable = true;
     hydraURL = "${hydraDomain}";
-    notificationSender = "notification-bot@${config.networking.domain}";
+    notificationSender = "hydra@${config.networking.domain}";
     smtpHost = config.networking.domain;
     listenHost = "127.0.0.1";
     port = 5813;
