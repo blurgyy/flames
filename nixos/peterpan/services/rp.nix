@@ -13,6 +13,10 @@
         port = 10013;
         expose = true;
       };
+      ssh-watson = {
+        port = 10020;
+        expose = true;
+      };
       ssh-2x1080ti = {
         port = 10023;
         expose = true;
