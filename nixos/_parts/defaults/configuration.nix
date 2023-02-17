@@ -134,7 +134,7 @@ in {
     btrfs.autoScrub = {
       enable = true;
       interval = "monthly";
-      fileSystems = [ "/" ];
+      fileSystems = lib.optional (config.fileSystems."/".fsType == "btrfs") "/";
     };
     fstrim.enable = true;
 
