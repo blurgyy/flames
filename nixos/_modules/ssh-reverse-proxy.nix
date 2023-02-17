@@ -30,8 +30,7 @@ in with lib; {
           description = "Username on remote machine to accept login";
         };
         extraSSHOptions = mkOption {
-          type = with types;
-          attrsOf (oneOf [ str int ]);
+          type = with types; attrsOf (oneOf [ int str ]);
           default = {};
         };
       };
@@ -51,8 +50,7 @@ in with lib; {
     });
   in {
     client.defaultSSHOptions = mkOption {
-      type = with types;
-      attrsOf (oneOf [ str int ]);
+      type = with types; attrsOf (oneOf [ int str ]);
       default = {};
     };
     client.instances = mkOption {
