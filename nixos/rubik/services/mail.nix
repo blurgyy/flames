@@ -111,6 +111,7 @@ in {
 
     dovecot2 = {
       enable = true;
+      enablePAM = false;
       sslServerCert = certFile;
       sslServerKey = keyFile;
       extraConfig = ''
