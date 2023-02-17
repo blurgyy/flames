@@ -132,12 +132,15 @@ in {
   services = {
     udisks2.enable = lib.mkForce true;
     btrfs.autoScrub = {
-      enable = lib.mkDefault (builtins.any (fs: fs.fsType == "btrfs") config.fileSystems);
+      enable = lib.mkDefault (with builtins;
+        any
+          (fs: fs.fsType == "btrfs")
+          (attrValues config.fileSystems));
       interval = "monthly";
       fileSystems = with builtins;
         attrNames
-          (filter
-            (fs: fs.fsType == "btrfs")
+          (lib.filterAttrs
+            (mountPoint: fs: fs.fsType == "btrfs")
             config.fileSystems);
     };
     fstrim.enable = true;
