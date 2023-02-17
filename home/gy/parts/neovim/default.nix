@@ -90,7 +90,7 @@
     nil
     pyright
     shfmt
-    sumneko-lua-language-server
+    lua-language-server
     taplo-lsp
     texlab
     wakatime

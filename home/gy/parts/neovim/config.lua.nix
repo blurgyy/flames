@@ -540,7 +540,7 @@ in ''
     "nil_ls",
     "pyright",
     "rust_analyzer",
-    "sumneko_lua",
+    "lua_ls",
     "taplo",
     "texlab",
     "yamlls",
