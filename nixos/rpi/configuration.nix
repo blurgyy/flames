@@ -7,6 +7,10 @@
     (modulesPath + "/profiles/minimal.nix")
   ];
 
+  # revert enabled noXlibs from minimal.nix, as it dumps error about `egl` not found while building
+  # libdecor.
+  environment.noXlibs = false;
+
   boot = {
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
     # ttyAMA0 is the serial console broken out to the GPIO
