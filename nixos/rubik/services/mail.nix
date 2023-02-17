@@ -52,7 +52,7 @@ in {
       origin = config.networking.domain;
       domain = config.networking.domain;
 
-      config = {
+      config = {  # REF: man:postconf(5)
         smtpd_banner = "$myhostname ESMTP $mail_name ($mail_version)";
         smtpd_helo_required = true;
 
@@ -69,9 +69,16 @@ in {
         ];
         smtpd_delay_reject = true;
         smtpd_sasl_type = "dovecot";
-        smtpd_sasl_path = "private/auth";
+        smtpd_sasl_path = "${dovecot2RuntimeDir}/${dovecot2AuthPostfixListner}";
         smtpd_sasl_auth_enable = true;
+        mydestination = [
+          config.networking.domain  # Default value only contains below 3 entries thus rejects mails sent to the <@blurgy.xyz> domain.
+          "$myhostname"
+          "localhost.$mydomain"
+          "localhost"
+        ];
         smtpd_recipient_restrictions = [
+          "permit_auth_destination"  # Allow mydestination as mail destination.
           "permit_mynetworks"
           "permit_sasl_authenticated"
           "reject_unauth_destination"
@@ -152,6 +159,10 @@ in {
 
   networking.firewall-tailored = {
     acceptedPorts = [{
+      port = 25;
+      protocols = [ "tcp" ];
+      comment = "mail receiving";
+    } {
       port = 587;
       protocols = [ "tcp" ];
       comment = "mail submission";
