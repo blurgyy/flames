@@ -16,10 +16,10 @@ in {
 
       rootAlias = config.users.users.gy.name;
       mapFiles.senders = builtins.toFile "senders" ''
-        # [email_address]             [login_user]
-        gy@blurgy.xyz                 gy
-        notification-bot@blurgy.xyz   gy
-        benetjohn0@blurgy.xyz         gy
+        # [email_address]               [sasl_login_name]
+        gy@blurgy.xyz                   gy
+        notification-bot@blurgy.xyz     notification-bot
+        benetjohn0@blurgy.xyz           benetjohn0
       '';
       extraAliases = ''
         spam: gy
@@ -100,7 +100,7 @@ in {
             smtpd_sasl_auth_enable = "yes";
             smtpd_sasl_type = "dovecot";
             smtpd_sasl_path = "${dovecot2RuntimeDir}/${dovecot2AuthPostfixListner}";
-            smtpd_sender_login_maps = "hash:/etc/postfix/senders";
+            smtpd_sender_login_maps = "hash:/etc/postfix/senders";  # NOTE: use jointly with mapFiles.senders (see above)
             smtpd_client_restrictions = "permit_sasl_authenticated,reject";
             smtpd_sender_restrictions = "reject_sender_login_mismatch";
             smtpd_recipient_restrictions = "reject_non_fqdn_recipient,reject_unknown_recipient_domain,permit_sasl_authenticated,reject";
