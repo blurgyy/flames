@@ -95,6 +95,7 @@ in {
       anyInterface = lib.mkDefault true;
       timeout = 16;
     };
+    services.systemd-rfkill.serviceConfig.ExecStartPost = "${pkgs.util-linux}/bin/rfkill unblock all";
   };
 
   # Select internationalisation properties.
