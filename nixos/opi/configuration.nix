@@ -7,22 +7,14 @@
     (modulesPath + "/profiles/minimal.nix")
   ];
 
-  boot = let
-    supportedFilesystems = lib.mkForce [  # Remove zfs from supportedFilesystems
-      "btrfs" "cifs" "ext4" "f2fs" "ntfs" "reiserfs" "vfat" "xfs"
-    ];
-  in {
+  boot = {
     kernelPackages = pkgs.linuxPackagesFor pkgs.opi3lts-kernel-latest;
     kernelModules = [
       # NOTE: Enables wireless driver for uwe5622 (though the borad says aw859a), needs
       # /lib/firmware/wifi_2355b001_1ant.ini and /lib/firmware/wcnmodem.bin to work.
       "sprdwl_ng"
     ];
-    inherit supportedFilesystems;
-    initrd = {
-      inherit supportedFilesystems;
-      availableKernelModules = [ "usbhid" "usb_storage" ];
-    };
+    initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
   };
 
   # WARN: put firmwares into /lib/firmware and switch system profile to change them to read-only
