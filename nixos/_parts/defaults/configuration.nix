@@ -132,7 +132,7 @@ in {
   services = {
     udisks2.enable = lib.mkForce true;
     btrfs.autoScrub = {
-      enable = true;
+      enable = lib.mkDefault (builtins.any (fs: fs.fsType == "btrfs") config.fileSystems);
       interval = "monthly";
       fileSystems = lib.optional (config.fileSystems."/".fsType == "btrfs") "/";
     };
