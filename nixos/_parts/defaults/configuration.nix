@@ -134,7 +134,11 @@ in {
     btrfs.autoScrub = {
       enable = lib.mkDefault (builtins.any (fs: fs.fsType == "btrfs") config.fileSystems);
       interval = "monthly";
-      fileSystems = lib.optional (config.fileSystems."/".fsType == "btrfs") "/";
+      fileSystems = with builtins;
+        attrNames
+          (filter
+            (fs: fs.fsType == "btrfs")
+            config.fileSystems);
     };
     fstrim.enable = true;
 
