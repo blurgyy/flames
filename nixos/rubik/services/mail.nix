@@ -16,8 +16,10 @@ in {
 
       rootAlias = config.users.users.gy.name;
       mapFiles.senders = builtins.toFile "senders" ''
-        # email_address login_user
-        gy@blurgy.xyz   gy
+        # [email_address]             [login_user]
+        gy@blurgy.xyz                 gy
+        notification-bot@blurgy.xyz   gy
+        benetjohn0@blurgy.xyz         gy
       '';
       extraAliases = ''
         spam: gy
