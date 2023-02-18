@@ -47,6 +47,7 @@ in {
       "Alt+Shift+r" = "exec rofi -terminal ${term} -show run";
       "Alt+s" = "exec rofi -terminal ${term} -show ssh";
       "Alt+Shift+s" = "exec rofi -ssh-client 'waypipe ssh -Y' -terminal ${term} -show ssh";
+      "Alt+Ctrl+s" = "exec rofi -terminal ${term} -show sshga";  # aad sshga package
 
       # Screenshots
       "${mod}+Shift+x" = "exec ${screenshot-notify} pixel";
