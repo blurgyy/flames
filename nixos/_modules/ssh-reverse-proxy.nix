@@ -132,12 +132,14 @@ in with lib; {
             EnvironmentFile = instance.environmentFile;
             Restart = "always";
             RestartSec = 5;
+            DynamicUser = true;
+            LoadCredential = "id:${instance.identityFile}";
           };
           script = ''
             ssh "$REMOTE" \
               -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
-              -oUser=${instance.user} \
-              -oIdentityFile=${instance.identityFile} \
+              -oUser="${instance.user}" \
+              -oIdentityFile="$CREDENTIALS_DIRECTORY/id" \
               ${mkSSHOptions cfg.client.defaultSSHOptions} \
               ${mkSSHOptions instance.extraSSHOptions}
           '';
