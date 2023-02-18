@@ -1,8 +1,14 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }: let
+  backupTargetDirectory = "/elements/.btrbk/backups";  # /elements should be mounted
+in {
   sops.secrets.btrbk-ssh-id = {
     owner = config.users.users.btrbk.name;
     group = config.users.groups.btrbk.name;
   };
+
+  systemd.tmpfiles.rules = [
+    "d ${backupTargetDirectory} 0700 root root - -"
+  ];
 
   systemd.services = lib.mapAttrs' (name: _: {
     name = "btrbk-${name}";
@@ -26,9 +32,9 @@
       stream_buffer = "256m";
     };
     subvolSharedCfg = {
-      target = "/elements/.btrbk/backups";  # this directory needs to be created manually
-      snapshot_create = "ondemand";  # create if target is attached
-      snapshot_dir = "/.btrbk/snapshots";  # run `sudo mkdir /.btrbk/snapshots -p` on the remote machine
+      target = backupTargetDirectory;
+      snapshot_create = "ondemand";  # create if target is attached.  REF: <https://digint.ch/btrbk/doc/btrbk.conf.5.html>
+      snapshot_dir = "/.btrbk/snapshots";
     };
   in {
     password-backup = {
