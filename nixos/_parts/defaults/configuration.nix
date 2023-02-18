@@ -123,6 +123,7 @@ in {
   programs = {
     command-not-found.enable = lib.mkDefault false;
     dconf.enable = lib.mkDefault true;
+    fuse.userAllowOther = lib.mkDefault true;
   };
 
   security.sudo.extraRules = let
