@@ -27,7 +27,7 @@
   windowModule = {
     icon = false;
     rewrite = {
-      "^\\[(\\S+)(\\s?.*?)\\s+@ (/.*?)\\] @ ([\\w-_\\.]+)$" = "<span weight='bold' foreground='${themeColor "green"}'>$4</span>:<span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$1</span>$2 @ <span underline='single'>$3</span><span foreground='${themeColor "yellow"}'>]</span>";
+      "^\\[(\\S+)(\\s?.*?)\\s+@ (/.*?)\\] @ ([\\w\\-_\\.]+)$" = "<span weight='bold' foreground='${themeColor "green"}'>$4</span>:<span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$1</span>$2 @ <span underline='single'>$3</span><span foreground='${themeColor "yellow"}'>]</span>";
       "^Zellij \\(.*@(.*)\\) - (\\S+)(\\s?.*?)\\s+@ (/.*?)$" = "<span weight='bold' foreground='${themeColor "green"}'>$1</span><span foreground='${themeColor "yellow"}'>[</span><span foreground='${themeColor "blue"}'>$2</span>$3 @ <span underline='single'>$4</span><span foreground='${themeColor "yellow"}'>]</span>";
       "^/home/gy/Zotero/storage/[A-Z0-9]{8}/(.*)$" = "$1";
       "(.*) .*? Mozilla Firefox$" = "$1";
