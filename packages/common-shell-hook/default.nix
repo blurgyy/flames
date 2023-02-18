@@ -89,7 +89,6 @@
   alias gswitch='g switch'
   alias gunstage='g reset HEAD --'
 
-  alias cat='${bat}/bin/bat'
   alias p='python'
   alias fgfg='fg'
   alias ffg='fg'
@@ -116,6 +115,9 @@
   alias ctd='cargo test --debug'
   alias ctr='cargo test --release'
 
+  if command -v bat >/dev/null; then
+    alias cat='bat'
+  fi
   alias fd='${fd}/bin/fd'
   alias htop='${htop}/bin/htop'
   alias lnav='${lnav}/bin/lnav'
