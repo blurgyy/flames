@@ -96,6 +96,9 @@ in {
       timeout = 16;
     };
     services.systemd-rfkill.serviceConfig.ExecStartPost = "${pkgs.util-linux}/bin/rfkill unblock all";
+    tmpfiles.rules = [
+      "d /.btrbk/snapshots 0700 root root - -"
+    ];
   };
 
   # Select internationalisation properties.
