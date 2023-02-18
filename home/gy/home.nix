@@ -95,7 +95,7 @@ in {
   };
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "curses";
+    pinentryFlavor = "tty";
     defaultCacheTtl = 60480000;
     maxCacheTtl = 60480000;
   };
