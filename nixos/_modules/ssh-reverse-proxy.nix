@@ -49,13 +49,15 @@ in with lib; {
       };
     });
   in {
-    client.defaultSSHOptions = mkOption {
-      type = with types; attrsOf (oneOf [ int str ]);
-      default = {};
-    };
-    client.instances = mkOption {
-      type = types.attrsOf hostInstanceModule;
-      default = {};
+    client = {
+      defaultSSHOptions = mkOption {
+        type = with types; attrsOf (oneOf [ int str ]);
+        default = {};
+      };
+      instances = mkOption {
+        type = types.attrsOf hostInstanceModule;
+        default = {};
+      };
     };
     server = {
       services = mkOption {
