@@ -79,13 +79,14 @@ in with lib; {
             EnvironmentFile = instance.environmentFile;
             Restart = "always";
             RestartSec = 5;
+            LoadCredential = "id:${instance.identityFile}";
             ExecStart = let
               scriptName = "rp-${instanceName}-service-start-script";
               command = pkgs.writeShellScriptBin scriptName ''
                 ssh "$REMOTE" \
                   -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
-                  -oUser=${instance.user} \
-                  -oIdentityFile=${instance.identityFile} \
+                  -oUser="${instance.user}" \
+                  -oIdentityFile="$CREDENTIALS_DIRECTORY/id" \
                   ${mkSSHOptions cfg.defaultSSHOptions} \
                   ${mkSSHOptions instance.extraSSHOptions}
               '';
