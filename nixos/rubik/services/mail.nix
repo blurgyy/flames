@@ -162,7 +162,7 @@ in {
   };
 
   systemd.tmpfiles.rules = [
-    "d ${mailHome} 0770 ${config.services.dovecot2.user} ${config.services.dovecot2.group} -"
+    "d ${mailHome} 1777 root root -"
   ];
 
   networking.firewall-tailored = {
