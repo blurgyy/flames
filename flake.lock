@@ -402,6 +402,7 @@
       },
       "original": {
         "owner": "highsunz",
+        "ref": "v0.1.0",
         "repo": "aliyundrive-mediaserver",
         "type": "gitlab"
       }

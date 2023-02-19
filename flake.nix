@@ -57,7 +57,7 @@
     };
 
     aliyundrive-mediaserver = {
-      url = "gitlab:highsunz/aliyundrive-mediaserver";
+      url = "gitlab:highsunz/aliyundrive-mediaserver/v0.1.0";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
