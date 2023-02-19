@@ -1,5 +1,6 @@
 { lib, pkgs, config
 , name, myName, myHome
+, headless
 , proxy
 , helpers, __callWithHelpers
 , ...
@@ -91,6 +92,7 @@ in {
       no-greeting = true;
       no-permission-warning = true;
       lock-never = true;
+      no-autostart = headless;
     };
   };
 
