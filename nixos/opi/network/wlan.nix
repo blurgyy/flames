@@ -12,4 +12,9 @@
       "@wlan_5@" = { psk = "@wlan_5_psk@"; priority = 30; };
     };
   };
+
+  networking.interfaces."wlo1".ipv4.addresses = [{
+    address = "192.168.3.169";
+    prefixLength = 24;
+  }];
 }
