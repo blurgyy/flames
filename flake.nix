@@ -56,6 +56,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    aliyundrive-mediaserver = {
+      url = "gitlab:highsunz/aliyundrive-mediaserver";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     orangepi-3-lts-support.url = "gitlab:highsunz/orangepi-3-lts-support";
     acremote.url = "gitlab:highsunz/acremote";
     nvfetcher.url = "github:berberman/nvfetcher";

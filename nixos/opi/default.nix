@@ -8,13 +8,17 @@
     ./configuration.nix
     ./network
     ./services
+    inputs.aliyundrive-mediaserver.nixosModules.default
     {
-      nixpkgs.overlays = [(final: prev: {  # REF: <https://github.com/NixOS/nixpkgs/issues/126755#issuecomment-869149243>
-        makeModulesClosure = x: prev.makeModulesClosure (x // { allowMissing = true; });
-        opi3lts-kernel-latest = inputs.orangepi-3-lts-support.packages.${system}.linux_latest;
-        opi3lts-uboot = inputs.orangepi-3-lts-support.packages.${system}.ubootOrangePi3Lts;
-        opi-firmware = inputs.orangepi-3-lts-support.packages.${system}.firmware;
-      })];
+      nixpkgs.overlays = [
+        (final: prev: {  # REF: <https://github.com/NixOS/nixpkgs/issues/126755#issuecomment-869149243>
+          makeModulesClosure = x: prev.makeModulesClosure (x // { allowMissing = true; });
+          opi3lts-kernel-latest = inputs.orangepi-3-lts-support.packages.${system}.linux_latest;
+          opi3lts-uboot = inputs.orangepi-3-lts-support.packages.${system}.ubootOrangePi3Lts;
+          opi-firmware = inputs.orangepi-3-lts-support.packages.${system}.firmware;
+        })
+        inputs.aliyundrive-mediaserver.overlays.default
+      ];
     }
     { networking.hostName = name; }
   ];
