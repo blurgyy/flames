@@ -13,8 +13,13 @@
     };
   };
 
-  networking.interfaces."wlo1".ipv4.addresses = [{
-    address = "192.168.3.169";
-    prefixLength = 24;
-  }];
+  networking.interfaces = let
+    fixedSingleIpv4Address = [{
+        address = "192.168.3.169";
+        prefixLength = 24;
+      }];
+  in {
+    wlo1.ipv4.addresses = fixedSingleIpv4Address;
+    wlan0.ipv4.addresses = fixedSingleIpv4Address;
+  };
 }
