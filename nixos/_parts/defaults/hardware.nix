@@ -23,7 +23,7 @@
     kernelParams = [
       "pcie_aspm=off"
       "mitigations=off"
-      "net.ifnames=0"  # predictable interface names
+      # "net.ifnames=0"  # setting this to 0 disables predictable interface names
       "resume=LABEL=nixos-swap"
       "boot.shell_on_fail"
       "loglevel=4"
