@@ -82,6 +82,7 @@
     mergetool.vimdiff.cmd = "nvim -d $MERGED $LOCAL $REMOTE -c 'wincmd J'";
     mergetool.keepBackup = false;
     mergetool.prompt = false;
+    merge.ff = false;  # create an extra merge commit even if fast-forward is possible, use --ff-only to override
     fetch.prune = false;
     init.defaultBranch = "main";
   };
