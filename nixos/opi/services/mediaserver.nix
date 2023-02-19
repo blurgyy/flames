@@ -32,11 +32,13 @@
           requestRules = [ "replace-uri /explore(.*)$ \\1" ];
           server.address = "127.0.0.1:${toString cfg.port.file-explorer}";
         };
-        gerbera = {
+        gerbera = let
+          address = (builtins.head config.networking.interfaces."wlo1".ipv4.addresses).address;
+        in {
           mode = "http";
           options = [ "forwardfor" ];
           requestRules = [ "replace-uri /gerbera(.*)$ \\1" ];
-          server.address = "127.0.0.1:${toString cfg.port.gerbera}";
+          server.address = "${address}:${toString cfg.port.gerbera}";
         };
         aliyundrive-mediaserver = {
           mode = "http";
