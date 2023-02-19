@@ -168,6 +168,7 @@ in {  # For non-headless machines
   services = {
     gpg-agent = {
       enable = true;
+      enableExtraSocket = true;
       pinentryFlavor = "tty";
       defaultCacheTtl = 60480000;
       maxCacheTtl = 60480000;
