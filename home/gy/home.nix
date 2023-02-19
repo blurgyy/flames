@@ -1,6 +1,6 @@
 { lib, pkgs, config
 , name, myName, myHome
-, headless ? true, proxy ? null
+, proxy
 , helpers, __callWithHelpers
 , ...
 }: let
@@ -92,12 +92,6 @@ in {
       no-permission-warning = true;
       lock-never = true;
     };
-  };
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "tty";
-    defaultCacheTtl = 60480000;
-    maxCacheTtl = 60480000;
   };
 
   programs = {

@@ -166,6 +166,12 @@ in {  # For non-headless machines
   };
 
   services = {
+    gpg-agent = {
+      enable = true;
+      pinentryFlavor = "tty";
+      defaultCacheTtl = 60480000;
+      maxCacheTtl = 60480000;
+    };
     gammastep = {
       enable = true;
       latitude = 30.31;
