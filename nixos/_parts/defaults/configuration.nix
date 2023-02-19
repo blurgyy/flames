@@ -98,6 +98,7 @@ in {
     services.systemd-rfkill.serviceConfig.ExecStartPost = "${pkgs.util-linux}/bin/rfkill unblock all";
     tmpfiles.rules = [
       "d /.btrbk/snapshots 0700 root root - -"
+      "f /var/lib/systemd/linger/gy 0644 root root - -"
     ];
   };
 
