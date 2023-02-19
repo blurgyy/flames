@@ -13,6 +13,7 @@
         file-explorer = 8518;
         gerbera = 50000;  # must be larer than 49152?  See man:gerbera(1)
       };
+      serverName = config.networking.hostName;
     };
     haproxy-tailored = {
       frontends.http-in = {
