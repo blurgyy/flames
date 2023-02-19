@@ -274,7 +274,7 @@ in {
           rm -rf ${domain.name}/*
           mkdir -p ca
           ${pkgs.minica}/bin/minica \
-            --ca-key /dev/null \
+            --ca-key ca/key.pem \
             --ca-cert ca/cert.pem \
             --domains ${escapeShellArg domain.name}
           # Create files to match directory layout for real certificates
