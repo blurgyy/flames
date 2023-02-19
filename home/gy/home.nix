@@ -277,6 +277,13 @@ in {
   systemd.user = {
     startServices = true;
     targets.xdg-desktop-autostart.Install.WantedBy = [ "default.target" ];
+    services.create-gpg-socketdir = {
+      Service = {
+        ExecStart = "${config.programs.gpg.package}/bin/gpgconf --create-socketdir";
+        RemainAfterExit = true;
+      };
+      Install.WantedBy = [ "default.target" ];
+    };
   };
 
   # So that fish can complete `man` commands
