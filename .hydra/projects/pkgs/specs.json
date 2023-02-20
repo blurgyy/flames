@@ -7,9 +7,9 @@
     "nixexprpath": ".hydra/projects/pkgs",
     "checkinterval": 60,
     "schedulingshares": 100,
-    "enableemail": false,
+    "enableemail": true,
     "enable_dynamic_run_command": false,
-    "emailoverride": "",
+    "emailoverride": "gy@blurgy.xyz",
     "keepnr": 16,
     "inputs": {
       "self": {
@@ -42,9 +42,9 @@
     "nixexprpath": ".hydra/projects/pkgs",
     "checkinterval": 60,
     "schedulingshares": 100,
-    "enableemail": false,
+    "enableemail": true,
     "enable_dynamic_run_command": false,
-    "emailoverride": "",
+    "emailoverride": "gy@blurgy.xyz",
     "keepnr": 16,
     "inputs": {
       "self": {
