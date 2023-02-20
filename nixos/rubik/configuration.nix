@@ -25,10 +25,7 @@
     };
   };
 
-  services = {
-    rustdesk-server.enable = true;
-    udisks2.enable = false;
-  };
+  services.udisks2.enable = false;
 
   system.stateVersion = "22.11";
 }
