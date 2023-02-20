@@ -244,6 +244,7 @@ in {
         PasswordAuthentication = lib.mkDefault false;
         #PermitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
         X11Forwarding = lib.mkDefault (!config.environment.noXlibs);
+        StreamLocalBindUnlink = lib.mkDefault true;
       };
       knownHosts = let
         mkHost = name: aliases: {

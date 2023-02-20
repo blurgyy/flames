@@ -27,6 +27,7 @@
   security.rtkit.enable = lib.mkDefault true;
   services = {
     tumbler.enable = true;  # Thumbnail support in Thunar
+    openssh.settings.StreamLocalBindUnlink = false;
     pipewire = {
       enable = lib.mkDefault true;
       alsa.enable = lib.mkDefault true;
