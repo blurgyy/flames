@@ -63,7 +63,7 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    orangepi-3-lts-support.url = "gitlab:highsunz/orangepi-3-lts-support";
+    orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
     acremote.url = "gitlab:highsunz/acremote";
     nvfetcher.url = "github:berberman/nvfetcher";
     tex2nix.url = "github:Mic92/tex2nix";

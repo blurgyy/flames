@@ -25800,7 +25800,7 @@
         "type": "github"
       }
     },
-    "orangepi-3-lts-support": {
+    "orangepi-3-lts-nixos": {
       "inputs": {
         "nixpkgs": "nixpkgs_85"
       },
@@ -25808,13 +25808,13 @@
         "lastModified": 1676599392,
         "narHash": "sha256-w7e7S3M8tZ5uAIf7BaQuglgps/jPLDeUUz9or0OEezo=",
         "owner": "highsunz",
-        "repo": "orangepi-3-lts-support",
+        "repo": "orangepi-3-lts-nixos",
         "rev": "614647ed5f941697fa60e4f052090acabb6fb6ee",
         "type": "gitlab"
       },
       "original": {
         "owner": "highsunz",
-        "repo": "orangepi-3-lts-support",
+        "repo": "orangepi-3-lts-nixos",
         "type": "gitlab"
       }
     },
@@ -27605,7 +27605,7 @@
         "nixos-generators": "nixos-generators_20",
         "nixpkgs": "nixpkgs_83",
         "nvfetcher": "nvfetcher_20",
-        "orangepi-3-lts-support": "orangepi-3-lts-support",
+        "orangepi-3-lts-nixos": "orangepi-3-lts-nixos",
         "sops-nix": "sops-nix_40",
         "tex2nix": "tex2nix_20"
       }
