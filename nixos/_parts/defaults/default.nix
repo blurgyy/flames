@@ -19,7 +19,7 @@ in [
     nixpkgs.overlays = [
       inputs.nixos-cn.overlay
       self.overlays.default
-      self.overlays.profilesShared.${system}
+      self.overlays.profilesShared
     ];
   }
 

@@ -92,7 +92,7 @@
         };
       })
       self.overlays.default
-      self.overlays.profilesShared.${system}
+      self.overlays.profilesShared
     ];
   };
   lib = nixpkgs.lib;
