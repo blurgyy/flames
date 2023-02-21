@@ -102,12 +102,7 @@
     nixosModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./nixos/_modules; };
     overlays = {
       default = my.overlay;
-      profilesShared = final: prev: let
-          # REF: <https://github.com/nixos/nixpkgs/pull/210738>
-          nixpkgs-dogdns = (builtins.getFlake "github:nixos/nixpkgs/875f17d7739f2e85525802bb01d908875e8330c3");
-        in {
-          inherit (import nixpkgs-dogdns { inherit (final.stdenv.hostPlatform) system; }) dogdns;
-        };
+      profilesShared = final: prev: {};
     };
     templates = import ./outputs/templates { inherit my; };
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
