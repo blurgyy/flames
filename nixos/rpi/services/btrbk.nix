@@ -58,7 +58,7 @@ in {
           snapshot_preserve = "no";
 
           target_preserve_min = "latest";
-          target_preserve = "8w";
+          target_preserve = "1w";
         };
       };
     };
