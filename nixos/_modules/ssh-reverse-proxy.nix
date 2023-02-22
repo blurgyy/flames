@@ -80,7 +80,7 @@ in with lib; {
       ControlMaster = "no";
       IPQoS = "none";
       ServerAliveCountMax = 3;
-      ServerAliveInterval = 60;
+      ServerAliveInterval = 5;
       StrictHostKeyChecking = "no";
       UserKnownHostsFile = "/dev/null";
     };
