@@ -25,7 +25,8 @@
     la = "log --all --graph --decorate --format=fuller";
     lad = "log --all --graph --decorate --format=fuller --patch --ext-diff";
     lap = "log --all --graph --decorate --format=fuller --patch";
-    ll = "pull";
+    ll = "pull --ff-only";
+    lll = "pull --ff-only";
     mt = "mergetool";
     p = "push";
     pf = "push -f";

@@ -170,8 +170,8 @@ fixTypo "blurgy" [
   gla = "git log --all --graph --decorate --format=fuller";
   glad = "git log --all --graph --decorate --format=fuller --patch --ext-diff";
   glap = "git log --all --graph --decorate --format=fuller --patch";
-  gll = "git pull";
-  glll = "git pull";
+  gll = "git pull --ff-only";
+  glll = "git pull --ff-only";
   gp = "git push";
   pg = "git push";
   gfp = "git push --force";
