@@ -125,7 +125,6 @@ in ''
       { name = "<leader>n", target = ":n<CR>" },
       { name = "<leader>N", target = ":N<CR>" },
       { name = "<leader>m", target = ":mode<CR>" },
-      { name = "<leader>h", target = ":nohlsearch<CR>" },
       { name = "<leader>;", target = "mPA;<ESC>`P:delmarks P<CR>" },
       { name = "<leader>,", target = "mPA,<ESC>`P:delmarks P<CR>" },
       { name = "<leader>.", target = "mPA.<ESC>`P:delmarks P<CR>" },
