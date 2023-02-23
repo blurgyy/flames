@@ -170,8 +170,8 @@ in {  # For non-headless machines
       enable = true;
       enableExtraSocket = true;
       pinentryFlavor = "tty";
-      defaultCacheTtl = 60480000;
-      maxCacheTtl = 60480000;
+      defaultCacheTtl = 3600 * 24;
+      maxCacheTtl = 3600 * 48;
     };
     gammastep = {
       enable = true;
