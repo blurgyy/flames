@@ -172,6 +172,7 @@ in {  # For non-headless machines
       pinentryFlavor = "tty";
       defaultCacheTtl = 3600 * 24;
       maxCacheTtl = 3600 * 48;
+      enableScDaemon = false;
     };
     gammastep = {
       enable = true;
