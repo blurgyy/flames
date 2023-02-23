@@ -82,6 +82,12 @@ in {
   programs.gpg = {
     enable = true;
     homedir = "${config.xdg.stateHome}/gnupg";
+    mutableKeys = false;
+    mutableTrust = false;
+    publicKeys = [{
+      source = ./parts/raw/gnupg/ff02f82f94915004.gpg;
+      trust = 5;
+    }];
     settings = {
       keyserver = "hkps://keyserver.ubuntu.com";
       keyserver-options = [
