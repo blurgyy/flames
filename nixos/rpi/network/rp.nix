@@ -18,7 +18,7 @@
         inherit identityFile;
         environmentFile = config.sops.secrets."sshrp/acremote-env".path;
         bindPort = 21607;
-        hostPort = config.services.acremote.listenPort;
+        hostPort = config.services.acremote.port;
       };
     };
   };

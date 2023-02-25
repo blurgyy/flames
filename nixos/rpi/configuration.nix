@@ -42,12 +42,6 @@
     max-free = ${toString (1024 * 1024 * 1024)}
   '';
 
-  services = {
-    acremote.enable = true;
-    rustdesk-server.enable = true;
-    btrfs.autoScrub.fileSystems = [ "/elements" ];
-  };
-
   environment.systemPackages = with pkgs; [
     transmission
   ];

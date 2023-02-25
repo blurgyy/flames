@@ -7,11 +7,11 @@
         "nixpkgs": "nixpkgs_87"
       },
       "locked": {
-        "lastModified": 1677255721,
-        "narHash": "sha256-Rv5NR0oLr5ymytkSFTFyvE1hTdsiLoEZqlvODnIBD2o=",
+        "lastModified": 1677292761,
+        "narHash": "sha256-z3QLn/V0RMevUO3LcCySl/sRLjB2Ecknn0BHTVdw1pk=",
         "owner": "highsunz",
         "repo": "acremote",
-        "rev": "34c7ae89f273fd8fbbdcdf565947ff56fc2c86d7",
+        "rev": "abf3944e30ab4b4b5b1ded8771836af0046397a0",
         "type": "gitlab"
       },
       "original": {
