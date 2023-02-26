@@ -56,7 +56,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aliyundrive-mediaserver.url = "gitlab:highsunz/aliyundrive-mediaserver/2a03735ade5c715966adf6cced51916d6991f192";
+    aliyundrive-mediaserver.url = "gitlab:highsunz/aliyundrive-mediaserver/42eea4241a851fc72d939c2b402cb2a55d346ef1";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
     acremote.url = "gitlab:highsunz/acremote";
     nvfetcher.url = "github:berberman/nvfetcher";
