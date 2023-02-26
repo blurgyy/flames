@@ -51,7 +51,6 @@ in {  # For non-headless machines
     minicom
     obs-studio
     rustdesk-with-x11-desktopentry
-    sshga  # forward local gpg-agent socket to remote for e.g. remote git-commit signing
     tdesktop-megumifox
     re-export.wemeet-linyinfeng
     wf-recorder-respect-pixel-format

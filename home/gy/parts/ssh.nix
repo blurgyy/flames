@@ -27,8 +27,14 @@
     "2x1080ti-relay" = { hostname = relay; port = 10023; };
     shared-relay = { hostname = relay; port = 10025; };
 
-    applyHostname = hostnames: map (hostname: { ${hostname} = { inherit hostname; }; }) hostnames;
-  in (mergeAttrsList (applyHostname [
+    apply = hostnames: map (hostname: {
+        ${hostname} = {
+          inherit hostname;
+          extraOptions.
+            RemoteForward = "/run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
+        };
+      }) hostnames;
+  in (mergeAttrsList (apply [
     "cindy"
     "cube"
     "hooper"
@@ -48,8 +54,18 @@
     # shared.hostname = "10.76.2.83";
 
     # Forwarded via rathole on watson
-    shared = { hostname = "watson"; port = 22548; };
-    "2x1080ti" = { hostname = "watson"; port = 13815; };
+    shared = {
+      hostname = "watson";
+      port = 22548;
+      extraOptions.
+        RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
+    };
+    "2x1080ti" = {
+      hostname = "watson";
+      port = 13815;
+      extraOptions.
+        RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
+    };
 
     gpp = { hostname = "peterpan"; port = 77; };
     ghooper = { hostname = "hooper"; user = "git"; };
