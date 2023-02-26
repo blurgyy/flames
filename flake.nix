@@ -3,7 +3,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     flake-utils.url = "github:numtide/flake-utils";
-    nixos-generators.url = "github:nix-community/nixos-generators";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixos-cn = {
       url = "github:nixos-cn/flakes";
       inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
@@ -56,9 +59,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    aliyundrive-mediaserver.url = "gitlab:highsunz/aliyundrive-mediaserver/9d62129f2286ed8bb06b548cccdb03337cec53ca";
+    acremote = {
+      url = "gitlab:highsunz/acremote";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
+    aliyundrive-mediaserver = {
+      url = "gitlab:highsunz/aliyundrive-mediaserver";
+      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+    };
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
-    acremote.url = "gitlab:highsunz/acremote";
     nvfetcher.url = "github:berberman/nvfetcher";
     tex2nix.url = "github:Mic92/tex2nix";
   };
