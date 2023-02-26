@@ -4,13 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    hsz = {
-      url = "gitlab:highsunz/flames";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     nixgl = {
       url = "github:guibou/nixgl";
       inputs = {
@@ -20,7 +13,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, flake-utils, hsz, ... }: flake-utils.lib.eachDefaultSystem (system: let
+  outputs = inputs@{ nixpkgs, flake-utils, ... }: flake-utils.lib.eachDefaultSystem (system: let
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -43,7 +36,7 @@
         buildInputs = [
         ];
         shellHook = ''
-          source ${hsz.packages.${system}.common-shell-hook}
+          [[ "$-" == *i* ]] && exec "$SHELL"
         '';
       };
       impureShell = pureShell.overrideAttrs (o: {
