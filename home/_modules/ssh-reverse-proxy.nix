@@ -49,7 +49,6 @@ in with lib; {
 
   config = {
     services.ssh-reverse-proxy.defaultSSHOptions = {
-      Compression = "yes";
       ControlMaster = "no";
       IPQoS = "none";
       ServerAliveCountMax = 3;

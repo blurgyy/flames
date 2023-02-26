@@ -76,7 +76,6 @@ in with lib; {
     asRemote = nonEmpty (attrValues cfg.server.services);
   in {
     services.ssh-reverse-proxy.client.defaultSSHOptions = {
-      Compression = "yes";
       ControlMaster = "no";
       IPQoS = "none";
       ServerAliveCountMax = 3;
