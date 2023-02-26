@@ -47,6 +47,7 @@ in {
     lnav
     lsof
     nix
+    nvfetcher
     parallel
     patchelf
     pciutils
