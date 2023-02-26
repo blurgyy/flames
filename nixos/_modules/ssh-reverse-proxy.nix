@@ -140,6 +140,7 @@ in with lib; {
               -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
               -oUser="${instance.user}" \
               -oIdentityFile="$CREDENTIALS_DIRECTORY/id" \
+              -oExitOnForwardFailure=yes \
               ${mkSSHOptions cfg.client.defaultSSHOptions} \
               ${mkSSHOptions instance.extraSSHOptions}
           '';
