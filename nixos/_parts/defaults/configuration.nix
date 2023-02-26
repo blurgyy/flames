@@ -22,9 +22,15 @@ in {
   nix = {
     nrBuildUsers = 0;
     package = lib.mkDefault pkgs.nixUnstable;
-    registry.hsz = {
-      from = { type = "indirect"; id = "hsz"; };
-      to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
+    registry = {
+      hsz = {
+        from = { type = "indirect"; id = "hsz"; };
+        to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
+      };
+      adrivems = {
+        from = { type = "indirect"; id = "adrivems"; };
+        to = { type = "gitlab"; owner = "highsunz"; repo = "aliyundrive-mediaserver"; };
+      };
     };
     settings = {
       experimental-features = [ "nix-command" "flakes" "repl-flake" "auto-allocate-uids" "cgroups" ];

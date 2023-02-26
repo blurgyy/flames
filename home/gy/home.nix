@@ -74,9 +74,15 @@ in {
     #nixos-cn.dingtalk
   ] ++ lib.optional (pkgs.system == "x86_64-linux" || pkgs.system == "i686-linux") steam-run;
 
-  nix.registry.hsz = {
-    from = { type = "indirect"; id = "hsz"; };
-    to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
+  nix.registry = {
+    hsz = {
+      from = { type = "indirect"; id = "hsz"; };
+      to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
+    };
+    adrivems = {
+      from = { type = "indirect"; id = "adrivems"; };
+      to = { type = "gitlab"; owner = "highsunz"; repo = "aliyundrive-mediaserver"; };
+    };
   };
 
   programs.gpg = {
