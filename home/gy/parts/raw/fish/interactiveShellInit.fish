@@ -52,6 +52,17 @@ function bootstrap
   end
   abbr -a !! --position anywhere --function __last_history_item
 
+  # Set fish_history if inside nix env
+  if set -q IN_NIX_SHELL
+    if set -q name
+      set -g fish_history \
+        "nixshell$(string replace --all --regex -- '/|-|\.|@|#|%' _ "$(tt gr)")_$IN_NIX_SHELL""_$(string replace --all -- - _ "$name")"
+    else
+      set -g fish_history \
+        "nixshell$(string replace --all --regex -- '/|-|\.|@|#|%' _ "$(tt gr)")_$IN_NIX_SHELL"
+    end
+  end
+
   # Volatile environment variables
   #set -gx GPG_TTY (tty)  # already set in .zshrc if `services.gpg-agent` is enabled
 end
