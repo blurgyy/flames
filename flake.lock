@@ -697,17 +697,17 @@
         "nixpkgs": "nixpkgs_130"
       },
       "locked": {
-        "lastModified": 1677390052,
-        "narHash": "sha256-OrQmq0TjMPFCcqPDF3m+4f7TOLLdglhJNjYt9s1Rpgw=",
+        "lastModified": 1677416700,
+        "narHash": "sha256-HjxPIwXRFVkt2Hvz9aXZqb9ul5cewutZcSqbPb6cXn4=",
         "owner": "highsunz",
         "repo": "aliyundrive-mediaserver",
-        "rev": "42eea4241a851fc72d939c2b402cb2a55d346ef1",
+        "rev": "9d62129f2286ed8bb06b548cccdb03337cec53ca",
         "type": "gitlab"
       },
       "original": {
         "owner": "highsunz",
         "repo": "aliyundrive-mediaserver",
-        "rev": "42eea4241a851fc72d939c2b402cb2a55d346ef1",
+        "rev": "9d62129f2286ed8bb06b548cccdb03337cec53ca",
         "type": "gitlab"
       }
     },
