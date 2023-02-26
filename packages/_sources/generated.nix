@@ -33,40 +33,6 @@
       sha256 = "sha256-Rk71VPahpat/+5NkTxxWsdkca4m0G5Jj6wmZQ+lSPxs=";
     });
   };
-  aliyundrive-fuse = {
-    pname = "aliyundrive-fuse";
-    version = "v0.1.14";
-    src = fetchFromGitHub ({
-      owner = "messense";
-      repo = "aliyundrive-fuse";
-      rev = "v0.1.14";
-      fetchSubmodules = false;
-      sha256 = "sha256-YURzhdAMsCbECZDgb1gLRqgvs/p78C7Fo0g8v9h0ecs=";
-    });
-    cargoLock."Cargo.lock" = {
-      lockFile = ./aliyundrive-fuse-v0.1.14/Cargo.lock;
-      outputHashes = {
-        
-      };
-    };
-  };
-  aliyundrive-webdav = {
-    pname = "aliyundrive-webdav";
-    version = "v1.11.0";
-    src = fetchFromGitHub ({
-      owner = "messense";
-      repo = "aliyundrive-webdav";
-      rev = "v1.11.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-TZY74iUFBz0GKW0+WlNZUtg0Paxo4KNInJwVM9kJAGY=";
-    });
-    cargoLock."Cargo.lock" = {
-      lockFile = ./aliyundrive-webdav-v1.11.0/Cargo.lock;
-      outputHashes = {
-        
-      };
-    };
-  };
   apple-color-emoji = {
     pname = "apple-color-emoji";
     version = "ios-15.4";
@@ -241,18 +207,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202302242210";
+    version = "202302252209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302242210/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302252209/geoip.dat";
       sha256 = "sha256-B8RDcrRSZROBF2TcR5rgIteh823JTruo3Yu0BfLHf1Y=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202302242210";
+    version = "202302252209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302242210/geosite.dat";
-      sha256 = "sha256-kcMi2CV5aMQl1NxhIJ+KCa8kFS/ZZoD3Jrl1ZUmQqdA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302252209/geosite.dat";
+      sha256 = "sha256-GLjvWYbUHnU5bK9xViDTKMAK85IfVpO9fQRZ+CQK/Fs=";
     };
   };
   luarock-dbus_proxy = {
