@@ -9,7 +9,10 @@
     };
     nixos-cn = {
       url = "github:nixos-cn/flakes";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -25,19 +28,31 @@
     };
     nixgl = {
       url = "github:guibou/nixGL";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     nickcao = {
       url = "github:NickCao/flakes";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     colmena = {
       url = "github:zhaofengli/colmena";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     carinae = {
       url = "github:NickCao/carinae";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     hyprland = {
       url = "https://github.com/hyprwm/hyprland";
@@ -48,7 +63,10 @@
     };
     hypr-msg-handler = {
       url = "gitlab:highsunz/hypr-msg-handler";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
@@ -61,11 +79,17 @@
 
     acremote = {
       url = "gitlab:highsunz/acremote";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     aliyundrive-mediaserver = {
       url = "gitlab:highsunz/aliyundrive-mediaserver";
-      inputs = { nixpkgs.follows = "nixpkgs"; flake-utils.follows = "flake-utils"; };
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
     nvfetcher.url = "github:berberman/nvfetcher";
