@@ -14,6 +14,8 @@
     };
   };
 
+  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
+
   services.udisks2.enable = false;
 
   system.stateVersion = "22.11";

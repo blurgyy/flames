@@ -15,5 +15,7 @@
     };
   };
 
+  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
+
   system.stateVersion = "22.11";
 }

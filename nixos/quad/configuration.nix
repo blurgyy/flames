@@ -14,6 +14,8 @@
     };
   };
 
+  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
+
   networking = {
     defaultGateway = "45.139.193.1";
     interfaces.eth0 = {

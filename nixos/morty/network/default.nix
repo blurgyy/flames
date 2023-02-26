@@ -4,6 +4,9 @@
     ./rp.nix
     ./wlan.nix
   ];
+
+  systemd.network.wait-online.extraArgs = [ "--interface=wlan0" ];
+
   systemd.services.hp-keycodes = {
     wantedBy = [
       "multi-user.target"

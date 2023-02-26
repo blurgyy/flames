@@ -92,7 +92,9 @@ in {
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
     network.wait-online = {
-      anyInterface = lib.mkDefault true;
+      anyInterface = lib.mkDefault false;
+      # WARN: explicitly set this with e.g. [ "--interface=wlan0" "--interface=eth0" ] for each machine.
+      extraArgs = lib.mkDefault null;
       timeout = 16;
     };
     services.systemd-rfkill.serviceConfig.ExecStartPost = "${pkgs.util-linux}/bin/rfkill unblock all";
