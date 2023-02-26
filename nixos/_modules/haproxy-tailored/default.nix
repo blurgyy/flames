@@ -272,16 +272,18 @@ in {
             exit 0
           fi
           rm -rf ${domain.name}/*
-          mkdir -p ca
-          ${pkgs.minica}/bin/minica \
-            --ca-key ca/key.pem \
-            --ca-cert ca/cert.pem \
-            --domains ${escapeShellArg domain.name}
+          mkdir -p ${domain.name}
+          ${pkgs.openssl}/bin/openssl \
+            req -x509 -newkey rsa:4096 \
+            -keyout ${domain.name}/key.pem \
+            -out ${domain.name}/cert.pem \
+            -nodes \
+            -sha256 \
+            -days 365 \
+            -subj "/CN=${domain.name}"
           # Create files to match directory layout for real certificates
           cd '${domain.name}'
-          cp ../ca/cert.pem chain.pem
-          cat cert.pem chain.pem > fullchain.pem
-          cat key.pem fullchain.pem > full.pem
+          cat key.pem cert.pem > full.pem
           # Group might change between runs, re-apply it
           chown '${cfg.user}:${cfg.group}' *
           # Default permissions make the files unreadable by group + anon
