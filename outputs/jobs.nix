@@ -13,7 +13,7 @@
       (map (attrset: preserveOnlyFrom keys attrset) attrsets);
   in preserveOnlyAmong builtSystems [
     self.packages
-    (mapAttrs (sys: pkg: { nvfetcher = pkg.default; }) inputs.nvfetcher.packages)
+    # (mapAttrs (sys: pkg: { nvfetcher = pkg.default; }) inputs.nvfetcher.packages)
   ];
   builtPackages = mapAttrs
     (sys: pkgset: my.filterAttrs (name: pkg: hasAttr "meta" pkg && (!hasAttr "platforms" pkg.meta || elem sys pkg.meta.platforms)) pkgset)

@@ -20,7 +20,10 @@
     };
     sops-nix = {
       url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs";
+      };
     };
     nix-index-db = {
       url = "github:Mic92/nix-index-database";
@@ -38,6 +41,9 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        sops-nix.follows = "sops-nix";
+        carinae.follows = "carinae";
+        colmena.follows = "colmena";
       };
     };
     colmena = {
@@ -45,6 +51,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        stable.follows = "nixpkgs";
       };
     };
     carinae = {
@@ -74,7 +81,17 @@
     };
     nbfc-linux = {
       url = "github:nbfc-linux/nbfc-linux";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        utils.follows = "flake-utils";
+      };
+    };
+    tex2nix = {
+      url = "github:Mic92/tex2nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
 
     acremote = {
@@ -92,8 +109,6 @@
       };
     };
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
-    nvfetcher.url = "github:berberman/nvfetcher";
-    tex2nix.url = "github:Mic92/tex2nix";
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
