@@ -1,4 +1,4 @@
-{ config }: ''
+{ config, pkgs }: ''
 ## starship is managed by nix
 #starship init fish | source
 
@@ -54,12 +54,14 @@ function bootstrap
 
   # Set fish_history if inside nix env
   if set -q IN_NIX_SHELL
+    set -l invalid_chars '/|-|\.|@|#|%'
+    set -l git_root "$(${pkgs.tinytools}/bin/tt gr)"
     if set -q name
       set -g fish_history \
-        "nixshell$(string replace --all --regex -- '/|-|\.|@|#|%' _ "$(tt gr)")_$IN_NIX_SHELL""_$(string replace --all -- - _ "$name")"
+        "nixshell$(string replace --all --regex -- "$invalid_chars" _ "$git_root")_$IN_NIX_SHELL""_$(string replace --all --regex -- "$invalid_chars" _ "$name")"
     else
       set -g fish_history \
-        "nixshell$(string replace --all --regex -- '/|-|\.|@|#|%' _ "$(tt gr)")_$IN_NIX_SHELL"
+        "nixshell$(string replace --all --regex -- "$invalid_chars" _ "$git_root")_$IN_NIX_SHELL"
     end
   end
 
