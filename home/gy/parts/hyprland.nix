@@ -104,7 +104,7 @@ in {
 
       col.active_border = rgba(${themeColorHex "highlight"}ee)
       col.inactive_border = rgba(${themeColorHex "gray"}aa)
-      col.group_border_active = rgba(${themeColorHex "highlight"}ee)
+      col.group_border_active = rgba(${themeColorHex "orange"}ee)
       col.group_border = rgba(${themeColorHex "gray"}aa)
 
       layout = dwindle
