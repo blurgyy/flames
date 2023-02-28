@@ -218,6 +218,10 @@ in {
     bind = $mainMod, g, togglegroup,
     bind = $mainMod, period, changegroupactive, f
     bind = $mainMod, comma, changegroupactive, b
+    bind = $mainMod CTRL, h, moveintogroup, l
+    bind = $mainMod CTRL, j, moveintogroup, d
+    bind = $mainMod CTRL, k, moveintogroup, u
+    bind = $mainMod CTRL, l, moveintogroup, r
 
     # Xf86
     binde = , XF86MonBrightnessUp, exec, ${pkgs.light}/bin/light -A 5 && ${backlight-notify}
