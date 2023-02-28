@@ -108,6 +108,7 @@ in {
       col.group_border = rgba(${themeColorHex "gray"}aa)
 
       layout = dwindle
+      resize_on_border = true
       apply_sens_to_raw = true
       cursor_inactive_timeout = 0  # Disable hiding cursor
       no_cursor_warps = true  # Do not jump the cursor when switching focus to another window
