@@ -151,19 +151,19 @@ in with lib; {
 
   config = {
     ricing = {
-      headful = mkIf (cfg.headful != null) {
+      headful = mkIf (cfg.headful.theme != null) {
         wallpaper = cozy-8k;
         themeColor = name: let
           colorFn = catppuccinColor (if cfg.headful.theme == "light" then "latte" else "mocha");
         in
           (colors colorFn)."${name}";
       };
-      textual.themeColor = mkIf (cfg.textual != null) (name: let
+      textual.themeColor = mkIf (cfg.textual.theme != null) (name: let
           colorFn = catppuccinColor (if cfg.textual.theme == "light" then "latte" else "mocha");
         in
           (colors colorFn)."${name}");
     };
-    gtk = mkIf (cfg.headful != null) {
+    gtk = mkIf (cfg.headful.theme != null) {
       enable = true;
       theme = {
         package = pkgs.catppuccin-gtk.override {
