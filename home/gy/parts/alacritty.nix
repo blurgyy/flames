@@ -31,5 +31,5 @@
   # colorscheme is handled in ricing.nix
   colors.transparent_background_colors = true;
 
-  window.opacity = 0.75;
+  window.opacity = 1;
 }
