@@ -13,7 +13,12 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, flake-utils, ... }: flake-utils.lib.eachDefaultSystem (system: let
+  nixConfig = {
+    extra-substituters = [ "https://cache.blurgy.xyz" ];
+    trusted-public-keys = [ "cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4=" ];
+  };
+
+  outputs = inputs@{ self, nixpkgs, flake-utils, ... }: flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
     pkgs = import nixpkgs {
       inherit system;
       config = {
@@ -21,14 +26,15 @@
         # cudaSupport = true;
       };
       overlays = [
+        self.overlays.default
         inputs.nixgl.overlays.default
       ];
     };
     inherit (nixpkgs) lib;
   in {
     packages = rec {
-      default = hello;
-      hello = pkgs.hello;
+      # inherit (pkgs) myPackage;
+      # default = myPackage;
     };
     devShells = rec {
       default = pureShell;
@@ -47,5 +53,12 @@
         '' + o.shellHook or "";
       });
     };
-  });
+  }) // {
+    overlays.default = final: prev: let
+      # version = "0.1.0";
+    in {
+      # myPackage = final.callPackage ./. { inherit version; };
+    };
+    hydraJobs = self.packages;
+  };
 }
