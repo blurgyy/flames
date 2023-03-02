@@ -152,7 +152,7 @@ in {  # For non-headless machines
       Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
     };
     services.hyprpaper = lib.optionalAttrs config.wayland.windowManager.hyprland.enable {
-      Unit.X-Restart-Triggers = [ (with builtins; hashString "sha512" (readFile ./parts/mirrored/hypr/hyprpaper.conf.asnix)) ];
+      Unit.X-Restart-Triggers = [ (with builtins; hashString "sha512" (callWithHelpers ./parts/mirrored/headful/hypr/hyprpaper.conf.asnix {})) ];
       Service = {
         ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
         Restart = "always";
