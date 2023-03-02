@@ -103,7 +103,7 @@
     f = import path;
     args = (intersectAttrs
       (functionArgs f)
-      ({ inherit pkgs lib name __callWithHelpers; } // overrides)
+      ({ inherit pkgs lib headless name __callWithHelpers; } // overrides)
     );
   in if (typeOf f) == "set"
     then f

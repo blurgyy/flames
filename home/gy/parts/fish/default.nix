@@ -1,7 +1,7 @@
-{ config, pkgs, callWithHelpers }: with builtins; {
+{ config, lib, pkgs, headless, callWithHelpers }: with builtins; {
   enable = true;
   functions = {
-    __notify_when_long_running_process_finishes = {
+    __notify_when_long_running_process_finishes = lib.mkIf (!headless) {
       body = callWithHelpers ../raw/fish/functions/__notify_when_long_running_process_finishes.fish.nix {};
       onEvent = "fish_postexec";
     };
