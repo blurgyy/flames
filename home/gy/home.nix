@@ -73,7 +73,7 @@ in {
     zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
     #nixos-cn.dingtalk
-  ] ++ lib.optional (pkgs.system == "x86_64-linux" || pkgs.system == "i686-linux") steam-run;
+  ];
 
   nix.registry = {
     hsz = {
