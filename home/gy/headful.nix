@@ -1,4 +1,4 @@
-{ config, pkgs, lib, myHome, __callWithHelpers, ... }: let
+{ config, pkgs, lib, myHome, helpers, __callWithHelpers, ... }: let
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {  # For non-headless machines
   ricing.headful.theme = "dark";
@@ -133,6 +133,10 @@ in {  # For non-headless machines
       "${myHome}/.nix-profile/share"
       "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"  # REF: <https://github.com/NixOS/nixpkgs/issues/72282#issuecomment-549651957>
     ];
+    configFile = helpers.manifestXdgConfigFilesFrom {
+      inherit config;
+      pathPrefix = ./parts/mirrored/headful;
+    };
   };
   systemd.user = {
     targets = let
