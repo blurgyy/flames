@@ -88,5 +88,19 @@ in {
         };
       };
     };
+
+    repos-backup = {
+      onCalendar = "04:00:00 CST";
+      settings = globalCfg // {
+        subvolume."ssh://peterpan/var/lib/soft-serve" = subvolSharedCfg // {
+          snapshot_preserve_min = "latest";
+          snapshot_preserve = "no";
+
+          target_preserve_min = "latest";
+          target_preserve = "1w 3m 2y";
+        };
+      };
+    };
+
   };
 }
