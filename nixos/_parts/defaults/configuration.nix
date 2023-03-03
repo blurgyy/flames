@@ -253,6 +253,8 @@ in {
         #PermitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
         X11Forwarding = lib.mkDefault (!config.environment.noXlibs);
         StreamLocalBindUnlink = lib.mkDefault true;
+        ClientAliveCountMax = 3;
+        ClientAliveInterval = 5;
       };
       knownHosts = let
         mkHost = name: aliases: {
