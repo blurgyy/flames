@@ -46,7 +46,7 @@ in {
     libqalculate
     lnav
     lsof
-    nix
+    nix-output-monitor
     nvfetcher
     parallel
     patchelf

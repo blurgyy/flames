@@ -200,6 +200,7 @@ in {
     lm_sensors
     lsof
     neovim
+    nix-output-monitor
     pciutils
     procs
     ripgrep
