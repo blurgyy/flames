@@ -260,6 +260,9 @@ in {
       xcursor_theme = "${config.home.pointerCursor.name} ${toString config.home.pointerCursor.size}";
     };
     input = {
+      "type:pointer" = {
+        accel_profile = "flat";  # Available values: (adaptive|flat)
+      };
       "type:touchpad" = {
         accel_profile = "adaptive";  # Available values: (adaptive|flat)
         dwt = "enabled";  # Enable "disable-while-typing" feature
