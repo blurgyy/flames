@@ -41,6 +41,7 @@ in {
       "${mod}+Alt+q" =  "exec swaymsg exit";
       "${mod}+e" = "exec ${fm}";
       "${mod}+w" = "kill";
+      "${mod}+Shift+c" = "reload" ;
 
       # Launchers
       "Alt+r" = "exec rofi -terminal ${term} -show drun";
