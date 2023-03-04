@@ -246,7 +246,7 @@ in {
         childBorder = themeColor "red";
       };
       focusedInactive = {
-        border = themeColor "black";
+        border = themeColor "blue";
         background = themeColor "lightgray";
         text = themeColor "foreground";
         indicator = themeColor "lightgray";
