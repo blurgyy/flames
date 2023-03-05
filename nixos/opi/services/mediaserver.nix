@@ -20,7 +20,7 @@
         requestRules = lib.mkForce [];
         backends = [
           { name = "file-explorer"; condition = "if { path_beg /explore/ } || { path_beg /__dufs }"; }
-          { name = "gerbera"; condition = "if { path_beg /gerbera } || { path_beg /description.xml }"; }
+          { name = "gerbera"; condition = "if { path_beg /gerbera } || { path_beg /icons } || { path_beg /upnp } || { path_beg /cm.xml } || { path_beg /cds.xml } || { path_beg /mr_reg.xml } || { path_beg /description.xml }"; }
           { name = "aliyundrive-mediaserver"; isDefault = true; }
         ];
       };
