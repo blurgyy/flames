@@ -3,12 +3,9 @@
 
   propagatedBuildInputs = [ appdirs colorama python-telegram-bot ];
   
-  # REF: <https://github.com/rahiel/telegram-send/issues/115#issuecomment-1371790720>
+  # REF: <https://github.com/rahiel/telegram-send/issues/122#issuecomment-1450404377>
   postPatch = ''
-    substituteInPlace telegram_send/telegram_send.py \
-      --replace "from telegram.constants import MAX_MESSAGE_LENGTH" \
-                "from telegram.constants import MessageLimit" \
-      --replace "MAX_MESSAGE_LENGTH" "MessageLimit.MAX_TEXT_LENGTH"
+    cp ${./telegram_send.py} telegram_send/telegram_send.py
   '';
 
   meta = {
