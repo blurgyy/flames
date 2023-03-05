@@ -8,7 +8,7 @@
     substituteInPlace telegram_send/telegram_send.py \
       --replace "from telegram.constants import MAX_MESSAGE_LENGTH" \
                 "from telegram.constants import MessageLimit" \
-      --replace "MAX_MESSAGE_LENGTH" "MAX_TEXT_LENGTH"
+      --replace "MAX_MESSAGE_LENGTH" "MessageLimit.MAX_TEXT_LENGTH"
   '';
 
   meta = {
