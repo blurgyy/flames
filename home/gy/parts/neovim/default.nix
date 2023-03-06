@@ -57,7 +57,7 @@
         tree-sitter-vue
       ]
     ))
-      nvim-ts-rainbow
+      nvim-ts-rainbow2
     neorg
     catppuccin-nvim
     barbar-nvim

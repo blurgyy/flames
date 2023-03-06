@@ -855,6 +855,7 @@ in ''
   }
 
   --- treesitter, ts-rainbow
+  rainbow = require "ts-rainbow"
   require("nvim-treesitter.configs").setup({
     highlight = {
       enable = true,
@@ -870,6 +871,26 @@ in ''
     rainbow = {
       enable = true,
       extended_mode = true, -- Highlight also non-parentheses delimiters, like html tags, boolean or table: lang -> boolean
+      -- NOTE: use `:TSModuleInfo` to inspect support status for each language
+      query = {
+        "rainbow-parens",
+        html = "rainbow-tags",
+        xml = "rainbow-tags",
+        latex = "rainbow-blocks",
+      },
+      strategy = {
+        -- Use global strategy by default
+        rainbow.strategy['global'],
+        -- Use local for HTML
+        html = rainbow.strategy['local'],
+        -- Pick the strategy for LaTeX dynamically based on the buffer size
+        latex = function()
+          if vim.fn.line('$') > 1000 then
+              return rainbow.strategy['global']
+          end
+          return rainbow.strategy['local']
+        end,
+      },
       colors = {
         "${themeColor "yellow"}",
         "${themeColor "blue"}",
