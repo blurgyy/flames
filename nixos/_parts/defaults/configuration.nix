@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: let
+{ config, lib, pkgs, inputs, ... }: let
   keys = import ./public-keys.nix;
 in {
   users = {
@@ -23,6 +23,7 @@ in {
     nrBuildUsers = 0;
     package = lib.mkDefault pkgs.nixUnstable;
     registry = {
+      nixpkgs.flake = inputs.nixpkgs;
       hsz = {
         from = { type = "indirect"; id = "hsz"; };
         to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };

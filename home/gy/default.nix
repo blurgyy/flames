@@ -110,6 +110,11 @@
     else f ((intersectAttrs (functionArgs f) helpers) // args);
 in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
+  extraSpecialArgs = {
+    inherit inputs;
+    inherit name headless proxy;
+    inherit myName myHome helpers __callWithHelpers;
+  };
   modules = [
     ./home.nix
     ./secrets
@@ -121,8 +126,4 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
     ({ home.stateVersion = "22.11"; })
   ];
-  extraSpecialArgs = {
-    inherit name headless proxy;
-    inherit myName myHome helpers __callWithHelpers;
-  };
 }

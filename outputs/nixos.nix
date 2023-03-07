@@ -3,6 +3,7 @@
     (hostName: params@{ system, ... }:
       nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
         modules = (import ../nixos/_parts/defaults {
           inherit self inputs system;
           inherit (params) headless isQemuGuest withBinfmtEmulation;

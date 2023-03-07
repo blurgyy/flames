@@ -1,4 +1,4 @@
-{ lib, pkgs, config
+{ inputs, lib, pkgs, config
 , name, myName, myHome
 , headless
 , proxy
@@ -76,6 +76,7 @@ in {
   ];
 
   nix.registry = {
+    nixpkgs.flake = inputs.nixpkgs;
     hsz = {
       from = { type = "indirect"; id = "hsz"; };
       to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
