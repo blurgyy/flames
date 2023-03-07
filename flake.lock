@@ -23,7 +23,7 @@
         "type": "gitlab"
       }
     },
-    "aliyundrive-mediaserver": {
+    "adrivems": {
       "inputs": {
         "flake-utils": [
           "flake-utils"
@@ -33,15 +33,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1677998398,
-        "narHash": "sha256-9ea0grcT1MhM7MeXghvY+/Ga/uyUinLpmqyxwvZB1no=",
+        "lastModified": 1678203672,
+        "narHash": "sha256-a3rwpTohf0F9MkHzTcaFtBK5w3UarlfGz0fvZZGeE2A=",
         "owner": "highsunz",
         "repo": "aliyundrive-mediaserver",
-        "rev": "4ea3d4ef419bdf98aa339e7915888efa495070d0",
+        "rev": "062c5a80c9fe790a031b503e6d976ea8f3afcc38",
         "type": "gitlab"
       },
       "original": {
         "owner": "highsunz",
+        "ref": "v0.2.0",
         "repo": "aliyundrive-mediaserver",
         "type": "gitlab"
       }
@@ -950,7 +951,7 @@
     "root": {
       "inputs": {
         "acremote": "acremote",
-        "aliyundrive-mediaserver": "aliyundrive-mediaserver",
+        "adrivems": "adrivems",
         "carinae": "carinae",
         "colmena": "colmena",
         "flake-utils": "flake-utils",

@@ -101,8 +101,8 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    aliyundrive-mediaserver = {
-      url = "gitlab:highsunz/aliyundrive-mediaserver";
+    adrivems = {
+      url = "gitlab:highsunz/aliyundrive-mediaserver/v0.2.0";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";

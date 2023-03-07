@@ -2,7 +2,7 @@
   ./configuration.nix
   ./network
   ./services
-  inputs.aliyundrive-mediaserver.nixosModules.default
+  inputs.adrivems.nixosModules.default
   {
     nixpkgs.overlays = [
       (final: prev: {  # REF: <https://github.com/NixOS/nixpkgs/issues/126755#issuecomment-869149243>
@@ -11,7 +11,7 @@
         opi3lts-uboot = inputs.orangepi-3-lts-nixos.packages.${system}.ubootOrangePi3Lts;
         opi-firmware = inputs.orangepi-3-lts-nixos.packages.${system}.firmware;
       })
-      inputs.aliyundrive-mediaserver.overlays.default
+      inputs.adrivems.overlays.default
     ];
   }
 ]
