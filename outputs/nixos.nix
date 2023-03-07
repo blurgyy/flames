@@ -1,23 +1,53 @@
 { self, nixpkgs, inputs }: let
-  apply = attrs: builtins.mapAttrs
-    (name: params: import ../nixos/${name} (params // { inherit name; }))
+  mkHost = attrs: builtins.mapAttrs
+    (hostName: params@{ system, ... }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = (import ../nixos/_parts/defaults {
+          inherit self inputs system;
+          inherit (params) headless isQemuGuest withBinfmtEmulation;
+        }) ++ (
+          import ../nixos/${hostName}/modules.nix {
+            inherit system self nixpkgs inputs;
+          }
+        ) ++ [
+          { networking = { inherit hostName; }; }
+        ];
+      }
+    )
     attrs;
-  aarch64 = {
+  virtual-server-aarch64 = {
     system = "aarch64-linux";
-    inherit self nixpkgs inputs;
+    headless = true;
+    isQemuGuest = true;
+    withBinfmtEmulation = true;
   };
-  x86_64 = {
+  virtual-server-x86_64 = {
     system = "x86_64-linux";
-    inherit self nixpkgs inputs;
+    headless = true;
+    isQemuGuest = true;
+    withBinfmtEmulation = true;
   };
-in apply {
-  cindy = aarch64;
-  cube = x86_64;
-  morty = x86_64;
-  peterpan = x86_64;
-  quad = x86_64;
-  rpi = aarch64;
-  opi = aarch64;
-  rubik = x86_64;
-  trigo = x86_64;
+  pc-x86_64 = {
+    system = "x86_64-linux";
+    headless = false;
+    isQemuGuest = false;
+    withBinfmtEmulation = true;
+  };
+  sbc-aarch64 = {
+    system = "aarch64-linux";
+    headless = true;
+    isQemuGuest = false;
+    withBinfmtEmulation = false;
+  };
+in mkHost {
+  cindy = virtual-server-aarch64;
+  cube = virtual-server-x86_64;
+  morty = pc-x86_64;
+  peterpan = virtual-server-x86_64;
+  quad = virtual-server-x86_64;
+  rpi = sbc-aarch64;
+  opi = sbc-aarch64;
+  rubik = virtual-server-x86_64;
+  trigo = virtual-server-x86_64;
 }

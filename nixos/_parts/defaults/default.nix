@@ -3,8 +3,8 @@
 , system
 , headless
 , isQemuGuest
+, withBinfmtEmulation
 , withSecrets ? true
-, withBinfmtEmulation ? false
 }: let
   includeIf = inputs.nixpkgs.lib.optionalAttrs;
 in [
