@@ -20,19 +20,25 @@
       nixosConfigurations;
 in {
   meta = {
-    nixpkgs = import nixpkgs {
-      config.allowUnfree = true;
-      overlays = [
-        self.overlays.default
-        inputs.nixos-cn.overlay
-      ];
-    };
+    # REF: <https://github.com/zhaofengli/colmena/issues/54>
+    nixpkgs.lib = inputs.nixpkgs.lib;
+    nodeNixpkgs = mapHosts
+      self.nixosConfigurations
+      (_: cfg:
+        import nixpkgs {
+          inherit (cfg.config.nixpkgs) system;
+          config.allowUnfree = true;
+          overlays = [
+            self.overlays.default
+            inputs.nixos-cn.overlay
+          ];
+        }
+      );
+
     # NOTE: Introduced in zhaofengli/colmena/pull/100, to be included in colmena's 0.4.0 release.
     nodeSpecialArgs = mapHosts
       self.nixosConfigurations
-      (_: _:
-        { inherit inputs; }
-      );
+      (_: _: { inherit inputs; });
   };
 
   defaults.deployment = {
@@ -42,9 +48,9 @@ in {
   };
 }
 
+# REF: <https://github.com/zhaofengli/colmena/issues/60#issuecomment-1047199551>
 // mapHosts
     self.nixosConfigurations
-    (hostName: value: {
-      nixpkgs.system = value.config.nixpkgs.system;
-      imports = value._module.args.modules;
+    (hostName: cfg: {
+      imports = cfg._module.args.modules;
     })
