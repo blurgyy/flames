@@ -16,6 +16,7 @@ in {
     btop
     cachix
     clang-tools
+    colmena
     conda
     dogdns
     dufs
