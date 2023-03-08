@@ -766,43 +766,9 @@ in ''
         },
       },
     },
-    view = {
-      mappings = {
-        custom_only = false,
-        list = {
-          ---- REF: `:h nvim-tree-mappings`
-          ---- Remove default undesired mapping with empty string
-          { key = "H", action = "" },
-          ---- Custom mappings
-          { key = "l", action = function()
-            local lib = require("nvim-tree.lib")
-            local view = require("nvim-tree.view")
-            ---- open as vsplit on current node
-            local action = "edit"
-            local node = lib.get_node_at_cursor()
-            ---- Just copy what's done normally with vsplit
-            if node.link_to and not node.nodes then
-              require('nvim-tree.actions.open-file').fn(action, node.link_to)
-              view.close() -- Close the tree if file was opened
-            elseif node.nodes ~= nil then
-              lib.expand_or_collapse(node)
-            else
-              require('nvim-tree.actions.open-file').fn(action, node.absolute_path)
-              view.close() -- Close the tree if file was opened
-            end
-          end, },
-          { key = "h", action = "close_node", },
-          { key = "zh", action = "toggle_dotfiles", },
-          { key = "zi", action = "toggle_git_ignored", },
-          { key = "t", action = "tabnew" },
-          { key = "gy", action = "copy_absolute_path" },
-          { key = "dd", action = "cut" },
-          { key = "yy", action = "copy" },
-          { key = "Y", action = "copy_name" },
-          { key = "p", action = "paste" }
-        },
-      },
-    },
+    -- The file is initially generated via :NvimTreeGenerateOnAttach.
+    -- REF: <https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach#user-content-migrating>
+    on_attach = dofile("${../raw/neovim/nvim-tree-on_attach.lua}").on_attach,
     update_focused_file = { enable = true },
     diagnostics = { enable = true },
     hijack_cursor = true,  -- keep the cursor on first character
