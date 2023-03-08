@@ -24,13 +24,13 @@
   };
   alist = {
     pname = "alist";
-    version = "v3.12.2";
+    version = "v3.13.1";
     src = fetchFromGitHub ({
       owner = "alist-org";
       repo = "alist";
-      rev = "v3.12.2";
+      rev = "v3.13.1";
       fetchSubmodules = false;
-      sha256 = "sha256-Rk71VPahpat/+5NkTxxWsdkca4m0G5Jj6wmZQ+lSPxs=";
+      sha256 = "sha256-1bshVRfckB6dl+y5Z1YBtcj2hnFpW85TmnArV2OGVko=";
     });
   };
   apple-color-emoji = {
@@ -207,18 +207,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202302282211";
+    version = "202303072210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302282211/geoip.dat";
-      sha256 = "sha256-B8RDcrRSZROBF2TcR5rgIteh823JTruo3Yu0BfLHf1Y=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303072210/geoip.dat";
+      sha256 = "sha256-NX43TxbjNsdJUWVmup8L3u8k7MwBN2lpn+Qc+tFJcR8=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202302282211";
+    version = "202303072210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202302282211/geosite.dat";
-      sha256 = "sha256-6BrSreM3mUdSiHKG99NyslhD7aJP6hcncHGe0XbpE9I=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303072210/geosite.dat";
+      sha256 = "sha256-w+DN7o8Tam1IsMJgAYP847VYY5BHzT1gbOB3EPYLc7A=";
     };
   };
   luarock-dbus_proxy = {
@@ -319,15 +319,15 @@
   };
   tmux-plugin-catppuccin = {
     pname = "tmux-plugin-catppuccin";
-    version = "e2561decc2a4e77a0f8b7c05caf8d4f2af9714b3";
+    version = "8dd142b4e0244a357360cf87fb36c41373ab451f";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "tmux";
-      rev = "e2561decc2a4e77a0f8b7c05caf8d4f2af9714b3";
+      rev = "8dd142b4e0244a357360cf87fb36c41373ab451f";
       fetchSubmodules = false;
-      sha256 = "sha256-6UmFGkUDoIe8k+FrzdzsKrDHHMNfkjAk0yyc+HV199M=";
+      sha256 = "sha256-KoGrA5Mgw52jU00bgirQb/E8GbsMkG1WVyS5NSFqv7o=";
     });
-    date = "2022-12-14";
+    date = "2023-03-02";
   };
   ttf-google-sans = {
     pname = "ttf-google-sans";
@@ -366,13 +366,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.6.1";
+    version = "2.6.2";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.6.1";
+      rev = "2.6.2";
       fetchSubmodules = false;
-      sha256 = "sha256-C8tLPanL/v9YaLk07JPsgzE6S7ugsEiTsvxGoahJDa4=";
+      sha256 = "sha256-yMxcePwBUteqrdfvDjZSRInOXMFmwaFoVBihcMQFTME=";
     });
   };
   xtables-addons-perl-scripts = {
@@ -385,16 +385,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.34.4";
+    version = "v0.35.1";
     src = fetchFromGitHub ({
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.34.4";
+      rev = "v0.35.1";
       fetchSubmodules = false;
-      sha256 = "sha256-ILjORslelnMTXfuVHS9UPa5qkXuYup/+wT/s1rTSpIY=";
+      sha256 = "sha256-ntLEZDUCnEliehq2/NN7cLO2E7bh1RxXVTdzMt8jee4=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.34.4/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.35.1/Cargo.lock;
       outputHashes = {
         
       };
