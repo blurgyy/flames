@@ -1,48 +1,28 @@
-From 016429390a08b1c3a42d8d9c38d8f89173caa0cf Mon Sep 17 00:00:00 2001
-From: Gaoyang Zhang <gy@blurgy.xyz>
-Date: Thu, 15 Dec 2022 01:47:05 +0800
-Subject: [PATCH] customize status right
-
-Signed-off-by: Gaoyang Zhang <gy@blurgy.xyz>
----
- catppuccin.tmux | 16 ++++++----------
- 1 file changed, 6 insertions(+), 10 deletions(-)
-
 diff --git a/catppuccin.tmux b/catppuccin.tmux
-index 47d06e9..be262ac 100755
+index b9ba7af..a81de7d 100755
 --- a/catppuccin.tmux
 +++ b/catppuccin.tmux
-@@ -30,13 +30,7 @@ main() {
-   local theme
-   theme="$(get-tmux-option "@catppuccin_flavour" "mocha")"
- 
--  # NOTE: Pulling in the selected theme by the theme that's being set as local
--  # variables.
--  sed -E 's/^(.+=)/local \1/' \
--      > "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme" \
--      < "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
--
--  source "${PLUGIN_DIR}/catppuccin-selected-theme.tmuxtheme"
-+  source "${PLUGIN_DIR}/catppuccin-${theme}.tmuxtheme"
- 
-   # status
-   set status "on"
-@@ -68,10 +62,12 @@ main() {
-   readonly show_directory="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics]  #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} #{?client_prefix,#[fg=$thm_red]"
-   readonly show_window="#[fg=$thm_pink,bg=$thm_bg,nobold,nounderscore,noitalics]#[fg=$thm_bg,bg=$thm_pink,nobold,nounderscore,noitalics] #[fg=$thm_fg,bg=$thm_gray] #W #{?client_prefix,#[fg=$thm_red]"
+@@ -73,13 +73,17 @@ main() {
+   local show_session
    readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
+   local show_directory_in_window_status
 -  readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
--  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +  readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_bg] #{?window_zoomed_flag,*,}(#W) "
+   local show_directory_in_window_status_current
+-  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_fg]#{?window_zoomed_flag,*,}[#[fg=$thm_fg,bold]#W#[fg=$thm_fg,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
+   local show_window_in_window_status
    readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+   local show_window_in_window_status_current
    readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
++  local show_user_at_hostname
 +  readonly show_user_at_hostname="#[fg=$thm_bg,bg=$thm_yellow,nobold,nounderscore,noitalics] #{USER}@#H "
++  local show_clock_with_tz
 +  readonly show_clock_with_tz="#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] %T [%Z] "
  
    # Right column 1 by default shows the Window name.
    local right_column1=$show_window
-@@ -94,7 +90,7 @@ main() {
+@@ -101,7 +105,7 @@ main() {
  
    set status-left ""
  
@@ -51,6 +31,3 @@ index 47d06e9..be262ac 100755
  
    setw window-status-format "${window_status_format}"
    setw window-status-current-format "${window_status_current_format}"
--- 
-2.38.1
-
