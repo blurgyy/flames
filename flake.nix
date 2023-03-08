@@ -142,14 +142,15 @@
   }) // {
     hydraJobs = import ./outputs/jobs.nix { inherit inputs self my; };
     nixosModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./nixos/_modules; };
-    overlays = {
-      default = my.overlay;
-      profilesShared = final: prev: {};
-    };
+    overlays.default = my.overlay;
     templates = import ./outputs/templates { inherit my; };
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
     homeManagerModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./home/_modules; };
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
+    sharedOverlays = [
+      # TODO: remove this after colmena release 0.4.0 is out
+      inputs.colmena.overlays.default
+    ];
   };
 }

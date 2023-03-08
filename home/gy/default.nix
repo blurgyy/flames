@@ -92,8 +92,7 @@
         };
       })
       self.overlays.default
-      self.overlays.profilesShared
-    ];
+    ] ++ self.sharedOverlays;
   };
   lib = nixpkgs.lib;
   myName = "gy";

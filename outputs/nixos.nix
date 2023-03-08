@@ -3,6 +3,7 @@
     (hostName: params@{ system, ... }:
       nixpkgs.lib.nixosSystem {
         inherit system;
+        # NOTE: also need to update `outputs.colmena.meta.nodeSpecialArgs.${hostName}`.
         specialArgs = { inherit inputs; };
         modules = (import ../nixos/_parts/defaults {
           inherit self inputs system;
