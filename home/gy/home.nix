@@ -77,7 +77,7 @@ in {
   ];
 
   nix.registry = {
-    nixpkgs.flake = inputs.nixpkgs;
+    pkgs.flake = inputs.nixpkgs;
     nixgl.flake = inputs.nixgl;
     hsz = {
       from = { type = "indirect"; id = "hsz"; };
