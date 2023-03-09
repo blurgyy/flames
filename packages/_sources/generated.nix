@@ -24,13 +24,13 @@
   };
   alist = {
     pname = "alist";
-    version = "v3.13.1";
+    version = "v3.13.2";
     src = fetchFromGitHub ({
       owner = "alist-org";
       repo = "alist";
-      rev = "v3.13.1";
+      rev = "v3.13.2";
       fetchSubmodules = false;
-      sha256 = "sha256-1bshVRfckB6dl+y5Z1YBtcj2hnFpW85TmnArV2OGVko=";
+      sha256 = "sha256-0e+3keBMzh+NUZS51YIqGd/wwj4muTXwpB77FKoi/+s=";
     });
   };
   apple-color-emoji = {
@@ -207,18 +207,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202303072210";
+    version = "202303082210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303072210/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303082210/geoip.dat";
       sha256 = "sha256-NX43TxbjNsdJUWVmup8L3u8k7MwBN2lpn+Qc+tFJcR8=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202303072210";
+    version = "202303082210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303072210/geosite.dat";
-      sha256 = "sha256-w+DN7o8Tam1IsMJgAYP847VYY5BHzT1gbOB3EPYLc7A=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303082210/geosite.dat";
+      sha256 = "sha256-tm9kogDRY8p4OPOw16gBp8h4Er1NYumxFi7JKtuXMxA=";
     };
   };
   luarock-dbus_proxy = {
