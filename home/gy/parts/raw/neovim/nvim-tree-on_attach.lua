@@ -120,7 +120,7 @@ function M.on_attach(bufnr)
     else
       api.node.open.edit()
     end
-  end)
+  end, opts('ExpandOrOpen'))
 
 end
 
