@@ -24,6 +24,7 @@ in {
     package = lib.mkDefault pkgs.nixUnstable;
     registry = {
       nixpkgs.flake = inputs.nixpkgs;
+      nixgl.flake = inputs.nixgl;
       hsz = {
         from = { type = "indirect"; id = "hsz"; };
         to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };

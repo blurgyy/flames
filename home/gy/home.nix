@@ -78,6 +78,7 @@ in {
 
   nix.registry = {
     nixpkgs.flake = inputs.nixpkgs;
+    nixgl.flake = inputs.nixgl;
     hsz = {
       from = { type = "indirect"; id = "hsz"; };
       to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
