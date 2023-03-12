@@ -5,7 +5,7 @@
       package = {
         backend = pkgs.aliyundrive-mediaserver-backend;
         frontend = pkgs.aliyundrive-mediaserver-frontend;
-        aliyundrive-fuse = pkgs.aliyundrive-fuse-mobile;
+        rclone = pkgs.rclone;
         inherit (pkgs) aliyundrive-webdav;
       };
       port = {
