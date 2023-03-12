@@ -207,18 +207,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202303082210";
+    version = "202303112209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303082210/geoip.dat";
-      sha256 = "sha256-NX43TxbjNsdJUWVmup8L3u8k7MwBN2lpn+Qc+tFJcR8=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303112209/geoip.dat";
+      sha256 = "sha256-5kCve+GO6KW4gf2gPS+9YM+6MLfjqCXgygHOXNQmuyk=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202303082210";
+    version = "202303112209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303082210/geosite.dat";
-      sha256 = "sha256-tm9kogDRY8p4OPOw16gBp8h4Er1NYumxFi7JKtuXMxA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303112209/geosite.dat";
+      sha256 = "sha256-Fmf2rTwW+F2yvCp4r1jlQlpidD/uOSnrsZ8wlNiheZ0=";
     };
   };
   luarock-dbus_proxy = {
@@ -259,16 +259,16 @@
   };
   rustdesk-server = {
     pname = "rustdesk-server";
-    version = "1.1.7-1";
+    version = "1.1.7-2";
     src = fetchFromGitHub ({
       owner = "rustdesk";
       repo = "rustdesk-server";
-      rev = "1.1.7-1";
+      rev = "1.1.7-2";
       fetchSubmodules = false;
-      sha256 = "sha256-Rv2dOZ0wSLkTr4DV8wjMpiWHLzzHB8WH+0l3STOZJ8U=";
+      sha256 = "sha256-HbldGUPoXfhUTh+cBXy6aB2sUJgY3NQ+zggwbkweBpU=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./rustdesk-server-1.1.7-1/Cargo.lock;
+      lockFile = ./rustdesk-server-1.1.7-2/Cargo.lock;
       outputHashes = {
         "confy-0.4.0" = "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=";
         "async-speed-limit-0.3.1" = "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=";
@@ -385,16 +385,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.35.1";
+    version = "v0.35.2";
     src = fetchFromGitHub ({
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.35.1";
+      rev = "v0.35.2";
       fetchSubmodules = false;
-      sha256 = "sha256-ntLEZDUCnEliehq2/NN7cLO2E7bh1RxXVTdzMt8jee4=";
+      sha256 = "sha256-2wgv84Qm/X5mcEcM5ch7tFHZVg/xassUOtssSzbr0fs=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.35.1/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.35.2/Cargo.lock;
       outputHashes = {
         
       };
