@@ -102,11 +102,8 @@
       };
     };
     adrivems = {
-      url = "gitlab:highsunz/aliyundrive-mediaserver/v0.2.0";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
+      url = "gitlab:highsunz/aliyundrive-mediaserver";
+      # not following any inputs
     };
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
