@@ -208,6 +208,7 @@ in {
     ripgrep
     sdwrap
     sops
+    sqlite
     sshfs
     strace
     tokei

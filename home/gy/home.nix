@@ -57,6 +57,7 @@ in {
     ripgrep
     sdwrap
     sops
+    sqlite
     strace
     telegram-send
     tex2nix
