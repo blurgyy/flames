@@ -220,12 +220,12 @@ in {
       click
       h5py
       icecream
+      ipdb
       ipython
       matplotlib
       numpy
       pillow
       plyfile
-      pudb
       tqdm
     ]))
     hydra-check cachix
