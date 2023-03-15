@@ -27,7 +27,7 @@ in {
       else
         logging.error;
   };
-  dns = import ./dns.nix { inherit extraHosts; };
+  # dns = import ./dns.nix { inherit extraHosts; };
   inbounds = mapDir (applyTag { inherit ports; }) ./inbounds;
   outbounds = let
     applyTagAndSoMark = soMark: args: path: let
