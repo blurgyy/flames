@@ -41,6 +41,39 @@ in {
   };
 
   config = mkIf cfg.enable {
+    warnings = with builtins; let
+        getCyclingServices = services:
+          filter
+            (name:
+              elem
+                "network.target"
+                (if hasSuffix ".target" name
+                  then config.systemd.targets.${removeSuffix ".target" name}.after
+                  else config.systemd.services.${removeSuffix ".service" name}.after)
+            )
+            services;
+        mkWarnings = services:
+          map
+            (svcName: ''
+              firewall-tailored: SYSTEMD SERVICES ORDERING CYCLE DETECTED
+
+              `${svcName}` here shouldn't use "After=network.target", because nftables by default is
+              ordered **before** network-pre.target, which is in turn ordered **before**
+              network.target.  By setting "Before=nftables.service" for the service in the
+              firewall-tailored module (because `${svcName}` has been added to
+              `config.networking.firewall-tailored.referredServices` somewhere), it's an ordering
+              cycle.
+
+              The cycle:
+                nftables.service ↴
+                ^ network-pre.target ↴
+                |   network.target ↴
+                |     ${svcName} ↴ 
+                nftables.service
+            '')
+            (getCyclingServices services);
+      in mkWarnings cfg.referredServices;
+
     assertions = [{
       assertion = config.networking.firewall.enable == false;
       message = "nftables is not meant to be used with iptables.  `networking.firewall.enable` must be set to false.";
@@ -177,6 +210,12 @@ ${concatStringsSep "\n" cfg.extraRulesAfter}
         ${name} = {
           wants = [ "nftables.service" ];  # svc is referred, so add a dependency on firewall in case it does not work without a firewall.
           before = [ "nftables.service" ];  # svc's cgroupv2 path needs to be present at the time firewall tries to start.
+          # WARN:
+          #   The service (with name=${name}) here also shouldn't use "After=network.target",
+          #   because nftables by default is ordered **before** network-pre.target, which is ordered
+          #   **before** network.target.  By setting "Before=nftables.service" for the service, it's
+          #   an ordering cycle (i.e. nftables.service -> network-pre.target -> network.target ->
+          #   ${name}.service -> nftables.service).
         };
       })
       cfg.referredServices

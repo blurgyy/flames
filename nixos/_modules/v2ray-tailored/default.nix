@@ -197,7 +197,6 @@ table ip transparent_proxy {
     };
     systemd.services.vclient = mkIf cfg.client.enable {
       description = "V2Ray client";
-      after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vclient-config.path}";
@@ -247,7 +246,6 @@ table ip transparent_proxy {
     };
     systemd.services.vserver = mkIf cfg.server.enable {
       description = "V2Ray server";
-      after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vserver-config.path}";

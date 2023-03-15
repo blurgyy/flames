@@ -10,7 +10,6 @@
   in {
     documentation = [ "https://github.com/compassd/dcompass" ];
     path = [ pkgs.dcompass.dcompass-cn ];
-    after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Restart = "always";
