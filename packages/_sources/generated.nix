@@ -65,6 +65,18 @@
       sha256 = "sha256-cU9aN2qkJyuCKCxyHXVCNavRTZAlNKDmPQMm0HcaUCk=";
     });
   };
+  dnsmasq-china-list = {
+    pname = "dnsmasq-china-list";
+    version = "7bd615be14eeef2e743f25815ca11677ded36c20";
+    src = fetchFromGitHub ({
+      owner = "felixonmars";
+      repo = "dnsmasq-china-list";
+      rev = "7bd615be14eeef2e743f25815ca11677ded36c20";
+      fetchSubmodules = false;
+      sha256 = "sha256-81hfiCPFzRATRRKSQiWpNsOghdQzuiLzrYZl54jPqa0=";
+    });
+    date = "2023-03-14";
+  };
   dt = {
     pname = "dt";
     version = "v0.7.10";

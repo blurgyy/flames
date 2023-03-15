@@ -29,6 +29,10 @@ src.github = "blurgyy/dt"
 fetch.github = "blurgyy/dt"
 cargo_locks = ["Cargo.lock"]
 
+[dnsmasq-china-list]
+src.git = "https://github.com/felixonmars/dnsmasq-china-list"
+fetch.github = "felixonmars/dnsmasq-china-list"
+
 [fcitx5-fluent-dark-theme]
 src.git = "https://github.com/Reverier-Xu/FluentDark-fcitx5"
 fetch.github = "Reverier-Xu/FluentDark-fcitx5"

@@ -107,6 +107,26 @@
         },
         "version": "v1.5.0"
     },
+    "dnsmasq-china-list": {
+        "cargoLocks": null,
+        "date": "2023-03-14",
+        "extract": null,
+        "name": "dnsmasq-china-list",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "felixonmars",
+            "repo": "dnsmasq-china-list",
+            "rev": "7bd615be14eeef2e743f25815ca11677ded36c20",
+            "sha256": "sha256-81hfiCPFzRATRRKSQiWpNsOghdQzuiLzrYZl54jPqa0=",
+            "type": "github"
+        },
+        "version": "7bd615be14eeef2e743f25815ca11677ded36c20"
+    },
     "dt": {
         "cargoLocks": {
             "Cargo.lock": [
