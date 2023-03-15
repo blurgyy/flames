@@ -21,4 +21,6 @@
     preStart = "dcompass --validate --config=${dcompassCfg}";
     script = "dcompass --config=${dcompassCfg}";
   };
+
+  services.v2ray-tailored.client.proxiedSystemServices = [ "dcompass.service" ];
 }
