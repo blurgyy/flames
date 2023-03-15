@@ -128,18 +128,13 @@
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }: let
     my = import ./packages;
   in flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
-    overlaysInUse = [
-      self.overlays.default
-    ];
     pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
-      overlays = overlaysInUse;
     };
   in rec {
-    inherit overlaysInUse;  # For use in hydra jobsets (`overlays.${system}`)
     packages = my.packages pkgs;
     apps.gpustat = let
       gpustat-wrapped = pkgs.writeShellScriptBin "gpustat" ''

@@ -6,7 +6,9 @@
     inherit system;
     config.allowUnfree = true;
     config.inHydra = true;
-    overlays = (getFlake "gitlab:highsunz/flames").overlaysInUse.${system};
+    overlays = [
+      (getFlake "gitlab:highsunz/flames").overlays.default
+    ];
   };
   pkgs = import nixpkgs nixpkgsArgs;
   this = import ../../../packages;
