@@ -121,9 +121,9 @@ in with lib; {
         );
       mkService = name: instance: {
         name = "rp-${name}";
-        description = "Reverse ssh port forwarding for service '${svc}'";
-        documentation = [ "man:ssh(1)" ];
         value = {
+          description = "Reverse ssh port forwarding for service '${name}'";
+          documentation = [ "man:ssh(1)" ];
           path = [ pkgs.openssh ];
           after = [ "network.target" ];
           wantedBy = [ "multi-user.target" ];
