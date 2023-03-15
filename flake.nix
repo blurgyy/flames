@@ -159,6 +159,7 @@
     sharedOverlays = [
       # TODO: remove this after colmena release 0.4.0 is out
       inputs.colmena.overlays.default
+      inputs.dcompass.overlays.default
     ];
   };
 }

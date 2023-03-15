@@ -1,5 +1,9 @@
 { config, lib, ... }: {
-  imports = [ ./tailscale.nix ];
+  imports = [
+    ./dns
+    ./tailscale.nix
+  ];
+
   networking.firewall-tailored = {
     enable = true;
     acceptedPorts = [ "ssh" "http" "https" ] ++ [{
