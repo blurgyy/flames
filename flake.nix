@@ -133,6 +133,7 @@
       config.allowUnfree = true;
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
+      overlays = [ self.overlays.default ];
     };
   in rec {
     packages = my.packages pkgs;
