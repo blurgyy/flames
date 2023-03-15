@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: lib.mkIf (config.time.timeZone == "Asia/Shanghai") {
   environment.systemPackages = [ pkgs.dcompass.dcompass-cn ];
 
   systemd.services.dcompass = let
