@@ -24,7 +24,7 @@
       (map (subPath: "${path}/${subPath}") (attrNames (readDir path)));
 in {
   log = {
-    loglevel = "warning";
+    loglevel = logging.level;
     access = if logging.access == null || logging.access == false then
         "none"
       else if logging.access == true then 
