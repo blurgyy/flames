@@ -52,6 +52,7 @@
         sops-nix.follows = "sops-nix";
         carinae.follows = "carinae";
         colmena.follows = "colmena";
+        home-manager.follows = "home-manager";
       };
     };
     colmena = {
@@ -118,9 +119,20 @@
       };
     };
 
-    # not following any inputs
-    adrivems.url = "gitlab:highsunz/aliyundrive-mediaserver";
-    orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
+    adrivems = {
+      url = "gitlab:highsunz/aliyundrive-mediaserver";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    orangepi-3-lts-nixos = {
+      url = "gitlab:highsunz/orangepi-3-lts-nixos";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
