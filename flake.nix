@@ -44,17 +44,6 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    nickcao = {
-      url = "github:NickCao/flakes";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        sops-nix.follows = "sops-nix";
-        carinae.follows = "carinae";
-        colmena.follows = "colmena";
-        home-manager.follows = "home-manager";
-      };
-    };
     colmena = {
       url = "github:zhaofengli/colmena";
       inputs = {

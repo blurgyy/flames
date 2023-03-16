@@ -40,10 +40,6 @@ in {
       server.address = "127.0.0.1:${toString cachePort}";
     };
   };
-  cloud.services.carinae.config = {
-    ExecStart = "${pkgs.carinae}/bin/carinae -l 127.0.0.1:${toString cachePort}";
-    EnvironmentFile = config.sops.secrets.cache-key-env.path;
-  };
   services.hydra = {
     enable = true;
     hydraURL = "${hydraDomain}";
@@ -65,6 +61,44 @@ in {
     '';
   };
   systemd.services = {
+    carinae = {
+      path = [ pkgs.carinae ];
+      script = "carinae -l 127.0.0.1:${toString cachePort}";
+      serviceConfig = {
+        EnvironmentFile = config.sops.secrets.cache-key-env.path;
+
+        # REF:
+        #   <https://github.com/NickCao/flakes/blob/f2580ad69ff3c02de38854500d671bf1fdbfc528/modules/cloud/services.nix#L5>
+        # TODO:
+        #   move these options to some helper function
+        DynamicUser = true;
+        NoNewPrivileges = true;
+        ProtectSystem = "strict";
+        PrivateUsers = true;
+        PrivateDevices = true;
+        ProtectClock = true;
+        ProtectControlGroups = true;
+        ProtectHome = true;
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+        ProtectKernelLogs = true;
+        ProtectProc = "invisible";
+        LockPersonality = true;
+        MemoryDenyWriteExecute = true;
+        RestrictNamespaces = true;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        CapabilityBoundingSet = "";
+        ProtectHostname = true;
+        ProcSubset = "pid";
+        SystemCallArchitectures = "native";
+        UMask = "0077";
+        SystemCallFilter = "@system-service";
+        SystemCallErrorNumber = "EPERM";
+        Restart = "always";
+        RestartSec = 5;
+      };
+    };
     hydra-queue-runner = {
       path = [ pkgs.msmtp ];
       environment.GIT_SSH_COMMAND = "ssh -i ${config.sops.secrets.hydra-git-fetcher-ssh-key.path}";
