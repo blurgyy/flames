@@ -107,7 +107,6 @@
         flake-utils.follows = "flake-utils";
       };
     };
-
     adrivems = {
       url = "gitlab:highsunz/aliyundrive-mediaserver";
       inputs = {
@@ -115,13 +114,9 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    orangepi-3-lts-nixos = {
-      url = "gitlab:highsunz/orangepi-3-lts-nixos";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
+
+    # not following any inputs (this provides kernel for opi)
+    orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
 
   # `self` denotes this flake, otther function arguments are the flakes
