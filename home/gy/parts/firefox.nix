@@ -8,7 +8,7 @@
       settings = {
         "general.useragent.override" = let
           inherit (config.programs.firefox.package) version;
-        in "Mozilla/5.0 (X11; x86_64; rv:${version}) Gecko/20100101 Firefox/${version}";
+        in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
       };
     };
   };
