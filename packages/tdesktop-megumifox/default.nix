@@ -1,4 +1,4 @@
-{ tdesktop, fetchpatch, fetchurl }: tdesktop.overrideAttrs (oldAttrs: {
+{ tdesktop }: tdesktop.overrideAttrs (oldAttrs: {
   pname = "tdesktop-megumifox";
   patchFlags = "-lNp1";  # See the `prepare()` function in the PKGBUILD from archlinuxcn: <https://github.com/archlinuxcn/repo/tree/master/archlinuxcn/telegram-desktop-megumifox/PKGBUILD>
   cmakeFlags = oldAttrs.cmakeFlags ++ [
