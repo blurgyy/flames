@@ -14,6 +14,17 @@
     };
   };
 
+  networking = {
+    defaultGateway = "154.40.52.1";
+    interfaces.eth0 = {
+      useDHCP = false;
+      ipv4.addresses = [{
+        address = "154.40.52.20";
+        prefixLength = 24;
+      }];
+    };
+  };
+
   systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
 
   services.udisks2.enable = false;
