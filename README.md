@@ -163,6 +163,82 @@ Trouble Shooting
 
   > Reference: <https://gist.github.com/AndersonIncorp/9fb7402cf69a0994e175ebec8194847c>
 
+* Installing NixOS from Alpine
+  * To add package repositories for `nix` and its dependency `libcpuid`, add below two lines to
+    `/etc/apk/repositories`:
+    ```txt
+    http://dl-cdn.alpinelinux.org/alpine/edge/testing
+    http://dl-cdn.alpinelinux.org/alpine/edge/community
+    ```
+    Then run `apk update` and `apk add nix`.
+  * Install `bash` for nix shell:
+    ```bash
+    $ apk add bash
+    $ exec bash
+    $ set -o vi  # vi keybindins in bash
+    ```
+  * [optional] Install `openssh` and setup public keys for installing via ssh:
+    ```bash
+    $ apk add openssh
+    $ service sshd start
+    $ apk add curl
+    $ mkdir -p ~/.ssh
+    $ curl https://github.com/blurgyy.keys >>.ssh/authorized_keys
+    ```
+  * Install `util-linux` and `btrfs-progs` for disk partitioning:
+    ```bash
+    $ apk add util-linux btrfs-progs
+    ```
+  * Partition disks, add a `/nix` subvolume for mounting on the live system to avoid disk out of
+    spasce error later:
+    ```bash
+    $ fdisk /dev/vda  # vda for example
+      [...]
+    $ mkfs.btrfs /dev/vda2 -L nixos-root  # --force
+    $ mkfs.vfat /dev/vda3 -L nixos-boot
+
+    $ mount -ocompress-force=zstd:3 /dev/vda2 /mnt
+    $ mkdir /mnt/boot
+    $ mount /dev/disk/by-label/nixos-boot /mnt/boot
+
+    $ btrfs subvolume create /mnt/nix
+    $ mkdir -p /nix
+    $ mount -osubvol=nix,compress-force=zstd:3 /dev/vda2 /nix
+
+    $ btrfs subvolume create /mnt/tmp
+    $ mount -osubvol=tmp,compress-force=zstd:3 /dev/vda2 /tmp
+    ```
+  * Copy contents to `/etc/nix/nix.conf`:
+  ```conf
+  allowed-users = *
+  auto-optimise-store = true
+  builders = 
+  cores = 0
+  experimental-features = nix-command flakes repl-flake
+  #extra-platforms = aarch64-linux i686-linux i686-linux
+  max-jobs = auto
+  narinfo-cache-negative-ttl = 30
+  require-sigs = true
+  sandbox = true
+  sandbox-fallback = false
+  substituters = https://mirror.sjtu.edu.cn/nix-channels/store https://nixos-cn.cachix.org https://nix-community.cachix.org https://cache.blurgy.xyz https://cache.nixos.org/
+  system-features = nixos-test benchmark big-parallel kvm
+  tarball-ttl = 30
+  trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4=
+  trusted-substituters = 
+  trusted-users = root
+  ```
+  * Install utilities for installation via nix:
+    ```bash
+    $ nix shell nixpkgs#{nix,nixos-install-tools}  # use nix from nixpkgs instead from apline's channel
+    ```
+  * Install NisOS:
+    ```bash
+    $ nixos-install --flake gitlab:highsunz/flames#<HOSTNAME>
+    ```
+  * Last but very importantly, **Copy secrets to the host** and place it at its proper location.
+  * Reboot.
+
 * If after partitioning, no partition under `/dev` is shown, only the disk itself appears under
   `/dev`, use `mknod`.  Usage of `mknod` is `mknod [OPTION]... NAME TYPE [MAJOR MINOR]`.  We will
   create a block device by specifying `b` as TYPE, the MAJOR and MINOR can be read from
