@@ -1,6 +1,5 @@
 { self, nixpkgs, inputs }: let
-  mkHost = attrs: builtins.mapAttrs
-    (hostName: params@{ system, ... }:
+  _mkHost = (hostName: params@{ system, ... }:
       nixpkgs.lib.nixosSystem {
         inherit system;
         # NOTE: also need to update `outputs.colmena.meta.nodeSpecialArgs.${hostName}`.
@@ -16,7 +15,9 @@
           { networking = { inherit hostName; }; }
         ];
       }
-    )
+    );
+  mkHosts = attrs: builtins.mapAttrs
+    _mkHost
     attrs;
   virtual-server-aarch64 = {
     system = "aarch64-linux";
@@ -42,7 +43,7 @@
     isQemuGuest = false;
     withBinfmtEmulation = false;
   };
-in mkHost {
+in mkHosts {
   cindy = virtual-server-aarch64;
   cube = virtual-server-x86_64;
   morty = pc-x86_64;
