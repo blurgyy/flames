@@ -96,7 +96,7 @@ fetch.github = "iovxw/rssbot"
 cargo_locks = ["Cargo.lock"]
 
 [rustdesk-server]
-src.github = "rustdesk/rustdesk-server"
+src.cmd = "echo 1.1.7-1"
 fetch.github = "rustdesk/rustdesk-server"
 cargo_locks = ["Cargo.lock"]
 
