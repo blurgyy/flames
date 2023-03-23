@@ -1,6 +1,6 @@
 { lib, name, mergeAttrsList }: {
   enable = true;
-  controlMaster = "auto";
+  controlMaster = "no";
   controlPath = "~/.ssh/master-%r@%n:%p";
   compression = true;
   serverAliveInterval = 60;
