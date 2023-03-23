@@ -6,6 +6,7 @@
       "file/netrc".path = "${config.home.homeDirectory}/.netrc";  # REF: <https://docs.wandb.ai/guides/track/advanced/environment-variables>
       "file/telegram-send.conf".path = "${config.xdg.configHome}/telegram-send.conf";
       "file/cargo-credentials".path = "${config.home.sessionVariables.CARGO_HOME}/credentials";
+      "file/copilot-hosts-json".path = "${config.xdg.configHome}/github-copilot/hosts.json";
 
       "userKey/${name}".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
     };
