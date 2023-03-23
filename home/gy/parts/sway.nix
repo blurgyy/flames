@@ -47,7 +47,7 @@ in {
       "Alt+r" = "exec rofi -terminal ${term} -show drun";
       "Alt+Shift+r" = "exec rofi -terminal ${term} -show run";
       "Alt+s" = "exec rofi -terminal ${term} -show ssh";
-      "Alt+Shift+s" = "exec rofi -ssh-client 'waypipe ssh -Y' -terminal ${term} -show ssh";
+      "Alt+Shift+s" = "exec rofi -ssh-client 'waypipe --remote-bin=~/.nix-profile/bin/waypipe ssh -Y' -terminal ${term} -show ssh";
 
       # Screenshots
       "${mod}+Shift+x" = "exec ${screenshot-notify} pixel";
