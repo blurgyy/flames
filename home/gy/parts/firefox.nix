@@ -39,6 +39,7 @@
         "browser.toolbars.bookmarks.visibility" = "newtab";
         "browser.warnOnQuitShortcut" = false;
         "fission.autostart" = true;
+        "layout.css.overflow-overlay.enabled" = true;  # for the plugin "Bing Chat for All Browsers" <https://github.com/anaclumos/bing-chat-for-all-browsers#firefox>
         "layout.css.prefers-color-scheme.content-override" = 2;  # REF: <https://support.mozilla.org/bm/questions/1364502>
         "media.ffmpeg.vaapi.enabled" = true;
         "media.rdd-ffmpeg.enabled" = true;
@@ -62,6 +63,7 @@
         "webextension@metamask.io".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ether-metamask/latest.xpi";
         "firefox-translations-addon@mozilla.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-translations/latest.xpi";
         "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ruffle_rs/latest.xpi";
+        "{a9cb10b9-75e9-45c3-8194-d3b2c25bb6a2}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/bing-chat-for-all-browsers/latest.xpi";
       };
     };
   };
