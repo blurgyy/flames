@@ -109,7 +109,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-03-20",
+        "date": "2023-03-24",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -121,11 +121,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "5b8ed3721e2c8a571c1317833d4b2265f2de383e",
-            "sha256": "sha256-+Cw8VeMoaZrKQ1Cm9fc9qXZpoETCTy0iRQUvqQyvqxs=",
+            "rev": "b156458a7cfefe8bb355bb12ac336742d47a1d39",
+            "sha256": "sha256-qEDaFkz39/vpHe2TkCL8pXLy5AAETsVqzYsjDNT6YEc=",
             "type": "github"
         },
-        "version": "5b8ed3721e2c8a571c1317833d4b2265f2de383e"
+        "version": "b156458a7cfefe8bb355bb12ac336742d47a1d39"
     },
     "dt": {
         "cargoLocks": {
@@ -364,11 +364,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-+B1uEth5vL+jP6PXorwg8hwTHBrSLZ0W0dnN+h0SkGg=",
+            "sha256": "sha256-SMxLYqZ2KX+VKqbMSDZcFsv60kQtqOuhUDqXPtTbWo4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303212208/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303242209/geoip.dat"
         },
-        "version": "202303212208"
+        "version": "202303242209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -379,11 +379,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-EBKHPgWFUR24E6QySops5J9txyks5sdyJiXFBB/cBRY=",
+            "sha256": "sha256-dJp9wICS8J3H0dLow6TkfgAflw++qHraNivBEnq3+Yg=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303212208/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303242209/geosite.dat"
         },
-        "version": "202303212208"
+        "version": "202303242209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -640,11 +640,11 @@
             "name": null,
             "owner": "muety",
             "repo": "wakapi",
-            "rev": "2.6.2",
-            "sha256": "sha256-yMxcePwBUteqrdfvDjZSRInOXMFmwaFoVBihcMQFTME=",
+            "rev": "2.7.0",
+            "sha256": "sha256-1EMSrHx6Tx58voz5veyNZg1gnubuGyg2K4dg2QdzmMw=",
             "type": "github"
         },
-        "version": "2.6.2"
+        "version": "2.7.0"
     },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,

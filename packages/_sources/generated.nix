@@ -67,15 +67,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "5b8ed3721e2c8a571c1317833d4b2265f2de383e";
+    version = "b156458a7cfefe8bb355bb12ac336742d47a1d39";
     src = fetchFromGitHub ({
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "5b8ed3721e2c8a571c1317833d4b2265f2de383e";
+      rev = "b156458a7cfefe8bb355bb12ac336742d47a1d39";
       fetchSubmodules = false;
-      sha256 = "sha256-+Cw8VeMoaZrKQ1Cm9fc9qXZpoETCTy0iRQUvqQyvqxs=";
+      sha256 = "sha256-qEDaFkz39/vpHe2TkCL8pXLy5AAETsVqzYsjDNT6YEc=";
     });
-    date = "2023-03-20";
+    date = "2023-03-24";
   };
   dt = {
     pname = "dt";
@@ -219,18 +219,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202303212208";
+    version = "202303242209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303212208/geoip.dat";
-      sha256 = "sha256-+B1uEth5vL+jP6PXorwg8hwTHBrSLZ0W0dnN+h0SkGg=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303242209/geoip.dat";
+      sha256 = "sha256-SMxLYqZ2KX+VKqbMSDZcFsv60kQtqOuhUDqXPtTbWo4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202303212208";
+    version = "202303242209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303212208/geosite.dat";
-      sha256 = "sha256-EBKHPgWFUR24E6QySops5J9txyks5sdyJiXFBB/cBRY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303242209/geosite.dat";
+      sha256 = "sha256-dJp9wICS8J3H0dLow6TkfgAflw++qHraNivBEnq3+Yg=";
     };
   };
   luarock-dbus_proxy = {
@@ -378,13 +378,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.6.2";
+    version = "2.7.0";
     src = fetchFromGitHub ({
       owner = "muety";
       repo = "wakapi";
-      rev = "2.6.2";
+      rev = "2.7.0";
       fetchSubmodules = false;
-      sha256 = "sha256-yMxcePwBUteqrdfvDjZSRInOXMFmwaFoVBihcMQFTME=";
+      sha256 = "sha256-1EMSrHx6Tx58voz5veyNZg1gnubuGyg2K4dg2QdzmMw=";
     });
   };
   xtables-addons-perl-scripts = {
