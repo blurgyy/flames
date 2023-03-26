@@ -353,6 +353,18 @@
     });
     date = "2018-08-01";
   };
+  v2ray-rules-dat = {
+    pname = "v2ray-rules-dat";
+    version = "ea99bcabe05cd32818659fe6a4a39214f73c719b";
+    src = fetchFromGitHub ({
+      owner = "loyalsoldier";
+      repo = "v2ray-rules-dat";
+      rev = "ea99bcabe05cd32818659fe6a4a39214f73c719b";
+      fetchSubmodules = false;
+      sha256 = "sha256-21BZ0sPlA0iYJy+QnOEqsQ8tJVzBjM3TtNhZmF70RLc=";
+    });
+    date = "2023-03-25";
+  };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
     version = "f11015ed8b75545a6f6b754bfca7ecfb1920ecdb";

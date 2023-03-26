@@ -586,6 +586,26 @@
         },
         "version": "b1826355d8212378e5fd6094bbe504268fa6f85d"
     },
+    "v2ray-rules-dat": {
+        "cargoLocks": null,
+        "date": "2023-03-25",
+        "extract": null,
+        "name": "v2ray-rules-dat",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "loyalsoldier",
+            "repo": "v2ray-rules-dat",
+            "rev": "ea99bcabe05cd32818659fe6a4a39214f73c719b",
+            "sha256": "sha256-21BZ0sPlA0iYJy+QnOEqsQ8tJVzBjM3TtNhZmF70RLc=",
+            "type": "github"
+        },
+        "version": "ea99bcabe05cd32818659fe6a4a39214f73c719b"
+    },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,
         "date": "2023-01-18",

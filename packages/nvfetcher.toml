@@ -133,6 +133,11 @@ fetch.github = "black-desk/fcitx5-ui.nvim"
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"
 
+[v2ray-rules-dat]
+src.git = "https://github.com/loyalsoldier/v2ray-rules-dat"
+src.branch = "release"
+fetch.github = "loyalsoldier/v2ray-rules-dat"
+
 [wakapi]
 src.github = "muety/wakapi"
 fetch.github = "muety/wakapi"
