@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [
+    ./cgi.nix
     ./mail.nix
     ./ntfy.nix
     ./v2ray.nix
