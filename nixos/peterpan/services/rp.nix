@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, ... }: {
   services.ssh-reverse-proxy.server = {
     services = {
       ssh-morty = {
@@ -38,7 +38,7 @@
       keys.users ++ (builtins.attrValues keys.hosts);
   };
   services.haproxy-tailored = {
-    frontends.tls-offload-front.backends = [ { name = "web"; condition = "if HTTP"; } ];
+    frontends.tls-offload-front.backends = [ { name = "web"; condition = "if { path_beg /zju/ }"; } ];
     backends.web = {
       mode = "http";
       requestRules = [ "replace-uri /zju(.*)$ \\1" ];
