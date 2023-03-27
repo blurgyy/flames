@@ -47,11 +47,11 @@
             "name": null,
             "owner": "alist-org",
             "repo": "alist",
-            "rev": "v3.14.0",
-            "sha256": "sha256-mbJTv/TjYefuH6kcXnL/69SO8DQ6brGwnSd34GLER2E=",
+            "rev": "v3.15.0",
+            "sha256": "sha256-5Mq1n4PGMNmV2jLDWw30ZdQ9xXenaZvLb/PhVXcw5Pc=",
             "type": "github"
         },
-        "version": "v3.14.0"
+        "version": "v3.15.0"
     },
     "apple-color-emoji": {
         "cargoLocks": null,
@@ -109,7 +109,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-03-24",
+        "date": "2023-03-27",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -121,11 +121,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "b156458a7cfefe8bb355bb12ac336742d47a1d39",
-            "sha256": "sha256-qEDaFkz39/vpHe2TkCL8pXLy5AAETsVqzYsjDNT6YEc=",
+            "rev": "839ccc510ab4171ae6a3ac799b1c48b5651e9810",
+            "sha256": "sha256-JGJTxy8iN4gNDIUaly7NQq8u6gS3jkpf3aAaaQNScf0=",
             "type": "github"
         },
-        "version": "b156458a7cfefe8bb355bb12ac336742d47a1d39"
+        "version": "839ccc510ab4171ae6a3ac799b1c48b5651e9810"
     },
     "dt": {
         "cargoLocks": {
@@ -366,9 +366,9 @@
             "name": null,
             "sha256": "sha256-SMxLYqZ2KX+VKqbMSDZcFsv60kQtqOuhUDqXPtTbWo4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303242209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303262209/geoip.dat"
         },
-        "version": "202303242209"
+        "version": "202303262209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -379,11 +379,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-dJp9wICS8J3H0dLow6TkfgAflw++qHraNivBEnq3+Yg=",
+            "sha256": "sha256-8v7HYCjr7CJzje5QMnEJSi9XRdxB+ZyJn8XY9Gb4yJo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303242209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303262209/geosite.dat"
         },
-        "version": "202303242209"
+        "version": "202303262209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -588,7 +588,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-03-25",
+        "date": "2023-03-26",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -600,11 +600,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "ea99bcabe05cd32818659fe6a4a39214f73c719b",
-            "sha256": "sha256-21BZ0sPlA0iYJy+QnOEqsQ8tJVzBjM3TtNhZmF70RLc=",
+            "rev": "1ddb5d5354d14a49735bcbb1f5219d9377c14ab9",
+            "sha256": "sha256-HQCmaw5sdJB90dSrlMQEe+v832AIbdwLnTPlH0CWeH4=",
             "type": "github"
         },
-        "version": "ea99bcabe05cd32818659fe6a4a39214f73c719b"
+        "version": "1ddb5d5354d14a49735bcbb1f5219d9377c14ab9"
     },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,
