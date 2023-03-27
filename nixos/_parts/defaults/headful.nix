@@ -35,10 +35,6 @@
       pulse.enable = lib.mkDefault true;
       jack.enable = lib.mkDefault true;
       wireplumber.enable = lib.mkDefault true;
-      media-session.enable = lib.mkDefault false;
-      config.pipewire = {
-        "log.level" = 2;
-      };
     };
   };
 
