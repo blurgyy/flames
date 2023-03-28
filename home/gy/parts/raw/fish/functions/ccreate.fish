@@ -4,7 +4,7 @@ end
 argparse -n ccreate y n/name= no-default-packages -- $argv
 if not set -q _flag_name
   if set -l cur (basename (tt gr) 2>/dev/null)
-    if clist 2>/dev/null | grep -q $cur 2>/dev/null
+    if clist 2>/dev/null | grep -q "^$cur\$" 2>/dev/null
       echo "Not creating existing env '$cur'" >&2
       return 2
     else
