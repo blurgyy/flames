@@ -109,7 +109,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-03-27",
+        "date": "2023-03-28",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -121,11 +121,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "839ccc510ab4171ae6a3ac799b1c48b5651e9810",
-            "sha256": "sha256-JGJTxy8iN4gNDIUaly7NQq8u6gS3jkpf3aAaaQNScf0=",
+            "rev": "7c03aedb102c0ab0a3861788eec1edcac25d989d",
+            "sha256": "sha256-/r8Y4GUX/QBL+q4O6DZ7v9hthUjLyQ3oNAS3jNINhX8=",
             "type": "github"
         },
-        "version": "839ccc510ab4171ae6a3ac799b1c48b5651e9810"
+        "version": "7c03aedb102c0ab0a3861788eec1edcac25d989d"
     },
     "dt": {
         "cargoLocks": {
@@ -366,9 +366,9 @@
             "name": null,
             "sha256": "sha256-SMxLYqZ2KX+VKqbMSDZcFsv60kQtqOuhUDqXPtTbWo4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303262209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303292210/geoip.dat"
         },
-        "version": "202303262209"
+        "version": "202303292210"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -379,11 +379,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-8v7HYCjr7CJzje5QMnEJSi9XRdxB+ZyJn8XY9Gb4yJo=",
+            "sha256": "sha256-LkYAPfrXEoIyZp2KImCWI/5Xcpku0DgRKAmtwIJjj4w=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303262209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202303292210/geosite.dat"
         },
-        "version": "202303262209"
+        "version": "202303292210"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -548,7 +548,7 @@
     },
     "tmux-plugin-catppuccin": {
         "cargoLocks": null,
-        "date": "2023-03-02",
+        "date": "2023-03-28",
         "extract": null,
         "name": "tmux-plugin-catppuccin",
         "passthru": null,
@@ -560,11 +560,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "tmux",
-            "rev": "8dd142b4e0244a357360cf87fb36c41373ab451f",
-            "sha256": "sha256-KoGrA5Mgw52jU00bgirQb/E8GbsMkG1WVyS5NSFqv7o=",
+            "rev": "92b32c5c1a4e0df842980860071467e69dcb8b29",
+            "sha256": "sha256-tZfdh1CGH5hGAFT+lMPR9hthlEBTjSAklRiLx7NYTYg=",
             "type": "github"
         },
-        "version": "8dd142b4e0244a357360cf87fb36c41373ab451f"
+        "version": "92b32c5c1a4e0df842980860071467e69dcb8b29"
     },
     "ttf-google-sans": {
         "cargoLocks": null,
@@ -588,7 +588,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-03-26",
+        "date": "2023-03-29",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -600,11 +600,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "1ddb5d5354d14a49735bcbb1f5219d9377c14ab9",
-            "sha256": "sha256-HQCmaw5sdJB90dSrlMQEe+v832AIbdwLnTPlH0CWeH4=",
+            "rev": "4b06d8366ceb7b434bccb2b6bf84ba57fc72e51d",
+            "sha256": "sha256-lpMD4xkKgj4Pg9WsjWV5c+WccpXYYuS4ptiFth4Z4Oc=",
             "type": "github"
         },
-        "version": "1ddb5d5354d14a49735bcbb1f5219d9377c14ab9"
+        "version": "4b06d8366ceb7b434bccb2b6bf84ba57fc72e51d"
     },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,
