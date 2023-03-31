@@ -96,6 +96,7 @@ in {
       DNS=${toString dnsServers}
     '';
   };
+  services.vnstat.enable = true;
 
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
