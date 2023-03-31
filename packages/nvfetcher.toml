@@ -61,6 +61,10 @@ fetch.github = "cyrus-and/gdb-dashboard"
 src.github = "ArtifexSoftware/urw-base35-fonts"
 fetch.github = "ArtifexSoftware/urw-base35-fonts"
 
+[halbot]
+src.git = "https://github.com/Leask/halbot"
+fetch.github = "Leask/halbot"
+
 [harmonyos-sans]
 src.git = "https://gitee.com/openharmony/resources"
 fetch.git = "https://gitee.com/openharmony/resources"

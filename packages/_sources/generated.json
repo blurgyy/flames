@@ -291,6 +291,26 @@
         },
         "version": "20200910"
     },
+    "halbot": {
+        "cargoLocks": null,
+        "date": "2023-03-29",
+        "extract": null,
+        "name": "halbot",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Leask",
+            "repo": "halbot",
+            "rev": "c20f0539c88c3e7f3c8886b4fc636cb088614c74",
+            "sha256": "sha256-vxN0pe7Jv8awRGmxX7Rkv5aZSePl39M/qfq0060gSFE=",
+            "type": "github"
+        },
+        "version": "c20f0539c88c3e7f3c8886b4fc636cb088614c74"
+    },
     "harmonyos-sans": {
         "cargoLocks": null,
         "date": "2022-05-28",
