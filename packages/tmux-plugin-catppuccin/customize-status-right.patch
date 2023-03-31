@@ -1,10 +1,10 @@
 diff --git a/catppuccin.tmux b/catppuccin.tmux
-index b9ba7af..a81de7d 100755
+index 185f090..0cc2a9e 100755
 --- a/catppuccin.tmux
 +++ b/catppuccin.tmux
-@@ -73,13 +73,17 @@ main() {
+@@ -81,13 +81,17 @@ main() {
    local show_session
-   readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
+   readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]$right_separator#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg] #[fg=$thm_fg,bg=$thm_gray] #S "
    local show_directory_in_window_status
 -  readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
 +  readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_bg] #{?window_zoomed_flag,*,}(#W) "
@@ -12,9 +12,9 @@ index b9ba7af..a81de7d 100755
 -  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
 +  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_fg]#{?window_zoomed_flag,*,}[#[fg=$thm_fg,bold]#W#[fg=$thm_fg,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
    local show_window_in_window_status
-   readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+   readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]$left_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
    local show_window_in_window_status_current
-   readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
+   readonly show_window_in_window_status_current="#[fg=$thm_fg,bg=$thm_gray] #W #[fg=$thm_bg,bg=$thm_orange] #I#[fg=$thm_orange,bg=$thm_bg]$left_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
 +  local show_user_at_hostname
 +  readonly show_user_at_hostname="#[fg=$thm_bg,bg=$thm_yellow,nobold,nounderscore,noitalics] #{USER}@#H "
 +  local show_clock_with_tz
@@ -22,7 +22,7 @@ index b9ba7af..a81de7d 100755
  
    # Right column 1 by default shows the Window name.
    local right_column1=$show_window
-@@ -101,7 +105,7 @@ main() {
+@@ -109,7 +113,7 @@ main() {
  
    set status-left ""
  
