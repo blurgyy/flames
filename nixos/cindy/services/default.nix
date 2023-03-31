@@ -1,6 +1,7 @@
 { config, ... }: {
   imports = [
     ../../_parts/hydra-distributed-builder.nix
+    ./halbot.nix
     ./hydra.nix
     ./rssbot.nix
     ./v2ray.nix
