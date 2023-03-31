@@ -1,5 +1,5 @@
 { config, pkgs, ... }: {
-  sops.secrets."halbot.json" = {};
+  sops.secrets."halbot.json".restartUnits = [ "halbot.service" ];
 
   systemd.services.halbot = {
     documentation = [ "https://github.com/Leask/halbot" ];
