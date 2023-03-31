@@ -64,6 +64,7 @@ in {
     carinae = {
       path = [ pkgs.carinae ];
       script = "carinae -l 127.0.0.1:${toString cachePort}";
+      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         EnvironmentFile = config.sops.secrets.cache-key-env.path;
 
