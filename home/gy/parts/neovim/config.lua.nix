@@ -197,6 +197,9 @@ in ''
     autocmd CmdwinLeave * nunmap <ESC>
     autocmd BufEnter * silent filetype detect
     autocmd BufWritePost * silent filetype detect
+    " avoid :edit or buffer switching from setting the line of cursor to center
+    autocmd BufLeave * let b:__bufview=winsaveview()
+    autocmd BufEnter * if exists('b:__bufview') | call winrestview(b:__bufview) | endif
   ]])
 
   -- Plugins
