@@ -93,7 +93,7 @@ in ''
 
   vim.o.textwidth = 100
   vim.o.colorcolumn = "101"
-  vim.o.cursorlineopt = "number"
+  vim.o.cursorlineopt = "both"  -- equivalent as "line,number"
   vim.o.cursorline = true
   vim.o.showtabline = 2
 
