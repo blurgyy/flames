@@ -10,6 +10,7 @@
       "@wlan_3@" = { psk = "@wlan_3_psk@"; priority = 50; };
       "@wlan_4@" = { psk = "@wlan_4_psk@"; priority = 30; };
       "@wlan_5@" = { psk = "@wlan_5_psk@"; priority = 30; };
+      "@wlan_6@" = { psk = "@wlan_6_psk@"; priority = 30; };
       "ZJUWLAN".authProtocols = [ "NONE" ];
       "ZJUWLAN-NEW".authProtocols = [ "NONE" ];
     };
