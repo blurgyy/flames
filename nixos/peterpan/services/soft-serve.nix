@@ -11,7 +11,7 @@
     display.host = "${config.networking.fqdn}";
     keyFile = config.sops.secrets."soft-serve/hostkey".path;
     #repoDirectory
-    anonAccess = "read-only";
+    anonAccess = "no-access";
     allowKeyless = true;
     users.gy = {
       isAdmin = true;
