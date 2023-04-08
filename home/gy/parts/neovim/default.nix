@@ -53,6 +53,7 @@
         tree-sitter-python
         tree-sitter-r
         tree-sitter-rust
+        tree-sitter-sql
         tree-sitter-toml
         tree-sitter-yaml
         tree-sitter-vim

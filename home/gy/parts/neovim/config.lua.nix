@@ -172,6 +172,7 @@ in ''
     "norg",
     "plaintex",
     "sh",
+    "sql",
     "sshconfig",
     "tex",
     "toml",
