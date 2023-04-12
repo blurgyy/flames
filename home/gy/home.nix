@@ -23,6 +23,7 @@ in {
     exa
     exiftool
     fd
+    ffmpeg-full
     file
     fish
     fzf
