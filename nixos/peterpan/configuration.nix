@@ -2,7 +2,7 @@
   time.timeZone = "Asia/Shanghai";
 
   boot.loader.grub.device = "/dev/vda";
-  boot.tmpOnTmpfs = false;
+  boot.tmp.useTmpfs = false;
   fileSystems = {
     "/" = {  
       device = "/dev/disk/by-label/nixos-root";

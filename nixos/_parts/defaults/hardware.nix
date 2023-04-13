@@ -63,8 +63,9 @@
         authorizedKeys = keys;
       };
     };
-    tmpOnTmpfs = lib.mkDefault true;
-    tmpOnTmpfsSize = lib.mkDefault "100%";
+    tmp.useTmpfs = lib.mkDefault true;
+    tmp.tmpfsSize = lib.mkDefault "100%";
+    tmp.cleanOnBoot = lib.mkDefault true;
   };
 
   #kexec.autoReboot = false;  # Use this with inputs.nixos-generators.nixosModules.kexec in `./default.nix`
