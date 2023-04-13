@@ -35,10 +35,10 @@
   };
   apple-color-emoji = {
     pname = "apple-color-emoji";
-    version = "ios-15.4";
+    version = "v16.4";
     src = fetchurl {
-      url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/ios-15.4/AppleColorEmoji.ttf";
-      sha256 = "sha256-CDmtLCzlytCZyMBDoMrdvs3ScHkMipuiXoNfc6bfimw=";
+      url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/v16.4/AppleColorEmoji.ttf";
+      sha256 = "sha256-goY9lWBtOnOUotitjVfe96zdmjYTPT6PVOnZ0MEWh0U=";
     };
   };
   bat-theme-catppuccin = {
@@ -67,15 +67,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "d894db4adfce0b20a13b999254980864b4426b8a";
+    version = "4692f19bc8c0cab0c0d3d22337b69459039dcf86";
     src = fetchFromGitHub ({
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "d894db4adfce0b20a13b999254980864b4426b8a";
+      rev = "4692f19bc8c0cab0c0d3d22337b69459039dcf86";
       fetchSubmodules = false;
-      sha256 = "sha256-Eu9je+cIqatdPMS+MLRNyvNFQxh1JmplUGDYOxUvBP8=";
+      sha256 = "sha256-1O4BfjCHQZAZX0ZT2F+gqwblpTv4ikYQXclhyD3GfY0=";
     });
-    date = "2023-04-05";
+    date = "2023-04-11";
   };
   dt = {
     pname = "dt";
@@ -143,16 +143,16 @@
   };
   foot-theme-catppuccin = {
     pname = "foot-theme-catppuccin";
-    version = "79ab526a1428318dba793d58afd1d2545ed3cb7c";
+    version = "009cd57bd3491c65bb718a269951719f94224eb7";
     src = fetchgit {
       url = "https://github.com/catppuccin/foot";
-      rev = "79ab526a1428318dba793d58afd1d2545ed3cb7c";
+      rev = "009cd57bd3491c65bb718a269951719f94224eb7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-QojvIlaheEsHvv1vOIVEWg7eTo9zlcdkpb33BJLQB9M=";
+      sha256 = "sha256-gO+ZfG2Btehp8uG+h4JE7MSFsic+Qvfzio8Um0lDGTg=";
     };
-    date = "2022-12-26";
+    date = "2023-04-09";
   };
   gdb-dashboard = {
     pname = "gdb-dashboard";
@@ -178,15 +178,15 @@
   };
   halbot = {
     pname = "halbot";
-    version = "31ed2f4e1e30eedacbfb1ce96b4665a4165de3f6";
+    version = "5370484048dc71cea4351152d919ec56ab948287";
     src = fetchFromGitHub ({
       owner = "Leask";
       repo = "halbot";
-      rev = "31ed2f4e1e30eedacbfb1ce96b4665a4165de3f6";
+      rev = "5370484048dc71cea4351152d919ec56ab948287";
       fetchSubmodules = false;
-      sha256 = "sha256-mv/J2aa7bUcGUR1iI5KRejNz3WfU6+249lPwsaRYnGQ=";
+      sha256 = "sha256-TFgpzJUrTisZQ/7CCip2Xo9T1d5JbcDekLTIP859OMo=";
     });
-    date = "2023-04-07";
+    date = "2023-04-13";
   };
   harmonyos-sans = {
     pname = "harmonyos-sans";
@@ -231,18 +231,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202304072208";
+    version = "202304122209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304072208/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304122209/geoip.dat";
       sha256 = "sha256-wKYoEE/MhXHT/SSzgGX6k5fp7P8V4tzBh6rlqaBkKqg=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202304072208";
+    version = "202304122209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304072208/geosite.dat";
-      sha256 = "sha256-LjnS+JBQPsypke8Sn1j2psrhFfXMJ7sgqteTf9eZKok=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304122209/geosite.dat";
+      sha256 = "sha256-ToBPMz9IMvQ7q+rnB8utKhWDqtUs7Imkaxh5D+7qd4I=";
     };
   };
   luarock-dbus_proxy = {
@@ -302,10 +302,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "8.9.0";
+    version = "8.10.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.9.0/simple-icons-font-8.9.0.zip";
-      sha256 = "sha256-iaI2CF7VzmHT64vDYUIDaogTZHkbnmXTAY7XUholm1w=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.10.0/simple-icons-font-8.10.0.zip";
+      sha256 = "sha256-Fw2NcMn+YrJsNbdSK32Z1mPvKlme8pH0lnab22skC6w=";
     };
   };
   symbols-nerd-font = {
@@ -367,15 +367,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "1db5df713e21261c439e9e605bc2687ad4f92780";
+    version = "fd002f5d519f790b318d6268f8787d2c5ebaa2e0";
     src = fetchFromGitHub ({
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "1db5df713e21261c439e9e605bc2687ad4f92780";
+      rev = "fd002f5d519f790b318d6268f8787d2c5ebaa2e0";
       fetchSubmodules = false;
-      sha256 = "sha256-MvkSP+4SdIqg7cOO9kyh0/IjFtvlQSUZeCbboaopJ0E=";
+      sha256 = "sha256-Z1xceqsJxLUiNOTatE3fVCRzEOvgboQFqI1cfsOp/D8=";
     });
-    date = "2023-04-07";
+    date = "2023-04-12";
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
@@ -421,16 +421,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.35.2";
+    version = "v0.36.0";
     src = fetchFromGitHub ({
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.35.2";
+      rev = "v0.36.0";
       fetchSubmodules = false;
-      sha256 = "sha256-2wgv84Qm/X5mcEcM5ch7tFHZVg/xassUOtssSzbr0fs=";
+      sha256 = "sha256-6hd4vZfcztD+i3hRP057Z9kYbl/QYK7e5X18tKRmNVQ=";
     });
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.35.2/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.36.0/Cargo.lock;
       outputHashes = {
         
       };

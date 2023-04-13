@@ -7,7 +7,7 @@
 
   dontNpmBuild = true;
 
-  npmDepsHash = "sha256-YLnaJOQEw90nJMSNg2Q+gqSerjupYrblTFKMijsgxPU=";
+  npmDepsHash = "sha256-5zU0v+g3FMXNWM10Ly73Y3TeCd1G5FjluPPC/1CR+FM=";
 
   meta = {
     homepage = "https://github.com/Leask/halbot";
