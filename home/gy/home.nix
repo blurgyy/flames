@@ -46,6 +46,7 @@ in {
     lfs
     libime-history-merge
     libqalculate
+    litecli
     lnav
     lsof
     nix-output-monitor

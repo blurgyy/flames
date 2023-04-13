@@ -200,6 +200,7 @@ in {
     iotop
     jq
     libqalculate
+    litecli
     lm_sensors
     lsof
     neovim
