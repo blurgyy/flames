@@ -141,6 +141,18 @@
       sha256 = "sha256-vi4sYoI366FkIonXDlf/eE2Pyjq7E/kOKBrQS+LtE+M=";
     });
   };
+  fonts-collection = {
+    pname = "fonts-collection";
+    version = "f12fd1af32fdcce6e7703f457029a9c6b92970c8";
+    src = fetchFromGitHub ({
+      owner = "dolbydu";
+      repo = "font";
+      rev = "f12fd1af32fdcce6e7703f457029a9c6b92970c8";
+      fetchSubmodules = false;
+      sha256 = "sha256-oeGC4rBtI1GKdC5gKiuRjKLU9RHksyKE+a8hRV0SVXw=";
+    });
+    date = "2013-11-16";
+  };
   foot-theme-catppuccin = {
     pname = "foot-theme-catppuccin";
     version = "009cd57bd3491c65bb718a269951719f94224eb7";

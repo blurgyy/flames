@@ -49,6 +49,10 @@ fetch.github = "IlanCosman/tide"
 src.git = "https://github.com/catppuccin/fish"
 fetch.github = "catppuccin/fish"
 
+[fonts-collection]
+src.git = "https://github.com/dolbydu/font"
+fetch.github = "dolbydu/font"
+
 [foot-theme-catppuccin]
 src.git = "https://github.com/catppuccin/foot"
 fetch.git = "https://github.com/catppuccin/foot"
