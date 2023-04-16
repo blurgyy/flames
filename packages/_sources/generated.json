@@ -370,6 +370,26 @@
         },
         "version": "v2.1"
     },
+    "latex-fonts": {
+        "cargoLocks": null,
+        "date": "2018-08-08",
+        "extract": null,
+        "name": "latex-fonts",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Haixing-Hu",
+            "repo": "latex-chinese-fonts",
+            "rev": "287399335ec1beb72062ce67c36eaa8bec35f386",
+            "sha256": "sha256-v3pKnmEUeLwLY7Oqkvhet+wSw53qJbQOhesuYrg1qXw=",
+            "type": "github"
+        },
+        "version": "287399335ec1beb72062ce67c36eaa8bec35f386"
+    },
     "libime-history-merge": {
         "cargoLocks": {
             "Cargo.lock": [

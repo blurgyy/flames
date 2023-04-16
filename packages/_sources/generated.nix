@@ -224,6 +224,18 @@
       sha256 = "sha256-uH0PADYv2hbDxPSuS5ckuov9mJ8pYuWt8hp18rXll6Y=";
     });
   };
+  latex-fonts = {
+    pname = "latex-fonts";
+    version = "287399335ec1beb72062ce67c36eaa8bec35f386";
+    src = fetchFromGitHub ({
+      owner = "Haixing-Hu";
+      repo = "latex-chinese-fonts";
+      rev = "287399335ec1beb72062ce67c36eaa8bec35f386";
+      fetchSubmodules = false;
+      sha256 = "sha256-v3pKnmEUeLwLY7Oqkvhet+wSw53qJbQOhesuYrg1qXw=";
+    });
+    date = "2018-08-08";
+  };
   libime-history-merge = {
     pname = "libime-history-merge";
     version = "v0.3.0";

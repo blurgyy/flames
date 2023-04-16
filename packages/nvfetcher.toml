@@ -77,6 +77,10 @@ fetch.git = "https://gitee.com/openharmony/resources"
 src.github_tag = "TombstoneTumbleweedArt/import-ply-as-verts"
 fetch.github = "TombstoneTumbleweedArt/import-ply-as-verts"
 
+[latex-fonts]
+src.git = "https://github.com/Haixing-Hu/latex-chinese-fonts"
+fetch.github = "Haixing-Hu/latex-chinese-fonts"
+
 [libime-history-merge]
 src.github_tag = "blurgyy/libime-history-merge"
 fetch.github = "blurgyy/libime-history-merge"
