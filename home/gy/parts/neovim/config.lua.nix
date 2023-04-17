@@ -469,8 +469,20 @@ in ''
   })
   require("telescope").load_extension("fzf")
 
+  --- copilot.lua, copilot-cmp
+  require("copilot").setup({
+    suggestion = { enabled = false },
+    panel = { enabled = false },
+  })
+  require("copilot_cmp").setup()
+
   --- cmp
   local cmp = require("cmp")
+  local has_words_before = function()  -- REF: <https://github.com/zbirenbaum/copilot-cmp/blob/99467081478aabe4f1183a19a8ba585e511adc20/README.md#user-content-tab-completion-configuration-highly-recommended>
+    if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
+  end
   cmp.setup({
     snippet = {
       expand = function(args)
@@ -488,15 +500,13 @@ in ''
         behavior = cmp.ConfirmBehavior.Replace,
         select = true,
       }),
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif require("luasnip").expand_or_jumpable() then
-          require("luasnip").expand_or_jump()
+      ["<Tab>"] = vim.schedule_wrap(function(fallback)
+        if cmp.visible() and has_words_before() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
         else
           fallback()
         end
-      end, { "i", "s" }),
+      end),
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
@@ -535,11 +545,15 @@ in ''
       { name = "nvim_lsp_signature_help" },
     }, {
       { name = "buffer" },
+      { name = "copilot", group_index = 2 },
     }),
     formatting = {
       format = require("lspkind").cmp_format({
         mode = "symbol",
         preset = "codicons",
+        symbol_map = {
+          Copilot = " ",
+        };
       }),
     },
   })
