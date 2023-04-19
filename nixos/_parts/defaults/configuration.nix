@@ -199,6 +199,7 @@ in {
     inotify-tools
     iotop
     jq
+    lfs
     libqalculate
     litecli
     lm_sensors
