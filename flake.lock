@@ -372,29 +372,6 @@
         "type": "github"
       }
     },
-    "nixos-cn": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1681868310,
-        "narHash": "sha256-tUBJjUo1B/cG7UW3HM8RPMstPZTfbsg++a5Phdd7Ggc=",
-        "owner": "nixos-cn",
-        "repo": "flakes",
-        "rev": "c6e78cf694c246053f2ee98d8d7a0ea1dde1c0aa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos-cn",
-        "repo": "flakes",
-        "type": "github"
-      }
-    },
     "nixos-generators": {
       "inputs": {
         "nixlib": "nixlib",
@@ -497,7 +474,6 @@
         "nbfc-linux": "nbfc-linux",
         "nix-index-db": "nix-index-db",
         "nixgl": "nixgl",
-        "nixos-cn": "nixos-cn",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

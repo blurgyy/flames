@@ -5,7 +5,6 @@
     overlays = [
       (final: prev: {
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
-        inherit (inputs.nixos-cn.legacyPackages.${system}) re-export;
         inherit (inputs.home-manager.packages.${system}) home-manager;
         inherit (inputs.nixgl.packages.${system}) nixGLIntel;
         inherit (inputs.hyprland.packages.${system}) hyprland wlroots-hyprland;

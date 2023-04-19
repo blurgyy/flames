@@ -45,7 +45,6 @@
   };
   shellAbbrs = import ./abbrs.nix { inherit pkgs; };
   shellAliases = with pkgs; {
-    #dingtalk = "${sdwrap}/bin/sdwrap ${nixos-cn.dingtalk}/bin/dingtalk";
     bhome = "home-manager build -v --flake";
     bsys = "nixos-rebuild build --use-remote-sudo -L -v --flake";
     shome = "home-manager switch -v --flake";

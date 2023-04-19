@@ -76,7 +76,6 @@ in {
     zip
     zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
-    #nixos-cn.dingtalk
   ];
 
   nix.registry = {
