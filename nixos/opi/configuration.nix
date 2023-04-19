@@ -56,7 +56,7 @@
     '';
     # REF: <https://nixos.wiki/wiki/NixOS_on_ARM/Orange_Pi_Zero2_H616#Periphery>
     postBuildCommands = ''
-      dd if=${pkgs.opi3lts-uboot}/7pvzzppwwaqvg9mjqv2jsc3v7m1fv8i4-uboot.bin of=$img bs=1k seek=8 conv=notrunc
+      dd if=${pkgs.opi3lts-uboot}/uboot.bin of=$img bs=1k seek=8 conv=notrunc
     '';
   };
 
