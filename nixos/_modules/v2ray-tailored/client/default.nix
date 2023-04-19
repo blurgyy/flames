@@ -1,4 +1,4 @@
-{ config, lib, uuid, logging, extraHosts, soMark, fwMark, ports, remotes, overseaSelectors }: with builtins; let
+{ config, lib, uuid, logging, extraHosts, soMark, fwMark, ports, remotes }: with builtins; let
   applyTag = overrides: path: {
     tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
   } // (with builtins; let
@@ -60,7 +60,15 @@ in {
     ++ (map (applySoMark soMark) outbounds-servers);
   routing = import ./routing { inherit applyTag mapDir; };
   observatory = {
-    subjectSelector = overseaSelectors;
+    subjectSelector = let
+        allSelectors = filter
+          (e:
+            !(builtins.any
+              (prefix: lib.hasPrefix prefix e)
+              ["cn" "direct-zju"]))
+          (builtins.concatLists
+            (mapDir (path: (import path).selector) ./routing/balancers));
+      in lib.unique (builtins.sort builtins.lessThan allSelectors);
     probeURL = config.sops.placeholder."v2ray/observatory-probe-url";
     probeInterval = "30s";
   };

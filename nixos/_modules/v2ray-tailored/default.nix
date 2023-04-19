@@ -63,7 +63,6 @@ in {
       ports.socks = mkOption { type = with types; oneOf [ str int ]; };
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
       remotes = mkOption { type = with types; listOf remoteModule; };
-      overseaSelectors = mkOption { type = types.listOf types.str; };
       proxyBypassedIPs = mkOption { type = types.listOf types.str; default = []; };
       proxiedSystemServices = mkOption { type = types.listOf types.str; default = [ "nix-daemon.service" ]; };
     };
@@ -115,7 +114,7 @@ in {
     # As client
     sops.templates.vclient-config = with cfg.client; mkIf enable {
       name = "vclient.json";
-      content = builtins.toJSON (import ./client { inherit config lib uuid logging extraHosts soMark fwMark ports remotes overseaSelectors; });
+      content = builtins.toJSON (import ./client { inherit config lib uuid logging extraHosts soMark fwMark ports remotes; });
       owner = config.users.users.v2ray.name;
       group = config.users.groups.v2ray.name;
     };
