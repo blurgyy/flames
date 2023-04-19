@@ -5,6 +5,10 @@
         port = 10021;
         expose = true;
       };
+      ssh-copi = {
+        port = 2856;
+        expose = true;
+      };
       ssh-opi = {
         port = 6229;
         expose = true;

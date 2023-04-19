@@ -20,6 +20,7 @@ in apply {
   "gy@john" = x86_64-non-headless;
   "gy@rpi" = aarch64-headless;
   "gy@opi" = aarch64-headless;
+  "gy@copi" = aarch64-headless;
 
   "gy@watson" = x86_64-non-headless;
 

@@ -51,6 +51,7 @@ in mkHosts {
   quad = virtual-server-x86_64;
   rpi = sbc-aarch64;
   opi = sbc-aarch64;
+  copi = sbc-aarch64;
   rubik = virtual-server-x86_64;
   trigo = virtual-server-x86_64;
 }
