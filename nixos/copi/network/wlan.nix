@@ -55,7 +55,7 @@
           '';
         in "${zjuwlan-login-condition}/bin/zjuwlan-login-condition";
         RuntimeMaxSec = 90;
-        Restart = "always";
+        Restart = "on-failure";
         RestartSec = 5;
         User = config.users.users.zjuwlan.name;
         Group = config.users.groups.zjuwlan.name;
