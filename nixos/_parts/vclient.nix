@@ -1,9 +1,9 @@
 { config, ... }: {
   sops.secrets = {
     "v2ray/observatory-probe-url" = {};
-    "v2ray/ports/http" = {};
-    "v2ray/ports/socks" = {};
-    "v2ray/ports/tproxy" = {};
+    "v2ray/ports/client/http" = {};
+    "v2ray/ports/client/socks" = {};
+    "v2ray/ports/client/tproxy" = {};
     "v2ray/ws-path" = {};
     "v2ray/id" = {};
     "v2ray/domains/eu-00" = {};
@@ -25,9 +25,9 @@
     uuid = config.sops.placeholder."v2ray/id";
     soMark = 27;
     fwMark = 39283;
-    ports.http = config.sops.placeholder."v2ray/ports/http";
-    ports.socks = config.sops.placeholder."v2ray/ports/socks";
-    ports.tproxy = config.sops.placeholder."v2ray/ports/tproxy";
+    ports.http = config.sops.placeholder."v2ray/ports/client/http";
+    ports.socks = config.sops.placeholder."v2ray/ports/client/socks";
+    ports.tproxy = config.sops.placeholder."v2ray/ports/client/tproxy";
     proxiedSystemServices = [ "nix-daemon.service" ];
     remotes = [
       rec {

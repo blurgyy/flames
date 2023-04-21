@@ -1,6 +1,6 @@
 { config, ... }: {
   sops.secrets = {
-    "v2ray/ports/reverse" = {};
+    "v2ray/ports/server/reverse" = {};
     "v2ray/users/reverse/uuid" = {};
   };
   imports = [
@@ -13,7 +13,7 @@
       reverse = {
         counterpartName = "watson";
         position = "world";
-        port = config.sops.placeholder."v2ray/ports/reverse";
+        port = config.sops.placeholder."v2ray/ports/server/reverse";
         id = config.sops.placeholder."v2ray/users/reverse/uuid";
         proxiedDomains = [
           "cc98"

@@ -1,10 +1,10 @@
 { config, ... }: {
   sops.secrets = {
-    "v2ray/ports/http" = {};
-    "v2ray/ports/socks" = {};
-    "v2ray/ports/api" = {};
-    "v2ray/ports/tcp" = {};
-    "v2ray/ports/wss" = {};
+    "v2ray/ports/server/http" = {};
+    "v2ray/ports/server/socks" = {};
+    "v2ray/ports/server/api" = {};
+    "v2ray/ports/server/tcp" = {};
+    "v2ray/ports/server/wss" = {};
     "v2ray/ws-path" = {};
 
     "v2ray/users/00/uuid" = {};
@@ -23,11 +23,11 @@
   };
   services.v2ray-tailored.server = {
     enable = true;
-    ports.http = config.sops.placeholder."v2ray/ports/http";
-    ports.socks = config.sops.placeholder."v2ray/ports/socks";
-    ports.api = config.sops.placeholder."v2ray/ports/api";
-    ports.tcp = config.sops.placeholder."v2ray/ports/tcp";
-    ports.wss = config.sops.placeholder."v2ray/ports/wss";
+    ports.http = config.sops.placeholder."v2ray/ports/server/http";
+    ports.socks = config.sops.placeholder."v2ray/ports/server/socks";
+    ports.api = config.sops.placeholder."v2ray/ports/server/api";
+    ports.tcp = config.sops.placeholder."v2ray/ports/server/tcp";
+    ports.wss = config.sops.placeholder."v2ray/ports/server/wss";
     wsPath = config.sops.placeholder."v2ray/ws-path";
     logging.access = true;
     usersInfo = let
