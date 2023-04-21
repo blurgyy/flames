@@ -2,7 +2,6 @@
   sops.secrets = {
     "v2ray/ports/reverse" = {};
     "v2ray/users/reverse/uuid" = {};
-    "v2ray/users/reverse/email" = {};
   };
   imports = [
     ../../_parts/vclient.nix
@@ -14,7 +13,7 @@
       reverse = {
         counterpartName = "watson";
         position = "world";
-        port = 10024;
+        port = config.sops.placeholder."v2ray/ports/reverse";
         id = config.sops.placeholder."v2ray/users/reverse/uuid";
         proxiedDomains = [
           "cc98"
