@@ -99,6 +99,10 @@ in {
           }
         ];
       }
+      {
+        protocol = "freedom";
+        tag = "direct";
+      }
     ];
   routing = if (reverse == null)
     then (import ./routing) { inherit applyTag mapDir; }
@@ -128,24 +132,28 @@ in {
       domainMatcher = "mph";
       rules = map (o: { type = "field"; } // o) [
         {  # Use this as the first rule, use full domain to route control channel traffic
-          inboundTag = [ "portal-${reverse.counterpartName}" ];
+          inboundTag = [ "bridge-${reverse.counterpartName}" ];
           domain = [ "full:${config.networking.hostName}.reverse.${reverse.counterpartName}" ];
           outboundTag = "reverse-tunnel";
         }
         # Direct connect to non-communication traffic
-        { inboundTag = [ "portal-${reverse.counterpartName}" ]; outboundTag = "direct"; }
+        { inboundTag = [ "bridge-${reverse.counterpartName}" ]; outboundTag = "direct"; }
         # Block all other traffic
         { network = "tcp,udp"; outboundTag = "blocked"; }
       ];
     };
-  reverse.portals = if (reverse != null)
-  then [
-    {
-      tag = "portal-${reverse.counterpartName}";
-      domain = if (reverse.position == "world")
-        then "${reverse.counterpartName}.reverse.${config.networking.hostName}"
-        else "${config.networking.hostName}.reverse.${reverse.counterpartName}";
-    }
-  ]
-  else [];
+  reverse = {
+    portals = if (reverse != null && reverse.position == "world")
+      then [{
+        tag = "portal-${reverse.counterpartName}";
+        domain = "${reverse.counterpartName}.reverse.${config.networking.hostName}";
+      }]
+      else [];
+    bridges = if (reverse != null && reverse.position == "internal")
+      then [{
+        tag = "bridge-${reverse.counterpartName}";
+        domain = "${config.networking.hostName}.reverse.${reverse.counterpartName}";
+      }]
+      else [];
+  };
 }
