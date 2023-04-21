@@ -10,7 +10,7 @@
     server = {
       logging.access = true;
       reverse = {
-        counterpartName = "watson";
+        counterpartName = "copi";
         position = "world";
         port = 10024;
         id = config.sops.placeholder."v2ray/users/reverse/uuid";
