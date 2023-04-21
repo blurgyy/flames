@@ -52,6 +52,7 @@
           }
           cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
         '';
+        RuntimeMaxSec = 60;
         Restart = "always";
         RestartSec = 5;
         User = config.users.users.zjuwlan.name;
