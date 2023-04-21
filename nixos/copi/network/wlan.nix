@@ -45,15 +45,13 @@
       ];
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-      unitConfig = {
+      serviceConfig = {
         ExecCondition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
           function current_ssid() {
             iw dev | grep ssid | cut -d' ' -f2
           }
           cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
         '';
-      };
-      serviceConfig = {
         Restart = "always";
         RestartSec = 5;
         User = config.users.users.zjuwlan.name;
