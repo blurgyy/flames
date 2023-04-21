@@ -39,6 +39,7 @@
       path = with pkgs; [
         coreutils-full
         diffutils
+        firefox-unwrapped
         gnugrep
         iw
       ];
