@@ -1,14 +1,10 @@
-{ stdenvNoCC
-, python310
-, firefox-unwrapped
-}: stdenvNoCC.mkDerivation {
+{ python310, stdenvNoCC }: stdenvNoCC.mkDerivation {
   name = "zjuwlan-login-script";
   src = ./zjuwlan.py;
 
   buildInputs = [
     (python310.withPackages (pp: with pp; [
       selenium
-      firefox-unwrapped
     ]))
   ];
 
