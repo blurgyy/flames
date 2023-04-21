@@ -1,4 +1,4 @@
-{ config, lib, uuid, logging, extraHosts, soMark, fwMark, ports, remotes }: with builtins; let
+{ config, lib, uuid, logging, extraHosts, disabledRoutingRules, soMark, fwMark, ports, remotes }: with builtins; let
   applyTag = overrides: path: {
     tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
   } // (with builtins; let
@@ -8,9 +8,14 @@
       else let
         args = (intersectAttrs (functionArgs f) { inherit lib config uuid; }) // overrides;
       in f args);
-  mapDir = f: path: with builtins;
+  filterMapDir = f: siftFn: path: with builtins;
     map f
-      (map (subPath: "${path}/${subPath}") (attrNames (readDir path)));
+      (map
+        (subPath: "${path}/${subPath}")
+        (filter
+          siftFn
+          (attrNames (readDir path))));
+  mapDir = f: path: filterMapDir f (_: true) path;
 in {
   log = {
     loglevel = logging.level;
@@ -58,7 +63,7 @@ in {
     ) remotes;
   in (mapDir (applyTagAndSoMark soMark { inherit config; }) ./outbounds-misc)
     ++ (map (applySoMark soMark) outbounds-servers);
-  routing = import ./routing { inherit applyTag mapDir; };
+  routing = import ./routing { inherit applyTag filterMapDir mapDir disabledRoutingRules; };
   observatory = {
     subjectSelector = let
         allSelectors = filter

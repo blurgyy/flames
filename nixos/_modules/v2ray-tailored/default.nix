@@ -57,6 +57,14 @@ in {
         default = { };
         description = "Extra entries to check before querying DNS";
       };
+      disabledRoutingRules = mkOption {
+        type = with types; listOf str;
+        description = ''
+          Any routing rule file that has the same basename as one of these will be ignored.
+        '';
+        example = [ "20-random-cn-server-ip" ];
+        default = [];
+      };
       soMark = mkOption { type = with types; oneOf [ str int ]; };
       fwMark = mkOption { type = with types; oneOf [ str int ]; };
       ports.http = mkOption { type = with types; oneOf [ str int ]; };
@@ -114,7 +122,7 @@ in {
     # As client
     sops.templates.vclient-config = with cfg.client; mkIf enable {
       name = "vclient.json";
-      content = builtins.toJSON (import ./client { inherit config lib uuid logging extraHosts soMark fwMark ports remotes; });
+      content = builtins.toJSON (import ./client { inherit config lib uuid logging extraHosts disabledRoutingRules soMark fwMark ports remotes; });
       owner = config.users.users.v2ray.name;
       group = config.users.groups.v2ray.name;
     };

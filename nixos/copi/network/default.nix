@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ../../_parts/vclient.nix
+    ./v2ray.nix
     ./rp.nix
     ./wlan.nix
   ];

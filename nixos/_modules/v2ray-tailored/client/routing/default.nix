@@ -1,6 +1,9 @@
-{ applyTag, mapDir }: {
+{ applyTag, filterMapDir, mapDir, disabledRoutingRules }: {
   domainStrategy = "IPIfNonMatch";
   domainMatcher = "mph";
   balancers = mapDir (applyTag { }) ./balancers;
-  rules = mapDir (path: { type = "field"; } // (import path)) ./rules;
+  rules = filterMapDir
+    (path: { type = "field"; } // (import path))
+    (basename: !(builtins.elem basename disabledRoutingRules))
+    ./rules;
 }
