@@ -64,6 +64,9 @@ def main():
     zjuwlan = "https://net.zju.edu.cn/srun_portal_pc?ac_id=3&theme=zju"  # net
     # zjuwlan = "https://10.50.200.245/srun_portal_pc?ac_id=3&theme=zju"  # net
     # zjuwlan = "https://10.50.200.3/srun_portal_pc?ac_id=3&theme=zju"  # net2
+
+    printm(f"getting web page at '{zjuwlan}' ...")
+
     driver.get(zjuwlan)
 
     printm(f"Driver started on {zjuwlan}")
