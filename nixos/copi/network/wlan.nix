@@ -24,21 +24,46 @@
     groups.zjuwlan = {};
   };
 
-  systemd.services.zjuwlan-login = {
-    path = with pkgs; [ firefox-unwrapped ];
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Restart = "always";
-      RestartSec = 5;
-      User = config.users.users.zjuwlan.name;
-      Group = config.users.groups.zjuwlan.name;
-      PrivateTmp = true;
-      LoadCredential = "credentials:${config.sops.secrets."zjuwlan-credentials".path}";
+  systemd = {
+    timers.zjuwlan-login = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnBootSec = "60s";
+        OnUnitInactiveSec = "90s";
+        Persistent = true;
+        RandomizedDelaySec = "120s";
+        Unit = "zjuwlan-login.service";
+      };
     };
-    script = ''
-      cd "$CREDENTIALS_DIRECTORY"
-      ${pkgs.zjuwlan-login-script}/bin/zjuwlan
-    '';
+    services.zjuwlan-login = {
+      path = with pkgs; [
+        coreutils-full
+        diffutils
+        gnugrep
+        iw
+      ];
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      unitConfig = {
+        ExecCondition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
+          function current_ssid() {
+            iw dev | grep ssid | cut -d' ' -f2
+          }
+          cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
+        '';
+      };
+      serviceConfig = {
+        Restart = "always";
+        RestartSec = 5;
+        User = config.users.users.zjuwlan.name;
+        Group = config.users.groups.zjuwlan.name;
+        PrivateTmp = true;
+        LoadCredential = "credentials:${config.sops.secrets."zjuwlan-credentials".path}";
+      };
+      script = ''
+        cd "$CREDENTIALS_DIRECTORY"
+        ${pkgs.zjuwlan-login-script}/bin/zjuwlan
+      '';
+    };
   };
 }
