@@ -36,6 +36,7 @@
       }) hostnames;
   in (mergeAttrsList (apply [
     "cindy"
+    "copi"
     "cube"
     "hooper"
     "morty"
@@ -53,7 +54,7 @@
     # # and `tailscale up --accept-routes` on client machines.
     # shared.hostname = "10.76.2.83";
 
-    # Forwarded via rathole on watson
+    # Forwarded via watson
     shared = {
       hostname = "watson";
       port = 22548;
@@ -62,6 +63,25 @@
     };
     "2x1080ti" = {
       hostname = "watson";
+      port = 13815;
+      extraOptions.
+        RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
+    };
+
+    watson-copi = {
+      hostname = "watson";
+      proxyJump = "copi";
+    };
+    shared-copi = {
+      hostname = "watson";
+      proxyJump = "copi";
+      port = 22548;
+      extraOptions.
+        RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
+    };
+    "2x1080ti-copi" = {
+      hostname = "watson";
+      proxyJump = "copi";
       port = 13815;
       extraOptions.
         RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
