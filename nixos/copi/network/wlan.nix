@@ -29,7 +29,7 @@
       wantedBy = [ "timers.target" ];
       timerConfig = {
         OnBootSec = "60s";
-        OnUnitInactiveSec = "90s";
+        OnUnitInactiveSec = "180s";
         Persistent = true;
         RandomizedDelaySec = "120s";
         Unit = "zjuwlan-login.service";
@@ -54,7 +54,7 @@
             cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
           '';
         in "${zjuwlan-login-condition}/bin/zjuwlan-login-condition";
-        RuntimeMaxSec = 60;
+        RuntimeMaxSec = 90;
         Restart = "always";
         RestartSec = 5;
         User = config.users.users.zjuwlan.name;
