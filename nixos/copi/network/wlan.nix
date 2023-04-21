@@ -46,12 +46,14 @@
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
-        ExecCondition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
-          function current_ssid() {
-            iw dev | grep ssid | cut -d' ' -f2
-          }
-          cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
-        '';
+        ExecCondition = let
+          zjuwlan-login-condition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
+            function current_ssid() {
+              iw dev | grep ssid | cut -d' ' -f2
+            }
+            cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
+          '';
+        in "${zjuwlan-login-condition}/bin/zjuwlan-login-condition";
         RuntimeMaxSec = 60;
         Restart = "always";
         RestartSec = 5;
