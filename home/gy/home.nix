@@ -218,8 +218,8 @@ in {
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
   } // (if proxy != null then {
-    http_proxy = "http://${proxy.addr}:${proxy.port}";
-    https_proxy = "http://${proxy.addr}:${proxy.port}";
+    http_proxy = "http://${proxy.addr}:${toString proxy.port}";
+    https_proxy = "http://${proxy.addr}:${toString proxy.port}";
   } else {});
   systemd.user.sessionVariables = config.home.sessionVariables;
   pam.sessionVariables = config.home.sessionVariables;
