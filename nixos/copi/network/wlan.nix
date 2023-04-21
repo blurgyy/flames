@@ -38,6 +38,7 @@
     services.zjuwlan-login = {
       path = with pkgs; [
         coreutils-full
+        curl
         diffutils
         firefox-unwrapped
         gnugrep
@@ -51,7 +52,14 @@
             function current_ssid() {
               iw dev | grep ssid | cut -d' ' -f2
             }
-            cmp -s <(current_ssid | head -c3) <(echo -n ZJU)
+            if cmp -s <(current_ssid | head -c3) <(echo -n ZJU); then
+              echo "not connected to ZJUWLAN, skipping"
+              exit 1
+            fi
+            if curl -fsSL https://www.baidu.com/ | grep -q "百度一下"; then
+              echo "already logged in, skipping"
+              exit 2
+            fi
           '';
         in "${zjuwlan-login-condition}/bin/zjuwlan-login-condition";
         RuntimeMaxSec = 90;
