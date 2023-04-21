@@ -1,6 +1,5 @@
 { config, ... }: {
   sops.secrets = {
-    "v2ray/ports/server/reverse" = {};
     "v2ray/users/reverse/uuid" = {};
   };
   imports = [
@@ -18,7 +17,7 @@
         counterpartName = "peterpan";
         counterpartAddr = "81.69.28.75";
         position = "internal";
-        port = config.sops.placeholder."v2ray/ports/server/reverse";
+        port = 10024;
         id = config.sops.placeholder."v2ray/users/reverse/uuid";
       };
     };
