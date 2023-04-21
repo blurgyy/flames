@@ -17,7 +17,6 @@ in {
     cachix
     clang-tools
     colmena
-    conda
     dogdns
     dufs
     exa
@@ -76,7 +75,7 @@ in {
     zip
     zstd
     #texlive.combined.scheme-full  # NOTE: use tex2nix
-  ];
+  ] ++ lib.optional (pkgs.system == "x86_64-linux" || pkgs.system == "i686-linux") conda;
 
   nix.registry = {
     pkgs.flake = inputs.nixpkgs;
