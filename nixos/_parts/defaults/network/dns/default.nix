@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }: lib.mkIf (config.time.timeZone == "Asia/Shanghai") {
   environment.systemPackages = [ pkgs.dcompass.dcompass-cn ];
 
+  services.resolved.enable = false;
   systemd.services.dcompass = let
     dcompassCfg =
       pkgs.writeText "dcompass.json"
