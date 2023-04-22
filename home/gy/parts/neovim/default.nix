@@ -9,7 +9,9 @@
 
   plugins = with pkgs.vimPlugins; [
     pkgs.vim-plugin-fcitx5-ui-nvim  # NOTE: Must configure fcitx5 with `ShareInputState=no` (see ../../parts/mirrored/fcitx5/config
+    pkgs.vim-plugin-bigfile-nvim
 
+    vim-illuminate
     copilot-lua
     comment-nvim
     nvim-lspconfig
