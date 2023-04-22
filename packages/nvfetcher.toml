@@ -137,6 +137,10 @@ fetch.github = "catppuccin/tmux"
 src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
 fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 
+[vim-plugin-bigfile-nvim]
+src.git = "https://github.com/LunarVim/bigfile.nvim"
+fetch.github = "LunarVim/bigfile.nvim"
+
 [vim-plugin-fcitx5-ui-nvim]
 src.git = "https://github.com/black-desk/fcitx5-ui.nvim"
 fetch.github = "black-desk/fcitx5-ui.nvim"

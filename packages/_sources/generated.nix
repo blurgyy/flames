@@ -401,6 +401,18 @@
     });
     date = "2023-04-18";
   };
+  vim-plugin-bigfile-nvim = {
+    pname = "vim-plugin-bigfile-nvim";
+    version = "c1bad34ce742b4f360b67ca23c873fef998240fc";
+    src = fetchFromGitHub ({
+      owner = "LunarVim";
+      repo = "bigfile.nvim";
+      rev = "c1bad34ce742b4f360b67ca23c873fef998240fc";
+      fetchSubmodules = false;
+      sha256 = "sha256-UgAjRutParv851i7colnevHLoBmvtbTX9vxHbyeQ8sk=";
+    });
+    date = "2022-12-01";
+  };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
     version = "f11015ed8b75545a6f6b754bfca7ecfb1920ecdb";

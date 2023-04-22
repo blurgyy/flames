@@ -666,6 +666,26 @@
         },
         "version": "71a5981b9eb92179de839e3252a414ed607418cf"
     },
+    "vim-plugin-bigfile-nvim": {
+        "cargoLocks": null,
+        "date": "2022-12-01",
+        "extract": null,
+        "name": "vim-plugin-bigfile-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "LunarVim",
+            "repo": "bigfile.nvim",
+            "rev": "c1bad34ce742b4f360b67ca23c873fef998240fc",
+            "sha256": "sha256-UgAjRutParv851i7colnevHLoBmvtbTX9vxHbyeQ8sk=",
+            "type": "github"
+        },
+        "version": "c1bad34ce742b4f360b67ca23c873fef998240fc"
+    },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,
         "date": "2023-01-18",
