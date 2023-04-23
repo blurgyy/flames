@@ -50,7 +50,6 @@
       ${pkgs.zjuwlan-login-script}/bin/zjuwlan
     '';
     serviceConfig = {
-      Type = "oneshot";
       RemainAfterExit = true;
       ExecCondition = let
         zjuwlan-login-condition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
@@ -94,6 +93,7 @@
       gnugrep
     ];
     serviceConfig = {
+      Type = "oneshot";
       RemainAfterExit = true;
       ExecStart = "${pkgs.systemd}/bin/systemctl reboot";
       ExecCondition = let
