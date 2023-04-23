@@ -61,6 +61,7 @@
             echo "already logged in, skipping"
             exit 2
           fi
+          echo "not logged in, logging in"
         '';
       in "${zjuwlan-login-condition}/bin/zjuwlan-login-condition";
       RuntimeMaxSec = 90;
@@ -98,6 +99,7 @@
             echo "network is up and running, skipping"
             exit 1
           fi
+          echo "network failure detected, rebooting"
         '';
       in "${network-failure-condition}/bin/network-failure-condition";
     };
