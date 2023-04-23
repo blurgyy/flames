@@ -16,10 +16,12 @@
       http-proxy = {
         environmentFile = config.sops.secrets."sshrp/http-proxy-env".path;
         identityFile = config.sops.secrets.hostKey.path;
+        user = "gy";
       };
       socks-proxy = {
         environmentFile = config.sops.secrets."sshrp/socks-proxy-env".path;
         identityFile = config.sops.secrets.hostKey.path;
+        user = "gy";
       };
     };
   };
