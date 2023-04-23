@@ -20,7 +20,7 @@
     "v2ray/addresses/us-00" = {};
   };
   services.v2ray-tailored.client = {
-    logging.level = "debug";
+    logging.level = "warning";
     enable = true;
     uuid = config.sops.placeholder."v2ray/id";
     soMark = 27;
