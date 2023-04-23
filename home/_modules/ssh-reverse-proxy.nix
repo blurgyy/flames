@@ -15,14 +15,20 @@ in with lib; {
         };
         identityFile = mkOption { type = types.str; default = null; };
         bindPort = mkOption {
-          type = with types; oneOf [ int str ];
+          type = with types; nullOr (oneOf [ int str ]);
           default = null;
-          description = "Specify which port is exposed on the remote machine";
+          description = ''
+            Specify which port is exposed on the remote machine.  If missing, will try to use the
+            BIND_PORT environment variable from `environmentFile`.
+          '';
         };
         hostPort = mkOption {
-          type = with types; oneOf [ int str ];
+          type = with types; nullOr (oneOf [ int str ]);
           default = null;
-          description = "Specify which port is connected to on the host machine";
+          description = ''
+            Specify which port is connected to on the host machine, if missing, will try to use the
+            HOST_PORT environment variable from `environmentFile`.
+          '';
         };
         user = mkOption {
           type = types.str;
@@ -82,7 +88,11 @@ in with lib; {
               scriptName = "rp-${instanceName}-service-start-script";
               command = pkgs.writeShellScriptBin scriptName ''
                 ssh "$REMOTE" \
-                  -NR "$BIND_ADDR:${toString instance.bindPort}:localhost:${toString instance.hostPort}" \
+                  -NR "$BIND_ADDR:${
+                      toString (if instance.bindPort != null then instance.bindPort else "$BIND_PORT")
+                    }:localhost:${
+                      toString (if instance.hostPort != null then instance.hostPort else "$HOST_PORT")
+                    }" \
                   -oUser=${instance.user} \
                   -oIdentityFile=${instance.identityFile} \
                   -oExitOnForwardFailure=yes \
