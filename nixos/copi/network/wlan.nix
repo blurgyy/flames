@@ -45,6 +45,10 @@
     ];
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
+    script = ''
+      cd "$CREDENTIALS_DIRECTORY"
+      ${pkgs.zjuwlan-login-script}/bin/zjuwlan
+    '';
     serviceConfig = {
       Type = "oneshot";
       RemainAfterExit = true;
