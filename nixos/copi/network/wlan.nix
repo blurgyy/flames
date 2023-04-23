@@ -82,7 +82,7 @@
     wantedBy = [ "timers.target" ];
     timerConfig = {
       OnBootSec = "300s";
-      OnUnitInactiveSec = "300s";
+      OnUnitInactiveSec = "210s";
       Persistent = true;
       RandomizedDelaySec = "60s";
       Unit = "reboot-on-network-failure.service";
@@ -98,10 +98,14 @@
       ExecStart = "${pkgs.systemd}/bin/systemctl reboot";
       ExecCondition = let
         network-failure-condition = pkgs.writeShellScriptBin "network-failure-condition" ''
-          if curl -fsSL https://www.baidu.com/ --connect-timeout 10 | grep -q "百度一下"; then
-            echo "network is up and running, skipping"
-            exit 1
-          fi
+          for ((i=1; i<=3; ++i)); do
+            if curl -fsSL https://www.baidu.com/ --connect-timeout 10 | grep -q "百度一下"; then
+              echo "network is up and running, skipping"
+              exit 1
+            fi
+            echo "network is down ($i/3), retrying in 20s"
+            sleep 20s
+          done
           echo "network failure detected, rebooting"
         '';
       in "${network-failure-condition}/bin/network-failure-condition";
