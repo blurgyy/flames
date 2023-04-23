@@ -219,6 +219,7 @@ in {
   } // (if proxy != null then {
     http_proxy = "http://${proxy.addr}:${toString proxy.port}";
     https_proxy = "http://${proxy.addr}:${toString proxy.port}";
+    no_proxy = lib.concatStringsSep "," proxy.ignore or [];
   } else {});
   systemd.user.sessionVariables = config.home.sessionVariables;
   pam.sessionVariables = config.home.sessionVariables;
