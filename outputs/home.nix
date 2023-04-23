@@ -22,11 +22,11 @@ in apply {
   "gy@opi" = aarch64-headless;
   "gy@copi" = aarch64-headless;
 
-  "gy@watson" = x86_64-non-headless // { proxy = { addr = "copi"; port = 9990; }; };
+  "gy@watson" = x86_64-non-headless // { proxy = { addr = "watson"; port = 1990; }; };
 
   # set IP of watson in hosts
-  "gy@cadliu" = x86_64-headless // { proxy = { addr = "watson"; port = 9990; }; };
-  "gy@cad-liu" = x86_64-headless // { proxy = { addr = "watson"; port = 9990; }; };
+  "gy@cadliu" = x86_64-headless // { proxy = { addr = "watson"; port = 1990; }; };
+  "gy@cad-liu" = x86_64-headless // { proxy = { addr = "watson"; port = 1990; }; };
 
   "gy@cindy" = aarch64-headless;
   "gy@cube" = x86_64-headless;
