@@ -13,16 +13,14 @@
             addr = IP;
           };
         };
-
-    aliIP = "223.6.6.6";
   in {
     # UDP
     tailscale = mkUdp { host = "100.100.100.100"; };
     zju = mkUdp { host = "10.10.0.21"; };
-    ntp = mkUdp { host = aliIP; };
+    ntp = mkUdp { host = "8.8.8.8"; };
 
     # DoH
-    alidns = mkDoh { domain = "dns.alidns.com"; IP = aliIP; };
+    alidns = mkDoh { domain = "dns.alidns.com"; IP = "223.6.6.6"; };
     "1001" = mkDoh { domain = "cloudflare-dns.com"; IP = "1.0.0.1"; };
     "1111" = mkDoh { domain = "cloudflare-dns.com"; IP = "1.1.1.1"; };
     "1002" = mkDoh { domain = "cloudflare-dns.com"; IP = "1.0.0.2"; };
