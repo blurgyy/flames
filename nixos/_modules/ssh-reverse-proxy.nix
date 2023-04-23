@@ -145,7 +145,7 @@ in with lib; {
               -NR "$BIND_ADDR:${
                   toString (if instance.bindPort != null then instance.bindPort else "$BIND_PORT")
                 }:localhost:${
-                  toString (if instance.hostPort != null then instance.hostPort else "HOST_PORT")
+                  toString (if instance.hostPort != null then instance.hostPort else "$HOST_PORT")
                 }" \
               -oUser="${instance.user}" \
               -oIdentityFile="$CREDENTIALS_DIRECTORY/id" \
