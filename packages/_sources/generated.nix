@@ -67,15 +67,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "494d7bbef633c3eb4e014af98985bdb227a66c5f";
+    version = "258471575d7f44a99ca366dc108799d72332ac98";
     src = fetchFromGitHub ({
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "494d7bbef633c3eb4e014af98985bdb227a66c5f";
+      rev = "258471575d7f44a99ca366dc108799d72332ac98";
       fetchSubmodules = false;
-      sha256 = "sha256-ihqYdBLzqU0L/XAxLGo9J8EoVcp9uhhSpSFobyO4Rb8=";
+      sha256 = "sha256-W0+xwHZ7hmS+sZgTL2b135KVzT1kAaKOvITpP+sSTTY=";
     });
-    date = "2023-04-18";
+    date = "2023-04-23";
   };
   dt = {
     pname = "dt";
@@ -255,18 +255,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202304182209";
+    version = "202304242209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304182209/geoip.dat";
-      sha256 = "sha256-O3xU3XJ5Nn/rf69aEFidZyS56/kYTPVcAx7HocQ/lgg=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304242209/geoip.dat";
+      sha256 = "sha256-dCuAa7KCKKRj7iC2IunwTW/6sCl93SlVnXtjWElBb4E=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202304182209";
+    version = "202304242209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304182209/geosite.dat";
-      sha256 = "sha256-J2ZOHs0YwvK8cfIEL2/byLAVAdrbsBey8wtZj9yMJ/c=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304242209/geosite.dat";
+      sha256 = "sha256-U9+WiM2eMkyv+1Etpfc7HsSkb/+yOIE8HAU6QXkHEXU=";
     };
   };
   luarock-dbus_proxy = {
@@ -326,10 +326,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "8.10.0";
+    version = "8.11.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.10.0/simple-icons-font-8.10.0.zip";
-      sha256 = "sha256-Fw2NcMn+YrJsNbdSK32Z1mPvKlme8pH0lnab22skC6w=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.11.0/simple-icons-font-8.11.0.zip";
+      sha256 = "sha256-WaexbmwM/ObZw8Hc5GTa9tLQxH5IgCh0kbOtyO9c0lU=";
     };
   };
   symbols-nerd-font = {
@@ -391,15 +391,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "71a5981b9eb92179de839e3252a414ed607418cf";
+    version = "6f12be0dbbf7cdbf7fd77f072580d33651f706fe";
     src = fetchFromGitHub ({
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "71a5981b9eb92179de839e3252a414ed607418cf";
+      rev = "6f12be0dbbf7cdbf7fd77f072580d33651f706fe";
       fetchSubmodules = false;
-      sha256 = "sha256-TayMP3ciDZxxmCXTjGLlgg1AIoENCDKbrJSRx6UwEvk=";
+      sha256 = "sha256-W7J9hyRJYgp/adGIvX66P33GzqQeWhM6Lm2kzWh5Dvo=";
     });
-    date = "2023-04-18";
+    date = "2023-04-24";
   };
   vim-plugin-bigfile-nvim = {
     pname = "vim-plugin-bigfile-nvim";
