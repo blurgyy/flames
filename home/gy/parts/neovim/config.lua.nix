@@ -976,8 +976,8 @@ in ''
     load = {
       -- Enable all default modules
       ["core.defaults"] = {},
-      ["core.norg.concealer"] = {},
-      -- ["core.norg.completion"] = {},
+      ["core.concealer"] = {},
+      -- ["core.completion"] = {},
       ---- Export to markdown via command `:Neorg export to-file <name>.md`
       --["core.export"] = {},
       --["core.export.markdown"] = {
