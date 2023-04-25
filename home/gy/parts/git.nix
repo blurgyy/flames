@@ -1,4 +1,4 @@
-{ pkgs }: {
+{ pkgs, proxy }: {
   enable = true;
   userEmail = "gy@blurgy.xyz";
   userName = "Gaoyang Zhang";
@@ -86,5 +86,7 @@
     merge.ff = false;  # create an extra merge commit even if fast-forward is possible, use --ff-only to override
     fetch.prune = false;
     init.defaultBranch = "main";
-  };
+  } // (if proxy != null
+    then { http.proxy = "http://${proxy.addr}:${toString proxy.port}"; }
+    else {});
 }
