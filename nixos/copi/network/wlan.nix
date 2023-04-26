@@ -39,7 +39,6 @@
       coreutils-full
       curl
       diffutils
-      firefox-unwrapped
       gnugrep
       iw
     ];
