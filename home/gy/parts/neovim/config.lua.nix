@@ -545,7 +545,7 @@ in ''
       { name = "nvim_lsp_signature_help" },
     }, {
       { name = "buffer" },
-      { name = "copilot", group_index = 2 },
+      { name = "copilot" },
     }),
     formatting = {
       format = require("lspkind").cmp_format({
