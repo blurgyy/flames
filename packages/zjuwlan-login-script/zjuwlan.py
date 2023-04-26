@@ -34,9 +34,6 @@ def printm(
     print(header, *values, sep=sep, end=end, file=sys.stderr, flush=flush)
 
 
-
-
-
 def read_credentials():
     with open("credentials", "r") as f:
         username = f.readline().strip()

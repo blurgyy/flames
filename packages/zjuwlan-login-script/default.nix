@@ -16,13 +16,13 @@
 
   dontUnpack = true;
 
+  installPhase = ''
+    install -Dvm755 $src $out/bin/zjuwlan
+  '';
+
   # wrap the script with firefox in its PATH
   postFixup = ''
     wrapProgram $out/bin/zjuwlan \
       --prefix PATH : ${firefox-unwrapped}/bin
-  '';
-
-  installPhase = ''
-    install -Dvm755 $src $out/bin/zjuwlan
   '';
 }
