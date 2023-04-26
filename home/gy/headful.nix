@@ -50,6 +50,7 @@ in {  # For non-headless machines
     minicom
     obs-studio
     rustdesk-with-x11-desktopentry
+    slurp
     tdesktop-megumifox
     wf-recorder-respect-pixel-format
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
