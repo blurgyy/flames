@@ -60,7 +60,7 @@
             exit 1
           fi
           if curl -fsSL https://www.baidu.com/ --connect-timeout 5 | grep -q "百度一下"; then
-            echo "already logged in, skipping"
+            echo "network is already reachable, skipping"
             exit 2
           fi
           echo "not logged in, logging in"
