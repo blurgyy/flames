@@ -1,7 +1,7 @@
 { stdenvNoCC
 , python310
 
-, firefox-unwrapped
+, firefox-bin
 , makeWrapper
 }: stdenvNoCC.mkDerivation {
   name = "zjuwlan-login-script";
@@ -23,6 +23,6 @@
   # wrap the script with firefox in its PATH
   postFixup = ''
     wrapProgram $out/bin/zjuwlan \
-      --prefix PATH : ${firefox-unwrapped}/bin
+      --prefix PATH : ${firefox-bin}/bin
   '';
 }
