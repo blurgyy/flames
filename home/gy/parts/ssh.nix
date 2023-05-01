@@ -1,4 +1,4 @@
-{ lib, name, mergeAttrsList }: {
+{ name, proxy, lib, pkgs, mergeAttrsList }: {
   enable = true;
   controlMaster = "no";
   controlPath = "~/.ssh/master-%r@%n:%p";
@@ -93,7 +93,11 @@
 
     hy = { hostname = "10.76.2.98"; user = "haoyu"; };
 
-    github = { hostname = "github.com"; user = "git"; };
+    "github github.com" = {
+      hostname = "github.com";
+      user = "git";
+      proxyCommand = "${pkgs.socat}/bin/socat - PROXY:${proxy.addr}:%h:%p,proxyport=${toString proxy.port}";
+    };
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
   };
 }
