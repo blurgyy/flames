@@ -47,11 +47,11 @@
             "name": null,
             "owner": "alist-org",
             "repo": "alist",
-            "rev": "v3.16.0",
-            "sha256": "sha256-YM/LX6nW6n4nhcF4ALoeXquvvHudk95a+4GYzI3Qdm0=",
+            "rev": "v3.16.3",
+            "sha256": "sha256-EW0DUwZPqzpcLfk3d849DQ+k6lHGKMfgoXKVs2VuqV4=",
             "type": "github"
         },
-        "version": "v3.16.0"
+        "version": "v3.16.3"
     },
     "apple-color-emoji": {
         "cargoLocks": null,
@@ -109,7 +109,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-04-23",
+        "date": "2023-04-30",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -121,11 +121,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "258471575d7f44a99ca366dc108799d72332ac98",
-            "sha256": "sha256-W0+xwHZ7hmS+sZgTL2b135KVzT1kAaKOvITpP+sSTTY=",
+            "rev": "eb01caa6f8477faa02243704382033061c33bddb",
+            "sha256": "sha256-+OdTniStD51m0yDULBT/9ZPhDagRUgb3PgfXrA2CUkA=",
             "type": "github"
         },
-        "version": "258471575d7f44a99ca366dc108799d72332ac98"
+        "version": "eb01caa6f8477faa02243704382033061c33bddb"
     },
     "dt": {
         "cargoLocks": {
@@ -194,7 +194,7 @@
     },
     "fish-plugin-catppuccin": {
         "cargoLocks": null,
-        "date": "2022-12-29",
+        "date": "2023-04-27",
         "extract": null,
         "name": "fish-plugin-catppuccin",
         "passthru": null,
@@ -206,11 +206,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "fish",
-            "rev": "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba",
-            "sha256": "sha256-wQlYQyqklU/79K2OXRZXg5LvuIugK7vhHgpahpLFaOw=",
+            "rev": "91e6d6721362be05a5c62e235ed8517d90c567c9",
+            "sha256": "sha256-l9V7YMfJWhKDL65dNbxaddhaM6GJ0CFZ6z+4R6MJwBA=",
             "type": "github"
         },
-        "version": "b90966686068b5ebc9f80e5b90fdf8c02ee7a0ba"
+        "version": "91e6d6721362be05a5c62e235ed8517d90c567c9"
     },
     "fish-plugin-tide": {
         "cargoLocks": null,
@@ -424,11 +424,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-dCuAa7KCKKRj7iC2IunwTW/6sCl93SlVnXtjWElBb4E=",
+            "sha256": "sha256-ENgbrYkidr6wY2yuIRtckHj4weVW6/LhLOV+9GHwrFw=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304242209/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304302208/geoip.dat"
         },
-        "version": "202304242209"
+        "version": "202304302208"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -439,11 +439,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-U9+WiM2eMkyv+1Etpfc7HsSkb/+yOIE8HAU6QXkHEXU=",
+            "sha256": "sha256-moSMcM5OwMZ+LkCTqSy3Jhlbcru2Ct7xJf9x4P4bnKo=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304242209/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202304302208/geosite.dat"
         },
-        "version": "202304242209"
+        "version": "202304302208"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -474,11 +474,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-r6UWoK+AUbL7nnGhI6JPhkF7aY6TiqbzuDWo6ANN+8c=",
+            "sha256": "sha256-a7OIXiIh8xMsKHFBxEVE1ivZ5ze7lpWY+ZRMRGHwuTU=",
             "type": "url",
-            "url": "https://download.db-ip.com/free/dbip-country-lite-2023-04.csv.gz"
+            "url": "https://download.db-ip.com/free/dbip-country-lite-2023-05.csv.gz"
         },
-        "version": "2023-04"
+        "version": "2023-05"
     },
     "rssbot": {
         "cargoLocks": {
@@ -560,11 +560,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-nPDIAN6GvDHxEVsPR2LvjYCnSfbPpM90E7AfxWPMP2o=",
+            "sha256": "sha256-kcC7uGkNl4yrvWk6seTfGNL20CHn8F/X/YU/7U1WI0s=",
             "type": "url",
-            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/NerdFontsSymbolsOnly.zip"
+            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip"
         },
-        "version": "v2.3.3"
+        "version": "v3.0.0"
     },
     "telegram-send": {
         "cargoLocks": null,
@@ -648,7 +648,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-04-24",
+        "date": "2023-04-30",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -660,11 +660,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "6f12be0dbbf7cdbf7fd77f072580d33651f706fe",
-            "sha256": "sha256-W7J9hyRJYgp/adGIvX66P33GzqQeWhM6Lm2kzWh5Dvo=",
+            "rev": "beea3e692e808a8b8ede1ba6c2d4b25cdde3d590",
+            "sha256": "sha256-goDZyR1RG5mJcdYsYXGP9D6jXqb4Ev2zsT5grFVRKB8=",
             "type": "github"
         },
-        "version": "6f12be0dbbf7cdbf7fd77f072580d33651f706fe"
+        "version": "beea3e692e808a8b8ede1ba6c2d4b25cdde3d590"
     },
     "vim-plugin-bigfile-nvim": {
         "cargoLocks": null,
@@ -755,11 +755,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JWk8aa/HVihwWLQi5sGGGPcnCMfh2YRkesfRGYoxaRQ=",
+            "sha256": "sha256-PoI/cXIFGc7THEx9K/r3Eg2cAcWaCEPfy+k8lcZNgcE=",
             "type": "url",
-            "url": "https://inai.de/files/xtables-addons/xtables-addons-3.23.tar.xz"
+            "url": "https://inai.de/files/xtables-addons/xtables-addons-3.24.tar.xz"
         },
-        "version": "3.23"
+        "version": "3.24"
     },
     "zellij-hirr": {
         "cargoLocks": {
