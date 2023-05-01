@@ -96,8 +96,11 @@
     "github github.com" = {
       hostname = "github.com";
       user = "git";
-      proxyCommand = "${pkgs.socat}/bin/socat - PROXY:${proxy.addr}:%h:%p,proxyport=${toString proxy.port}";
-    };
+    } // (if proxy == null
+      then {}
+      else {
+        proxyCommand = "${pkgs.socat}/bin/socat - PROXY:${proxy.addr}:%h:%p,proxyport=${toString proxy.port}";
+      });
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
   };
 }
