@@ -225,6 +225,7 @@ in {
       ipython
       matplotlib
       numpy
+      pandas
       pillow
       plyfile
       tqdm
