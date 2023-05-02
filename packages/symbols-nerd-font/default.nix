@@ -1,13 +1,14 @@
-{ source, stdenvNoCC, lib
+{ source, lib, stdenvNoCC
 , unzip
 }: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
 
-  buildInputs = [ unzip ];
+  nativeBuildInputs = [ unzip ];
 
   buildCommand = ''
     unzip $src
-    install -Dvm644 'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/truetype/'Symbols-2048-em Nerd Font Complete.ttf'
+    install -Dvm644 SymbolsNerdFontMono-Regular.ttf $out/share/fonts/truetype/SymbolsNerdFontMono-Regular.ttf
+    install -Dvm644 SymbolsNerdFont-Regular.ttf $out/share/fonts/truetype/SymbolsNerdFont-Regular.ttf
   '';
 
   meta = {
