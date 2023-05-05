@@ -1,4 +1,4 @@
-{ config, pkgs, callWithHelpers }: {
+{ config, lib, pkgs, callWithHelpers }: rec {
   enable = true;
 
   withNodeJs = true;
@@ -88,6 +88,9 @@
     EOF
     colorscheme catppuccin
     set background=${config.ricing.textual.theme}
+  '' + lib.optionalString (builtins.elem pkgs.vimPlugins.copilot-lua plugins) ''
+    " let's disable copilot by default
+    autocmd VimEnter * :Copilot disable
   '';
   extraPackages = with pkgs; [
     ccls
