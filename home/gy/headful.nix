@@ -56,6 +56,7 @@ in {  # For non-headless machines
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wlr-randr
     #wpsoffice-cn
+    xdragon
     xfce.thunar
     xfce.thunar-volman
     zotero

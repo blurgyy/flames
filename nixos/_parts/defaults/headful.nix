@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     minicom
     swaylock-effects
+    xdragon
   ];
 
   programs = {
