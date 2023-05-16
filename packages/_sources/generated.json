@@ -47,11 +47,11 @@
             "name": null,
             "owner": "alist-org",
             "repo": "alist",
-            "rev": "v3.16.3",
-            "sha256": "sha256-EW0DUwZPqzpcLfk3d849DQ+k6lHGKMfgoXKVs2VuqV4=",
+            "rev": "v3.17.0",
+            "sha256": "sha256-zYkIZF6dQ55NGhAdkQJS40s/D317HCzVDqUjf7IAmJ8=",
             "type": "github"
         },
-        "version": "v3.16.3"
+        "version": "v3.17.0"
     },
     "apple-color-emoji": {
         "cargoLocks": null,
@@ -101,11 +101,11 @@
             "name": null,
             "owner": "anacrolix",
             "repo": "dms",
-            "rev": "v1.5.0",
-            "sha256": "sha256-cU9aN2qkJyuCKCxyHXVCNavRTZAlNKDmPQMm0HcaUCk=",
+            "rev": "v1.6.0",
+            "sha256": "sha256-QwRLNCXDu/dKh2o17AyASlVQPIEOX6e4kTINa2ZzZkU=",
             "type": "github"
         },
-        "version": "v1.5.0"
+        "version": "v1.6.0"
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
@@ -424,11 +424,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-fJCbrHP/dNENMuC4ghcfB54o4zIf6WgEym4YfujWGPc=",
+            "sha256": "sha256-fjNTgg+7K9iucwA7+I4aOCXGaMKexGpRpXLGXO9fJhM=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305052208/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305152209/geoip.dat"
         },
-        "version": "202305052208"
+        "version": "202305152209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -439,11 +439,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-sB9pZFO5kMNyZys+Ty3NP5mcIO5VPUkbGH15jMSF/SA=",
+            "sha256": "sha256-Kz0EODrNk95TgDt4r1nPVkbyiofRmr5qETq0w0kl1Zs=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305052208/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305152209/geosite.dat"
         },
-        "version": "202305052208"
+        "version": "202305152209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -545,11 +545,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-WaexbmwM/ObZw8Hc5GTa9tLQxH5IgCh0kbOtyO9c0lU=",
+            "sha256": "sha256-E95B6hXROWVFYqJvp54WKTPXfyYEioES3QzLXJOBdyw=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.11.0/simple-icons-font-8.11.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/8.14.0/simple-icons-font-8.14.0.zip"
         },
-        "version": "8.11.0"
+        "version": "8.14.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
@@ -560,11 +560,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kcC7uGkNl4yrvWk6seTfGNL20CHn8F/X/YU/7U1WI0s=",
+            "sha256": "sha256-bc3h7EoyHhFCp1B1tSfARtwoizXU5fmRKFkCyaTATss=",
             "type": "url",
-            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip"
+            "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/NerdFontsSymbolsOnly.zip"
         },
-        "version": "v3.0.0"
+        "version": "v3.0.1"
     },
     "telegram-send": {
         "cargoLocks": null,
@@ -648,7 +648,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-05-05",
+        "date": "2023-05-15",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -660,15 +660,15 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "812f3488eaa747a8ddc42880028e546087183766",
-            "sha256": "sha256-VRZbBHOC0Z+Ezn4IkoLIeuLj1HAliaYJOhRMxBmMxNI=",
+            "rev": "86863d22976b47e29e1f39181e8c38189f5b8848",
+            "sha256": "sha256-Lixzwm+cQvk2rptHQf11VQVVsqez9kEKaofdLG/MsLU=",
             "type": "github"
         },
-        "version": "812f3488eaa747a8ddc42880028e546087183766"
+        "version": "86863d22976b47e29e1f39181e8c38189f5b8848"
     },
     "vim-plugin-bigfile-nvim": {
         "cargoLocks": null,
-        "date": "2022-12-01",
+        "date": "2023-05-07",
         "extract": null,
         "name": "vim-plugin-bigfile-nvim",
         "passthru": null,
@@ -680,11 +680,11 @@
             "name": null,
             "owner": "LunarVim",
             "repo": "bigfile.nvim",
-            "rev": "c1bad34ce742b4f360b67ca23c873fef998240fc",
-            "sha256": "sha256-UgAjRutParv851i7colnevHLoBmvtbTX9vxHbyeQ8sk=",
+            "rev": "a34e42616c20bfd52943ed5d6632bb28d22b057e",
+            "sha256": "sha256-s7gQ9gYLbxlxWCrpSRT4blXO0iXqrSqgVTB4d13bKxE=",
             "type": "github"
         },
-        "version": "c1bad34ce742b4f360b67ca23c873fef998240fc"
+        "version": "a34e42616c20bfd52943ed5d6632bb28d22b057e"
     },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,

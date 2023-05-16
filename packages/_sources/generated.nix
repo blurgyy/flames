@@ -24,13 +24,13 @@
   };
   alist = {
     pname = "alist";
-    version = "v3.16.3";
+    version = "v3.17.0";
     src = fetchFromGitHub ({
       owner = "alist-org";
       repo = "alist";
-      rev = "v3.16.3";
+      rev = "v3.17.0";
       fetchSubmodules = false;
-      sha256 = "sha256-EW0DUwZPqzpcLfk3d849DQ+k6lHGKMfgoXKVs2VuqV4=";
+      sha256 = "sha256-zYkIZF6dQ55NGhAdkQJS40s/D317HCzVDqUjf7IAmJ8=";
     });
   };
   apple-color-emoji = {
@@ -56,13 +56,13 @@
   };
   dms = {
     pname = "dms";
-    version = "v1.5.0";
+    version = "v1.6.0";
     src = fetchFromGitHub ({
       owner = "anacrolix";
       repo = "dms";
-      rev = "v1.5.0";
+      rev = "v1.6.0";
       fetchSubmodules = false;
-      sha256 = "sha256-cU9aN2qkJyuCKCxyHXVCNavRTZAlNKDmPQMm0HcaUCk=";
+      sha256 = "sha256-QwRLNCXDu/dKh2o17AyASlVQPIEOX6e4kTINa2ZzZkU=";
     });
   };
   dnsmasq-china-list = {
@@ -255,18 +255,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202305052208";
+    version = "202305152209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305052208/geoip.dat";
-      sha256 = "sha256-fJCbrHP/dNENMuC4ghcfB54o4zIf6WgEym4YfujWGPc=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305152209/geoip.dat";
+      sha256 = "sha256-fjNTgg+7K9iucwA7+I4aOCXGaMKexGpRpXLGXO9fJhM=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202305052208";
+    version = "202305152209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305052208/geosite.dat";
-      sha256 = "sha256-sB9pZFO5kMNyZys+Ty3NP5mcIO5VPUkbGH15jMSF/SA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305152209/geosite.dat";
+      sha256 = "sha256-Kz0EODrNk95TgDt4r1nPVkbyiofRmr5qETq0w0kl1Zs=";
     };
   };
   luarock-dbus_proxy = {
@@ -326,18 +326,18 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "8.11.0";
+    version = "8.14.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.11.0/simple-icons-font-8.11.0.zip";
-      sha256 = "sha256-WaexbmwM/ObZw8Hc5GTa9tLQxH5IgCh0kbOtyO9c0lU=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.14.0/simple-icons-font-8.14.0.zip";
+      sha256 = "sha256-E95B6hXROWVFYqJvp54WKTPXfyYEioES3QzLXJOBdyw=";
     };
   };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
-    version = "v3.0.0";
+    version = "v3.0.1";
     src = fetchurl {
-      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/NerdFontsSymbolsOnly.zip";
-      sha256 = "sha256-kcC7uGkNl4yrvWk6seTfGNL20CHn8F/X/YU/7U1WI0s=";
+      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.1/NerdFontsSymbolsOnly.zip";
+      sha256 = "sha256-bc3h7EoyHhFCp1B1tSfARtwoizXU5fmRKFkCyaTATss=";
     };
   };
   telegram-send = {
@@ -391,27 +391,27 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "812f3488eaa747a8ddc42880028e546087183766";
+    version = "86863d22976b47e29e1f39181e8c38189f5b8848";
     src = fetchFromGitHub ({
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "812f3488eaa747a8ddc42880028e546087183766";
+      rev = "86863d22976b47e29e1f39181e8c38189f5b8848";
       fetchSubmodules = false;
-      sha256 = "sha256-VRZbBHOC0Z+Ezn4IkoLIeuLj1HAliaYJOhRMxBmMxNI=";
+      sha256 = "sha256-Lixzwm+cQvk2rptHQf11VQVVsqez9kEKaofdLG/MsLU=";
     });
-    date = "2023-05-05";
+    date = "2023-05-15";
   };
   vim-plugin-bigfile-nvim = {
     pname = "vim-plugin-bigfile-nvim";
-    version = "c1bad34ce742b4f360b67ca23c873fef998240fc";
+    version = "a34e42616c20bfd52943ed5d6632bb28d22b057e";
     src = fetchFromGitHub ({
       owner = "LunarVim";
       repo = "bigfile.nvim";
-      rev = "c1bad34ce742b4f360b67ca23c873fef998240fc";
+      rev = "a34e42616c20bfd52943ed5d6632bb28d22b057e";
       fetchSubmodules = false;
-      sha256 = "sha256-UgAjRutParv851i7colnevHLoBmvtbTX9vxHbyeQ8sk=";
+      sha256 = "sha256-s7gQ9gYLbxlxWCrpSRT4blXO0iXqrSqgVTB4d13bKxE=";
     });
-    date = "2022-12-01";
+    date = "2023-05-07";
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
