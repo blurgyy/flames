@@ -71,13 +71,6 @@
       url = "github:hyprwm/hyprpaper";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nbfc-linux = {
-      url = "github:nbfc-linux/nbfc-linux";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        utils.follows = "flake-utils";
-      };
-    };
     tex2nix = {
       url = "github:Mic92/tex2nix";
       inputs = {

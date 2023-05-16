@@ -291,29 +291,6 @@
         "type": "github"
       }
     },
-    "nbfc-linux": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "utils": [
-          "flake-utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1684069747,
-        "narHash": "sha256-OI7rngpQZJW5Y+4DeWd27J172C0qUZDqok3SnsWg8SA=",
-        "owner": "nbfc-linux",
-        "repo": "nbfc-linux",
-        "rev": "e876b19dd93c99a5a15a8b508348579af874eff4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nbfc-linux",
-        "repo": "nbfc-linux",
-        "type": "github"
-      }
-    },
     "nix-index-db": {
       "inputs": {
         "nixpkgs": [
@@ -471,7 +448,6 @@
         "hypr-msg-handler": "hypr-msg-handler",
         "hyprland": "hyprland",
         "hyprpaper": "hyprpaper",
-        "nbfc-linux": "nbfc-linux",
         "nix-index-db": "nix-index-db",
         "nixgl": "nixgl",
         "nixos-generators": "nixos-generators",
