@@ -71,6 +71,7 @@ in {
     waypipe
     wget
     xdg-open-handlr
+    xplr
     yt-dlp
     zip
     zstd

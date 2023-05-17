@@ -215,6 +215,7 @@ in {
     tokei
     unar
     unzip
+    xplr
     zip
     zsh
     (python3.withPackages (p: with p; [
