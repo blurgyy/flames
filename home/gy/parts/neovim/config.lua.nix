@@ -563,6 +563,53 @@ in ''
   local caps = require("cmp_nvim_lsp").default_capabilities(
     vim.lsp.protocol.make_client_capabilities()
   )
+
+  --- navic
+  local navic = require("nvim-navic")
+  navic.setup({
+    icons = {
+      File = ' ',
+      Module = ' ',
+      Namespace = ' ',
+      Package = ' ',
+      Class = ' ',
+      Method = ' ',
+      Property = ' ',
+      Field = ' ',
+      Constructor = ' ',
+      Enum = ' ',
+      Interface = ' ',
+      Function = ' ',
+      Variable = ' ',
+      Constant = ' ',
+      String = ' ',
+      Number = ' ',
+      Boolean = ' ',
+      Array = ' ',
+      Object = ' ',
+      Key = ' ',
+      Null = ' ',
+      EnumMember = ' ',
+      Struct = ' ',
+      Event = ' ',
+      Operator = ' ',
+      TypeParameter = ' ',
+    },
+  })
+  local winbar = {
+    lualine_b = {
+      { navic.get_location, cond = navic.is_available },
+    },
+    lualine_z = {
+      { "filename", cond = function () return vim.bo.buftype ~= "nofile" end }
+    },
+  }
+  require("lualine").setup({
+    winbar = winbar,
+    inactive_winbar = winbar,
+  })
+
+  --- lsp
   local enabled_lsps = {
     "bashls",
     "clangd",
@@ -612,49 +659,6 @@ in ''
     },
   }
   local opts = { buffer = true, noremap = true, silent = true }
-  local navic = require("nvim-navic")
-  navic.setup({
-    icons = {
-      File = ' ',
-      Module = ' ',
-      Namespace = ' ',
-      Package = ' ',
-      Class = ' ',
-      Method = ' ',
-      Property = ' ',
-      Field = ' ',
-      Constructor = ' ',
-      Enum = ' ',
-      Interface = ' ',
-      Function = ' ',
-      Variable = ' ',
-      Constant = ' ',
-      String = ' ',
-      Number = ' ',
-      Boolean = ' ',
-      Array = ' ',
-      Object = ' ',
-      Key = ' ',
-      Null = ' ',
-      EnumMember = ' ',
-      Struct = ' ',
-      Event = ' ',
-      Operator = ' ',
-      TypeParameter = ' ',
-    },
-  })
-  local winbar = {
-    lualine_b = {
-      { navic.get_location, cond = navic.is_available },
-    },
-    lualine_z = {
-      { "filename", cond = function () return vim.bo.buftype ~= "nofile" end }
-    },
-  }
-  require("lualine").setup({
-    winbar = winbar,
-    inactive_winbar = winbar,
-  })
   -- REF: :h vim.lsp.buf.hover
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
@@ -662,15 +666,17 @@ in ''
     }
   )
   local on_attach = function(client, bufnr)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gD", previewer.lsp_type_definitions, opts)
+    vim.keymap.set("n", "gd", previewer.lsp_definitions, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "gy", vim.lsp.buf.implementation, opts)
+    vim.keymap.set("n", "gy", previewer.lsp_implementations, opts)
+    vim.keymap.set("n", "g;", previewer.lsp_document_symbols, opts)
+    vim.keymap.set("n", "g:", previewer.lsp_workspace_symbols, opts)
     vim.keymap.set("n", "<C-n>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set("n", "<leader>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
-    vim.keymap.set("n", "\\D", previewer.lsp_type_definitions, opts)
+    vim.keymap.set("n", "\\D", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<leader>qf", previewer.quickfix, opts)
     vim.keymap.set("n", "gr", previewer.lsp_references, opts)
