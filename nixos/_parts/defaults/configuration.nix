@@ -206,6 +206,7 @@ in {
     nix-output-monitor
     pciutils
     procs
+    progress
     ripgrep
     sdwrap
     sops

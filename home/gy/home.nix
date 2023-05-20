@@ -54,6 +54,7 @@ in {
     patchelf
     pciutils
     procs
+    progress
     q-text-as-data
     ripgrep
     sdwrap
