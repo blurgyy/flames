@@ -69,6 +69,14 @@
         RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
     };
 
+    morty-copi = {
+      hostname = "morty";
+      proxyJump = "copi";
+    };
+    rpi-copi = {
+      hostname = "rpi";
+      proxyJump = "copi";
+    };
     watson-copi = {
       hostname = "watson";
       proxyJump = "copi";
