@@ -21,7 +21,7 @@ in {
 
   nix = {
     nrBuildUsers = 0;
-    package = lib.mkDefault pkgs.nixUnstable;
+    package = lib.mkDefault pkgs.nixStable;
     registry = {
       pkgs.flake = inputs.nixpkgs;
       nixgl.flake = inputs.nixgl;

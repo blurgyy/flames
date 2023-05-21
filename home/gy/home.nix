@@ -48,6 +48,7 @@ in {
     litecli
     lnav
     lsof
+    nixStable
     nix-output-monitor
     nvfetcher
     parallel
