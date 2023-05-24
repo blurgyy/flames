@@ -15,11 +15,11 @@
   };
 
   networking = {
-    defaultGateway = "154.40.52.1";
+    defaultGateway = "116.206.95.1";
     interfaces.eth0 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "154.40.52.20";
+        address = "116.206.95.75";
         prefixLength = 24;
       }];
     };
