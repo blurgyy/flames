@@ -597,8 +597,10 @@ in ''
     },
   })
   local winbar = {
-    lualine_b = {
-      { navic.get_location, cond = navic.is_available },
+    lualine_b = {  -- ref: `:h nvim-navic`
+      "navic",
+      color_correction = nil,
+      navic_opts = nil,
     },
     lualine_z = {
       { "filename", cond = function () return vim.bo.buftype ~= "nofile" end }
