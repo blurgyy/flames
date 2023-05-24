@@ -195,7 +195,7 @@ Trouble Shooting
     $ fdisk /dev/vda  # vda for example
       [...]
     $ mkfs.btrfs /dev/vda2 -L nixos-root  # --force
-    $ mkfs.vfat /dev/vda3 -L nixos-boot
+    $ mkfs.vfat /dev/vda3 -n nixos-boot
 
     $ mount -ocompress-force=zstd:3 /dev/vda2 /mnt
     $ mkdir /mnt/boot
@@ -204,9 +204,11 @@ Trouble Shooting
     $ btrfs subvolume create /mnt/nix
     $ mkdir -p /nix
     $ mount -osubvol=nix,compress-force=zstd:3 /dev/vda2 /nix
+    $ # or: mount -obind /mnt/nix /nix
 
     $ btrfs subvolume create /mnt/tmp
     $ mount -osubvol=tmp,compress-force=zstd:3 /dev/vda2 /tmp
+    $ # or: mount -obind /mnt/tmp /tmp
     ```
   * Copy contents to `/etc/nix/nix.conf`:
   ```conf
