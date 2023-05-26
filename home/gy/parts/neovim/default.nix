@@ -57,6 +57,7 @@
         tree-sitter-python
         tree-sitter-r
         tree-sitter-rust
+        tree-sitter-scss
         tree-sitter-sql
         tree-sitter-toml
         tree-sitter-yaml
@@ -81,6 +82,7 @@
     vim-fugitive
     vim-smoothie
     vim-wakatime
+    yuck-vim
   ];
   extraConfig = ''
     lua <<EOF
