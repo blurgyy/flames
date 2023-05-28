@@ -265,6 +265,7 @@ in {
         accel_profile = "flat";  # Available values: (adaptive|flat)
       };
       "type:touchpad" = {
+        events = "disabled";  # disable touchpad
         accel_profile = "adaptive";  # Available values: (adaptive|flat)
         dwt = "enabled";  # Enable "disable-while-typing" feature
         tap = "enabled";  # Accept tap as mouse click
