@@ -24,13 +24,13 @@
   };
   alist = {
     pname = "alist";
-    version = "v3.17.0";
+    version = "v3.18.0";
     src = fetchFromGitHub ({
       owner = "alist-org";
       repo = "alist";
-      rev = "v3.17.0";
+      rev = "v3.18.0";
       fetchSubmodules = false;
-      sha256 = "sha256-zYkIZF6dQ55NGhAdkQJS40s/D317HCzVDqUjf7IAmJ8=";
+      sha256 = "sha256-Vces6lg0O8tXkOC01Tx7WvJ/jILWiEyeD48UsLRpdUE=";
     });
   };
   apple-color-emoji = {
@@ -67,15 +67,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "53a32cafe932dcec5fcef1452586033ff579b84b";
+    version = "352322b6c93975f6b46c23d22802b21cf6bd5212";
     src = fetchFromGitHub ({
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "53a32cafe932dcec5fcef1452586033ff579b84b";
+      rev = "352322b6c93975f6b46c23d22802b21cf6bd5212";
       fetchSubmodules = false;
-      sha256 = "sha256-/hAHXvXW8M3y6NEqaxGWnEOtQuAJlANkXIC8i4GcZ5Y=";
+      sha256 = "sha256-r/mjptKxtAT0yoqfs6qAcCrk4YgoYcJ/EuvAfRuCWKQ=";
     });
-    date = "2023-05-24";
+    date = "2023-05-28";
   };
   dt = {
     pname = "dt";
@@ -255,18 +255,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202305242209";
+    version = "202305292208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305242209/geoip.dat";
-      sha256 = "sha256-Jhty+HtesZHMZ2TBvK8vwcTYXg5z/sD9WOCYsnjNm38=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305292208/geoip.dat";
+      sha256 = "sha256-jnEoO7dG8Ll3tIx0XRt15pY60+a/rmIXGVJrOME9yew=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202305242209";
+    version = "202305292208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305242209/geosite.dat";
-      sha256 = "sha256-6Wszx5X9iR+TgOrN6cAbM+fIa96XLr1ffsTbaXpFLQs=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202305292208/geosite.dat";
+      sha256 = "sha256-HrzKRUenk6nbA1f0Llwp2iukUd8NtABfLctNisayJ9I=";
     };
   };
   luarock-dbus_proxy = {
@@ -337,10 +337,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "8.15.0";
+    version = "9.0.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/8.15.0/simple-icons-font-8.15.0.zip";
-      sha256 = "sha256-xWZw5uDa7hSNtUbQQAv06m0XS7w4R5xZM1R/9DmhYu0=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.0.0/simple-icons-font-9.0.0.zip";
+      sha256 = "sha256-RMfIokexqf1Ypj5QRJeO0qKLAFhOAocn2olcLVqGaA0=";
     };
   };
   symbols-nerd-font = {
@@ -378,15 +378,15 @@
   };
   tmux-plugin-catppuccin = {
     pname = "tmux-plugin-catppuccin";
-    version = "4e48b09a76829edc7b55fbb15467cf0411f07931";
+    version = "0f46a0fa14104d265e46b4cc4eec72ade3bf5998";
     src = fetchFromGitHub ({
       owner = "catppuccin";
       repo = "tmux";
-      rev = "4e48b09a76829edc7b55fbb15467cf0411f07931";
+      rev = "0f46a0fa14104d265e46b4cc4eec72ade3bf5998";
       fetchSubmodules = false;
-      sha256 = "sha256-bXEsxt4ozl3cAzV3ZyvbPsnmy0RAdpLxHwN82gvjLdU=";
+      sha256 = "sha256-/9nwQ7MRwcPLpP1kpO9c8DisfU4OJOWcEVzmL1h/mhc=";
     });
-    date = "2023-04-03";
+    date = "2023-05-25";
   };
   ttf-google-sans = {
     pname = "ttf-google-sans";
@@ -402,15 +402,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "982e262af9d22ad42fcf16af161df1cb05c88e77";
+    version = "0b3b8b7bfedbbd427730277279cd3c90486a49a5";
     src = fetchFromGitHub ({
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "982e262af9d22ad42fcf16af161df1cb05c88e77";
+      rev = "0b3b8b7bfedbbd427730277279cd3c90486a49a5";
       fetchSubmodules = false;
-      sha256 = "sha256-hdzv1VggGga4iJsf0wN1XEnste1x4CHNmY5sERW60s4=";
+      sha256 = "sha256-YYGErD20ZTNoVPNs2HUujO/vCgMnKYXGztAYG/jXFsA=";
     });
-    date = "2023-05-24";
+    date = "2023-05-29";
   };
   vim-plugin-bigfile-nvim = {
     pname = "vim-plugin-bigfile-nvim";
