@@ -646,6 +646,26 @@
         },
         "version": "0f46a0fa14104d265e46b4cc4eec72ade3bf5998"
     },
+    "tro": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "tro",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "MichaelAquilina",
+            "repo": "tro",
+            "rev": "2.9.1",
+            "sha256": "sha256-u/b6MJOBX1yxUZ5a2qZdrt10v1sxCtLwBBKSn0oPakM=",
+            "type": "github"
+        },
+        "version": "2.9.1"
+    },
     "ttf-google-sans": {
         "cargoLocks": null,
         "date": "2018-08-01",

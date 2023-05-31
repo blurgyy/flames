@@ -388,6 +388,17 @@
     });
     date = "2023-05-25";
   };
+  tro = {
+    pname = "tro";
+    version = "2.9.1";
+    src = fetchFromGitHub ({
+      owner = "MichaelAquilina";
+      repo = "tro";
+      rev = "2.9.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-u/b6MJOBX1yxUZ5a2qZdrt10v1sxCtLwBBKSn0oPakM=";
+    });
+  };
   ttf-google-sans = {
     pname = "ttf-google-sans";
     version = "b1826355d8212378e5fd6094bbe504268fa6f85d";
