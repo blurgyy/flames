@@ -57,7 +57,11 @@
     overlays.default = final: prev: let
       # version = "0.1.0";
     in {
-      # myPackage = final.callPackage ./. { inherit version; };
+      # myPackage = final.callPackage ./. {
+      #   pname = ;
+      #   src = ./.;
+      #   inherit version;
+      # };
     };
     hydraJobs = self.packages;
   };
