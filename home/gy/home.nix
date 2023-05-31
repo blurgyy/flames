@@ -66,6 +66,7 @@ in {
     tex2nix
     tinytools
     tokei
+    tro
     unar
     unzip
     util-linux
