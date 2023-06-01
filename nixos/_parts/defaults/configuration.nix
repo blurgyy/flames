@@ -214,6 +214,7 @@ in {
     sshfs
     strace
     tokei
+    typos
     unar
     unzip
     xplr

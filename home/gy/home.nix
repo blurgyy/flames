@@ -71,6 +71,7 @@ in {
     tinytools
     tokei
     tro
+    typos
     unar
     unzip
     util-linux
