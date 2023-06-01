@@ -14,7 +14,7 @@
     cannosign = "commit -sv --amend --no-edit";
     canosign = "commit -sv --amend";
     cnosign = "commit -sv";
-    cinit = ''commit --allow-empty -m "chore: initalize repository (empty)"'';
+    cinit = ''commit --allow-empty -m "chore: initialize repository (empty)"'';
     co = "checkout";
     d = "diff";
     dp = "diff --no-ext-diff --patch";

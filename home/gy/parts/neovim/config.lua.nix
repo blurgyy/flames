@@ -367,7 +367,7 @@ in ''
     semantic_letters = true,
 
     -- New buffer letters are assigned in this order. This order is
-    -- optimal for the qwerty keyboard layout but might need adjustement
+    -- optimal for the qwerty keyboard layout but might need adjustment
     -- for other layouts.
     letters = 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP',
 
@@ -400,7 +400,7 @@ in ''
     { name = "<M-P>", target = "<CMD>BufferPin<CR>" },
     -- Close buffer
     { name = "<M-c>", target = "<CMD>BufferClose<CR>" },
-    -- Concatentation.  Note that this must be at the end.
+    -- Concatenation.  Note that this must be at the end.
     -- REF: <https://stackoverflow.com/questions/1410862/concatenation-of-tables-in-lua#comments-54352037>
     table.unpack(mappings.n or {}),
   }
@@ -454,7 +454,7 @@ in ''
     { name = "<leader>b", target = previewer.buffers, options = { noremap = true } },
     { name = "<leader>fh", target = previewer.help_tags, options = { noremap = true } },
     { name = "<leader>v", target = previewer.treesitter, options = { noremap = true } },
-    -- Concatentation with prev mappings
+    -- Concatenation with prev mappings
     table.unpack(mappings.n or {}),
   }
   require("telescope").setup({
@@ -690,7 +690,7 @@ in ''
   for _, lspname in pairs(enabled_lsps) do
     local lsp_settings = settings[lspname] or {}
     lsp_settings._name = lspname
-    lsp_settings.capabilites = lsp_settings.capabilites or caps
+    lsp_settings.capabilities = lsp_settings.capabilities or caps
     lsp_settings.on_attach = lsp_settings.on_attach or on_attach
     lsp_settings.root_dir = lsp_settings.root_dir or
         require("lspconfig").util.find_git_ancestor
@@ -741,7 +741,7 @@ in ''
             -- Return non-zero when there's any syntax error
             "--fail",
             -- Using "@$FILENAME" below won't work because formatting is
-            -- done before writting buffer and at the moment $FILENAME
+            -- done before writing buffer and at the moment $FILENAME
             -- doesn't contain updated file content. use stdin "@-"
             -- instead.
             "--data-binary", "@-",

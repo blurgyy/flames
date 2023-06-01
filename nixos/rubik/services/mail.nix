@@ -8,7 +8,7 @@
   mailHome = "/var/spool/mail";
 
   dovecot2RuntimeDir = "/run/dovecot2";
-  dovecot2AuthPostfixListner = "auth-postfix";
+  dovecot2AuthPostfixListener = "auth-postfix";
 in {
   services = {
     postfix = {
@@ -75,7 +75,7 @@ in {
         ];
         smtpd_delay_reject = true;
         smtpd_sasl_type = "dovecot";
-        smtpd_sasl_path = "${dovecot2RuntimeDir}/${dovecot2AuthPostfixListner}";
+        smtpd_sasl_path = "${dovecot2RuntimeDir}/${dovecot2AuthPostfixListener}";
         smtpd_sasl_auth_enable = true;
         mydestination = [
           config.networking.domain  # Default value only contains below 3 entries thus rejects mails sent to the <@blurgy.xyz> domain.
@@ -103,7 +103,7 @@ in {
             smtpd_tls_security_level = "encrypt";
             smtpd_sasl_auth_enable = "yes";
             smtpd_sasl_type = "dovecot";
-            smtpd_sasl_path = "${dovecot2RuntimeDir}/${dovecot2AuthPostfixListner}";
+            smtpd_sasl_path = "${dovecot2RuntimeDir}/${dovecot2AuthPostfixListener}";
             smtpd_sender_login_maps = "hash:/etc/postfix/senders";  # NOTE: use jointly with mapFiles.senders (see above)
             smtpd_client_restrictions = "permit_sasl_authenticated,reject";
             smtpd_sender_restrictions = "reject_sender_login_mismatch";
@@ -138,7 +138,7 @@ in {
         }
 
         service auth {
-          unix_listener ${dovecot2AuthPostfixListner} {
+          unix_listener ${dovecot2AuthPostfixListener} {
             mode = 0660
             user = ${config.services.postfix.user}
             group = ${config.services.postfix.group}

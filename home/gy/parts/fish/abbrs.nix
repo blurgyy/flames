@@ -147,7 +147,7 @@ fixTypo "blurgy" [
   gc = "git commit -sv";
   gca = "git commit -sv --amend";
   gcan = "git commit -sv --amend --no-edit";
-  gcinit = ''git commit --allow-empty -m "chore: initalize repository (empty)"'';
+  gcinit = ''git commit --allow-empty -m "chore: initialize repository (empty)"'';
   gcnosign = "git commit -sv --no-gpg-sign";
   gcanosign = "git commit -sv --amend --no-gpg-sign";
   gcannosign = "git commit -sv --amend --no-edit --no-gpg-sign";

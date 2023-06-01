@@ -70,7 +70,7 @@ Trouble Shooting
 
   > See <https://gist.github.com/blurgyy/0d559e6bb9f20de46f61938539b9cd74> for an example.
 
-* If installation was successfull but boot fails at Stage 1, complaining that the root filesystem
+* If installation was successful but boot fails at Stage 1, complaining that the root filesystem
   could not be found and mounted, this may be due to related kernel modules not being loaded.  On a
   bandwagon machine, adding an entry `virtio_scsi` to both `boot.initrd.availableKernelModules` and
   `boot.initrd.kernelModules` before installing solved this problem.
@@ -154,7 +154,7 @@ Trouble Shooting
     ```
   - Example network config:
     ```
-    Set network interface nummber: 0
+    Set network interface number: 0
     IP:203.0.113.2
     Subnet mask:255.255.255.0
     Gateway:203.0.113.1

@@ -57,7 +57,7 @@
   alias gcan='g commit -S -sv --amend --no-edit'
   alias gcannosign='g commit -sv --amend --no-edit'
   alias gcanosign='g commit -sv --amend'
-  alias gcinit='g commit --allow-empty -m "chore: initalize repository (empty)"';
+  alias gcinit='g commit --allow-empty -m "chore: initialize repository (empty)"';
   alias gcnosign='g commit -sv'
   alias gco='g checkout'
   alias gco.='g checkout .'

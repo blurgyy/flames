@@ -10,7 +10,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackagesFor pkgs.opi3lts-kernel-latest;
     kernelModules = [
-      # NOTE: Enables wireless driver for uwe5622 (though the borad says aw859a), needs
+      # NOTE: Enables wireless driver for uwe5622 (though the board says aw859a), needs
       # /lib/firmware/wifi_2355b001_1ant.ini and /lib/firmware/wcnmodem.bin to work.
       # WARN: see below configs on `systemd.services.systemd-modules-load`
       "sprdwl_ng"

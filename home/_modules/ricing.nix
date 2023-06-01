@@ -211,7 +211,7 @@ in with lib; {
     }];
     services.dunst.iconTheme = config.gtk.iconTheme;
     # NOTE: Add `"layout.css.prefers-color-scheme.content-override" = 2;` to `Preferences` of
-    # pacakge wrap options for firefox.
+    # package wrap options for firefox.
     # REF: <https://support.mozilla.org/bm/questions/1364502>
 
     home.activation.generateBatCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''

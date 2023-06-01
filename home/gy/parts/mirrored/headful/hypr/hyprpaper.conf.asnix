@@ -12,7 +12,7 @@ in ''
 #
 # Note:
 # No space between comma and <path> in `wallpaper =` line
-# Leave <monitor> empty to use <path> as deafult
+# Leave <monitor> empty to use <path> as default
 
 preload = ${wallpaper}
 wallpaper = ,${wallpaper}

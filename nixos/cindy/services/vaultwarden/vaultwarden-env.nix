@@ -144,7 +144,7 @@ WEB_VAULT_ENABLED=${toString webVault.enable}
 ## Icon blacklist Regex
 ## Any domains or IPs that match this regex won't be fetched by the icon service.
 ## Useful to hide other servers in the local network. Check the WIKI for more details
-## NOTE: Always enclose this regex withing single quotes!
+## NOTE: Always enclose this regex within single quotes!
 # ICON_BLACKLIST_REGEX='^(192\.168\.0\.[0-9]+|192\.168\.1\.[0-9]+)$'
 
 ## Any IP which is not defined as a global IP will be blacklisted.
