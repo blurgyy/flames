@@ -7,6 +7,10 @@
 }: let
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
+  imports = [
+    ./parts/kdeconnect.nix
+  ];
+
   home.username = myName;
   home.homeDirectory = myHome;
   ricing.textual.theme = "dark";

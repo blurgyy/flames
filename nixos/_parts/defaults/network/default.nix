@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, ... }: {
   imports = [
     ./dns
     ./tailscale.nix
@@ -10,6 +10,10 @@
       port = config.services.tailscale.port;
       protocols = [ "udp" ];
       comment = "tailscale tunnel listening port";
+    } {
+      port = "1714-1764";
+      protocols = [ "tcp" "udp" ];
+      comment = "KDEConnect communication ports";
     }];
     rejectedAddrGroups = [{
       addrs = (import ./banned-ips/ssh-scanners.nix);
