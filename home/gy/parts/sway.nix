@@ -197,6 +197,7 @@ in {
     };
     floating = {
       criteria = [
+        { app_id = "org.kde.kdeconnect-indicator"; }
         { app_id = "CloudCompare"; title = "Ply File Open"; }
         { class = "com.alibabainc.dingtalk"; title = " |分享的图片"; }
         { app_id = "org.fcitx.fcitx5-config-qt|flameshot|kvantummanager|qt5ct|pavucontrol|swappy|zenity|CrashReportClient"; }
