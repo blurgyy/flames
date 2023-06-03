@@ -39,7 +39,8 @@ in {
       auto-allocate-uids = true;
       use-cgroups = true;
       trusted-users = [ "root" "gy" ];
-      substituters = (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirror.sjtu.edu.cn/nix-channels/store") ++ [
+      substituters = # (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirror.sjtu.edu.cn/nix-channels/store") ++ [
+      [
         "https://nix-community.cachix.org"
         "https://cache.blurgy.xyz"
       ];
