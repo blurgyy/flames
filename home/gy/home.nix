@@ -72,6 +72,7 @@ in {
     tokei
     tro
     typos
+    typst
     unar
     unzip
     util-linux
