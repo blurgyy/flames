@@ -83,6 +83,7 @@
     vim-smoothie
     vim-wakatime
     yuck-vim
+    typst-vim
   ];
   extraConfig = ''
     lua <<EOF
@@ -105,6 +106,7 @@
     lua-language-server
     taplo-lsp
     texlab
+    typst-lsp
     wakatime
     yaml-language-server
   ];

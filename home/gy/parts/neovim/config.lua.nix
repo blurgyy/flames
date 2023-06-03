@@ -622,6 +622,7 @@ in ''
     "lua_ls",
     "taplo",
     "texlab",
+    "typst_lsp",
     "yamlls",
   }
   local settings = {
