@@ -1,12 +1,12 @@
 { config, pkgs, ... }: let
-  thttpdPort = 31727;
+  listenPort = 31727;
 in {
   sops.secrets = {
-    clash-header.restartUnits = [ "thttpd.service" ];
-    clash-uuids.restartUnits = [ "thttpd.service" ];
+    clash-header.restartUnits = [ "rules-server.service" ];
+    clash-uuids.restartUnits = [ "rules-server.service" ];
   };
 
-  systemd.services.thttpd = rec {
+  systemd.services.rules-server = rec {
     wantedBy = [ "multi-user.target" ];
     preStart = ''
       cd /run/${serviceConfig.RuntimeDirectory}
@@ -19,9 +19,9 @@ in {
     script = ''
       thttpd \
         -d /run/${serviceConfig.RuntimeDirectory} \
-        -p ${toString thttpdPort} \
+        -p ${toString listenPort} \
         -c "/clash" \
-        -l /var/log/${serviceConfig.LogsDirectory}/thttpd.log \
+        -l /var/log/${serviceConfig.LogsDirectory}/rules-server.log \
         -D
     '';
     serviceConfig = {
@@ -30,9 +30,9 @@ in {
         "header.yaml:${config.sops.secrets.clash-header.path}"
         "uuids:${config.sops.secrets.clash-uuids.path}"
       ];
-      RuntimeDirectory = "thttpd";
+      RuntimeDirectory = "rules-server";
       RuntimeDirectoryMode = "0700";
-      LogsDirectory = "thttpd";
+      LogsDirectory = "rules-server";
       LogsDirectoryMode = "0700";
       Restart = "always";
       RestartSec = 5;
@@ -45,7 +45,7 @@ in {
     ];
     backends.rules-server = {
       mode = "http";
-      server.address = "127.0.0.1:${toString thttpdPort}";
+      server.address = "127.0.0.1:${toString listenPort}";
     };
   };
 }
