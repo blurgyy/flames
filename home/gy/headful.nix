@@ -52,6 +52,7 @@ in {  # For non-headless machines
     rustdesk-with-x11-desktopentry
     slurp
     tdesktop-megumifox
+    typst
     wf-recorder-respect-pixel-format
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wlr-randr
@@ -127,6 +128,7 @@ in {  # For non-headless machines
     _JAVA_AWT_WM_NONREPARENTING = 1;
     QT_PLUGIN_PATH = "${pkgs.libsForQt5.fcitx5-qt}/${pkgs.qt6.qtbase.qtPluginPrefix}\${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}";
     NO_AT_BRIDGE = 1;  # REF: <https://github.com/NixOS/nixpkgs/issues/16327#issuecomment-315729994>
+    TYPST_FONT_PATHS = "${config.home.profileDirectory}";
   };
 
   xdg = {
