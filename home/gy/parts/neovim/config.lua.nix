@@ -660,6 +660,18 @@ in ''
     texlab = {
       formatterLineLength = vim.o.textwidth,
     },
+    typst_lsp = {
+      -- typst-lsp does not support configuring fonts dir, so disable the auto-compilation here and
+      -- manually run `typst --font-path=path/to/fonts watch main.typ --open`.
+      -- REF:
+      --  * <https://github.com/nvarner/typst-lsp/issues/98>
+      --  * <https://github.com/nvarner/typst-lsp/issues/120>
+      -- NOTE: The settings need to be inside the `settings` object.
+      -- REF: <https://github.com/nvarner/typst-lsp/blob/011b579b6e9eaee74353e700996a57f6c3782445/src/server/lsp.rs#L332>
+      settings = {
+        exportPdf = "never",
+      },
+    },
   }
   local opts = { buffer = true, noremap = true, silent = true }
   -- REF: :h vim.lsp.buf.hover
