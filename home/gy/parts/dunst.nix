@@ -210,9 +210,9 @@ in {
     # HACK: The added complexity here is due to non-canonical file hierarchy of package flat-remix-icon-theme
     icon_path = with lib; let
       mkFlatRemixIconPath = { name, category, variant }:
-        "${config.home.homeDirectory}/.nix-profile/share/icons/${name}/${category}/${variant}";
+        "${config.home.profileDirectory}/share/icons/${name}/${category}/${variant}";
       mkHiColorIconPath = { category, variant }:
-        "${config.home.homeDirectory}/.nix-profile/share/icons/hicolor/${variant}/${category}";
+        "${config.home.profileDirectory}/share/icons/hicolor/${variant}/${category}";
       variant = [ "" "scalable" "symbolic" "512" "256" "128" "64" "48" "32" "24" "22" "18" "16" ];
     in (concatMapStringsSep ":" mkFlatRemixIconPath (
       cartesianProductOfSets {
