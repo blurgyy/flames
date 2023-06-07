@@ -4,62 +4,64 @@
 in {
   options.services.soft-serve = let
     bindModule = types.submodule ({ ... }: {
-      options.addr = mkOption { type = types.str; default = "0.0.0.0"; };
-      options.port = mkOption { type = portType; default = 77; };
+      options.sshAddr = mkOption { type = types.str; default = "0.0.0.0"; };
+      options.sshPort = mkOption { type = portType; default = 77; };
+
+      options.gitAddr = mkOption { type = types.str; default = "0.0.0.0"; };
+      options.gitPort = mkOption { type = portType; default = 76; };
+
+      options.httpAddr = mkOption { type = types.str; default = "0.0.0.0"; };
+      options.httpPort = mkOption { type = portType; default = 75; };
+
+      options.statsAddr = mkOption { type = types.str; default = "0.0.0.0"; };
+      options.statsPort = mkOption { type = portType; default = 74; };
     });
     displayModule = types.submodule ({ ... }: {
       options.name = mkOption { type = types.str; default = "Soft Serve"; };
       options.host = mkOption { type = types.str; description = "Address to use in public clone URLs"; example = "some.domain.org"; };
-      options.port = mkOption { type = portType; default = cfg.bind.port; };
-    });
-    repoModule = types.submodule ({ ... }: {
-      options.displayName = mkOption { type = types.str; description = "Name of repo displayed on TUI"; };
-      options.directoryName = mkOption { type = types.str; };
-      options.private = mkOption { type = types.bool; };
-      options.note = mkOption { type = types.str; default = ""; };
-      options.readme = mkOption { type = types.str; default = "README.md"; };
-    });
-    userModule = types.submodule ({ ... }: {
-      options.name = mkOption { type = types.str; };
-      options.isAdmin = mkOption { type = types.bool; };
-      options.publicKeys = mkOption { type = types.listOf types.str; };
-      options.collabRepos = mkOption { type = types.listOf types.str; default = []; };
+      options.sshPort = mkOption { type = portType; default = cfg.bind.sshPort; };
+      options.httpPort = mkOption { type = portType; default = cfg.bind.httpPort; };
     });
   in {
     enable = mkEnableOption "Enable soft-serve, a tasty, self-hostable Git server for the command line.";
     package = mkOption { type = types.package; default = pkgs.soft-serve; };
-    bind = mkOption { type = bindModule; };
+    bind = mkOption { type = bindModule; default = {}; };
     display = mkOption { type = displayModule; description = "Information to be displayed in the TUI"; };
-    keyFile = mkOption {
+    hostKey = mkOption {
       type = types.str;
       description = ''
-        A path to soft-serve's root directory, specifies git server's host key file.  Path is
-        an absolute path if it contains a leading slash, otherwise it's relative to soft-serve's
-        root directory.  Key pair will be created if non was present.
+        Specifies git server's host key file.  Path is an absolute path if it contains a leading
+        slash, otherwise it's relative to soft-serve's working directory.  Key pair will be created
+        if non was present.
       '';
-      default = ".ssh/soft_serve_server_ed25519";
+      default = "ssh/soft_serve_server_ed25519";
     };
-    repoDirectory = mkOption {
+    clientKey = mkOption {
       type = types.str;
       description = ''
-        Specifies directory to store all repositories.  Path is an absolute path if it contains
-        a leading slash, otherwise it's relative to soft-serve's root directory.
+        Specifies git server's client key file, soft will use this as its identity while performing
+        git operations (in hooks, etc.).  Path is an absolute path if it contains a leading slash,
+        otherwise it's relative to soft-serve's working directory.  Key pair will be created if non
+        was present.
       '';
-      default = ".repo";
+      default = "ssh/soft_serve_client_ed25519";
     };
-    anonAccess = mkOption {
-      type = types.enum [ "admin-access" "read-write" "read-only" "no-access" ];
-      default = "no-access";
+    dataDirectory = mkOption {
+      type = types.str;
+      description = ''
+        Specifies the parent directory that holds all Soft Serve data and repositories.  Path is an
+        absolute path if it contains a leading slash, otherwise it's relative to soft-serve's root
+        directory.
+      '';
+      default = ".";
     };
-    allowKeyless = mkOption { type = types.bool; default = false; };
-    repos = mkOption { type = types.listOf repoModule; default = []; };
-    users = mkOption { type = types.nullOr (types.attrsOf userModule); default = null; };
+    adminPublicKeys = mkOption { type = with types; listOf str; };
   };
 
   config = mkIf cfg.enable {
-    assertions = mkIf (cfg.users != null) [{
-      assertion = builtins.any (user: user.isAdmin) (attrValues cfg.users);
-      message = "At least one user should be set as admin for services.soft-serve";
+    assertions = [{
+      assertion = (builtins.stringLength cfg.dataDirectory) > 0;
+      message = "`services.soft-serve.dataDirectory` must be an non-empty string";
     }];
     environment.systemPackages = [ cfg.package ];
     users = {
@@ -70,78 +72,90 @@ in {
       groups.softserve = {};
     };
     systemd.services.soft-serve = let
-      boolToString = val: if val then "true" else "false";
       softserveCfg = pkgs.writeText "config.yaml" ''
-        # Generated, do not edit
-        name: ${cfg.display.name}
-        host: ${cfg.display.host}
-        port: ${toString cfg.display.port}
-        anon-access: ${cfg.anonAccess}
-        allow-keyless: ${boolToString cfg.allowKeyless}
-        repos:
-          ${concatStringsSep "\n" (map (repo: ''
-        # Placeholder comment, to prevent leading whitespaces from being stripped by nix
-          - name: ${repo.displayName}
-            repo: ${repo.directoryName}
-            private: ${boolToString repo.private}
-            note: ${repo.note}
-            readme: ${repo.readme}
-          '') cfg.repos)}
-        users:
-          ${optionalString (cfg.users != null) (concatStringsSep "\n" (attrValues (mapAttrs (username: user: ''
-        # Placeholder comment, to prevent leading whitespaces from being stripped by nix
-          - name: ${username}
-            admin: ${boolToString user.isAdmin}
-            public-keys:
-              ${concatStringsSep "\n      " (map (key: "- ${key}") user.publicKeys)}
-            collab-repos:
-              ${concatStringsSep "\n      " (map (repo: "- ${repo}") user.collabRepos)}
-          '') cfg.users)))}
-      '';
-      config-setup = with pkgs; writeShellScriptBin "soft-serve-config-setup" ''
-        set -Eeuo pipefail
+        # Soft Serve Server configurations
 
-        export PATH=''${PATH:+${git}/bin:''${PATH}}
-        export GIT_AUTHOR_NAME='softserve'
-        export GIT_AUTHOR_EMAIL='softserve@${config.networking.hostName}'
-        export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-        export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+        # The name of the server.
+        # This is the name that will be displayed in the UI.
+        name: "${cfg.display.name}"
 
-        cd /tmp/soft-serve  # This is set in the BindPaths= directive
-        cfgdir=$(realpath $(mktemp -d config-XXXXXXXX))  # Write configured values into cfgdir
-        repodir=$(realpath ${cfg.repoDirectory})  # use absolute path to refer to repodir
-        trap 'rm -rf "$cfgdir"' EXIT
+        # Logging configuration.
+        log:
+          # Log format to use. Valid values are "json", "logfmt", and "text".
+          format: "text"
+          # Time format for the log "timestamp" field.
+          # Should be described in Golang's time format.
+          time_format: "2006-01-02 15:04:05"
 
-        rm -rf "$repodir"/config  # Remove the bare config repo
-        git init --bare --initial-branch=main "$repodir"/config
-        git init --initial-branch=main "$cfgdir" && cd "$cfgdir"
-        git remote add soft "$repodir"/config
+        # The SSH server configuration.
+        ssh:
+          # The address on which the SSH server will listen.
+          listen_addr: "${cfg.bind.sshAddr}:${toString cfg.bind.sshPort}"
 
-        cp ${softserveCfg} config.yaml
-        cat >README.md <<'EOF'
-        # ${cfg.display.name}
-        
-        To create a new repo with name $repoName:
+          # The public URL of the SSH server.
+          # This is the address that will be used to clone repositories.
+          public_url: "ssh://${cfg.display.host}:${toString cfg.display.sshPort}"
 
-        ```
-        git init $repoName && cd $repoName
-        git remote add soft ssh://{{.Host}}:{{.Port}}/$repoName
-        git push soft main
-        ```
-        EOF
-        git add -A
-        git commit -m "chore: initialize soft-serve config (done from nix module soft-serve)"
-        git push soft main
+          # The path to the SSH server's private key.
+          key_path: "${cfg.hostKey}"
+
+          # The path to the server's client private key. This key will be used to
+          # authenticate the server to make git requests to ssh remotes.
+          client_key_path: "${cfg.clientKey}"
+
+          # The maximum number of seconds a connection can take.
+          # A value of 0 means no timeout.
+          max_timeout: 0
+
+          # The number of seconds a connection can be idle before it is closed.
+          # A value of 0 means no timeout.
+          idle_timeout: 0
+
+        # The Git daemon configuration.
+        git:
+          # The address on which the Git daemon will listen.
+          listen_addr: "${cfg.bind.gitAddr}:${toString cfg.bind.gitPort}"
+
+          # The maximum number of seconds a connection can take.
+          # A value of 0 means no timeout.
+          max_timeout: 0
+
+          # The number of seconds a connection can be idle before it is closed.
+          idle_timeout: 3
+
+          # The maximum number of concurrent connections.
+          max_connections: 32
+
+        # The HTTP server configuration.
+        http:
+          # The address on which the HTTP server will listen.
+          listen_addr: "${cfg.bind.httpAddr}:${toString cfg.bind.httpPort}"
+
+          # The path to the TLS private key.
+          tls_key_path: ""
+
+          # The path to the TLS certificate.
+          tls_cert_path: ""
+
+          # The public URL of the HTTP server.
+          # This is the address that will be used to clone repositories.
+          # Make sure to use https:// if you are using TLS.
+          public_url: "http://${cfg.display.host}:${toString cfg.display.httpPort}"
+
+        # The stats server configuration.
+        stats:
+          # The address on which the stats server will listen.
+          listen_addr: "${cfg.bind.statsAddr}:${toString cfg.bind.statsPort}"
+
+        # Additional admin keys.
+        initial_admin_keys:
+          ${concatStringsSep "\n      " (map (key: "- ${key}") cfg.adminPublicKeys)}
       '';
     in {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
-      environment = {
-        SOFT_SERVE_PORT = toString cfg.bind.port;
-        SOFT_SERVE_BIND_ADDRESS = cfg.bind.addr;
-        SOFT_SERVE_KEY_PATH = cfg.keyFile;
-        SOFT_SERVE_REPO_PATH = cfg.repoDirectory;
-      };
+      environment.SOFT_SERVE_DATA_PATH = cfg.dataDirectory;
+      path = [ pkgs.bash ];
       serviceConfig = rec {
         User = config.users.users.softserve.name;
         Group = config.users.groups.softserve.name;
@@ -153,7 +167,9 @@ in {
         BindPaths = [ "/var/lib/${StateDirectory}:/tmp/soft-serve" ];
         ProtectSystem = "strict";
         AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
-        ExecStartPre = [ "${config-setup}/bin/soft-serve-config-setup" ];
+        ExecStartPre = [
+          "${pkgs.coreutils-full}/bin/cp -vf \"${softserveCfg}\" \"${cfg.dataDirectory}/config.yaml\""
+        ];
         ExecStart = "${cfg.package}/bin/soft serve";
       };
     };
