@@ -49,6 +49,7 @@ in {  # For non-headless machines
     meshlab
     minicom
     obs-studio
+    ripgrep-all
     rustdesk-with-x11-desktopentry
     slurp
     tdesktop-megumifox
