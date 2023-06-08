@@ -151,6 +151,41 @@ in {
         initial_admin_keys:
           ${concatStringsSep "\n      " (map (key: "- ${key}") cfg.adminPublicKeys)}
       '';
+      home-repo-setup = pkgs.writeShellScript "home-repo-setup" ''
+        set -Eeuo pipefail
+
+        export PATH=''${PATH:+${pkgs.git}/bin:''${PATH}}
+        export GIT_AUTHOR_NAME='softserve'
+        export GIT_AUTHOR_EMAIL='softserve@${config.networking.hostName}'
+        export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+        export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+
+        cd /tmp/soft-serve  # This is set in the BindPaths= directive
+        cfgdir="$(realpath $(mktemp -d config-XXXXXXXX))"  # Write configured values into cfgdir
+        datadir="$(realpath ${cfg.dataDirectory})"  # use absolute path to refer to datadir
+        therepo="$datadir/repos/.soft-serve.git"
+        trap 'rm -rf "$cfgdir"' EXIT
+
+        rm -rf "$therepo"  # Remove the bare config repo
+        git init --bare --initial-branch=main "$therepo"
+        git init --initial-branch=main "$cfgdir" && cd "$cfgdir"
+        git remote add soft "$therepo"
+
+        cat >README.md <<'EOF'
+          # ${cfg.display.name}
+
+          To create a new repo with name $repoName:
+
+          ```
+          git init "$repoName" && cd "$repoName"
+          git remote add soft ssh://${cfg.display.host}:${toString cfg.display.sshPort}/"$repoName"
+          git push soft main
+          ```
+        EOF
+        git add -A
+        git commit -m "chore: initialize soft-serve config (done from nix module soft-serve)"
+        git push soft main
+      '';
     in {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
@@ -169,6 +204,7 @@ in {
         AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
         ExecStartPre = [
           "${pkgs.coreutils-full}/bin/cp -vf \"${softserveCfg}\" \"${cfg.dataDirectory}/config.yaml\""
+          "${home-repo-setup}"
         ];
         ExecStart = "${cfg.package}/bin/soft serve";
       };
