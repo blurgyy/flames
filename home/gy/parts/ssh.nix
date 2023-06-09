@@ -78,7 +78,7 @@
       proxyJump = "copi";
     };
     watson-copi = {
-      hostname = "watson";
+      hostname = "10.76.2.80";
       proxyJump = "copi";
     };
     shared-copi = {
