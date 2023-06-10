@@ -370,11 +370,11 @@
         },
         "version": "v2.1"
     },
-    "latex-fonts": {
+    "sc-fonts": {
         "cargoLocks": null,
         "date": "2018-08-08",
         "extract": null,
-        "name": "latex-fonts",
+        "name": "sc-fonts",
         "passthru": null,
         "pinned": false,
         "src": {

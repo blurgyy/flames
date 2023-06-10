@@ -224,8 +224,8 @@
       sha256 = "sha256-uH0PADYv2hbDxPSuS5ckuov9mJ8pYuWt8hp18rXll6Y=";
     });
   };
-  latex-fonts = {
-    pname = "latex-fonts";
+  sc-fonts = {
+    pname = "sc-fonts";
     version = "287399335ec1beb72062ce67c36eaa8bec35f386";
     src = fetchFromGitHub ({
       owner = "Haixing-Hu";
