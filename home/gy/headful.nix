@@ -85,7 +85,7 @@ in {  # For non-headless machines
     symbols-nerd-font
     vscode-codicons
     apple-color-emoji
-    latex-fonts  # Times New Roman, FangSong, SimHei
+    sc-fonts  # Times New Roman, FangSong, SimHei
     fonts-collection  # FangSong, SimHei, etc.
   ] ++ lib.optional (pkgs.system == "x86_64-linux" || pkgs.system == "i686-linux") steam-run;
   programs = {
