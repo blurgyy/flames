@@ -78,8 +78,6 @@ in {
       "81.69.28.75" = [
         "peterpan.${config.networking.domain}"
         "pp.${config.networking.domain}"
-        "soft-serve"
-        "softserve"
       ];
       "10.50.200.245" = [ "net.zju.edu.cn" ];
       "10.50.200.3" = [ "net2.zju.edu.cn" ];
@@ -273,12 +271,13 @@ in {
         };
         mkHosts = hostDefs: lib.mapAttrs mkHost hostDefs;
       in mkHosts {
-        cindy = [ "cindy" "hydra" "cache" ];
-        cube = [ "cube" ];
-        peterpan = [ "peterpan" ];
-        trigo = [ "trigo" ];
-        rubik = [ "rubik" ];
-        quad = [ "quad" ];
+        cindy = [ "hydra" "cache" ];
+        cube = [];
+        peterpan = [];
+        "[peterpan]:77" = [];
+        trigo = [];
+        rubik = [];
+        quad = [];
         morty = [];
         opi = [];
         rpi = [];
