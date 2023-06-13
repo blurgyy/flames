@@ -191,6 +191,7 @@ in {
     windowrulev2 = float, class:Steam, title:Steam Login|Friends List|好友列表|Music Player|Allow game launch?|Steam - (Self Updater|News.*)
     windowrulev2 = float, class:steam_app_\d{6}, title:Uplay|LariLauncher
     windowrulev2 = float, class:^CloudCompare$, title:Ply File Open
+    windowrulev2 = float, class:^org\.kde\.kdeconnect\.*$, title:Ply File Open
     windowrulev2 = float, class:com.alibabainc.dingtalk, title: |分享的图片
 
     windowrulev2 = pin, floating:1
