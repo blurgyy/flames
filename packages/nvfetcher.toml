@@ -124,6 +124,11 @@ fetch.url = "https://github.com/simple-icons/simple-icons-font/releases/download
 src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://github.com/ryanoasis/nerd-fonts/releases/download/$ver/NerdFontsSymbolsOnly.zip"
 
+[tdesktop-megumifox]
+src.cmd = "curl -L 'https://github.com/archlinuxcn/repo/raw/master/archlinuxcn/telegram-desktop-megumifox/PKGBUILD' | grep '^pkgver=' | sed -Ee 's/^pkgver=/v/'"
+fetch.github = "telegramdesktop/tdesktop"
+git.fetchSubmodules = true
+
 [telegram-send]
 src.pypi = "telegram-send"
 fetch.pypi = "telegram-send"

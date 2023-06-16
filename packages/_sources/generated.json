@@ -370,26 +370,6 @@
         },
         "version": "v2.1"
     },
-    "sc-fonts": {
-        "cargoLocks": null,
-        "date": "2018-08-08",
-        "extract": null,
-        "name": "sc-fonts",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Haixing-Hu",
-            "repo": "latex-chinese-fonts",
-            "rev": "287399335ec1beb72062ce67c36eaa8bec35f386",
-            "sha256": "sha256-v3pKnmEUeLwLY7Oqkvhet+wSw53qJbQOhesuYrg1qXw=",
-            "type": "github"
-        },
-        "version": "287399335ec1beb72062ce67c36eaa8bec35f386"
-    },
     "libime-history-merge": {
         "cargoLocks": {
             "Cargo.lock": [
@@ -556,6 +536,26 @@
         },
         "version": "1.1.7-1"
     },
+    "sc-fonts": {
+        "cargoLocks": null,
+        "date": "2018-08-08",
+        "extract": null,
+        "name": "sc-fonts",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Haixing-Hu",
+            "repo": "latex-chinese-fonts",
+            "rev": "287399335ec1beb72062ce67c36eaa8bec35f386",
+            "sha256": "sha256-v3pKnmEUeLwLY7Oqkvhet+wSw53qJbQOhesuYrg1qXw=",
+            "type": "github"
+        },
+        "version": "287399335ec1beb72062ce67c36eaa8bec35f386"
+    },
     "simple-icons": {
         "cargoLocks": null,
         "date": null,
@@ -586,6 +586,26 @@
         },
         "version": "v3.0.2"
     },
+    "tdesktop-megumifox": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "tdesktop-megumifox",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "telegramdesktop",
+            "repo": "tdesktop",
+            "rev": "v4.8.1",
+            "sha256": "sha256-8RN6DX4R/YbKak30DhXBQYMwM7/DT2sOztO5Bg50vVc=",
+            "type": "github"
+        },
+        "version": "v4.8.1"
+    },
     "telegram-send": {
         "cargoLocks": null,
         "date": null,
@@ -597,7 +617,7 @@
             "name": null,
             "sha256": "sha256-KR9mU8FvA+vOz4FCIljrFk9XCNthC8d55of5Pta/oyQ=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/t/telegram-send/telegram-send-0.34.tar.gz"
+            "url": "https://pypi.org/packages/source/t/telegram-send/telegram-send-0.34.tar.gz"
         },
         "version": "0.34"
     },
