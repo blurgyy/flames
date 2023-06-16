@@ -146,9 +146,9 @@
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
     sharedOverlays = [
-      # TODO: remove this after colmena release 0.4.0 is out
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
+      inputs.nvfetcher.overlays.default
     ];
   };
 }
