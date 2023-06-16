@@ -52,8 +52,7 @@ in {  # For non-headless machines
     ripgrep-all
     rustdesk-with-x11-desktopentry
     slurp
-    tdesktop
-    # tdesktop-megumifox
+    tdesktop-megumifox
     typst
     wf-recorder-respect-pixel-format
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
