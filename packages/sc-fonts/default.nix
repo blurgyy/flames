@@ -6,8 +6,8 @@
   nativeBuildInputs = [ findutils ];
 
   installPhase = ''
-    install -Dvm644 -t $out/share/fonts/opentype $(find $src -iname '*.otf')
-    install -Dvm644 -t $out/share/fonts/truetype $(find $src -iname '*.ttf' -o -iname '*.ttc')
+    install -Dvm444 -t $out/share/fonts/opentype $(find $src -iname '*.otf')
+    install -Dvm444 -t $out/share/fonts/truetype $(find $src -iname '*.ttf' -o -iname '*.ttc')
   '';
 
   meta = {

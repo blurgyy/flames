@@ -3,7 +3,7 @@
 
   buildCommand = ''
     mkdir -p $out/share/alacritty/themes
-    install -Dm644 -t $out/share/alacritty/themes \
+    install -Dm444 -t $out/share/alacritty/themes \
       $src/catppuccin-{frappe,latte,macchiato,mocha}.yml
   '';
 

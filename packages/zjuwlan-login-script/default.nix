@@ -17,7 +17,7 @@
   dontUnpack = true;
 
   installPhase = ''
-    install -Dvm755 $src $out/bin/zjuwlan
+    install -Dvm555 $src $out/bin/zjuwlan
   '';
 
   # wrap the script with firefox in its PATH

@@ -19,7 +19,7 @@
 
   buildCommand = ''
     mkdir -p $out/bin
-    install -Dvm755 ${./clash} $out/bin/clash
+    install -Dvm555 ${./clash} $out/bin/clash
     substituteAllInPlace $out/bin/clash
   '';
 }

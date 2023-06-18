@@ -2,7 +2,7 @@
   inherit (source) pname version src;
 
   buildCommand = ''
-    install -Dm644 -t $out/share/bat/themes \
+    install -Dm444 -t $out/share/bat/themes \
       $src/Catppuccin-{frappe,latte,macchiato,mocha}.tmTheme
   '';
 

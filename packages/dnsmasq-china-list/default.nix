@@ -2,7 +2,7 @@
   inherit (source) pname version src;
 
   buildCommand = ''
-    install -Dm644 -t $out/share/dnsmasq-china-list \
+    install -Dm444 -t $out/share/dnsmasq-china-list \
       $src/{accelerated-domains,apple,bogus-nxdomain,google}.china.conf
   '';
 

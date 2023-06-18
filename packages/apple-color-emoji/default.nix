@@ -2,7 +2,7 @@
   inherit (source) pname version src;
 
   buildCommand = ''
-    install -Dvm644 $src $out/share/fonts/truetype/AppleColorEmoji.ttf
+    install -Dvm444 $src $out/share/fonts/truetype/AppleColorEmoji.ttf
   '';
 
   meta = {

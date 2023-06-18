@@ -7,8 +7,8 @@
 
   buildCommand = ''
     unzip $src
-    install -Dvm644 SymbolsNerdFontMono-Regular.ttf $out/share/fonts/truetype/SymbolsNerdFontMono-Regular.ttf
-    install -Dvm644 SymbolsNerdFont-Regular.ttf $out/share/fonts/truetype/SymbolsNerdFont-Regular.ttf
+    install -Dvm444 SymbolsNerdFontMono-Regular.ttf $out/share/fonts/truetype/SymbolsNerdFontMono-Regular.ttf
+    install -Dvm444 SymbolsNerdFont-Regular.ttf $out/share/fonts/truetype/SymbolsNerdFont-Regular.ttf
   '';
 
   meta = {

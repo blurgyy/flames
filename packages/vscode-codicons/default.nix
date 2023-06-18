@@ -2,8 +2,8 @@
   inherit (source) pname version src;
 
   buildCommand = ''
-    install -Dvm644 $src/dist/codicon.ttf $out/share/fonts/truetype/codicon.ttf
-    install -Dvm644 -t $out/share/doc/${pname} $src/dist/codicon.{css,csv,html,svg}
+    install -Dvm444 $src/dist/codicon.ttf $out/share/fonts/truetype/codicon.ttf
+    install -Dvm444 -t $out/share/doc/${pname} $src/dist/codicon.{css,csv,html,svg}
   '';
 
   meta = {

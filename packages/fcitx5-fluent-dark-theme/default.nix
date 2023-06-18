@@ -2,7 +2,7 @@
   inherit (source) pname version src;
 
   buildCommand = ''
-    install -Dvm644 -t $out/share/fcitx5/themes/FluentDark $src/FluentDark/*
+    install -Dvm444 -t $out/share/fcitx5/themes/FluentDark $src/FluentDark/*
   '';
 
   meta = {

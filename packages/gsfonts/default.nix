@@ -6,9 +6,9 @@
   nativeBuildInputs = [ util-linux ];
   # REF: <https://archlinux.org/packages/extra/any/gsfonts/>
   installPhase = ''
-    install -Dvm644 -t $out/share/fonts/opentype $src/fonts/*.otf
+    install -Dvm444 -t $out/share/fonts/opentype $src/fonts/*.otf
     for fc in $src/fontconfig/*.conf; do
-      install -Dvm644 $fc $out/etc/fonts/conf.d/69-''${fc##*/}
+      install -Dvm444 $fc $out/etc/fonts/conf.d/69-''${fc##*/}
     done
   '';
 

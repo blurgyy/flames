@@ -17,7 +17,7 @@
   inherit bash light dunst slurp grim imagemagick flameshot pamixer coreutils;
 
   buildCommand = ''
-    install -Dvm755 -t $out/bin $src/*
+    install -Dvm555 -t $out/bin $src/*
     for script in $out/bin/*; do
       substituteAllInPlace $script
       substituteInPlace $script --replace @wl-clipboard@ ${wl-clipboard}

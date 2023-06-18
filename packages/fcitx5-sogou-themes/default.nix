@@ -5,7 +5,7 @@
     cd $src
     for i in *; do
       if [[ -f "$i" ]]; then continue; fi
-      install -Dvm644 -t "$out/share/fcitx5/themes/$i" "$i"/*
+      install -Dvm444 -t "$out/share/fcitx5/themes/$i" "$i"/*
     done
   '';
 

@@ -7,8 +7,8 @@
 
   buildCommand = ''
     unzip $src
-    install -Dvm644 -t $out/share/fonts/opentype font/SimpleIcons.otf 
-    install -Dvm644 -t $out/share/fonts/truetype font/SimpleIcons.ttf 
+    install -Dvm444 -t $out/share/fonts/opentype font/SimpleIcons.otf 
+    install -Dvm444 -t $out/share/fonts/truetype font/SimpleIcons.ttf 
   '';
 
   meta = {

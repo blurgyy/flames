@@ -1,7 +1,7 @@
 { source, lib, stdenvNoCC }: stdenvNoCC.mkDerivation {
   inherit (source) pname version src;
   buildCommand = ''
-    install -Dvm644 -t $out/share/fish/tools/web_config/themes $src/themes/*
+    install -Dvm444 -t $out/share/fish/tools/web_config/themes $src/themes/*
   '';
   meta = {
     homepage = "https://github.com/catppuccin/fish";
