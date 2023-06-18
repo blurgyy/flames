@@ -47,11 +47,11 @@
             "name": null,
             "owner": "alist-org",
             "repo": "alist",
-            "rev": "v3.18.0",
-            "sha256": "sha256-Vces6lg0O8tXkOC01Tx7WvJ/jILWiEyeD48UsLRpdUE=",
+            "rev": "v3.19.0",
+            "sha256": "sha256-GooqAeEGf2YIqAydLHNDGEJD3aucnbpRJkmumsgyuSc=",
             "type": "github"
         },
-        "version": "v3.18.0"
+        "version": "v3.19.0"
     },
     "apple-color-emoji": {
         "cargoLocks": null,
@@ -109,7 +109,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-06-07",
+        "date": "2023-06-18",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -121,11 +121,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "e2faf8ba0910a1d43cd1a223276cb4362b80bc67",
-            "sha256": "sha256-QrDypzXL4dn0qVhIA6xLL6OkRQg89XmRvUdVa+vGFHY=",
+            "rev": "e3ee5ab4426c5b40f7afa63d504045ddea42fb03",
+            "sha256": "sha256-10D5ez9TbRIhAvATpZrjME6Np7yt7HWlKqLujMWwM/0=",
             "type": "github"
         },
-        "version": "e2faf8ba0910a1d43cd1a223276cb4362b80bc67"
+        "version": "e3ee5ab4426c5b40f7afa63d504045ddea42fb03"
     },
     "dt": {
         "cargoLocks": {
@@ -404,11 +404,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-SKvlnveVyDHue+SXeyi/R+Wgb6ULP2mmomjUcfQ4I9Y=",
+            "sha256": "sha256-qF6crqD+XQtS3PUw7jkUw0t70rJAWhUM26UmohJ5Wwk=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306072208/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306172208/geoip.dat"
         },
-        "version": "202306072208"
+        "version": "202306172208"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -419,11 +419,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-NE6Gl9478FpGWZKm6jQA3XivNPiKCcIloX07pBxaZtU=",
+            "sha256": "sha256-kwDzF3KjgkMJjTkVwNEzmce+JLnFdBctl/fIdWP6XD4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306072208/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306172208/geosite.dat"
         },
-        "version": "202306072208"
+        "version": "202306172208"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -565,11 +565,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-RMfIokexqf1Ypj5QRJeO0qKLAFhOAocn2olcLVqGaA0=",
+            "sha256": "sha256-0uBWE6jlGCuVoNTPhpC+t9hxXQWQcglKZvHhqj4DFGs=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/9.0.0/simple-icons-font-9.0.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/9.2.0/simple-icons-font-9.2.0.zip"
         },
-        "version": "9.0.0"
+        "version": "9.2.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
@@ -708,7 +708,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-06-07",
+        "date": "2023-06-17",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -720,15 +720,15 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "e76329fcc67481fce3bfc380baaae0d2c6faf505",
-            "sha256": "sha256-XbWKPp48D582REgD/71AJd8FJsF9ggcMUp8O00z3l10=",
+            "rev": "832d625961c7af538c3dee9c3f28c09088db0114",
+            "sha256": "sha256-wsBr2By0NX6eif3zNMiLmwGa579ItzV9OgrG/dyCpxM=",
             "type": "github"
         },
-        "version": "e76329fcc67481fce3bfc380baaae0d2c6faf505"
+        "version": "832d625961c7af538c3dee9c3f28c09088db0114"
     },
     "vim-plugin-bigfile-nvim": {
         "cargoLocks": null,
-        "date": "2023-05-07",
+        "date": "2023-06-15",
         "extract": null,
         "name": "vim-plugin-bigfile-nvim",
         "passthru": null,
@@ -740,15 +740,15 @@
             "name": null,
             "owner": "LunarVim",
             "repo": "bigfile.nvim",
-            "rev": "a34e42616c20bfd52943ed5d6632bb28d22b057e",
-            "sha256": "sha256-s7gQ9gYLbxlxWCrpSRT4blXO0iXqrSqgVTB4d13bKxE=",
+            "rev": "67a03ff3dfbfacaa0b006c7ddc55356c85510b25",
+            "sha256": "sha256-G/lNqrt2YNF7v6aOV6yRg0b0Ko354ZR4Fvv6oSXqoCQ=",
             "type": "github"
         },
-        "version": "a34e42616c20bfd52943ed5d6632bb28d22b057e"
+        "version": "67a03ff3dfbfacaa0b006c7ddc55356c85510b25"
     },
     "vim-plugin-fcitx5-ui-nvim": {
         "cargoLocks": null,
-        "date": "2023-01-18",
+        "date": "2023-06-16",
         "extract": null,
         "name": "vim-plugin-fcitx5-ui-nvim",
         "passthru": null,
@@ -760,11 +760,11 @@
             "name": null,
             "owner": "black-desk",
             "repo": "fcitx5-ui.nvim",
-            "rev": "f11015ed8b75545a6f6b754bfca7ecfb1920ecdb",
-            "sha256": "sha256-opi8DEILC08QrIBDNfMaGievzVrGbe79vdUI6dfK83o=",
+            "rev": "665ecb1365639cd6c14e47f4bacd9121106025a2",
+            "sha256": "sha256-FnxhCoBC8DDUlbHIi6xkIq53Nc6DVHwXD9j9LOdRzhc=",
             "type": "github"
         },
-        "version": "f11015ed8b75545a6f6b754bfca7ecfb1920ecdb"
+        "version": "665ecb1365639cd6c14e47f4bacd9121106025a2"
     },
     "vscode-codicons": {
         "cargoLocks": null,
@@ -824,7 +824,7 @@
     "zellij-hirr": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./zellij-hirr-v0.36.0/Cargo.lock",
+                "./zellij-hirr-v0.37.0/Cargo.lock",
                 {}
             ]
         },
@@ -840,10 +840,10 @@
             "name": null,
             "owner": "zellij-org",
             "repo": "zellij",
-            "rev": "v0.36.0",
-            "sha256": "sha256-6hd4vZfcztD+i3hRP057Z9kYbl/QYK7e5X18tKRmNVQ=",
+            "rev": "v0.37.0",
+            "sha256": "sha256-6gILa7Q9s/AiXdoH/aaHPPpDmWeTKk5s274Bbk2e0V8=",
             "type": "github"
         },
-        "version": "v0.36.0"
+        "version": "v0.37.0"
     }
 }

@@ -2,7 +2,7 @@
 , fuse
 }: buildGoModule {
   inherit (source) pname version src;
-  vendorSha256 = "sha256-QLF7Eh53CQ0I+9mDM5dJTp80Dl6CBHGPIyw+2CjFdNg=";
+  vendorSha256 = "sha256-AAqlu6Nuszxi1zlsG0yZVtGvTkhBwAGaOpUNnE+mEko=";
 
   buildInputs = [ fuse ];
 
