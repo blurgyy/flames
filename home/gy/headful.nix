@@ -54,6 +54,7 @@ in {  # For non-headless machines
     slurp
     tdesktop-megumifox
     typst
+    video-compare
     wf-recorder-respect-pixel-format
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wlr-randr
