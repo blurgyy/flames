@@ -726,6 +726,26 @@
         },
         "version": "832d625961c7af538c3dee9c3f28c09088db0114"
     },
+    "video-compare": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "video-compare",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pixop",
+            "repo": "video-compare",
+            "rev": "20230311",
+            "sha256": "sha256-J6LBno2FhjpAizWq9sjbh+y+5oh9hEb7y2YSnNKWOTM=",
+            "type": "github"
+        },
+        "version": "20230311"
+    },
     "vim-plugin-bigfile-nvim": {
         "cargoLocks": null,
         "date": "2023-06-15",

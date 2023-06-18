@@ -434,6 +434,17 @@
     };
     date = "2023-06-17";
   };
+  video-compare = {
+    pname = "video-compare";
+    version = "20230311";
+    src = fetchFromGitHub {
+      owner = "pixop";
+      repo = "video-compare";
+      rev = "20230311";
+      fetchSubmodules = false;
+      sha256 = "sha256-J6LBno2FhjpAizWq9sjbh+y+5oh9hEb7y2YSnNKWOTM=";
+    };
+  };
   vim-plugin-bigfile-nvim = {
     pname = "vim-plugin-bigfile-nvim";
     version = "67a03ff3dfbfacaa0b006c7ddc55356c85510b25";

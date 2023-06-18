@@ -150,6 +150,10 @@ fetch.github = "MichaelAquilina/tro"
 src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
 fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
 
+[video-compare]
+src.github = "pixop/video-compare"
+fetch.github = "pixop/video-compare"
+
 [vim-plugin-bigfile-nvim]
 src.git = "https://github.com/LunarVim/bigfile.nvim"
 fetch.github = "LunarVim/bigfile.nvim"
