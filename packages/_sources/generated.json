@@ -109,7 +109,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-06-18",
+        "date": "2023-06-19",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -121,11 +121,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "e3ee5ab4426c5b40f7afa63d504045ddea42fb03",
-            "sha256": "sha256-10D5ez9TbRIhAvATpZrjME6Np7yt7HWlKqLujMWwM/0=",
+            "rev": "ec4242a7575cb59771056d3a59f122bf0a53643c",
+            "sha256": "sha256-13sqLAaLapEjonMxHscCqxcvtfBiCFSUI2JLnR/NDPk=",
             "type": "github"
         },
-        "version": "e3ee5ab4426c5b40f7afa63d504045ddea42fb03"
+        "version": "ec4242a7575cb59771056d3a59f122bf0a53643c"
     },
     "dt": {
         "cargoLocks": {
@@ -406,9 +406,9 @@
             "name": null,
             "sha256": "sha256-qF6crqD+XQtS3PUw7jkUw0t70rJAWhUM26UmohJ5Wwk=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306172208/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306182208/geoip.dat"
         },
-        "version": "202306172208"
+        "version": "202306182208"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -419,11 +419,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kwDzF3KjgkMJjTkVwNEzmce+JLnFdBctl/fIdWP6XD4=",
+            "sha256": "sha256-4IZRuyOXra9abIyGjls45vxJa8abFGNG8OHwKYnzhEE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306172208/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306182208/geosite.dat"
         },
-        "version": "202306172208"
+        "version": "202306182208"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -708,7 +708,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-06-17",
+        "date": "2023-06-18",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -720,11 +720,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "832d625961c7af538c3dee9c3f28c09088db0114",
-            "sha256": "sha256-wsBr2By0NX6eif3zNMiLmwGa579ItzV9OgrG/dyCpxM=",
+            "rev": "60ec558059b6df4d20adcfd3dfbdb33b489b8495",
+            "sha256": "sha256-WmuaOD7mHJ+VtfhWumLM2CtJIzeKXsVWO66Hf9xMWOs=",
             "type": "github"
         },
-        "version": "832d625961c7af538c3dee9c3f28c09088db0114"
+        "version": "60ec558059b6df4d20adcfd3dfbdb33b489b8495"
     },
     "video-compare": {
         "cargoLocks": null,
@@ -844,7 +844,7 @@
     "zellij-hirr": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./zellij-hirr-v0.37.0/Cargo.lock",
+                "./zellij-hirr-v0.37.1/Cargo.lock",
                 {}
             ]
         },
@@ -860,10 +860,10 @@
             "name": null,
             "owner": "zellij-org",
             "repo": "zellij",
-            "rev": "v0.37.0",
-            "sha256": "sha256-6gILa7Q9s/AiXdoH/aaHPPpDmWeTKk5s274Bbk2e0V8=",
+            "rev": "v0.37.1",
+            "sha256": "sha256-2RMZP6XDeMV/gKuPPLYn4TmH69tupHkq8W6uLeJdKTI=",
             "type": "github"
         },
-        "version": "v0.37.0"
+        "version": "v0.37.1"
     }
 }
