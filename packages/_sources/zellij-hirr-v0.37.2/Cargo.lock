@@ -1354,6 +1354,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "include_dir"
+version = "0.7.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "18762faeff7122e89e0857b02f7ce6fcc0d101d5e9ad2ad7846cc01d61b7f19e"
+dependencies = [
+ "include_dir_macros",
+]
+
+[[package]]
+name = "include_dir_macros"
+version = "0.7.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b139284b5cf57ecfa712bcc66950bb635b31aff41c188e8a4cfc758eca374a3f"
+dependencies = [
+ "proc-macro2",
+ "quote",
+]
+
+[[package]]
 name = "indexmap"
 version = "1.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4392,7 +4411,7 @@ dependencies = [
 
 [[package]]
 name = "zellij"
-version = "0.37.1"
+version = "0.37.2"
 dependencies = [
  "dialoguer",
  "insta",
@@ -4410,7 +4429,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-client"
-version = "0.37.1"
+version = "0.37.2"
 dependencies = [
  "insta",
  "log",
@@ -4424,7 +4443,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-server"
-version = "0.37.1"
+version = "0.37.2"
 dependencies = [
  "ansi_term",
  "arrayvec 0.7.2",
@@ -4455,7 +4474,7 @@ dependencies = [
 
 [[package]]
 name = "zellij-tile"
-version = "0.37.1"
+version = "0.37.2"
 dependencies = [
  "clap",
  "serde",
@@ -4467,14 +4486,14 @@ dependencies = [
 
 [[package]]
 name = "zellij-tile-utils"
-version = "0.37.1"
+version = "0.37.2"
 dependencies = [
  "ansi_term",
 ]
 
 [[package]]
 name = "zellij-utils"
-version = "0.37.1"
+version = "0.37.2"
 dependencies = [
  "anyhow",
  "async-channel",
@@ -4486,6 +4505,7 @@ dependencies = [
  "colorsys",
  "crossbeam",
  "directories-next",
+ "include_dir",
  "insta",
  "interprocess",
  "kdl",
