@@ -143,6 +143,7 @@ in {
   ];
 
   services = {
+    atd.enable = lib.mkDefault true;
     udisks2.enable = lib.mkForce true;
     btrfs.autoScrub = {
       enable = lib.mkDefault (with builtins;
