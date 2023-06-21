@@ -213,6 +213,14 @@
     };
     date = "2022-05-28";
   };
+  imgviz = {
+    pname = "imgviz";
+    version = "1.7.2";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.2.tar.gz";
+      sha256 = "sha256-Am+JQhw/rcoTOHYjqAu9JNGstRh0OzQ5wfsNer/q4QM=";
+    };
+  };
   import-ply-as-verts-for-blender = {
     pname = "import-ply-as-verts-for-blender";
     version = "v2.1";
@@ -222,6 +230,14 @@
       rev = "v2.1";
       fetchSubmodules = false;
       sha256 = "sha256-uH0PADYv2hbDxPSuS5ckuov9mJ8pYuWt8hp18rXll6Y=";
+    };
+  };
+  labelme = {
+    pname = "labelme";
+    version = "5.2.1";
+    src = fetchurl {
+      url = "https://pypi.org/packages/source/l/labelme/labelme-5.2.1.tar.gz";
+      sha256 = "sha256-VWx5OzOzLeRzJNYBgsNWzO/L+K5Kkhc5K19qMupSUeE=";
     };
   };
   libime-history-merge = {

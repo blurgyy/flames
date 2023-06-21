@@ -350,6 +350,21 @@
         },
         "version": "0d79cad76b37ba0f3ccb1323c83833c78e0860de"
     },
+    "imgviz": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "imgviz",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Am+JQhw/rcoTOHYjqAu9JNGstRh0OzQ5wfsNer/q4QM=",
+            "type": "url",
+            "url": "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.2.tar.gz"
+        },
+        "version": "1.7.2"
+    },
     "import-ply-as-verts-for-blender": {
         "cargoLocks": null,
         "date": null,
@@ -369,6 +384,21 @@
             "type": "github"
         },
         "version": "v2.1"
+    },
+    "labelme": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "labelme",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-VWx5OzOzLeRzJNYBgsNWzO/L+K5Kkhc5K19qMupSUeE=",
+            "type": "url",
+            "url": "https://pypi.org/packages/source/l/labelme/labelme-5.2.1.tar.gz"
+        },
+        "version": "5.2.1"
     },
     "libime-history-merge": {
         "cargoLocks": {
