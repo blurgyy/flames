@@ -1,4 +1,4 @@
-{ source, tdesktop
+{ generated, source, tdesktop
 , qt6
 }:
 
@@ -12,10 +12,10 @@ tdesktop.overrideAttrs (o: {
   buildInputs = o.buildInputs ++ [
     qt6.qt5compat
   ];
-  patches = o.patches or [] ++ [
-    # NOTE: These patches are fetched and modified from <https://github.com/archlinuxcn/repo/tree/master/archlinuxcn/telegram-desktop-megumifox>
-    ./0001-Use-font-from-environment-variables.patch
-    ./0002-add-TDESKTOP_DISABLE_REGISTER_CUSTOM_SCHEME-back.patch
-    ./fix-tgcalls-cstdint.patch
-  ];
+  postPatch = ''
+    for p in ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-megumifox/*.patch; do
+      echo applying patch "'$(basename "$p")'" from archlinuxcn repo
+      patch -b -d "$src/Telegram/lib_ui/" -Np1 -i "$patch"
+    done
+  '';
 })
