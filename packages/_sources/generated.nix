@@ -22,6 +22,18 @@
     };
     date = "2022-09-27";
   };
+  alcn-repo = {
+    pname = "alcn-repo";
+    version = "c88bc359c0abaf90b11c94d7785c8fd72ecfa43c";
+    src = fetchFromGitHub {
+      owner = "archlinuxcn";
+      repo = "repo";
+      rev = "c88bc359c0abaf90b11c94d7785c8fd72ecfa43c";
+      fetchSubmodules = false;
+      sha256 = "sha256-UcjxOYXTciGZ0moDFWmhV15+zx2Nzdzxq76BxsODwX8=";
+    };
+    date = "2023-06-25";
+  };
   alist = {
     pname = "alist";
     version = "v3.19.0";
