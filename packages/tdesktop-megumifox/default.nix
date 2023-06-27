@@ -13,9 +13,7 @@ tdesktop.overrideAttrs (o: {
     qt6.qt5compat
   ];
   postPatch = ''
-    for p in ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-megumifox/*.patch; do
-      echo applying patch "'$(basename "$p")'" from archlinuxcn repo
-      patch -b -d "$src/Telegram/lib_ui/" -Np1 -i "$patch"
-    done
+    patch --verbose -b -d Telegram/lib_ui/ -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-megumifox/0001-Use-font-from-environment-variables.patch
+    patch --verbose -b -lNp1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-megumifox/0002-add-TDESKTOP_DISABLE_REGISTER_CUSTOM_SCHEME-back.patch
   '';
 })
