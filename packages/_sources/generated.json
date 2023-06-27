@@ -35,7 +35,7 @@
     },
     "alcn-repo": {
         "cargoLocks": null,
-        "date": "2023-06-25",
+        "date": "2023-06-27",
         "extract": null,
         "name": "alcn-repo",
         "passthru": null,
@@ -47,11 +47,11 @@
             "name": null,
             "owner": "archlinuxcn",
             "repo": "repo",
-            "rev": "c88bc359c0abaf90b11c94d7785c8fd72ecfa43c",
-            "sha256": "sha256-UcjxOYXTciGZ0moDFWmhV15+zx2Nzdzxq76BxsODwX8=",
+            "rev": "3af5d0c6ef226f2fa16c22dd5e836eb28531eba4",
+            "sha256": "sha256-jRw/xk/SbmhcXe1yIIgi7ToFDR+FA+p2boshvxeIE28=",
             "type": "github"
         },
-        "version": "c88bc359c0abaf90b11c94d7785c8fd72ecfa43c"
+        "version": "3af5d0c6ef226f2fa16c22dd5e836eb28531eba4"
     },
     "alist": {
         "cargoLocks": null,
@@ -129,7 +129,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-06-24",
+        "date": "2023-06-27",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -141,11 +141,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "534c9e65ff99986e92bf30bcdc9629a6c24ecf00",
-            "sha256": "sha256-cyMtD0a8RqZvVUBmsapf2DYWQs65NQkcXFvFgHFVnVE=",
+            "rev": "5d6a9ba93168f54c97ab9a5b5c2d5f5ef7b1a01a",
+            "sha256": "sha256-xVA7RhjQbrSA4pDEmXTIeyZt7s7bioz8fx3Oq2X/kWE=",
             "type": "github"
         },
-        "version": "534c9e65ff99986e92bf30bcdc9629a6c24ecf00"
+        "version": "5d6a9ba93168f54c97ab9a5b5c2d5f5ef7b1a01a"
     },
     "dt": {
         "cargoLocks": {
@@ -456,9 +456,9 @@
             "name": null,
             "sha256": "sha256-j/VT8uN/bKKS14CqrzHsgeFFOiLJXDeKXssJTSOnxbI=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306242210/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306262210/geoip.dat"
         },
-        "version": "202306242210"
+        "version": "202306262210"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -469,11 +469,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-EYQErNA+aBrOiIqBoA5yQLmZZxhNhq1xu96GFZHhrIA=",
+            "sha256": "sha256-l0pQ/69+3060n+Mqtsf8FQFtpl0PlE39YUKBbncWjro=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306242210/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306262210/geosite.dat"
         },
-        "version": "202306242210"
+        "version": "202306262210"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -615,11 +615,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-0uBWE6jlGCuVoNTPhpC+t9hxXQWQcglKZvHhqj4DFGs=",
+            "sha256": "sha256-gjJMJIwBN8ct7jxj0W6Ypb6LEAjDIVzYgGbg0gM44Eo=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/9.2.0/simple-icons-font-9.2.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/9.3.0/simple-icons-font-9.3.0.zip"
         },
-        "version": "9.2.0"
+        "version": "9.3.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
@@ -758,7 +758,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-06-24",
+        "date": "2023-06-26",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -770,11 +770,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "cdc0499d92390c1a6e0b9adda9a16af576fb4003",
-            "sha256": "sha256-DXtu68774yEvP0BGWH7cJc0z22EpxxiLLkeamzT5W3k=",
+            "rev": "845ffe0b771a1586bcc02fc1cc7a6c28ef8319d5",
+            "sha256": "sha256-LjUUY8ZdV2eTYXQhW1dIMrMv4kVRLp7n/nEbMRJvbB0=",
             "type": "github"
         },
-        "version": "cdc0499d92390c1a6e0b9adda9a16af576fb4003"
+        "version": "845ffe0b771a1586bcc02fc1cc7a6c28ef8319d5"
     },
     "video-compare": {
         "cargoLocks": null,
