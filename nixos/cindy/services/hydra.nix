@@ -131,7 +131,7 @@ in {
     maxJobs = 4;
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   } {
-    hostName = "peterpan";
+    hostName = "penta";
     sshUser = "hydra-distributed-builder";
     sshKey = config.sops.secrets.hydra-distributed-builder-ssh-key.path;
     systems = [ "x86_64-linux" "i686-linux" ];
