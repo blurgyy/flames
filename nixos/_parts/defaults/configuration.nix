@@ -266,26 +266,10 @@ in {
         ClientAliveInterval = 5;
       };
       knownHosts = let
-        mkHost = name: aliases: {
-          publicKey = keys.hosts.${name};
-          extraHostNames = aliases;
+        mkHost = name: key: {
+          publicKey = key;
         };
-        mkHosts = hostDefs: lib.mapAttrs mkHost hostDefs;
-      in mkHosts {
-        cindy = [ "hydra" "cache" ];
-        cube = [];
-        penta = [];
-        peterpan = [];
-        "[peterpan]:77" = [];
-        trigo = [];
-        rubik = [];
-        quad = [];
-        morty = [];
-        opi = [];
-        rpi = [];
-      } // (with keys.services; {
-        soft-serve.publicKey = soft-serve;
-      });
+      in (lib.mapAttrs mkHost keys.hosts) // (lib.mapAttrs mkHost keys.services);
     };
   };
 }
