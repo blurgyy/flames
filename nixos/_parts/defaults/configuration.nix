@@ -274,6 +274,7 @@ in {
       in mkHosts {
         cindy = [ "hydra" "cache" ];
         cube = [];
+        penta = [];
         peterpan = [];
         "[peterpan]:77" = [];
         trigo = [];
