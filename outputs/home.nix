@@ -39,7 +39,6 @@ in apply {
   "gy@cad-liu" = x86_64-headless // { inherit proxy; };
 
   "gy@cindy" = aarch64-headless;
-  "gy@cube" = x86_64-headless;
   "gy@peterpan" = x86_64-headless;
   "gy@penta" = x86_64-headless;
   "gy@quad" = x86_64-headless;
