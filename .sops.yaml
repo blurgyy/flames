@@ -1,23 +1,26 @@
 creation_rules:
-  - path_regex: nixos/morty/.*
-    age: age17rhy32g9t89kspazenx4mtx74vy7e78rvq320u27k5tqmfmszv9qatg4d4
-  - path_regex: nixos/copi/.*
-    age: age10nw78ryuz24y9f3w3990rfecuhr3ryzaz9kjk8l5t4tcrzghjfhqr7cr3a
-  - path_regex: nixos/opi/.*
-    age: age1gsewrrh6mw99xmqnfj6uly3xt6kedj9kp4c5s09us54686q7pelst27hvf
-  - path_regex: nixos/rpi/.*
-    age: age1wl5we8e8n3p77j8qm5fv9np8hz4ayv7vfduwpnuf577lex6l2cls3y70sc
-  - path_regex: nixos/cube/.*
-    age: age1kul2xj4dc3vgeqg9ls2pkfy0tex93stz0n5wzv0quvexhhwjhcpssttqyn
-  - path_regex: nixos/peterpan/.*
-    age: age1nk4n332ht4hpqyxkt4tnk4fecgrhemf5e0yk6zs9sut820zj8q9q4yqe0k
   - path_regex: nixos/cindy/.*
     age: age1cacy7w6e0cln0xhje8n2wrq3lxhqhkf5gjjc3erhst39fnv3hggscqzq84
-  - path_regex: nixos/trigo/.*
-    age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
-  - path_regex: nixos/rubik/.*
-    age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
+  - path_regex: nixos/copi/.*
+    age: age10nw78ryuz24y9f3w3990rfecuhr3ryzaz9kjk8l5t4tcrzghjfhqr7cr3a
+  - path_regex: nixos/cube/.*
+    age: age1kul2xj4dc3vgeqg9ls2pkfy0tex93stz0n5wzv0quvexhhwjhcpssttqyn
+  - path_regex: nixos/morty/.*
+    age: age17rhy32g9t89kspazenx4mtx74vy7e78rvq320u27k5tqmfmszv9qatg4d4
+  - path_regex: nixos/opi/.*
+    age: age1gsewrrh6mw99xmqnfj6uly3xt6kedj9kp4c5s09us54686q7pelst27hvf
+  - path_regex: nixos/peterpan/.*
+    age: age1nk4n332ht4hpqyxkt4tnk4fecgrhemf5e0yk6zs9sut820zj8q9q4yqe0k
+  - path_regex: nixos/penta/.*
+    age: age13vcaepjcyy6hqdfpph0vy5nhuu8lk8v3cdxtgu5gqcrrzamezu5qqfqu33
   - path_regex: nixos/quad/.*
     age: age1zl7ugkws9cr55zz8t6zuvuj66ppv0qgutmqqyg7dnnsj5yqrgqjsfzk9jz
+  - path_regex: nixos/rpi/.*
+    age: age1wl5we8e8n3p77j8qm5fv9np8hz4ayv7vfduwpnuf577lex6l2cls3y70sc
+  - path_regex: nixos/rubik/.*
+    age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
+  - path_regex: nixos/trigo/.*
+    age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
+
   - path_regex: home/gy/secrets/.*
     age: age16930mvdme8ul9z42x7fvg4tjgqjpwwkarq5lwkke8le3nyp0vqusdjdzc9
