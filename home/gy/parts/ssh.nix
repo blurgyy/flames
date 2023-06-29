@@ -42,6 +42,7 @@
     "hooper"
     "morty"
     "opi"
+    "penta"
     "peterpan"
     "quad"
     "rpi"
