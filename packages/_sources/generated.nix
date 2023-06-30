@@ -24,15 +24,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "3af5d0c6ef226f2fa16c22dd5e836eb28531eba4";
+    version = "134f304a07e8b602c0d293bc46a73a6d882381ca";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "3af5d0c6ef226f2fa16c22dd5e836eb28531eba4";
+      rev = "134f304a07e8b602c0d293bc46a73a6d882381ca";
       fetchSubmodules = false;
-      sha256 = "sha256-jRw/xk/SbmhcXe1yIIgi7ToFDR+FA+p2boshvxeIE28=";
+      sha256 = "sha256-qOhh60u1jMUzB8eafl0oTpXJZ7pkCS4eREQWa0+/gfE=";
     };
-    date = "2023-06-27";
+    date = "2023-06-30";
   };
   alist = {
     pname = "alist";
@@ -79,15 +79,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "5d6a9ba93168f54c97ab9a5b5c2d5f5ef7b1a01a";
+    version = "bc653bc168b72b7f9b6b38c7fdb7f08ffa31f2c0";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "5d6a9ba93168f54c97ab9a5b5c2d5f5ef7b1a01a";
+      rev = "bc653bc168b72b7f9b6b38c7fdb7f08ffa31f2c0";
       fetchSubmodules = false;
-      sha256 = "sha256-xVA7RhjQbrSA4pDEmXTIeyZt7s7bioz8fx3Oq2X/kWE=";
+      sha256 = "sha256-1sJnIsfmfpPHhC2kCI4OGnNf2y2Pp4sbzGTNpsCoNl0=";
     };
-    date = "2023-06-27";
+    date = "2023-06-29";
   };
   dt = {
     pname = "dt";
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202306262210";
+    version = "202306292209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306262210/geoip.dat";
-      sha256 = "sha256-j/VT8uN/bKKS14CqrzHsgeFFOiLJXDeKXssJTSOnxbI=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306292209/geoip.dat";
+      sha256 = "sha256-dfI/GeLo9aojoLHI/dMCQRmw6UrPjGbd74qmrrLJht4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202306262210";
+    version = "202306292209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306262210/geosite.dat";
-      sha256 = "sha256-l0pQ/69+3060n+Mqtsf8FQFtpl0PlE39YUKBbncWjro=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202306292209/geosite.dat";
+      sha256 = "sha256-jL5aoeRqKQj9DvO5XHfW8xcIGPItzyFkfzCOd35IE5M=";
     };
   };
   luarock-dbus_proxy = {
@@ -452,15 +452,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "845ffe0b771a1586bcc02fc1cc7a6c28ef8319d5";
+    version = "a24fc7883b89e25c6931ed2a47b74492b4b65f58";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "845ffe0b771a1586bcc02fc1cc7a6c28ef8319d5";
+      rev = "a24fc7883b89e25c6931ed2a47b74492b4b65f58";
       fetchSubmodules = false;
-      sha256 = "sha256-LjUUY8ZdV2eTYXQhW1dIMrMv4kVRLp7n/nEbMRJvbB0=";
+      sha256 = "sha256-eUTLZpYu2XrItJtZJpYHUglF5SKK+bj2x6xyg2o7cO8=";
     };
-    date = "2023-06-26";
+    date = "2023-06-29";
   };
   video-compare = {
     pname = "video-compare";
@@ -475,15 +475,15 @@
   };
   vim-plugin-bigfile-nvim = {
     pname = "vim-plugin-bigfile-nvim";
-    version = "67a03ff3dfbfacaa0b006c7ddc55356c85510b25";
+    version = "9616b73670ffeb92679677554ded88854ae42cf8";
     src = fetchFromGitHub {
       owner = "LunarVim";
       repo = "bigfile.nvim";
-      rev = "67a03ff3dfbfacaa0b006c7ddc55356c85510b25";
+      rev = "9616b73670ffeb92679677554ded88854ae42cf8";
       fetchSubmodules = false;
-      sha256 = "sha256-G/lNqrt2YNF7v6aOV6yRg0b0Ko354ZR4Fvv6oSXqoCQ=";
+      sha256 = "sha256-jHWWPlWyOxKWBTrCS04vTm5ywUsX/IxBHmphoK2jLic=";
     };
-    date = "2023-06-15";
+    date = "2023-06-28";
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
