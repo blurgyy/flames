@@ -1,23 +1,71 @@
 diff --git a/catppuccin.tmux b/catppuccin.tmux
-index 36c5829..64da571 100755
+index df29d12..90be245 100755
 --- a/catppuccin.tmux
 +++ b/catppuccin.tmux
-@@ -120,10 +120,10 @@ main() {
-   readonly show_session="#[fg=$thm_green]}#[bg=$thm_gray]$right_separator#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg]$session_icon #[fg=$thm_fg,bg=$thm_gray] #S "
+@@ -69,11 +69,11 @@ main() {
+   local wt_enabled
+   wt_enabled="$(get_tmux_option "@catppuccin_window_tabs_enabled" "off")"
+   readonly wt_enabled
+- 
++
+   local pill_theme_enabled
+   pill_theme_enabled="$(get_tmux_option "@catppuccin_pill_theme_enabled" "off")"
+   readonly pill_theme_enabled
+-  
++
+   local powerline_theme_enabled
+   powerline_theme_enabled="$(get_tmux_option "@catppuccin_powerline_theme_enabled" "off")"
+   readonly powerline_theme_enabled
+@@ -85,8 +85,8 @@ main() {
+   local no_patched_fonts_theme_enabled
+   no_patched_fonts_theme_enabled="$(get_tmux_option "@catppuccin_no_patched_fonts_theme_enabled" "off")"
+   readonly no_patched_fonts_theme_enabled
+-  
+-  # Separators for the left status / window list 
++
++  # Separators for the left status / window list
+   local l_left_separator
+   l_left_separator="$(get_tmux_option "@catppuccin_l_left_separator" "")"
+   readonly l_left_separator
+@@ -95,7 +95,7 @@ main() {
+   l_right_separator="$(get_tmux_option "@catppuccin_l_right_separator" "")"
+   readonly l_right_separator
  
-   local show_directory_in_window_status
--  readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
-+  readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_bg] #{?window_zoomed_flag,*,}(#W) "
+-  # Separators for the right status 
++  # Separators for the right status
+   local r_left_separator
+   r_left_separator="$(get_tmux_option "@catppuccin_r_left_separator" "")"
+   readonly r_left_separator
+@@ -103,7 +103,7 @@ main() {
+   local r_right_separator
+   r_right_separator="$(get_tmux_option "@catppuccin_r_right_separator" "")"
+   readonly r_right_separator
+-  
++
+   local user
+   user="$(get_tmux_option "@catppuccin_user" "off")"
+   readonly user
+@@ -115,7 +115,7 @@ main() {
+   local date_time
+   date_time="$(get_tmux_option "@catppuccin_date_time" "off")"
+   readonly date_time
+- 
++
+   # Icons
+   local directory_icon
+   directory_icon="$(get_tmux_option "@catppuccin_directory_icon" "")"
+@@ -143,7 +143,7 @@ main() {
  
-   local show_directory_in_window_status_current
--  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
-+  readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_fg]#{?window_zoomed_flag,*,}[#[fg=$thm_fg,bold]#W#[fg=$thm_fg,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
- 
-   local show_window_in_window_status
-   readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]$left_separator#[fg=$thm_fg,bg=$thm_bg,nobold,nounderscore,noitalics] "
-@@ -140,6 +140,11 @@ main() {
-   local show_date_time
-   readonly show_date_time="#[fg=$thm_blue,bg=$thm_gray]$right_separator#[fg=$thm_bg,bg=$thm_blue]$datetime_icon #[fg=$thm_fg,bg=$thm_gray] $date_time "
+   # Source status line themes
+   if [[ "${pill_theme_enabled}" == "off" ]] &&
+-    [[ "${powerline_theme_enabled}"  == "off" ]] && 
++    [[ "${powerline_theme_enabled}"  == "off" ]] &&
+     [[ "${powerline_icons_theme_enabled}" == "off" ]] &&
+     [[ "${no_patched_fonts_theme_enabled}" == "off" ]]; then
+     source "$PLUGIN_DIR/$DEFAULT_STATUS_LINE_FILE"
+@@ -165,6 +165,11 @@ main() {
+     source "$PLUGIN_DIR/$NO_PATCHED_FONTS_STATUS_LINE_FILE"
+   fi
  
 +  local show_user_at_hostname
 +  readonly show_user_at_hostname="#[fg=$thm_bg,bg=$thm_yellow,nobold,nounderscore,noitalics] #{USER}@#H "
@@ -27,12 +75,29 @@ index 36c5829..64da571 100755
    # Right column 1 by default shows the Window name.
    local right_column1=$show_window
  
-@@ -172,7 +177,7 @@ main() {
+@@ -196,7 +201,7 @@ main() {
+   fi
  
    set status-left ""
- 
--  set status-right "${right_column1},${right_column2}"
+-  set status-right "${right_column1}${right_column2}"
 +  set status-right "${show_user_at_hostname}${show_clock_with_tz}"
  
    setw window-status-format "${window_status_format}"
    setw window-status-current-format "${window_status_current_format}"
+diff --git a/src/default.conf b/src/default.conf
+index 63eb008..e319e02 100644
+--- a/src/default.conf
++++ b/src/default.conf
+@@ -8,10 +8,10 @@ local show_session
+ readonly show_session="#[fg=$thm_green]#[bg=$thm_gray]#{?client_prefix,#[fg=$thm_red],#[fg=$thm_green]}$r_left_separator#{?client_prefix,#[bg=$thm_red],#[bg=$thm_green]}#[fg=$thm_bg]$session_icon #[fg=$thm_fg,bg=$thm_gray] #S "
+ 
+ local show_directory_in_window_status
+-readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
++readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_bg] #{?window_zoomed_flag,*,}(#W) "
+ 
+ local show_directory_in_window_status_current
+-readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
++readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #[fg=$thm_fg]#{?window_zoomed_flag,*,}[#[fg=$thm_fg,bold]#W#[fg=$thm_fg,nobold]]#[fg=$thm_fg]@#[underscore]#{b:pane_current_path}#[nounderscore] "
+ 
+ local show_window_in_window_status
+ readonly show_window_in_window_status="#[fg=$thm_fg,bg=$thm_bg] #W #[fg=$thm_bg,bg=$thm_blue] #I#[fg=$thm_blue,bg=$thm_bg]$l_right_separator "

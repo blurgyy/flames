@@ -158,10 +158,6 @@ fetch.github = "catppuccin/tmux"
 src.github_tag = "MichaelAquilina/tro"
 fetch.github = "MichaelAquilina/tro"
 
-[ttf-google-sans]
-src.git = "https://github.com/sahibjotsaggu/Google-Sans-Fonts"
-fetch.github = "sahibjotsaggu/Google-Sans-Fonts"
-
 [video-compare]
 src.github = "pixop/video-compare"
 fetch.github = "pixop/video-compare"
