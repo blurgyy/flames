@@ -5,5 +5,5 @@
     "openai"
     "domain:bard.google.com"
   ];
-  balancerTag = "best-jp-server";
+  balancerTag = "best-us-server";
 }
