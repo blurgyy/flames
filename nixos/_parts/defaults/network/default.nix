@@ -23,6 +23,10 @@
       addrs = (import ./banned-ips/smtp-scanners.nix);
       countPackets = true;
       comment = "reject known smtp scanners";
+    } {
+      addrs = (import ./banned-ips/http-proxy-scanners.nix);
+      countPackets = true;
+      comment = "reject known http-proxy scanners";
     }];
     acceptedAddrGroups = [{
       addrs = [ "$private_range" ];
