@@ -197,6 +197,7 @@ in {
     inotify-tools
     iotop
     jq
+    killall
     lfs
     libqalculate
     litecli

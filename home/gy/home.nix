@@ -45,6 +45,7 @@ in {
     imagemagick
     iotop
     jq
+    killall
     less
     lfs
     libime-history-merge
