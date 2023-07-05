@@ -20,6 +20,8 @@
     opengl = {
       # NOTE: needed to get sway to work.  (See https://search.nixos.org)
       enable = lib.mkDefault true;
+      driSupport = lib.mkDefault true;
+      driSupport32Bit = lib.mkDefault true;
       extraPackages = with pkgs; [ vaapiIntel ];
     };
   };
