@@ -13,7 +13,7 @@
     relay = peterpan;
 
     morty-relay = { hostname = relay; port = 10021; };
-    watson-relay = {
+    winston-relay = {
       hostname = relay;
       port = 10020;
       localForwards = [
@@ -48,23 +48,23 @@
     "rpi"
     "rubik"
     "trigo"
-    "watson"
+    "winston"
   ])) // {
-    inherit morty-relay watson-relay rpi-relay copi-relay opi-relay "2x1080ti-relay" shared-relay;
+    inherit morty-relay winston-relay rpi-relay copi-relay opi-relay "2x1080ti-relay" shared-relay;
 
-    # # Subnet routes via watson. use with `tailscale up --advertise-routes=10.76.0.0/21` on watson
+    # # Subnet routes via winston. use with `tailscale up --advertise-routes=10.76.0.0/21` on winston
     # # and `tailscale up --accept-routes` on client machines.
     # shared.hostname = "10.76.2.83";
 
-    # Forwarded via watson
+    # Forwarded via winston
     shared = {
-      hostname = "watson";
+      hostname = "winston";
       port = 22548;
       extraOptions.
         RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
     };
     "2x1080ti" = {
-      hostname = "watson";
+      hostname = "winston";
       port = 13815;
       extraOptions.
         RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
@@ -78,19 +78,19 @@
       hostname = "rpi";
       proxyJump = "copi";
     };
-    watson-copi = {
+    winston-copi = {
       hostname = "10.76.2.80";
       proxyJump = "copi";
     };
     shared-copi = {
-      hostname = "watson";
+      hostname = "winston";
       proxyJump = "copi";
       port = 22548;
       extraOptions.
         RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
     };
     "2x1080ti-copi" = {
-      hostname = "watson";
+      hostname = "winston";
       proxyJump = "copi";
       port = 13815;
       extraOptions.
