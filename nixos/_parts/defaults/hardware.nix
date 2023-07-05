@@ -44,8 +44,19 @@
     };
     initrd = {
       inherit supportedFilesystems;
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-      kernelModules = [ ];  # There used to be virtio_{blk,scsi,pci,net} modules here, which should already be included in the (modulesPath + "/profiles/qemu-guest.nix") module.
+      availableKernelModules = [
+        "nvme_core"
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usb_storage"
+        "sd_mod"
+        "rtsx_pci_sdmmc"
+      ];
+      kernelModules = [
+        "nvme"
+        "nvme_core"
+      ];  # There used to be virtio_{blk,scsi,pci,net} modules here, which should already be included in the (modulesPath + "/profiles/qemu-guest.nix") module.
       # REF: <https://github.com/NixOS/nixpkgs/issues/32588#issuecomment-725695984>
       network.ssh = let
         keys = [
