@@ -17,7 +17,7 @@
         port = 10013;
         expose = true;
       };
-      ssh-watson = {
+      ssh-winston = {
         port = 10020;
         expose = true;
       };

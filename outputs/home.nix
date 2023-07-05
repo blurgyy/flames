@@ -17,7 +17,7 @@
   };
 
   proxy = {
-    addr = "watson";
+    addr = "winston";
     port = 1990;
     ignore = [
       "cc98.org"
@@ -32,9 +32,9 @@ in apply {
   "gy@opi" = aarch64-headless;
   "gy@copi" = aarch64-headless;
 
-  "gy@watson" = x86_64-non-headless // { inherit proxy; };
+  "gy@winston" = x86_64-non-headless // { inherit proxy; };
 
-  # set IP of watson in hosts
+  # set IP of winston in hosts
   "gy@cadliu" = x86_64-headless // { inherit proxy; };
   "gy@cad-liu" = x86_64-headless // { inherit proxy; };
 

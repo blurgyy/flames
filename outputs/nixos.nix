@@ -46,6 +46,7 @@
 in mkHosts {
   cindy = virtual-server-aarch64;
   morty = pc-x86_64;
+  winston = pc-x86_64;
   peterpan = virtual-server-x86_64;
   penta = virtual-server-x86_64;
   quad = virtual-server-x86_64;
