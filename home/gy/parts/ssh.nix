@@ -105,11 +105,16 @@
     "github github.com" = {
       hostname = "github.com";
       user = "git";
-    } // (if proxy == null
+    };
+    "gitlab gitlab.com" = {
+      hostname = "gitlab.com";
+      user = "git";
+    };
+    "github github.com gitlab gitlab.com" = if proxy == null
       then {}
       else {
         proxyCommand = "${pkgs.socat}/bin/socat - PROXY:${proxy.addr}:%h:%p,proxyport=${toString proxy.port}";
-      });
+      };
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
   };
 }
