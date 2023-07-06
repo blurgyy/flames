@@ -1,4 +1,4 @@
-{ config, lib, name, helpers, ... }: let
+{ name, config, lib, pkgs, ... }: let
   envDir = "${config.xdg.configHome}/sshrp";
 in {
   sops.secrets = {

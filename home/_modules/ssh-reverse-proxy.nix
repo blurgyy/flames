@@ -113,5 +113,12 @@ in with lib; {
           $DRY_RUN_CMD exit 1
         fi
       )'');
+
+    home.activation.restartSopsNix = lib.hm.dag.entryBefore [ "reloadSystemd" ] ''(
+      if ${pkgs.systemd}/bin/systemctl --user list-unit-files | grep -q sops-nix.service; then
+        echo "trying to restart sops-nix.service"
+        $DRY_RUN_CMD ${pkgs.systemd}/bin/systemctl --user restart sops-nix.service
+      fi
+    )'';
   };
 }
