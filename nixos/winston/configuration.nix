@@ -22,6 +22,11 @@
       fsType = "btrfs";
       options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
     };
+    "/nfs" = {
+      device = "/run/current-system/sw/bin/sshfs#gy@localhost:/home/gy/.local/share/nfs";
+      fsType = "fuse";
+      options = [ "idmap=user" "Port=13815,Compression=no,IdentityFile=/home/gy/.ssh/id_ed25519,UserKnownHostsFile=/dev/null,StrictHostKeyChecking=no" "_netdev" "allow_other" ];
+    };
     "/elements" = {
       device = "/dev/disk/by-label/wd-elements";
       fsType = "btrfs";
