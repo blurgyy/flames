@@ -113,7 +113,8 @@ in with lib; {
         openssh.authorizedKeys.keys = let
           keys = import ../_parts/defaults/public-keys.nix;
           hostKeys = builtins.attrValues keys.hosts;
-        in hostKeys ++ cfg.server.extraKnownHosts;
+          userKeys = builtins.attrValues keys.users;
+        in hostKeys ++ userKeys ++ cfg.server.extraKnownHosts;
       };
       groups.sshrp = {};
     };

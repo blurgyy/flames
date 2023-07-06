@@ -36,10 +36,6 @@
       };
       coderp-watson.port = 1111;
     };
-    extraKnownHosts = let
-      keys = import ../../_parts/defaults/public-keys.nix;
-    in 
-      keys.users ++ (builtins.attrValues keys.hosts);
   };
   services.haproxy-tailored = {
     frontends.tls-offload-front.backends = [ { name = "web"; condition = "if { path_beg /zju/ }"; } ];

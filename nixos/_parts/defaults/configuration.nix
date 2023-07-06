@@ -4,9 +4,9 @@ in {
   users = {
     groups.plocate = {};  # for plocate-updatedb.service
     users = {
-      root.openssh.authorizedKeys.keys = keys.users;
+      root.openssh.authorizedKeys.keys = builtins.attrValues keys.users;
       gy = {
-        openssh.authorizedKeys.keys = keys.users;
+        openssh.authorizedKeys.keys = builtins.attrValues keys.users;
         extraGroups = [
           config.users.groups.keys.name 
           config.users.groups.wheel.name
