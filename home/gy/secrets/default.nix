@@ -8,6 +8,8 @@
       "file/telegram-send.conf".path = "${config.xdg.configHome}/telegram-send.conf";
       "file/cargo-credentials".path = "${config.home.sessionVariables.CARGO_HOME}/credentials";
       "file/copilot-hosts-json".path = "${config.xdg.configHome}/github-copilot/hosts.json";
+      "file/github-cli-config".path = "${config.xdg.configHome}/gh/config.yml";
+      "file/github-cli-hosts".path = "${config.xdg.configHome}/gh/hosts.yml";
 
       "userKey/${name}".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
     };
