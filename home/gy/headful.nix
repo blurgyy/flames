@@ -35,7 +35,9 @@ in {  # For non-headless machines
       font-name = "system-ui 10";
       document-font-name = "system-ui 10";
       monospace-font-name = "ui-monospace 10";
-      text-scaling-factor = 1.5;
+      # for native wayland apps, applying both text-scaling-factor here and setting GDK_DPI_SCALE
+      # would scale twice.
+      # text-scaling-factor = 1.5;
     };
   };
   home.packages = with pkgs; [
