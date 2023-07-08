@@ -121,6 +121,7 @@ in {  # For non-headless machines
     waybar = callWithHelpers ./parts/waybar {};
   };
   home.sessionVariables = {
+    GDK_DPI_SCALE = "1.5";
     XCURSOR_THEME = config.home.pointerCursor.name;
     XCURSOR_SIZE = config.home.pointerCursor.size;
     XDG_SESSION_DESKTOP = "sway";
