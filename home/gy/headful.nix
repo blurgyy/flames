@@ -1,6 +1,6 @@
 { config, pkgs, lib, myHome, helpers, __callWithHelpers, ... }: let
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
-in {  # For non-headless machines
+in {
   ricing.headful.theme = "dark";
   qt = {
     enable = true;
