@@ -873,7 +873,46 @@ in ''
   }
 
   --- treesitter, ts-rainbow
-  rainbow = require "ts-rainbow"
+  rainbow = require "rainbow-delimiters"
+  vim.g.rainbow_delimiters = {
+    strategy = {
+      -- Use global strategy by default
+      [""] = rainbow.strategy['global'],
+      -- Use local for HTML
+      html = rainbow.strategy['local'],
+      -- Pick the strategy for LaTeX dynamically based on the buffer size
+      latex = function()
+        if vim.fn.line('$') > 1000 then
+            return rainbow.strategy['global']
+        end
+        return rainbow.strategy['local']
+      end,
+    },
+    query = {
+      [""] = "rainbow-delimiters",
+      html = "rainbow-tags",
+      xml = "rainbow-tags",
+      latex = "rainbow-blocks",
+    },
+    highlight = {
+      "RainbowDelimiterYellow",
+      "RainbowDelimiterBlue",
+      "RainbowDelimiterOrange",
+      "RainbowDelimiterGreen",
+      "RainbowDelimiterViolet",
+      "RainbowDelimiterCyan",
+      "RainbowDelimiterRed",  -- red color is very conspicuous and not very aesthetic, use it for very deeply nested blocks
+    },
+  }
+  vim.cmd([[
+    highlight RainbowDelimiterRed guifg=${themeColor "red"} ctermfg=red
+    highlight RainbowDelimiterYellow guifg=${themeColor "yellow"} ctermfg=yellow
+    highlight RainbowDelimiterBlue guifg=${themeColor "blue"} ctermfg=blue
+    highlight RainbowDelimiterOrange guifg=${themeColor "orange"} ctermfg=white
+    highlight RainbowDelimiterGreen guifg=${themeColor "green"} ctermfg=green
+    highlight RainbowDelimiterCyan guifg=${themeColor "cyan"} ctermfg=cyan
+    highlight RainbowDelimiterViolet guifg=${themeColor "purple"} ctermfg=magenta
+  ]])
   require("nvim-treesitter.configs").setup({
     highlight = {
       enable = true,
@@ -884,38 +923,6 @@ in ''
     },
     indent = {
       enable = true,
-    },
-    -- REF: https://github.com/p00f/nvim-ts-rainbow#user-content-setup
-    rainbow = {
-      enable = true,
-      extended_mode = true, -- Highlight also non-parentheses delimiters, like html tags, boolean or table: lang -> boolean
-      -- NOTE: use `:TSModuleInfo` to inspect support status for each language
-      query = {
-        "rainbow-parens",
-        html = "rainbow-tags",
-        xml = "rainbow-tags",
-        latex = "rainbow-blocks",
-      },
-      strategy = {
-        -- Use global strategy by default
-        rainbow.strategy['global'],
-        -- Use local for HTML
-        html = rainbow.strategy['local'],
-        -- Pick the strategy for LaTeX dynamically based on the buffer size
-        latex = function()
-          if vim.fn.line('$') > 1000 then
-              return rainbow.strategy['global']
-          end
-          return rainbow.strategy['local']
-        end,
-      },
-      colors = {
-        "${themeColor "yellow"}",
-        "${themeColor "blue"}",
-        "${themeColor "highlight"}",
-        "${themeColor "purple"}",
-        "${themeColor "red"}",
-      },
     },
   })
   vim.o.foldmethod = "expr"
