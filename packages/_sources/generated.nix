@@ -485,6 +485,19 @@
     };
     date = "2023-06-16";
   };
+  vim-plugin-rainbow-delimiters-nvim = {
+    pname = "vim-plugin-rainbow-delimiters-nvim";
+    version = "5801463f9c67582529e3a10b5b18ad0c581a8dcf";
+    src = fetchgit {
+      url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
+      rev = "5801463f9c67582529e3a10b5b18ad0c581a8dcf";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-b7M4YOBGcr9+VF1QTaI4M0NbGlLEFHhzjAPgscHjTPM=";
+    };
+    date = "2023-07-05";
+  };
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.33";

@@ -816,6 +816,25 @@
         },
         "version": "665ecb1365639cd6c14e47f4bacd9121106025a2"
     },
+    "vim-plugin-rainbow-delimiters-nvim": {
+        "cargoLocks": null,
+        "date": "2023-07-05",
+        "extract": null,
+        "name": "vim-plugin-rainbow-delimiters-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "5801463f9c67582529e3a10b5b18ad0c581a8dcf",
+            "sha256": "sha256-b7M4YOBGcr9+VF1QTaI4M0NbGlLEFHhzjAPgscHjTPM=",
+            "type": "git",
+            "url": "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
+        },
+        "version": "5801463f9c67582529e3a10b5b18ad0c581a8dcf"
+    },
     "vscode-codicons": {
         "cargoLocks": null,
         "date": null,

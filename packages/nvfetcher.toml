@@ -170,6 +170,10 @@ fetch.github = "LunarVim/bigfile.nvim"
 src.git = "https://github.com/black-desk/fcitx5-ui.nvim"
 fetch.github = "black-desk/fcitx5-ui.nvim"
 
+[vim-plugin-rainbow-delimiters-nvim]
+src.git = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
+fetch.git = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
+
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"
