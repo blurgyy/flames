@@ -24,25 +24,25 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "b1441c00ab69073de719fc434e8d8814dec73a40";
+    version = "ad475ed6b8014e17329876c57cc7fa5d4e1e159d";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "b1441c00ab69073de719fc434e8d8814dec73a40";
+      rev = "ad475ed6b8014e17329876c57cc7fa5d4e1e159d";
       fetchSubmodules = false;
-      sha256 = "sha256-fcrMRsterFAQp1uEyNOqdKUNmIjaNgMQjEJ1avZzLJ4=";
+      sha256 = "sha256-ZSGN8wUfxR0RqkZXcwPn7+DnLnp026IHVWbXsr3RdbM=";
     };
-    date = "2023-07-03";
+    date = "2023-07-11";
   };
   alist = {
     pname = "alist";
-    version = "v3.19.0";
+    version = "v3.20.1";
     src = fetchFromGitHub {
       owner = "alist-org";
       repo = "alist";
-      rev = "v3.19.0";
+      rev = "v3.20.1";
       fetchSubmodules = false;
-      sha256 = "sha256-GooqAeEGf2YIqAydLHNDGEJD3aucnbpRJkmumsgyuSc=";
+      sha256 = "sha256-xYur9CIJ8FbH3BDYkeIloyyCVGDurL+n7xSP2KOo2Jw=";
     };
   };
   apple-color-emoji = {
@@ -79,15 +79,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "9ac0b19d9aa66f0bf1fd040dd8ff8c93d5ed1676";
+    version = "ed4ae47a87251e09c940dfafb9e3e3a89fc902dd";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "9ac0b19d9aa66f0bf1fd040dd8ff8c93d5ed1676";
+      rev = "ed4ae47a87251e09c940dfafb9e3e3a89fc902dd";
       fetchSubmodules = false;
-      sha256 = "sha256-gLbv9pVqizi25Rn4qK/AIPtwK855L+EOioGABh1Cl48=";
+      sha256 = "sha256-C6HL2qvxYpr+ABIjyAma+qZAp2VcvXMm8bUR6bfWMv0=";
     };
-    date = "2023-07-03";
+    date = "2023-07-09";
   };
   dt = {
     pname = "dt";
@@ -144,13 +144,13 @@
   };
   fish-plugin-tide = {
     pname = "fish-plugin-tide";
-    version = "v5.5.1";
+    version = "v5.6.0";
     src = fetchFromGitHub {
       owner = "IlanCosman";
       repo = "tide";
-      rev = "v5.5.1";
+      rev = "v5.6.0";
       fetchSubmodules = false;
-      sha256 = "sha256-vi4sYoI366FkIonXDlf/eE2Pyjq7E/kOKBrQS+LtE+M=";
+      sha256 = "sha256-cCI1FDpvajt1vVPUd/WvsjX/6BJm6X1yFPjqohmo1rI=";
     };
   };
   fonts-collection = {
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202307022209";
+    version = "202307102210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307022209/geoip.dat";
-      sha256 = "sha256-dfI/GeLo9aojoLHI/dMCQRmw6UrPjGbd74qmrrLJht4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307102210/geoip.dat";
+      sha256 = "sha256-Y7O+BI2x8aZgfpbV1uC/3AMdL5HlJUrTB3km9IVv+KQ=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202307022209";
+    version = "202307102210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307022209/geosite.dat";
-      sha256 = "sha256-C0E1s9uWp8PwetM251ps3hGs/DTLFZCoVnbVsUTc010=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307102210/geosite.dat";
+      sha256 = "sha256-45nZDh6etxb5XZNnJ3Zh+KzQcR54paUqcflnWGDzV+g=";
     };
   };
   luarock-dbus_proxy = {
@@ -365,10 +365,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "9.4.0";
+    version = "9.5.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.4.0/simple-icons-font-9.4.0.zip";
-      sha256 = "sha256-v5x2ZLkWyjYvARAYEVg8xhNU6SOoNu3P4dDLpxbvtzw=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.5.0/simple-icons-font-9.5.0.zip";
+      sha256 = "sha256-ZRRoA4x6MuvY8l1ZorEBI1B99uiyFtPWCG3UXS1Xwm8=";
     };
   };
   symbols-nerd-font = {
@@ -440,25 +440,25 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "40cdd99ac9257f85add34fbeffaf051ed408a890";
+    version = "6d3789f1b47e855a0fcac4a1d04007018c43ee5b";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "40cdd99ac9257f85add34fbeffaf051ed408a890";
+      rev = "6d3789f1b47e855a0fcac4a1d04007018c43ee5b";
       fetchSubmodules = false;
-      sha256 = "sha256-RwAv5YNa4EuG+b7FDenJjsAvbsppelPHQsnYAT2CXxc=";
+      sha256 = "sha256-42WKn8KMHIW4+4pahbMbyCJzuWalPo92nYwvlAS2yjE=";
     };
-    date = "2023-07-02";
+    date = "2023-07-10";
   };
   video-compare = {
     pname = "video-compare";
-    version = "20230311";
+    version = "20230709";
     src = fetchFromGitHub {
       owner = "pixop";
       repo = "video-compare";
-      rev = "20230311";
+      rev = "20230709";
       fetchSubmodules = false;
-      sha256 = "sha256-J6LBno2FhjpAizWq9sjbh+y+5oh9hEb7y2YSnNKWOTM=";
+      sha256 = "sha256-eEobCmyrzBXdILj8tUY+e0WniEa3BQacqypt4MMDDh0=";
     };
   };
   vim-plugin-bigfile-nvim = {
@@ -487,16 +487,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "5801463f9c67582529e3a10b5b18ad0c581a8dcf";
+    version = "fd588e6c10049e3952e50f25cdc93a9e0491384d";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "5801463f9c67582529e3a10b5b18ad0c581a8dcf";
+      rev = "fd588e6c10049e3952e50f25cdc93a9e0491384d";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-b7M4YOBGcr9+VF1QTaI4M0NbGlLEFHhzjAPgscHjTPM=";
+      sha256 = "sha256-pqv5Dll+3fQqFxBDcWH+z4gCdjTHD5yjxua1QVGWW+4=";
     };
-    date = "2023-07-05";
+    date = "2023-07-10";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
@@ -511,13 +511,13 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.7.0";
+    version = "2.8.1";
     src = fetchFromGitHub {
       owner = "muety";
       repo = "wakapi";
-      rev = "2.7.0";
+      rev = "2.8.1";
       fetchSubmodules = false;
-      sha256 = "sha256-1EMSrHx6Tx58voz5veyNZg1gnubuGyg2K4dg2QdzmMw=";
+      sha256 = "sha256-5EUXhKv4cLDaHr6Q2mel3YbVPAYRJd1JtHyWn7kQy8Y=";
     };
   };
   xtables-addons-perl-scripts = {
