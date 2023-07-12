@@ -281,3 +281,14 @@ Trouble Shooting
   > **Warning**
   > 
   > Consult the "Description" section of `nix store repair --help` for caveats of this approach.
+
+* To run GUI programs inside systemd-nspawn containers, a simple way is to:
+  1. Bind-mount (read-only) `/tmp/.X11-unix` from host to the container
+  2. Set `DISPLAY` variable inside container to the same as from the host
+  3. In a terminal that can run GUI application in the host machine, run
+    ```bash
+    $ xhost +local:
+    ```
+  Though `xhost` [is considered
+  dangerous](https://stackoverflow.com/questions/63884968/why-is-xhost-considered-dangerous), the
+  above procedure does get the job done.
