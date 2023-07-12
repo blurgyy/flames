@@ -20,6 +20,9 @@
         export PATH="${cudatoolkit-bindpath}/bin''${PATH:+:$PATH}"
         export LD_LIBRARY_PATH="${cudatoolkit-bindpath}/lib64''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       '';
+      conda-env = builtins.toFile "nspawn-codna-env" ''
+        export PATH="$HOME/.conda/bin''${PATH:+:$PATH}"
+      '';
     in {
       # See <https://nspawn.org> for available images.  Taking ubuntu "jammy" as an example,
       #
@@ -34,6 +37,8 @@
         networkConfig.Private = false;
         filesConfig = {
           Bind = [
+            "/broken:/broken:idmap"  # so that users inside container can write to it, for conda env, etc
+          ] ++ [
             "/dev/dri"
             "/dev/shm"
             "/dev/nvidia-modeset"
@@ -50,6 +55,7 @@
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
             "${display-env}:/etc/profile.d/display-env.sh"
             "${cuda-env}:/etc/profile.d/cuda-env.sh"
+            "${conda-env}:/etc/profile.d/conda-env.sh"
           ] ++ (with config.boot.kernelPackages; [
             "${cudatoolkit-unsplit}:${cudatoolkit-bindpath}"
             "${nvidia_x11.bin}/bin/nvidia-smi:/usr/bin/nvidia-smi"  # NOTE: also bind /nix:/nix (see above) so that dynamic libararies can be found
