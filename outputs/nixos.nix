@@ -54,5 +54,4 @@ in mkHosts {
   opi = sbc-aarch64;
   copi = sbc-aarch64;
   rubik = virtual-server-x86_64;
-  trigo = virtual-server-x86_64;
 }

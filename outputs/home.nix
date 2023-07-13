@@ -43,5 +43,4 @@ in apply {
   "gy@penta" = x86_64-headless;
   "gy@quad" = x86_64-headless;
   "gy@rubik" = x86_64-headless;
-  "gy@trigo" = x86_64-headless;
 }

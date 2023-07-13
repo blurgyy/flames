@@ -47,7 +47,6 @@
     "quad"
     "rpi"
     "rubik"
-    "trigo"
     "winston"
   ])) // {
     inherit morty-relay winston-relay rpi-relay copi-relay opi-relay "2x1080ti-relay" shared-relay;
