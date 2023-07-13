@@ -1,6 +1,7 @@
 { config, ... }: {
   imports = [
     ../../_parts/hydra-distributed-builder.nix
+    ./ntfy.nix
     ./v2ray.nix
   ];
   sops.secrets.acme-credentials-file = with config.users; {
