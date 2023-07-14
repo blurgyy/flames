@@ -35,7 +35,7 @@
     },
     "alcn-repo": {
         "cargoLocks": null,
-        "date": "2023-07-11",
+        "date": "2023-07-14",
         "extract": null,
         "name": "alcn-repo",
         "passthru": null,
@@ -47,11 +47,11 @@
             "name": null,
             "owner": "archlinuxcn",
             "repo": "repo",
-            "rev": "ad475ed6b8014e17329876c57cc7fa5d4e1e159d",
-            "sha256": "sha256-ZSGN8wUfxR0RqkZXcwPn7+DnLnp026IHVWbXsr3RdbM=",
+            "rev": "5c80474837e2693e3b546e243730832f7ee8c914",
+            "sha256": "sha256-edeCEcAS57B//fi80rzeIipq76xZkZ2T+kgG985OHQI=",
             "type": "github"
         },
-        "version": "ad475ed6b8014e17329876c57cc7fa5d4e1e159d"
+        "version": "5c80474837e2693e3b546e243730832f7ee8c914"
     },
     "alist": {
         "cargoLocks": null,
@@ -67,11 +67,11 @@
             "name": null,
             "owner": "alist-org",
             "repo": "alist",
-            "rev": "v3.20.1",
-            "sha256": "sha256-xYur9CIJ8FbH3BDYkeIloyyCVGDurL+n7xSP2KOo2Jw=",
+            "rev": "v3.21.0",
+            "sha256": "sha256-POyp33aU4NXoB3ISgimnJ6lKtJ5sqbG/JW3SqLG2mUQ=",
             "type": "github"
         },
-        "version": "v3.20.1"
+        "version": "v3.21.0"
     },
     "apple-color-emoji": {
         "cargoLocks": null,
@@ -129,7 +129,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-07-09",
+        "date": "2023-07-14",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -141,11 +141,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "ed4ae47a87251e09c940dfafb9e3e3a89fc902dd",
-            "sha256": "sha256-C6HL2qvxYpr+ABIjyAma+qZAp2VcvXMm8bUR6bfWMv0=",
+            "rev": "cff08f9525b583e2498a312c678e1278b1012847",
+            "sha256": "sha256-srdE7L6QHZtXOuVd63JAzbPRFZJu49uIySSo0RAGXJ0=",
             "type": "github"
         },
-        "version": "ed4ae47a87251e09c940dfafb9e3e3a89fc902dd"
+        "version": "cff08f9525b583e2498a312c678e1278b1012847"
     },
     "dt": {
         "cargoLocks": {
@@ -454,11 +454,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Y7O+BI2x8aZgfpbV1uC/3AMdL5HlJUrTB3km9IVv+KQ=",
+            "sha256": "sha256-SgXUvOTMfpq3pFOt2dROgeYjE+OgVabbTQ/15zREilw=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307102210/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307132210/geoip.dat"
         },
-        "version": "202307102210"
+        "version": "202307132210"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -469,11 +469,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-45nZDh6etxb5XZNnJ3Zh+KzQcR54paUqcflnWGDzV+g=",
+            "sha256": "sha256-kFQ/mvy4bf9Adttt/U4yqPpZ/hkQ9SXL14a0Ycq8thE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307102210/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307132210/geosite.dat"
         },
-        "version": "202307102210"
+        "version": "202307132210"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -738,7 +738,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-07-10",
+        "date": "2023-07-13",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -750,11 +750,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "6d3789f1b47e855a0fcac4a1d04007018c43ee5b",
-            "sha256": "sha256-42WKn8KMHIW4+4pahbMbyCJzuWalPo92nYwvlAS2yjE=",
+            "rev": "2e37cdacc1b7f61beba890d43329cce214716a3f",
+            "sha256": "sha256-i0bYoNfDmbptUG3MwMXD2owHmlM43peFWJ6KnCO1Fv0=",
             "type": "github"
         },
-        "version": "6d3789f1b47e855a0fcac4a1d04007018c43ee5b"
+        "version": "2e37cdacc1b7f61beba890d43329cce214716a3f"
     },
     "video-compare": {
         "cargoLocks": null,
@@ -770,11 +770,11 @@
             "name": null,
             "owner": "pixop",
             "repo": "video-compare",
-            "rev": "20230709",
-            "sha256": "sha256-eEobCmyrzBXdILj8tUY+e0WniEa3BQacqypt4MMDDh0=",
+            "rev": "20230713",
+            "sha256": "sha256-lHTm8WjlkWxCOqG2kwOitWE1C64RAOPqRnCvgkcjBUo=",
             "type": "github"
         },
-        "version": "20230709"
+        "version": "20230713"
     },
     "vim-plugin-bigfile-nvim": {
         "cargoLocks": null,
@@ -818,7 +818,7 @@
     },
     "vim-plugin-rainbow-delimiters-nvim": {
         "cargoLocks": null,
-        "date": "2023-07-10",
+        "date": "2023-07-12",
         "extract": null,
         "name": "vim-plugin-rainbow-delimiters-nvim",
         "passthru": null,
@@ -828,12 +828,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "fd588e6c10049e3952e50f25cdc93a9e0491384d",
-            "sha256": "sha256-pqv5Dll+3fQqFxBDcWH+z4gCdjTHD5yjxua1QVGWW+4=",
+            "rev": "862e0f5e867e1a4c93e3efe73d4c71b7b6d3fec8",
+            "sha256": "sha256-5N/Lhuje8Eob3of+XVPSZxXRdQbCW/IVa2xvZh+Cq+g=",
             "type": "git",
             "url": "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
         },
-        "version": "fd588e6c10049e3952e50f25cdc93a9e0491384d"
+        "version": "862e0f5e867e1a4c93e3efe73d4c71b7b6d3fec8"
     },
     "vscode-codicons": {
         "cargoLocks": null,
