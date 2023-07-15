@@ -23,6 +23,14 @@
       conda-env = builtins.toFile "nspawn-codna-env" ''
         export PATH="$HOME/.conda/bin''${PATH:+:$PATH}"
       '';
+      home-manager-PATH-env = builtins.toFile "nspawn-home-manager-PATH-env" ''
+        if [[ -d "$HOME/.nix-profile/etc/profile.d" ]]; then
+          for i in "$HOME"/.nix-profile/etc/profile.d/*.sh; do
+            source "$i"
+          done
+          unset i
+        fi
+      '';
     in {
       # See <https://nspawn.org> for available images.  Taking ubuntu "jammy" as an example,
       #
@@ -38,6 +46,7 @@
         filesConfig = {
           Bind = [
             "/broken:/broken:idmap"  # so that users inside container can write to it, for conda env, etc
+            "/home/gy:/home/gy:idmap"
           ] ++ [
             "/dev/dri"
             "/dev/shm"
@@ -52,10 +61,12 @@
             "/:/host"
             "/tmp/.X11-unix"
             "/etc/inputrc"
+            "/etc/resolv.conf"
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
             "${display-env}:/etc/profile.d/display-env.sh"
             "${cuda-env}:/etc/profile.d/cuda-env.sh"
             "${conda-env}:/etc/profile.d/conda-env.sh"
+            "${home-manager-PATH-env}:/etc/profile.d/home-manager-PATH-env.sh"
           ] ++ (with config.boot.kernelPackages; [
             "${cudatoolkit-unsplit}:${cudatoolkit-bindpath}"
             "${nvidia_x11.bin}/bin/nvidia-smi:/usr/bin/nvidia-smi"  # NOTE: also bind /nix:/nix (see above) so that dynamic libararies can be found
