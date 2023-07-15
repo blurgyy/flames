@@ -43,6 +43,7 @@ function bootstrap
     and not set -q SSH_CONNECTION
     and not test (id -u) -eq 0
     and not string match --quiet --entire --regex '^/dev/tty\d*$' (tty)
+    and not test -e "/run/host/container-manager"
     __notify_when_long_running_process_finishes
   end
 
