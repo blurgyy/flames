@@ -31,6 +31,10 @@
           unset i
         fi
       '';
+      # enable colors in tmux when using `ssh winston -t machinectl login <container>`
+      TERM-env = builtins.toFile "nspawn-TERM-env" ''
+        export TERM=xterm-256color
+      '';
     in {
       # See <https://nspawn.org> for available images.  Taking ubuntu "jammy" as an example,
       #
@@ -67,6 +71,7 @@
             "${cuda-env}:/etc/profile.d/cuda-env.sh"
             "${conda-env}:/etc/profile.d/conda-env.sh"
             "${home-manager-PATH-env}:/etc/profile.d/home-manager-PATH-env.sh"
+            "${TERM-env}:/etc/profile.d/TERM-env.sh"
           ] ++ (with config.boot.kernelPackages; [
             "${cudatoolkit-unsplit}:${cudatoolkit-bindpath}"
             "${nvidia_x11.bin}/bin/nvidia-smi:/usr/bin/nvidia-smi"  # NOTE: also bind /nix:/nix (see above) so that dynamic libararies can be found
