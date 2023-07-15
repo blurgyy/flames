@@ -52,16 +52,28 @@ function bootstrap
   end
   abbr -a !! --position anywhere --function __last_history_item
 
+  set -l invalid_chars '/|-|\.|@|#|%'
+  set -l git_root "$(${pkgs.tinytools}/bin/tt gr 2>/dev/null)/"
+
   # Set fish_history if inside nix env
   if set -q IN_NIX_SHELL
-    set -l invalid_chars '/|-|\.|@|#|%'
-    set -l git_root "$(${pkgs.tinytools}/bin/tt gr)"
     if set -q name
       set -g fish_history \
         "nixshell$(string replace --all --regex -- "$invalid_chars" _ "$git_root")_$IN_NIX_SHELL""_$(string replace --all --regex -- "$invalid_chars" _ "$name")"
     else
       set -g fish_history \
         "nixshell$(string replace --all --regex -- "$invalid_chars" _ "$git_root")_$IN_NIX_SHELL"
+    end
+  end
+
+  # Set fish_history if inside container
+  if test -e "/run/host/container-manager"
+    if test 0 -eq (string length "$fish_history")
+      set -g fish_history \
+        "container_$(string replace --all --regex -- "$invalid_chars" _ "$(cat /run/host/container-manager)")_at_$(string replace --all --regex -- "$invalid_chars" _ "$(hostname)")"
+    else
+      set -g fish_history \
+        "container_$(string replace --all --regex -- "$invalid_chars" _ "$(cat /run/host/container-manager)")_at_$(string replace --all --regex -- "$invalid_chars" _ "$(hostname)")_$fish_history"
     end
   end
 
