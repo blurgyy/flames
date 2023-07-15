@@ -115,5 +115,13 @@
         proxyCommand = "${pkgs.socat}/bin/socat - PROXY:${proxy.addr}:%h:%p,proxyport=${toString proxy.port}";
       };
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
+
+    jammy = {
+      hostname = "winston";
+      extraOptions = {
+        RequestTTY = "yes";
+        RemoteCommand = "machinectl login jammy";
+      };
+    };
   };
 }
