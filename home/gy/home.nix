@@ -142,7 +142,15 @@ in {
       };
     };
     starship = callWithHelpers ./parts/starship.nix {};
-    bash = { enable = true; };
+    bash = {
+      enable = true;
+      bashrcExtra = ''
+        if [[ "$-" == *i*
+           && -z "''${noexecfish+1}" ]]; then
+          exec fish
+        fi
+      '';
+    };
     zsh = {
       enable = true;
       initExtraFirst = ''
@@ -160,7 +168,6 @@ in {
           export __tested_os_release=1
         fi
       ''}
-
         if [[ -o interactive
            && -z "''${noexecfish+1}" ]]; then
           exec fish
