@@ -144,7 +144,7 @@ in {
     starship = callWithHelpers ./parts/starship.nix {};
     bash = {
       enable = true;
-      bashrcExtra = ''
+      initExtra = ''
         if [[ "$-" == *i*
            && -z "''${noexecfish+1}" ]]; then
           exec fish
@@ -168,6 +168,8 @@ in {
           export __tested_os_release=1
         fi
       ''}
+      '';
+      initExtra = ''
         if [[ -o interactive
            && -z "''${noexecfish+1}" ]]; then
           exec fish
