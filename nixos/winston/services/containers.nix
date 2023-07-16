@@ -5,7 +5,7 @@
       opengl-driver-bindpath = "/usr/lib/opengl-driver";
       authorized_keys-path = "/etc/ssh/authorized_keys";
 
-      makeSshdConfigPortOverride = port: builtins.toFile "nspawn-sshd_config-port-override" ''
+      mkSshdConfigPortOverride = port: builtins.toFile "nspawn-sshd_config-port-override" ''
         Port ${toString port}
       '';
       tmpfiles-create-etc-sshd-authorized_keys = let
@@ -20,6 +20,12 @@
       '';
       tmpfiles-create-var-empty-directory = builtins.toFile "nspawn-tmpfiles-create-var-empty-directory" ''
         d /var/empty 0700 root root - -
+      '';
+      mkEtcHosts = hostname: builtins.toFile "nspawn-" ''
+        127.0.0.1 localhost
+        ::1 localhost
+        127.0.0.2 ${hostname}
+        ::1 ${hostname}
       '';
 
       proxy-env = builtins.toFile "nspawn-proxy-env" ''
@@ -84,6 +90,7 @@
             "/tmp/.X11-unix"
             "/etc/inputrc"
             "/etc/resolv.conf"
+            "${mkEtcHosts "ubuntu-jammy"}:/etc/hosts"
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
             # "${display-env}:/etc/profile.d/display-env.sh"
             "${cuda-env}:/etc/profile.d/cuda-env.sh"
@@ -96,7 +103,7 @@
             # add a line to `/etc/ssh/sshd_config` inside the container:
             #   Include sshd_config.d/*
             "${sshd_config-overrides}:/etc/ssh/sshd_config.d/overrides.conf"
-            "${makeSshdConfigPortOverride 1722}:/etc/ssh/sshd_config.d/port-override.conf"
+            "${mkSshdConfigPortOverride 1722}:/etc/ssh/sshd_config.d/port-override.conf"
           ] ++ (with config.boot.kernelPackages; [
             "${cudatoolkit-unsplit}:${cudatoolkit-bindpath}"
             "${nvidia_x11.bin}/bin/nvidia-smi:/usr/bin/nvidia-smi"  # NOTE: also bind /nix:/nix (see above) so that dynamic libararies can be found
