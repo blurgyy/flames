@@ -116,7 +116,7 @@
       };
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
 
-    jammy = {
+    ubuntu-jammy = {
       hostname = "winston";
       port = 1722;
     };
