@@ -42,7 +42,7 @@
       };
       cuda-env = builtins.toFile "nspawn-cuda-env" ''
         export PATH="${cudatoolkit-bindpath}/bin''${PATH:+:$PATH}"
-        export LD_LIBRARY_PATH="${cudatoolkit-bindpath}/lib64''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+        export LD_LIBRARY_PATH="${opengl-driver-bindpath}:${cudatoolkit-bindpath}/lib64''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       '';
       conda-env = builtins.toFile "nspawn-codna-env" ''
         export PATH="$HOME/.conda/bin''${PATH:+:$PATH}"
