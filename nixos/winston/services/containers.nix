@@ -68,7 +68,7 @@
         filesConfig = {
           Bind = [
             "/broken:/broken:idmap"  # so that users inside container can write to it, for conda env, etc
-            "/home/gy:/home/gy:idmap"
+            "/home/gy:/home/gy:idmap"  # `useradd gy -g 100 -G sudo,video`, to create a user with primary group id=100, supplementary groups "sudo" and "video"
           ] ++ [
             "/dev/dri"
             "/dev/shm"
