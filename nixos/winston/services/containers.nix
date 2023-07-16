@@ -93,6 +93,10 @@
           "/dev/nvidia-uvm-tools rw"
         ];
       };
+      "systemd-nspawn@jammy" = {
+        overrideStrategy = "asDropin";
+        wantedBy = [ "machines.target" ];
+      };
     };
   };
 }
