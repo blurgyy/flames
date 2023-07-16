@@ -1,8 +1,26 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   systemd = {
     nspawn = let
       cudatoolkit-bindpath = "/opt/cuda";
       opengl-driver-bindpath = "/usr/lib/opengl-driver";
+      authorized_keys-path = "/etc/ssh/authorized_keys";
+
+      makeSshdConfigPortOverride = port: builtins.toFile "nspawn-sshd_config-port-override" ''
+        Port ${toString port}
+      '';
+      tmpfiles-create-etc-sshd-authorized_keys = let
+        keys = import ../../_parts/defaults/public-keys.nix;
+      in with builtins;
+        toFile "nspawn-tmpfiles-sshd-authorized_keys" ''
+          f ${authorized_keys-path} 444 root root - ${lib.concatStringsSep "\\n" (attrValues keys.users)}
+        '';
+      sshd_config-overrides = builtins.toFile "nspawn-sshd_config-overrides" ''
+        AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys.d/%u ${authorized_keys-path}
+        PasswordAuthentication no
+      '';
+      tmpfiles-create-var-empty-directory = builtins.toFile "nspawn-tmpfiles-create-var-empty-directory" ''
+        d /var/empty 0700 root root - -
+      '';
 
       proxy-env = builtins.toFile "nspawn-proxy-env" ''
         export http_proxy=http://127.1:1990
@@ -67,11 +85,18 @@
             "/etc/inputrc"
             "/etc/resolv.conf"
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
-            "${display-env}:/etc/profile.d/display-env.sh"
+            # "${display-env}:/etc/profile.d/display-env.sh"
             "${cuda-env}:/etc/profile.d/cuda-env.sh"
             "${conda-env}:/etc/profile.d/conda-env.sh"
             "${home-manager-PATH-env}:/etc/profile.d/home-manager-PATH-env.sh"
             "${TERM-env}:/etc/profile.d/TERM-env.sh"
+          ] ++ [  # ssh
+            "${tmpfiles-create-etc-sshd-authorized_keys}:/etc/tmpfiles.d/create-etc-sshd-authorized_keys.conf"
+            "${tmpfiles-create-var-empty-directory}:/etc/tmpfiles.d/create-var-empty-directory.conf"
+            # add a line to `/etc/ssh/sshd_config` inside the container:
+            #   Include sshd_config.d/*
+            "${sshd_config-overrides}:/etc/ssh/sshd_config.d/overrides.conf"
+            "${makeSshdConfigPortOverride 1722}:/etc/ssh/sshd_config.d/port-override.conf"
           ] ++ (with config.boot.kernelPackages; [
             "${cudatoolkit-unsplit}:${cudatoolkit-bindpath}"
             "${nvidia_x11.bin}/bin/nvidia-smi:/usr/bin/nvidia-smi"  # NOTE: also bind /nix:/nix (see above) so that dynamic libararies can be found
