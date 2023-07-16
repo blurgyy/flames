@@ -120,5 +120,10 @@
       hostname = "winston";
       port = 1722;
     };
+    ubuntu-jammy-copi = {
+      hostname = "winston";
+      proxyJump = "copi";
+      port = 1722;
+    };
   };
 }
