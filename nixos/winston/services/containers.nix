@@ -125,10 +125,18 @@
           "/dev/nvidia-uvm-tools rw"
         ];
       };
-      "systemd-nspawn@jammy" = {
-        overrideStrategy = "asDropin";
-        wantedBy = [ "machines.target" ];
-      };
+      # WARN: apparently trying to use this to autostart the container on boot causes CUDA not being
+      #       able to find any available device inside the container, not sure why.  The error
+      #       messages:
+      #         * nvidia-smi:
+      #             Failed to initialize NVML: Unknown Error
+      #         * CUDA:
+      #             failed: no CUDA-capable device is detected
+      #
+      # "systemd-nspawn@jammy" = {
+      #   overrideStrategy = "asDropin";
+      #   wantedBy = [ "machines.target" ];
+      # };
     };
   };
 }
