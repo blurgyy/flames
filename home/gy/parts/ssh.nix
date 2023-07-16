@@ -118,10 +118,7 @@
 
     jammy = {
       hostname = "winston";
-      extraOptions = {
-        RequestTTY = "yes";
-        RemoteCommand = "machinectl login jammy";
-      };
+      port = 1722;
     };
   };
 }
