@@ -10,6 +10,7 @@
       "file/copilot-hosts-json".path = "${config.xdg.configHome}/github-copilot/hosts.json";
       "file/github-cli-config".path = "${config.xdg.configHome}/gh/config.yml";
       "file/github-cli-hosts".path = "${config.xdg.configHome}/gh/hosts.yml";
+      "file/nvchecker-keyfile".path = "${config.xdg.configHome}/nvchecker/keyfile.toml";  # nvfetcher -k ~/.config/nvchecker/keyfile.toml ...
 
       "userKey/${name}".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
     };
