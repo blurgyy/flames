@@ -84,8 +84,9 @@ in
         networkConfig.Private = false;
         filesConfig = {
           Bind = [
-            "/broken:/broken:idmap"  # so that users inside container can write to it, for conda env, etc
+            "/broken:/broken:idmap"  # use `idmap` so that users inside container can write to it, for conda env, etc
             "/home/gy:/home/gy:idmap"  # `useradd gy -g 100 -G sudo,video`, to create a user with primary group id=100, supplementary groups "sudo" and "video"
+            "/var/empty:/home/gy/.config/systemd"  # so that systemd does not run user services like git-sync inside the container
           ] ++ [
             "/dev/dri"
             "/dev/shm"
