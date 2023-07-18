@@ -529,7 +529,7 @@
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "nixpkgs"
+          "nixpkgs-stable"
         ]
       },
       "locked": {
