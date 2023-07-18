@@ -35,6 +35,9 @@ in
         127.0.0.2 ${hostname}
         ::1 ${hostname}
       '';
+      tmpfiles-create-var-lib-systemd-linger-gy = builtins.toFile "nspawn-tmpfiles-create-var-lib-systemd-linger-gy" ''
+        f /var/lib/systemd/linger/gy 0644 root root - -
+      '';
 
       proxy-env = builtins.toFile "nspawn-proxy-env" ''
         export http_proxy=http://127.1:1990
@@ -108,6 +111,7 @@ in
           ] ++ [  # ssh
             "${tmpfiles-create-etc-sshd-authorized_keys}:/etc/tmpfiles.d/create-etc-sshd-authorized_keys.conf"
             "${tmpfiles-create-var-empty-directory}:/etc/tmpfiles.d/create-var-empty-directory.conf"
+            "${tmpfiles-create-var-lib-systemd-linger-gy}:/etc/tmpfiles.d/enable-lingering-gy.conf"
             # add a line to `/etc/ssh/sshd_config` inside the container:
             #   Include sshd_config.d/*
             "${sshd_config-overrides}:/etc/ssh/sshd_config.d/overrides.conf"
