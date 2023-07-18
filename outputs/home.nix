@@ -20,6 +20,9 @@
     addr = "winston";
     port = 1990;
     ignore = [
+      "localhost"
+      "127.0.0.1"
+      "::1"
       "cc98.org"
       "nexushd.org"
       "zju.edu.cn"
