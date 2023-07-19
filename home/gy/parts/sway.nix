@@ -197,6 +197,7 @@ in {
     };
     floating = {
       criteria = [
+        { app_id = "mpv"; }
         { app_id = "org\\.kde\\.kdeconnect\\.*"; }
         { app_id = "CloudCompare"; title = "Ply File Open"; }
         { class = "com.alibabainc.dingtalk"; title = " |分享的图片"; }
