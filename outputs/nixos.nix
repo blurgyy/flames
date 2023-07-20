@@ -50,15 +50,15 @@
     withBinfmtEmulation = false;
   };
 in mkHosts {
-  andro = pc-x86_64-headless;
   cindy = virtual-server-aarch64;
+  copi = sbc-aarch64;
+  meda = pc-x86_64-headless;
   morty = pc-x86_64;
-  winston = pc-x86_64;
-  peterpan = virtual-server-x86_64;
+  opi = sbc-aarch64;
   penta = virtual-server-x86_64;
+  peterpan = virtual-server-x86_64;
   quad = virtual-server-x86_64;
   rpi = sbc-aarch64;
-  opi = sbc-aarch64;
-  copi = sbc-aarch64;
   rubik = virtual-server-x86_64;
+  winston = pc-x86_64;
 }
