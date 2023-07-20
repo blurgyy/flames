@@ -5,6 +5,13 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/23.05";
     flake-utils.url = "github:numtide/flake-utils";
 
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";

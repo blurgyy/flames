@@ -23,6 +23,8 @@ creation_rules:
     age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
   - path_regex: nixos/winston/.*
     age: age13u7zug9sy8rqkszcsnzef7n2zg7g6py4fvtjsrxlqdn2cdgnz9vsd6kg26
+  - path_regex: nixos/andro/.*
+    age: age1zspldw3glwfwfe42aw72e2kpqgrumlsqkghm8jdh3r5stcmyffksyd6cgu
 
   - path_regex: home/gy/secrets/.*
     age: age16930mvdme8ul9z42x7fvg4tjgqjpwwkarq5lwkke8le3nyp0vqusdjdzc9

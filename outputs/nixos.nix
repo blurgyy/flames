@@ -37,6 +37,12 @@
     isQemuGuest = false;
     withBinfmtEmulation = true;
   };
+  pc-x86_64-headless = {
+    system = "x86_64-linux";
+    headless = false;
+    isQemuGuest = false;
+    withBinfmtEmulation = false;
+  };
   sbc-aarch64 = {
     system = "aarch64-linux";
     headless = true;
@@ -44,6 +50,7 @@
     withBinfmtEmulation = false;
   };
 in mkHosts {
+  andro = pc-x86_64-headless;
   cindy = virtual-server-aarch64;
   morty = pc-x86_64;
   winston = pc-x86_64;
