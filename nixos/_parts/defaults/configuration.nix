@@ -175,66 +175,32 @@ in {
 
   programs.supervisedDesktopEntries.enable = true;
   environment.systemPackages = with pkgs; [
-    age
     bat
-    colmena
     dogdns
     dufs
     exa
     fd
-    ffmpeg-full
     file
     fish
     fzf
-    gcc
     gdu
     git
-    glow
-    hexyl
-    home-manager
     htop
-    hyperfine
-    inotify-tools
     iotop
     jq
     killall
-    lfs
-    libqalculate
-    litecli
+    dysk
     lm_sensors
     lsof
     neovim
-    nix-output-monitor
     pciutils
     procs
-    progress
     ripgrep
     sdwrap
-    sops
-    sqlite
-    sshfs
-    strace
-    tokei
-    typos
     unar
     unzip
-    xplr
     zip
     zsh
-    (python3.withPackages (p: with p; [
-      click
-      h5py
-      icecream
-      ipdb
-      ipython
-      matplotlib
-      numpy
-      pandas
-      pillow
-      plyfile
-      tqdm
-    ]))
-    hydra-check cachix
     xdg-utils
   ];
 

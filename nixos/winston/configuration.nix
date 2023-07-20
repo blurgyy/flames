@@ -63,5 +63,9 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  presets = {
+    development = true;
+    recreation = true;
+  };
   system.stateVersion = "23.05";
 }

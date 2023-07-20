@@ -8,5 +8,6 @@
     startMenuLaunchers = true;
   };
 
+  presets.development = true;
   system.stateVersion = "23.05";
 }

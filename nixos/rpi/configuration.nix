@@ -50,5 +50,6 @@
 
   powerManagement.cpuFreqGovernor = "powersave";
 
+  presets.recreation = true;
   system.stateVersion = "22.05";
 }

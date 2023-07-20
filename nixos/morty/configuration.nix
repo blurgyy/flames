@@ -73,5 +73,10 @@
   #   enableSSHSupport = true;
   # };
 
+  presets = {
+    development = true;
+    entertainment = true;
+    recreation = true;
+  };
   system.stateVersion = "22.05";
 }
