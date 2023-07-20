@@ -89,7 +89,9 @@ in {
     apple-color-emoji
     sc-fonts  # Times New Roman, FangSong, SimHei
     fonts-collection  # FangSong, SimHei, etc.
-  ] ++ lib.optional (pkgs.system == "x86_64-linux" || pkgs.system == "i686-linux") steam-run;
+  ] ++ lib.optional (let
+    inherit (pkgs.stdenv.hostPlatform) system;
+  in lib.elem system [ "x86_64-linux" "i686-linux"]) steam-run;
   programs = {
     mpv = {
       enable = true;

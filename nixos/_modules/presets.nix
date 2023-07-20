@@ -59,7 +59,9 @@ with lib;
       ++ (lib.optionals cfg.entertainment entPackages)
       ++ (lib.optionals cfg.recreation recPackages);
 
-    programs.steam.enable = mkDefault (pkgs.stdenv.hostPlatform.system == "x86_64-linux" && cfg.entertainment);
+    programs.steam.enable = mkDefault (let
+      inherit (pkgs.stdenv.hostPlatform) system;
+    in (elem system [ "x86_64-linux" "i686-linux" ]) && cfg.entertainment);
 
     networking.firewall-tailored = mkIf cfg.entertainment {
       acceptedPorts = [{
