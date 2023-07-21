@@ -40,6 +40,7 @@
     "copi"
     "cube"
     "hooper"
+    "meda"
     "morty"
     "opi"
     "penta"

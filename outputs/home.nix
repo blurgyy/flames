@@ -36,6 +36,7 @@ in apply {
   "gy@copi" = aarch64-headless;
 
   "gy@winston" = x86_64-non-headless // { inherit proxy; };
+  "gy@meda" = x86_64-headless;
 
   # set IP of winston in hosts
   "gy@cadliu" = x86_64-headless // { inherit proxy; };
