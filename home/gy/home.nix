@@ -15,77 +15,55 @@ in {
   home.homeDirectory = myHome;
   ricing.textual.theme = "dark";
   programs.supervisedDesktopEntries.enable = true;
-  home.packages = with pkgs; [
-    bat
-    btop
-    cachix
-    clang-tools
-    colmena
-    dogdns
-    dufs
-    exa
-    exiftool
-    fd
-    ffmpeg-full
-    file
-    fish
-    fzf
-    gdb
-    gdu
-    git
-    git-sync
-    glow
-    gnutar
-    hexyl
-    home-manager
-    htop
-    hydra-check
-    hyperfine
-    inotify-tools
-    imagemagick
-    iotop
-    jq
-    killall
-    less
-    lfs
-    libime-history-merge
-    libqalculate
-    litecli
-    lnav
-    lsof
-    nixStable
-    nix-output-monitor
-    nvfetcher
-    parallel
-    patchelf
-    pciutils
-    procs
-    progress
-    q-text-as-data
-    ripgrep
-    sdwrap
-    sops
-    sqlite
-    strace
-    telegram-send
-    tex2nix
-    tinytools
-    tokei
-    tro
-    typos
-    unar
-    unzip
-    util-linux
-    viddy
-    waypipe
-    wget
-    xdg-open-handlr
-    xplr
-    yt-dlp
-    zip
-    zstd
-    #texlive.combined.scheme-full  # NOTE: use tex2nix
-  ] ++ lib.optional (pkgs.system == "x86_64-linux" || pkgs.system == "i686-linux") conda;
+  home = {
+    presets = {
+      development = builtins.elem name [
+        "gy@winston"
+        "gy@cadliu"
+        "gy@cad-liu"
+        "gy@morty"
+      ];
+      entertainment = builtins.elem name [
+        "gy@morty"
+      ];
+      recreation = builtins.elem name [
+        "gy@morty"
+        "gy@rpi"
+      ];
+    };
+    packages = with pkgs; [
+      dogdns
+      dufs
+      fd
+      gdu
+      git
+      gnutar
+      home-manager
+      htop
+      hyperfine
+      iotop
+      jq
+      killall
+      less
+      dysk
+      libqalculate
+      nixStable
+      procs
+      ripgrep
+      sdwrap
+      telegram-send
+      tinytools
+      unar
+      unzip
+      util-linux
+      viddy
+      waypipe
+      wget
+      xdg-open-handlr
+      zip
+      zstd
+    ];
+  };
 
   nix.registry = {
     pkgs.flake = inputs.nixpkgs;
