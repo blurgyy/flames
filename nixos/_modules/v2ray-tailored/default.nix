@@ -71,9 +71,11 @@ in {
       ports.socks = mkOption { type = with types; oneOf [ str int ]; };
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
       remotes = mkOption { type = with types; listOf remoteModule; };
-      enableTransparentProxy = mkEnableOption "Whether to set extra firewall rules to enable transparent proxying";
-      proxyBypassedIPs = mkOption { type = types.listOf types.str; default = []; };
-      proxiedSystemServices = mkOption { type = types.listOf types.str; default = [ "nix-daemon.service" ]; };
+      transparentProxying = {
+        enable = mkEnableOption "Whether to set extra firewall rules to enable transparent proxying";
+        bypassedIPs = mkOption { type = types.listOf types.str; default = []; };
+        proxiedSystemServices = mkOption { type = types.listOf types.str; default = [ "nix-daemon.service" ]; };
+      };
     };
     server = {
       enable = mkEnableOption "Tailored V2Ray service (as server)";
@@ -154,12 +156,12 @@ in {
           protocols = [ "tcp" ];
           comment = "allow traffic on V2Ray reverse proxy control channel";
       });
-    } // (mkIf cfg.client.enableTransparentProxy{
-      referredServices = mkIf cfg.client.enable cfg.client.proxiedSystemServices;
+    } // (mkIf cfg.client.transparentProxying.enable {
+      referredServices = mkIf cfg.client.enable cfg.client.transparentProxying.proxiedSystemServices;
       extraRulesAfter = with builtins; mkIf cfg.client.enable [''
 include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
 define proxy_bypassed_IPs = {
-  ${concatStringsSep "," (cfg.client.proxyBypassedIPs
+  ${concatStringsSep "," (cfg.client.transparentProxying.bypassedIPs
     ++ (map (x: toString x.address) (filter (x: x.wsPath == null) cfg.client.remotes))
     ++ (if (cfg.server.reverse != null) then [ (toString cfg.server.reverse.port) ] else []))}
 }
@@ -193,10 +195,10 @@ table ip transparent_proxy {
     } return
 
     socket cgroupv2 level 1 "system.slice" ${optionalString
-      ((length cfg.client.proxiedSystemServices) > 0)
+      ((length cfg.client.transparentProxying.proxiedSystemServices) > 0)
       (concatStringsSep " " (map
         (svc: ''socket cgroupv2 level 2 != "system.slice/${svc}"'')
-        cfg.client.proxiedSystemServices
+        cfg.client.transparentProxying.proxiedSystemServices
         )
       )
     } return

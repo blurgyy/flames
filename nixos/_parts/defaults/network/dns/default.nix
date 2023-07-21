@@ -22,5 +22,5 @@
     script = "dcompass --config=${dcompassCfg}";
   };
 
-  services.v2ray-tailored.client.proxiedSystemServices = [ "dcompass.service" ];
+  services.v2ray-tailored.client.transparentProxying.proxiedSystemServices = [ "dcompass.service" ];
 }
