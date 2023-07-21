@@ -3,51 +3,51 @@
 let
   cfg = config.home.presets;
   devPackages = with pkgs; [
-      bat
-      clang-tools
-      colmena
-      btop
-      exa
-      exiftool
-      ffmpeg-full
-      file
-      gdb
-      fzf
-      fish
-      glow
-      hexyl
-      hydra-check
-      inotify-tools
-      imagemagick
-      libime-history-merge
-      litecli
-      lnav
-      lsof
-      nix-output-monitor
-      nvfetcher
-      parallel
-      patchelf
-      pciutils
-      progress
-      q-text-as-data
-      sops
-      sqlite
-      strace
-      tex2nix
-      tokei
-      tro
-      typos
-      xplr
+    bat
+    btop
+    clang-tools
+    colmena
+    exa
+    exiftool
+    ffmpeg-full
+    file
+    fish
+    fzf
+    gdb
+    glow
+    hexyl
+    hydra-check
+    imagemagick
+    inotify-tools
+    libime-history-merge
+    litecli
+    lnav
+    lsof
+    nix-output-monitor
+    nvfetcher
+    parallel
+    patchelf
+    pciutils
+    progress
+    q-text-as-data
+    sops
+    sqlite
+    strace
+    tex2nix
+    tokei
+    tro
+    typos
+    xplr
   ] ++ lib.optional (let
     inherit (pkgs.stdenv.hostPlatform) system;
   in system == "x86_64-linux" || system == "i686-linux") conda;
   entPackages = with pkgs; [
   ];
   recPackages = with pkgs; [
-      exiftool
-      ffmpeg-full
-      imagemagick
-      yt-dlp
+    exiftool
+    ffmpeg-full
+    imagemagick
+    yt-dlp
   ];
 in
 

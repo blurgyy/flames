@@ -8,6 +8,7 @@ let
     gcc
     glow
     hexyl
+    hydra-check
     hyperfine
     inotify-tools
     libqalculate
@@ -34,7 +35,6 @@ let
       plyfile
       tqdm
     ]))
-    hydra-check
   ];
   entPackages = with pkgs; [
     minecraft
