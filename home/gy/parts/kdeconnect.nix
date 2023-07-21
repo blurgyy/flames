@@ -5,6 +5,7 @@
   };
 
   systemd.user.services = {
+    "app-org.kde.kdeconnect.daemon@autostart.service".Install.WantedBy = lib.mkForce [];
     kdeconnect = {
       Service = {
         Environment = lib.mkForce [
