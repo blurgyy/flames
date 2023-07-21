@@ -16,7 +16,7 @@
     inherit self nixpkgs inputs;
   };
 
-  proxy = {
+  labProxy = {
     addr = "winston";
     port = 1990;
     ignore = [
@@ -35,12 +35,22 @@ in apply {
   "gy@opi" = aarch64-headless;
   "gy@copi" = aarch64-headless;
 
-  "gy@winston" = x86_64-non-headless // { inherit proxy; };
-  "gy@meda" = x86_64-headless;
+  "gy@winston" = x86_64-non-headless // { proxy = labProxy; };
+  "gy@meda" = x86_64-headless // {
+    proxy = {
+      addr = "172.30.96.1";
+      port = "9990";
+      ignore = [
+        "localhost"
+        "127.0.0.1"
+        "::1"
+      ];
+    };
+  };
 
   # set IP of winston in hosts
-  "gy@cadliu" = x86_64-headless // { inherit proxy; };
-  "gy@cad-liu" = x86_64-headless // { inherit proxy; };
+  "gy@cadliu" = x86_64-headless // { proxy = labProxy; };
+  "gy@cad-liu" = x86_64-headless // { proxy = labProxy; };
 
   "gy@cindy" = aarch64-headless;
   "gy@peterpan" = x86_64-headless;
