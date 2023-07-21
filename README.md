@@ -300,7 +300,7 @@ Trouble Shooting
   $browser = New-Object System.Net.WebClient
   $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials
   ```
-  REF: <https://stackoverflow.com/questions/14263359/access-web-using-powershell-and-proxy>
+  > Reference: <https://stackoverflow.com/questions/14263359/access-web-using-powershell-and-proxy>
 
 * To add the system's secret key to the tarball created by
   [nixos-wsl](https://github.com/nix-community/nixos-wsl), first decompress the gzipped tarball, and
@@ -314,3 +314,22 @@ Trouble Shooting
   $ # inspect the modified tarball
   $ tar --list --file=decompressed.tar
   ```
+
+* WSL2 imposes resources constraints on processes from it, to build on another machine with hostname
+  `<host>` that we have SSH access, append `--store ssh-ng://<host>` to nix3 commands, e.g.:
+  ```bash
+  $ nix develop .#cudaDevShell --impure --store ssh-ng://morty
+  ```
+  > Reference: <https://docs.nixbuild.net/remote-builds/#using-remote-stores>
+
+* After building closures on a remote store, the closures need to be copied from it.  If `nix copy`
+  fails with an error:
+  ```bash
+  $ nix copy --from ssh-ng://morty (nix path-info .#cudaDevShell --impure --json | jq -r '.[].path')
+  error: cannot add path '/nix/store/g15j0y3fzvx4kkry4viymn698m1gk8yx-cudatoolkit-11.7.0' because it lacks a signature by a trusted key
+  ```
+  To temporarily workaround this, use the `--no-check-sigs` flag:
+  ```bash
+  $ nix copy --from ssh-ng://morty (nix path-info .#cudaDevShell --impure --json | jq -r '.[].path') --no-check-sigs
+  ```
+  > Reference: <https://github.com/NixOS/nix/issues/4894#issuecomment-1252510474>
