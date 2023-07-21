@@ -14,13 +14,10 @@ in
       useDHCP = false;
       # trying to ssh on to this machine with `-vvvvvvvvvv` hangs at:
       #   debug1: expecting SSH2_MSG_KEX_ECDH_REPLY
-      # set mtu to 1200 or 1500 default on another nixos machine with:
-      #   ip li set mtu 1200 dev eth0
-      # note: original mtu was 1280?
       # REF:
       #   * <https://serverfault.com/q/210408>
       #   * <https://bugs.launchpad.net/ubuntu/+source/openssh/+bug/1254085/comments/9>
-      mtu = 1200;
+      mtu = 1500;
       ipv4.addresses = [{
         inherit prefixLength;
         # this can be arbitrary non-gateway address that satisfies prefixLength.
