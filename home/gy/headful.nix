@@ -91,7 +91,7 @@ in {
     fonts-collection  # FangSong, SimHei, etc.
   ] ++ lib.optional (let
     inherit (pkgs.stdenv.hostPlatform) system;
-  in lib.elem system [ "x86_64-linux" "i686-linux"]) steam-run;
+  in builtins.elem system [ "x86_64-linux" "i686-linux"]) steam-run;
   programs = {
     mpv = {
       enable = true;
