@@ -27,10 +27,9 @@ in
   };
 
   systemd.services.nix-daemon.environment = let
-    # need to open this port on the Windows side
     port = 9990;
   in {
-    http_proxy = "http://${gateway}:${toString port}";
-    https_proxy = "http://${gateway}:${toString port}";
+    http_proxy = "http://localhost:${toString port}";
+    https_proxy = "http://localhost:${toString port}";
   };
 }

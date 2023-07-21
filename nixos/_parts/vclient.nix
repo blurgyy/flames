@@ -26,6 +26,7 @@
     ports.http = config.sops.placeholder."v2ray/ports/client/http";
     ports.socks = config.sops.placeholder."v2ray/ports/client/socks";
     ports.tproxy = config.sops.placeholder."v2ray/ports/client/tproxy";
+    enableTransparentProxy = !(config.wsl.enable or false);
     proxiedSystemServices = [ "nix-daemon.service" ];
     remotes = [
       rec {

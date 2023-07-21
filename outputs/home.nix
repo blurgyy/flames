@@ -38,7 +38,7 @@ in apply {
   "gy@winston" = x86_64-non-headless // { proxy = labProxy; };
   "gy@meda" = x86_64-headless // {
     proxy = {
-      addr = "172.30.96.1";
+      addr = "localhost";
       port = "9990";
       ignore = [
         "localhost"

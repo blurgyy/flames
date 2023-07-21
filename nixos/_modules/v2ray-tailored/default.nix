@@ -71,6 +71,7 @@ in {
       ports.socks = mkOption { type = with types; oneOf [ str int ]; };
       ports.tproxy = mkOption { type = with types; oneOf [ str int ]; };
       remotes = mkOption { type = with types; listOf remoteModule; };
+      enableTransparentProxy = mkEnableOption "Whether to set extra firewall rules to enable transparent proxying";
       proxyBypassedIPs = mkOption { type = types.listOf types.str; default = []; };
       proxiedSystemServices = mkOption { type = types.listOf types.str; default = [ "nix-daemon.service" ]; };
     };
@@ -153,6 +154,7 @@ in {
           protocols = [ "tcp" ];
           comment = "allow traffic on V2Ray reverse proxy control channel";
       });
+    } // (mkIf cfg.client.enableTransparentProxy{
       referredServices = mkIf cfg.client.enable cfg.client.proxiedSystemServices;
       extraRulesAfter = with builtins; mkIf cfg.client.enable [''
 include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
@@ -201,7 +203,7 @@ table ip transparent_proxy {
     meta l4proto {tcp,udp} meta mark set ${toString cfg.client.fwMark} 
   }
 }''];
-    };
+    });
     systemd.services.vclient = mkIf cfg.client.enable {
       description = "V2Ray client";
       wantedBy = [ "multi-user.target" ];
