@@ -17,6 +17,5 @@
 
   systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
 
-  presets.development = true;
   system.stateVersion = "22.11";
 }

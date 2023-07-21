@@ -25,6 +25,31 @@ in [
 
   (includeIf (!headless) ./headful.nix)
 
+  ({ config, ... }: {
+    environment.presets = let
+      inherit (config.networking) hostName;
+    in with builtins; {
+      development = elem hostName [
+        "cindy"
+        "meda"
+        "morty"
+        "peterpan"
+        "winston"
+      ];
+      entertainment = elem hostName [
+        "morty"
+        "rpi"
+        "opi"
+      ];
+      recreation = elem hostName [
+        "morty"
+        "opi"
+        "rpi"
+        "winston"
+      ];
+    };
+  })
+
   (includeIf isQemuGuest ({ lib, pkgs, modulesPath, ... }: {
     imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
     boot.kernelPackages = lib.mkDefault pkgs.linuxPackages;

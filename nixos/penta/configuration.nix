@@ -30,6 +30,5 @@
 
   services.udisks2.enable = false;
 
-  presets.development = true;
   system.stateVersion = "23.11";
 }

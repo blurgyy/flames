@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  cfg = config.presets;
+  cfg = config.environment.presets;
   devPackages = with pkgs; [
     colmena
     ffmpeg-full
@@ -48,7 +48,7 @@ in
 with lib;
 
 {
-  options.presets = {
+  options.environment.presets = {
     development = mkEnableOption "Setup environment for development";
     entertainment = mkEnableOption "Setup environment for entertainment";
     recreation = mkEnableOption "Setup environment for recreational purporses";
