@@ -175,7 +175,7 @@ in {
 
   programs.supervisedDesktopEntries.enable = true;
   environment.systemPackages = with pkgs; [
-    bat
+    btop
     dogdns
     dufs
     exa

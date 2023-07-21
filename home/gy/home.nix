@@ -19,8 +19,6 @@ in {
     presets = {
       development = builtins.elem name [
         "gy@winston"
-        "gy@cadliu"
-        "gy@cad-liu"
         "gy@morty"
       ];
       entertainment = builtins.elem name [
@@ -32,6 +30,7 @@ in {
       ];
     };
     packages = with pkgs; [
+      btop
       dogdns
       dufs
       fd

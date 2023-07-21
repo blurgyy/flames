@@ -30,10 +30,7 @@ in [
       inherit (config.networking) hostName;
     in with builtins; {
       development = elem hostName [
-        "cindy"
-        "meda"
         "morty"
-        "peterpan"
         "winston"
       ];
       entertainment = elem hostName [

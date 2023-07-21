@@ -4,6 +4,7 @@ let
   cfg = config.environment.presets;
   inherit (pkgs.stdenv.hostPlatform) system;
   devPackages = with pkgs; [
+    bat
     colmena
     ffmpeg-full
     gcc

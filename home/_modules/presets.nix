@@ -4,7 +4,6 @@ let
   cfg = config.home.presets;
   devPackages = with pkgs; [
     bat
-    btop
     clang-tools
     colmena
     exa
