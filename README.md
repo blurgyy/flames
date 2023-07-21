@@ -292,3 +292,25 @@ Trouble Shooting
   Though `xhost` [is considered
   dangerous](https://stackoverflow.com/questions/63884968/why-is-xhost-considered-dangerous), the
   above procedure does get the job done.
+
+* While installing WSL2 dependencies on Windows 11 using `wsl --install --no-distribution` inside a
+  powershell, it may fail with a network error.  Run the following powershell commands to use the
+  system's proxy:
+  ```powershell
+  $browser = New-Object System.Net.WebClient
+  $browser.Proxy.Credentials =[System.Net.CredentialCache]::DefaultNetworkCredentials
+  ```
+  REF: <https://stackoverflow.com/questions/14263359/access-web-using-powershell-and-proxy>
+
+* To add the system's secret key to the tarball created by
+  [nixos-wsl](https://github.com/nix-community/nixos-wsl), first decompress the gzipped tarball, and
+  append the file to it, e.g.:
+  ```bash
+  $ gunzip -c result/tarball/nixos-wsl-installer.tar.gz >decompressed.tar
+  $
+  $ # the secret is typically put at /var/lib/<hostname>.age
+  $ tar --append --file=decompressed.tar --transform='s:^:var/lib/:' hostname.age
+  $
+  $ # inspect the modified tarball
+  $ tar --list --file=decompressed.tar
+  ```
