@@ -125,6 +125,7 @@ in {
   };
   nix.buildMachines = [{
     hostName = "cindy";
+    protocol = "ssh-ng";
     sshUser = "hydra-distributed-builder";
     sshKey = config.sops.secrets.hydra-distributed-builder-ssh-key.path;
     systems = [ "aarch64-linux" ];
@@ -132,6 +133,7 @@ in {
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   } {
     hostName = "penta";
+    protocol = "ssh-ng";
     sshUser = "hydra-distributed-builder";
     sshKey = config.sops.secrets.hydra-distributed-builder-ssh-key.path;
     systems = [ "x86_64-linux" "i686-linux" ];
