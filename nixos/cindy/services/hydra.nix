@@ -125,7 +125,7 @@ in {
   };
   nix.buildMachines = [{
     hostName = "cindy";
-    protocol = "ssh-ng";
+    protocol = "ssh";
     sshUser = "distributed-builder";
     sshKey = config.sops.secrets.distributed-builder-ssh-key.path;
     systems = [ "aarch64-linux" ];
@@ -133,7 +133,7 @@ in {
     supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
   } {
     hostName = "penta";
-    protocol = "ssh-ng";
+    protocol = "ssh";
     sshUser = "distributed-builder";
     sshKey = config.sops.secrets.distributed-builder-ssh-key.path;
     systems = [ "x86_64-linux" "i686-linux" ];
