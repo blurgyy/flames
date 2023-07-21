@@ -1,6 +1,18 @@
 if not test -d /sbin
+  and not test -d /usr/lib/wsl
   return 0
 end
+
+if test -d /sbin
+  if test -d /usr/lib/wsl
+    set indicator "fhs(wsl)"
+  else if test -f /run/host/container-manager
+    set indicator "fhs(container@$(echo (cat /run/host/container-manager)))"
+  else
+    set indicator "fhs"
+  end
+end
+
 set -lx tide_fhs_color purple
 set -lx tide_fhs_bg_color normal
-_tide_print_item fhs (echo -n [fhs])
+_tide_print_item fhs (echo -n ["$indicator"])
