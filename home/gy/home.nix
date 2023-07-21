@@ -16,19 +16,6 @@ in {
   ricing.textual.theme = "dark";
   programs.supervisedDesktopEntries.enable = true;
   home = {
-    presets = {
-      development = builtins.elem name [
-        "gy@winston"
-        "gy@morty"
-      ];
-      entertainment = builtins.elem name [
-        "gy@morty"
-      ];
-      recreation = builtins.elem name [
-        "gy@morty"
-        "gy@rpi"
-      ];
-    };
     packages = with pkgs; [
       btop
       dogdns

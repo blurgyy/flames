@@ -123,5 +123,20 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     (lib.optionalAttrs (!headless) ./headful.nix)
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)
     ({ home.stateVersion = "22.11"; })
+    {
+      home.presets = {
+        development = builtins.elem name [
+          "gy@winston"
+          "gy@morty"
+        ];
+        entertainment = builtins.elem name [
+          "gy@morty"
+        ];
+        recreation = builtins.elem name [
+          "gy@morty"
+          "gy@rpi"
+        ];
+      };
+    }
   ];
 }
