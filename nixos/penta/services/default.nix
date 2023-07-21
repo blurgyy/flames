@@ -1,6 +1,6 @@
 { config, ... }: {
   imports = [
-    ../../_parts/hydra-distributed-builder.nix
+    ../../_parts/distributed-builder.nix
     ./ntfy.nix
     ./v2ray.nix
   ];
