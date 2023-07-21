@@ -2,6 +2,7 @@
 
 let
   cfg = config.environment.presets;
+  inherit (pkgs.stdenv.hostPlatform) system;
   devPackages = with pkgs; [
     colmena
     ffmpeg-full
@@ -37,8 +38,9 @@ let
     ]))
   ];
   entPackages = with pkgs; [
+  ] ++ (lib.optional (system == "x86_64-linux") [
     minecraft
-  ];
+  ]);
   recPackages = with pkgs; [
     ffmpeg-full
     typos
@@ -59,9 +61,8 @@ with lib;
       ++ (lib.optionals cfg.entertainment entPackages)
       ++ (lib.optionals cfg.recreation recPackages);
 
-    programs.steam.enable = mkDefault (let
-      inherit (pkgs.stdenv.hostPlatform) system;
-    in (elem system [ "x86_64-linux" "i686-linux" ]) && cfg.entertainment);
+    programs.steam.enable = mkDefault (
+      (elem system [ "x86_64-linux" "i686-linux" ]) && cfg.entertainment);
 
     networking.firewall-tailored = mkIf cfg.entertainment {
       acceptedPorts = [{
