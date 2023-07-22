@@ -185,6 +185,7 @@ in {
     fzf
     gdu
     git
+    home-manager
     htop
     iotop
     jq
