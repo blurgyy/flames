@@ -293,6 +293,7 @@ in {
       };
       Install.WantedBy = [ "default.target" ];
     };
+    services.fcitx5-daemon.Service.ExecStart = lib.mkForce "${config.i18n.inputMethod.package}/bin/fcitx5 --replace";
   };
 
   # So that fish can complete `man` commands
