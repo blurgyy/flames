@@ -5,11 +5,17 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/23.05";
     flake-utils.url = "github:numtide/flake-utils";
 
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
+
     nixos-wsl = {
       url = "github:nix-community/nixos-wsl";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        flake-compat.follows = "flake-compat";
       };
     };
     nixos-generators = {
@@ -50,6 +56,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
+        flake-compat.follows = "flake-compat";
       };
     };
     colmena = {
@@ -58,6 +65,7 @@
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
         stable.follows = "nixpkgs";
+        flake-compat.follows = "flake-compat";
       };
     };
     carinae = {
