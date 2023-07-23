@@ -3,6 +3,7 @@
     inherit system;
     config.allowUnfree = true;
     overlays = [
+      inputs.ntfy-bridge.overlays.default
       (final: prev: {
         inherit (inputs.tex2nix.packages.${system}) tex2nix;
         inherit (inputs.home-manager.packages.${system}) home-manager;
@@ -119,6 +120,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     ./services
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-db.hmModules.nix-index
+    inputs.ntfy-bridge.hmModules.default
     self.homeManagerModules.default
     (lib.optionalAttrs (!headless) ./headful.nix)
     (lib.optionalAttrs (!headless) inputs.hyprland.homeManagerModules.default)

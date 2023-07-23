@@ -109,6 +109,13 @@
       };
     };
 
+    ntfy-bridge = {
+      url = "gitlab:highsunz/ntfy-bridge";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     acremote = {
       url = "gitlab:highsunz/acremote";
       inputs = {

@@ -179,6 +179,14 @@ in {
   };
 
   services = {
+    ntfy-bridge = {
+      enable = true;
+      defaultHost = "ntfy.blurgy.xyz";
+      topics = [
+        "billboard"
+        "machines"
+      ];
+    };
     gpg-agent = {
       enable = true;
       enableExtraSocket = true;

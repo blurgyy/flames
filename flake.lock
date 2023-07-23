@@ -446,6 +446,29 @@
         "type": "github"
       }
     },
+    "ntfy-bridge": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1690130339,
+        "narHash": "sha256-/TG+HpYaREVwW38AcjsmnCv07MfMYMsvW8vbVM4JcJc=",
+        "owner": "highsunz",
+        "repo": "ntfy-bridge",
+        "rev": "f25a18643637b30b8e1c7c322a45e3fec914471a",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "highsunz",
+        "repo": "ntfy-bridge",
+        "type": "gitlab"
+      }
+    },
     "nvfetcher": {
       "inputs": {
         "flake-compat": [
@@ -509,6 +532,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
+        "ntfy-bridge": "ntfy-bridge",
         "nvfetcher": "nvfetcher",
         "orangepi-3-lts-nixos": "orangepi-3-lts-nixos",
         "rust-overlay": "rust-overlay",
