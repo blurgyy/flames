@@ -12,6 +12,8 @@ in [
   ./hardware.nix
   ./network
   ./haproxy.nix
+  ./services
+
   inputs.nix-index-db.nixosModules.nix-index
   self.nixosModules.default
   {
