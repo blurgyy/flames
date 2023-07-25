@@ -318,9 +318,12 @@ Trouble Shooting
 * WSL2 imposes resources constraints on processes from it, to build on another machine with hostname
   `<host>` that we have SSH access, append `--store ssh-ng://<host>` to nix3 commands, e.g.:
   ```bash
-  $ nix develop .#cudaDevShell --impure --store ssh-ng://morty
+  $ nix build .#devShells.x86_64-linux.cudaDevShell --impure --store ssh-ng://morty
   ```
   > Reference: <https://docs.nixbuild.net/remote-builds/#using-remote-stores>
+  >
+  > **Note**: while using `nix develop`, the command should also be `nix build` to allow copying
+  > over network later.
 
 * After building closures on a remote store, the closures need to be copied from it.  If `nix copy`
   fails with an error:
