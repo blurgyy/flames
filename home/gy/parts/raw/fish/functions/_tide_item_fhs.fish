@@ -7,7 +7,7 @@ if test -d /sbin
   if test -d /usr/lib/wsl
     set indicator "fhs(wsl)"
   else if test -f /run/host/container-manager
-    set indicator "fhs(container@$(echo (cat /run/host/container-manager)))"
+    set indicator "fhs($(echo (cat /run/host/container-manager)))"
   else
     set indicator "fhs"
   end
