@@ -1,6 +1,9 @@
 { config, pkgs, lib, myHome, helpers, __callWithHelpers, ... }: let
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
+  imports = [
+    ./parts/alarm-clock.nix
+  ];
   ricing.headful.theme = "dark";
   qt = {
     enable = true;

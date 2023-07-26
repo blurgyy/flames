@@ -194,6 +194,7 @@ in {
     windowrulev2 = float, class:^org\.kde\.kdeconnect\.*$, title:Ply File Open
     windowrulev2 = float, class:com.alibabainc.dingtalk, title: |分享的图片
     windowrulev2 = float, class:mpv
+    windowrulev2 = float, class:alarm-clock-applet
 
     windowrulev2 = pin, floating:1
 
