@@ -24,15 +24,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "9f1b5b245e956f7f26f73de5db4280db6ff4ae18";
+    version = "7072002d914c37d562d669d568c697891031de1c";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "9f1b5b245e956f7f26f73de5db4280db6ff4ae18";
+      rev = "7072002d914c37d562d669d568c697891031de1c";
       fetchSubmodules = false;
-      sha256 = "sha256-+7X+OkqocNjojYaDLZ6VguMPygyn85hxNeVujBS166I=";
+      sha256 = "sha256-Rgh773e/8p3TC7JtWuNUjKwZHfrfqV5siTx7VCdfoQs=";
     };
-    date = "2023-07-22";
+    date = "2023-07-27";
   };
   alist = {
     pname = "alist";
@@ -79,15 +79,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "295b2d2bedc98ecb74712bc30959c2b46b296d19";
+    version = "c59f65f527f003ce860888161ab8374c2f30bf8e";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "295b2d2bedc98ecb74712bc30959c2b46b296d19";
+      rev = "c59f65f527f003ce860888161ab8374c2f30bf8e";
       fetchSubmodules = false;
-      sha256 = "sha256-DUwT5gOUHSAVdPbD2saISQ2hnI34wztv2+fAWcRmJeo=";
+      sha256 = "sha256-al6G3w7NH2IIT3QT5LHOX3AzxYGm2Po7aacPqMyKl60=";
     };
-    date = "2023-07-21";
+    date = "2023-07-26";
   };
   dt = {
     pname = "dt";
@@ -202,15 +202,15 @@
   };
   halbot = {
     pname = "halbot";
-    version = "eb0758b62c36b8c4a3cb3488e0d683d55dae73dc";
+    version = "708f4b00194b0aec19717f50f7e86f8b84f4ba27";
     src = fetchFromGitHub {
       owner = "Leask";
       repo = "halbot";
-      rev = "eb0758b62c36b8c4a3cb3488e0d683d55dae73dc";
+      rev = "708f4b00194b0aec19717f50f7e86f8b84f4ba27";
       fetchSubmodules = false;
-      sha256 = "sha256-YzTzLiZeMTn9Smk3+ZMIomWDKxe8oy08lNwgd7u0KDs=";
+      sha256 = "sha256-0EBXbW+iooV7lHrBPwo0a42kGx8jLraawrZ63qZ1OQo=";
     };
-    date = "2023-05-05";
+    date = "2023-07-25";
   };
   harmonyos-sans = {
     pname = "harmonyos-sans";
@@ -227,10 +227,10 @@
   };
   imgviz = {
     pname = "imgviz";
-    version = "1.7.2";
+    version = "1.7.3";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.2.tar.gz";
-      sha256 = "sha256-Am+JQhw/rcoTOHYjqAu9JNGstRh0OzQ5wfsNer/q4QM=";
+      url = "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.3.tar.gz";
+      sha256 = "sha256-HeTpv5Ey594/mVGCwkZACWtD4+s7/RIlReM5jE4vmdI=";
     };
   };
   import-ply-as-verts-for-blender = {
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202307202209";
+    version = "202307262208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307202209/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307262208/geoip.dat";
       sha256 = "sha256-sBOSWDT2nbz/pKGMYV7pCc9sOVZK3jgIHUtVi8kY6vA=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202307202209";
+    version = "202307262208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307202209/geosite.dat";
-      sha256 = "sha256-GBLHGZPb9dX1G/nKK1AssZflABmwgFn4v5Cmv1ZtOh0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202307262208/geosite.dat";
+      sha256 = "sha256-tGKhI2B/jI4KOOD1p3eB16MFwzIZXAF1A4kT/HLk+qs=";
     };
   };
   luarock-dbus_proxy = {
@@ -317,18 +317,18 @@
   };
   rssbot = {
     pname = "rssbot";
-    version = "v2.0.0-alpha.11";
+    version = "v2.0.0-alpha.12";
     src = fetchFromGitHub {
       owner = "iovxw";
       repo = "rssbot";
-      rev = "v2.0.0-alpha.11";
+      rev = "v2.0.0-alpha.12";
       fetchSubmodules = false;
-      sha256 = "sha256-gNCjphzJWGjdRsyytjp1l1eYqPYI3S+kpZJ/BpJl7ac=";
+      sha256 = "sha256-MSuXiK7QStEWbXBWnw1WNKec9EKVrgUfjJNu13ug6NQ=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./rssbot-v2.0.0-alpha.11/Cargo.lock;
+      lockFile = ./rssbot-v2.0.0-alpha.12/Cargo.lock;
       outputHashes = {
-        "tbot-0.6.7" = "sha256-gPfwPPJEYcgETvUlT9VGNOVKp19vKHu0sEuMiHaxWKs=";
+        "tbot-0.6.7" = "sha256-3WJ5m8hyNug1RwFVLUmAyQPQjL9xc++hCHgfrIM4piM=";
       };
     };
   };
@@ -365,10 +365,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "9.6.0";
+    version = "9.7.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.6.0/simple-icons-font-9.6.0.zip";
-      sha256 = "sha256-NnJixTpc+RwCJ+qLAOhTFvBozS0ecTD1fuLMvGVC8eY=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.7.0/simple-icons-font-9.7.0.zip";
+      sha256 = "sha256-2Q1VT03jYln/XDPB+eRkYpnxLToLNQt6b88S+XDDQ34=";
     };
   };
   symbols-nerd-font = {
@@ -440,25 +440,25 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "afbf5567a150dd71aad6fde276df6ff9be7b40fb";
+    version = "bd480207b30c6bc38689bb989dff14c1f460be2e";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "afbf5567a150dd71aad6fde276df6ff9be7b40fb";
+      rev = "bd480207b30c6bc38689bb989dff14c1f460be2e";
       fetchSubmodules = false;
-      sha256 = "sha256-bOatmurEEY9EHzs25psrbshx1hcvG4jBfeiiMXQ6p0E=";
+      sha256 = "sha256-vNBkqYOvS6Gc+9IxXsJMf7q5OPetBJN4NPqmRxe2Z38=";
     };
-    date = "2023-07-20";
+    date = "2023-07-26";
   };
   video-compare = {
     pname = "video-compare";
-    version = "20230713";
+    version = "20230725";
     src = fetchFromGitHub {
       owner = "pixop";
       repo = "video-compare";
-      rev = "20230713";
+      rev = "20230725";
       fetchSubmodules = false;
-      sha256 = "sha256-lHTm8WjlkWxCOqG2kwOitWE1C64RAOPqRnCvgkcjBUo=";
+      sha256 = "sha256-DGczrbGRlCgnioa8VfjDp5N3kMs8+/PvBPX4t78XxnM=";
     };
   };
   vim-plugin-bigfile-nvim = {
@@ -487,16 +487,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "0d5eb17533a4ed8fe52e3d0e83605cc5875bbe84";
+    version = "ec7ade261f961a5299a13451aa18a4dce630d0b3";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "0d5eb17533a4ed8fe52e3d0e83605cc5875bbe84";
+      rev = "ec7ade261f961a5299a13451aa18a4dce630d0b3";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-iuvIuRdmTd4jSuyKmc3/eHsIHE/CJ8TDQh8qgeNxcGs=";
+      sha256 = "sha256-SsI/6XVaSCQBXHZaxhJ43IEbvObRVMUZs7027ube8ZY=";
     };
-    date = "2023-07-19";
+    date = "2023-07-26";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
