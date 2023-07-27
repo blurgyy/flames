@@ -317,18 +317,18 @@
   };
   rssbot = {
     pname = "rssbot";
-    version = "v2.0.0-alpha.12";
+    version = "v2.0.0-alpha.11";
     src = fetchFromGitHub {
       owner = "iovxw";
       repo = "rssbot";
-      rev = "v2.0.0-alpha.12";
+      rev = "v2.0.0-alpha.11";
       fetchSubmodules = false;
-      sha256 = "sha256-MSuXiK7QStEWbXBWnw1WNKec9EKVrgUfjJNu13ug6NQ=";
+      sha256 = "sha256-gNCjphzJWGjdRsyytjp1l1eYqPYI3S+kpZJ/BpJl7ac=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./rssbot-v2.0.0-alpha.12/Cargo.lock;
+      lockFile = ./rssbot-v2.0.0-alpha.11/Cargo.lock;
       outputHashes = {
-        "tbot-0.6.7" = "sha256-3WJ5m8hyNug1RwFVLUmAyQPQjL9xc++hCHgfrIM4piM=";
+        "tbot-0.6.7" = "sha256-gPfwPPJEYcgETvUlT9VGNOVKp19vKHu0sEuMiHaxWKs=";
       };
     };
   };

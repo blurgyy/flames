@@ -119,7 +119,7 @@ src.cmd = "curl -L https://db-ip.com/db/download/ip-to-country-lite | grep 'Down
 fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
 
 [rssbot]
-src.github = "iovxw/rssbot"
+src.cmd = "echo v2.0.0-alpha.11"
 fetch.github = "iovxw/rssbot"
 cargo_locks = ["Cargo.lock"]
 

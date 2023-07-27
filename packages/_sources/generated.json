@@ -533,9 +533,9 @@
     "rssbot": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./rssbot-v2.0.0-alpha.12/Cargo.lock",
+                "./rssbot-v2.0.0-alpha.11/Cargo.lock",
                 {
-                    "tbot-0.6.7": "sha256-3WJ5m8hyNug1RwFVLUmAyQPQjL9xc++hCHgfrIM4piM="
+                    "tbot-0.6.7": "sha256-gPfwPPJEYcgETvUlT9VGNOVKp19vKHu0sEuMiHaxWKs="
                 }
             ]
         },
@@ -551,11 +551,11 @@
             "name": null,
             "owner": "iovxw",
             "repo": "rssbot",
-            "rev": "v2.0.0-alpha.12",
-            "sha256": "sha256-MSuXiK7QStEWbXBWnw1WNKec9EKVrgUfjJNu13ug6NQ=",
+            "rev": "v2.0.0-alpha.11",
+            "sha256": "sha256-gNCjphzJWGjdRsyytjp1l1eYqPYI3S+kpZJ/BpJl7ac=",
             "type": "github"
         },
-        "version": "v2.0.0-alpha.12"
+        "version": "v2.0.0-alpha.11"
     },
     "rustdesk-server": {
         "cargoLocks": {
