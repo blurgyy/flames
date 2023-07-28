@@ -86,7 +86,7 @@ in {
   outbounds = if (reverse == null)
     then (mapDir (applyTag {}) ./outbounds)
     else if (reverse.position == "world")
-    then []  # No extra outbound(s) when reverse.position is "world"
+    then (mapDir (applyTag {}) ./outbounds)  # No extra outbound(s) when reverse.position is "world"
     else [
       {
         tag = "reverse-tunnel";
@@ -124,7 +124,7 @@ in {
           ++ [ { inboundTag = [ "reverse-tunnel" ]; } ]
         )
       ) ++ [
-        { type = "field"; network = "tcp,udp"; outboundTag = "blocked"; }
+        { type = "field"; network = "tcp,udp"; outboundTag = "blocked-final"; }
       ];
     }
     else {
@@ -139,7 +139,7 @@ in {
         # Direct connect to non-communication traffic
         { inboundTag = [ "bridge-${reverse.counterpartName}" ]; outboundTag = "direct"; }
         # Block all other traffic
-        { network = "tcp,udp"; outboundTag = "blocked"; }
+        { network = "tcp,udp"; outboundTag = "blocked-final"; }
       ];
     };
   reverse = {
