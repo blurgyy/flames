@@ -109,7 +109,7 @@ in {
       AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
       LimitNOFILE = 1000000007;
     };
-  in mkIf (cfg.client.enable || cfg.server.enable) {
+  in mkIf (cfg.client.enable || cfg.server.enable || cfg.server.reverse != null) {
     # Avoid collision with original v2ray service
     services.v2ray.enable = false;
     environment.systemPackages = [ cfg.package ];
@@ -129,83 +129,88 @@ in {
       owner = config.users.users.v2ray.name;
       group = config.users.groups.v2ray.name;
     };
-    networking.firewall-tailored = mkIf (cfg.client.enable || cfg.server.enable || cfg.server.reverse != null) {
-      enable = true;
-      acceptedPorts = (lib.optional cfg.client.enable {
-        port = cfg.client.ports.http;
-        protocols = [ "tcp" ];
-        comment = "allow machines from private network ranges to access http proxy (vclient)";
-        predicate = "ip saddr $private_range";
-      }) ++ (lib.optional cfg.client.enable {
-            port = cfg.client.ports.socks;
-            protocols = [ "tcp" ];
-            comment = "allow machines from private network ranges to access socks proxy (vclient)";
-            predicate = "ip saddr $private_range";
-      }) ++ (lib.optional cfg.server.enable {
-          port = cfg.server.ports.http;
+    networking.firewall-tailored = mkMerge [
+      # mkMerge[0]
+      (mkIf (cfg.client.enable || cfg.server.enable || cfg.server.reverse != null) {
+        enable = true;
+        acceptedPorts = (lib.optional cfg.client.enable {
+          port = cfg.client.ports.http;
           protocols = [ "tcp" ];
-          comment = "allow machines from private network ranges to access http proxy (vserver)";
+          comment = "allow machines from private network ranges to access http proxy (vclient)";
           predicate = "ip saddr $private_range";
-      }) ++ (lib.optional cfg.server.enable {
-            port = cfg.server.ports.socks;
+        }) ++ (lib.optional cfg.client.enable {
+              port = cfg.client.ports.socks;
+              protocols = [ "tcp" ];
+              comment = "allow machines from private network ranges to access socks proxy (vclient)";
+              predicate = "ip saddr $private_range";
+        }) ++ (lib.optional cfg.server.enable {
+            port = cfg.server.ports.http;
             protocols = [ "tcp" ];
-            comment = "allow machines from private network ranges to access socks proxy (vserver)";
+            comment = "allow machines from private network ranges to access http proxy (vserver)";
             predicate = "ip saddr $private_range";
-      }) ++ (lib.optional (cfg.server.reverse != null) {
-          port = cfg.server.reverse.port;
-          protocols = [ "tcp" ];
-          comment = "allow traffic on V2Ray reverse proxy control channel";
-      });
-    } // (mkIf cfg.client.transparentProxying.enable {
-      referredServices = mkIf cfg.client.enable cfg.client.transparentProxying.proxiedSystemServices;
-      extraRulesAfter = with builtins; mkIf cfg.client.enable [''
-include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
-define proxy_bypassed_IPs = {
-  ${concatStringsSep "," (cfg.client.transparentProxying.bypassedIPs
-    ++ (map (x: toString x.address) (filter (x: x.wsPath == null) cfg.client.remotes))
-    ++ (if (cfg.server.reverse != null) then [ (toString cfg.server.reverse.port) ] else []))}
-}
-table ip transparent_proxy
-delete table ip transparent_proxy
-table ip transparent_proxy {
-  chain prerouting {
-    type filter hook prerouting priority mangle
-    policy accept
+        }) ++ (lib.optional cfg.server.enable {
+              port = cfg.server.ports.socks;
+              protocols = [ "tcp" ];
+              comment = "allow machines from private network ranges to access socks proxy (vserver)";
+              predicate = "ip saddr $private_range";
+        }) ++ (lib.optional (cfg.server.reverse != null) {
+            port = cfg.server.reverse.port;
+            protocols = [ "tcp" ];
+            comment = "allow traffic on V2Ray reverse proxy control channel";
+        });
+      })
+      # mkMerge[1]
+      (mkIf cfg.client.transparentProxying.enable {
+        referredServices = mkIf cfg.client.enable cfg.client.transparentProxying.proxiedSystemServices;
+        extraRulesAfter = with builtins; mkIf cfg.client.enable [''
+          include "${pkgs.nftables-geoip-db}/share/nftables-geoip-db/CN.ipv4"
+          define proxy_bypassed_IPs = {
+            ${concatStringsSep "," (cfg.client.transparentProxying.bypassedIPs
+              ++ (map (x: toString x.address) (filter (x: x.wsPath == null) cfg.client.remotes)))}
+          }
+          table ip transparent_proxy
+          delete table ip transparent_proxy
+          table ip transparent_proxy {
+            chain prerouting {
+              type filter hook prerouting priority mangle
+              policy accept
 
-    iifname != "lo" return
+              iifname != "lo" return
 
-    ip daddr {
-      $private_range,
-      $proxy_bypassed_IPs,
-    } return
+              ip daddr {
+                $private_range,
+                $proxy_bypassed_IPs,
+              } return
 
-    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.fwMark} return
-    meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.soMark} return
-    meta l4proto {tcp,udp} meta mark ${toString cfg.client.fwMark} tproxy to :${toString cfg.client.ports.tproxy}
-  }
+              meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.fwMark} return
+              meta l4proto {tcp,udp} socket transparent 1 meta mark ${toString cfg.client.soMark} return
+              meta l4proto {tcp,udp} meta mark ${toString cfg.client.fwMark} tproxy to :${toString cfg.client.ports.tproxy}
+            }
 
-  chain output {
-    type route hook output priority mangle
-    policy accept
+            chain output {
+              type route hook output priority mangle
+              policy accept
 
-    ip daddr {
-      $private_range,
-      $proxy_bypassed_IPs,
-      $geoip4_iso_country_CN,
-    } return
+              ip daddr {
+                $private_range,
+                $proxy_bypassed_IPs,
+                $geoip4_iso_country_CN,
+              } return
 
-    socket cgroupv2 level 1 "system.slice" ${optionalString
-      ((length cfg.client.transparentProxying.proxiedSystemServices) > 0)
-      (concatStringsSep " " (map
-        (svc: ''socket cgroupv2 level 2 != "system.slice/${svc}"'')
-        cfg.client.transparentProxying.proxiedSystemServices
-        )
-      )
-    } return
-    meta l4proto {tcp,udp} meta mark set ${toString cfg.client.fwMark} 
-  }
-}''];
-    });
+              socket cgroupv2 level 1 "system.slice" ${optionalString
+                ((length cfg.client.transparentProxying.proxiedSystemServices) > 0)
+                (concatStringsSep " " (map
+                  (svc: ''socket cgroupv2 level 2 != "system.slice/${svc}"'')
+                  cfg.client.transparentProxying.proxiedSystemServices
+                  )
+                )
+              } return
+              meta l4proto {tcp,udp} meta mark set ${toString cfg.client.fwMark} 
+            }
+          }
+        ''];
+      })
+    ];  # end of mkMerge
     systemd.services.vclient = mkIf cfg.client.enable {
       description = "V2Ray client";
       wantedBy = [ "multi-user.target" ];
