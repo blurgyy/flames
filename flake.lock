@@ -456,11 +456,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690130339,
-        "narHash": "sha256-/TG+HpYaREVwW38AcjsmnCv07MfMYMsvW8vbVM4JcJc=",
+        "lastModified": 1690536327,
+        "narHash": "sha256-KC3/ofWJESm0d51/WeQk9DpW7d9oRRjXAGYPGPPImK0=",
         "owner": "highsunz",
         "repo": "ntfy-bridge",
-        "rev": "f25a18643637b30b8e1c7c322a45e3fec914471a",
+        "rev": "3b4b7a315c54c58e6df138fd13772e9b4abf14b5",
         "type": "gitlab"
       },
       "original": {
