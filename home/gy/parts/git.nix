@@ -22,7 +22,10 @@
     dcp = "diff --cached --no-ext-diff --patch";
     f = "fetch";
     l = "log --all --graph --decorate --oneline -8";
+    ln = "log --all --graph --decorate --oneline";
     la = "log --all --graph --decorate --format=fuller";
+    lb = "log --graph --decorate --oneline -8";
+    lbn = "log --graph --decorate --oneline";
     lad = "log --all --graph --decorate --format=fuller --patch --ext-diff";
     lap = "log --all --graph --decorate --format=fuller --patch";
     ll = "pull --ff-only";

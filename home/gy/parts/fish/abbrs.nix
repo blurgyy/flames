@@ -165,6 +165,8 @@ fixTypo "blurgy" [
   gf = "git fetch";
   gl = "git log --all --graph --decorate --oneline -8";
   gln = "git log --all --graph --decorate --oneline";
+  glb = "git log --graph --decorate --oneline -8";  # show latest 8 commit logs for current branch
+  glbn = "git log --graph --decorate --oneline";
   lg = "git log --all --graph --decorate --oneline -8";
   lgl = "git log --all --graph --decorate --oneline -8";
   gla = "git log --all --graph --decorate --format=fuller";
