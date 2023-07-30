@@ -18,6 +18,7 @@ in {
   home = {
     packages = with pkgs; [
       btop
+      comma
       dogdns
       dufs
       fd
