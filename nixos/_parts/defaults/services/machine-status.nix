@@ -19,16 +19,17 @@ in
         notify = pkgs.writeShellScript "notification" ''
           ntfy publish \
             --tag "$1" \
-            --title "'${config.networking.hostName}' is $2" \
+            --priority "$2" \
+            --title "'${config.networking.hostName}' is $3" \
             ${ntfyHost}/${ntfyTopic} \
             "Uptime: $(uptime)"
         '';
       in {
         Type = "oneshot";
         RemainAfterExit = true;
-        ExecStart = "${notify} 'green_circle' 'spinning up'";
+        ExecStart = "${notify} 'green_circle' 'low' 'spinning up'";
         # ExecReload = "${notify} 'yellow_circle' 'switching system profile'";
-        ExecStop = "${notify} 'red_circle' 'shutting down'";
+        ExecStop = "${notify} 'red_circle' 'default' 'shutting down'";
         Restart = "on-failure";
         RestartSec = 5;
       };
