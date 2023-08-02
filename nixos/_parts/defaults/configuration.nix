@@ -233,6 +233,7 @@ in {
         StreamLocalBindUnlink = lib.mkDefault true;
         ClientAliveCountMax = 3;
         ClientAliveInterval = 5;
+        GatewayPorts = "clientspecified";
       };
       knownHosts = let
         mkHost = name: key: {
