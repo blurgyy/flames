@@ -156,11 +156,11 @@ table inet filter {
     if (((typeOf portInfo) == "int") || ((typeOf portInfo) == "string"))
       then "meta l4proto tcp th dport ${toString portInfo} accept"
       else "${
-        optionalString (portInfo.predicate != null) portInfo.predicate
-      } meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port} ${
-        optionalString portInfo.countPackets "counter"
-      } accept ${
-        optionalString (portInfo.comment != null) "comment \"${portInfo.comment}\""
+        optionalString (portInfo.predicate != null) "${portInfo.predicate} "
+      }meta l4proto {${concatStringsSep "," portInfo.protocols}} th dport ${toString portInfo.port}${
+        optionalString portInfo.countPackets " counter"
+      } accept${
+        optionalString (portInfo.comment != null) " comment \"${portInfo.comment}\""
       }"
     )
     cfg.acceptedPorts)}
