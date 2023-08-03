@@ -7,7 +7,7 @@
 
   dontNpmBuild = true;
 
-  npmDepsHash = "sha256-Jq6eFucHMzGmRUIpk2UgimUNiBAJBrfeu5xbylwDJ9Y=";
+  npmDepsHash = "sha256-1196kKlAns46R35Fp3pl9Y+0/TlRk3L3sotee26YlwQ=";
   makeCacheWritable = true;
   # npmFlags = [ "--legacy-peer-deps" ];
 
