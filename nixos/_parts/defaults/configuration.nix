@@ -137,7 +137,9 @@ in {
 
   security.sudo.extraRules = let
     applyNoPasswd = cmd: { command = cmd; options = [ "NOPASSWD" ]; };
-    systemdCmds = map applyNoPasswd (map (cmd: "${pkgs.systemd}/bin/${cmd}") [ "systemctl" "journalctl" "machinectl" ]);
+    systemdCmds = map applyNoPasswd
+      (map (cmd: "/run/current-system/sw/bin/${cmd}")
+        [ "systemctl" "journalctl" "machinectl" ]);
   in [
     { groups = [ "wheel" ]; commands = systemdCmds; }
   ];
