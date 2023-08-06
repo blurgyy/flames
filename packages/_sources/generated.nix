@@ -24,15 +24,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "4225de2b968f8aabc953bd123a18ffc953e9831e";
+    version = "341cb5f6b2f62a36a6eb1a98afcc089d77018ca1";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "4225de2b968f8aabc953bd123a18ffc953e9831e";
+      rev = "341cb5f6b2f62a36a6eb1a98afcc089d77018ca1";
       fetchSubmodules = false;
-      sha256 = "sha256-BWddr6mLxKvh3O3gHZu4etuOlAq2d/Z5CSAIS0Lh/qY=";
+      sha256 = "sha256-fXgHJ2bsvIybNafxkQAmGfgzO80Kmf3exetrwpbJcvQ=";
     };
-    date = "2023-08-03";
+    date = "2023-08-06";
   };
   alist = {
     pname = "alist";
@@ -79,15 +79,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "54a6f95df9065f6b7e7cf9504174517eb7ab1c5a";
+    version = "3b5e930f1c80ec5b5b205333c80eb63a2ba5d751";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "54a6f95df9065f6b7e7cf9504174517eb7ab1c5a";
+      rev = "3b5e930f1c80ec5b5b205333c80eb63a2ba5d751";
       fetchSubmodules = false;
-      sha256 = "sha256-DTs4Jp4VkgDd5YNj/RuAAXBzF4Tc3NToEKgHhZqElk8=";
+      sha256 = "sha256-LhdLxTU545YoxLBG1hVeMoBO1vvZxLt0i0nevqALCEU=";
     };
-    date = "2023-08-03";
+    date = "2023-08-05";
   };
   dt = {
     pname = "dt";
@@ -246,10 +246,10 @@
   };
   labelme = {
     pname = "labelme";
-    version = "5.2.1";
+    version = "5.3.0";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/l/labelme/labelme-5.2.1.tar.gz";
-      sha256 = "sha256-VWx5OzOzLeRzJNYBgsNWzO/L+K5Kkhc5K19qMupSUeE=";
+      url = "https://pypi.org/packages/source/l/labelme/labelme-5.3.0.tar.gz";
+      sha256 = "sha256-Wtxe0HXmB8gBzHWRyA2TKVgAFpYzJxRjqlu3UGNZths=";
     };
   };
   libime-history-merge = {
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202308022208";
+    version = "202308052207";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308022208/geoip.dat";
-      sha256 = "sha256-CHrhKb2wgum0zLhTQfVzxQc96W9+T85IrCN0p8iJyww=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308052207/geoip.dat";
+      sha256 = "sha256-eAAbMFMkED8BLixzFAhLLlCfsiWhc5wowXcueMvola4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202308022208";
+    version = "202308052207";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308022208/geosite.dat";
-      sha256 = "sha256-gY1ixgKa7ROPYGd+X01c8ttneMBZ5PW42fyFonYU+/M=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308052207/geosite.dat";
+      sha256 = "sha256-1Vn4b3g+tYweYx8dpML/by/XV0SjvWsNBXZ4aRWbGu0=";
     };
   };
   luarock-dbus_proxy = {
@@ -365,10 +365,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "9.8.0";
+    version = "9.9.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.8.0/simple-icons-font-9.8.0.zip";
-      sha256 = "sha256-hT/TKiOYL7wZwZbbeolFvzj8Uj+++QhoVgrdrzMzEjU=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.9.0/simple-icons-font-9.9.0.zip";
+      sha256 = "sha256-D0G8HOkAywy2ws5UkJ6xg1Dq8yVw3gYheT8j2RJ1OdQ=";
     };
   };
   symbols-nerd-font = {
@@ -440,15 +440,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "bc0110cf83345c467edef140d25e4f9b54796ed2";
+    version = "1a9b247f63d7832fbe3fbedc83d720e4a3beffe5";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "bc0110cf83345c467edef140d25e4f9b54796ed2";
+      rev = "1a9b247f63d7832fbe3fbedc83d720e4a3beffe5";
       fetchSubmodules = false;
-      sha256 = "sha256-ri1N8JT42VTRFeJ++hvombXnMazWtQgEAgMxx1qyxc4=";
+      sha256 = "sha256-0zKWUMtFnwjU4L6+rpiC4nbgtAiS70tQEcKREBoTKx8=";
     };
-    date = "2023-08-02";
+    date = "2023-08-05";
   };
   video-compare = {
     pname = "video-compare";
