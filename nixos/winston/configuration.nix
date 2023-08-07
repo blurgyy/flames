@@ -54,13 +54,15 @@
   boot.kernelPackages = pkgs.linuxPackages;
 
   # REF: <https://nixos.wiki/wiki/Nvidia>
-  hardware.nvidia = {
-    modesetting.enable = true;
-    # NVIDIA's open GPU kernel modules are supported since the "Turing" architecture
-    # REF: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/19>
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware = {
+    nvidia = {
+      modesetting.enable = true;
+      # NVIDIA's open GPU kernel modules are supported since the "Turing" architecture
+      # REF: <https://github.com/NVIDIA/open-gpu-kernel-modules/issues/19>
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 
   system.stateVersion = "23.05";

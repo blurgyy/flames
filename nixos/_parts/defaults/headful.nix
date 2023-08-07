@@ -22,7 +22,10 @@
       enable = lib.mkDefault true;
       driSupport = lib.mkDefault true;
       driSupport32Bit = lib.mkDefault true;
-      extraPackages = with pkgs; [ vaapiIntel ];
+      extraPackages = with pkgs; [
+        intel-media-driver
+        vaapiIntel
+      ];
     };
   };
 
