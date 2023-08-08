@@ -469,6 +469,9 @@ in ''
   })
   require("telescope").load_extension("fzf")
 
+  --- nvim-colorizer.lua
+  require("colorizer").setup()
+
   --- copilot.lua, copilot-cmp
   require("copilot").setup({
     suggestion = { enabled = false },

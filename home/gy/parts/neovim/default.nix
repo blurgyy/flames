@@ -12,6 +12,7 @@
     pkgs.vim-plugin-bigfile-nvim
     pkgs.vim-plugin-rainbow-delimiters-nvim
 
+    nvim-colorizer-lua
     vim-illuminate
     copilot-lua
     comment-nvim
