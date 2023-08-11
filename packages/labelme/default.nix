@@ -60,5 +60,6 @@ buildPythonApplication {
     homepage = "https://github.com/wkentaro/labelme";
     description = "Image Polygonal Annotation with Python (polygon, rectangle, circle, line, point and image-level flag annotation).";
     license = lib.licenses.gpl3;
+    platforms = [ "x86_64-linux" ];
   };
 }
