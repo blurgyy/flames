@@ -83,7 +83,7 @@
       proxyJump = "copi";
     };
     shared-copi = {
-      hostname = "winston";
+      hostname = "10.76.2.83";
       proxyJump = "copi";
       port = 22548;
       extraOptions.
