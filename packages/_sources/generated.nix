@@ -417,15 +417,14 @@
   };
   tmux-plugin-catppuccin = {
     pname = "tmux-plugin-catppuccin";
-    version = "38932bddfcabfe3b2bc4e8c71e273c3505f9be95";
+    version = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "tmux";
-      rev = "38932bddfcabfe3b2bc4e8c71e273c3505f9be95";
+      rev = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
       fetchSubmodules = false;
-      sha256 = "sha256-crxiRea84akohPFROu9MW160KXZ7Ean8UT+XZSLYQIk=";
+      sha256 = "sha256-9ZfUqEKEexSh06QyR5C+tYd4tNfBi3PsA+STzUv4+/s=";
     };
-    date = "2023-08-12";
   };
   tro = {
     pname = "tro";

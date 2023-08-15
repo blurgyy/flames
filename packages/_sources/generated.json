@@ -698,7 +698,7 @@
     },
     "tmux-plugin-catppuccin": {
         "cargoLocks": null,
-        "date": "2023-08-12",
+        "date": null,
         "extract": null,
         "name": "tmux-plugin-catppuccin",
         "passthru": null,
@@ -710,11 +710,11 @@
             "name": null,
             "owner": "catppuccin",
             "repo": "tmux",
-            "rev": "38932bddfcabfe3b2bc4e8c71e273c3505f9be95",
-            "sha256": "sha256-crxiRea84akohPFROu9MW160KXZ7Ean8UT+XZSLYQIk=",
+            "rev": "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc",
+            "sha256": "sha256-9ZfUqEKEexSh06QyR5C+tYd4tNfBi3PsA+STzUv4+/s=",
             "type": "github"
         },
-        "version": "38932bddfcabfe3b2bc4e8c71e273c3505f9be95"
+        "version": "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc"
     },
     "tro": {
         "cargoLocks": null,

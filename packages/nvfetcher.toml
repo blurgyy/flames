@@ -151,7 +151,7 @@ fetch.github = "blurgyy/tinytools"
 cargo_locks = ["Cargo.lock"]
 
 [tmux-plugin-catppuccin]
-src.git = "https://github.com/catppuccin/tmux"
+src.cmd = "echo e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc"
 fetch.github = "catppuccin/tmux"
 
 [tro]
