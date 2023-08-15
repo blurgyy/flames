@@ -24,25 +24,25 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "341cb5f6b2f62a36a6eb1a98afcc089d77018ca1";
+    version = "c99a84b7c90ca3529b3cc0bf47c65d71d9886558";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "341cb5f6b2f62a36a6eb1a98afcc089d77018ca1";
+      rev = "c99a84b7c90ca3529b3cc0bf47c65d71d9886558";
       fetchSubmodules = false;
-      sha256 = "sha256-fXgHJ2bsvIybNafxkQAmGfgzO80Kmf3exetrwpbJcvQ=";
+      sha256 = "sha256-BuUgQbAn7iKR5yPHvuuGJO1Fk8gCkCHWvBCzmo2gHnc=";
     };
-    date = "2023-08-06";
+    date = "2023-08-15";
   };
   alist = {
     pname = "alist";
-    version = "v3.24.0";
+    version = "v3.25.1";
     src = fetchFromGitHub {
       owner = "alist-org";
       repo = "alist";
-      rev = "v3.24.0";
+      rev = "v3.25.1";
       fetchSubmodules = false;
-      sha256 = "sha256-8u3U2YMM9hzcw0fjZTNdKdTnPJJHefEkUGE6QMHjPoA=";
+      sha256 = "sha256-ZhzVxCFWzx2shIuwSySUPpUi/SM3obmqqXR8yp3t/78=";
     };
   };
   apple-color-emoji = {
@@ -79,15 +79,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "3b5e930f1c80ec5b5b205333c80eb63a2ba5d751";
+    version = "c868c2e80558aea15d0daa28ab409060d007d9ed";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "3b5e930f1c80ec5b5b205333c80eb63a2ba5d751";
+      rev = "c868c2e80558aea15d0daa28ab409060d007d9ed";
       fetchSubmodules = false;
-      sha256 = "sha256-LhdLxTU545YoxLBG1hVeMoBO1vvZxLt0i0nevqALCEU=";
+      sha256 = "sha256-tJKiPTjgKqu1MIV4qYVdxcJs/jM3z2J9K1goY2cDg+A=";
     };
-    date = "2023-08-05";
+    date = "2023-08-14";
   };
   dt = {
     pname = "dt";
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202308052207";
+    version = "202308142208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308052207/geoip.dat";
-      sha256 = "sha256-eAAbMFMkED8BLixzFAhLLlCfsiWhc5wowXcueMvola4=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308142208/geoip.dat";
+      sha256 = "sha256-vKh54Iwub3F+OTPp6Pmc0fUzO3jutFwNm1zb3sBcZnM=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202308052207";
+    version = "202308142208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308052207/geosite.dat";
-      sha256 = "sha256-1Vn4b3g+tYweYx8dpML/by/XV0SjvWsNBXZ4aRWbGu0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308142208/geosite.dat";
+      sha256 = "sha256-+M6dhcy3HyyLWXa0xy6ceXGnY85fKxXhb/NuKuqVXO0=";
     };
   };
   luarock-dbus_proxy = {
@@ -365,10 +365,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "9.9.0";
+    version = "9.10.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.9.0/simple-icons-font-9.9.0.zip";
-      sha256 = "sha256-D0G8HOkAywy2ws5UkJ6xg1Dq8yVw3gYheT8j2RJ1OdQ=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.10.0/simple-icons-font-9.10.0.zip";
+      sha256 = "sha256-AsLOXq12IV212OdhwoNtA9wWXEmTmcCrpKC+nRqot8M=";
     };
   };
   symbols-nerd-font = {
@@ -417,15 +417,15 @@
   };
   tmux-plugin-catppuccin = {
     pname = "tmux-plugin-catppuccin";
-    version = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
+    version = "38932bddfcabfe3b2bc4e8c71e273c3505f9be95";
     src = fetchFromGitHub {
       owner = "catppuccin";
       repo = "tmux";
-      rev = "e7b50832f9bc59b0b5ef5316ba2cd6f61e4e22fc";
+      rev = "38932bddfcabfe3b2bc4e8c71e273c3505f9be95";
       fetchSubmodules = false;
-      sha256 = "sha256-9ZfUqEKEexSh06QyR5C+tYd4tNfBi3PsA+STzUv4+/s=";
+      sha256 = "sha256-crxiRea84akohPFROu9MW160KXZ7Ean8UT+XZSLYQIk=";
     };
-    date = "2023-06-30";
+    date = "2023-08-12";
   };
   tro = {
     pname = "tro";
@@ -440,25 +440,25 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "1a9b247f63d7832fbe3fbedc83d720e4a3beffe5";
+    version = "cd6a23a82ee736d999396c64a4d1059331e3227c";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "1a9b247f63d7832fbe3fbedc83d720e4a3beffe5";
+      rev = "cd6a23a82ee736d999396c64a4d1059331e3227c";
       fetchSubmodules = false;
-      sha256 = "sha256-0zKWUMtFnwjU4L6+rpiC4nbgtAiS70tQEcKREBoTKx8=";
+      sha256 = "sha256-3BY47wPGOyDYoSqapMpsVrASBCxHLT74U0JlwKOgf6k=";
     };
-    date = "2023-08-05";
+    date = "2023-08-14";
   };
   video-compare = {
     pname = "video-compare";
-    version = "20230729";
+    version = "20230807";
     src = fetchFromGitHub {
       owner = "pixop";
       repo = "video-compare";
-      rev = "20230729";
+      rev = "20230807";
       fetchSubmodules = false;
-      sha256 = "sha256-BYq+MH5+kW2ElolssnKyrce+XKSRBWRgoVo8/Fy+PL8=";
+      sha256 = "sha256-b489PDAAY3mgGU4V9DOpn/LJeRmGxrobb9pgZZFgdXQ=";
     };
   };
   vim-plugin-bigfile-nvim = {
@@ -487,16 +487,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "c6380e218a2b4ffcc957a71606900a24e5c7b618";
+    version = "b5bb251e057d099ee8186d2521f865cd98c51ead";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "c6380e218a2b4ffcc957a71606900a24e5c7b618";
+      rev = "b5bb251e057d099ee8186d2521f865cd98c51ead";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-FIenPsoplMt9yYFTCrkfHWWMHRIUTxE8cFwEYM/RHOQ=";
+      sha256 = "sha256-CyRCpZmhPxecQtTw1fCuC8+XLdakE938XwFncHhIWM4=";
     };
-    date = "2023-08-01";
+    date = "2023-08-10";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
