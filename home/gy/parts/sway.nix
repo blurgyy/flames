@@ -147,6 +147,8 @@ in {
       "${mod}+Escape" = "exec swaylock";
 
       "${mod}+r" = ''mode "resize"'';
+
+      "${mod}+t" = ''mode "passthrough"'';
     };
     modes.resize = with config.wayland.windowManager.sway.config; {
       "${left}" = "resize shrink width 10px";
@@ -162,6 +164,9 @@ in {
       "Escape" = ''mode "default"'';
       "Space" = ''mode "default"'';
       "${modifier}+r" = ''mode "default"'';
+    };
+    modes.passthrough = with config.wayland.windowManager.sway.config; {
+      "${modifier}+t" = ''mode "default"'';
     };
     assigns = {
       "1" = [
