@@ -14,6 +14,7 @@ DOMAIN-SUFFIX,errlogos.umeng.com,REJECT
 DOMAIN-SUFFIX,etahub.com,REJECT
 DOMAIN-SUFFIX,gg.kugou.com,REJECT
 DOMAIN-SUFFIX,grand.ele.me,REJECT
+DOMAIN-SUFFIX,hpanalytics.net,REJECT
 DOMAIN-SUFFIX,install.kugou.com,REJECT
 DOMAIN-SUFFIX,install2.kugou.com,REJECT
 DOMAIN-SUFFIX,lijit.com,REJECT
