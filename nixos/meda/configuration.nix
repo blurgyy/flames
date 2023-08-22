@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   time.timeZone = "Asia/Shanghai";
 
   wsl = {
@@ -11,6 +11,7 @@
   environment = {
     systemPackages = [
       config.boot.kernelPackages.nvidiaPackages.stable  # provides the nvidia-smi binary
+      (pkgs.openai-whisper.override { cudaSupport = true; })
     ];
     sessionVariables.LD_LIBRARY_PATH = [
       "/usr/lib/wsl/lib"  # required for nvidia-smi to work
