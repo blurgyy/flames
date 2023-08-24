@@ -243,7 +243,9 @@ in {
         mkHost = name: key: {
           publicKey = key;
         };
-      in (lib.mapAttrs mkHost keys.hosts) // (lib.mapAttrs mkHost keys.services);
+      in (lib.mapAttrs mkHost keys.hosts) // (lib.mapAttrs mkHost keys.services) // {
+        localhost.publicKey = keys.hosts.${config.networking.hostName};
+      };
     };
   };
 }
