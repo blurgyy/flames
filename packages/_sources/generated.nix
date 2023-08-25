@@ -315,6 +315,18 @@
       sha256 = "sha256-g0YYNb/sZvuU8E/7XuDbj5Js+wA4c4Bxnj7UP7gxxow=";
     };
   };
+  primitive = {
+    pname = "primitive";
+    version = "0373c216458be1c4b40655b796a3aefedf8b7d23";
+    src = fetchFromGitHub {
+      owner = "fogleman";
+      repo = "primitive";
+      rev = "0373c216458be1c4b40655b796a3aefedf8b7d23";
+      fetchSubmodules = false;
+      sha256 = "sha256-stKb3tPP/pgHTfdyTmWwVj/hLjOHtFpvJxXgBhhWgPQ=";
+    };
+    date = "2020-05-03";
+  };
   rssbot = {
     pname = "rssbot";
     version = "v2.0.0-alpha.11";
