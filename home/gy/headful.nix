@@ -54,7 +54,6 @@ in {
     meshlab
     minicom
     obs-studio
-    ripgrep-all
     rustdesk-with-x11-desktopentry
     slurp
     tdesktop-megumifox
