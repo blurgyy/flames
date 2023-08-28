@@ -48,6 +48,10 @@ let
     imagemagick
     yt-dlp
   ];
+  sciPackages = with pkgs; [
+    inkscape
+    labelme
+  ];
 in
 
 with lib;
@@ -57,11 +61,14 @@ with lib;
     development = mkEnableOption "Setup environment for development";
     entertainment = mkEnableOption "Setup environment for entertainment";
     recreation = mkEnableOption "Setup environment for recreational purporses";
+    scientific = mkEnableOption "Setup environment for scientific purporses";
   };
 
   config = mkIf (builtins.any lib.id (builtins.attrValues cfg)) {
     home.packages = (optionals cfg.development devPackages)
       ++ (lib.optionals cfg.entertainment entPackages)
-      ++ (lib.optionals cfg.recreation recPackages);
+      ++ (lib.optionals cfg.recreation recPackages)
+      ++ (lib.optionals cfg.scientific sciPackages)
+      ;
   };
 }

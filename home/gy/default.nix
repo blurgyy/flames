@@ -138,6 +138,10 @@ in inputs.home-manager.lib.homeManagerConfiguration {
           "gy@morty"
           "gy@rpi"
         ];
+        scientific = builtins.elem name [
+          "gy@winston"
+          "gy@morty"
+        ];
       };
     }
   ];
