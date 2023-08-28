@@ -37,6 +37,10 @@
     { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
   ];
 
+  environment.systemPackages = [
+    pkgs.python3Packages.gpustat
+  ];
+
   systemd.services.nix-daemon.environment = {
     http_proxy = "http://${config.networking.hostName}:1990";
     https_proxy = "http://${config.networking.hostName}:1990";
