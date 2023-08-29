@@ -8,6 +8,9 @@
       rev = "refs/tags/v${version}";
       hash = "sha256-y18YUcAG4jffs9M2g6r9OZnQ0+fwj6n2SfD2Fh4mAlk=";
     };
+    patches = [
+      ./python-telegram-bot-do-not-build-raw.patch
+    ];
 
     format = "setuptools";
     disabled = pythonOlder "3.7";

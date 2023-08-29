@@ -1,0 +1,17 @@
+diff --git a/setup.py b/setup.py
+index acffecc1..a41cd733 100644
+--- a/setup.py
++++ b/setup.py
+@@ -110,12 +110,6 @@ def get_setup_kwargs(raw=False):
+ 
+ 
+ def main():
+-    # If we're building, build ptb-raw as well
+-    if set(sys.argv[1:]) in [{'bdist_wheel'}, {'sdist'}, {'sdist', 'bdist_wheel'}]:
+-        args = ['python', 'setup-raw.py']
+-        args.extend(sys.argv[1:])
+-        subprocess.run(args, check=True, capture_output=True)
+-
+     setup(**get_setup_kwargs(raw=False))
+ 
+ 
