@@ -24,15 +24,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "71428f449020c6cb82e36fb9424c6ef4aaab3d8f";
+    version = "9dfc0d06dd44b6823789a756efe611f47fe69787";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "71428f449020c6cb82e36fb9424c6ef4aaab3d8f";
+      rev = "9dfc0d06dd44b6823789a756efe611f47fe69787";
       fetchSubmodules = false;
-      sha256 = "sha256-6ZCV4SIViUSKqYUpn65f8uVjcF4Xgpv5+M9rt1Ue/z4=";
+      sha256 = "sha256-1o/vaDCdTKbqLn/VDungF+a1HsSRphq/q5OJ5UZQZVA=";
     };
-    date = "2023-08-21";
+    date = "2023-08-29";
   };
   alist = {
     pname = "alist";
@@ -79,15 +79,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "1c77f3fefb62b73bad801a035cb2fc6785ba2768";
+    version = "3b089556fefb171f49bb86b98530be039659236d";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "1c77f3fefb62b73bad801a035cb2fc6785ba2768";
+      rev = "3b089556fefb171f49bb86b98530be039659236d";
       fetchSubmodules = false;
-      sha256 = "sha256-QHMrFDaJMTc+tCgwWf27nzwMSO1rHQNUajvNXCMKWOs=";
+      sha256 = "sha256-Fowizhg2AYmZ/lzGORR3KJxik7UeGjSTXar6eWpZfJc=";
     };
-    date = "2023-08-21";
+    date = "2023-08-28";
   };
   dt = {
     pname = "dt";
@@ -227,10 +227,10 @@
   };
   imgviz = {
     pname = "imgviz";
-    version = "1.7.3";
+    version = "1.7.4";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.3.tar.gz";
-      sha256 = "sha256-HeTpv5Ey594/mVGCwkZACWtD4+s7/RIlReM5jE4vmdI=";
+      url = "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.4.tar.gz";
+      sha256 = "sha256-cCGrFAWYZQrwCl2FbzCE0F2M/bHAxXJZvjUIT5slpsc=";
     };
   };
   import-ply-as-verts-for-blender = {
@@ -246,10 +246,10 @@
   };
   labelme = {
     pname = "labelme";
-    version = "5.3.0";
+    version = "5.3.1";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/l/labelme/labelme-5.3.0.tar.gz";
-      sha256 = "sha256-Wtxe0HXmB8gBzHWRyA2TKVgAFpYzJxRjqlu3UGNZths=";
+      url = "https://pypi.org/packages/source/l/labelme/labelme-5.3.1.tar.gz";
+      sha256 = "sha256-0DXgLwDiUeQ+GNu9NimC648dRZg2B7Io/ebK8cXk8l8=";
     };
   };
   libime-history-merge = {
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202308202207";
+    version = "202308282208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308202207/geoip.dat";
-      sha256 = "sha256-2gwqF8mAMMUiQ8nAdDnI2KsckLKwZYHv4KcO5nTOluk=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308282208/geoip.dat";
+      sha256 = "sha256-wLEWLWThs4v6Y0RXmKh28WzEFeP9/g8JLpl4Ls0DiPk=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202308202207";
+    version = "202308282208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308202207/geosite.dat";
-      sha256 = "sha256-/0sgIDUyZ5rUcywK+MbVVpI0298FT4iMcS2vlZCTfJY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308282208/geosite.dat";
+      sha256 = "sha256-+rX5naIG8RjKDaXpCiqvKVbSq9SRsXB2+5PALEev2RE=";
     };
   };
   luarock-dbus_proxy = {
@@ -358,8 +358,8 @@
       lockFile = ./rustdesk-server-1.1.7-1/Cargo.lock;
       outputHashes = {
         "confy-0.4.0" = "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=";
-        "async-speed-limit-0.3.1" = "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=";
         "tokio-socks-0.5.1" = "sha256-inmAJk0fAlsVNIwfD/M+htwIdQHwGSTRrEy6N/mspMI=";
+        "async-speed-limit-0.3.1" = "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=";
       };
     };
   };
@@ -377,10 +377,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "9.11.0";
+    version = "9.12.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.11.0/simple-icons-font-9.11.0.zip";
-      sha256 = "sha256-6FZhLMpCu4zLk6pkfHX7KVRppwNQi/pRe33AwL2RWB0=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/9.12.0/simple-icons-font-9.12.0.zip";
+      sha256 = "sha256-Y0YohFFMgcyOucxbd9mYBkYb2XGURsbuX73mDftVT4A=";
     };
   };
   symbols-nerd-font = {
@@ -451,15 +451,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "d39e459e0c48c78c15650857d1b882ae13c49b88";
+    version = "0b2372650a178efd86ae1c62fc84900509f7525f";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "d39e459e0c48c78c15650857d1b882ae13c49b88";
+      rev = "0b2372650a178efd86ae1c62fc84900509f7525f";
       fetchSubmodules = false;
-      sha256 = "sha256-tZ2ZkPTMUs4eqG4GMe5op9ipWIu7td+HDbdhQNNrNfk=";
+      sha256 = "sha256-vnyiJJnro5Md1/sGj2HgcZKVlnGXo4Mr2t4HKU+T7VY=";
     };
-    date = "2023-08-20";
+    date = "2023-08-28";
   };
   video-compare = {
     pname = "video-compare";
@@ -498,16 +498,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "f11af94bab92e11609e418fe019c6441b39c66f0";
+    version = "9cbd3dc409af1f5531778ccd1ea6bce668241f39";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "f11af94bab92e11609e418fe019c6441b39c66f0";
+      rev = "9cbd3dc409af1f5531778ccd1ea6bce668241f39";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-+LA6G12iiZIxDPNAwfKBbCG0K5rMeNzxtM1VSQiMGo8=";
+      sha256 = "sha256-4aH2UhG1alE9F1jOMZUSSnvHmWYR6QSC4HwH3oOv5GM=";
     };
-    date = "2023-08-21";
+    date = "2023-08-26";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
@@ -541,16 +541,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.37.2";
+    version = "v0.38.0";
     src = fetchFromGitHub {
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.37.2";
+      rev = "v0.38.0";
       fetchSubmodules = false;
-      sha256 = "sha256-YceH3qW0B+h7UvI84PIlfwJXWi4jyxSXIYDsZFrpc1c=";
+      sha256 = "sha256-+i4lY2VB/g6/dwN4dDwsiI+3R299ssBY90fpnvkVrXU=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.37.2/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.38.0/Cargo.lock;
       outputHashes = {
         
       };

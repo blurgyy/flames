@@ -35,7 +35,7 @@
     },
     "alcn-repo": {
         "cargoLocks": null,
-        "date": "2023-08-21",
+        "date": "2023-08-29",
         "extract": null,
         "name": "alcn-repo",
         "passthru": null,
@@ -47,11 +47,11 @@
             "name": null,
             "owner": "archlinuxcn",
             "repo": "repo",
-            "rev": "71428f449020c6cb82e36fb9424c6ef4aaab3d8f",
-            "sha256": "sha256-6ZCV4SIViUSKqYUpn65f8uVjcF4Xgpv5+M9rt1Ue/z4=",
+            "rev": "9dfc0d06dd44b6823789a756efe611f47fe69787",
+            "sha256": "sha256-1o/vaDCdTKbqLn/VDungF+a1HsSRphq/q5OJ5UZQZVA=",
             "type": "github"
         },
-        "version": "71428f449020c6cb82e36fb9424c6ef4aaab3d8f"
+        "version": "9dfc0d06dd44b6823789a756efe611f47fe69787"
     },
     "alist": {
         "cargoLocks": null,
@@ -129,7 +129,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-08-21",
+        "date": "2023-08-28",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -141,11 +141,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "1c77f3fefb62b73bad801a035cb2fc6785ba2768",
-            "sha256": "sha256-QHMrFDaJMTc+tCgwWf27nzwMSO1rHQNUajvNXCMKWOs=",
+            "rev": "3b089556fefb171f49bb86b98530be039659236d",
+            "sha256": "sha256-Fowizhg2AYmZ/lzGORR3KJxik7UeGjSTXar6eWpZfJc=",
             "type": "github"
         },
-        "version": "1c77f3fefb62b73bad801a035cb2fc6785ba2768"
+        "version": "3b089556fefb171f49bb86b98530be039659236d"
     },
     "dt": {
         "cargoLocks": {
@@ -379,11 +379,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-HeTpv5Ey594/mVGCwkZACWtD4+s7/RIlReM5jE4vmdI=",
+            "sha256": "sha256-cCGrFAWYZQrwCl2FbzCE0F2M/bHAxXJZvjUIT5slpsc=",
             "type": "url",
-            "url": "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.3.tar.gz"
+            "url": "https://pypi.org/packages/source/i/imgviz/imgviz-1.7.4.tar.gz"
         },
-        "version": "1.7.3"
+        "version": "1.7.4"
     },
     "import-ply-as-verts-for-blender": {
         "cargoLocks": null,
@@ -414,11 +414,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Wtxe0HXmB8gBzHWRyA2TKVgAFpYzJxRjqlu3UGNZths=",
+            "sha256": "sha256-0DXgLwDiUeQ+GNu9NimC648dRZg2B7Io/ebK8cXk8l8=",
             "type": "url",
-            "url": "https://pypi.org/packages/source/l/labelme/labelme-5.3.0.tar.gz"
+            "url": "https://pypi.org/packages/source/l/labelme/labelme-5.3.1.tar.gz"
         },
-        "version": "5.3.0"
+        "version": "5.3.1"
     },
     "libime-history-merge": {
         "cargoLocks": {
@@ -454,11 +454,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-2gwqF8mAMMUiQ8nAdDnI2KsckLKwZYHv4KcO5nTOluk=",
+            "sha256": "sha256-wLEWLWThs4v6Y0RXmKh28WzEFeP9/g8JLpl4Ls0DiPk=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308202207/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308282208/geoip.dat"
         },
-        "version": "202308202207"
+        "version": "202308282208"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -469,11 +469,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/0sgIDUyZ5rUcywK+MbVVpI0298FT4iMcS2vlZCTfJY=",
+            "sha256": "sha256-+rX5naIG8RjKDaXpCiqvKVbSq9SRsXB2+5PALEev2RE=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308202207/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308282208/geosite.dat"
         },
-        "version": "202308202207"
+        "version": "202308282208"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -635,11 +635,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6FZhLMpCu4zLk6pkfHX7KVRppwNQi/pRe33AwL2RWB0=",
+            "sha256": "sha256-Y0YohFFMgcyOucxbd9mYBkYb2XGURsbuX73mDftVT4A=",
             "type": "url",
-            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/9.11.0/simple-icons-font-9.11.0.zip"
+            "url": "https://github.com/simple-icons/simple-icons-font/releases/download/9.12.0/simple-icons-font-9.12.0.zip"
         },
-        "version": "9.11.0"
+        "version": "9.12.0"
     },
     "symbols-nerd-font": {
         "cargoLocks": null,
@@ -758,7 +758,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-08-20",
+        "date": "2023-08-28",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -770,11 +770,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "d39e459e0c48c78c15650857d1b882ae13c49b88",
-            "sha256": "sha256-tZ2ZkPTMUs4eqG4GMe5op9ipWIu7td+HDbdhQNNrNfk=",
+            "rev": "0b2372650a178efd86ae1c62fc84900509f7525f",
+            "sha256": "sha256-vnyiJJnro5Md1/sGj2HgcZKVlnGXo4Mr2t4HKU+T7VY=",
             "type": "github"
         },
-        "version": "d39e459e0c48c78c15650857d1b882ae13c49b88"
+        "version": "0b2372650a178efd86ae1c62fc84900509f7525f"
     },
     "video-compare": {
         "cargoLocks": null,
@@ -838,7 +838,7 @@
     },
     "vim-plugin-rainbow-delimiters-nvim": {
         "cargoLocks": null,
-        "date": "2023-08-21",
+        "date": "2023-08-26",
         "extract": null,
         "name": "vim-plugin-rainbow-delimiters-nvim",
         "passthru": null,
@@ -848,12 +848,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f11af94bab92e11609e418fe019c6441b39c66f0",
-            "sha256": "sha256-+LA6G12iiZIxDPNAwfKBbCG0K5rMeNzxtM1VSQiMGo8=",
+            "rev": "9cbd3dc409af1f5531778ccd1ea6bce668241f39",
+            "sha256": "sha256-4aH2UhG1alE9F1jOMZUSSnvHmWYR6QSC4HwH3oOv5GM=",
             "type": "git",
             "url": "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
         },
-        "version": "f11af94bab92e11609e418fe019c6441b39c66f0"
+        "version": "9cbd3dc409af1f5531778ccd1ea6bce668241f39"
     },
     "vscode-codicons": {
         "cargoLocks": null,
@@ -913,7 +913,7 @@
     "zellij-hirr": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./zellij-hirr-v0.37.2/Cargo.lock",
+                "./zellij-hirr-v0.38.0/Cargo.lock",
                 {}
             ]
         },
@@ -929,10 +929,10 @@
             "name": null,
             "owner": "zellij-org",
             "repo": "zellij",
-            "rev": "v0.37.2",
-            "sha256": "sha256-YceH3qW0B+h7UvI84PIlfwJXWi4jyxSXIYDsZFrpc1c=",
+            "rev": "v0.38.0",
+            "sha256": "sha256-+i4lY2VB/g6/dwN4dDwsiI+3R299ssBY90fpnvkVrXU=",
             "type": "github"
         },
-        "version": "v0.37.2"
+        "version": "v0.38.0"
     }
 }
