@@ -35,6 +35,7 @@ let
       pandas
       pillow
       plyfile
+      pydantic
       tqdm
     ]))
   ];
