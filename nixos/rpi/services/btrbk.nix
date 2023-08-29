@@ -102,5 +102,17 @@ in {
       };
     };
 
+    cindy-postgresql-backup = {
+      onCalendar = "02:30:00 CST";
+      settings = globalCfg // {
+        subvolume."ssh://cindy/var/lib/postgresql" = subvolSharedCfg // {
+          snapshot_preserve_min = "latest";
+          snapshot_preserve = "7d 3m 2y";
+
+          target_preserve_min = "latest";
+          target_preserve = "3d 3m 3y";
+        };
+      };
+    };
   };
 }
