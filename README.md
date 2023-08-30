@@ -336,3 +336,37 @@ Trouble Shooting
   $ nix copy --from ssh-ng://morty (nix path-info .#cudaDevShell --impure --json | jq -r '.[].path') --no-check-sigs
   ```
   > Reference: <https://github.com/NixOS/nix/issues/4894#issuecomment-1252510474>
+
+* In case the nix database (at `/nix/var/nix/db/db.sqlite`) is corrupted (probably due to performing
+  an operation while the disk is full):
+  1. Stop nix-daemon:
+    ```bash
+    $ systemctl --system stop nix-daemon{,.socket}
+    ```
+  2. Backup the database:
+    ```bash
+    $ sudo sqlite3 /nix/var/nix/db/db.sqlite ".backup '/tmp/bak.sqlite'"
+    ```
+  3. Create a textual dump of the database for restoring:
+    ```bash
+    $ sudo sqlite3 /nix/var/nix/db/db.sqlite .dump >/tmp/textual.sql
+    $
+    $ # inspect the dumped sql, size of this file should be ~100M
+    $ less /tmp/textual.sql
+    ```
+  4. If last line of this file is `ROLLBACK;`, change it to `COMMIT` or we won't restor anything
+  5. Restore the database by applying the textual sql commands to a newly created database:
+    ```bash
+    $ sqlite3 /tmp/new.sqlite </tmp/textual.sql
+    ```
+  6. Make sure the backup from step 2 is the same as current database:
+    ```bash
+    $ diff /tmp/bak.sqlite /nix/var/nix/db/db.sqlite  # should output nothing
+    ```
+  7. Move the restored database to the location:
+    ```bash
+    $ sudo mv /tmp/new.sqlite /nix/var/nix/db/db.sqlite
+    ```
+  8. Restart nix-daemon.
+
+  > Reference: <https://github.com/NixOS/nix/issues/1353>
