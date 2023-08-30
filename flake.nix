@@ -100,14 +100,6 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    dcompass = {
-      url = "github:compassd/dcompass";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        rust-overlay.follows = "rust-overlay";
-        utils.follows = "flake-utils";
-      };
-    };
 
     ntfy-bridge = {
       url = "gitlab:highsunz/ntfy-bridge";
@@ -170,7 +162,6 @@
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
     sharedOverlays = [
       inputs.colmena.overlays.default
-      inputs.dcompass.overlays.default
       inputs.nvfetcher.overlays.default
     ];
   };

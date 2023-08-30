@@ -123,32 +123,6 @@
         "type": "github"
       }
     },
-    "dcompass": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "rust-overlay": [
-          "rust-overlay"
-        ],
-        "utils": [
-          "flake-utils"
-        ]
-      },
-      "locked": {
-        "lastModified": 1687138261,
-        "narHash": "sha256-wFM3GV41P0fCAJ9lkhcZYolPfOYpbIVK5gZS3k3hA8s=",
-        "owner": "compassd",
-        "repo": "dcompass",
-        "rev": "6b645d6c2fc7b08872dd823d2a25eb8ceb0c37de",
-        "type": "github"
-      },
-      "original": {
-        "owner": "compassd",
-        "repo": "dcompass",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -524,7 +498,6 @@
         "adrivems": "adrivems",
         "carinae": "carinae",
         "colmena": "colmena",
-        "dcompass": "dcompass",
         "flake-compat": "flake-compat",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
