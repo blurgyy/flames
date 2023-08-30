@@ -10,7 +10,7 @@
     "enableemail": true,
     "enable_dynamic_run_command": false,
     "emailoverride": "gy@blurgy.xyz",
-    "keepnr": 16,
+    "keepnr": 3,
     "inputs": {
       "self": {
         "type": "git",
@@ -45,7 +45,7 @@
     "enableemail": true,
     "enable_dynamic_run_command": false,
     "emailoverride": "gy@blurgy.xyz",
-    "keepnr": 16,
+    "keepnr": 3,
     "inputs": {
       "self": {
         "type": "git",
