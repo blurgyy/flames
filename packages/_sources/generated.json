@@ -107,6 +107,33 @@
         },
         "version": "ba4d16880d63e656acced2b7d4e034e4a93f74b1"
     },
+    "dcompass": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./dcompass-build-20230619_1015/Cargo.lock",
+                {
+                    "cidr-utils-0.5.7": "sha256-Kyvq1R5o7csR2BGWj9oZ6J+96fSqNBXBB2m/79HjGbM="
+                }
+            ]
+        },
+        "date": null,
+        "extract": null,
+        "name": "dcompass",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "compassd",
+            "repo": "dcompass",
+            "rev": "build-20230619_1015",
+            "sha256": "sha256-wFM3GV41P0fCAJ9lkhcZYolPfOYpbIVK5gZS3k3hA8s=",
+            "type": "github"
+        },
+        "version": "build-20230619_1015"
+    },
     "dms": {
         "cargoLocks": null,
         "date": null,

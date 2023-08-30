@@ -66,6 +66,23 @@
     };
     date = "2022-11-10";
   };
+  dcompass = {
+    pname = "dcompass";
+    version = "build-20230619_1015";
+    src = fetchFromGitHub {
+      owner = "compassd";
+      repo = "dcompass";
+      rev = "build-20230619_1015";
+      fetchSubmodules = false;
+      sha256 = "sha256-wFM3GV41P0fCAJ9lkhcZYolPfOYpbIVK5gZS3k3hA8s=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./dcompass-build-20230619_1015/Cargo.lock;
+      outputHashes = {
+        "cidr-utils-0.5.7" = "sha256-Kyvq1R5o7csR2BGWj9oZ6J+96fSqNBXBB2m/79HjGbM=";
+      };
+    };
+  };
   dms = {
     pname = "dms";
     version = "v1.6.0";
