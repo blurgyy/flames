@@ -54,6 +54,7 @@ in {
     meshlab
     minicom
     obs-studio
+    printer-cadlab
     rustdesk-with-x11-desktopentry
     slurp
     tdesktop-megumifox
