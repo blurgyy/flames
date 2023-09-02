@@ -24,15 +24,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "9dfc0d06dd44b6823789a756efe611f47fe69787";
+    version = "f5c982d234e785e520ccdd15789aa44845163850";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "9dfc0d06dd44b6823789a756efe611f47fe69787";
+      rev = "f5c982d234e785e520ccdd15789aa44845163850";
       fetchSubmodules = false;
-      sha256 = "sha256-1o/vaDCdTKbqLn/VDungF+a1HsSRphq/q5OJ5UZQZVA=";
+      sha256 = "sha256-fSD4AmVKLuakU/ZIkKggvT0e6rnjeudC1vxu+k5lWHk=";
     };
-    date = "2023-08-29";
+    date = "2023-09-02";
   };
   alist = {
     pname = "alist";
@@ -96,15 +96,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "3b089556fefb171f49bb86b98530be039659236d";
+    version = "98aaaed3108cf563a5e30efebbdb60c60456ab12";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "3b089556fefb171f49bb86b98530be039659236d";
+      rev = "98aaaed3108cf563a5e30efebbdb60c60456ab12";
       fetchSubmodules = false;
-      sha256 = "sha256-Fowizhg2AYmZ/lzGORR3KJxik7UeGjSTXar6eWpZfJc=";
+      sha256 = "sha256-C/4e0gsnrWlEmqYeIK/vCVDB2DFfIFDIppOx17Q9xc8=";
     };
-    date = "2023-08-28";
+    date = "2023-09-01";
   };
   dt = {
     pname = "dt";
@@ -288,18 +288,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202308282208";
+    version = "202309012208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308282208/geoip.dat";
-      sha256 = "sha256-wLEWLWThs4v6Y0RXmKh28WzEFeP9/g8JLpl4Ls0DiPk=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202309012208/geoip.dat";
+      sha256 = "sha256-sFJSqP/u46yBUoSB+/VWOcuhj9dac3u0EPYUlHlZ6D4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202308282208";
+    version = "202309012208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202308282208/geosite.dat";
-      sha256 = "sha256-+rX5naIG8RjKDaXpCiqvKVbSq9SRsXB2+5PALEev2RE=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202309012208/geosite.dat";
+      sha256 = "sha256-ylsGHBP0SubpgWPu9Q01w14I4UV4XBOaO+jw9UVFut4=";
     };
   };
   luarock-dbus_proxy = {
@@ -326,10 +326,10 @@
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
-    version = "2023-08";
+    version = "2023-09";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2023-08.csv.gz";
-      sha256 = "sha256-g0YYNb/sZvuU8E/7XuDbj5Js+wA4c4Bxnj7UP7gxxow=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2023-09.csv.gz";
+      sha256 = "sha256-ckIU6zOEJNl8RKvHfVh8mWNTNgVUo0tuHjw7pMDnQ3g=";
     };
   };
   primitive = {
@@ -468,15 +468,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "0b2372650a178efd86ae1c62fc84900509f7525f";
+    version = "1fb9687a57c08caff4a15e4be28e5e1ec96d6949";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "0b2372650a178efd86ae1c62fc84900509f7525f";
+      rev = "1fb9687a57c08caff4a15e4be28e5e1ec96d6949";
       fetchSubmodules = false;
-      sha256 = "sha256-vnyiJJnro5Md1/sGj2HgcZKVlnGXo4Mr2t4HKU+T7VY=";
+      sha256 = "sha256-8K9NoyUrU8TT8Z3YLbR2/RsWHpcFOJupVIOycXuWUoc=";
     };
-    date = "2023-08-28";
+    date = "2023-09-01";
   };
   video-compare = {
     pname = "video-compare";
@@ -558,16 +558,16 @@
   };
   zellij-hirr = {
     pname = "zellij-hirr";
-    version = "v0.38.0";
+    version = "v0.38.1";
     src = fetchFromGitHub {
       owner = "zellij-org";
       repo = "zellij";
-      rev = "v0.38.0";
+      rev = "v0.38.1";
       fetchSubmodules = false;
-      sha256 = "sha256-+i4lY2VB/g6/dwN4dDwsiI+3R299ssBY90fpnvkVrXU=";
+      sha256 = "sha256-3khMo5qMG0qonMnPvuErVYFohUrZLAkaxKZzkMHou8E=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./zellij-hirr-v0.38.0/Cargo.lock;
+      lockFile = ./zellij-hirr-v0.38.1/Cargo.lock;
       outputHashes = {
         
       };
