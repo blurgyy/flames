@@ -22,7 +22,7 @@ in
             --priority "$2" \
             --title "'${config.networking.hostName}' is $3" \
             ${ntfyHost}/${ntfyTopic} \
-            "Uptime: $(uptime)"
+            "$(uptime)"
         '';
       in {
         Type = "oneshot";
