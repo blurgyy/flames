@@ -9,6 +9,7 @@ in {
       cat >index.html <<EOF
 <html>
   <head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7603222628125848" crossorigin="anonymous"></script>
     <meta charset="utf8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
   </head>
@@ -29,12 +30,15 @@ in {
   <body>
 </html>
 EOF
+      cat >ads.txt <<EOF
+google.com, pub-7603222628125848, DIRECT, f08c47fec0942fa0
+EOF
     '';
     script = ''
       thttpd \
         -d /run/${serviceConfig.RuntimeDirectory} \
         -p ${toString listenPort} \
-        -c "/index.html" \
+        -c "/*" \
         -l /var/log/${serviceConfig.LogsDirectory}/router-page.log \
         -D
     '';
