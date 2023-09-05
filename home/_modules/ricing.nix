@@ -7,10 +7,15 @@
     name = "forest.jpg";
     hash = "sha256-DINHeFo3VZbgVEUlJ/lvThvR5KWRXyKoNo6Eo2jLYDw=";
   };
-  cozy-8k = pkgs.fetchurl {
-    url = "https://i.redd.it/0oui0mtf451a1.jpg";
+  cozy-rainy-4k = pkgs.fetchurl {
+    url = "https://i.redd.it/rzxjvaufvf9a1.jpg";
     name = "cozy.jpg";
     hash = "sha256-L5v9S6aXo4fbEZOHLnIC04xJc6C0/pW8S8sXF+GW7rY=";
+  };
+  cozy-sunny-4k = pkgs.fetchurl {
+    url = "https://i.redd.it/bc1lrffr2emb1.png";
+    name = "cozy.png";
+    hash = "sha256-aigtfglj25ALud2wj8Jr9qoK9IoMByatWYMXEg7Pd14=";
   };
   cats-8k = pkgs.fetchurl {
     url = "https://i.redd.it/3wdudrbvap0a1.png";
@@ -152,7 +157,7 @@ in with lib; {
   config = {
     ricing = {
       headful = mkIf (cfg.headful.theme != null) {
-        wallpaper = cozy-8k;
+        wallpaper = cozy-sunny-4k;
         themeColor = name: let
           colorFn = catppuccinColor (if cfg.headful.theme == "light" then "latte" else "mocha");
         in
