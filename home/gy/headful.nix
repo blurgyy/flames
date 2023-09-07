@@ -60,7 +60,7 @@ in {
     tdesktop-megumifox
     typst
     video-compare
-    wf-recorder-respect-pixel-format
+    wf-recorder
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wlr-randr
     #wpsoffice-cn
