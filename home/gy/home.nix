@@ -21,6 +21,7 @@ in {
       comma
       dogdns
       dufs
+      eza
       fd
       gdu
       git

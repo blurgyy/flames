@@ -1,6 +1,5 @@
 { writeText
-, bat
-, exa
+, eza
 , fd
 , fzf
 , git
@@ -35,7 +34,7 @@
   alias ....='cd ../../..'
   alias .....='cd ../../../..'
 
-  alias ls='${exa}/bin/exa -F'
+  alias ls='${eza}/bin/eza -F'
   alias l='ls'
   alias s='ls'
   alias sl='ls'

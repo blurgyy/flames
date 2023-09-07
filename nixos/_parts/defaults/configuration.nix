@@ -183,7 +183,7 @@ in {
     comma
     dogdns
     dufs
-    exa
+    eza
     fd
     file
     fish

@@ -5,8 +5,8 @@
         (t: { name = "${builtins.toString t}"; value = target; })
         typos
     );
-  ll_command = "exa -lhgF --icons";
-  ls_command = "exa -F";
+  ll_command = "eza -lhgF --icons";
+  ls_command = "eza -F";
   vi_command = "nvim";
 in
 fixTypo "blurgy" [
@@ -121,11 +121,12 @@ fixTypo "blurgy" [
   mv = "mv -v";
   rm = "rm -Iv";
 } // {
-  exa = "exa -F";
-  la = "exa -aF";
-  lla = "exa -alhgF --icons";
-  l = "exa -F";
-  tree = "exa -TF --icons";
+  exa = "eza -F";
+  eza = "eza -F";
+  la = "eza -aF";
+  lla = "eza -alhgF --icons";
+  l = "eza -F";
+  tree = "eza -TF --icons";
 } // {
   caat = "bat";
   cagt = "bat";

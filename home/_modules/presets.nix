@@ -6,7 +6,7 @@ let
     bat
     clang-tools
     colmena
-    exa
+    eza
     exiftool
     ffmpeg-full
     file
