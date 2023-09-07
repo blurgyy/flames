@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: lib.mkIf (config.time.timeZone == "Asia/Shanghai") {
-  environment.systemPackages = [ pkgs.dcompass ];
+  environment.systemPackages = [ pkgs.dcompass.dcompass-cn ];
 
   services.resolved.enable = false;
   systemd.services.dcompass = let
@@ -10,7 +10,7 @@
         );
   in {
     documentation = [ "https://github.com/compassd/dcompass" ];
-    path = [ pkgs.dcompass ];
+    path = [ pkgs.dcompass.dcompass-cn ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Restart = "always";

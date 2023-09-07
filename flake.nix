@@ -123,7 +123,7 @@
       };
     };
 
-    # not following any inputs (this provides kernel for opi)
+    dcompass.url = "github:compassd/dcompass";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
 
@@ -162,6 +162,7 @@
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
     sharedOverlays = [
       inputs.colmena.overlays.default
+      inputs.dcompass.overlays.default
       inputs.nvfetcher.overlays.default
     ];
   };

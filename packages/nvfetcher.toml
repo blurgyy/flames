@@ -24,11 +24,6 @@ fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$v
 src.git = "https://github.com/catppuccin/bat"
 fetch.git = "https://github.com/catppuccin/bat"
 
-[dcompass]
-src.github = "compassd/dcompass"
-fetch.github = "compassd/dcompass"
-cargo_locks = ["Cargo.lock"]
-
 [dms]
 src.github = "anacrolix/dms"
 fetch.github = "anacrolix/dms"
