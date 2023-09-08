@@ -132,12 +132,23 @@
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }: let
     my = import ./packages;
   in flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
-    pkgs = import nixpkgs {
+    pkgs = import nixpkgs rec {
       inherit system;
       config.allowUnfree = true;
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
-      overlays = [ self.overlays.default ];
+      overlays = [
+        (final: prev: let
+          pkgs-stable = import inputs.nixpkgs-stable {
+            inherit system config;
+          };
+        in {
+          # use cudaPackages (cudatoolkit, etc.) from locked nixpkgs to avoid mass recompilation and
+          # downloads.
+          inherit (pkgs-stable) cudaPackages;
+        })
+        self.overlays.default
+      ];
     };
   in rec {
     packages = my.packages pkgs;
