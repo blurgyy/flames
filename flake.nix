@@ -145,7 +145,7 @@
         in {
           # use cudaPackages (cudatoolkit, etc.) from locked nixpkgs to avoid mass recompilation and
           # downloads.
-          inherit (pkgs-stable) cudaPackages;
+          inherit (pkgs-stable) cudaPackages cudatoolkit;
         })
         self.overlays.default
       ];
