@@ -1,10 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
-
-let
-  pkgs-stable = import inputs.nixpkgs-stable {
-    inherit (pkgs) system config overlays;
-  };
-in
+{ config, lib, pkgs, ... }:
 
 {
   systemd = {
@@ -47,7 +41,7 @@ in
         export DISPLAY=:0
         export LD_LIBRARY_PATH="${opengl-driver-bindpath}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
       '';
-      cudatoolkit-unsplit = with pkgs-stable; symlinkJoin {
+      cudatoolkit-unsplit = with pkgs; symlinkJoin {
         name = "${cudatoolkit.name}-unsplit";
         paths = [ cudatoolkit.lib cudatoolkit.out ];
       };
