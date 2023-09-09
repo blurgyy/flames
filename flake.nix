@@ -4,6 +4,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/23.05";
     flake-utils.url = "github:numtide/flake-utils";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
 
     flake-compat = {
       url = "github:edolstra/flake-compat";
