@@ -44,6 +44,7 @@
 
   environment.systemPackages = with pkgs; [
     transmission
+    ustreamer
   ];
 
   documentation.nixos.enable = false;
