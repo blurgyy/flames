@@ -6,7 +6,7 @@ let
   devPackages = with pkgs; [
     bat
     colmena
-    ffmpeg-full
+    ffmpeg-fuller
     gcc
     glow
     hexyl
@@ -42,7 +42,7 @@ let
   entPackages = with pkgs; [
   ] ++ (lib.optional (system == "x86_64-linux") minecraft);
   recPackages = with pkgs; [
-    ffmpeg-full
+    ffmpeg-fuller
     typos
   ];
 in

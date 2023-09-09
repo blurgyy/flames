@@ -8,7 +8,7 @@ let
     colmena
     eza
     exiftool
-    ffmpeg-full
+    ffmpeg-fuller
     file
     fish
     fzf
@@ -44,7 +44,7 @@ let
   ];
   recPackages = with pkgs; [
     exiftool
-    ffmpeg-full
+    ffmpeg-fuller
     imagemagick
     yt-dlp
   ];
