@@ -1,5 +1,8 @@
 { ... }: {
-  imports = [
-    ./timesync.nix
-  ];
+  imports = [];
+
+  services.curltimesync = {
+    enable = true;
+    url = "baidu.com";
+  };
 }
