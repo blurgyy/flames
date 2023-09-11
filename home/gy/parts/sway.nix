@@ -223,6 +223,7 @@ in {
         }
         { app_id = "Thunar"; title = "^.+$"; }
         { title = "https:\/\/space.dingtalk.com\/attachment\/mdown.*"; }
+        { app_id = "blender"; title = "Blender (Preferences|Render)"; }
       ];
     };
     window.commands = [
