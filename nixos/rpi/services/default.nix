@@ -9,7 +9,7 @@
     btrfs.autoScrub.fileSystems = [ "/elements" ];
     curltimesync = {
       enable = true;
-      url = "baidu.com";
+      url = "109.244.194.121";  # tencent.com
     };
   };
 }
