@@ -34,7 +34,6 @@
   hardware.raspberry-pi."4".fkms-3d.enable = true;  # from nixos/nixos-hardware
   hardware.deviceTree = {
     enable = true;
-    filter = lib.mkForce "bcm2711-rpi-4-b.dtb";  # WARN: Using the default value `bcm2711-rpi-*.dtb` here will cause dtoverlay fail to apply to bcm2711-rpi-cm4.dtb
     overlays = [  # REF: https://github.com/raspberrypi/linux
       { name = "gpio-ir"; dtsFile = ./device-tree/gpio-ir.dts; }
       { name = "gpio-ir-tx"; dtsFile = ./device-tree/gpio-ir-tx.dts; }
