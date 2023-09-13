@@ -370,3 +370,19 @@ Trouble Shooting
   8. Restart nix-daemon.
 
   > Reference: <https://github.com/NixOS/nix/issues/1353>
+
+* Enabling webcam on Raspberry Pi 4B
+  TL;DR: add two lines to the `config.txt` file which is located **in the firmware partition**:
+  ```
+  start_x=1
+  gpu_mem=256
+  ```
+  The firmware partition is typically the first partition of type `vfat`, in my case it's
+  `/dev/mmcblk0p1`.  Note that it's probably NOT mounted at `/boot` (but rpi still respects its
+  content).
+
+  > References:
+  >   - <https://nixos.wiki/wiki/NixOS_on_ARM/Raspberry_Pi#Camera>
+  >   - <https://github.com/NixOS/nixpkgs/issues/173948#issuecomment-1718069205>
+  >   - <https://www.raspberrypi.com/documentation/computers/config_txt.html#start_x-start_debug>
+  >   - <https://www.raspberrypi.com/documentation/computers/config_txt.html#gpu_mem>
