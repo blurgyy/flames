@@ -21,25 +21,30 @@ with lib;
       type = types.str;
       description = "Video device to read input from";
     };
+    streamQuality = mkOption {
+      type = types.int;
+      description = ''
+        JPEG quality for streaming, the receiving end can consume less CPU if this is set to a lower
+        value.  Though hardware may not respect this.
+      '';
+      default = 40;
+    };
+    streamFormat = mkOption {
+      type = types.enum [ "YUYV" "UYVY" "RGB565" "RGB24" "MJPEG" "JPEG" ];
+      default = "MJPEG";  # use with "M2M-VIDEO" for low CPU usage and high fps
+    };
+    streamEncoder = mkOption {
+      type = types.enum [ "CPU" "HW" "M2M-VIDEO" "M2M-IMAGE" "NOOP" ];
+      description = "Encoder for streaming";
+      default = "M2M-VIDEO";  # use with "mjpeg" for low CPU usage and high fps
+    };
     streamHost = mkOption {
       type = types.str;
       description = "Address to listen on for the streamer";
     };
     streamPort = mkOption {
-      type = types.str;
-      description = "Port to bind for the streamer";
-    };
-    streamQuality = mkOption {
       type = types.int;
-      description = ''
-        JPEG quality for streaming, the receiving end can consume less CPU if this is set to a lower
-        value.
-      '';
-      default = 40;
-    };
-    streamEncoder = mkOption {
-      type = types.enum [ "CPU" "HW" "M2M-VIDEO" "M2M-Image" "NOOP" ];
-      description = "Encoder for streaming";
+      description = "Port to bind for the streamer";
     };
     streamAuthUsername = mkOption {
       type = types.str;
@@ -53,7 +58,7 @@ with lib;
     };
     streamFps = mkOption {
       type = types.int;
-      description = "FPS for streaming, hardware may ignore this";
+      description = "FPS for streaming.  Though hardware may ignore this";
       default = 24;
     };
 
@@ -105,12 +110,13 @@ with lib;
     } {
       assertion = !cfg.stream || cfg.streamQuality <= 100 && cfg.streamQuality > 0;
       message = ''
-        Streaming quality must be an integer in range (0, 100], got streamQuality=${cfg.streamQuality}
+        Streaming quality must be an integer in range (0, 100], got streamQuality=${toString cfg.streamQuality}
       '';
     }];
 
     environment.systemPackages = [
       pkgs.ustreamer
+      pkgs.v4l-utils
     ];
     users = {
       users.peye = {
@@ -154,10 +160,11 @@ with lib;
         script = ''
           ustreamer \
             --device ${cfg.streamDevice} \
-            --quality ${cfg.streamQuality} \
+            --quality ${toString cfg.streamQuality} \
             --encoder ${cfg.streamEncoder} \
+            --format ${cfg.streamFormat} \
             --host ${cfg.streamHost} \
-            --port ${cfg.streamPort} \
+            --port ${toString cfg.streamPort} \
             --user ${cfg.streamAuthUsername} \
             --passwd ${cfg.streamAuthPassword} \
             --desired-fps ${toString cfg.streamFps} \
