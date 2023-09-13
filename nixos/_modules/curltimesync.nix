@@ -14,14 +14,14 @@ with lib;
       description = "An (almost) always-online website to request using curl";
       example = "google.com";
     };
-    toleranceMillisec = mkOption {
+    toleranceSec = mkOption {
       type = types.int;
       description = ''
         If the difference between requested network time and local time is larger than this
-        threshold (in milliseconds), update local time to match network time.  This is to avoid tiny
+        threshold (in seconds), update local time to match network time.  This is to avoid tiny
         perturbations of network time that make systemd-journald think time jumped backwards.
       '';
-      default = 3072;
+      default = 3;
     };
   };
 
@@ -52,7 +52,7 @@ with lib;
         # absolute time difference
         diff="$(echo $(( net_time - local_time )) | sed -Ee 's/-//g')"
 
-        if [[ "$diff" -gt ${toString cfg.toleranceMillisec} ]]; then
+        if [[ "$diff" -gt ${toString cfg.toleranceSec} ]]; then
           date --set="$net_time"
         fi
       '';
