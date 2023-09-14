@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
+  inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.home.presets;
   devPackages = with pkgs; [
     bat
@@ -37,9 +38,7 @@ let
     tro
     typos
     xplr
-  ] ++ lib.optional (let
-    inherit (pkgs.stdenv.hostPlatform) system;
-  in system == "x86_64-linux" || system == "i686-linux") conda;
+  ] ++ lib.optional (system == "x86_64-linux" || system == "i686-linux") conda;
   entPackages = with pkgs; [
   ];
   recPackages = with pkgs; [
@@ -47,7 +46,7 @@ let
     ffmpeg-fuller
     imagemagick
     yt-dlp
-  ];
+  ] ++ lib.optional (system == "x86_64-linux" || system == "i686-linux") blender-ply-as-verts;
   sciPackages = with pkgs; [
     inkscape
     labelme
