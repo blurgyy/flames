@@ -25,4 +25,5 @@
       $out/share/applications/${(builtins.elemAt o.desktopItems 0).name} \
       > $out/share/applications/x11-${(builtins.elemAt o.desktopItems 0).name}
   '';
+  meta.platforms = [ "x86_64-linux" ];
 })
