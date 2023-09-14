@@ -20,10 +20,12 @@
       '')
       (o.outputs or ["out"]))
     }
+    odir="$out/share/applications"
+    mkdir -p "$odir"
     sed -Ee 's/Exec=/Exec=env -u WAYLAND_DISPLAY /' \
       -e 's/^Name=(.*)$/Name=\1 (x11)/' \
-      $out/share/applications/${(builtins.elemAt o.desktopItems 0).name} \
-      > $out/share/applications/x11-${(builtins.elemAt o.desktopItems 0).name}
+      "$out/share/applications/${(builtins.elemAt o.desktopItems 0).name}" \
+      > "$odir/x11-${(builtins.elemAt o.desktopItems 0).name}"
   '';
   meta.platforms = [ "x86_64-linux" ];
 })
