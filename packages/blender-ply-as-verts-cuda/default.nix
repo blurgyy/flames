@@ -1,7 +1,7 @@
 { generated, lib
 , blender
 }: with lib; (blender.override { cudaSupport = true; }).overrideAttrs (o: {
-  pname = o.pname + "-cuda-import-ply-as-verts";
+  pname = o.pname + "-import-ply-as-verts-cuda";
 
   # nvcc from cudatoolkit at nixpkgs/23.05 does not support sm_89
   postPatch = ''
