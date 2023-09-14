@@ -2,6 +2,9 @@
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
+    config.cudaSupport = builtins.elem name [
+      "gy@winston"
+    ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
       (final: prev: {
@@ -128,8 +131,8 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     {
       home.presets = {
         development = builtins.elem name [
-          "gy@winston"
           "gy@morty"
+          "gy@winston"
         ];
         entertainment = builtins.elem name [
           "gy@morty"
@@ -137,10 +140,11 @@ in inputs.home-manager.lib.homeManagerConfiguration {
         recreation = builtins.elem name [
           "gy@morty"
           "gy@rpi"
+          "gy@winston"
         ];
         scientific = builtins.elem name [
-          "gy@winston"
           "gy@morty"
+          "gy@winston"
         ];
       };
     }
