@@ -1,10 +1,4 @@
-{ config, pkgs, inputs, ... }:
-
-let
-  pkgs-stable = import inputs.nixpkgs-stable {
-    inherit (pkgs) system config overlays;
-  };
-in
+{ config, ... }:
 
 {
   time.timeZone = "Asia/Shanghai";
@@ -19,7 +13,6 @@ in
   environment = {
     systemPackages = [
       config.boot.kernelPackages.nvidiaPackages.stable  # provides the nvidia-smi binary
-      (pkgs-stable.openai-whisper.override { cudaSupport = true; })
     ];
     sessionVariables.LD_LIBRARY_PATH = [
       "/usr/lib/wsl/lib"  # required for nvidia-smi to work
