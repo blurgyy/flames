@@ -23,7 +23,7 @@ in {
   };
 
   services.ssh-reverse-proxy = let
-    identityFile = config.sops.secrets."userKey/${hostName}".path;
+    identityFile = config.sops.secrets."userKey/gy@${hostName}".path;
     _mkInstance = instanceName: extraOpts: {
         inherit identityFile;
         environmentFile = config.sops.secrets."sshrp/${instanceName}-env".path;
