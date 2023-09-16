@@ -138,18 +138,7 @@
       config.allowUnfree = true;
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
-      overlays = [
-        (final: prev: let
-          pkgs-stable = import inputs.nixpkgs-stable {
-            inherit system config;
-          };
-        in {
-          # use cudaPackages (cudatoolkit, etc.) from locked nixpkgs to avoid mass recompilation and
-          # downloads.
-          inherit (pkgs-stable) cudaPackages cudatoolkit;
-        })
-        self.overlays.default
-      ];
+      overlays = [ self.overlays.default ];
     };
   in rec {
     packages = my.packages pkgs;
@@ -176,6 +165,15 @@
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
       inputs.nvfetcher.overlays.default
+      (final: prev: let
+        pkgs-stable = import inputs.nixpkgs-stable {
+          inherit (prev) system config;
+        };
+      in {
+        # use cudaPackages (cudatoolkit, etc.) from locked nixpkgs to avoid mass recompilation and
+        # downloads.
+        inherit (pkgs-stable) cudaPackages cudatoolkit openai-whisper;
+      })
     ];
   };
 }
