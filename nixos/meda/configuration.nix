@@ -19,5 +19,8 @@
     ];
   };
 
+  # meda stores GPG secret keys
+  services.openssh.settings.StreamLocalBindUnlink = false;
+
   system.stateVersion = "23.05";
 }
