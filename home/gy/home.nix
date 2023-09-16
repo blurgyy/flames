@@ -1,5 +1,5 @@
 { inputs, lib, pkgs, config
-, name, myName, myHome
+, hostName, myName, myHome
 , headless
 , proxy
 , helpers, __callWithHelpers

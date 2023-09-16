@@ -1,5 +1,8 @@
-{ pkgs, name, config }: with pkgs; let
+{ pkgs, hostName, config }: with pkgs; let
   inherit (config.ricing.headful) themeColor;
+  usesEthernet = builtins.elem hostName [
+    "winston"
+  ];
   workspaceModule = {
     disable-scroll = true;
     all-outputs = true;
@@ -130,7 +133,7 @@ in {
       ];
     };
     "network#download" = {
-      interface = if name == "gy@winston" then "e*" else "w*";
+      interface = if usesEthernet then "e*" else "w*";
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthDownBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
@@ -141,7 +144,7 @@ in {
       on-click = "${sway}/bin/swaymsg 'workspace 8'";
     };
     "network#upload" = {
-      interface = if name == "gy@winston" then "e*" else "w*";
+      interface = if usesEthernet then "e*" else "w*";
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthUpBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";

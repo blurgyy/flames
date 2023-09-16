@@ -1,9 +1,9 @@
-{ system, nixpkgs, inputs, self, name, headless ? true, proxy ? null, ... }: let
+{ system, nixpkgs, inputs, self, hostName, headless ? true, proxy ? null, ... }: let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
-    config.cudaSupport = builtins.elem name [
-      "gy@winston"
+    config.cudaSupport = builtins.elem hostName [
+      "winston"
     ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
@@ -62,7 +62,7 @@
     f = import path;
     args = (intersectAttrs
       (functionArgs f)
-      ({ inherit pkgs lib headless name proxy __callWithHelpers; } // overrides)
+      ({ inherit pkgs lib headless hostName proxy __callWithHelpers; } // overrides)
     );
   in if (typeOf f) == "set"
     then f
@@ -71,7 +71,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
   extraSpecialArgs = {
     inherit inputs;
-    inherit name headless proxy;
+    inherit hostName headless proxy;
     inherit myName myHome helpers __callWithHelpers;
   };
   modules = [
@@ -87,21 +87,21 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     ({ home.stateVersion = "22.11"; })
     {
       home.presets = {
-        development = builtins.elem name [
-          "gy@morty"
-          "gy@winston"
+        development = builtins.elem hostName [
+          "morty"
+          "winston"
         ];
-        entertainment = builtins.elem name [
-          "gy@morty"
+        entertainment = builtins.elem hostName [
+          "morty"
         ];
-        recreation = builtins.elem name [
-          "gy@morty"
-          "gy@rpi"
-          "gy@winston"
+        recreation = builtins.elem hostName [
+          "morty"
+          "rpi"
+          "winston"
         ];
-        scientific = builtins.elem name [
-          "gy@morty"
-          "gy@winston"
+        scientific = builtins.elem hostName [
+          "morty"
+          "winston"
         ];
       };
     }

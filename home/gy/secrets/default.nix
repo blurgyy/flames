@@ -1,4 +1,4 @@
-{ config, pkgs, lib, name, ... }: {
+{ config, hostName, ... }: {
   sops = {
     defaultSopsFile = ./secrets.yaml;
     age.keyFile = "${config.home.sessionVariables.XDG_DATA_HOME}/${config.home.username}.age";
@@ -12,7 +12,7 @@
       "file/github-cli-hosts".path = "${config.xdg.configHome}/gh/hosts.yml";
       "file/nvchecker-keyfile".path = "${config.xdg.configHome}/nvchecker/keyfile.toml";  # nvfetcher -k ~/.config/nvchecker/keyfile.toml ...
 
-      "userKey/${name}".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
+      "userKey/gy@${hostName}".path = "${config.home.homeDirectory}/.ssh/id_ed25519";
     };
   };
 }

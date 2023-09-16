@@ -1,4 +1,4 @@
-{ name, proxy, lib, pkgs, mergeAttrsList }: {
+{ proxy, lib, pkgs, mergeAttrsList }: {
   enable = true;
   controlMaster = "no";
   controlPath = "~/.ssh/master-%r@%n:%p";

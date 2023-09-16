@@ -1,7 +1,9 @@
 { self, nixpkgs, inputs }: let
-  apply = attrs: builtins.mapAttrs (name: params:
-    import ../home/gy (params // { inherit name; })
-  ) attrs;
+  lib = nixpkgs.lib;
+  apply = userName: attrs: lib.mapAttrs' (hostName: params: {
+    name = "${userName}@${hostName}";
+    value = import ../home/gy (params // { inherit hostName; });
+  }) attrs;
   x86_64-non-headless = {
     system = "x86_64-linux";
     headless = false;
@@ -28,15 +30,15 @@
       "zju.edu.cn"
     ];
   };
-in apply {
-  "gy@morty" = x86_64-non-headless;
-  "gy@john" = x86_64-non-headless;
-  "gy@rpi" = aarch64-headless;
-  "gy@opi" = aarch64-headless;
-  "gy@copi" = aarch64-headless;
+in apply "gy" {
+  "morty" = x86_64-non-headless;
+  "john" = x86_64-non-headless;
+  "rpi" = aarch64-headless;
+  "opi" = aarch64-headless;
+  "copi" = aarch64-headless;
 
-  "gy@winston" = x86_64-non-headless // { proxy = labProxy; };
-  "gy@meda" = x86_64-headless // {
+  "winston" = x86_64-non-headless // { proxy = labProxy; };
+  "meda" = x86_64-headless // {
     proxy = {
       addr = "localhost";
       port = "9990";
@@ -49,12 +51,12 @@ in apply {
   };
 
   # set IP of winston in hosts
-  "gy@cadliu" = x86_64-headless // { proxy = labProxy; };
-  "gy@cad-liu" = x86_64-headless // { proxy = labProxy; };
+  "cadliu" = x86_64-headless // { proxy = labProxy; };
+  "cad-liu" = x86_64-headless // { proxy = labProxy; };
 
-  "gy@cindy" = aarch64-headless;
-  "gy@peterpan" = x86_64-headless;
-  "gy@penta" = x86_64-headless;
-  "gy@quad" = x86_64-headless;
-  "gy@rubik" = x86_64-headless;
+  "cindy" = aarch64-headless;
+  "peterpan" = x86_64-headless;
+  "penta" = x86_64-headless;
+  "quad" = x86_64-headless;
+  "rubik" = x86_64-headless;
 }
