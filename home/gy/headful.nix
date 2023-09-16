@@ -3,6 +3,7 @@
 in {
   imports = [
     ./parts/alarm-clock.nix
+    ./parts/gpg-agent.nix
   ];
   ricing.headful.theme = "dark";
   qt = {
@@ -189,14 +190,6 @@ in {
         "billboard"
         "machines"
       ];
-    };
-    gpg-agent = {
-      enable = true;
-      enableExtraSocket = true;
-      pinentryFlavor = "tty";
-      defaultCacheTtl = 3600 * 24;
-      maxCacheTtl = 3600 * 48;
-      enableScDaemon = false;
     };
     gammastep = {
       enable = true;

@@ -85,7 +85,7 @@ in {
       no-greeting = true;
       no-permission-warning = true;
       lock-never = true;
-      no-autostart = headless;
+      no-autostart = lib.mkDefault headless;
     };
   };
 
