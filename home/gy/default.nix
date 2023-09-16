@@ -4,6 +4,7 @@
     config.allowUnfree = true;
     config.cudaSupport = builtins.elem hostName [
       "winston"
+      "meda"
     ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
