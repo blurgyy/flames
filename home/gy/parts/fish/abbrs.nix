@@ -242,7 +242,6 @@ fixTypo "blurgy" [
   mk = "make";
   mtr = "mtr -n";
   n = "node";
-  npm = "pnpm";
   nvrun = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia";
   p2 = "python2";
   p = "python3";
