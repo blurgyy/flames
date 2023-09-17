@@ -2,6 +2,12 @@
 , blender
 }: with lib; blender.overrideAttrs (o: {
   pname = o.pname + "-import-ply-as-verts";
+
+  # nvcc from cudatoolkit at nixpkgs/23.05 does not support sm_89
+  postPatch = ''
+    sed -Ee 's/ sm_89 / /g' -i CMakeLists.txt
+  '';
+
   postInstall = o.postInstall or "" + ''
     install -Dvm444 -t \
       $out/share/blender/${concatStringsSep "." (take 2 (splitVersion o.version))}/scripts/addons/io_mesh_ply \
