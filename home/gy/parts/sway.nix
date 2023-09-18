@@ -144,7 +144,7 @@ in {
       "${mod}+minus" = "scratchpad show";
       "${mod}+Shift+minus" = "move scratchpad";
 
-      "${mod}+Escape" = "exec swaylock";
+      "${mod}+Escape" = "exec sdwrap swaylock";
 
       "${mod}+r" = ''mode "resize"'';
 
@@ -315,7 +315,7 @@ in {
     bars = [ ];
   };
   extraConfig = ''
-    bindswitch lid:on exec swaylock
+    bindswitch lid:on sdwrap exec swaylock
     titlebar_border_thickness 3
     titlebar_padding 3 3
   '';

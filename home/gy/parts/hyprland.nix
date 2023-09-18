@@ -240,9 +240,9 @@ in {
     bind = , print, exec, ${screenshot-notify} full
 
     # Lid switch, use hyprctl devices to show name
-    bind = , switch:Lid Switch, exec, swaylock
+    bind = , switch:Lid Switch, exec, sdwrap swaylock
 
-    bind = $mainMod, escape, exec, swaylock
+    bind = $mainMod, escape, exec, sdwrap swaylock
 
     # Move focus within current workspace
     bind = $mainMod, left,  movefocus, l
