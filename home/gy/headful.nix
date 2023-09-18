@@ -2,7 +2,6 @@
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
   imports = [
-    ./parts/alarm-clock.nix
     ./parts/gpg-agent.nix
   ];
   ricing.headful.theme = "dark";
