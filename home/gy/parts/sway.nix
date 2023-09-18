@@ -315,7 +315,7 @@ in {
     bars = [ ];
   };
   extraConfig = ''
-    bindswitch lid:on sdwrap exec swaylock
+    bindswitch lid:on exec sdwrap swaylock
     titlebar_border_thickness 3
     titlebar_padding 3 3
   '';
