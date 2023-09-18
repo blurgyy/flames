@@ -386,3 +386,6 @@ Trouble Shooting
   >   - <https://github.com/NixOS/nixpkgs/issues/173948#issuecomment-1718069205>
   >   - <https://www.raspberrypi.com/documentation/computers/config_txt.html#start_x-start_debug>
   >   - <https://www.raspberrypi.com/documentation/computers/config_txt.html#gpu_mem>
+
+* To show current total GPU memory, use `sudo vcgencmd get_mem gpu`, where `vcgencmd` is from
+  package `libraspberrypi`.
