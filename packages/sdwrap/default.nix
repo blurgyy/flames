@@ -5,7 +5,7 @@
     name = "sdwrap-fish-completions";
     src = ./src/fish-completions;
     buildCommand = ''
-      install -Dvm555 -t $out/share/fish/completions $src/*
+      install -Dvm555 -t $out/share/fish/vendor_completions.d $src/*
     '';
   };
 in symlinkJoin {
