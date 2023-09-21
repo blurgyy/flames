@@ -34,7 +34,7 @@ in {
     error = if logging.error == false then
         "none"
       else if logging.error == true then
-        ""
+        ""  # stdout (or stderr?), captured by journald
       else
         logging.error;
   };
