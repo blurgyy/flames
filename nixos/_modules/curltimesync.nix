@@ -53,7 +53,7 @@ with lib;
         diff="$(echo $(( net_time - local_time )) | sed -Ee 's/-//g')"
 
         if [[ "$diff" -gt ${toString cfg.toleranceSec} ]]; then
-          date --set="$net_time"
+          date --set="$(date --date=@"$net_time")"
         fi
       '';
     };
