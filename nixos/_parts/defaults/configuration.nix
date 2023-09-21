@@ -52,7 +52,7 @@ in {
         "cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4="
       ];
       auto-optimise-store = true;
-      # REF: <https://docs.cachix.org/faq#frequently-asked-questions>
+      # REF: <https://docs.cachix.org/faq#why-is-nix-not-picking-up-on-any-of-the-pre-built-artifacts>
       # REF: <https://nix.dev/faq#how-do-i-force-nix-to-re-check-whether-something-exists-at-a-binary-cache>
       narinfo-cache-negative-ttl = 30;
       tarball-ttl = 30;
