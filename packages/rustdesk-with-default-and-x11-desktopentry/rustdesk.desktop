@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Network
+Comment=Yet another remote desktop software
+Exec=rustdesk
+GenericName=Remote Desktop
+Icon=rustdesk
+Name=RustDesk
+Type=Application
+Version=1.4

@@ -55,7 +55,7 @@ in {
     minicom
     obs-studio
     printer-cadlab
-    rustdesk-with-x11-desktopentry
+    rustdesk-with-default-and-x11-desktopentry
     slurp
     tdesktop-megumifox
     typst

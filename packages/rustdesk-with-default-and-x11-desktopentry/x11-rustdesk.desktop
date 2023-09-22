@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Network
+Comment=Yet another remote desktop software
+Exec=env -u WAYLAND_DISPLAY rustdesk
+GenericName=Remote Desktop
+Icon=rustdesk
+Name=RustDesk (x11)
+Type=Application
+Version=1.4

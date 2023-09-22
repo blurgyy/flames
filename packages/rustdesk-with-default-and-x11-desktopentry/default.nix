@@ -1,5 +1,5 @@
 { lib, rustdesk, makeDesktopItem }: rustdesk.overrideAttrs (o: {
-  pname = "rustdesk-with-x11-desktopentry";
+  pname = "rustdesk-with-default-and-x11-desktopentry";
   desktopItems = o.desktopItems ++ [(makeDesktopItem {
     name = "rustdesk-x11";
     exec = ''env -u WAYLAND_DISPLAY ${rustdesk}/bin/${rustdesk.meta.mainProgram}'';
@@ -20,12 +20,12 @@
       '')
       (o.outputs or ["out"]))
     }
+    set -x
     odir="$out/share/applications"
     mkdir -p "$odir"
-    sed -Ee 's/Exec=/Exec=env -u WAYLAND_DISPLAY /' \
-      -e 's/^Name=(.*)$/Name=\1 (x11)/' \
-      "$out/share/applications/${(builtins.elemAt o.desktopItems 0).name}" \
-      > "$odir/x11-${(builtins.elemAt o.desktopItems 0).name}"
+    rm -f "$odir"/*.desktop
+    cp -f --no-preserve=mode ${./rustdesk.desktop} "$odir/rustdesk.desktop"
+    cp -f --no-preserve=mode ${./x11-rustdesk.desktop} "$odir/x11-rustdesk.desktop"
   '';
   meta.platforms = [ "x86_64-linux" ];
 })
