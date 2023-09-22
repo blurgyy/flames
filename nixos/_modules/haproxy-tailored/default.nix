@@ -98,7 +98,17 @@ in {
     backends = mkOption { type = types.nullOr (types.attrsOf backendModule); default = null; };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf cfg.enable (
+
+  (let
+      toRawFrontendModule = attrset:
+        attrValues
+          (mapAttrs
+            (name: value: value // { inherit name; })
+            attrset
+          );
+  in
+  {
     assertions = [{
       assertion = builtins.all
         (svc: trace svc (hasSuffix ".service" svc))
@@ -113,21 +123,27 @@ in {
         Service names in `services.haproxy-tailored.frontends.<name>.domain.reloadServices` must end
         with ".service"
       '';
+    } {
+      assertion = let
+        getAllDefaultBackends = frontend: filter (backend: backend.isDefault) frontend.backends;
+        numberOfDefaultBackends = frontend: length (getAllDefaultBackends frontend);
+      in all
+        (frontend: 1 == (numberOfDefaultBackends frontend))
+        (toRawFrontendModule cfg.frontends);
+      message = ''There is at least 1 haproxy frontend has multiple default backend configured!'';
     }];
     warnings = let
       hasNoDefaultBackend = frontend: all (backend: !backend.isDefault) frontend.backends;
       getFrontendsWithoutDefaultBackend = frontends: filter hasNoDefaultBackend frontends;
-      toRawFrontendModule = attrset:
-        attrValues
-          (mapAttrs
-            (name: value: value // { inherit name; })
-            attrset
-          );
     in map
       (frontend: ''haproxy frontend "${frontend.name}" has no default backend configured!'')
       (getFrontendsWithoutDefaultBackend
         (toRawFrontendModule cfg.frontends)
       );
+  })
+
+  // {
+
     environment.systemPackages = [ cfg.package ];
     services.haproxy-tailored.defaults.options = [ "dontlognull" ];
     services.haproxy.enable = false;
@@ -330,5 +346,7 @@ in {
         cfg.frontends
       )
     ));
-  };
+  }
+
+  );
 }
