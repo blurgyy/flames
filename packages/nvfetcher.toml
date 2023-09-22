@@ -127,11 +127,6 @@ src.cmd = "echo v2.0.0-alpha.11"
 fetch.github = "iovxw/rssbot"
 cargo_locks = ["Cargo.lock"]
 
-[rustdesk-server]
-src.cmd = "echo 1.1.7-1"
-fetch.github = "rustdesk/rustdesk-server"
-cargo_locks = ["Cargo.lock"]
-
 [simple-icons]
 src.github = "simple-icons/simple-icons-font"
 fetch.url = "https://github.com/simple-icons/simple-icons-font/releases/download/$ver/simple-icons-font-$ver.zip"
