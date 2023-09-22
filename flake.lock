@@ -33,11 +33,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1678878439,
-        "narHash": "sha256-lPhTiI+x+Tb4uc/AtsVLPeS5yBhuQHDtaJEdaqKATBE=",
+        "lastModified": 1695393030,
+        "narHash": "sha256-t3Xn+0kvb1vSX+gmvmoKGcx45LMhAMVbFSvcCUc4ELM=",
         "owner": "highsunz",
         "repo": "aliyundrive-mediaserver",
-        "rev": "beecc49f36d547c340a281ee9ed297ecc9993dde",
+        "rev": "32cd1f3a69b1f70ae4e0f996267fb78a1c7751ee",
         "type": "gitlab"
       },
       "original": {
