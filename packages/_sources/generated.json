@@ -577,35 +577,6 @@
         },
         "version": "v2.0.0-alpha.11"
     },
-    "rustdesk-server": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./rustdesk-server-1.1.7-1/Cargo.lock",
-                {
-                    "async-speed-limit-0.3.1": "sha256-iOel6XA07RPrBjQAFLnxXX4VBpDrYZaqQc9clnsOorI=",
-                    "confy-0.4.0": "sha256-e91cvEixhpPzIthAxzTa3fDY6eCsHUy/eZQAqs7QTDo=",
-                    "tokio-socks-0.5.1": "sha256-inmAJk0fAlsVNIwfD/M+htwIdQHwGSTRrEy6N/mspMI="
-                }
-            ]
-        },
-        "date": null,
-        "extract": null,
-        "name": "rustdesk-server",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "rustdesk",
-            "repo": "rustdesk-server",
-            "rev": "1.1.7-1",
-            "sha256": "sha256-Rv2dOZ0wSLkTr4DV8wjMpiWHLzzHB8WH+0l3STOZJ8U=",
-            "type": "github"
-        },
-        "version": "1.1.7-1"
-    },
     "sc-fonts": {
         "cargoLocks": null,
         "date": "2018-08-08",
