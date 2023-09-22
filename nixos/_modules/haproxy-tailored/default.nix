@@ -114,6 +114,20 @@ in {
         with ".service"
       '';
     }];
+    warnings = let
+      hasNoDefaultBackend = frontend: all (backend: !backend.isDefault) frontend.backends;
+      getFrontendsWithoutDefaultBackend = frontends: filter hasNoDefaultBackend frontends;
+      toRawFrontendModule = attrset:
+        attrValues
+          (mapAttrs
+            (name: value: value // { inherit name; })
+            attrset
+          );
+    in map
+      (frontend: ''haproxy frontend "${frontend.name}" has no default backend configured!'')
+      (getFrontendsWithoutDefaultBackend
+        (toRawFrontendModule cfg.frontends)
+      );
     environment.systemPackages = [ cfg.package ];
     services.haproxy-tailored.defaults.options = [ "dontlognull" ];
     services.haproxy.enable = false;
