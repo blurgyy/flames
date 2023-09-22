@@ -1,6 +1,7 @@
 { config, ... }: {
   imports = [
     ./mail.nix
+    ./mediaserver.nix
     ./ntfy.nix
     ./router-page.nix
     ./rules-server.nix

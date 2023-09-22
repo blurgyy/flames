@@ -178,6 +178,7 @@
     nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
     sharedOverlays = [
+      inputs.adrivems.overlays.default
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
       inputs.nvfetcher.overlays.default
