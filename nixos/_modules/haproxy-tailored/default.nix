@@ -123,15 +123,29 @@ in {
         Service names in `services.haproxy-tailored.frontends.<name>.domain.reloadServices` must end
         with ".service"
       '';
-    } {
-      assertion = let
+    }] ++ (let
         getAllDefaultBackends = frontend: filter (backend: backend.isDefault) frontend.backends;
         numberOfDefaultBackends = frontend: length (getAllDefaultBackends frontend);
-      in all
-        (frontend: 1 == (numberOfDefaultBackends frontend))
-        (toRawFrontendModule cfg.frontends);
-      message = ''There is at least 1 haproxy frontend has multiple default backend configured!'';
-    }];
+        getFrontendsWithMultipleDefaultBackends =
+          frontends:
+            filter
+              (frontend: (numberOfDefaultBackends frontend) > 1)
+              frontends;
+      in map
+        (frontend: {
+          assertion = false;
+          message = ''
+            haproxy frontend "${frontend.name}" has multiple default backends configured!
+              configured default backends are:
+                ${lib.concatStringsSep ", "
+                  (map
+                    (backend: ''"${backend.name}"'')
+                    (filter (backend: backend.isDefault) frontend.backends))
+                }
+          '';
+        })
+        (getFrontendsWithMultipleDefaultBackends (toRawFrontendModule cfg.frontends))
+    );
     warnings = let
       hasNoDefaultBackend = frontend: all (backend: !backend.isDefault) frontend.backends;
       getFrontendsWithoutDefaultBackend = frontends: filter hasNoDefaultBackend frontends;
