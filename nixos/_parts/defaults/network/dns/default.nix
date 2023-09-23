@@ -17,6 +17,7 @@
       RestartSec = 5;
       DynamicUser = true;
       AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+      LogNamespace = "noisy";
     };
     preStart = "dcompass --validate --config=${dcompassCfg}";
     script = "dcompass --config=${dcompassCfg}";
