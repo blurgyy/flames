@@ -1,5 +1,5 @@
 { pkgs }: {
-  verbosity = "warn";
+  verbosity = "info";
   address = "127.0.0.53:53";
   script = import ./flow.rn.nix { inherit pkgs; };
   upstreams = let
