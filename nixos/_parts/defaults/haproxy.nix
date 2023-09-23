@@ -7,9 +7,6 @@
         binds = [ "*:80" ];
         alpns = [ "http/1.1" ];
         requestRules = [ "redirect scheme https code 301 unless { ssl_fc }" ];
-        backends = [
-          { name = "http-blackhole"; isDefault = true; }
-        ];
       };
       tls-in = {
         mode = "tcp";
