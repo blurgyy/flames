@@ -27,17 +27,26 @@
     "1112" = mkDoh { domain = "cloudflare-dns.com"; IP = "1.1.1.2"; };
     "8844" = mkDoh { domain = "dns.google"; IP = "8.8.4.4"; };
     "8888" = mkDoh { domain = "dns.google"; IP = "8.8.8.8"; };
+    "9999" = mkDoh { domain = "dns.quad9.net"; IP = "9.9.9.9"; };
 
-    # cf, google
+    # cf, google, quad9
     cloudflare.hybrid = [ "1001" "1111" ];
     cloudflare-filtered.hybrid = [ "1002" "1112" ];
     google.hybrid = [ "8844" "8888" ];
+    quad9.hybrid = [ "9999" ];
+
+    # generally reachable sources of DoH
+    reachable-doh.hybrid = [
+      "9999"
+      "1001"
+      # "1.1.1.1"  # some local network configuration reserves this address, causing rustls complaining "WARN  [rustls::conn] Sending fatal alert BadCertificate"
+    ];
 
     # interfaces
     domestic
       .hybrid = [ "alidns" ];
     oversea
-      .hybrid = [ "cloudflare" "google" ];
+      .hybrid = [ "reachable-doh" ];
     oversea-filtered
       .hybrid = [ "cloudflare-filtered" ];
   };
