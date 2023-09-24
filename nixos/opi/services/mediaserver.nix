@@ -12,13 +12,17 @@
         aliyundrive-mediaserver = 1313;
         file-explorer = 8518;
       };
+      explorerPathPrefix = "explore";
       serverName = config.networking.hostName;
     };
     haproxy-tailored = {
       frontends.http-in = {
         requestRules = lib.mkForce [];
         backends = [
-          { name = "file-explorer"; condition = "if { path_beg /explore/ } || { path_beg /__dufs }"; }
+          {
+            name = "file-explorer";
+            condition = "if { path_beg /${config.services.aliyundrive-mediaserver.explorerPathPrefix} }";
+          }
           { name = "aliyundrive-mediaserver"; isDefault = true; }
         ];
       };
@@ -28,7 +32,6 @@
         file-explorer = {
           mode = "http";
           options = [ "forwardfor" ];
-          requestRules = [ "replace-uri /explore(.*)$ \\1" ];
           server.address = "127.0.0.1:${toString cfg.port.file-explorer}";
         };
         aliyundrive-mediaserver = {
