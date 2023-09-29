@@ -178,8 +178,8 @@ in with lib; {
             else "mocha";
         };
         name = if cfg.headful.theme == "light"
-          then "Catppuccin-Latte-Standard-Yellow-light"
-          else "Catppuccin-Mocha-Standard-Yellow-dark";
+          then "Catppuccin-Latte-Standard-Yellow-Light"
+          else "Catppuccin-Mocha-Standard-Yellow-Dark";
       };
       iconTheme = {
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
