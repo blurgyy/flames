@@ -13,9 +13,9 @@ in {
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;
   users = {
     mutableUsers = false;
-    users.root.passwordFile = config.sops.secrets."passwords/root".path;
+    users.root.hashedPasswordFile = config.sops.secrets."passwords/root".path;
     users.gy = {
-      passwordFile = config.sops.secrets."passwords/gy".path;
+      hashedPasswordFile = config.sops.secrets."passwords/gy".path;
       isNormalUser = true;
     };
   };
