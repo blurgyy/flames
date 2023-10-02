@@ -128,7 +128,7 @@
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
 
-  # `self` denotes this flake, otther function arguments are the flakes
+  # `self` denotes this flake, other function arguments are the flakes
   # specified in the `inputs` attribute above.
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }:
 
