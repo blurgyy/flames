@@ -116,14 +116,8 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    adrivems = {
-      url = "gitlab:highsunz/aliyundrive-mediaserver";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
 
+    adrivems.url = "gitlab:highsunz/aliyundrive-mediaserver";
     dcompass.url = "github:compassd/dcompass";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
