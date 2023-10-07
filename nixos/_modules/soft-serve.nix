@@ -24,7 +24,10 @@ in {
     });
   in {
     enable = mkEnableOption "Enable soft-serve, a tasty, self-hostable Git server for the command line.";
-    package = mkOption { type = types.package; default = pkgs.soft-serve; };
+    package = mkOption {
+      type = types.package;
+      default = pkgs.soft-serve-relative-binary-path-in-hooks;
+    };
     bind = mkOption { type = bindModule; default = {}; };
     display = mkOption { type = displayModule; description = "Information to be displayed in the TUI"; };
     hostKey = mkOption {
@@ -190,7 +193,13 @@ in {
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
       environment.SOFT_SERVE_DATA_PATH = cfg.dataDirectory;
-      path = [ pkgs.bash ];
+      path = [
+        pkgs.bash
+        # WARN: `soft` creates hooks with hard-coded absolute paths by default, that is not what we
+        # want when the absolute path is inside the nix store as it eventually gets garbage
+        # collected.
+        cfg.package
+      ];
       serviceConfig = rec {
         User = config.users.users.softserve.name;
         Group = config.users.groups.softserve.name;
