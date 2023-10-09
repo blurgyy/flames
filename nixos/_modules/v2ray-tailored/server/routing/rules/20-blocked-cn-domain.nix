@@ -1,4 +1,4 @@
 {
   domain = [ "geosite:cn" ];
-  outboundTag = "blocked-bt";
+  outboundTag = "blocked-cn";
 }
