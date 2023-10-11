@@ -26,6 +26,7 @@ let
     xplr
     (python3.withPackages (p: with p; [
       click
+      einops
       h5py
       icecream
       ipdb
