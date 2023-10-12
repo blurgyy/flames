@@ -1,4 +1,4 @@
 {
-  domain = [ "geoip:cn" ];
+  ip = [ "geoip:cn" ];
   outboundTag = "blocked-cn";
 }
