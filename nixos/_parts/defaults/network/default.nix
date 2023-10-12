@@ -1,6 +1,5 @@
 { config, ... }: {
   imports = [
-    ./dns
     ./tailscale.nix
   ];
 

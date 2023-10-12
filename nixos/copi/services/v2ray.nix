@@ -3,7 +3,6 @@
     "v2ray/users/reverse/uuid" = {};
   };
   imports = [
-    ../../_parts/vclient.nix
     ../../_parts/vserver.nix
   ];
   services.v2ray-tailored = {

@@ -1,5 +1,7 @@
 { ... }: {
-  imports = [];
+  imports = [
+    ./v2ray.nix
+  ];
 
   services.curltimesync = {
     enable = true;
