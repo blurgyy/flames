@@ -11,6 +11,7 @@
     "v2ray/domains/jp-00" = {};
     "v2ray/domains/us-00" = {};
     "v2ray/domains/wss-eu-00" = {};
+    "v2ray/domains/wss-eu-01" = {};
     "v2ray/addresses/cn-00" = {};
     "v2ray/addresses/eu-00" = {};
     "v2ray/addresses/eu-01" = {};
