@@ -223,7 +223,7 @@ in {
   services = {
     locate = {
       enable = true;
-      locate = pkgs.plocate;
+      package = pkgs.plocate;
       # mlocate and plocate do not support the services.locate.localuser option. updatedb will run
       # as root.  Silence this warning by setting services.locate.localuser = null
       localuser = null;
