@@ -1,6 +1,5 @@
 {
   domain = [
-    "cwcx.zju.edu.cn"
     "imap.zju.edu.cn"
     "mail.zju.edu.cn"
     "mirrors.zju.edu.cn"
@@ -11,7 +10,6 @@
     "tracker.nexushd.org"
   ];
   domain_suffix = [
-    ".cwcx.zju.edu.cn"
     ".imap.zju.edu.cn"
     ".mail.zju.edu.cn"
     ".mirrors.zju.edu.cn"
