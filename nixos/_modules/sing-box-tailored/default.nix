@@ -6,6 +6,9 @@ let
   cfg = config.services.sing-box;
   tunCidr = "169.254.169.0/31";
   tunDnsAddress = "169.254.169.1";
+  zjuConditionalOutbound = if cfg.needProxyForZju
+    then "auto-cn"
+    else "direct-zju-internal";
 in
 
 let
@@ -21,7 +24,7 @@ let
 
     else
       let
-        args = (intersectAttrs (functionArgs f) { inherit config lib; }) // overrides;
+        args = (intersectAttrs (functionArgs f) { inherit config lib; inherit zjuConditionalOutbound; }) // overrides;
       in f args;
   applyTagWithOverrides = overrides: path: {
     tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
