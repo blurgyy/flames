@@ -11,8 +11,8 @@
       };
     };
     server.services = {
-      http-proxy-copy = {
-        port = 1990;
+      mixed-proxy-from-copi = {
+        port = 1988;
         expose = false;
       };
       http-socks-proxy = {

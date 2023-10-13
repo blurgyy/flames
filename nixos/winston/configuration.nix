@@ -41,9 +41,9 @@
     pkgs.python3Packages.gpustat
   ];
 
-  systemd.services.nix-daemon.environment = {
-    http_proxy = "http://${config.networking.hostName}:1990";
-    https_proxy = "http://${config.networking.hostName}:1990";
+  systemd.services.nix-daemon.environment = rec {
+    http_proxy = "http://127.1:${toString config.services.ssh-reverse-proxy.server.services.mixed-proxy-from-copi.port}";
+    https_proxy = http_proxy;
   };
 
   services = {
