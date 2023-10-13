@@ -2,11 +2,11 @@
   listenPort = 31727;
 in {
   sops.secrets = {
-    clash-header.restartUnits = [ "rules-server.service" ];
-    clash-uuids.restartUnits = [ "rules-server.service" ];
+    clash-header.restartUnits = [ "rules-server-clash.service" ];
+    proxy-client-uuids.restartUnits = [ "rules-server-clash.service" ];
   };
 
-  systemd.services.rules-server = rec {
+  systemd.services.rules-server-clash = rec {
     wantedBy = [ "multi-user.target" ];
     preStart = ''
       cd /run/${serviceConfig.RuntimeDirectory}
@@ -21,18 +21,16 @@ in {
         -d /run/${serviceConfig.RuntimeDirectory} \
         -p ${toString listenPort} \
         -c "/clash" \
-        -l /var/log/${serviceConfig.LogsDirectory}/rules-server.log \
         -D
     '';
     serviceConfig = {
       DynamicUser = true;
       LoadCredential = [
         "header.yaml:${config.sops.secrets.clash-header.path}"
-        "uuids:${config.sops.secrets.clash-uuids.path}"
+        "uuids:${config.sops.secrets.proxy-client-uuids.path}"
       ];
-      RuntimeDirectory = "rules-server";
+      RuntimeDirectory = "rules-server-clash";
       RuntimeDirectoryMode = "0700";
-      LogsDirectory = "rules-server";
       LogsDirectoryMode = "0700";
       Restart = "always";
       RestartSec = 5;
@@ -41,9 +39,9 @@ in {
 
   services.haproxy-tailored = {
     frontends.tls-offload-front.backends = [
-      { name = "rules-server"; condition = "if { path_beg /clash/ }"; }
+      { name = "rules-server-clash"; condition = "if { path_beg /clash/ }"; }
     ];
-    backends.rules-server = {
+    backends.rules-server-clash = {
       mode = "http";
       server.address = "127.0.0.1:${toString listenPort}";
     };
