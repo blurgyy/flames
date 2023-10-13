@@ -38,17 +38,7 @@ in apply "gy" {
   "copi" = aarch64-headless;
 
   "winston" = x86_64-non-headless // { proxy = labProxy; };
-  "meda" = x86_64-headless // {
-    proxy = {
-      addr = "localhost";
-      port = "9990";
-      ignore = [
-        "localhost"
-        "127.0.0.1"
-        "::1"
-      ];
-    };
-  };
+  "meda" = x86_64-headless;
 
   # set IP of winston in hosts
   "cadliu" = x86_64-headless // { proxy = labProxy; };

@@ -25,11 +25,4 @@ in
       }];
     };
   };
-
-  systemd.services.nix-daemon.environment = let
-    port = 9990;
-  in {
-    http_proxy = "http://localhost:${toString port}";
-    https_proxy = "http://localhost:${toString port}";
-  };
 }
