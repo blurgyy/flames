@@ -1,4 +1,4 @@
-{ source, lib, vimUtils }: vimUtils.buildVimPluginFrom2Nix {
+{ source, lib, vimUtils }: vimUtils.buildVimPlugin {
   inherit (source) pname version src;
   meta = {
     homepage = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";

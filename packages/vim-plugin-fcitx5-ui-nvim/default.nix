@@ -11,7 +11,7 @@
       license = lib.licenses.asl20;
     };
   };
-in vimUtils.buildVimPluginFrom2Nix {
+in vimUtils.buildVimPlugin {
   inherit (source) pname version src;
   propagatedBuildInputs = [ lua51Packages.lgi dbus_proxy ];
   postPatch = let
