@@ -14,6 +14,11 @@ with lib;
       description = "An (almost) always-online website to request using curl";
       example = "google.com";
     };
+    intervalSec = mkOption {
+      type = types.int;
+      description = "Check for time update this many seconds";
+      default = 30;
+    };
     toleranceSec = mkOption {
       type = types.int;
       description = ''
@@ -60,8 +65,8 @@ with lib;
     systemd.timers.curltimesync-trigger = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
-        OnBootSec = "60s";
-        OnUnitInactiveSec = "180s";
+        OnBootSec = "${toString (cfg.intervalSec / 3)}s";
+        OnUnitInactiveSec = "${toString cfg.intervalSec}s";
         Persistent = true;
         Unit = "curltimesync.service";
       };
