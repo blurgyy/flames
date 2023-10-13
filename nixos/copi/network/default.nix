@@ -1,11 +1,14 @@
 { ... }: {
   imports = [
-    ../../_parts/vclient.nix
+    ../../_parts/proxy-client-secrets.nix
     ./rp.nix
     ./wlan.nix
   ];
 
-  services.dcompass.enable = true;
+  services.sing-box = {
+    enableTailored = true;
+    needProxyForZju = false;
+  };
 
   systemd.network.wait-online.extraArgs = [ "--interface=wlan0" ];
 }

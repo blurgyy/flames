@@ -1,9 +1,12 @@
 { ... }: {
   imports = [
-    ../../_parts/vclient.nix
+    ../../_parts/proxy-client-secrets.nix
     ./cable.nix
     ./rp.nix
   ];
 
-  services.dcompass.enable = true;
+  services.sing-box = {
+    enableTailored = true;
+    needProxyForZju = false;
+  };
 }
