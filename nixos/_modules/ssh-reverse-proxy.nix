@@ -69,6 +69,7 @@ in with lib; {
       services = mkOption {
         type = with types; attrsOf remoteServiceModule;
         default = {};
+        description = "Used to configure firewall in case any forwared port needs to be exposed";
       };
       extraKnownHosts = mkOption {
         type = with types; listOf str;
