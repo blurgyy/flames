@@ -15,11 +15,6 @@ in
       type = types.str;
       default = "singboxtun0";
     };
-    needProxyForZju = mkOption {
-      type = types.bool;
-      default = null;
-      description = "Determines which route to use for ZJU internal networks";
-    };
   };
 
   config = mkIf cfg.preConfigure {

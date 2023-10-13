@@ -8,6 +8,5 @@
   services.sing-box = {
     enable = true;
     preConfigure = true;
-    needProxyForZju = false;
   };
 }
