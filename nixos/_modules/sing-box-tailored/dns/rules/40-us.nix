@@ -1,5 +1,5 @@
 {
-  outbound = "auto-us";
+  geosite = "us";
   server = "cloudflare-us";
   disable_cache = true;
 }

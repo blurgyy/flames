@@ -4,6 +4,31 @@
 }:
 
 let
+  filterMapDir = f: siftFn: path: with builtins;
+    map f
+      (map
+        (subPath: "${path}/${subPath}")
+        (filter
+          siftFn
+          (attrNames (readDir path))));
+
+  mapDir = f: path: filterMapDir f (_: true) path;
+
+  # filename stem, e.g. `path/to/file.ext`'s stem is `file`
+  stemOfFile = path: with lib;
+    let
+      basename = baseNameOf (toString path);
+      suffixWithoutDot = last (splitString "." basename);
+    in
+      builtins.unsafeDiscardStringContext (removeSuffix ".${suffixWithoutDot}" basename);
+in
+
+let
+  rules = lib.listToAttrs
+    (mapDir
+      (path: { name = stemOfFile path; value = call path {}; })
+      ./_rules);
+
   call = path: overrides:
     with builtins;
 
@@ -16,22 +41,20 @@ let
 
     else
       let
-        args = (intersectAttrs (functionArgs f) { inherit config lib; }) // overrides;
+        args = (
+          intersectAttrs
+            (functionArgs f)
+            {
+              inherit config lib;
+              inherit mapDir applyTagWithOverrides call;
+              inherit rules;
+            }
+          ) // overrides;
       in f args;
 
   applyTagWithOverrides = overrides: path: {
-    tag = with lib; strings.removeSuffix ".nix" (lists.last (splitString "/" path));
+    tag = stemOfFile path;
   } // (call path overrides);
-
-  filterMapDir = f: siftFn: path: with builtins;
-    map f
-      (map
-        (subPath: "${path}/${subPath}")
-        (filter
-          siftFn
-          (attrNames (readDir path))));
-
-  mapDir = f: path: filterMapDir f (_: true) path;
 in
 
 {
@@ -40,7 +63,7 @@ in
     timestamp = false;  # journald already handles that
   };
 
-  dns = import ./dns { inherit mapDir applyTagWithOverrides; };
+  dns = call ./dns {};
 
   outbounds = import ./outbounds { inherit mapDir applyTagWithOverrides; };
 

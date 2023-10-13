@@ -1,8 +1,6 @@
-{
-  outbound = [
-    "direct-cndomain"
-    "direct-custom"
-  ];
+{ rules }:
+
+rules.cndomain // {
   server = "alidns";
   disable_cache = true;
 }
