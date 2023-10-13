@@ -21,24 +21,27 @@ in
     };
   };
 
-  config = mkIf cfg.preConfigure {
-    services.resolved.enable = false;
-    networking.resolvconf.extraConfig = ''
-      name_servers=${tunDnsAddress}
-    '';
-    systemd.network.networks."50-sing-box" = {  # Configs adapted from /etc/systemd/network/50-tailscale.network
-      matchConfig.Name = cfg.tunInterface;
-      linkConfig = {  
-        ActivationPolicy = "manual";
-        Unmanaged = true;
+  config = mkMerge [
+    (mkIf cfg.preConfigure {  # generate settings
+      services.sing-box.settings = import ./settings.nix {
+        inherit config lib cfg;
+        inherit tunCidr;
       };
-    };
+    })
 
-    services.sing-box.settings = import ./settings.nix {
-      inherit config lib cfg;
-      inherit tunCidr;
-    };
-
-    systemd.services.sing-box.serviceConfig.LogNamespace = "noisy";
-  };
+    (mkIf cfg.enable {
+      services.resolved.enable = false;
+      networking.resolvconf.extraConfig = ''
+        name_servers=${tunDnsAddress}
+      '';
+      systemd.network.networks."50-sing-box" = {  # Configs adapted from /etc/systemd/network/50-tailscale.network
+        matchConfig.Name = cfg.tunInterface;
+        linkConfig = {  
+          ActivationPolicy = "manual";
+          Unmanaged = true;
+        };
+      };
+      systemd.services.sing-box.serviceConfig.LogNamespace = "noisy";
+    })
+  ];
 }

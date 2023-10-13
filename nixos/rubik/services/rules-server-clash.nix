@@ -1,6 +1,10 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, ... }:
+
+let
   listenPort = 31727;
-in {
+in
+
+{
   sops.secrets = {
     clash-header.restartUnits = [ "rules-server-clash.service" ];
     proxy-client-uuids.restartUnits = [ "rules-server-clash.service" ];
@@ -31,7 +35,6 @@ in {
       ];
       RuntimeDirectory = "rules-server-clash";
       RuntimeDirectoryMode = "0700";
-      LogsDirectoryMode = "0700";
       Restart = "always";
       RestartSec = 5;
     };
