@@ -4,7 +4,7 @@
     ./mediaserver.nix
     ./ntfy.nix
     ./router-page.nix
-    ./rules-server.nix
+    ./rules-server-clash.nix
     ./v2ray.nix
   ];
   sops.secrets.acme-credentials-file = { owner = config.users.users.haproxy.name; };
