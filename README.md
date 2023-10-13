@@ -389,3 +389,8 @@ Trouble Shooting
 
 * To show current total GPU memory, use `sudo vcgencmd get_mem gpu`, where `vcgencmd` is from
   package `libraspberrypi`.
+
+* Tailscale's [MagicDNS](https://tailscale.com/kb/1081/magicdns/) returns SERVFAIL for any
+  unrecognized domain, only domains that starts with a configured hostname in [Tailscale's admin
+  panel](https://login.tailscale.com/admin/machines) and end with the configured tailnet name (by
+  default it has the form `.tailXXXXX.ts.net`).
