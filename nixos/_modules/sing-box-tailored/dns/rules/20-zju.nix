@@ -1,8 +1,6 @@
 {
   outbound = [
-    "auto-cn"
-    "direct-zju"
-    "direct-zju-internal"
+    "auto-zju"
   ];
   server = "zju";
   disable_cache = false;

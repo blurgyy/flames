@@ -1,5 +1,3 @@
-{ zjuConditionalOutbound, ... }:
-
 {
   domain_keyword = [
     "cc98"
@@ -12,5 +10,5 @@
     "10.189.128.0/7"  # ZJUWLAN
     "10.76.0.0/21"    # CAD cable
   ];
-  outbound = zjuConditionalOutbound;
+  outbound = "auto-zju";
 }

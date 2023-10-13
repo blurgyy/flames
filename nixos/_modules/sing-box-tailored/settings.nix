@@ -1,7 +1,6 @@
 { config, lib
 , cfg
 , tunCidr
-, zjuConditionalOutbound
 }:
 
 let
@@ -17,7 +16,7 @@ let
 
     else
       let
-        args = (intersectAttrs (functionArgs f) { inherit config lib; inherit zjuConditionalOutbound; }) // overrides;
+        args = (intersectAttrs (functionArgs f) { inherit config lib; }) // overrides;
       in f args;
 
   applyTagWithOverrides = overrides: path: {

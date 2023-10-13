@@ -6,9 +6,6 @@ let
   cfg = config.services.sing-box;
   tunCidr = "169.254.169.0/31";
   tunDnsAddress = "169.254.169.1";
-  zjuConditionalOutbound = if cfg.needProxyForZju
-    then "auto-cn"
-    else "direct-zju-internal";
 in
 
 {
@@ -40,7 +37,7 @@ in
 
     services.sing-box.enable = mkForce true;
     services.sing-box.settings = import ./settings.nix {
-      inherit config lib cfg tunCidr zjuConditionalOutbound;
+      inherit config lib cfg tunCidr;
     };
 
     systemd.services.sing-box.serviceConfig.LogNamespace = "noisy";
