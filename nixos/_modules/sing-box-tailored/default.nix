@@ -10,7 +10,7 @@ in
 
 {
   options.services.sing-box = {
-    enableTailored = mkEnableOption "Enable a set of predefined configs";
+    preConfigure = mkEnableOption "Enable a set of predefined configs";
     tunInterface = mkOption {
       type = types.str;
       default = "singboxtun0";
@@ -22,7 +22,7 @@ in
     };
   };
 
-  config = mkIf cfg.enableTailored {
+  config = mkIf cfg.preConfigure {
     services.resolved.enable = false;
     networking.resolvconf.extraConfig = ''
       name_servers=${tunDnsAddress}
@@ -35,7 +35,6 @@ in
       };
     };
 
-    services.sing-box.enable = mkForce true;
     services.sing-box.settings = import ./settings.nix {
       inherit config lib cfg tunCidr;
     };

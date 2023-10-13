@@ -5,7 +5,8 @@
   ];
 
   services.sing-box = {
-    enableTailored = true;
+    enable = true;
+    preConfigure = true;
     needProxyForZju = true;
   };
 }
