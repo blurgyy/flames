@@ -1,0 +1,31 @@
+#!/bin/sh
+
+cat_bin="@cat@"
+cut_bin="@cut@"
+grep_bin="@grep@"
+sed_bin="@sed@"
+uuidgen_bin="@uuidgen@"
+
+# WARN: put this before any command that prints stuff so that printed content can appear
+echo "Content-Type: text/plain"
+echo  # WARN: mandatory empty line after HTTP header
+
+uuid_path=./uuids
+template_path=./template.json
+placeholder_path=/proc/sys/kernel/random/boot_id
+
+if [[ -z "$PATH_INFO" ]]; then
+  echo "specify something after the slash!"
+  exit
+fi
+
+username="$(echo "$PATH_INFO" | "$cut_bin" -d/ -f2 | "$cut_bin" -d. -f1)"
+if [[ -e "$uuid_path" ]] && "$grep_bin" -q "^$username=" "$uuid_path"; then
+  uuid="$("$grep_bin" "^$username=" "$uuid_path" | "$cut_bin" -d= -f2)"
+else
+  uuid=$("$uuidgen_bin")
+fi
+
+placeholder=$("$cat_bin" $placeholder_path)
+
+"$sed_bin" -Ee "s/$placeholder/$uuid/" "$template_path"

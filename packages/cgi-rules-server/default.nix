@@ -19,7 +19,9 @@
 
   buildCommand = ''
     mkdir -p $out/bin
-    install -Dvm555 ${./clash} $out/bin/clash
+    install -Dvm555 ${./src/clash} $out/bin/clash
+    install -Dvm555 ${./src/sing-box} $out/bin/sing-box
     substituteAllInPlace $out/bin/clash
+    substituteAllInPlace $out/bin/sing-box
   '';
 }

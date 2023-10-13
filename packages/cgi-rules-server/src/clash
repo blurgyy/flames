@@ -12,9 +12,9 @@ uuidgen_bin="@uuidgen@"
 #   * ./header.yaml exists
 #   * ./rules.yaml exists
 #   * ./uuids exists
-header_file=./header.yaml
-rules_file=./generated.yaml
-uuid_file=./uuids
+header_path=./header.yaml
+rules_path=./generated.yaml
+uuid_path=./uuids
 
 
 echo "Content-Type: text/plain"
@@ -26,23 +26,23 @@ if [[ -z "$PATH_INFO" ]]; then
 fi
 
 username="$(echo "$PATH_INFO" | "$cut_bin" -d/ -f2 | "$cut_bin" -d. -f1)"
-if [[ -e "$uuid_file" ]] && "$grep_bin" -q "^$username=" "$uuid_file"; then
-  uuid="$("$grep_bin" "^$username=" "$uuid_file" | "$cut_bin" -d= -f2)"
+if [[ -e "$uuid_path" ]] && "$grep_bin" -q "^$username=" "$uuid_path"; then
+  uuid="$("$grep_bin" "^$username=" "$uuid_path" | "$cut_bin" -d= -f2)"
 else
   uuid=$("$uuidgen_bin")
 fi
 
 echo "# Header begins"
-if [[ -e "$header_file" ]]; then
-  "$sed_bin" -Ee "s/@@uuid@@/$uuid/g" "$header_file"
+if [[ -e "$header_path" ]]; then
+  "$sed_bin" -Ee "s/@@uuid@@/$uuid/g" "$header_path"
 else
   echo "empty header"
 fi
 echo "# Header ends"
 echo
 echo "# Content begins"
-if [[ -e "$rules_file" ]]; then
-  "$cat_bin" "$rules_file"
+if [[ -e "$rules_path" ]]; then
+  "$cat_bin" "$rules_path"
 else
   echo "empty rules"
 fi
