@@ -1,9 +1,9 @@
-{ config }: {
+{ config, secretPath }: {
   type = "vmess";
   # use domain as server for wss outbound
   server._secret = config.sops.secrets."v2ray/domains/wss-eu-01".path;
   server_port = 443;
-  uuid._secret = config.sops.secrets."v2ray/id".path;
+  uuid._secret = secretPath;
   security = "none";
   tls = {
     enabled = true;

@@ -11,6 +11,10 @@ in
 {
   options.services.sing-box = {
     preConfigure = mkEnableOption "Enable a set of predefined configs";
+    secretPath = mkOption {
+      type = types.str;
+      description = "Path to the user secret for proxy server authentication";
+    };
     tunInterface = mkOption {
       type = types.str;
       default = "singboxtun0";
@@ -31,7 +35,8 @@ in
     };
 
     services.sing-box.settings = import ./settings.nix {
-      inherit config lib cfg tunCidr;
+      inherit config lib cfg;
+      inherit tunCidr;
     };
 
     systemd.services.sing-box.serviceConfig.LogNamespace = "noisy";

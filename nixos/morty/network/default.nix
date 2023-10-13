@@ -1,14 +1,9 @@
 { pkgs, ... }: {
   imports = [
-    ../../_parts/proxy-client-secrets.nix
+    ../../_parts/sing-box.nix
     ./rp.nix
     ./wlan.nix
   ];
-
-  services.sing-box = {
-    enable = true;
-    preConfigure = true;
-  };
 
   systemd.network.wait-online.extraArgs = [ "--interface=wlan0" ];
 

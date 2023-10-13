@@ -48,6 +48,7 @@ let
               inherit config lib;
               inherit mapDir applyTagWithOverrides call;
               inherit rules;
+              inherit (cfg) secretPath;
             }
           ) // overrides;
       in f args;
@@ -65,9 +66,9 @@ in
 
   dns = call ./dns {};
 
-  outbounds = import ./outbounds { inherit mapDir applyTagWithOverrides; };
+  outbounds = call ./outbounds {};
 
-  route = import ./route { inherit mapDir call; };
+  route = call ./route {};
 
   inbounds = [{
     type = "mixed";

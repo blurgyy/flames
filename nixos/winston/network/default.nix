@@ -1,12 +1,7 @@
 { ... }: {
   imports = [
-    ../../_parts/proxy-client-secrets.nix
+    ../../_parts/sing-box.nix
     ./cable.nix
     ./rp.nix
   ];
-
-  services.sing-box = {
-    enable = true;
-    preConfigure = true;
-  };
 }
