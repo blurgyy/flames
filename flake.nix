@@ -76,24 +76,6 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    hyprland = {
-      url = "https://github.com/hyprwm/hyprland";
-      flake = true;
-      type = "git";
-      submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hypr-msg-handler = {
-      url = "gitlab:highsunz/hypr-msg-handler";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     tex2nix = {
       url = "github:Mic92/tex2nix";
       inputs = {
@@ -119,6 +101,7 @@
 
     adrivems.url = "gitlab:highsunz/aliyundrive-mediaserver";
     dcompass.url = "github:compassd/dcompass";
+    hypr-msg-handler.url = "gitlab:highsunz/hypr-msg-handler";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
 
@@ -140,7 +123,7 @@
   in
 
   flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
-    pkgs = import nixpkgs rec {
+    pkgs = import nixpkgs {
       inherit system;
       config.allowUnfree = true;
       config.allowUnsupportedSystem = true;

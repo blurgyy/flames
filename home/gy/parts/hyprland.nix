@@ -4,9 +4,8 @@
 in {
   enable = true;
   package = pkgs.hyprland-XDG_CURRENT_DESKTOP-sway;
-  systemdIntegration = true;
+  systemd.enable = true;
   xwayland.enable = true;
-  recommendedEnvironment = true;
   extraConfig = let
     topprg = lib.getExe pkgs.btop;
     hypr-execonce-helper = "${pkgs.hypr-execonce-helper}";
