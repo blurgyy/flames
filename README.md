@@ -394,3 +394,14 @@ Trouble Shooting
   unrecognized domain, only domains that starts with a configured hostname in [Tailscale's admin
   panel](https://login.tailscale.com/admin/machines) and end with the configured tailnet name (by
   default it has the form `.tailXXXXX.ts.net`).
+
+* On WSL2, if directly opening a terminal in a Windows Terminal (`wt`) tab, using `systemctl --user`
+  for user-scope service management might give an error:
+
+    Failed to connect to bus: No such file or directory.
+
+  In this case, run:
+
+  ```bash
+  $ systemctl --system restart user@1000.service  # assume the user's id is 1000
+  ```
