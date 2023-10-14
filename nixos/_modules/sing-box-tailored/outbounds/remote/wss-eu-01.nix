@@ -9,4 +9,8 @@
     enabled = true;
     server_name._secret = config.sops.secrets."v2ray/domains/wss-eu-01".path;
   };
+  transport = {
+    type = "ws";
+    path = config.sops.secrets."v2ray/ws-path".path;
+  };
 }
