@@ -5,7 +5,13 @@
 
   wsl = {
     enable = true;
-    wslConf.automount.root = "/mnt";
+    wslConf = {
+      automount.root = "/mnt";
+      network = {
+        generateResolvConf = false;  # do not use WSL-generated resolv.conf if DNS is self-managed
+        generateHosts = false;
+      };
+    };
     defaultUser = "gy";
     startMenuLaunchers = true;
   };
