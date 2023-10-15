@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -41,7 +41,12 @@ in
           Unmanaged = true;
         };
       };
-      systemd.services.sing-box.serviceConfig.LogNamespace = "noisy";
+      systemd.services.sing-box.serviceConfig = {
+        ExecStartPre = mkAfter [
+          "${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
+        ];
+        LogNamespace = "noisy";
+      };
     })
   ];
 }

@@ -42,6 +42,7 @@ in
       cp ${pkgs.cgi-rules-server}/bin/sing-box .
       ${utils.genJqSecretsReplacementSnippet config.services.sing-box.settings "/tmp/template.json"}
       jq 'del(.route.geoip) | del(.route.geosite)' /tmp/template.json >template.json
+      ${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src template.json
       rm /tmp/template.json
       cp $CREDENTIALS_DIRECTORY/uuids uuids
       chmod 644 uuids

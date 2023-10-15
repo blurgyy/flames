@@ -17,7 +17,7 @@ in
       cp ${pkgs.cgi-rules-server}/bin/clash .
       ln -sf $CREDENTIALS_DIRECTORY/header.yaml
       ln -sf $CREDENTIALS_DIRECTORY/uuids
-      ln -sf ${pkgs.clash-rules}/clash/generated.yaml
+      ln -sf ${pkgs.proxy-rules}/clash/generated.yaml
     '';
     path = [ pkgs.thttpd ];
     script = ''

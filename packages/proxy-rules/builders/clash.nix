@@ -2,7 +2,12 @@
 
 writeShellScript "build-clash-rules" ''
   # Includes custom blocking rules, advertisements and Windows telemetry
-  cat ${../custom-rules/00-blocked.txt} \
+  cat ${../custom-rules/10-blocked-ip.txt} \
+    | sed '/^\s*$/d' \
+    | sed '/:/d' \
+    | sed 's/^/  - IP-CIDR,/' \
+    | sed 's/$/,REJECT/' >>$TMPDIR/blocked.rules
+  cat ${../custom-rules/10-blocked-domain.txt} \
     | sed '/^\s*$/d' \
     | sed '/:/d' \
     | sed 's/^/  - DOMAIN-SUFFIX,/' \
@@ -16,22 +21,22 @@ writeShellScript "build-clash-rules" ''
       | sed 's/$/,REJECT/' >>$TMPDIR/blocked.rules
 
   # zju
-  cat ${../custom-rules/10-zju-direct-domain-suffix.txt} \
+  cat ${../custom-rules/20-zjudirect-domain-suffix.txt} \
     | sed '/^\s*$/d' \
     | sed '/:/d' \
     | sed 's/^/  - DOMAIN-SUFFIX,/' \
     | sed 's/$/,DIRECT/' >>$TMPDIR/zju.rules
-  cat ${../custom-rules/20-zju-domain-keyword.txt} \
+  cat ${../custom-rules/25-zju-domain-keyword.txt} \
     | sed '/^\s*$/d' \
     | sed '/:/d' \
     | sed 's/^/  - DOMAIN-KEYWORD,/' \
     | sed 's/$/,ZJU/' >>$TMPDIR/zju.rules
-  cat ${../custom-rules/20-zju-domain-suffix.txt} \
+  cat ${../custom-rules/25-zju-domain.txt} \
     | sed '/^\s*$/d' \
     | sed '/:/d' \
     | sed 's/^/  - DOMAIN-SUFFIX,/' \
     | sed 's/$/,ZJU/' >>$TMPDIR/zju.rules
-  cat ${../custom-rules/20-zju-ip.txt} \
+  cat ${../custom-rules/25-zju-ip.txt} \
     | sed '/^\s*$/d' \
     | sed '/:/d' \
     | sed 's/^/  - IP-CIDR,/' \
@@ -40,7 +45,7 @@ writeShellScript "build-clash-rules" ''
   # Includes custom and external direct rules, and Windows update domains
   echo "  - GEOIP,CN,DIRECT,no-resolve" >$TMPDIR/direct.rules
   echo "  - GEOIP,PRIVATE,DIRECT,no-resolve" >>$TMPDIR/direct.rules
-  cat ${../custom-rules/30-direct.txt} \
+  cat ${../custom-rules/30-direct-domain.txt} \
     ${rulesSrc}/direct-tld-list.txt \
     ${rulesSrc}/direct-list.txt \
     ${rulesSrc}/win-update.txt \

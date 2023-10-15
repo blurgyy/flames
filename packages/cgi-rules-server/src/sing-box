@@ -28,4 +28,4 @@ fi
 
 placeholder=$("$cat_bin" $placeholder_path)
 
-"$sed_bin" -Ee "s/$placeholder/$uuid/" "$template_path"
+"$sed_bin" -Ee "s/$placeholder/$uuid/g" "$template_path"
