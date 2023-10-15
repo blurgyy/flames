@@ -1,5 +1,5 @@
 {
-  "geoip" = [
+  geoip = [
     "cn"
   ];
   outbound = "direct-cnip";
