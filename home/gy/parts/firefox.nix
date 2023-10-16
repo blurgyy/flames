@@ -37,6 +37,12 @@
         "browser.shell.checkDefaultBrowser" = false;
         "browser.startup.homepage" = "https://github.com/";
         "browser.toolbars.bookmarks.visibility" = "newtab";
+
+        "browser.urlbar.suggest.searches" = true;
+        "browser.urlbar.showSearchSuggestionsFirst" = false;
+        "browser.search.suggest.enabled" = true;
+        "browser.search.suggest.enabled.private" = false;
+
         "browser.warnOnQuitShortcut" = false;
         "fission.autostart" = true;
         "layout.css.overflow-overlay.enabled" = true;  # for the plugin "Bing Chat for All Browsers" <https://github.com/anaclumos/bing-chat-for-all-browsers#firefox>
