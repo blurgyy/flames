@@ -40,9 +40,12 @@
   # services.xserver.libinput.enable = true;
 
   # NoteBook FanControl: <https://github.com/nbfc-linux/nbfc-linux>
-  environment.etc."nbfc/nbfc.json" = {
-    text = ''{"SelectedConfigId": "HP Omen 15-dc00xxxx", "TargetFanSpeeds": [-1]}'';
-    mode = "0644";
+  environment = {
+    etc."nbfc/nbfc.json" = {
+      text = ''{"SelectedConfigId": "HP Omen 15-dc00xxxx", "TargetFanSpeeds": [-1]}'';
+      mode = "0644";
+    };
+    systemPackages = [ pkgs.zjuwlan-login-script ];
   };
   systemd = {
     packages = with pkgs; [ plocate ];
