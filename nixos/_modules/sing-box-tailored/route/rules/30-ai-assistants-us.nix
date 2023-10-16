@@ -1,6 +1,6 @@
 {
   domain_keyword = [
-    "bard"
+    "google"
     "openai"
   ];
   outbound = "auto-us";
