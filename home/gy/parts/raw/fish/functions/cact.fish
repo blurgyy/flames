@@ -3,12 +3,8 @@ function __conda_envset
   if set -q fish_history
     set -gx old_fish_history "$fish_history"
   end
-  if set -q LD_LIBRARY_PATH
-    set -gx old_LD_LIBRARY_PATH "$LD_LIBRARY_PATH"
-  end
   set -l invalid_chars '/|-|\.|@|#|%'
   set -gx fish_history "condaenv_$(string replace --all --regex -- "$invalid_chars" _ "$argv[1]")"
-  set -gx LD_LIBRARY_PATH "$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
   # remove from global function space
   functions --erase __conda_envset
 end

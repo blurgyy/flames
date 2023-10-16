@@ -7,12 +7,6 @@ function __conda_envunset
   else
     set -e fish_history
   end
-  if set -q old_LD_LIBRARY_PATH
-    set -gx LD_LIBRARY_PATH "$old_LD_LIBRARY_PATH"
-    set -e old_LD_LIBRARY_PATH
-  else
-    set -e LD_LIBRARY_PATH
-  end
   # remove from global function space
   functions --erase __conda_envunset
 end
