@@ -51,6 +51,7 @@ cmap.alibaba.com
 cmpassport.com
 cmweb.ilike.alibaba.com
 colorfulclouds.net
+cpatrk.net
 czbank.com
 detectportal.firefox.com
 dingtalk.com
@@ -58,6 +59,7 @@ dmtracking.alibaba.com
 dmtracking2.alibaba.com
 download.amd.com
 drivers.amd.com
+dutils.com
 ele.me
 ericfu.me
 gepush.com
@@ -67,6 +69,7 @@ getui.vip
 haidilao.com
 harrychen.xyz
 hdslb.com
+httpdns.pro
 huazhiedu.com
 huiyingzimu.com
 hwwt8.com
@@ -81,6 +84,7 @@ kiwa-tech.com
 location.services.mozilla.com
 meituan.com
 meituan.net
+mob.com
 myqcloud.com
 mzstatic.com
 netease.com
@@ -116,6 +120,7 @@ weico.com
 weicot.com
 weixinbridge.com
 welcrm.com
+wshttpdns.com
 xhscdn.com
 xhscdn.net
 xiaohongshu.com
