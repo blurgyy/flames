@@ -29,6 +29,10 @@
         port = 10025;
         expose = true;
       };
+      ssh-mono = {
+        port = 20497;
+        expose = true;
+      };
 
       acremote-rpi = {
         port = 21607;

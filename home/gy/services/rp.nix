@@ -1,4 +1,4 @@
-{ hostName, config, lib, pkgs, ... }: let
+{ hostName, config, lib, ... }: let
   envDir = "${config.xdg.configHome}/sshrp";
 in {
   sops.secrets = {
@@ -20,6 +20,14 @@ in {
     "sshrp/ssh-shared-via-peterpan-env" = lib.mkIf (hostName == "cad-liu") {
       path = "${envDir}/ssh-shared-via-peterpan-env";
     };
+
+    # mono
+    "sshrp/ssh-mono-via-winston-env" = lib.mkIf (hostName == "mono") {
+      path = "${envDir}/ssh-mono-via-winston-env";
+    };
+    "sshrp/ssh-mono-via-peterpan-env" = lib.mkIf (hostName == "mono") {
+      path = "${envDir}/ssh-mono-via-peterpan-env";
+    };
   };
 
   services.ssh-reverse-proxy = let
@@ -30,7 +38,7 @@ in {
       } // extraOpts;
     mkInstances = instances: builtins.mapAttrs _mkInstance instances;
     cfgs = {
-      "cadliu" = mkInstances {
+      cadliu = mkInstances {
         ssh-2x1080ti-via-winston = {
           bindPort = 13815;
           hostPort = 22222;
@@ -45,7 +53,7 @@ in {
           hostPort = 22222;
         };
       };
-      "cad-liu" = mkInstances {
+      cad-liu = mkInstances {
         ssh-shared-via-winston = {
           bindPort = 22548;
           hostPort = 22222;
@@ -53,6 +61,16 @@ in {
         ssh-shared-via-peterpan = {
           bindPort = 10025;
           hostPort = 22222;
+        };
+      };
+      mono = mkInstances {
+        ssh-mono-via-winston = {
+          bindPort = 17266;
+          hostPort = 22;
+        };
+        ssh-mono-via-peterpan = {
+          bindPort = 20497;
+          hostPort = 22;
         };
       };
     };

@@ -27,6 +27,7 @@
     opi-relay = { hostname = relay; port = 6229; };
     "2x1080ti-relay" = { hostname = relay; port = 10023; };
     shared-relay = { hostname = relay; port = 10025; };
+    mono-relay = { hostname = relay; port = 20497; };
 
     apply = hostnames: map (hostname: {
         ${hostname} = {
@@ -41,6 +42,7 @@
     "cube"
     "hooper"
     "meda"
+    "mono"
     "morty"
     "opi"
     "penta"
@@ -49,8 +51,10 @@
     "rpi"
     "rubik"
     "winston"
-  ])) // {
-    inherit morty-relay winston-relay rpi-relay copi-relay opi-relay "2x1080ti-relay" shared-relay;
+  ])) // rec {
+    inherit morty-relay winston-relay;
+    inherit rpi-relay copi-relay opi-relay;
+    inherit "2x1080ti-relay" shared-relay mono-relay;
 
     # # Subnet routes via winston. use with `tailscale up --advertise-routes=10.76.0.0/21` on winston
     # # and `tailscale up --accept-routes` on client machines.
@@ -96,6 +100,15 @@
       extraOptions.
         RemoteForward = "/run/user/1001/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent /run/user/1000/gnupg/d.ednwhmbipggmtegq5y9aobig/S.gpg-agent";
     };
+    mono-raw = {
+      hostname = "192.168.1.102";
+      proxyJump = "2x1080ti";
+    };
+    mono-winston = {
+      hostname = "winston";
+      port = 17266;
+    };
+    mono-copi = mono-winston // { proxyJump = "copi"; };
 
     gpp = { hostname = "peterpan"; port = 77; };
     ghooper = { hostname = "hooper"; user = "git"; };

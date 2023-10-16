@@ -27,6 +27,10 @@
         port = 22548;
         expose = false;
       };
+      ssh-mono = {
+        port = 17266;
+        expose = false;
+      };
     };
   };
 }
