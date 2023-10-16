@@ -43,6 +43,7 @@ in apply "gy" {
   # set IP of winston in hosts
   "cadliu" = x86_64-headless // { proxy = labProxy; };
   "cad-liu" = x86_64-headless // { proxy = labProxy; };
+  "mono" = x86_64-headless // { proxy = labProxy; };
 
   "cindy" = aarch64-headless;
   "peterpan" = x86_64-headless;
