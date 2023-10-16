@@ -11,6 +11,6 @@
   };
   transport = {
     type = "ws";
-    path = config.sops.secrets."v2ray/ws-path".path;
+    path._secret = config.sops.secrets."v2ray/ws-path".path;
   };
 }
