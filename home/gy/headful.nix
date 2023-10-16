@@ -126,6 +126,18 @@ in {
 
     firefox = callWithHelpers ./parts/firefox.nix {};
     waybar = callWithHelpers ./parts/waybar {};
+
+    zsh.initExtraFirst = lib.optionalString (pkgs.stdenv.hostPlatform.system == "x86_64-linux") ''
+      # test variable is set, REF: <https://stackoverflow.com/a/42655305/13482274>
+      if [[ -z "''${__tested_os_release+1}" ]]; then
+        source /etc/os-release
+        [[ "NixOS" == "$NAME" ]] || {
+          source <(sed -Ee '/exec/d' ${pkgs.nixGLIntel}/bin/nixGLIntel)
+          systemctl --user import-environment $(grep -E 'export \w+=' ${pkgs.nixGLIntel}/bin/nixGLIntel | cut -d= -f1 | cut -d' ' -f2)
+        }
+        export __tested_os_release=1
+      fi
+    '';
   };
   home.sessionVariables = {
     GDK_DPI_SCALE = "1.5";

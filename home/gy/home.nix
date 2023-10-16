@@ -127,18 +127,6 @@ in {
       initExtraFirst = ''
         typeset -T INFOPATH infopath
         typeset -U PATH MANPATH INFOPATH
-
-      ${lib.optionalString (pkgs.stdenv.hostPlatform.system == "x86_64-linux") ''
-        # test variable is set, REF: <https://stackoverflow.com/a/42655305/13482274>
-        if [[ -z "''${__tested_os_release+1}" ]]; then
-          source /etc/os-release
-          [[ "NixOS" == "$NAME" ]] || {
-            source <(sed -Ee '/exec/d' ${pkgs.nixGLIntel}/bin/nixGLIntel)
-            systemctl --user import-environment $(grep -E 'export \w+=' ${pkgs.nixGLIntel}/bin/nixGLIntel | cut -d= -f1 | cut -d' ' -f2)
-          }
-          export __tested_os_release=1
-        fi
-      ''}
       '';
       initExtra = ''
         if [[ -o interactive
