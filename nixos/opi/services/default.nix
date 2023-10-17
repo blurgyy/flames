@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./mediaserver.nix
+    ./rp.nix
   ];
   services = {
     haproxy-tailored = {

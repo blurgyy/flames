@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./v2ray.nix
+    ./rp.nix
   ];
 
   services.curltimesync = {

@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
     ../../_parts/sing-box.nix
-    ./rp.nix
     ./wlan.nix
   ];
 
