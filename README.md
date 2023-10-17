@@ -405,3 +405,11 @@ Trouble Shooting
   ```bash
   $ systemctl --system restart user@1000.service  # assume the user's id is 1000
   ```
+
+* Computing the hash of a file given its download url:
+
+  ```bash
+  $ nix hash to-sri sha256:$(nix-prefetch-url https://..... --type sha256)
+  ```
+
+  > Reference: <https://github.com/NixOS/nixpkgs/issues/191128#issuecomment-1246030466>
