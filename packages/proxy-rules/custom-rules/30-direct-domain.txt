@@ -81,6 +81,7 @@ jddebug.com
 jddebug.net
 jsce.gov.cn
 kiwa-tech.com
+laundri.com
 location.services.mozilla.com
 meituan.com
 meituan.net
@@ -114,6 +115,8 @@ vjudge.net
 volces.com
 vvebo.me
 vzuu.com
+wash.im
+wash.ltd
 weibopie.com
 weico.cc
 weico.com
