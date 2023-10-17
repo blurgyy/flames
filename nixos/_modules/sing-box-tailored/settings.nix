@@ -46,7 +46,7 @@ let
             (functionArgs f)
             {
               inherit config lib;
-              inherit mapDir applyTagWithOverrides call;
+              inherit mapDir applyTagWithOverrides applyTag call;
               inherit rules;
               inherit (cfg) secretPath;
             }
@@ -56,6 +56,8 @@ let
   applyTagWithOverrides = overrides: path: {
     tag = stemOfFile path;
   } // (call path overrides);
+
+  applyTag = path: applyTagWithOverrides {} path;
 in
 
 {

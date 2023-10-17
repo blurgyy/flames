@@ -1,9 +1,9 @@
-{ mapDir, applyTagWithOverrides, call }:
+{ mapDir, applyTag, call }:
 
 {
   servers = map
     (dnsConfig: dnsConfig // { address_strategy = "prefer_ipv4"; strategy = "ipv4_only"; })
-    (mapDir (applyTagWithOverrides {}) ./servers);
+    (mapDir applyTag ./servers);
   rules = mapDir (path: call path {}) ./rules;
   final = "cloudflare-oversea";
   strategy = "";
