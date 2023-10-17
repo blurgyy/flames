@@ -42,7 +42,7 @@
   ];
 
   systemd.services.nix-daemon.environment = rec {
-    http_proxy = "http://127.1:${toString config.services.ssh-reverse-proxy.server.services.mixed-proxy-from-copi.port}";
+    http_proxy = "http://127.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}";
     https_proxy = http_proxy;
   };
 

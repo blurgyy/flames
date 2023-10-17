@@ -11,11 +11,11 @@
       };
     };
     server.services = {
-      mixed-proxy-from-copi = {
-        port = 1988;
+      http-proxy-from-copi = {
+        port = 1990;
         expose = false;
       };
-      http-socks-proxy = {
+      socks-proxy-from-copi = {
         port = 1999;
         expose = false;
       };

@@ -73,10 +73,17 @@ in
   route = call ./route {};
 
   inbounds = [{
-    type = "mixed";
-    tag = "mixed-in";
+    type = "http";
+    tag = "http-in";
     listen = "0.0.0.0";
-    listen_port = 9988;
+    listen_port = 9990;
+    sniff = true;
+    sniff_override_destination = true;  # Override the connection destination address with the sniffed domain
+  } {
+    type = "socks";
+    tag = "socks-in";
+    listen = "0.0.0.0";
+    listen_port = 9999;
     sniff = true;
     sniff_override_destination = true;  # Override the connection destination address with the sniffed domain
   } {

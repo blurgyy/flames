@@ -20,7 +20,7 @@
 
   labProxy = {
     addr = "winston";
-    port = 1988;
+    port = 1990;
     ignore = [
       "localhost"
       "127.0.0.1"
