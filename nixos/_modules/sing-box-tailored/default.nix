@@ -46,6 +46,7 @@ in
           "${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
         ];
         LogNamespace = "noisy";
+        MemoryAccounting = true;
         MemoryMax = "256M";
       };
     })
