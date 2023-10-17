@@ -194,6 +194,7 @@ in {
           User = config.users.users.haproxy.name;
           Group = config.users.groups.haproxy.name;
           Type = "notify";
+          LogNamespace = "noisy";
           ExecStartPre = (concatLists (attrValues (mapAttrs
             (_: frontendConfig: let
               certRoot = if frontendConfig.domain.acme.enable
