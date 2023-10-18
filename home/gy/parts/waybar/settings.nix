@@ -96,6 +96,20 @@ in {
       format = "{:%a, %b.%d}";
       tooltip-format = "<big><span color='${themeColor "green"}'></span> {:%B,%Y}</big>\n<tt><small>{calendar}</small></tt>";
       tooltip = true;
+      calendar = {
+        mode = "year";
+        mode-mon-col = 3;
+        weeks-pos = "left";
+        on-scroll = 1;
+        on-click-right = "mode";
+        format = {
+          months = "<span color='${themeColor "foreground"}'><b>{}</b></span>";
+          days = "<span color='${themeColor "pink"}'><b>{}</b></span>";
+          weeks = "<span color='${themeColor "gray"}'><b>W{}</b></span>";
+          weekdays = "<span color='${themeColor "yellow"}'><b>{}</b></span>";
+          today = "<span color='${themeColor "lavender"}'><b><u>{}</u></b></span>";
+        };
+      };
     };
     memory = {
       interval = 5;
