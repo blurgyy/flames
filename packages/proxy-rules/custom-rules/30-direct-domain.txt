@@ -80,6 +80,7 @@ jandan.net
 jddebug.com
 jddebug.net
 jsce.gov.cn
+ke.com
 kiwa-tech.com
 laundri.com
 location.services.mozilla.com
@@ -101,12 +102,15 @@ qczj.h5yunban.com
 qq.com
 qweather.com
 qweather.net
+sectigochina.com
 sfplay.net
+shouqianba.com
 shujupie.com
 snapdrop.net
 stat.alibaba.com
 survey.china.alibaba.com
 taobao.com
+tfogc.com
 tracelog.www.alibaba.com
 umeng.com
 umeng.com.gds.alibabadns.com
@@ -123,7 +127,9 @@ weico.com
 weicot.com
 weixinbridge.com
 welcrm.com
+wosaimg.com
 wshttpdns.com
+wxb.com
 xhscdn.com
 xhscdn.net
 xiaohongshu.com
