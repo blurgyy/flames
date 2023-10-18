@@ -5,6 +5,4 @@
     "direct-zju-internal"
   ];
   url = "http://www.cc98.org";
-  interval = "1m";
-  tolerance = 50;
 }

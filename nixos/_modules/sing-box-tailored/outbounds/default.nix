@@ -2,6 +2,15 @@
 
 builtins.concatLists [
   (mapDir applyTag ./trivial)
-  (map (entry: entry // (if entry.type == "vmess" then { uuid._secret = secretPath; } else {})) (mapDir applyTag ./remote))
-  (map (entry: entry // { interrupt_exist_connections = false; }) (mapDir applyTag ./urltest))
+  (map
+    (entry: (if entry.type == "vmess"
+      then {
+        uuid._secret = secretPath;
+      } else if entry.type == "urltest"
+      then {
+        interval = "5m";
+        tolerance = 50;  # ms
+      } else {}) // entry)
+    (mapDir applyTag ./remote))
+  (map (entry: { interrupt_exist_connections = false; } // entry) (mapDir applyTag ./urltest))
 ]
