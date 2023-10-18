@@ -3,7 +3,6 @@
     ../../_parts/distributed-builder.nix
     ./rp.nix
     ./soft-serve.nix
-    ./v2ray.nix
   ];
   services.haproxy-tailored = {
     enable = true;

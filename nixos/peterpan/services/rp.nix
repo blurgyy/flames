@@ -39,14 +39,22 @@
         expose = true;
       };
       coderp-watson.port = 1111;
+      proxy-zju-via-copi.port = 6096;
     };
   };
   services.haproxy-tailored = {
-    frontends.tls-offload-front.backends = [ { name = "web"; condition = "if { path_beg /zju/ }"; } ];
+    frontends.tls-offload-front.backends = [
+      { name = "web"; condition = "if { path_beg /zju/ }"; }
+      { name = "proxy-zju"; condition = "if !HTTP"; }
+    ];
     backends.web = {
       mode = "http";
       requestRules = [ "replace-uri /zju(.*)$ \\1" ];
       server.address = "127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.coderp-watson.port}";
+    };
+    backends.proxy-zju = {
+      mode = "tcp";
+      server.address = "127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.proxy-zju-via-copi.port}";
     };
   };
 }
