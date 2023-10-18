@@ -31,7 +31,7 @@ def populate_rules(obj: dict, rules_dir: Path) -> dict:
                 else:
                     path = rules_dir.joinpath("{}.txt".format(file_spec))
                     rules += [entry for entry in txt_as_list(path) if ":" not in entry]
-            ret[key] = rules
+            ret[key] = list(set(rules))
         elif isinstance(value, dict):
             ret[key] = populate_rules(value, rules_dir)
         elif isinstance(value, list):
