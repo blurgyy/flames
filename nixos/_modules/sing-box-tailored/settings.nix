@@ -62,7 +62,7 @@ in
 
 {
   log = {
-    level = "debug";
+    level = "info";
     timestamp = false;  # journald already handles that
   };
 
