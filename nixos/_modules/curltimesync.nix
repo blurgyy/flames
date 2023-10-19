@@ -45,10 +45,23 @@ with lib;
         # abort if curl failed to request header in while condition
         set -eo pipefail
 
-        while ! resp="$(curl -fsSI ${cfg.url} | grep '^Date:' | sed -Ee 's/Date: //g')"; do
-          >&2 echo "curl failed, retrying after 1s"
-          sleep 1
+        failcnt=0
+        retrymax=5
+
+        while ((failcnt < retrymax)); do
+          if ! resp="$(curl -fsSI ${cfg.url} | grep '^Date:' | sed -Ee 's/Date: //g')"; then
+            failcnt=$((failcnt + 1))
+            >&2 echo "curl failed for (retry#$failcnt), next retry after 1s"
+            sleep 1
+          else
+            break
+          fi
         done
+
+        if ((failcnt == retrymax)); then
+          >&2 echo "too many failed attempts while connectin to '${cfg.url}', stopping"
+          exit 1
+        fi
 
         net_time="$(date --date="$resp" +%s)"
 
