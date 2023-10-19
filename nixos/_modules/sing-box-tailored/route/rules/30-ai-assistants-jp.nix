@@ -1,6 +1,5 @@
 {
-  domain_keyword = [
-    "bing"
-  ];
+  domain_suffix = "live.com";
+  domain_keyword = "bing";
   outbound = "auto-jp";
 }
