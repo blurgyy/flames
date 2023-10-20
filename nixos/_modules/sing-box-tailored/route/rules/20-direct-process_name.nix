@@ -9,6 +9,8 @@
 
     "systemd-timesyncd"
 
+    "transmission-daemon"
+
     "v2ray"
     ".v2ray-wrapped"
   ];
