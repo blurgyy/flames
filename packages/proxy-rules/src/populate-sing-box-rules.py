@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
 import json
-import functools
-import sys
 from pathlib import Path
+import sys
 from typing import List
 
 
@@ -20,7 +19,10 @@ def populate_rules(obj: dict, rules_dir: Path) -> dict:
         if isinstance(value, str) and len(value) > 2 and value.startswith("@") and value.endswith("@"):
             rules_file_specs = value[1:-1].strip()
             rules_file_specs = rules_file_specs.replace(",", "+")
-            rules_file_specs = list(map(str.strip, rules_file_specs.split("+")))
+            rules_file_specs = list(filter(
+                lambda path: len(path) > 0,
+                map(str.strip, rules_file_specs.split("+")),
+            ))
             rules = []
             for file_spec in rules_file_specs:
                 if ":" in file_spec:
