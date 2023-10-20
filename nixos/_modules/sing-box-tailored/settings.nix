@@ -24,11 +24,6 @@ let
 in
 
 let
-  rules = lib.listToAttrs
-    (mapDir
-      (path: { name = stemOfFile path; value = call path {}; })
-      ./_rules);
-
   call = path: overrides:
     with builtins;
 
@@ -47,7 +42,6 @@ let
             {
               inherit config lib;
               inherit mapDir applyTagWithOverrides applyTag call;
-              inherit rules;
               inherit (cfg) secretPath;
             }
           ) // overrides;
