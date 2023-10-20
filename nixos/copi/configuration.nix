@@ -18,14 +18,12 @@
     initrd.availableKernelModules = [ "usbhid" "usb_storage" ];
   };
 
-  fileSystems = {
-    # The /boot/firmware filesystem also uses the same block device, but it has the "noauto" option,
-    # so it should not b a problem (mounting a vfat file system twice at the same is forbidden).
-    "/lib/firmware" = {
-      device = "/dev/disk/by-label/${config.sdImage.firmwarePartitionName}";
-      fsType = "vfat";
-      options = [ "ro" "nofail" ];
-    };
+  # The /boot/firmware filesystem also uses the same block device, but it has the "noauto" option,
+  # so it should not b a problem (mounting a vfat file system twice at the same is forbidden).
+  fileSystems."/lib/firmware" = {
+    device = "/dev/disk/by-label/${config.sdImage.firmwarePartitionName}";
+    fsType = "vfat";
+    options = [ "ro" "nofail" ];
   };
   # WARN: only load the sprdwl_ng module after /lib/firmware is mounted.
   # To make sure the module can be loaded, /lib/firmware can be firstly populated with the firmware
@@ -45,6 +43,12 @@
     # configured with After= or Before=, then both units will be started simultaneously and without
     # any delay between them if foo.service is activated.
     after = [ firmwareMountingService ];
+  };
+
+  fileSystems."/elements" = {
+    device = "/dev/disk/by-label/wd-elements";
+    fsType = "btrfs";
+    options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
   };
 
   sdImage = {
