@@ -70,6 +70,11 @@ in
     route.rules = lib.mkBefore [{  # user mkBefore to prioritize this direct rule
       inbound = inboundTag;
       outbound = "direct-zju-internal";
+    } {
+      domain_suffix = "@custom/25-zju-domain@";
+      domain_keyword = "@custom/25-zju-domain-keyword@";
+      ip_cidr = "@custom/25-zju-ip@";
+      outbound = "direct-zju-internal";
     }];
   };
 }
