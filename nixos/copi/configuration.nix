@@ -51,6 +51,10 @@
     options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
   };
 
+  environment.systemPackages = [
+    pkgs.transmission
+  ];
+
   sdImage = {
     firmwarePartitionName = "FIRMWARE";
     firmwareSize = 64;
