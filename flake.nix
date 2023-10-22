@@ -111,7 +111,7 @@
 
   let
     my = import ./packages;
-    cudaOverlays = final: prev: let
+    cudaOverlay = final: prev: let
       pkgs-stable = import inputs.nixpkgs-stable {
         inherit (prev) system config;
       };
@@ -129,7 +129,7 @@
       config.allowUnsupportedSystem = true;
       config.allowBroken = true;
       overlays = [
-        cudaOverlays
+        cudaOverlay
         self.overlays.default
       ] ++ self.sharedOverlays;
     };
@@ -159,7 +159,7 @@
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
       inputs.nvfetcher.overlays.default
-      cudaOverlays
+      cudaOverlay
     ];
   };
 }
