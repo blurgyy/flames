@@ -14,8 +14,6 @@
       "@wlan_7@" = { psk = "@wlan_7_psk@"; priority = 30; };
       "@wlan_8@" = { psk = "@wlan_8_psk@"; priority = 30; };
       "@wlan_9@" = { psk = "@wlan_9_psk@"; priority = 30; };
-      "ZJUWLAN".authProtocols = [ "NONE" ];
-      "ZJUWLAN-NEW".authProtocols = [ "NONE" ];
       "HUAZHU-JiHotel".authProtocols = [ "NONE" ];
     };
   };

@@ -1,10 +1,18 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ../../_parts/sing-box.nix
     ./wlan.nix
   ];
 
-  systemd.network.wait-online.extraArgs = [ "--interface=wlan0" ];
+  systemd.network.wait-online.anyInterface = true;
+  sops.secrets."zjuwlan-credentials" = {};
+  networking.zjuwlan-autoconnect = {
+    enable = true;
+    credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
+  };
+
+  systemd.network.networks."40-eth0".linkConfig.RequiredForOnline = false;
+  systemd.network.networks."40-wlan0".linkConfig.RequiredForOnline = true;
 
   systemd.services.hp-keycodes = {
     wantedBy = [
