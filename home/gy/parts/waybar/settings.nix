@@ -1,8 +1,12 @@
 { pkgs, hostName, config }: with pkgs; let
   inherit (config.ricing.headful) themeColor;
-  usesEthernet = builtins.elem hostName [
-    "winston"
-  ];
+  ethernetInterface.winston = "eth0";
+  wirelessInterface.morty = "wlan0_sta";
+  interface = if (builtins.hasAttr hostName ethernetInterface)
+    then ethernetInterface.${hostName}
+    else if (builtins.hasAttr hostName wirelessInterface)
+    then wirelessInterface.${hostName}
+    else "*";
   workspaceModule = {
     disable-scroll = true;
     all-outputs = true;
@@ -147,7 +151,7 @@ in {
       ];
     };
     "network#download" = {
-      interface = if usesEthernet then "e*" else "w*";
+      inherit interface;
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthDownBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
@@ -158,7 +162,7 @@ in {
       on-click = "${sway}/bin/swaymsg 'workspace 8'";
     };
     "network#upload" = {
-      interface = if usesEthernet then "e*" else "w*";
+      inherit interface;
       interval = 2;
       format = "<span color='${themeColor "green"}'></span> {bandwidthUpBytes}";
       format-disconnected = "<span color='${themeColor "red"}'></span>";
