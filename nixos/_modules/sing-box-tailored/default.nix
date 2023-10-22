@@ -42,13 +42,16 @@ in
           Unmanaged = true;
         };
       };
-      systemd.services.sing-box.serviceConfig = {
-        ExecStartPre = mkAfter [
-          "${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
-        ];
-        LogNamespace = "noisy";
-        MemoryAccounting = true;
-        MemoryMax = "256M";
+      systemd.services.sing-box = {
+        bindsTo = [ "systemd-networkd.service" ];
+        serviceConfig = {
+          ExecStartPre = mkAfter [
+            "${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
+          ];
+          LogNamespace = "noisy";
+          MemoryAccounting = true;
+          MemoryMax = "256M";
+        };
       };
     })
   ];
