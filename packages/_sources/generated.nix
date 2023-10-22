@@ -385,10 +385,10 @@
   };
   telegram-send = {
     pname = "telegram-send";
-    version = "0.34";
+    version = "0.37";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/t/telegram-send/telegram-send-0.34.tar.gz";
-      sha256 = "sha256-KR9mU8FvA+vOz4FCIljrFk9XCNthC8d55of5Pta/oyQ=";
+      url = "https://pypi.org/packages/source/t/telegram-send/telegram-send-0.37.tar.gz";
+      sha256 = "sha256-n2mrszFZjktrqKFzsV33397E7sF+NgCkPVVMU7AVBpU=";
     };
   };
   tinytools = {

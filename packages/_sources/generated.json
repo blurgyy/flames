@@ -656,11 +656,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-KR9mU8FvA+vOz4FCIljrFk9XCNthC8d55of5Pta/oyQ=",
+            "sha256": "sha256-n2mrszFZjktrqKFzsV33397E7sF+NgCkPVVMU7AVBpU=",
             "type": "url",
-            "url": "https://pypi.org/packages/source/t/telegram-send/telegram-send-0.34.tar.gz"
+            "url": "https://pypi.org/packages/source/t/telegram-send/telegram-send-0.37.tar.gz"
         },
-        "version": "0.34"
+        "version": "0.37"
     },
     "tinytools": {
         "cargoLocks": {
