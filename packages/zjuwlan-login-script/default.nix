@@ -25,4 +25,6 @@
     wrapProgram $out/bin/zjuwlan \
       --prefix PATH : ${firefox-unwrapped}/bin
   '';
+
+  meta.mainProgram = "zjuwlan";
 }

@@ -56,6 +56,8 @@ def main():
     options = Options()
     options.add_argument("-headless")
     service = Service(log_path=os.devnull)
+
+    printm(f"creating web driver instance ...")
     driver = webdriver.Firefox(service=service, options=options)
 
     zjuwlan = "https://net.zju.edu.cn/srun_portal_pc?ac_id=3&theme=zju"  # net
