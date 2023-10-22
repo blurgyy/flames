@@ -11,9 +11,6 @@
     credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
   };
 
-  systemd.network.networks."40-eth0".linkConfig.RequiredForOnline = false;
-  systemd.network.networks."40-wlan0".linkConfig.RequiredForOnline = true;
-
   systemd.services.hp-keycodes = {
     wantedBy = [
       "multi-user.target"
