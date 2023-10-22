@@ -51,6 +51,7 @@ in
         cd "$CREDENTIALS_DIRECTORY"
         ${pkgs.zjuwlan-login-script}/bin/zjuwlan /tmp/geckodriver.log
       '';
+      environment.HOME = "/tmp";  # geckodriver tries to create $HOME/.config/dconf, default $HOME is set to /var/empty when DynamicUser=true
       serviceConfig = {
         DynamicUser = true;
         RemainAfterExit = true;
@@ -74,6 +75,7 @@ in
         Restart = "on-failure";
         RestartSec = 5;
         PrivateTmp = true;
+        # PrivateTmp = false;  # disable PrivateTmp for debugging, geckodriver's log is written to /tmp/geckodriver.log (see the `zjuwlan` script)
         LoadCredential = "credentials:${cfg.credentialsFile}";
       };
     };
