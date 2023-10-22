@@ -1,6 +1,6 @@
 #!/usr/bin/env -S python3 -u
 
-import os
+from pathlib import Path
 import sys
 from time import sleep
 
@@ -50,12 +50,12 @@ def find_element_by_id(
     return element
 
 
-def main():
+def main(log_path: Path):
     username, password = read_credentials()
 
     options = Options()
     options.add_argument("-headless")
-    service = Service(log_path=os.devnull)
+    service = Service(log_path=log_path)
 
     printm(f"creating web driver instance ...")
     driver = webdriver.Firefox(service=service, options=options)
@@ -98,7 +98,14 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        _, log_path = sys.argv
+    except:
+        print("usage: {} <log_path>".format(sys.argv[0]), file=sys.stderr)
+        exit(1)
+
+    log_path = Path(log_path)
+    exit(main(log_path))
 
 # Author: Blurgy <gy@blurgy.xyz>
 # Date:   Sep 26 2020

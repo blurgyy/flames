@@ -49,7 +49,7 @@ in
       wantedBy = [ "multi-user.target" ];
       script = ''
         cd "$CREDENTIALS_DIRECTORY"
-        ${pkgs.zjuwlan-login-script}/bin/zjuwlan
+        ${pkgs.zjuwlan-login-script}/bin/zjuwlan /tmp/geckodriver.log
       '';
       serviceConfig = {
         DynamicUser = true;
