@@ -57,7 +57,7 @@ in
         ExecCondition = let
           zjuwlan-login-condition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
             function current_ssid() {
-              iw dev | grep ssid | cut -d' ' -f2
+              iw dev | grep ssid | grep ZJU | cut -d' ' -f2
             }
             if ! cmp -s <(current_ssid | head -c3) <(echo -n ZJU); then
               echo "not connected to ZJUWLAN, skipping"
