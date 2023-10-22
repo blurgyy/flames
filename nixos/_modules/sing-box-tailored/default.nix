@@ -43,7 +43,12 @@ in
         };
       };
       systemd.services.sing-box = {
-        bindsTo = [ "systemd-networkd.service" ];
+        after = lib.optional config.networking.useNetworkd "systemd-networkd.service";
+        # restart on systemd-networkd restart
+        bindsTo = lib.optional config.networking.useNetworkd "systemd-networkd.service";
+        # restart on systemd-networkd reload (nixos activation only restarts this service when these
+        # files' path change)
+        restartTriggers = config.systemd.services.systemd-networkd.reloadTriggers;
         serviceConfig = {
           ExecStartPre = mkAfter [
             "${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
