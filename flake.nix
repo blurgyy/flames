@@ -131,7 +131,7 @@
       overlays = [
         cudaOverlays
         self.overlays.default
-      ];
+      ] ++ self.sharedOverlays;
     };
   in rec {
     packages = my.packages pkgs;
