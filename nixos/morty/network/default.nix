@@ -4,11 +4,34 @@
     ./wlan.nix
   ];
 
+  sops.secrets = {
+    "zjuwlan-credentials" = {};
+    "ap-password" = {};
+  };
+
   systemd.network.wait-online.anyInterface = true;
-  sops.secrets."zjuwlan-credentials" = {};
+
   networking.zjuwlan-autoconnect = {
     enable = true;
     credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
+  };
+
+  networking.wireless.interfaces = [ "wlan0_sta" ];
+  networking.wlanInterfaces = {
+    wlan0_sta.device = "wlan0";
+    wlan0_ap.device = "wlan0";
+  };
+  systemd.network.networks."40-wlan0_sta" = {
+    name = "wlan0_sta";
+    networkConfig.DHCP = "yes";
+  };
+  networking.ap = {
+    enable = true;
+    apInterface = "wlan0_ap";
+    destinationInterface = "wlan0_sta";
+    address = "192.168.169.1/24";
+    dnsAddress = config.services.sing-box.tunDnsAddress;
+    passwordFile = config.sops.secrets."ap-password".path;
   };
 
   systemd.services.hp-keycodes = {
