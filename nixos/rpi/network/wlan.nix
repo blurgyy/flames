@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
   sops.secrets.wireless-environment-file = {};
   networking.wireless = {
     enable = true;
@@ -16,6 +16,8 @@
       "ZJUWLAN-NEW".authProtocols = [ "NONE" ];
     };
   };
+
+  systemd.network.networks."40-wlan0".linkConfig.RequiredForOnline = true;
 
   sops.secrets."zjuwlan-credentials" = {};
   networking.zjuwlan-autoconnect = {

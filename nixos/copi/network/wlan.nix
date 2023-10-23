@@ -17,7 +17,8 @@
     };
   };
 
-  sops.secrets."zjuwlan-credentials" = {};
+  systemd.network.networks."40-wlan0".linkConfig.RequiredForOnline = true;
+
   sops.secrets."zjuwlan-credentials" = {};
   networking.zjuwlan-autoconnect = {
     enable = true;
