@@ -100,7 +100,7 @@ in {
   systemd = {
     extraConfig = "DefaultTimeoutStopSec=16s";
     network.wait-online = {
-      anyInterface = lib.mkDefault false;
+      anyInterface = lib.mkDefault true;
       # WARN: explicitly set this with e.g. [ "--interface=wlan0" "--interface=eth0" ] for each machine.
       extraArgs = lib.mkDefault null;
       timeout = 16;

@@ -9,8 +9,6 @@
     "ap-password" = {};
   };
 
-  systemd.network.wait-online.anyInterface = true;
-
   networking.zjuwlan-autoconnect = {
     enable = true;
     credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
