@@ -4,6 +4,15 @@
     enable = true;
     environmentFile = config.sops.secrets.wireless-environment-file.path;
     networks = {
+      "morty.ap" = {
+        psk = "@morty_ap_psk@";
+        priority = 100;
+        # REF: <https://wiki.archlinux.org/title/wpa_supplicant#Connections_to_mixed_WPA2-PSK/WPA3-SAE_access_points>
+        authProtocols = [ "WPA-PSK-SHA256" ];
+        extraConfig = ''
+          ieee80211w=2
+        '';
+      };
       "@wlan_0@" = { psk = "@wlan_0_psk@"; priority = 100; };
       "@wlan_1@" = { psk = "@wlan_1_psk@"; priority = 100; };
       "@wlan_2@" = { psk = "@wlan_2_psk@"; priority = 100; };
