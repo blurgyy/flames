@@ -1,6 +1,6 @@
 { config, lib
 , cfg
-, tunCidr
+, tunAddress
 }:
 
 let
@@ -84,7 +84,7 @@ in
     type = "tun";
     tag = "tun-in";
     interface_name = cfg.tunInterface;
-    inet4_address = tunCidr;
+    inet4_address = tunAddress;
     auto_route = true;
     # enabling `strict_route` makes the device unreachable via ssh (ping is fine) from physical
     # interfaces (but still reachable via ssh through tailscale's tun)

@@ -77,14 +77,14 @@ in
       table inet nat {
         chain prerouting {
           type nat hook prerouting priority -100
-          meta l4proto { tcp, udp } th dport 53 dnat ip to 169.254.169.1
+          meta l4proto { tcp, udp } th dport 53 dnat ip to ${config.services.sing-box.tunDnsAddress}
         }
 
         chain postrouting {
           type nat hook postrouting priority 100
           policy accept
-          oifname "${config.services.sing-box.tunInterface}" masquerade
-          ip daddr 169.254.169.1 masquerade
+          oifname "wlan0_sta" masquerade
+          ip daddr ${config.services.sing-box.tunDnsAddress} masquerade
         }
       }
     ''];

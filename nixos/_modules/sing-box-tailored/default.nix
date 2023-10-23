@@ -4,8 +4,6 @@ with lib;
 
 let
   cfg = config.services.sing-box;
-  tunCidr = "169.254.169.0/31";
-  tunDnsAddress = "169.254.169.1";
 in
 
 {
@@ -19,20 +17,32 @@ in
       type = types.str;
       default = "singboxtun0";
     };
+    tunAddress = mkOption {
+      type = types.str;
+      default = "169.254.169.0/31";
+    };
+    tunDnsAddress = mkOption {
+      type = types.str;
+      default = "169.254.169.1";
+      description = ''
+        DNS written to `/etc/resolvconf.conf`, which is subsequently written to `/etc/resolv.conf`.
+        Should be within the IP-CIDR range of `tunAddress`, and does not equal `tunAddress`.
+      '';
+    };
   };
 
   config = mkMerge [
     (mkIf cfg.preConfigure {  # generate settings
       services.sing-box.settings = import ./settings.nix {
         inherit config lib cfg;
-        inherit tunCidr;
+        inherit (cfg) tunAddress;
       };
     })
 
     (mkIf cfg.enable {
       services.resolved.enable = false;
       networking.resolvconf.extraConfig = ''
-        name_servers=${tunDnsAddress}
+        name_servers=${cfg.tunDnsAddress}
       '';
       systemd.network.networks."50-sing-box" = {  # Configs adapted from /etc/systemd/network/50-tailscale.network
         matchConfig.Name = cfg.tunInterface;
