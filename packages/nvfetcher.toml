@@ -122,6 +122,10 @@ fetch.url = "https://download.db-ip.com/free/dbip-country-lite-$ver.csv.gz"
 src.git = "https://github.com/fogleman/primitive"
 fetch.github = "fogleman/primitive"
 
+[pypipe]
+src.git = "https://github.com/bugen/pypipe"
+fetch.git = "https://github.com/bugen/pypipe"
+
 [rssbot]
 src.cmd = "echo v2.0.0-alpha.11"
 fetch.github = "iovxw/rssbot"

@@ -327,6 +327,19 @@
     };
     date = "2020-05-03";
   };
+  pypipe = {
+    pname = "pypipe";
+    version = "eb7b0456cdf728a7203fcec7e7974c24ea721f8e";
+    src = fetchgit {
+      url = "https://github.com/bugen/pypipe";
+      rev = "eb7b0456cdf728a7203fcec7e7974c24ea721f8e";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-Knj91Z+RmcP8142PabmbFx1RR74xR6fb99HcPXph1wA=";
+    };
+    date = "2023-10-23";
+  };
   rssbot = {
     pname = "rssbot";
     version = "v2.0.0-alpha.11";
