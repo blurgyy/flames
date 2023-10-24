@@ -50,6 +50,7 @@ in {
     gimp
     imv
     libnotify
+    localsend
     logseq
     meshlab
     minicom
