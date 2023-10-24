@@ -191,6 +191,7 @@ in {
     windowrulev2 = float, class:com.alibabainc.dingtalk, title: |分享的图片
     windowrulev2 = float, class:mpv
     windowrulev2 = float, class:alarm-clock-applet
+    windowrulev2 = float, class:localsend_app
     windowrulev2 = float, class:blender, title:Blender (Preferences|Render)
 
     windowrulev2 = pin, floating:1
