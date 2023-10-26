@@ -34,7 +34,7 @@
       '';
 
       proxy-env = builtins.toFile "nspawn-proxy-env" ''
-        export http_proxy=http://127.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}
+        export http_proxy=http://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}
         export https_proxy="$http_proxy"
       '';
       display-env = builtins.toFile "nspawn-display-env" ''
