@@ -413,3 +413,16 @@ Trouble Shooting
   ```
 
   > Reference: <https://github.com/NixOS/nixpkgs/issues/191128#issuecomment-1246030466>
+
+* To update packages except `foo` and `bar`, use a combination of `tomlq` (from `nixpkgs#yq`) and
+  `jq` to create a regular expression from [`nvfetcher.toml`](./packages/nvfetcher.toml):
+
+  ```bash
+  $ tomlq keys nvfetcher.toml | jq -r 'map(select(test("foo|bar") | not)) | join("|")'
+  ```
+
+  It can then be passed to the `--filter` option of `nvfetcher`:
+
+  ```bash
+  $ nvfetcher --filter "'$(tomlq keys nvfetcher.toml | jq -r 'map(select(test("alcn|tdesktop-megumifox") | not)) | join("|")')'" -k ~/.config/nvchecker/keyfile.toml --commit-changes -v
+  ```
