@@ -207,6 +207,7 @@ in {
     unzip
     zip
     zsh
+    yq  # yq, tomlq
     xdg-utils
   ];
 

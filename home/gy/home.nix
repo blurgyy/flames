@@ -48,6 +48,7 @@ in {
       waypipe
       wget
       xdg-open-handlr
+      yq  # yq, tomlq
       zip
       zstd
     ];
