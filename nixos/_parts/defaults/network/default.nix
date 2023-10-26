@@ -30,7 +30,7 @@
     acceptedAddrGroups = [{
       addrs = [ "$private_range" ];
       countPackets = true;
-      comment = "allow machiines from private network to access arbitrary port";
+      comment = "allow machines from private network to access arbitrary port";
     }];
     referredServices = [];
   };
