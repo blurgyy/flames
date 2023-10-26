@@ -55,6 +55,7 @@ cpatrk.net
 czbank.com
 detectportal.firefox.com
 dingtalk.com
+dingtalkcloud.com
 dmtracking.alibaba.com
 dmtracking2.alibaba.com
 download.amd.com
