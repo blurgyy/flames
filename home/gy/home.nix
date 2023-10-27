@@ -8,7 +8,7 @@
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
   imports = [
-    ./parts/kdeconnect.nix
+    # ./parts/kdeconnect.nix
   ] ++ lib.optional (builtins.pathExists ./per-host/${hostName}.nix) ./per-host/${hostName}.nix;
 
   home.username = myName;

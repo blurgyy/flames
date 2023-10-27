@@ -2,6 +2,7 @@
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
   imports = [
+    ./parts/localsend.nix
     ./parts/gpg-agent.nix
   ];
   ricing.headful.theme = "dark";
