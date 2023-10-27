@@ -64,7 +64,7 @@
       ${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/configs/lean.fish \
       | source
     set -U tide_git_icon 
-    set -g tide_right_prompt_items status cmd_duration context node virtual_env rustc java php chruby go kubectl toolbox terraform aws crystal time
+    set -g tide_right_prompt_items status cmd_duration context node rustc java php ruby go kubectl toolbox terraform aws crystal time
     set -g tide_left_prompt_items nix_shell fhs pwd git conda jobs newline character
     set -g tide_prompt_add_newline_before true
   '';
