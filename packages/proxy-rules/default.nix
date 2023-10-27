@@ -1,4 +1,4 @@
-{ generated, writeShellScript, writeScript, stdenvNoCC
+{ generated, writeShellScript, stdenvNoCC
 , gnused
 , python3
 , makeWrapper
