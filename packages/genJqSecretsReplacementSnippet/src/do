@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+
+import json
+from pathlib import Path
+import subprocess
+import sys
+
+
+def populate(d: dict) -> dict:
+    if not isinstance(d, dict):
+        return d
+    ret = d.copy()
+    for key, value in d.items():
+        if isinstance(value, dict) and len(value) == 1:
+            if "_secret" in value.keys() and isinstance(value["_secret"], str):
+                ret[key] = open(value["_secret"]).read()
+            elif "_cmd" in value.keys() and isinstance(value["_cmd"], str):
+                ret[key] = subprocess.getoutput(value["_cmd"])
+            else:
+                pass
+        elif isinstance(value, list):
+            ret[key] = list(map(populate, ret[key]))
+        else:
+            ret[key] = populate(ret[key])
+    return ret
+
+
+def main(src: Path, dest: Path) -> int:
+    raw = json.load(open(src))
+    json.dump(populate(raw), open(dest, "w"))
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        _, src, dest = sys.argv
+    except:
+        print("usage: {} <input_json_path> <output_json_path>".format(sys.argv[0]))
+        exit(1)
+
+    src, dest = map(Path, [src, dest])
+    exit(main(src, dest))
