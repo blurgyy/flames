@@ -8,7 +8,7 @@
     "soft-serve/hostKey" = ownerAndGroupCfg;
     "soft-serve/clientKey" = ownerAndGroupCfg;
   };
-  services.soft-serve = {
+  services.soft-serve-tailored = {
     enable = true;
     ## just use default bind addrs/ports
     # bind = {
@@ -19,11 +19,11 @@
     adminPublicKeys = config.users.users.gy.openssh.authorizedKeys.keys;
   };
   networking.firewall-tailored.acceptedPorts = [{
-    port = config.services.soft-serve.bind.sshPort;
+    port = config.services.soft-serve-tailored.bind.sshPort;
     protocols = [ "tcp" ];
     comment = "Allow traffic on soft-serve's SSH server";
   } {
-    port = config.services.soft-serve.bind.httpPort;
+    port = config.services.soft-serve-tailored.bind.httpPort;
     protocols = [ "tcp" ];
     comment = "Allow traffic on soft-serve's HTTP server";
   }];

@@ -44,15 +44,16 @@ in {
       # text-scaling-factor = 1.5;
     };
   };
+
   home.packages = with pkgs; [
     cage
-    cider
+    cider  # uses insecure electron-24.8.6
     evince
     gimp
     imv
     libnotify
     localsend
-    logseq
+    logseq  # uses insecure electron-24.8.6
     meshlab
     minicom
     obs-studio
@@ -150,7 +151,6 @@ in {
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = 1;
-    QT_PLUGIN_PATH = "${pkgs.libsForQt5.fcitx5-qt}/${pkgs.qt6.qtbase.qtPluginPrefix}\${QT_PLUGIN_PATH:+:$QT_PLUGIN_PATH}";
     NO_AT_BRIDGE = 1;  # REF: <https://github.com/NixOS/nixpkgs/issues/16327#issuecomment-315729994>
     TYPST_FONT_PATHS = "${config.home.profileDirectory}";
   };

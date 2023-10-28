@@ -1,8 +1,8 @@
 { config, lib, pkgs, ... }: with lib; let
-  cfg = config.services.soft-serve;
+  cfg = config.services.soft-serve-tailored;
   portType = with types; oneOf [ str int ];
 in {
-  options.services.soft-serve = let
+  options.services.soft-serve-tailored = let
     bindModule = types.submodule ({ ... }: {
       options.sshAddr = mkOption { type = types.str; default = "0.0.0.0"; };
       options.sshPort = mkOption { type = portType; default = 77; };

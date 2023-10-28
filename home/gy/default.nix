@@ -6,6 +6,10 @@
       "winston"
       "meda"
     ];
+    config.permittedInsecurePackages = [
+      "electron-24.8.6"  # cider, logseq
+      "zotero-6.0.27"
+    ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
       (final: prev: {

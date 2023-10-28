@@ -1,12 +1,12 @@
-{ ... }:
+{}:
 
 let
   defaultGateway = {
-    address = "10.76.0.10";
+    address = "193.32.148.1";
     interface = "eth0";
   };
-  address = "10.76.2.80";
-  prefixLength = 21;
+  address = "193.32.151.152";
+  prefixLength = 22;
 in
 
 {
@@ -17,4 +17,6 @@ in
       ipv4.addresses = [{ inherit address prefixLength; }];
     };
   };
+
+  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
 }

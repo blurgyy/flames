@@ -14,19 +14,6 @@
     };
   };
 
-  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
-
-  networking = {
-    defaultGateway = "45.139.193.1";
-    interfaces.eth0 = {
-      useDHCP = false;
-      ipv4.addresses = [{
-        address = "45.139.193.21";
-        prefixLength = 24;
-      }];
-    };
-  };
-
   services.udisks2.enable = false;
 
   system.stateVersion = "22.11";
