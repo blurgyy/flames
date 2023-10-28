@@ -69,7 +69,7 @@
         "webextension@metamask.io".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ether-metamask/latest.xpi";
         "firefox-translations-addon@mozilla.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/firefox-translations/latest.xpi";
         "{b5501fd1-7084-45c5-9aa6-567c2fcf5dc6}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ruffle_rs/latest.xpi";
-        "{a9cb10b9-75e9-45c3-8194-d3b2c25bb6a2}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/bing-chat-for-all-browsers/latest.xpi";
+        # "{a9cb10b9-75e9-45c3-8194-d3b2c25bb6a2}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/bing-chat-for-all-browsers/latest.xpi";
         "{85860b32-02a8-431a-b2b1-40fbd64c9c69}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/github-file-icons/latest.xpi";
       };
     };
