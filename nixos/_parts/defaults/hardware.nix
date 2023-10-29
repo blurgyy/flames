@@ -89,5 +89,7 @@
   };
 
   networking.useDHCP = lib.mkDefault false;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
+  powerManagement.cpuFreqGovernor = if pkgs.stdenv.hostPlatform.system == "x86_64-linux"
+    then lib.mkDefault "ondemand"
+    else lib.mkDefault null;
 }
