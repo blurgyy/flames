@@ -1,4 +1,4 @@
-{ config, pkgs }: ''
+{ config, lib, pkgs }: ''
 ## starship is managed by nix
 #starship init fish | source
 
@@ -119,8 +119,10 @@ if string match --quiet --entire --regex '^/dev/tty2$' (tty)
   else
     exec sway >>"$XDG_RUNTIME_DIR/sway.log" 2>&1
   end
+${lib.optionalString config.wayland.windowManager.hyprland.enable ''
 else if string match --quiet --entire --regex '^/dev/tty6$' (tty)
   exec Hyprland >>"$XDG_RUNTIME_DIR/hyprland.log" 2>&1
+''}
 end
 
 # 50: multiplexer
