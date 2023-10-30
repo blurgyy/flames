@@ -935,7 +935,7 @@ in ''
   --- indent-blankline
   require("ibl").setup({
     whitespace = {
-      remote_blankline_trail = true,
+      remove_blankline_trail = true,
     },
     indent = {
       char = "┊",
