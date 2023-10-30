@@ -1,4 +1,4 @@
-{ config, pkgs }: {
+{ config, pkgs, hostName }: {
   enable = true;
   profiles = {
     home = {
@@ -9,6 +9,7 @@
         "general.useragent.override" = let
           inherit (config.programs.firefox.package) version;
         in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
+        "identity.fxaccounts.account.device.name" = hostName;
       };
     };
   };
