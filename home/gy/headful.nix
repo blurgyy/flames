@@ -4,6 +4,7 @@ in {
   imports = [
     ./parts/localsend.nix
     ./parts/gpg-agent.nix
+    ./parts/sway.nix
   ];
   ricing.headful.theme = "dark";
   qt = {
@@ -28,10 +29,6 @@ in {
       "file:///run/user/1000"
       "file:///tmp"
     ];
-  };
-  wayland.windowManager = {
-    sway = callWithHelpers ./parts/sway.nix {};
-    hyprland = callWithHelpers ./parts/hyprland.nix {};
   };
   fonts.fontconfig.enable = true;
   dconf.settings = {
@@ -146,10 +143,6 @@ in {
     GDK_DPI_SCALE = "1.5";
     XCURSOR_THEME = config.home.pointerCursor.name;
     XCURSOR_SIZE = config.home.pointerCursor.size;
-    XDG_SESSION_DESKTOP = "sway";
-    QT_QPA_PLATFORM = "wayland";
-    CLUTTER_BACKEND = "wayland";
-    SDL_VIDEODRIVER = "wayland";
     _JAVA_AWT_WM_NONREPARENTING = 1;
     NO_AT_BRIDGE = 1;  # REF: <https://github.com/NixOS/nixpkgs/issues/16327#issuecomment-315729994>
     TYPST_FONT_PATHS = "${config.home.profileDirectory}";
@@ -167,32 +160,8 @@ in {
     };
   };
   systemd.user = {
-    targets = let
-      wm-session-wants = [
-        "thunar.service"
-        "systembus-notify.service"
-      ];
-    in {
-      sway-session.Unit.Wants = wm-session-wants;
-      hyprland-session.Unit.Wants = lib.mkIf config.wayland.windowManager.hyprland.enable wm-session-wants;
-    };
-    services.flameshot = {
-      Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
-    };
-    services.hyprpaper = lib.optionalAttrs config.wayland.windowManager.hyprland.enable {
-      Unit.X-Restart-Triggers = [ (with builtins; hashString "sha512" (callWithHelpers ./parts/mirrored/headful/hypr/hyprpaper.conf.asnix {})) ];
-      Service = {
-        ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
-        Restart = "always";
-        RestartSec = 1;
-      };
-      Install.WantedBy = [ "hyprland-session.target" ];
-    };
-    services.waybar = {
-      Service.Environment = [ "PATH=${lib.makeBinPath [ pkgs.hyprland-XDG_CURRENT_DESKTOP-sway ]}" ];
-      Install.WantedBy = [ "graphical-session.target" ]
-        ++ (lib.optional config.wayland.windowManager.hyprland.enable "hyprland-session.target");
-    };
+    services.flameshot.Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
+    services.waybar.Install.WantedBy = [ "graphical-session.target" ];
   };
 
   services = {
