@@ -53,7 +53,7 @@ in
         environmentFile = config.sops.secrets."sshrp/socks-proxy-env".path;
         identityFile = config.sops.secrets.hostKey.path;
       };
-      proxy-zju-env = {
+      proxy-zju = {
         environmentFile = config.sops.secrets."sshrp/proxy-zju-env".path;
         identityFile = config.sops.secrets.hostKey.path;
         bindPort = 6096;
