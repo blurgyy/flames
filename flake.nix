@@ -116,9 +116,9 @@
         inherit (prev) system config;
       };
     in {
-      # use cudaPackages (cudatoolkit, etc.) from locked nixpkgs to avoid mass recompilation and
-      # downloads.
-      inherit (pkgs-stable) cudaPackages cudatoolkit openai-whisper;
+      # # use cudaPackages (cudatoolkit, etc.) from locked nixpkgs to avoid mass recompilation and
+      # # downloads.
+      # inherit (pkgs-stable) cudaPackages cudatoolkit openai-whisper;
     };
   in
 
