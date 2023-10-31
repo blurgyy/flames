@@ -50,12 +50,12 @@ def find_element_by_id(
     return element
 
 
-def main(log_path: Path):
+def main(log_file: Path):
     username, password = read_credentials()
 
     options = Options()
     options.add_argument("-headless")
-    service = Service(log_path=log_path)
+    service = Service(executable_path="@geckodriver@/bin/geckodriver", log_output=open(log_file, "a"))
 
     printm(f"creating web driver instance ...")
     driver = webdriver.Firefox(service=service, options=options)
@@ -99,13 +99,13 @@ def main(log_path: Path):
 
 if __name__ == "__main__":
     try:
-        _, log_path = sys.argv
+        _, log_file = sys.argv
     except:
-        print("usage: {} <log_path>".format(sys.argv[0]), file=sys.stderr)
+        print("usage: {} <log_file>".format(sys.argv[0]), file=sys.stderr)
         exit(1)
 
-    log_path = Path(log_path)
-    exit(main(log_path))
+    log_file = Path(log_file)
+    exit(main(log_file))
 
 # Author: Blurgy <gy@blurgy.xyz>
 # Date:   Sep 26 2020

@@ -1,6 +1,7 @@
 { stdenvNoCC
 , python310
 
+, geckodriver
 , firefox-unwrapped
 , makeWrapper
 }: stdenvNoCC.mkDerivation {
@@ -16,8 +17,12 @@
 
   dontUnpack = true;
 
+  # needed for substituteAllInPlace to work
+  inherit geckodriver;
+
   installPhase = ''
     install -Dvm555 $src $out/bin/zjuwlan
+    substituteAllInPlace $out/bin/zjuwlan
   '';
 
   # wrap the script with firefox in its PATH
