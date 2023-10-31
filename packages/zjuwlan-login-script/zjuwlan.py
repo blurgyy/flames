@@ -34,8 +34,8 @@ def printm(
     print(header, *values, sep=sep, end=end, file=sys.stderr, flush=flush)
 
 
-def read_credentials():
-    with open("credentials", "r") as f:
+def read_credentials(credentials_path: Path):
+    with open(credentials_path, "r") as f:
         username = f.readline().strip()
         password = f.readline().strip()
     return username, password
@@ -50,8 +50,8 @@ def find_element_by_id(
     return element
 
 
-def main(log_file: Path):
-    username, password = read_credentials()
+def main(credentials_path: Path, log_file: Path):
+    username, password = read_credentials(credentials_path)
 
     options = Options()
     options.add_argument("-headless")
@@ -99,13 +99,13 @@ def main(log_file: Path):
 
 if __name__ == "__main__":
     try:
-        _, log_file = sys.argv
+        _, credentials_path, log_file = sys.argv
     except:
-        print("usage: {} <log_file>".format(sys.argv[0]), file=sys.stderr)
+        print("usage: {} <credentials_path> <log_file>".format(sys.argv[0]), file=sys.stderr)
         exit(1)
 
-    log_file = Path(log_file)
-    exit(main(log_file))
+    credentials_path, log_file = map(Path, [credentials_path, log_file])
+    exit(main(credentials_path, log_file))
 
 # Author: Blurgy <gy@blurgy.xyz>
 # Date:   Sep 26 2020
