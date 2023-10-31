@@ -10,6 +10,8 @@
           inherit (config.programs.firefox.package) version;
         in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
         "identity.fxaccounts.account.device.name" = hostName;
+        "network.proxy.socks_remote_dns" = true;
+        "network.proxy.no_proxies_on" = "localhost, 127.0.0.1/8";
       };
     };
   };
