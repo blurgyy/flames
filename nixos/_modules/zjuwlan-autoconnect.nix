@@ -19,6 +19,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = [ pkgs.zjuwlan-login-script ];
+
     networking.wireless = {
       enable = true;
       networks = {
