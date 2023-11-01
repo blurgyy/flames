@@ -63,6 +63,7 @@
         tree-sitter-sql
         tree-sitter-toml
         tree-sitter-typescript
+        tree-sitter-tsx
         tree-sitter-yaml
         tree-sitter-vim
         tree-sitter-vue
