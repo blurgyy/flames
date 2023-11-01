@@ -188,7 +188,7 @@ in ''
   local lowtab_autocmd = string.format(
     template,
     table.concat(lowtab_fts, ","),
-    "setlocal tabstop=2 shiftwidth=2\n"
+    "setlocal tabstop=2 softtabstop=2 shiftwidth=2\n"
   )
 
   vim.cmd(lowtab_autocmd)
