@@ -40,6 +40,7 @@ in
     })
 
     (mkIf cfg.enable {
+      environment.systemPackages = [ pkgs.sing-box ];
       services.resolved.enable = false;
       networking.resolvconf.extraConfig = ''
         name_servers=${cfg.tunDnsAddress}
