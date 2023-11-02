@@ -84,6 +84,18 @@ in {
       "10.50.200.245" = [ "net.zju.edu.cn" ];
       "10.50.200.3" = [ "net2.zju.edu.cn" ];
     };
+    # REF: <https://android.googlesource.com/platform/external/wpa_supplicant_8/+/master-soong/wpa_supplicant/wpa_supplicant.conf>
+    wireless.extraConfig = ''
+      # MAC address policy default
+      # 0 = use permanent MAC address
+      # 1 = use random MAC address for each ESS connection
+      # 2 = like 1, but maintain OUI (with local admin bit set)
+      #
+      # By default, permanent MAC address is used unless policy is changed by
+      # the per-network mac_addr parameter. Global mac_addr=1 can be used to
+      # change this default behavior.
+      mac_addr=1
+    '';
   };
   services.resolved = let
     dnsServers = [ "1.0.0.1" "1.1.1.1" "8.8.4.4" "8.8.8.8" ];
