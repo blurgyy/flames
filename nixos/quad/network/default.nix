@@ -18,5 +18,8 @@ in
     };
   };
 
-  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
+  systemd.network.networks."40-${defaultGateway.interface}" = {
+    name = defaultGateway.interface;
+    linkConfig.RequiredForOnline = true;
+  };
 }

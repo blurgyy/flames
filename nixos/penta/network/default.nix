@@ -24,7 +24,6 @@ in
       LinkLocalAddressing = "ipv4";
       IPv6AcceptRA = false;
     };
+    linkConfig.RequiredForOnline = true;
   };
-
-  systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
 }

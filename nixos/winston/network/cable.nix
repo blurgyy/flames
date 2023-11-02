@@ -17,4 +17,9 @@ in
       ipv4.addresses = [{ inherit address prefixLength; }];
     };
   };
+
+  systemd.network.networks."40-${defaultGateway.interface}" = {
+    name = defaultGateway.interface;
+    linkConfig.RequiredForOnline = true;
+  };
 }
