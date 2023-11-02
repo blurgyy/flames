@@ -18,5 +18,13 @@ in
     };
   };
 
+  systemd.network.networks."40-${defaultGateway.interface}" = {
+    name = defaultGateway.interface;
+    networkConfig = {
+      LinkLocalAddressing = "ipv4";
+      IPv6AcceptRA = false;
+    };
+  };
+
   systemd.network.wait-online.extraArgs = [ "--interface=eth0" ];
 }
