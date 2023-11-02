@@ -24,15 +24,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "6c8a4395e9ea892523deae452435ea20587a2a59";
+    version = "24759dd998deee6d07ec161b47855ad1790f24f2";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "6c8a4395e9ea892523deae452435ea20587a2a59";
+      rev = "24759dd998deee6d07ec161b47855ad1790f24f2";
       fetchSubmodules = false;
-      sha256 = "sha256-+F0/dChK9H0a58xyFrTnk3SPhGRhGa85bpwXo3ltCa4=";
+      sha256 = "sha256-1ydHMGAmfaVXmK1rCiSzlFifTS4PEdl5GDy+GN+6+GA=";
     };
-    date = "2023-10-31";
+    date = "2023-11-02";
   };
   alist = {
     pname = "alist";
@@ -271,18 +271,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202310302208";
+    version = "202311012208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202310302208/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311012208/geoip.dat";
       sha256 = "sha256-8xDQodReOKIUqNaaTUIhZbBOztz6p7zGLNG86VUSCF4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202310302208";
+    version = "202311012208";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202310302208/geosite.dat";
-      sha256 = "sha256-r7ZMOik1XWugkG+htvt98dSeOcPGUQ0ayNvWK0cwvoY=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311012208/geosite.dat";
+      sha256 = "sha256-y1TVr/O8obww91Jt9wAJ3NSljUDlqdVEQf7bi0Yx2Eo=";
     };
   };
   luarock-dbus_proxy = {
@@ -309,10 +309,10 @@
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
-    version = "2023-10";
+    version = "2023-11";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2023-10.csv.gz";
-      sha256 = "sha256-busoLaOlGKyONVNIZnr9yDnkxYDtinW2KMazH8JjYYU=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2023-11.csv.gz";
+      sha256 = "sha256-rlmoq40QXXg9o0XR8iUq3p5HCC20knZalND2FZ5ps4g=";
     };
   };
   primitive = {
@@ -329,16 +329,16 @@
   };
   pypipe = {
     pname = "pypipe";
-    version = "7a2d7f2d6ab0938621c03a70c8b768e673bc68a1";
+    version = "3da3c1020117b1dad6fa8f42fd80eff7309a97a4";
     src = fetchgit {
       url = "https://github.com/bugen/pypipe";
-      rev = "7a2d7f2d6ab0938621c03a70c8b768e673bc68a1";
+      rev = "3da3c1020117b1dad6fa8f42fd80eff7309a97a4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-1/bTVqssEIgtTGfF3VnPZiYs85SMVc61U2bHHsvIptI=";
+      sha256 = "sha256-fyadMTG+jVfAUf1j0gZEyL+HB07e6ulxA//6uPCYIAI=";
     };
-    date = "2023-10-30";
+    date = "2023-11-02";
   };
   rssbot = {
     pname = "rssbot";
@@ -387,13 +387,13 @@
   };
   tdesktop-megumifox = {
     pname = "tdesktop-megumifox";
-    version = "v4.11.1";
+    version = "v4.11.2";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v4.11.1";
+      rev = "v4.11.2";
       fetchSubmodules = true;
-      sha256 = "sha256-tWUdSFr93plCuQkA8SE+GZeAyZcYPUoFd0sIOyEuobs=";
+      sha256 = "sha256-Hjg349h9dlBfKVLIPDqPP8U+Yt0Iaeyjq6hsUB5+zYM=";
     };
   };
   telegram-send = {
@@ -445,15 +445,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "986058d9d2add204da9e7f84c671426e8bed48a8";
+    version = "be70a6c68a83a252a20fd853344e3c2e62775fa0";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "986058d9d2add204da9e7f84c671426e8bed48a8";
+      rev = "be70a6c68a83a252a20fd853344e3c2e62775fa0";
       fetchSubmodules = false;
-      sha256 = "sha256-4+tJ0U7zoCTWESWGPiM0fDLiCrM5VySz2q8HHKynEqU=";
+      sha256 = "sha256-tGuVVsUJb2TW9zT4HGNsUS8V1zZV6n21SL45DMWfTI0=";
     };
-    date = "2023-10-30";
+    date = "2023-11-01";
   };
   video-compare = {
     pname = "video-compare";
