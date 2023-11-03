@@ -53,7 +53,5 @@
 
   documentation.nixos.enable = false;
 
-  powerManagement.cpuFreqGovernor = "powersave";
-
   system.stateVersion = "22.05";
 }
