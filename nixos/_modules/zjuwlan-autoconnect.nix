@@ -32,10 +32,10 @@ in
     systemd.timers.zjuwlan-login = {
       wantedBy = [ "timers.target" ];
       timerConfig = {
-        OnBootSec = "60s";
-        OnUnitInactiveSec = "180s";
+        OnBootSec = "10s";
+        OnUnitInactiveSec = "30s";
         Persistent = true;
-        RandomizedDelaySec = "120s";
+        RandomizedDelaySec = "20s";
         Unit = "zjuwlan-login.service";
       };
     };
