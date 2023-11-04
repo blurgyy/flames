@@ -11,6 +11,7 @@
     pkgs.vim-plugin-fcitx5-ui-nvim  # NOTE: Must configure fcitx5 with `ShareInputState=no` (see ../../parts/mirrored/fcitx5/config
     pkgs.vim-plugin-bigfile-nvim
     pkgs.vim-plugin-rainbow-delimiters-nvim
+    pkgs.vim-plugin-typescript-tools-nvim
 
     nvim-colorizer-lua
     vim-illuminate
@@ -103,6 +104,7 @@
     clang-tools
     ctags
     elmPackages.elm-language-server
+    javascript-typescript-langserver  # tsserver
     nil
     pyright
     shfmt

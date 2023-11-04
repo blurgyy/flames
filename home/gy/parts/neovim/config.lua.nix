@@ -217,6 +217,9 @@ in ''
     },
   })
 
+  --- typescript-tools
+  require('typescript-tools').setup({})
+
   --- lspconfig
   ---- Custom signs
   ---- REF: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#user-content-change-diagnostic-symbols-in-the-sign-column-gutter
