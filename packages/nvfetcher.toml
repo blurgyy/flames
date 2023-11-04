@@ -177,6 +177,10 @@ fetch.github = "black-desk/fcitx5-ui.nvim"
 src.git = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
 fetch.git = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
 
+[vim-plugin-typescript-tools-nvim]
+src.git = "https://github.com/pmizio/typescript-tools.nvim"
+fetch.git = "https://github.com/pmizio/typescript-tools.nvim"
+
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
 fetch.github = "microsoft/vscode-codicons"

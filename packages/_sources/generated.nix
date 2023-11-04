@@ -503,6 +503,19 @@
     };
     date = "2023-10-29";
   };
+  vim-plugin-typescript-tools-nvim = {
+    pname = "vim-plugin-typescript-tools-nvim";
+    version = "102ba313f87e1f9f9864f681dd7779cac8f6d3ea";
+    src = fetchgit {
+      url = "https://github.com/pmizio/typescript-tools.nvim";
+      rev = "102ba313f87e1f9f9864f681dd7779cac8f6d3ea";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-mnsKdiPZaF/CopUZtLPB/rmpxwtcd3JXxGU1xhuHTek=";
+    };
+    date = "2023-10-19";
+  };
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.35";

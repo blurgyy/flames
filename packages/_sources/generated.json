@@ -845,6 +845,25 @@
         },
         "version": "df8cdf68234fbf056202a9684931c3dfa89988c1"
     },
+    "vim-plugin-typescript-tools-nvim": {
+        "cargoLocks": null,
+        "date": "2023-10-19",
+        "extract": null,
+        "name": "vim-plugin-typescript-tools-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "102ba313f87e1f9f9864f681dd7779cac8f6d3ea",
+            "sha256": "sha256-mnsKdiPZaF/CopUZtLPB/rmpxwtcd3JXxGU1xhuHTek=",
+            "type": "git",
+            "url": "https://github.com/pmizio/typescript-tools.nvim"
+        },
+        "version": "102ba313f87e1f9f9864f681dd7779cac8f6d3ea"
+    },
     "vscode-codicons": {
         "cargoLocks": null,
         "date": null,
