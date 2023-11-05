@@ -11,11 +11,11 @@
       };
     };
     server.services = {
-      http-proxy-from-zjuwlan = {
+      http-proxy-from-copi = {
         port = 1990;
         expose = false;
       };
-      socks-proxy-from-zjuwlan = {
+      socks-proxy-from-copi = {
         port = 1999;
         expose = false;
       };
