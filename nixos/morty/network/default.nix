@@ -24,7 +24,7 @@
     networkConfig.DHCP = "yes";
   };
   networking.ap = {
-    enable = true;
+    enable = false;
     apInterface = "wlan0_ap";
     destinationInterface = "wlan0_sta";
     address = "192.168.169.1/24";
