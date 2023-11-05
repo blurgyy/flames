@@ -136,6 +136,7 @@ in {
       ];
     };
     backlight = {
+      tooltip = false;
       format = "<span color='${themeColor "yellow"}'>{icon}</span> {percent}";
       format-icons = [
         ""
