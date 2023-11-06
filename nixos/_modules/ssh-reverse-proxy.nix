@@ -142,9 +142,11 @@ in with lib; {
             RestartSec = 5;
             DynamicUser = true;
             LoadCredential = "id:${instance.identityFile}";
+            LogNamespace = "noisy";  # using -v to log incoming IP, grep for 'new forwarded-tcpip|free:' to show new/closing connections
           };
           script = ''
             ssh "$REMOTE" \
+              -v \
               -NR "$BIND_ADDR:${
                   toString (if instance.bindPort != null then instance.bindPort else "$BIND_PORT")
                 }:localhost:${
