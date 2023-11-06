@@ -1,0 +1,148 @@
+diff --git a/crates/sshx-server/src/lib.rs b/crates/sshx-server/src/lib.rs
+index 1990851..0a4af79 100644
+--- a/crates/sshx-server/src/lib.rs
++++ b/crates/sshx-server/src/lib.rs
+@@ -12,7 +12,7 @@
+ #![forbid(unsafe_code)]
+ #![warn(missing_docs)]
+ 
+-use std::{net::SocketAddr, sync::Arc};
++use std::{net::SocketAddr, sync::Arc, path::PathBuf};
+ 
+ use anyhow::Result;
+ use hyper::server::conn::AddrIncoming;
+@@ -31,6 +31,9 @@
+ #[derive(Clone, Debug, Default)]
+ #[non_exhaustive]
+ pub struct ServerOptions {
++    /// Directory where static files are stored and served.
++    pub root: PathBuf,
++
+     /// Secret used for signing tokens. Set randomly if not provided.
+     pub secret: Option<String>,
+ 
+@@ -46,6 +49,7 @@ pub struct ServerOptions {
+ 
+ /// Stateful object that manages the sshx server, with graceful termination.
+ pub struct Server {
++    root: PathBuf,
+     state: Arc<ServerState>,
+     shutdown: Shutdown,
+ }
+@@ -54,7 +58,8 @@ impl Server {
+     /// Create a new application server, but do not listen for connections yet.
+     pub fn new(options: ServerOptions) -> Result<Self> {
+         Ok(Self {
+-            state: Arc::new(ServerState::new(options)?),
++            state: Arc::new(ServerState::new(options.clone())?),
++            root: options.root,
+             shutdown: Shutdown::new(),
+         })
+     }
+@@ -79,7 +84,7 @@ pub async fn listen(&self, incoming: AddrIncoming) -> Result<()> {
+             }
+         });
+ 
+-        listen::start_server(self.state(), incoming, self.shutdown.wait()).await
++        listen::start_server(self.root.clone(), self.state(), incoming, self.shutdown.wait()).await
+     }
+ 
+     /// Convenience function to call [`Server::listen`] bound to a TCP address.
+diff --git a/crates/sshx-server/src/listen.rs b/crates/sshx-server/src/listen.rs
+index 734fb26..6290298 100644
+--- a/crates/sshx-server/src/listen.rs
++++ b/crates/sshx-server/src/listen.rs
+@@ -1,4 +1,4 @@
+-use std::{error::Error as StdError, future::Future, sync::Arc};
++use std::{error::Error as StdError, future::Future, sync::Arc, path::PathBuf};
+ 
+ use anyhow::Result;
+ use axum::body::HttpBody;
+@@ -20,13 +20,14 @@
+ /// This internal method is responsible for multiplexing the HTTP and gRPC
+ /// servers onto a single, consolidated `hyper` service.
+ pub(crate) async fn start_server(
++    root: PathBuf,
+     state: Arc<ServerState>,
+     incoming: AddrIncoming,
+     signal: impl Future<Output = ()>,
+ ) -> Result<()> {
+     type BoxError = Box<dyn StdError + Send + Sync>;
+ 
+-    let http_service = web::app()
++    let http_service = web::app(root)
+         .with_state(state.clone())
+         .layer(TraceLayer::new_for_http())
+         .map_response(|r| r.map(|b| b.map_err(BoxError::from).boxed_unsync()))
+diff --git a/crates/sshx-server/src/main.rs b/crates/sshx-server/src/main.rs
+index 1d5209f..d34d98a 100644
+--- a/crates/sshx-server/src/main.rs
++++ b/crates/sshx-server/src/main.rs
+@@ -1,6 +1,7 @@
+ use std::{
+     net::{IpAddr, SocketAddr},
+     process::ExitCode,
++    path::PathBuf,
+ };
+ 
+ use anyhow::Result;
+@@ -13,6 +14,10 @@
+ #[derive(Parser, Debug)]
+ #[clap(author, version, about, long_about = None)]
+ struct Args {
++    /// Directory where static files are stored and served.
++    #[clap(short, long)]
++    root: PathBuf,
++
+     /// Specify port to listen on.
+     #[clap(long, default_value_t = 8051)]
+     port: u16,
+@@ -46,6 +51,7 @@ async fn start(args: Args) -> Result<()> {
+     let mut sigint = signal(SignalKind::interrupt())?;
+ 
+     let mut options = ServerOptions::default();
++    options.root = args.root;
+     options.secret = args.secret;
+     options.override_origin = args.override_origin;
+     options.redis_url = args.redis_url;
+diff --git a/crates/sshx-server/src/web.rs b/crates/sshx-server/src/web.rs
+index 7cd93f0..edd9d38 100644
+--- a/crates/sshx-server/src/web.rs
++++ b/crates/sshx-server/src/web.rs
+@@ -1,5 +1,6 @@
+ //! HTTP and WebSocket handlers for the sshx web interface.
+ 
++use std::path::PathBuf;
+ use std::sync::Arc;
+ 
+ use axum::routing::{get, get_service};
+@@ -12,13 +13,13 @@
+ mod socket;
+ 
+ /// Returns the web application server, routed with Axum.
+-pub fn app() -> Router<Arc<ServerState>> {
+-    let root_spa = ServeFile::new("build/spa.html")
++pub fn app(root: PathBuf) -> Router<Arc<ServerState>> {
++    let root_spa = ServeFile::new(root.join("spa.html"))
+         .precompressed_gzip()
+         .precompressed_br();
+ 
+     // Serves static SvelteKit build files.
+-    let static_files = ServeDir::new("build")
++    let static_files = ServeDir::new(root)
+         .precompressed_gzip()
+         .precompressed_br()
+         .fallback(root_spa);
+diff --git a/crates/sshx/src/main.rs b/crates/sshx/src/main.rs
+index 36d9074..6bde3d9 100644
+--- a/crates/sshx/src/main.rs
++++ b/crates/sshx/src/main.rs
+@@ -12,7 +12,7 @@
+ #[clap(author, version, about, long_about = None)]
+ struct Args {
+     /// Address of the remote sshx server.
+-    #[clap(long, default_value = "https://sshx.io")]
++    #[clap(long)]
+     server: String,
+ 
+     /// Local shell command to run in the terminal.

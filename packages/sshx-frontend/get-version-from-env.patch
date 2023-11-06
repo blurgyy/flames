@@ -1,0 +1,20 @@
+diff --git a/vite.config.ts b/vite.config.ts
+index 7872d6f..bcdca4e 100644
+--- a/vite.config.ts
++++ b/vite.config.ts
+@@ -1,13 +1,11 @@
+-import { execSync } from "node:child_process";
+-
+ import { defineConfig } from "vite";
+ import { sveltekit } from "@sveltejs/kit/vite";
+ 
+-const commitHash = execSync("git rev-parse --short HEAD").toString().trim();
++const version = process.env.version || "unknown-version";
+ 
+ export default defineConfig({
+   define: {
+-    __APP_VERSION__: JSON.stringify("0.2.0-" + commitHash),
++    __APP_VERSION__: JSON.stringify(version),
+   },
+ 
+   plugins: [sveltekit()],
