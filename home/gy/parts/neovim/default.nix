@@ -104,7 +104,6 @@
     clang-tools
     ctags
     elmPackages.elm-language-server
-    javascript-typescript-langserver  # tsserver
     nil
     pyright
     shfmt
