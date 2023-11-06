@@ -24,7 +24,7 @@
       focused = "";
       default = "";
     };
-    persistent_workspaces = {
+    persistent-workspaces = {
       "1" = [];
     };
     active-only = false;  # whether to show only focused workspace
