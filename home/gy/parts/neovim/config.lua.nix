@@ -569,9 +569,6 @@ in ''
   cmp.setup.cmdline(":", { sources = { { name = "cmdline" } } })
   cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
   cmp.setup.cmdline("?", { sources = { { name = "buffer" } } })
-  local caps = require("cmp_nvim_lsp").default_capabilities(
-    vim.lsp.protocol.make_client_capabilities()
-  )
 
   --- navic
   local navic = require("nvim-navic")
@@ -624,7 +621,11 @@ in ''
   local enabled_lsps = {
     "bashls",
     "clangd",
+    "cssls",
     "elmls",
+    "eslint",
+    "html",
+    "jsonls",
     "nil_ls",
     "pyright",
     "rust_analyzer",
@@ -710,6 +711,10 @@ in ''
       navic.attach(client, bufnr)
     end
   end
+  -- cmp-nvim-lsp provides a more sensible value of default capabilities.
+  ---- REF: <https://github.com/hrsh7th/cmp-nvim-lsp>
+  ---- Inspect the default capabilities with `:lua print(vim.inspect(require("cmp_nvim_lsp").default_capabilities()))`
+  local caps = require("cmp_nvim_lsp").default_capabilities()
   for _, lspname in pairs(enabled_lsps) do
     local lsp_settings = settings[lspname] or {}
     lsp_settings._name = lspname

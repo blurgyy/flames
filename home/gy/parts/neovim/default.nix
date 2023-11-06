@@ -115,5 +115,6 @@
     typst-lsp
     wakatime
     yaml-language-server
+    vscode-langservers-extracted
   ];
 }
