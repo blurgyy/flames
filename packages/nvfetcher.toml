@@ -85,10 +85,6 @@ fetch.pypi = "imgviz"
 src.github_tag = "TombstoneTumbleweedArt/import-ply-as-verts"
 fetch.github = "TombstoneTumbleweedArt/import-ply-as-verts"
 
-[sc-fonts]
-src.git = "https://github.com/Haixing-Hu/latex-chinese-fonts"
-fetch.github = "Haixing-Hu/latex-chinese-fonts"
-
 [labelme]
 src.pypi = "labelme"
 fetch.pypi = "labelme"
@@ -130,6 +126,10 @@ fetch.git = "https://github.com/bugen/pypipe"
 src.cmd = "echo v2.0.0-alpha.11"
 fetch.github = "iovxw/rssbot"
 cargo_locks = ["Cargo.lock"]
+
+[sc-fonts]
+src.git = "https://github.com/Haixing-Hu/latex-chinese-fonts"
+fetch.github = "Haixing-Hu/latex-chinese-fonts"
 
 [simple-icons]
 src.github = "simple-icons/simple-icons-font"
