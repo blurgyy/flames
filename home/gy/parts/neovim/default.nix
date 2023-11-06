@@ -109,6 +109,7 @@
     pyright
     shfmt
     lua-language-server
+    tailwindcss-language-server
     taplo-lsp
     texlab
     typst-lsp

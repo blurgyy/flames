@@ -629,6 +629,7 @@ in ''
     "pyright",
     "rust_analyzer",
     "lua_ls",
+    "tailwindcss",
     "taplo",
     "texlab",
     "typst_lsp",
