@@ -136,6 +136,7 @@ in {
 
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e,caps:escape";
+  services.dbus.implementation = "broker";
   console.useXkbConfig = true;
 
   console = {
