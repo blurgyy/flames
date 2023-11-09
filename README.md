@@ -426,3 +426,16 @@ Trouble Shooting
   ```bash
   $ nvfetcher --filter "'$(tomlq keys nvfetcher.toml | jq -r 'map(select(test("alcn|tdesktop-megumifox") | not)) | join("|")')'" -k ~/.config/nvchecker/keyfile.toml --commit-changes -v
   ```
+
+* Mapping a keyboard to another layout using `xkbcomp` and `ckbcomp`:
+
+  `ckbcomp` expects a file containing only a xkb_symbols section.  Such a file can be obtained
+  by the below steps:
+    1. use `xkbcomp $DISPLAY output.xkb` to get a file `output.xkb`, the `output.xkb` file will
+       contain an outer section named "xkb_keymap", inside it there should be several sections,
+       includgin "xkb_keycodes", "xkb_types", "xkb_compatibility", and "xkb_symbols".
+    2. retain only the "xkb_symbols" inner section, and remove the outer "xkb_keymap" braces.
+    3. the file structure should now look like ${./keymap.xkb}.
+  * To customize the keymap, search for the respective keys and swap/ovewrite their rvalues.
+  * Modifiers probably should be specified using modifier_map located at the end of the
+    xkb_symbols section.
