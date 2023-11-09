@@ -624,6 +624,7 @@ in ''
     "cssls",
     "elmls",
     "eslint",
+    "gopls",
     "html",
     "jsonls",
     "nil_ls",

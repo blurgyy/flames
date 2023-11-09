@@ -104,6 +104,8 @@
     clang-tools
     ctags
     elmPackages.elm-language-server
+    go
+    gopls
     nil
     pyright
     shfmt
