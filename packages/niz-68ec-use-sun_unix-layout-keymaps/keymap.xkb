@@ -1,4 +1,3 @@
-{ writeText }: writeText "niz-68ec-keymap.conf" ''
 # man:sway-input(5)
 # man:xkbcomp(1)
 xkb_keymap {
@@ -1604,4 +1603,3 @@ xkb_symbols "(unnamed)" {
 };
 
 };
-''
