@@ -91,7 +91,10 @@ in {
       }
       # REF: <https://wiki.hyprland.org/Configuring/Keywords/#executing>
       device:catex-tech.-68ec-s {
-        kb_file = ${toString pkgs.niz-68ec-keymap}
+        kb_file = ${pkgs.niz-68ec-use-sun_unix-layout-keymaps}/share/kbd/keymap.xkb
+      }
+      device:at_translated_set_2_keyboard {
+        kb_file = ${pkgs.hp-omen-use-sun_unix-layout-keymaps}/share/kbd/keymap.xkb
       }
       device:synps/2-synaptics-touchpad {
         natural_scroll = true
