@@ -135,11 +135,11 @@ in {
   };
 
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e,caps:escape";
+  services.xserver.xkbOptions = "eurosign:e";
   services.dbus.implementation = "broker";
-  console.useXkbConfig = true;
 
   console = {
+    useXkbConfig = lib.mkDefault false;
     font = "ter-i24b";
     packages = with pkgs; [ terminus_font ];
   };

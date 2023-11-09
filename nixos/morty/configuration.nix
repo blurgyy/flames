@@ -27,6 +27,8 @@
     { device = "/dev/disk/by-label/nixos-swap"; priority = 0; }
   ];
 
+  console.keyMap = "${pkgs.hp-omen-use-sun_unix-layout-keymaps}/share/kbd/keymap.vconsole";
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
