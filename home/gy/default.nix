@@ -17,12 +17,6 @@
         inherit (inputs.home-manager.packages.${system}) home-manager;
         inherit (inputs.nixgl.packages.${system}) nixGLIntel;
         inherit (inputs.hypr-msg-handler.packages.${system}) hypr-execonce-helper hypr-last-workspace-recorder;
-        hyprland-XDG_CURRENT_DESKTOP-sway = prev.hyprland.overrideAttrs (o: {
-          # set XDG_CURRENT_DESKTOP to sway and export it to systemd and dbus to use flameshot properly
-          postPatch = ''
-            sed -Ee 's/"XDG_CURRENT_DESKTOP", "Hyprland"/"XDG_CURRENT_DESKTOP", "sway"/' -i src/Compositor.cpp 
-          '';
-        });
         vimPlugins = prev.vimPlugins.extend (finalPlugins: prevPlugins: {
           vim-wakatime = prevPlugins.vim-wakatime.overrideAttrs (o: {
             patches = o.patches or [] ++ [ (pkgs.writeText "vim-wakatime-disdable-interactive-secret-prompt.patch" ''
