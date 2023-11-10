@@ -621,6 +621,7 @@ in ''
   local enabled_lsps = {
     "bashls",
     "clangd",
+    "cmake",
     "cssls",
     "elmls",
     "eslint",

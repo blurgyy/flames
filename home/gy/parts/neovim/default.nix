@@ -102,6 +102,7 @@
   extraPackages = with pkgs; [
     ccls
     clang-tools
+    cmake-language-server
     ctags
     elmPackages.elm-language-server
     go
