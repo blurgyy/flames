@@ -22,6 +22,7 @@ in {
       inherit (config.home.pointerCursor) package name size;
     };
     gtk3.bookmarks = [
+      "file:///broken"
       "file:///elements"
       "file:///home/gy/Downloads"
       "file:///home/gy/Playground"
