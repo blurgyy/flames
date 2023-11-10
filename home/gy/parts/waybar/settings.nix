@@ -52,10 +52,8 @@ in {
       "custom/menu"
       "custom/separator"
       "sway/window"
-      "hyprland/window"
-    ];
-    modules-center = [
-      "hyprland/workspaces"
+    ] ++ lib.optional config.wayland.windowManager.hyprland.enable "hyprland/window";
+    modules-center = lib.optional config.wayland.windowManager.hyprland.enable "hyprland/workspaces" ++ [
       "sway/workspaces"
       "sway/mode"
       "custom/separator"
