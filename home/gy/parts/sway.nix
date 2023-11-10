@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: let
+{ config, lib, pkgs, ... }: let
   terminal = "${pkgs.alacritty-swarm}/bin/alacritty";
   wm-session-wants = [
     "thunar.service"
@@ -28,6 +28,7 @@ in {
         { command = ''
           ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
           ''; }
+        { command = "${lib.getExe pkgs.setup-xdg-desktop-portal-env-script} sway"; }
       ];
       keybindings = let
         term = config.wayland.windowManager.sway.config.terminal;
