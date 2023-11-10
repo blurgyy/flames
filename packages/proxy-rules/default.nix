@@ -10,7 +10,7 @@ let
 in
 
 stdenvNoCC.mkDerivation {
-  pname = "clash-rules";
+  pname = "proxy-rules";
   version = generated.v2ray-rules-dat.version;
 
   buildInputs = [
