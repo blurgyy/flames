@@ -55,7 +55,7 @@ in {
       "hyprland/window"
     ];
     modules-center = [
-      "wlr/workspaces"
+      "hyprland/workspaces"
       "sway/workspaces"
       "sway/mode"
       "custom/separator"
@@ -75,7 +75,7 @@ in {
       "custom/separator"
       "tray"
     ];
-    "wlr/workspaces" = workspaceModule;
+    "hyprland/workspaces" = workspaceModule;
     "sway/workspaces" = workspaceModule;
     "sway/window" = windowModule;
     "hyprland/window" = windowModule;

@@ -1,18 +1,22 @@
-{ config, pkgs, lib }: let
+{ config, lib, pkgs, __callWithHelpers, ... }:
+
+let
   inherit (config.ricing.headful) themeColor;
+  callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
   wm-session-wants = [
     "thunar.service"
     "systembus-notify.service"
   ];
   themeColorHex = name: builtins.replaceStrings [ "#" ] [ "" ] (themeColor name);
-in {
+in
+
+{
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland-XDG_CURRENT_DESKTOP-sway;
     systemd.enable = true;
     xwayland.enable = true;
     extraConfig = let
-      topprg = lib.getExe pkgs.btop;
+      topprg = "${pkgs.btop}/bin/btop";
       hypr-execonce-helper = "${pkgs.hypr-execonce-helper}";
       hypr-last-workspace-recorder = "${pkgs.hypr-last-workspace-recorder}";
       backlight-notify = "${pkgs.notification-scripts}/bin/backlight-notify";
@@ -21,6 +25,7 @@ in {
     in ''
       exec-once = systemctl --user reset-failed
       exec-once = hyprctl setcursor ${with config.home.pointerCursor; "${name} ${toString size}"}
+      exec-once = ${lib.getExe pkgs.setup-xdg-desktop-portal-env-script} Hyprland
 
       # Record last workspace for later use with $mainMod+tab
       exec-once = sdwrap ${hypr-last-workspace-recorder}
@@ -108,8 +113,8 @@ in {
 
         col.active_border = rgba(${themeColorHex "highlight"}ee)
         col.inactive_border = rgba(${themeColorHex "gray"}aa)
-        col.group_border_active = rgba(${themeColorHex "orange"}ee)
-        col.group_border = rgba(${themeColorHex "gray"}aa)
+        col.nogroup_border_active = rgba(${themeColorHex "orange"}ee)
+        col.nogroup_border = rgba(${themeColorHex "gray"}aa)
 
         layout = dwindle
         resize_on_border = true
@@ -132,11 +137,16 @@ in {
         # See <https://wiki.hyprland.org/Configuring/Variables/> for more
 
         rounding = 6
-        blur = true
-        blur_size = 13
-        blur_passes = 3
-        blur_ignore_opacity = false
-        blur_new_optimizations = true
+
+        # <https://wiki.hyprland.org/hyprland-wiki/pages/Configuring/Variables/#blur>
+        blur {
+          enabled = true
+          size = 13
+          passes = 3
+          ignore_opacity = false
+          new_optimizations = true
+          xray = true
+        }
 
         drop_shadow = true
         shadow_range = 4
@@ -333,7 +343,7 @@ in {
   };
 
   home.sessionVariables = {
-    XDG_SESSION_DESKTOP = "sway";
+    XDG_SESSION_DESKTOP = "Hyprland";
     QT_QPA_PLATFORM = "wayland";
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
@@ -343,7 +353,7 @@ in {
     targets.hyprland-session.Unit.Wants = lib.mkIf config.wayland.windowManager.hyprland.enable wm-session-wants;
     services = {
       hyprpaper = {
-        Unit.X-Restart-Triggers = [ (with builtins; hashString "sha512" (callWithHelpers ./parts/mirrored/headful/hypr/hyprpaper.conf.asnix {})) ];
+        Unit.X-Restart-Triggers = [ (with builtins; hashString "sha512" (callWithHelpers ./mirrored/headful/hypr/hyprpaper.conf.asnix {})) ];
         Service = {
           ExecStart = "${pkgs.hyprpaper}/bin/hyprpaper";
           Restart = "always";
@@ -351,10 +361,7 @@ in {
         };
         Install.WantedBy = [ "hyprland-session.target" ];
       };
-      waybar = {
-        Service.Environment = [ "PATH=${lib.makeBinPath [ pkgs.hyprland-XDG_CURRENT_DESKTOP-sway ]}" ];
-        Install.WantedBy = [ "hyprland-session.target" ];
-      };
+      waybar.Install.WantedBy = [ "hyprland-session.target" ];
     };
   };
 }
