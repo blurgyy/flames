@@ -47,7 +47,7 @@ in
       '';
       systemd.network.networks."50-sing-box" = {  # Configs adapted from /etc/systemd/network/50-tailscale.network
         matchConfig.Name = cfg.tunInterface;
-        linkConfig = {  
+        linkConfig = {
           RequiredForOnline = false;
           ActivationPolicy = "manual";
           Unmanaged = true;
