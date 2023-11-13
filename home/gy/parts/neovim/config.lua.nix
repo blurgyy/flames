@@ -251,6 +251,14 @@ in ''
     severity_sort = true,
   })
 
+  --- lsp_signature
+  local lsp_signature_cfg = {
+    hint_prefix = "(param) ",
+    -- needs neovim 0.10+
+    -- hint_inline = function() return true end,
+  }
+  require("lsp_signature").setup(lsp_signature_cfg)
+
   --- telescope
   local preview_if_not_too_large_maker = function(filepath, bufnr, opts)
     opts = opts or {}

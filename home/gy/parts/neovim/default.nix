@@ -18,6 +18,7 @@
     copilot-lua
     comment-nvim
     nvim-lspconfig
+    lsp_signature-nvim
     null-ls-nvim
     nvim-cmp
     nvim-navic
