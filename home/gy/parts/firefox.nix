@@ -8,6 +8,7 @@
       name = "home";
       id = 0;
       isDefault = true;
+      # NOTE: prefs set here are modifiable in firefox's about:config page
       settings = let
         notUsingProxyPrefs = {
           "network.proxy.type" = 0;  # no proxy
@@ -57,6 +58,7 @@
         ExtensionRecommendations = false;
         SkipOnboarding = true;
       };
+      # NOTE: prefs set here are immutable during usage
       Preferences = {
         "browser.newtab.extensionControlled" = false;
         "browser.newtabpage.activity-stream.default.sites" = "https://arxiv.org/list/cs.CV/pastweek?show=397";
