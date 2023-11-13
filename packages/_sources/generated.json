@@ -631,31 +631,6 @@
         },
         "version": "9.20.0"
     },
-    "sshx": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./sshx-e01b75a3bc641b1685a7f04fc0fce63c999f2fc1/Cargo.lock",
-                {}
-            ]
-        },
-        "date": "2023-11-07",
-        "extract": null,
-        "name": "sshx",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "ekzhang",
-            "repo": "sshx",
-            "rev": "e01b75a3bc641b1685a7f04fc0fce63c999f2fc1",
-            "sha256": "sha256-eHC/QiL7o3bJjsnNCkUftMVah6wn6rGjbg20xmWTn2k=",
-            "type": "github"
-        },
-        "version": "e01b75a3bc641b1685a7f04fc0fce63c999f2fc1"
-    },
     "symbols-nerd-font": {
         "cargoLocks": null,
         "date": null,

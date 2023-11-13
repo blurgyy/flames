@@ -377,24 +377,6 @@
       sha256 = "sha256-SPMTfgHozKhNmSUX+YEbaPMAsWBYQ1/VXg+JJtp8g+s=";
     };
   };
-  sshx = {
-    pname = "sshx";
-    version = "e01b75a3bc641b1685a7f04fc0fce63c999f2fc1";
-    src = fetchFromGitHub {
-      owner = "ekzhang";
-      repo = "sshx";
-      rev = "e01b75a3bc641b1685a7f04fc0fce63c999f2fc1";
-      fetchSubmodules = false;
-      sha256 = "sha256-eHC/QiL7o3bJjsnNCkUftMVah6wn6rGjbg20xmWTn2k=";
-    };
-    cargoLock."Cargo.lock" = {
-      lockFile = ./sshx-e01b75a3bc641b1685a7f04fc0fce63c999f2fc1/Cargo.lock;
-      outputHashes = {
-        
-      };
-    };
-    date = "2023-11-07";
-  };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
     version = "v3.0.2";

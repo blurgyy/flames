@@ -135,11 +135,6 @@ fetch.github = "Haixing-Hu/latex-chinese-fonts"
 src.github = "simple-icons/simple-icons-font"
 fetch.url = "https://github.com/simple-icons/simple-icons-font/releases/download/$ver/simple-icons-font-$ver.zip"
 
-[sshx]
-src.git = "https://github.com/ekzhang/sshx"
-fetch.github = "ekzhang/sshx"
-cargo_locks = ["Cargo.lock"]
-
 [symbols-nerd-font]
 src.github = "ryanoasis/nerd-fonts"
 fetch.url = "https://github.com/ryanoasis/nerd-fonts/releases/download/$ver/NerdFontsSymbolsOnly.zip"
