@@ -23,10 +23,9 @@ in
     };
     tunDnsAddress = mkOption {
       type = types.str;
-      default = "169.254.169.1";
+      default = "255.255.255.254";
       description = ''
         DNS written to `/etc/resolvconf.conf`, which is subsequently written to `/etc/resolv.conf`.
-        Should be within the IP-CIDR range of `tunAddress`, and does not equal `tunAddress`.
       '';
     };
   };
