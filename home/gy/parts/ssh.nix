@@ -126,7 +126,13 @@
     "github github.com gitlab gitlab.com" = if proxy == null
       then {}
       else {
-        proxyCommand = "${pkgs.socat}/bin/socat - PROXY:${proxy.addr}:%h:%p,proxyport=${toString proxy.port}";
+        proxyCommand = let
+          type = if lib.hasPrefix "http" proxy.schema
+            then "proxy"
+            else if lib.hasPrefix "socks" proxy.schema
+            then "socks"
+            else proxy.schema;
+        in "${pkgs.socat}/bin/socat - ${type}:${proxy.addr}:%h:%p,${type}port=${toString proxy.port}";
       };
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
 

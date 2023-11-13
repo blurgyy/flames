@@ -1,18 +1,43 @@
-{ config, pkgs, hostName }: {
+{ config, lib, pkgs
+, hostName
+, proxy
+}: {
   enable = true;
   profiles = {
     home = {
       name = "home";
       id = 0;
       isDefault = true;
-      settings = {
+      settings = let
+        notUsingProxyPrefs = {
+          "network.proxy.type" = 0;  # no proxy
+          "network.proxy.socks" = "";
+          "network.proxy.socks_port" = 0;
+          "network.proxy.http" = "";
+          "network.proxy.http_port" = 0;
+        };
+        socksProxyPrefs = notUsingProxyPrefs // {
+          "network.proxy.type" = 1;  # manual proxy configuration
+          "network.proxy.socks" = proxy.addr;
+          "network.proxy.socks_port" = proxy.port;
+        };
+        httpProxyPrefs = notUsingProxyPrefs // {
+          "network.proxy.type" = 1;  # manual proxy configuration
+          "network.proxy.share_proxy_settings" = true;
+          "network.proxy.http" = proxy.addr;
+          "network.proxy.http_port" = proxy.port;
+        };
+      in {
         "general.useragent.override" = let
           inherit (config.programs.firefox.package) version;
         in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
         "identity.fxaccounts.account.device.name" = hostName;
         "network.proxy.socks_remote_dns" = true;
         "network.proxy.no_proxies_on" = "localhost, 127.0.0.1/8";
-      };
+      } // (if proxy == null then notUsingProxyPrefs
+        else if lib.hasPrefix "socks" proxy.schema then socksProxyPrefs
+        else if lib.hasPrefix "http" proxy.schema then httpProxyPrefs
+        else notUsingProxyPrefs);
     };
   };
   package = pkgs.wrapFirefox pkgs.firefox-bin-unwrapped {

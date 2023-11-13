@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   time.timeZone = "Asia/Shanghai";
 
   boot.loader.systemd-boot.enable = true;
@@ -50,9 +50,16 @@
     pkgs.python3Packages.gpustat
   ];
 
-  systemd.services.nix-daemon.environment = rec {
-    http_proxy = "http://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}";
-    https_proxy = http_proxy;
+  networking.proxy = {
+    default = "socks5h://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.socks-proxy-from-copi.port}";
+    noProxy = lib.concatStringsSep "," [
+      "localhost"
+      "127.0.0.1"
+      "::1"
+      "cc98.org"
+      "nexushd.org"
+      "zju.edu.cn"
+    ];
   };
 
   services = {

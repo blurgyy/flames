@@ -33,10 +33,15 @@
         f /var/lib/systemd/linger/gy 0644 root root - -
       '';
 
-      proxy-env = builtins.toFile "nspawn-proxy-env" ''
-        export http_proxy=http://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}
-        export https_proxy="$http_proxy"
-      '';
+      proxy-env = builtins.toFile "nspawn-proxy-env"
+        (lib.concatStringsSep "\n"
+          (builtins.attrValues
+            (builtins.mapAttrs
+              (name: value: "export ${name}=${value}")
+              config.networking.proxy.envVars
+            )
+          )
+        );
       display-env = builtins.toFile "nspawn-display-env" ''
         export DISPLAY=:0
         export LD_LIBRARY_PATH="${opengl-driver-bindpath}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"

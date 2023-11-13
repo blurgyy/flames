@@ -196,8 +196,10 @@ in {
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
   } // (if proxy != null then {
-    http_proxy = "http://${proxy.addr}:${toString proxy.port}";
-    https_proxy = "http://${proxy.addr}:${toString proxy.port}";
+    http_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
+    https_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
+    ftp_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
+    rsync_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
     no_proxy = lib.concatStringsSep "," proxy.ignore or [];
   } else {});
   systemd.user.sessionVariables = config.home.sessionVariables;

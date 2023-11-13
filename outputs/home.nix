@@ -20,7 +20,8 @@
 
   labProxy = {
     addr = "winston";
-    port = 1990;
+    port = 1999;
+    schema = "socks5h";
     ignore = [
       "localhost"
       "127.0.0.1"
