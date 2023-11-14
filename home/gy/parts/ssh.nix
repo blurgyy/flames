@@ -125,15 +125,11 @@
     };
     "github github.com gitlab gitlab.com" = if proxy == null
       then {}
-      else {
-        proxyCommand = let
-          type = if lib.hasPrefix "http" proxy.schema
-            then "proxy"
-            else if lib.hasPrefix "socks" proxy.schema
-            then "socks"
-            else proxy.schema;
-        in "${pkgs.socat}/bin/socat - ${type}:${proxy.addr}:%h:%p,${type}port=${toString proxy.port}";
-      };
+      else if builtins.hasAttr "http" proxy
+      then { proxyCommand = "${pkgs.socat}/bin/socat - proxy:${proxy.http.addr}:%h:%p,proxyport=${toString proxy.http.port}"; }
+      else if builtins.hasAttr "socks" proxy
+      then { proxyCommand = "${pkgs.socat}/bin/socat - socks:${proxy.socks.addr}:%h:%p,socksport=${toString proxy.socks.port}"; }
+      else {};
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
 
     ubuntu-jammy = {

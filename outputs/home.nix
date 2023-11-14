@@ -18,10 +18,23 @@
     inherit self nixpkgs inputs;
   };
 
+  getProxyEnvVars = proxyCfg: hostName: {
+    http = let _ = "http://${if hostName == proxyCfg.http.addr then "127.0.0.2" else proxyCfg.http.addr}:${toString proxyCfg.http.port}"; in {
+      http_proxy = _;
+      https_proxy = _;
+      ftp_proxy = _;
+      rsync_proxy = _;
+    };
+    socks = let _ = "socks5h://${if hostName == proxyCfg.socks.addr then "127.0.0.2" else proxyCfg.socks.addr}:${toString proxyCfg.socks.port}"; in {
+      http_proxy = _;
+      https_proxy = _;
+      ftp_proxy = _;
+      rsync_proxy = _;
+    };
+    no_proxy = lib.concatStringsSep "," proxyCfg.ignore;
+  };
+
   labProxy = {
-    addr = "winston";
-    port = 1999;
-    schema = "socks5h";
     ignore = [
       "localhost"
       "127.0.0.1"
@@ -30,6 +43,15 @@
       "nexushd.org"
       "zju.edu.cn"
     ];
+    socks = {
+      addr = "winston";
+      port = 1999;
+    };
+    http = {
+      addr = "winston";
+      port = 1990;
+    };
+    envVarsFor = getProxyEnvVars labProxy;
   };
 in apply "gy" {
   "morty" = x86_64-non-headless;

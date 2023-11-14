@@ -196,11 +196,8 @@ in {
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
   } // (if proxy != null then {
-    http_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
-    https_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
-    ftp_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
-    rsync_proxy = "${proxy.schema}://${proxy.addr}:${toString proxy.port}";
-    no_proxy = lib.concatStringsSep "," proxy.ignore or [];
+    inherit ((proxy.envVarsFor hostName).http) http_proxy https_proxy ftp_proxy rsync_proxy;
+    inherit (proxy.envVarsFor hostName) no_proxy;
   } else {});
   systemd.user.sessionVariables = config.home.sessionVariables;
   pam.sessionVariables = config.home.sessionVariables;
@@ -233,7 +230,14 @@ in {
       source = ./parts/raw/gdu.yaml;
       target = ".gdu.yaml";
     };
-  };
+  } // (if proxy == null
+  then {}
+  else {
+    npmConfig = {
+      text = callWithHelpers ./parts/raw/npmrc.nix {};
+      target = ".npmrc";
+    };
+  });
 
   xdg = with helpers; {
     enable = true;
