@@ -45,16 +45,16 @@
         tree-sitter-cuda
         tree-sitter-elm
         tree-sitter-fish
-        # tree-sitter-help  # Not provided by nixpkgs
         tree-sitter-html
         tree-sitter-javascript
         tree-sitter-json
-        # tree-sitter-jsonc  # Not provided by nixpkgs
+        tree-sitter-jsonc
+        tree-sitter-kdl
         tree-sitter-latex
         tree-sitter-lua
         tree-sitter-make
         tree-sitter-markdown
-        # tree-sitter-ninja  # Not provided by nixpkgs
+        tree-sitter-ninja
         tree-sitter-nix
         tree-sitter-norg
         tree-sitter-php
@@ -67,6 +67,7 @@
         tree-sitter-typescript
         tree-sitter-tsx
         tree-sitter-yaml
+        tree-sitter-yuck
         tree-sitter-vim
         tree-sitter-vue
       ]
@@ -87,7 +88,6 @@
     vim-fugitive
     vim-smoothie
     vim-wakatime
-    yuck-vim
     typst-vim
   ];
   extraConfig = ''
