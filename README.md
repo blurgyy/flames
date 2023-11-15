@@ -439,3 +439,12 @@ Trouble Shooting
   * To customize the keymap, search for the respective keys and swap/ovewrite their rvalues.
   * Modifiers probably should be specified using modifier_map located at the end of the
     xkb_symbols section.
+
+* Inspect current sending queue on a postfix mail server:
+  ```bash
+  $ sudo postqueue -j  # output as json
+  ```
+  Delete an item from the queue:
+  ```bash
+  $ sudo postsuper -d 0628818AB791  # replace 0628818AB791 with value of the "queue_id" field in the previous command
+  ```
