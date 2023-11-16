@@ -3,6 +3,10 @@
     "live.com"
     "msftauth.net"
   ];
-  domain_keyword = "bing";
+  domain_keyword = [
+    "bing"
+    "bingapis"
+    "microsoft"
+  ];
   outbound = "auto-jp";
 }
