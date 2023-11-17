@@ -1,7 +1,7 @@
-diff --git a/server/hooks/gen.go b/server/hooks/gen.go
-index ac23515..6a861c8 100644
---- a/server/hooks/gen.go
-+++ b/server/hooks/gen.go
+diff --git a/pkg/hooks/gen.go b/pkg/hooks/gen.go
+index 5eb16eb..d51ca5e 100644
+--- a/pkg/hooks/gen.go
++++ b/pkg/hooks/gen.go
 @@ -41,13 +41,7 @@ func GenerateHooks(_ context.Context, cfg *config.Config, repo string) error {
  		return err
  	}
