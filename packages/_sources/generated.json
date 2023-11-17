@@ -35,7 +35,7 @@
     },
     "alcn-repo": {
         "cargoLocks": null,
-        "date": "2023-11-12",
+        "date": "2023-11-17",
         "extract": null,
         "name": "alcn-repo",
         "passthru": null,
@@ -47,11 +47,11 @@
             "name": null,
             "owner": "archlinuxcn",
             "repo": "repo",
-            "rev": "0013a71ef398cc1c08e39af6b0ca2437847f2e24",
-            "sha256": "sha256-sRfECtchSZaxzY15BmZMkU9SpY756RHtfU9SQQDiOpM=",
+            "rev": "afdacd9445831ddaea2ded4ac3e7391e8cf49c36",
+            "sha256": "sha256-uSS9h7pGa2lDmbqtdpCkRRAfhUU7hDvmZHYc7AHet98=",
             "type": "github"
         },
-        "version": "0013a71ef398cc1c08e39af6b0ca2437847f2e24"
+        "version": "afdacd9445831ddaea2ded4ac3e7391e8cf49c36"
     },
     "alist": {
         "cargoLocks": null,
@@ -129,7 +129,7 @@
     },
     "dnsmasq-china-list": {
         "cargoLocks": null,
-        "date": "2023-11-11",
+        "date": "2023-11-16",
         "extract": null,
         "name": "dnsmasq-china-list",
         "passthru": null,
@@ -141,11 +141,11 @@
             "name": null,
             "owner": "felixonmars",
             "repo": "dnsmasq-china-list",
-            "rev": "429c5290beb7cbccef39bff6f9de1deefad40078",
-            "sha256": "sha256-8q4tC2Wo3ACkvHvm+s8ugB6m6HlXrjrKYd/ZsK861oI=",
+            "rev": "8b4a91a3ba7281e3baee10fe014107832423fea9",
+            "sha256": "sha256-QiiF7pCmcWpZhK152PRU7a9rrs8okqtRMwgk9Dd5JbY=",
             "type": "github"
         },
-        "version": "429c5290beb7cbccef39bff6f9de1deefad40078"
+        "version": "8b4a91a3ba7281e3baee10fe014107832423fea9"
     },
     "dt": {
         "cargoLocks": {
@@ -399,11 +399,11 @@
             "name": null,
             "owner": "TombstoneTumbleweedArt",
             "repo": "import-ply-as-verts",
-            "rev": "v2.1",
-            "sha256": "sha256-uH0PADYv2hbDxPSuS5ckuov9mJ8pYuWt8hp18rXll6Y=",
+            "rev": "v3.0",
+            "sha256": "sha256-GzRrcJwqC78jNKkGIz5JjXtMXsPLb2jclYsubf5VB6g=",
             "type": "github"
         },
-        "version": "v2.1"
+        "version": "v3.0"
     },
     "labelme": {
         "cargoLocks": null,
@@ -454,11 +454,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-sMc6zIi2v+JfVIjfjXJhABUGQugIFKeDyonVWs7b5co=",
+            "sha256": "sha256-sLvadfG6wTE6MGabW3Il6uSS2/lWLcu0Jgd8j0U7dnM=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311112208/geoip.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311162209/geoip.dat"
         },
-        "version": "202311112208"
+        "version": "202311162209"
     },
     "loyalsoldier-geosite": {
         "cargoLocks": null,
@@ -469,11 +469,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ZytyZ4x5/jSyBRjb2Cv04BCZe4OJodjAzK4ZULe4meI=",
+            "sha256": "sha256-OiPM1oPl3PmqjUmCiHwnhVpQ+LabCIxVYm2qJ3AXox4=",
             "type": "url",
-            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311112208/geosite.dat"
+            "url": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202311162209/geosite.dat"
         },
-        "version": "202311112208"
+        "version": "202311162209"
     },
     "luarock-dbus_proxy": {
         "cargoLocks": null,
@@ -552,7 +552,7 @@
     },
     "pypipe": {
         "cargoLocks": null,
-        "date": "2023-11-10",
+        "date": "2023-11-15",
         "extract": null,
         "name": "pypipe",
         "passthru": null,
@@ -562,12 +562,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "806aec9526d475670dedba2a0c9f80d284077da6",
-            "sha256": "sha256-rzGRkEToLEHiuGH3ySLBw+eL1JdOgRvlD9LKWNHNiMY=",
+            "rev": "e4b6be9215c209bcb8020bb604ab71b61a3606bb",
+            "sha256": "sha256-iQhsHEUoDTMjLA/WxEJkXT1CDOlRi1XEy2Z0c2wNvrg=",
             "type": "git",
             "url": "https://github.com/bugen/pypipe"
         },
-        "version": "806aec9526d475670dedba2a0c9f80d284077da6"
+        "version": "e4b6be9215c209bcb8020bb604ab71b61a3606bb"
     },
     "rssbot": {
         "cargoLocks": {
@@ -660,11 +660,11 @@
             "name": null,
             "owner": "telegramdesktop",
             "repo": "tdesktop",
-            "rev": "v4.11.6",
-            "sha256": "sha256-GV5jaC1chm4cq097/aP18Z4QemTO4tt8SBrdxCQYaS8=",
+            "rev": "v4.11.8",
+            "sha256": "sha256-VuMcqbGo1t1J7I8kXdqsw/01Mth9YKEbiy8aNtM3azw=",
             "type": "github"
         },
-        "version": "v4.11.6"
+        "version": "v4.11.8"
     },
     "telegram-send": {
         "cargoLocks": null,
@@ -748,7 +748,7 @@
     },
     "v2ray-rules-dat": {
         "cargoLocks": null,
-        "date": "2023-11-11",
+        "date": "2023-11-16",
         "extract": null,
         "name": "v2ray-rules-dat",
         "passthru": null,
@@ -760,11 +760,11 @@
             "name": null,
             "owner": "loyalsoldier",
             "repo": "v2ray-rules-dat",
-            "rev": "ad8d9c2afa0c6c688f0f0789568c036cf4060c85",
-            "sha256": "sha256-3okHt42Wiw6l2am9SoDnlykvmINsFxsCDQ3VYygMyik=",
+            "rev": "f3f496034bc462819347f0a4bc4718106017c680",
+            "sha256": "sha256-4J9TprF4JBQ2lat7SSbOuaJ09nmRpyjtbs36XitDtrY=",
             "type": "github"
         },
-        "version": "ad8d9c2afa0c6c688f0f0789568c036cf4060c85"
+        "version": "f3f496034bc462819347f0a4bc4718106017c680"
     },
     "video-compare": {
         "cargoLocks": null,
@@ -828,7 +828,7 @@
     },
     "vim-plugin-rainbow-delimiters-nvim": {
         "cargoLocks": null,
-        "date": "2023-11-11",
+        "date": "2023-11-16",
         "extract": null,
         "name": "vim-plugin-rainbow-delimiters-nvim",
         "passthru": null,
@@ -838,16 +838,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a5e8fb4960f905a52031b28113cf43088cfeae22",
-            "sha256": "sha256-37xrhKnZaGOUwOSCKSUcF841tXDOmT48eYDJo453fjQ=",
+            "rev": "538b4aec989e05e86dd42eccafa84f27733f9cf7",
+            "sha256": "sha256-OJD/sZG0iK4PwP9MXxNjdORKv3fTO+kqbl1UDeLATio=",
             "type": "git",
             "url": "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
         },
-        "version": "a5e8fb4960f905a52031b28113cf43088cfeae22"
+        "version": "538b4aec989e05e86dd42eccafa84f27733f9cf7"
     },
     "vim-plugin-typescript-tools-nvim": {
         "cargoLocks": null,
-        "date": "2023-10-19",
+        "date": "2023-11-16",
         "extract": null,
         "name": "vim-plugin-typescript-tools-nvim",
         "passthru": null,
@@ -857,12 +857,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "102ba313f87e1f9f9864f681dd7779cac8f6d3ea",
-            "sha256": "sha256-mnsKdiPZaF/CopUZtLPB/rmpxwtcd3JXxGU1xhuHTek=",
+            "rev": "11f50fb66132c0bac929533b64536a8a7c490435",
+            "sha256": "sha256-wQbNPTp8bpcUfrepEyUNql9tJciRuELOXW8q9NEmvIE=",
             "type": "git",
             "url": "https://github.com/pmizio/typescript-tools.nvim"
         },
-        "version": "102ba313f87e1f9f9864f681dd7779cac8f6d3ea"
+        "version": "11f50fb66132c0bac929533b64536a8a7c490435"
     },
     "vscode-codicons": {
         "cargoLocks": null,
@@ -922,7 +922,7 @@
     "zellij-hirr": {
         "cargoLocks": {
             "Cargo.lock": [
-                "./zellij-hirr-v0.39.0/Cargo.lock",
+                "./zellij-hirr-v0.39.1/Cargo.lock",
                 {}
             ]
         },
@@ -938,10 +938,10 @@
             "name": null,
             "owner": "zellij-org",
             "repo": "zellij",
-            "rev": "v0.39.0",
-            "sha256": "sha256-ZKtYXUNuBwQtEHTaPlptiRncFWattkkcAGGzbKalJZE=",
+            "rev": "v0.39.1",
+            "sha256": "sha256-nT4P/ZlquJz48T8LCRQd5menL8vtGMBSUgZNJYx0Pn4=",
             "type": "github"
         },
-        "version": "v0.39.0"
+        "version": "v0.39.1"
     }
 }
