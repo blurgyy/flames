@@ -172,6 +172,8 @@ in ''
     "nix",
     "norg",
     "plaintex",
+    "sass",
+    "scss",
     "sh",
     "sql",
     "sshconfig",
