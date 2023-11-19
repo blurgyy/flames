@@ -199,8 +199,12 @@ in {
     inherit ((proxy.envVarsFor hostName).http) http_proxy https_proxy ftp_proxy rsync_proxy;
     inherit (proxy.envVarsFor hostName) no_proxy;
   } else {});
-  systemd.user.sessionVariables = config.home.sessionVariables;
-  pam.sessionVariables = config.home.sessionVariables;
+  systemd.user.sessionVariables = builtins.mapAttrs
+    (name: value: lib.mkDefault value)
+    config.home.sessionVariables;
+  pam.sessionVariables = builtins.mapAttrs
+    (name: value: lib.mkDefault value)
+    config.home.sessionVariables;
 
   i18n.inputMethod = {
     enabled = "fcitx5";
