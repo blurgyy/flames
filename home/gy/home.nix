@@ -202,9 +202,7 @@ in {
   systemd.user.sessionVariables = builtins.mapAttrs
     (name: value: lib.mkDefault value)
     config.home.sessionVariables;
-  pam.sessionVariables = builtins.mapAttrs
-    (name: value: lib.mkDefault value)
-    config.home.sessionVariables;
+  pam.sessionVariables = config.home.sessionVariables;
 
   i18n.inputMethod = {
     enabled = "fcitx5";
