@@ -53,6 +53,11 @@ writeShellScript "build-clash-rules" ''
       | sed '/:/d' \
       | sed 's/^/  - DOMAIN-SUFFIX,/' \
       | sed 's/$/,DIRECT/' >>$TMPDIR/direct.rules
+  cat ${../custom-rules/30-direct-ip.txt} \
+    | sed '/^\s*$/d' \
+    | sed '/:/d' \
+    | sed 's/^/  - IP-CIDR,/' \
+    | sed 's/$/,DIRECT/' >>$TMPDIR/direct.rules
 
   # Strip empty lines
   sed -i '/^\s*$/d' $TMPDIR/*.rules
