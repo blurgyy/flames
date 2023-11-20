@@ -148,6 +148,13 @@ in {
     TYPST_FONT_PATHS = "${config.home.profileDirectory}";
   };
 
+  i18n.inputMethod.fcitx5.addons = with pkgs; [
+    fcitx5-gtk
+    libsForQt5.fcitx5-qt
+    fcitx5-sogou-themes
+    fcitx5-fluent-dark-theme
+  ];
+
   xdg = {
     enable = true;
     systemDirs.data = [
