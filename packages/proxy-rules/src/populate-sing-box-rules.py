@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from functools import partial
 import json
 from pathlib import Path
 import sys
@@ -37,7 +38,7 @@ def populate_rules(obj: dict, rules_dir: Path) -> dict:
         elif isinstance(value, dict):
             ret[key] = populate_rules(value, rules_dir)
         elif isinstance(value, list):
-            ret[key] = list(map(lambda x: populate_rules(x, rules_dir), value))
+            ret[key] = list(map(partial(populate_rules, rules_dir=rules_dir), value))
         else:
             ret[key] = value
     return ret
