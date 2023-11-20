@@ -45,7 +45,6 @@ in {
 
   home.packages = with pkgs; [
     cage
-    cider  # uses insecure electron-24.8.6
     evince
     gimp
     imv

@@ -7,7 +7,7 @@
       "meda"
     ];
     config.permittedInsecurePackages = [
-      "electron-24.8.6"  # cider, logseq
+      "electron-24.8.6"  # logseq
       "zotero-6.0.27"
     ];
     overlays = [
