@@ -1,5 +1,5 @@
 { stdenvNoCC
-, python310
+, python3
 
 , geckodriver
 , firefox-unwrapped
@@ -9,7 +9,7 @@
   src = ./zjuwlan.py;
 
   buildInputs = [
-    (python310.withPackages (pp: with pp; [
+    (python3.withPackages (pp: with pp; [
       selenium
     ]))
     makeWrapper
@@ -27,6 +27,7 @@
 
   # wrap the script with firefox in its PATH
   postFixup = ''
+    patchShebangs --build $out/bin/zjuwlan
     wrapProgram $out/bin/zjuwlan \
       --prefix PATH : ${firefox-unwrapped}/bin
   '';
