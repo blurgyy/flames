@@ -77,10 +77,6 @@ in {
     };
     firewall.enable = lib.mkDefault false;
     hosts = {
-      "81.69.28.75" = [
-        "peterpan.${config.networking.domain}"
-        "pp.${config.networking.domain}"
-      ];
       "10.50.200.245" = [ "net.zju.edu.cn" ];
       "10.50.200.3" = [ "net2.zju.edu.cn" ];
     };
