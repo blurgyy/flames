@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   ntfyHost = "https://ntfy.${config.networking.domain}";
@@ -34,7 +34,8 @@ in
         RestartSec = 5;
       };
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
+      after = [ "network.target" ]
+        ++ lib.optional config.services.sing-box.enable "sing-box.service";
     };
   };
 }
