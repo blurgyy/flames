@@ -90,6 +90,7 @@ meituan.net
 mob.com
 myqcloud.com
 mzstatic.com
+nbsanke.top
 netease.com
 onezapp.com
 openmmlab.com
