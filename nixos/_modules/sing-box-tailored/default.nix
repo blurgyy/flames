@@ -19,7 +19,7 @@ in
     };
     tunAddress = mkOption {
       type = types.str;
-      default = "169.254.169.0/31";
+      default = "10.169.169.169/31";
     };
     tunDnsAddress = mkOption {
       type = types.str;
