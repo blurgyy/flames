@@ -18,14 +18,23 @@
     inherit self nixpkgs inputs;
   };
 
-  getProxyEnvVars = proxyCfg: hostName: {
-    http = let _ = "http://${if hostName == proxyCfg.http.addr then "127.0.0.2" else proxyCfg.http.addr}:${toString proxyCfg.http.port}"; in {
+  getProxyEnvVars = proxyCfg: hostName: let
+    _http_proxy_addr = if hostName == proxyCfg.http.addr then "127.0.0.2" else proxyCfg.http.addr;
+    _http_proxy_port = toString proxyCfg.http.port;
+    _socks_proxy_addr = if hostName == proxyCfg.socks.addr then "127.0.0.2" else proxyCfg.socks.addr;
+    _socks_proxy_port = toString proxyCfg.socks.port;
+  in {
+    http = let _ = "http://${_http_proxy_addr}:${_http_proxy_port}"; in {
+      _proxy_addr = _http_proxy_addr;
+      _proxy_port = _http_proxy_port;
       http_proxy = _;
       https_proxy = _;
       ftp_proxy = _;
       rsync_proxy = _;
     };
-    socks = let _ = "socks5h://${if hostName == proxyCfg.socks.addr then "127.0.0.2" else proxyCfg.socks.addr}:${toString proxyCfg.socks.port}"; in {
+    socks = let _ = "socks5h://${_socks_proxy_addr}:${_socks_proxy_port}"; in {
+      _proxy_addr = _socks_proxy_addr;
+      _proxy_port = _socks_proxy_port;
       http_proxy = _;
       https_proxy = _;
       ftp_proxy = _;

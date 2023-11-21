@@ -1,4 +1,4 @@
-{ proxy, lib, pkgs, mergeAttrsList }: {
+{ proxy, hostName, lib, pkgs, mergeAttrsList }: {
   enable = true;
   controlMaster = "no";
   controlPath = "~/.ssh/master-%r@%n:%p";
@@ -126,9 +126,9 @@
     "github github.com gitlab gitlab.com" = if proxy == null
       then {}
       else if builtins.hasAttr "http" proxy
-      then { proxyCommand = "${pkgs.socat}/bin/socat - proxy:${proxy.http.addr}:%h:%p,proxyport=${toString proxy.http.port}"; }
+      then { proxyCommand = "${pkgs.socat}/bin/socat - proxy:${(proxy.envVarsFor hostName).http._proxy_addr}:%h:%p,proxyport=${(proxy.envVarsFor hostName).http._proxy_port}"; }
       else if builtins.hasAttr "socks" proxy
-      then { proxyCommand = "${pkgs.socat}/bin/socat - socks:${proxy.socks.addr}:%h:%p,socksport=${toString proxy.socks.port}"; }
+      then { proxyCommand = "${pkgs.socat}/bin/socat - socks:${(proxy.envVarsFor hostName).socks._proxy_addr}:%h:%p,socksport=${(proxy.envVarsFor hostName).socks._proxy_port}"; }
       else {};
     aur = { hostname = "aur.archlinux.org"; user = "aur"; };
 
