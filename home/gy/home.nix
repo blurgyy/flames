@@ -196,7 +196,7 @@ in {
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
   } // (if proxy != null then {
-    inherit ((proxy.envVarsFor hostName).http) http_proxy https_proxy ftp_proxy rsync_proxy;
+    inherit ((proxy.envVarsFor hostName).http) all_proxy http_proxy https_proxy ftp_proxy rsync_proxy;
     inherit (proxy.envVarsFor hostName) no_proxy;
   } else {});
   systemd.user.sessionVariables = builtins.mapAttrs

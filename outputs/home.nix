@@ -27,6 +27,7 @@
     http = let _ = "http://${_http_proxy_addr}:${_http_proxy_port}"; in {
       _proxy_addr = _http_proxy_addr;
       _proxy_port = _http_proxy_port;
+      all_proxy = _;
       http_proxy = _;
       https_proxy = _;
       ftp_proxy = _;
@@ -35,6 +36,7 @@
     socks = let _ = "socks5h://${_socks_proxy_addr}:${_socks_proxy_port}"; in {
       _proxy_addr = _socks_proxy_addr;
       _proxy_port = _socks_proxy_port;
+      all_proxy = _;
       http_proxy = _;
       https_proxy = _;
       ftp_proxy = _;

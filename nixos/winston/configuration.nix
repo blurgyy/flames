@@ -51,7 +51,7 @@
   ];
 
   networking.proxy = {
-    default = "socks5h://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.socks-proxy-from-copi.port}";
+    default = "http://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}";
     noProxy = lib.concatStringsSep "," [
       "localhost"
       "127.0.0.1"
