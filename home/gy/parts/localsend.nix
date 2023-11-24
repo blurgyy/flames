@@ -66,7 +66,7 @@ in
     Unit.PartOf = [ "graphical-session.target" ];
     Service = {
       ExecStartPre = writeConfig;
-      ExecStart = "${package}/bin/localsend";
+      ExecStart = "${lib.getExe package}";
       Restart = "on-failure";
       RestartSec = 5;
     };
