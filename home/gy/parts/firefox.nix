@@ -45,6 +45,9 @@
     };
     # NOTE: prefs set here are immutable during usage
     Preferences = {
+      # REF: <https://support.mozilla.org/en-US/kb/accessibility-services>
+      "accessibility.force_disabled" = 1;  # it seems setting this to `true` instead of `1` causes firefox to omit all of the preferences set in this file
+
       "browser.newtab.extensionControlled" = false;
       "browser.newtabpage.activity-stream.default.sites" = "https://arxiv.org/list/cs.CV/pastweek?show=397";
       "browser.newtabpage.activity-stream.feeds.topsites" = false;
