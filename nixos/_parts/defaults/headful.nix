@@ -64,5 +64,14 @@
     wlr.enable = lib.mkDefault true;
     #gtkUsePortal = true;  # It's deprecated (for some reason, enable this and see trace message while rebuilding)
     extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];  # needed for opening filechooser
+    config = {
+      common = {
+        # for flameshot to work
+        # REF: <https://github.com/flameshot-org/flameshot/issues/3363#issuecomment-1753771427>
+        default = "gtk";
+        "org.freedesktop.impl.portal.Screencast" = "wlr";
+        "org.freedesktop.impl.portal.Screenshot" = "wlr";
+      };
+    };
   };
 }
