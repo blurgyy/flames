@@ -1,10 +1,11 @@
 { source, stdenvNoCC, lib
 , autoPatchelfHook
-, gnutar
 , fontconfig
 , gdk-pixbuf
 , glib
 , gnome2
+, gnutar
+, libglvnd
 , nspr
 , nss_latest
 , openssl
@@ -19,6 +20,7 @@
     gdk-pixbuf
     glib
     gnome2.gtk
+    libglvnd
     nspr
     nss_latest
     openssl
