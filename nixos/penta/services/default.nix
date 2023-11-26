@@ -1,6 +1,7 @@
 { config, ... }: {
   imports = [
     ../../_parts/distributed-builder.nix
+    ./containers.nix
     ./ntfy.nix
     ./v2ray.nix
   ];
