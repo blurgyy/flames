@@ -24,6 +24,7 @@
         "network.proxy.socks_port" = proxy.socks.port or 0;
         "network.proxy.http" = proxy.http.addr or "";
         "network.proxy.http_port" = proxy.http.port or 0;
+        "network.proxy.share_proxy_settings" = true;
       };
     };
   };
