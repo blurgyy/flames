@@ -14,17 +14,6 @@
           inherit (config.programs.firefox.package) version;
         in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
         "identity.fxaccounts.account.device.name" = hostName;
-        "network.proxy.socks_remote_dns" = true;
-        "network.proxy.no_proxies_on" = "localhost, 127.0.0.1/8";
-        # proxy
-        "network.proxy.type" = if proxy == null
-          then 0  # no proxy
-          else 1; # manual proxy configuration
-        "network.proxy.socks" = proxy.socks.addr or "";
-        "network.proxy.socks_port" = proxy.socks.port or 0;
-        "network.proxy.http" = proxy.http.addr or "";
-        "network.proxy.http_port" = proxy.http.port or 0;
-        "network.proxy.share_proxy_settings" = true;
       };
     };
   };
@@ -45,7 +34,17 @@
       SkipOnboarding = true;
     };
     # NOTE: prefs set here are immutable during usage
-    Preferences = {
+    # REF: <https://mozilla.github.io/policy-templates/#preferences>
+    Preferences = (if proxy != null then {
+      "network.proxy.socks_remote_dns" = true;
+      "network.proxy.no_proxies_on" = "localhost, 127.0.0.1/8";
+      "network.proxy.type" = 1;  # manual proxy configuration
+      "network.proxy.socks" = proxy.socks.addr or "";
+      "network.proxy.socks_port" = proxy.socks.port or 0;
+      "network.proxy.http" = proxy.http.addr or "";
+      "network.proxy.http_port" = proxy.http.port or 0;
+      "network.proxy.share_proxy_settings" = true;
+    } else {}) // {
       # REF: <https://support.mozilla.org/en-US/kb/accessibility-services>
       "accessibility.force_disabled" = 1;  # it seems setting this to `true` instead of `1` causes firefox to omit all of the preferences set in this file
 
