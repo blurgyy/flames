@@ -6,9 +6,6 @@ in {
     "sshrp/ssh-2x1080ti-via-winston-env" = lib.mkIf (hostName == "cadliu") {
       path = "${envDir}/ssh-2x1080ti-via-winston-env";
     };
-    "sshrp/ssh-2x1080ti-via-shared-env" = lib.mkIf (hostName == "cadliu") {
-      path = "${envDir}/ssh-2x1080ti-via-shared-env";
-    };
     "sshrp/ssh-2x1080ti-via-peterpan-env" = lib.mkIf (hostName == "cadliu") {
       path = "${envDir}/ssh-2x1080ti-via-peterpan-env";
     };
@@ -42,11 +39,6 @@ in {
         ssh-2x1080ti-via-winston = {
           bindPort = 13815;
           hostPort = 22222;
-        };
-        ssh-2x1080ti-via-shared = {
-          bindPort = 31413;
-          hostPort = 22222;
-          user = "gy";
         };
         ssh-2x1080ti-via-peterpan = {
           bindPort = 10023;
