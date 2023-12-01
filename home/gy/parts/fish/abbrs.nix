@@ -25,6 +25,8 @@ fixTypo "blurgy" [
 // fixTypo "g++" [ "g+" "g+=" "g=+" "g_" "g__" ]
 // fixTypo ll_command [ "ll" "lll" ]
 // fixTypo ls_command [ "ls" "lks" "lls" "lsc" "lsl" "s" "sl" ]
+// fixTypo "mkdir" [ "kmdir" ]
+// fixTypo "ping" [ "pnig" ]
 // fixTypo "meshlab" [
   "mehlsab"
   "mehslab"
@@ -64,6 +66,7 @@ fixTypo "blurgy" [
   "susdo"
   "suso"
   "suudo"
+  "sydu"
   "usdo"
 ] // fixTypo vi_command [
   "bim"
