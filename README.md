@@ -448,3 +448,14 @@ Trouble Shooting
   ```bash
   $ sudo postsuper -d 0628818AB791  # replace 0628818AB791 with value of the "queue_id" field in the previous command
   ```
+
+* Mail server cannot receive mail, the mail server does not log anything when sending an mail from
+  an external address (e.g. gmail.com) to the mail server:
+  The DNS record may be malconfigured.  Make sure the mail address (the part after the `@` character
+  of the mail address that should receive emails) on cloudflare's DNS dashboard is set to "DNS only"
+  (as opposed to "Proxied").
+  It seems that the smtp address (e.g. `smtp.blurgy.xyz`) can be set to "Proxied" though.
+
+* Cannot fetch mails via IMAP from the mail server:
+  The DNS record may be malconfigured.  Make sure the imap mail address (e.g. `imap.blurgy.xyz`) on
+  cloudflare's DNS dashboard is set to "DNS only" (as opposed to "Proxied").
