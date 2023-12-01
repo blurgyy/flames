@@ -31,6 +31,16 @@ in ''
     vim.opt.listchars:append("tab:――")
     vim.opt.listchars:append("trail:⋅")
     vim.opt.listchars:append("eol:↴")
+
+    --- indent-blankline
+    require("ibl").setup({
+      whitespace = {
+        remove_blankline_trail = true,
+      },
+      indent = {
+        char = "┊",
+      },
+    })
   end
 
   --- Enable undo file and directory
@@ -954,16 +964,6 @@ in ''
   vim.o.foldmethod = "expr"
   vim.o.foldexpr = "nvim_treesitter#foldexpr()"
   vim.o.foldenable = false ---- After changing this, run :PackerCompile to take effect
-
-  --- indent-blankline
-  require("ibl").setup({
-    whitespace = {
-      remove_blankline_trail = true,
-    },
-    indent = {
-      char = "┊",
-    },
-  })
 
   -- todo-comments
   require("todo-comments").setup({
