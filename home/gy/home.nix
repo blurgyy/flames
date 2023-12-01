@@ -186,6 +186,7 @@ in {
     CARGO_HOME = "${config.xdg.stateHome}/cargo";
     ELM_HOME = "${config.xdg.stateHome}/elm";
     PAGER = "less";
+    PARALLEL_HOME = "${config.xdg.stateHome}/parallel";
     MANPAGER = "less";
     MDCAT_PAGER = "less";
     WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
@@ -227,6 +228,10 @@ in {
     gduConfig = {
       source = ./parts/raw/gdu.yaml;
       target = ".gdu.yaml";
+    };
+    suppressGnuParallelCitationAlert = {
+      text = "";
+      target = "${config.home.sessionVariables.PARALLEL_HOME or ".parallel"}/will-cite";
     };
   } // (if proxy == null
   then {}
