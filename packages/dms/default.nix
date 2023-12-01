@@ -1,6 +1,6 @@
 { source, lib, buildGoModule }: buildGoModule {
   inherit (source) pname version src;
-  vendorSha256 = "sha256-Z0DoVmL0zJ4l9hrO+zGp6FcExvhbiPu5+N3Mfyxi5DE=";
+  vendorHash = "sha256-Z0DoVmL0zJ4l9hrO+zGp6FcExvhbiPu5+N3Mfyxi5DE=";
 
   meta = {
     homepage = "https://github.com/anacrolix/dms";

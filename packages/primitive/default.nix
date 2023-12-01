@@ -5,7 +5,7 @@ buildGoModule {
   patches = [
     ./add-go-mod.patch
   ];
-  vendorSha256 = "sha256-cdiBbMF1GkHmDG5w8RXxLoWXebnI+upQ0JjgluAGH9E=";
+  vendorHash = "sha256-cdiBbMF1GkHmDG5w8RXxLoWXebnI+upQ0JjgluAGH9E=";
 
   doCheck = false;
 
