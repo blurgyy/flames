@@ -86,6 +86,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
         development = builtins.elem hostName [
           "morty"
           "winston"
+          "mono"
         ];
         entertainment = builtins.elem hostName [
           "morty"
