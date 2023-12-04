@@ -459,3 +459,11 @@ Trouble Shooting
 * Cannot fetch mails via IMAP from the mail server:
   The DNS record may be malconfigured.  Make sure the imap mail address (e.g. `imap.blurgy.xyz`) on
   cloudflare's DNS dashboard is set to "DNS only" (as opposed to "Proxied").
+
+* Logseq (or any electron-based apps?) opens up with an empty window:
+  Delete its GPU cache directory and relaunch:
+  ```bash
+  $ rm -r ~/.config/Logseq/GPUCache
+  ```
+
+  Reference: <https://github.com/microsoft/vscode/issues/195502#issuecomment-1761143787>
