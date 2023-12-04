@@ -108,6 +108,8 @@ in {
       ProtectSystem = "strict";
       AmbientCapabilities = [ "CAP_NET_ADMIN" "CAP_NET_BIND_SERVICE" "CAP_NET_RAW" ];
       LimitNOFILE = 1000000007;
+      Restart = "on-failure";
+      RestartSec = 5;
     };
   in mkIf (cfg.client.enable || cfg.server.enable || cfg.server.reverse != null) {
     # Avoid collision with original v2ray service
