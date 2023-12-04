@@ -21,7 +21,10 @@
       };
       ssh-2x1080ti = {
         port = 13815;
-        expose = false;
+        # expose = false;
+        # somehow wired connection from ZJU are not in the private range (e.g. they are in
+        # 210.0.0.0/8) and this machine is shared out to them
+        expose = true;
       };
       ssh-shared = {
         port = 22548;
