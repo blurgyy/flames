@@ -485,16 +485,16 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1685566663,
-        "narHash": "sha256-btHN1czJ6rzteeCuE/PNrdssqYD2nIA4w48miQAFloM=",
+        "lastModified": 1701282334,
+        "narHash": "sha256-MxCVrXY6v4QmfTwIysjjaX0XUhqBbxTWWB4HXtDYsdk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4ecab3273592f27479a583fb6d975d4aba3486fe",
+        "rev": "057f9aecfb71c4437d2b27d3323df7f93c010b7e",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "23.05",
+        "ref": "23.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -553,11 +553,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1698567924,
-        "narHash": "sha256-efc0p00sugEBTUQ/Vg3dVgS3PRWjsA51VQ9KbYkxh1M=",
+        "lastModified": 1701656243,
+        "narHash": "sha256-E2bmmsItkre5/oQu0RM4/YTHDaxXUl0et1m6E0hXlmY=",
         "owner": "highsunz",
         "repo": "orangepi-3-lts-nixos",
-        "rev": "8a6afd4836d7568858bf488e58450292f36a53d4",
+        "rev": "d9ce084f27037959b5ae03c126e19e4ab1ff6cba",
         "type": "gitlab"
       },
       "original": {
