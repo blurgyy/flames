@@ -242,6 +242,7 @@ fixTypo "blurgy" [
   lmk = "latexmk";
   lpvc = "latexmk -pvc";
   lpvcc = "yes x | latexmk -pvc";
+  m = "sudo machinectl";
   mk = "make";
   mtr = "mtr -n";
   n = "node";
