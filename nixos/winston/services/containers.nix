@@ -100,6 +100,7 @@
             "/:/host"
             "/tmp/.X11-unix"
             "/etc/inputrc"
+            "/etc/nix"
             "/etc/resolv.conf"
             "${mkEtcHosts "ubuntu-jammy"}:/etc/hosts"
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
