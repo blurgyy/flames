@@ -20,6 +20,7 @@ in {
   };
 
   nix = {
+    channel.enable = false;
     nrBuildUsers = 0;
     package = lib.mkDefault pkgs.nixStable;
     registry = {
