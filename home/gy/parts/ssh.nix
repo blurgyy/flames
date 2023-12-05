@@ -141,5 +141,9 @@
       proxyJump = "copi";
       port = 1722;
     };
+    ubuntu-jammy-relay = {
+      hostname = relay;
+      port = 16251;
+    };
   };
 }

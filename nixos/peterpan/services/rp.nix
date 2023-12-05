@@ -21,6 +21,10 @@
         port = 10020;
         expose = true;
       };
+      ssh-winston-jammy = {
+        port = 16251;
+        expose = true;
+      };
       ssh-2x1080ti = {
         port = 10023;
         expose = true;

@@ -1,5 +1,8 @@
 { config, ... }: {
-  sops.secrets."sshrp/ssh-env" = {};
+  sops.secrets = {
+    "sshrp/ssh-env" = {};
+    "sshrp/ssh-jammy-env" = {};
+  };
 
   services.ssh-reverse-proxy = {
     client.instances = {
@@ -8,6 +11,12 @@
         identityFile = config.sops.secrets.hostKey.path;
         bindPort = 10020;
         hostPort = builtins.head config.services.openssh.ports;
+      };
+      ssh-jammy = {
+        environmentFile = config.sops.secrets."sshrp/ssh-jammy-env".path;
+        identityFile = config.sops.secrets.hostKey.path;
+        bindPort = 16251;
+        hostPort = 1722;
       };
     };
     server.services = {
