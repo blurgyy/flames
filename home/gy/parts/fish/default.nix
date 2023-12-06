@@ -46,7 +46,8 @@
   shellAbbrs = import ./abbrs.nix { inherit pkgs; };
   shellAliases = with pkgs; {
     bhome = "home-manager build -v --flake";
-    bsys = "nixos-rebuild build --use-remote-sudo -L -v --flake";
+    bosys = "nixos-rebuild boot --use-remote-sudo -L -v --flake";
+    busys = "nixos-rebuild build --use-remote-sudo -L -v --flake";
     shome = "home-manager switch -v --flake";
     ssys = "nixos-rebuild switch --use-remote-sudo -L -v --flake";
     meshlab = "QT_QPA_PLATFORM=xcb ${sdwrap}/bin/sdwrap meshlab";
