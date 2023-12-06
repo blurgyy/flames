@@ -7,7 +7,7 @@
     "gy@opi" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVsvwZiBI4n+3+nK14ZCQf2MoAq4XZJfH1IDcy0K0lq";
 
     "gy@watson" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIdK4KWp4YMiDfq+hLZ3fQQ+02XnYhLY47l7Zro+xKud";
-    "gy@winston" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINOD4yWYGKtB0EknZpB+SbFaMzo3u4KvbYIWo6K5vjkj";
+    "gy@winston" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIELmYnaMJlot6Urp/dQDuo6y9gS4U2t3V3bXZkjIc/FH";
     "gy@cadliu" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBF/xL6yptBusC9sW6/e+BLkvdgzI7g9MhaHIG127Q/A";
     "gy@cad-liu" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINEjbeH2P4cG/eIHeOm1FM1vqclsfvBSlz+76RNTGYG3";
     "gy@meda" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6zT4g4V3YgZN1HsmtqBWYTUAmWG5+LHspnKe2yvtKs";
