@@ -14,7 +14,7 @@
         keys = import ../../_parts/defaults/public-keys.nix;
       in with builtins;
         toFile "nspawn-tmpfiles-sshd-authorized_keys" ''
-          f ${authorized_keys-path} 444 root root - ${lib.concatStringsSep "\\n" (attrValues keys.users)}
+          w ${authorized_keys-path} 444 root root - ${lib.concatStringsSep "\\n" (attrValues keys.users)}
         '';
       sshd_config-overrides = builtins.toFile "nspawn-sshd_config-overrides" ''
         AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys.d/%u ${authorized_keys-path}
