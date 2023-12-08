@@ -19,7 +19,10 @@ in {
     };
   };
 
-  nix = {
+  nix = let
+    nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
+  in {
+    inherit nixPath;
     channel.enable = false;
     nrBuildUsers = 0;
     package = lib.mkDefault pkgs.nixStable;
@@ -36,6 +39,7 @@ in {
       };
     };
     settings = {
+      nix-path = nixPath;
       experimental-features = [ "nix-command" "flakes" "repl-flake" "auto-allocate-uids" "cgroups" ];
       auto-allocate-uids = true;
       use-cgroups = true;
