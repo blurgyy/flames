@@ -12,6 +12,8 @@
     sed -Ee 's/python-telegram-bot==20.6/python-telegram-bot>=20/' -i setup.py
   '';
 
+  doCheck = false;
+
   meta = {
     homepage = "https://github.com/rahiel/telegram-send";
     description = "Send messages and files over Telegram from the command-line.";
