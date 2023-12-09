@@ -120,6 +120,13 @@
       # # downloads.
       # inherit (pkgs-stable) cudaPackages cudatoolkit openai-whisper;
     };
+    stableHydraOverlay = final: prev: let
+      pkgs-stable = import inputs.nixpkgs-stable {
+        inherit (prev) system config;
+      };
+    in {
+      inherit (pkgs-stable) hydra-unstable;
+    };
   in
 
   flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
@@ -130,6 +137,7 @@
       config.allowBroken = true;
       overlays = [
         cudaOverlay
+        stableHydraOverlay
         self.overlays.default
       ] ++ self.sharedOverlays;
     };
@@ -160,6 +168,7 @@
       inputs.dcompass.overlays.default
       inputs.nvfetcher.overlays.default
       cudaOverlay
+      stableHydraOverlay
     ];
   };
 }

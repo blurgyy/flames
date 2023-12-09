@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: let
+{ config, pkgs, ... }: let
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
   cachePort = 25369;
@@ -42,6 +42,7 @@ in {
   };
   services.hydra = {
     enable = true;
+    package = pkgs.hydra-unstable;
     hydraURL = "${hydraDomain}";
     notificationSender = "hydra@${config.networking.domain}";
     smtpHost = config.networking.domain;
