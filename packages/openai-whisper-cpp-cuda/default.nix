@@ -1,4 +1,5 @@
 { openai-whisper-cpp, symlinkJoin
+, gcc11Stdenv
 , cudatoolkit
 }:
 
@@ -7,9 +8,12 @@ let
     name = "${cudatoolkit.name}-unsplit";
     paths = [ cudatoolkit.lib cudatoolkit.out ];
   };
+  openai-whisper-cpp-gcc11 = openai-whisper-cpp.override {
+    stdenv = gcc11Stdenv;
+  };
 in
 
-openai-whisper-cpp.overrideAttrs (o: {
+openai-whisper-cpp-gcc11.overrideAttrs (o: {
   propagatedBuildInputs = o.propagatedBuildInputs or [] ++ [
     cudatoolkit-unsplit
   ];
