@@ -59,7 +59,7 @@ elif [[ "$type" == "delegate" ]]; then
   "$flameshot_bin" gui
 elif [[ "$type" == "full" ]]; then
   "$flameshot_bin" screen \
-    -p "$HOME/Pictures/screenshots/$(date +'%y%m%d%H%m%S').png" \
+    -p "$HOME/Pictures/screenshots/$(date +'%Y%m%d%H%M%S').png" \
     -r |
     "$wlcopy_bin" -t image/png
 fi
