@@ -24,7 +24,7 @@ fixTypo "blurgy" [
 ] // fixTypo "git" [ "g" "gi" "it" "gt" ]
 // fixTypo "g++" [ "g+" "g+=" "g=+" "g_" "g__" ]
 // fixTypo ll_command [ "ll" "lll" ]
-// fixTypo ls_command [ "ls" "lks" "lls" "lsc" "lsl" "s" "sl" ]
+// fixTypo ls_command [ "ls" "lss" "lks" "lls" "lsc" "lsl" "s" "sl" ]
 // fixTypo "mkdir" [ "kmdir" ]
 // fixTypo "ping" [ "pnig" ]
 // fixTypo "meshlab" [
