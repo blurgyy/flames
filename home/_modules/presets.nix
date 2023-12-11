@@ -44,7 +44,7 @@ let
   recPackages = with pkgs; [
     exiftool
     ffmpeg-fuller
-    gimp
+    # gimp
     imagemagick
     yt-dlp
   ] ++ [
