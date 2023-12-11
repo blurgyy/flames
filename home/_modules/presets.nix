@@ -47,7 +47,9 @@ let
     gimp
     imagemagick
     yt-dlp
-  ] ++ lib.optional (system == "x86_64-linux" || system == "i686-linux") blender-ply-as-verts;
+  ] ++ [
+    (if pkgs.config.cudaSupport then blender-ply-as-verts else blender)
+  ];
   sciPackages = with pkgs; [
     inkscape
     labelme
