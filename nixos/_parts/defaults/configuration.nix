@@ -180,6 +180,7 @@ in {
     earlyoom = {
       enable = true;
       enableNotifications = true;
+      freeSwapThreshold = 30;
     };
 
     logind.killUserProcesses = false;  # This is already the default
