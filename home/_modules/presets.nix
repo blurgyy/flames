@@ -44,6 +44,7 @@ let
   recPackages = with pkgs; [
     exiftool
     ffmpeg-fuller
+    gimp
     imagemagick
     yt-dlp
   ] ++ lib.optional (system == "x86_64-linux" || system == "i686-linux") blender-ply-as-verts;

@@ -46,7 +46,6 @@ in {
   home.packages = with pkgs; [
     cage
     evince
-    gimp
     imv
     libnotify
     localsend
