@@ -37,7 +37,7 @@
     # REF: <https://mozilla.github.io/policy-templates/#preferences>
     Preferences = (if proxy != null then {
       "network.proxy.socks_remote_dns" = true;
-      "network.proxy.no_proxies_on" = "localhost, 127.0.0.1/8";
+      "network.proxy.no_proxies_on" = lib.concatStringsSep ", " proxy.ignore;
       "network.proxy.type" = 1;  # manual proxy configuration
       "network.proxy.socks" = proxy.socks.addr or "";
       "network.proxy.socks_port" = proxy.socks.port or 0;
