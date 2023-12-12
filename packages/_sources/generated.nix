@@ -538,6 +538,23 @@
       sha256 = "sha256-CyMzhEKaTiLODjXbHqkqEJNeCsssCjmdVOzg3vXVjJY=";
     };
   };
+  wl-screenrec = {
+    pname = "wl-screenrec";
+    version = "v0.1.2";
+    src = fetchFromGitHub {
+      owner = "russelltg";
+      repo = "wl-screenrec";
+      rev = "v0.1.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-Ol4/e/EETA8MXqiyCzcV6s4DjFf6ldUortOrzJ80/Ko=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./wl-screenrec-v0.1.2/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+  };
   xtables-addons-perl-scripts = {
     pname = "xtables-addons-perl-scripts";
     version = "3.25";

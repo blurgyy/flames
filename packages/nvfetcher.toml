@@ -194,6 +194,11 @@ fetch.github = "loyalsoldier/v2ray-rules-dat"
 src.github = "muety/wakapi"
 fetch.github = "muety/wakapi"
 
+[wl-screenrec]
+src.github = "russelltg/wl-screenrec"
+fetch.github = "russelltg/wl-screenrec"
+cargo_locks = ["Cargo.lock"]
+
 [xtables-addons-perl-scripts]
 # curl https://inai.de/projects/xtables-addons/ | grep -i 'Latest release:' | sed -Ee 's:.*<b>([0-9]+\.[0-9]+)</b>.*:\1:'
 src.cmd = "curl https://inai.de/projects/xtables-addons/ | grep -i 'Latest release:' | sed -Ee 's:.*<b>([0-9]+\\.[0-9]+)</b>.*:\\1:'"
