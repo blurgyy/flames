@@ -48,12 +48,12 @@
   labProxy = {
     ignore = [
       "localhost"
-      "127.0.0.1"
+      "127.0.0.1/8"
       "::1"
       "cc98.org"
       "nexushd.org"
       "zju.edu.cn"
-    ];
+    ] ++ (builtins.attrNames self.nixosConfigurations);
     socks = {
       addr = "winston";
       port = 1999;

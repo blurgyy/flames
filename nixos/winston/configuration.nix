@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, self, ... }: {
   time.timeZone = "Asia/Shanghai";
 
   boot.loader.systemd-boot.enable = true;
@@ -52,14 +52,14 @@
 
   networking.proxy = {
     default = "http://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}";
-    noProxy = lib.concatStringsSep "," [
+    noProxy = lib.concatStringsSep "," ([
       "localhost"
-      "127.0.0.1"
+      "127.0.0.1/8"
       "::1"
       "cc98.org"
       "nexushd.org"
       "zju.edu.cn"
-    ];
+    ] ++ (builtins.attrNames self.nixosConfigurations));
   };
 
   services = {
