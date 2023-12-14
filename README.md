@@ -467,3 +467,17 @@ Trouble Shooting
   ```
 
   Reference: <https://github.com/microsoft/vscode/issues/195502#issuecomment-1761143787>
+
+* To change user ID from 1001 to 1000 on a ubuntu machine (if the user with ID 1000 is already
+  deleted):
+  1. Change the user's ID from 1001 to 1000 in `/etc/passwd`, `/etc/group`, and `/etc/shadow` (last
+     time I checked, `/etc/shadow` did not need modify, because it did not contain any occurences of
+     the string "1001")
+  2. Change file ownership:
+     ```bash
+     $ find /home -uid 1001 -exec chown -h 1000 {} +
+     ```
+     Idealy, only files under the user's HOME directory should be owned by the user, so above
+     command only finds files under `/home`.
+
+  Reference: <https://askubuntu.com/a/16719>
