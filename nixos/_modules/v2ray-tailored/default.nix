@@ -218,6 +218,8 @@ in {
       wantedBy = [ "multi-user.target" ];
       serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vclient-config.path}";
+        MemoryAccounting = true;
+        MemoryMax = "256M";
       };
       restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.vclient-config.content) ];
     };
@@ -267,6 +269,8 @@ in {
       wantedBy = [ "multi-user.target" ];
       serviceConfig = commonServiceConfig // {
         ExecStart = "${cfg.package}/bin/v2ray run -c ${config.sops.templates.vserver-config.path}";
+        MemoryAccounting = true;
+        MemoryMax = "256M";
       };
       restartTriggers = [ (builtins.hashString "sha512" config.sops.templates.vserver-config.content) ];
     };
