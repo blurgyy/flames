@@ -25,7 +25,6 @@ in
             "$(uptime)"
         '';
       in {
-        Type = "oneshot";
         RemainAfterExit = true;
         ExecStart = "${notify} 'green_circle' 'low' 'spinning up'";
         # ExecReload = "${notify} 'yellow_circle' 'switching system profile'";
