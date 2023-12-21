@@ -5,6 +5,6 @@
 
   services.curltimesync = {
     enable = true;
-    url = "109.244.194.121";  # tencent.com
+    url = "114.222.113.139";  # im.qq.com
   };
 }
