@@ -49,7 +49,7 @@ with lib;
         retrymax=5
 
         while ((failcnt < retrymax)); do
-          if ! resp="$(curl -fsSI ${cfg.url} --connect-timeout 5 | grep '^Date:' | sed -Ee 's/Date: //g')"; then
+          if ! resp="$(curl -sSI ${cfg.url} --connect-timeout 5 | grep '^Date:' | sed -Ee 's/Date: //g')"; then
             failcnt=$((failcnt + 1))
             >&2 echo "curl failed for (retry#$failcnt), next retry after 1s"
             sleep 1
