@@ -481,3 +481,12 @@ Trouble Shooting
      command only finds files under `/home`.
 
   Reference: <https://askubuntu.com/a/16719>
+
+* To update conda to latest version, with no conda environment activated run:
+  ```bash
+  $ conda --version
+  # this should output the old version
+  $ conda update -n base -c defaults -c conda-forge conda
+  $ conda --version
+  # this should output the latest version
+  ```
