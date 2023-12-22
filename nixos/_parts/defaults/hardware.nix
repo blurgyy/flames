@@ -81,11 +81,16 @@
 
   #kexec.autoReboot = false;  # Use this with inputs.nixos-generators.nixosModules.kexec in `./default.nix`
 
-  zramSwap = lib.mkDefault {  # REF: <https://unix.stackexchange.com/a/596929>
+  services.zram-generator = lib.mkDefault {  # REF: <https://unix.stackexchange.com/a/596929>
     enable = true;
-    priority = 32767;
-    memoryPercent = 200;
-    swapDevices = 1;  # NOTE: workwround <https://github.com/NixOS/nixpkgs/pull/214103>
+    settings = {  # REF: <https://github.com/systemd/zram-generator/blob/main/zram-generator.conf.example>
+      zram0 = {
+        host-memory-limit = "none";  # disable maximum amount of memory limit, this is the default
+        zram-size = "ram * 2";
+        swap-priority = 32767;
+        compression-algorithm = "zstd";
+      };
+    };
   };
 
   networking.useDHCP = lib.mkDefault false;
