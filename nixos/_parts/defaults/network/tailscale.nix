@@ -3,6 +3,7 @@
 in {
   services.tailscale.enable = true;
   networking.resolvconf.extraConfig = lib.mkAfter "search_domains=${tailnet}";  # If managing DNS manually instead of using systemd-resolved, use `tailscale up --accept-dns=false`
+  services.resolved.domains = [ tailnet ];
   systemd = {
     # REF:
     # - <https://www.reddit.com/r/Tailscale/comments/vholvd/comment/j52g3no>
