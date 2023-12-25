@@ -1,4 +1,4 @@
-{ pkgs, lib, modulesPath, config, ... }: {
+{ pkgs, modulesPath, config, ... }: {
   time.timeZone = "Asia/Shanghai";
 
   # needed for building sd-card image, REF: <https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/installer/sd-card/sd-image-aarch64.nix>
