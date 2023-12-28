@@ -147,9 +147,29 @@ Trouble Shooting
         linux16 (hd0,2)/netboot.xyz.lkrn  # /dev/*da2
     }
     ```
-  - Update GRUB config and reboot:
+  - Remove the line `GRUB_TIMEOUT_STYLE=hidden` from `/etc/default/grub` if any, change
+    `GRUB_TIMEOUT` in this file to a larger value to allow interaction with the grub menu:
+    ```conf
+    # GRUB_TIMEOUT_STYLE=hidden
+    GRUB_TIMEOUT=10
+    ```
+  - Update GRUB config:
     ```bash
     $ grub-mkconfig -o /boot/grub/grub.cfg
+    ```
+  - If for some reason the grub menu is not desired to be interacted, look into the generated
+    `boot/grub/grub.cfg` file, count the index of the netboot entry (0-indexed), set `GRUB_DEFAULT`
+    to this index in `/etc/default/grub`:
+    ```conf
+    # partial content in /etc/default/grub
+    GRUB_DEFAULT=2  # 0-indexed, this will automatically choose the 3rd entry in the grub menu
+    ```
+    then regenerate GRUB config:
+    ```bash
+    $ grub-mkconfig -o /boot/grub/grub.cfg
+    ```
+  - Reboot:
+    ```
     $ reboot
     ```
   - Example network config:
@@ -164,14 +184,20 @@ Trouble Shooting
   > Reference: <https://gist.github.com/AndersonIncorp/9fb7402cf69a0994e175ebec8194847c>
 
 * Installing NixOS from Alpine
+  * Flush IPv6 address if DNS resolves to IPv6 address and network fails:
+    ```bash
+    $ ip -6 addr flush eth0  # change interface name to the one in the output of `ip a`
+    ```
+    If the IPv6 address come back after one network connection, just run this command in an infinite
+    loop in a tty, and run other commands in another tty.
   * To add package repositories for `nix` and its dependency `libcpuid`, add below two lines to
     `/etc/apk/repositories`:
     ```txt
     http://dl-cdn.alpinelinux.org/alpine/edge/testing
     http://dl-cdn.alpinelinux.org/alpine/edge/community
     ```
-    Then run `apk update` and `apk add nix`.
-  * Install `bash` for nix shell:
+    Then run `apk update`.
+  * Install `bash` for vi mode and the later `nix shell` call:
     ```bash
     $ apk add bash
     $ exec bash
@@ -210,31 +236,36 @@ Trouble Shooting
     $ mount -osubvol=tmp,compress-force=zstd:3 /dev/vda2 /tmp
     $ # or: mount -obind /mnt/tmp /tmp
     ```
+  * With `/mnt/nix` being binded to `/nix`, add `nix` from apk and start nix-daemon:
+    ```bash
+    $ apk add nix
+    $ service nix-daemon start  # with nix 2.19.2, this seems necessary
+    ```
   * Copy contents to `/etc/nix/nix.conf`:
-  ```conf
-  allowed-users = *
-  auto-optimise-store = true
-  builders = 
-  cores = 0
-  experimental-features = nix-command flakes repl-flake
-  #extra-platforms = aarch64-linux i686-linux i686-linux
-  max-jobs = auto
-  narinfo-cache-negative-ttl = 30
-  require-sigs = true
-  sandbox = true
-  sandbox-fallback = false
-  substituters = https://mirror.sjtu.edu.cn/nix-channels/store https://nixos-cn.cachix.org https://nix-community.cachix.org https://cache.blurgy.xyz https://cache.nixos.org/
-  system-features = nixos-test benchmark big-parallel kvm
-  tarball-ttl = 30
-  trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4=
-  trusted-substituters = 
-  trusted-users = root
-  ```
+    ```conf
+    allowed-users = *
+    auto-optimise-store = true
+    builders = 
+    cores = 0
+    experimental-features = nix-command flakes repl-flake
+    #extra-platforms = aarch64-linux i686-linux i686-linux
+    max-jobs = auto
+    narinfo-cache-negative-ttl = 30
+    require-sigs = true
+    sandbox = true
+    sandbox-fallback = false
+    substituters = https://mirror.sjtu.edu.cn/nix-channels/store https://nixos-cn.cachix.org https://nix-community.cachix.org https://cache.blurgy.xyz https://cache.nixos.org/
+    system-features = nixos-test benchmark big-parallel kvm
+    tarball-ttl = 30
+    trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= nixos-cn.cachix.org-1:L0jEaL6w7kwQOPlLoCR3ADx+E3Q8SEFEcB9Jaibl0Xg= nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs= cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4=
+    trusted-substituters = 
+    trusted-users = root
+    ```
   * Install utilities for installation via nix:
     ```bash
-    $ nix shell nixpkgs#{nix,nixos-install-tools}  # use nix from nixpkgs instead from apline's channel
+    $ nix shell nixpkgs#{nixStable,nixos-install-tools}  # use nix from nixpkgs instead from apline's channel
     ```
-  * Install NisOS:
+  * Install NixOS:
     ```bash
     $ nixos-install --flake gitlab:highsunz/flames#<HOSTNAME>
     ```
