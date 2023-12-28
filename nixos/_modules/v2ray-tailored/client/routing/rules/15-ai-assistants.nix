@@ -4,13 +4,13 @@
     "bing"
     "bingapis"
     "claude"
-    "live"
     "microsoft"
     "msftauth"
     "oaistatic"
     "oaiusercontent"
     "openai"
     "domain:bard.google.com"
+    "domain:live.com"
     "domain:open.ai"
   ];
   balancerTag = "best-us-server";
