@@ -52,6 +52,7 @@
 in mkHosts {
   cindy = virtual-server-aarch64;
   copi = sbc-aarch64;
+  hexa = virtual-server-x86_64;
   meda = pc-x86_64-headless;
   morty = pc-x86_64;
   opi = sbc-aarch64;

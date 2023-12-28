@@ -19,6 +19,8 @@ creation_rules:
     age: age1wl5we8e8n3p77j8qm5fv9np8hz4ayv7vfduwpnuf577lex6l2cls3y70sc
   - path_regex: nixos/rubik/.*
     age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
+  - path_regex: nixos/hexa/.*
+    age: age1rs0mz782sg9kespz6gt7sf9n4r2ntfeqrycsyree2e80qhsdhvnswd8me2
   - path_regex: nixos/trigo/.*
     age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
   - path_regex: nixos/winston/.*
