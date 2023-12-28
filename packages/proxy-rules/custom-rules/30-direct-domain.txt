@@ -57,6 +57,7 @@ czbank.com
 detectportal.firefox.com
 dingtalk.com
 dingtalkcloud.com
+dingtalkmail.com
 dmtracking.alibaba.com
 dmtracking2.alibaba.com
 download.amd.com
