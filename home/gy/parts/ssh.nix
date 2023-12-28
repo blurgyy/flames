@@ -40,6 +40,7 @@
     "cindy"
     "copi"
     "cube"
+    "hexa"
     "hooper"
     "meda"
     "mono"

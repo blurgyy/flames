@@ -84,4 +84,5 @@ in apply "gy" {
   "penta" = x86_64-headless;
   "quad" = x86_64-headless;
   "rubik" = x86_64-headless;
+  "hexa" = x86_64-headless;
 }

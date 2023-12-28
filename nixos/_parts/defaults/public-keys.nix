@@ -19,6 +19,7 @@
     "gy@peterpan" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOyxiBbO6uQvG9B14K4neHMU3+PjA7sFuK3aqcF7voU";
     "gy@quad" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKKwEQbMXNav4mJF3wjkog4ENvg1QTz9J2Qmi9eJYR/l";
     "gy@rubik" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB5LsnGtn4iyIF1fJp9h+uRyC4bGk7f/59F0R8Gx9UZT";
+    "gy@hexa" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAww/vCR8EhXsDHiv71Fv72xZ/Y5jnqIh01iwpUfJe4V";
 
     "gy@hooper" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHM4yanex/42s/F9dP7CJ3BstzEC7n0qwi0+2hhxOAS6";
 
