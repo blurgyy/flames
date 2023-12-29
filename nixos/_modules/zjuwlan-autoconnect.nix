@@ -59,7 +59,7 @@ in
       environment.HOME = "/tmp";  # geckodriver tries to create $HOME/.config/dconf, default $HOME is set to /var/empty when DynamicUser=true
       serviceConfig = {
         DynamicUser = true;
-        RemainAfterExit = true;
+        RemainAfterExit = false;
         ExecCondition = let
           zjuwlan-login-condition = pkgs.writeShellScriptBin "zjuwlan-login-condition" ''
             function current_ssid() {
