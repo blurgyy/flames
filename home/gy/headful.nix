@@ -45,11 +45,12 @@ in {
 
   home.packages = with pkgs; [
     cage
+    cider
     evince
     imv
     libnotify
     localsend
-    logseq  # uses insecure electron-24.8.6
+    logseq  # uses insecure electron-25.9.0
     meshlab
     minicom
     obs-studio
