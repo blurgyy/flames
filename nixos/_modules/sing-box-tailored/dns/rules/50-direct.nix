@@ -3,5 +3,5 @@
   domain_suffix = "@custom/30-direct-domain@";
   geosite = "cn";
   server = "alidns";
-  disable_cache = true;
+  disable_cache = false;
 }
