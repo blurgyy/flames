@@ -31,7 +31,7 @@ writeShellScript "build-clash-rules" ''
     | sed '/:/d' \
     | sed 's/^/  - DOMAIN-KEYWORD,/' \
     | sed 's/$/,ZJU/' >>$TMPDIR/zju.rules
-  cat ${../custom-rules/25-zju-domain.txt} \
+  cat ${../custom-rules/25-zju-domain-suffix.txt} \
     | sed '/^\s*$/d' \
     | sed '/:/d' \
     | sed 's/^/  - DOMAIN-SUFFIX,/' \

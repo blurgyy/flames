@@ -71,7 +71,7 @@ in
       inbound = inboundTag;
       outbound = "direct-zju-internal";
     } {
-      domain_suffix = "@custom/25-zju-domain@";
+      domain_suffix = "@custom/25-zju-domain-suffix@";
       domain_keyword = "@custom/25-zju-domain-keyword@";
       ip_cidr = "@custom/25-zju-ip@";
       outbound = "direct-zju-internal";
