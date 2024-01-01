@@ -28,7 +28,9 @@ in
         RemainAfterExit = true;
         ExecStart = "${notify} 'green_circle' 'low' 'spinning up'";
         # ExecReload = "${notify} 'yellow_circle' 'switching system profile'";
-        ExecStop = "${notify} 'red_circle' 'default' 'shutting down'";
+        ExecStop = if config.services.sing-box.enable
+          then "-true"
+          else "${notify} 'red_circle' 'default' 'shutting down'";
         Restart = "on-failure";
         RestartSec = 5;
       };
