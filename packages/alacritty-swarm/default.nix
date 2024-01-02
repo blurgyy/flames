@@ -3,8 +3,9 @@
 , alacritty
 , lsof
 }: stdenvNoCC.mkDerivation {
-  name = "alacritty-swarm";
+  pname = "alacritty-swarm";
   src = ./alacritty;
+  inherit (alacritty) version;
 
   inherit bash alacritty lsof;
 

@@ -6,7 +6,7 @@
     decorations = "full";
     startup_mode = "Maximized";
     title = "Alacritty";
-    decorations_theme_variant = null;
+    decorations_theme_variant = "None";  # use system default theme variant
   };
 
   font = {
