@@ -1,3 +1,4 @@
 mirrors.zju.edu.cn
 myvpn.zju.edu.cn
 webvpn.zju.edu.cn
+xyszyl.zju.edu.cn
