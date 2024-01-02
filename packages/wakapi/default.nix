@@ -6,7 +6,7 @@
 
   meta = {
     homepage = "https://github.com/muety/wakapi";
-    description = "A minimalist, self-hosted WakaTime-compatible backend for coding statistics ";
+    description = "A minimalist, self-hosted WakaTime-compatible backend for coding statistics";
     license = lib.licenses.gpl3;
   };
 }
