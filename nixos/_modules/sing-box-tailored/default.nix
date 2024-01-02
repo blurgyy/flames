@@ -54,7 +54,7 @@ in
       };
       systemd.services.sing-box = {
         after = lib.optional config.networking.useNetworkd "systemd-networkd.service";
-        wantedBy = [ "network-online.target" ];
+        wantedBy = [ "network-online.target" "nss-lookup.target" ];
         # restart on systemd-networkd restart
         bindsTo = lib.optional config.networking.useNetworkd "systemd-networkd.service";
         # restart on systemd-networkd reload (nixos activation only restarts this service when these
