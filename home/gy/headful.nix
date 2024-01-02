@@ -5,6 +5,7 @@ in {
     ./parts/localsend.nix
     ./parts/gpg-agent.nix
     ./parts/sway.nix
+    ./parts/zotero.nix
   ];
   ricing.headful.theme = "dark";
   qt = {
