@@ -14,25 +14,6 @@
         },
         "version": "20220331041116"
     },
-    "alacritty-theme-catppuccin": {
-        "cargoLocks": null,
-        "date": "2023-12-31",
-        "extract": null,
-        "name": "alacritty-theme-catppuccin",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "ce476fb41f307d90f841c1a4fd7f0727c21248b2",
-            "sha256": "sha256-bpHznCqkNMbauDQjh98qj2+r1V8mXQIVmvKTldLcln0=",
-            "type": "git",
-            "url": "https://github.com/catppuccin/alacritty"
-        },
-        "version": "ce476fb41f307d90f841c1a4fd7f0727c21248b2"
-    },
     "alcn-repo": {
         "cargoLocks": null,
         "date": "2024-01-01",
@@ -106,6 +87,26 @@
             "url": "https://github.com/catppuccin/bat"
         },
         "version": "ba4d16880d63e656acced2b7d4e034e4a93f74b1"
+    },
+    "clidle": {
+        "cargoLocks": null,
+        "date": "2022-05-25",
+        "extract": null,
+        "name": "clidle",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ajeetdsouza",
+            "repo": "clidle",
+            "rev": "fe27556c1147333af2cfe81cbc40f4f60ea191ee",
+            "sha256": "sha256-zSrCYNgN4wKFgRdog/7ANumy0GsqOMTHqLTT8p7LEgE=",
+            "type": "github"
+        },
+        "version": "fe27556c1147333af2cfe81cbc40f4f60ea191ee"
     },
     "dms": {
         "cargoLocks": null,

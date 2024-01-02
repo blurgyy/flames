@@ -9,19 +9,6 @@
       sha256 = "sha256-iD96ojMB/IDeh5UBFXUzpKzb/uByHtfFdnbcAy/flsM=";
     };
   };
-  alacritty-theme-catppuccin = {
-    pname = "alacritty-theme-catppuccin";
-    version = "ce476fb41f307d90f841c1a4fd7f0727c21248b2";
-    src = fetchgit {
-      url = "https://github.com/catppuccin/alacritty";
-      rev = "ce476fb41f307d90f841c1a4fd7f0727c21248b2";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-bpHznCqkNMbauDQjh98qj2+r1V8mXQIVmvKTldLcln0=";
-    };
-    date = "2023-12-31";
-  };
   alcn-repo = {
     pname = "alcn-repo";
     version = "8d081f61f18c34771cc9b709e1530431d6231162";
@@ -65,6 +52,18 @@
       sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
     };
     date = "2022-11-10";
+  };
+  clidle = {
+    pname = "clidle";
+    version = "fe27556c1147333af2cfe81cbc40f4f60ea191ee";
+    src = fetchFromGitHub {
+      owner = "ajeetdsouza";
+      repo = "clidle";
+      rev = "fe27556c1147333af2cfe81cbc40f4f60ea191ee";
+      fetchSubmodules = false;
+      sha256 = "sha256-zSrCYNgN4wKFgRdog/7ANumy0GsqOMTHqLTT8p7LEgE=";
+    };
+    date = "2022-05-25";
   };
   dms = {
     pname = "dms";
