@@ -189,12 +189,17 @@ in with lib; {
       };
     };
     programs.alacritty.settings = {
-      import = [
-        "${pkgs.alacritty-theme-catppuccin}/share/alacritty/themes/catppuccin-${
+      import = let
+        useToml = lib.versionAtLeast config.programs.alacritty.package.version "0.13";
+      in [
+        "${pkgs.alacritty-theme}/catppuccin_${
           if cfg.textual.theme == "light"
             then "latte"
             else "mocha"
-        }.yml"
+        }.${if useToml
+          then "toml"
+          else "yaml"
+        }"
       ];
     };
     # WARN: using readFile on derivations causes import-from-derivation.
