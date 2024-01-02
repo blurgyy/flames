@@ -8,5 +8,8 @@
     };
     groups.distributed-builder = {};
   };
-  nix.settings.trusted-users = [ config.users.users.distributed-builder.name ];
+  nix.settings = {
+    trusted-users = [ config.users.users.distributed-builder.name ];
+    keep-going = true;
+  };
 }
