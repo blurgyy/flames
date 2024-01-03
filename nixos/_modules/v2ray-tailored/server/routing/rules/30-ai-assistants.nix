@@ -12,7 +12,7 @@
     "domain:bingworld.com"
     "domain:bluehatnights.com"
     "domain:dictate.ms"
-    "domain:ditu.live.com"
+    "domain:live.com"
     "domain:flipwithsurface.com"
     "domain:masalladeloslimites.com"
     "domain:microsoft-give.com"
@@ -28,14 +28,13 @@
     "domain:oaistatic.com"
     "domain:oaiusercontent.com"
     "domain:openai.com"
+    "domain:intercom.io"
+    "domain:intercomcdn.com"
     "domain:ai.com"
     "domain:claude.ai"
     "domain:anthropic.com"
     "domain:bard.google.com"
-    "domain:live.com"
     "domain:open.ai"
-    "domain:cloudflare.com"
-    "domain:cloudflare.net"
   ];
-  outboundTag = "warp:ai-assistants";
+  outboundTag = "direct:ai-assistants";
 }

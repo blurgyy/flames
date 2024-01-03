@@ -7,6 +7,8 @@
     "oaistatic.com"
     "oaiusercontent.com"
     "openai.com"
+    "intercom.io"
+    "intercomcdn.com"
   ];
   domain_suffix = [
     ".open.ai"
@@ -16,6 +18,8 @@
     ".oaistatic.com"
     ".oaiusercontent.com"
     ".openai.com"
+    ".intercom.io"
+    ".intercomcdn.com"
   ];
   outbound = "auto-us";
 }
