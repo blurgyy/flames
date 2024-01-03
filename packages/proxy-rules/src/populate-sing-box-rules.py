@@ -47,7 +47,7 @@ def populate_rules(obj: dict, rules_dir: Path) -> dict:
 def main(rules_dir: Path, cfg_path: Path) -> int:
     cfg = json.load(open(cfg_path))
     cfg = populate_rules(cfg, rules_dir)
-    json.dump(cfg, open(cfg_path, "w"))
+    json.dump(cfg, open(cfg_path, "w"), separators=(",", ":"))
     return 0
 
 
