@@ -1,9 +1,11 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./tailscale.nix
   ];
 
-  services.warp-proxy.enable = true;
+  services.warp-proxy.enable = builtins.elem
+    pkgs.stdenv.hostPlatform.system
+    config.services.warp-proxy.package.meta.platforms;
 
   networking.firewall-tailored = {
     enable = true;
