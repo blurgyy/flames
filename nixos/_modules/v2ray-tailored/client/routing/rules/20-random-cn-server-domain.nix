@@ -5,5 +5,5 @@
     "domain:nexushd.org"
     "full:watson"
   ];
-  balancerTag = "random-cn-server";
+  balancerTag = "random:cn-server";
 }

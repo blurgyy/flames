@@ -1,4 +1,4 @@
 {
-  inboundTag = [ "dns-in" ];
+  inboundTag = [ "dns:in" ];
   outboundTag = "dns-out";
 }

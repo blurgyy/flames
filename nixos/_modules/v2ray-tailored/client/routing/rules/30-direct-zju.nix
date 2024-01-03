@@ -10,5 +10,5 @@
     "domain:net3.zju.edu.cn"
     "domain:tracker.nexushd.org"
   ];
-  outboundTag = "direct-zju";
+  outboundTag = "direct:zju";
 }

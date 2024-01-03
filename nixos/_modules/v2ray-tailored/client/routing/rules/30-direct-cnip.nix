@@ -1,4 +1,4 @@
 {
   ip = [ "geoip:cn" ];
-  outboundTag = "direct-cnip";
+  outboundTag = "direct:cnip";
 }

@@ -1,4 +1,4 @@
 {
   network = "tcp,udp";
-  balancerTag = "best-oversea-server";
+  balancerTag = "best:oversea-server";
 }

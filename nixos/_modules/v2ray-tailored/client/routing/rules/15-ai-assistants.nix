@@ -13,5 +13,5 @@
     "domain:live.com"
     "domain:open.ai"
   ];
-  balancerTag = "best-us-server";
+  balancerTag = "best:us-server";
 }

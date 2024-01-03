@@ -1,4 +1,4 @@
 {
   ip = [ "geoip:private" ];
-  outboundTag = "direct-private";
+  outboundTag = "direct:private";
 }

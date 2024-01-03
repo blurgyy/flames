@@ -5,5 +5,5 @@
     "8.8.8.8/32"
     "8.8.4.4/32"
   ];
-  balancerTag = "best-oversea-server";
+  balancerTag = "best:oversea-server";
 }

@@ -5,5 +5,5 @@
     "geosite:google-cn"
     "domain:hziam.com"
   ];
-  outboundTag = "direct-cndomain";
+  outboundTag = "direct:cndomain";
 }

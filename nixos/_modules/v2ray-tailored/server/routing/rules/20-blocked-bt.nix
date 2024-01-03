@@ -1,4 +1,4 @@
 {
   protocol = [ "bittorrent" ];
-  outboundTag = "blocked-bt";
+  outboundTag = "blocked:bt";
 }

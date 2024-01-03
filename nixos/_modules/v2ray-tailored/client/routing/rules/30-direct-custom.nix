@@ -17,5 +17,5 @@
     "domain:vjudge.net"
     "domain:vvebo.me"
   ];
-  outboundTag = "direct-custom";
+  outboundTag = "direct:custom";
 }

@@ -6,5 +6,5 @@
     "180.76.76.76/32"
     "114.114.114.114/32"
   ];
-  outboundTag = "direct-dnsservers";
+  outboundTag = "direct:dnsservers";
 }

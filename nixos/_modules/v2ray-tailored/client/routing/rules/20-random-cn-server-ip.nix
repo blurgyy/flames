@@ -4,5 +4,5 @@
     # "10.76.2.80/24"
     "10.0.0.0/8"
   ];
-  balancerTag = "random-cn-server";
+  balancerTag = "random:cn-server";
 }

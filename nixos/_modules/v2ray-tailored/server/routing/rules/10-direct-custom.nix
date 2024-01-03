@@ -7,5 +7,5 @@
     "domain:docs.microsoft.com"
     "domain:statsig.com"  # openai auth for the ChatGPT iOS app requires <api.statsig.com> to be reachable
   ];
-  outboundTag = "direct-custom";
+  outboundTag = "direct:custom";
 }

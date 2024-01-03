@@ -292,5 +292,5 @@
     "domain:yumimobi.com"
     "domain:zu08e.cn"
   ];
-  outboundTag = "blocked-ad";
+  outboundTag = "blocked:ad";
 }

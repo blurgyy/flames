@@ -1,4 +1,4 @@
 {
   ip = [ "geoip:cn" ];
-  outboundTag = "blocked-cnip";
+  outboundTag = "blocked:cnip";
 }

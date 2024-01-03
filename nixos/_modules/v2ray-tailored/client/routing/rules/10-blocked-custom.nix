@@ -9,5 +9,5 @@
     "domain:takemabestoffers.com"
     "domain:wenhuayouyue.com"
   ];
-  outboundTag = "blocked-custom";
+  outboundTag = "blocked:custom";
 }

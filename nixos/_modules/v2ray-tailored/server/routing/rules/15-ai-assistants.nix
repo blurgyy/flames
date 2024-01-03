@@ -13,5 +13,5 @@
     "domain:live.com"
     "domain:open.ai"
   ];
-  outboundTag = "direct-ai-assistants";
+  outboundTag = "direct:ai-assistants";
 }

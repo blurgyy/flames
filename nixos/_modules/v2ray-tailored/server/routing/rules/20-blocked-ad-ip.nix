@@ -5,5 +5,5 @@
     "101.227.97.240/32"
     "124.192.153.42/32"
   ];
-  outboundTag = "blocked-ad";
+  outboundTag = "blocked:ad";
 }
