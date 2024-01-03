@@ -3,6 +3,8 @@
     ./tailscale.nix
   ];
 
+  services.warp-proxy.enable = true;
+
   networking.firewall-tailored = {
     enable = true;
     acceptedPorts = [ "ssh" "http" "https" ] ++ [{
