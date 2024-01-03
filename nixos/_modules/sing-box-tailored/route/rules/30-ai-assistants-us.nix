@@ -1,13 +1,21 @@
 {
-  domain_keyword = [
-    "claude"
-    "google"
-    "oaistatic"
-    "oaiusercontent"
-    "openai"
+  domain = [
+    "open.ai"
+    "claude.ai"
+    "anthropic.com"
+    "bard.google.com"
+    "oaistatic.com"
+    "oaiusercontent.com"
+    "openai.com"
   ];
   domain_suffix = [
-    "open.ai"
+    ".open.ai"
+    ".claude.ai"
+    ".anthropic.com"
+    ".bard.google.com"
+    ".oaistatic.com"
+    ".oaiusercontent.com"
+    ".openai.com"
   ];
   outbound = "auto-us";
 }

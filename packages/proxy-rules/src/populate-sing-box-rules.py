@@ -12,6 +12,13 @@ def txt_as_list(path: Path) -> List[str]:
         return list(map(str.strip, f.readlines()))
 
 
+def apply_prepend_char(rules: List[str], prepend_char: str) -> List[str]:
+    return list(map(
+        lambda entry: "{}{}".format(prepend_char, entry),
+        rules,
+    ))
+
+
 def populate_rules(obj: dict, rules_dir: Path) -> dict:
     if not isinstance(obj, dict):
         return obj
@@ -26,14 +33,26 @@ def populate_rules(obj: dict, rules_dir: Path) -> dict:
             ))
             rules = []
             for file_spec in rules_file_specs:
+                prepend_char = ""
+                if "#" in file_spec:
+                    if ":" in file_spec:
+                        assert file_spec.count(":") == 1, "Must specify at most one variant rule"
+                        assert file_spec.index(":") < file_spec.index("#"), "Must specify variant rule (:) before prepend rule (#)"
+                    file_spec, prepend_char = file_spec.split("#")
                 if ":" in file_spec:
                     stem, variant = file_spec.split(":")
                     path = rules_dir.joinpath("{}.txt".format(stem))
                     prefix = "{}:".format(variant)
-                    rules += [entry[len(prefix):] for entry in txt_as_list(path) if entry.startswith(prefix)]
+                    rules += apply_prepend_char(
+                        [entry[len(prefix):] for entry in txt_as_list(path) if entry.startswith(prefix)],
+                        prepend_char=prepend_char,
+                    )
                 else:
                     path = rules_dir.joinpath("{}.txt".format(file_spec))
-                    rules += [entry for entry in txt_as_list(path) if ":" not in entry]
+                    rules += apply_prepend_char(
+                        [entry for entry in txt_as_list(path) if ":" not in entry],
+                        prepend_char=prepend_char,
+                    )
             ret[key] = list(set(rules))
         elif isinstance(value, dict):
             ret[key] = populate_rules(value, rules_dir)
