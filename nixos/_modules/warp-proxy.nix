@@ -33,29 +33,7 @@ in
       serviceConfig = rec {
         StateDirectory = "cloudflare-warp";
         WorkingDirectory = "/var/lib/${StateDirectory}";
-        ExecStartPre = let
-          settings = {  # transcribed from /var/lib/cloudflare-warp/settings.json
-            version = 1;
-            always_on = true;
-            operation_mode.WarpProxy = null;
-            proxy_port = cfg.port;
-            # WARP uses 162.159.192.0/24 as endpoints, the default endpoint configured at
-            # /var/lib/cloudflare-warp/conf.json is 162.159.192.9, which cannot seem to be able to
-            # ping from all machines.  This address can ping.  This can be imperically set using
-            # `warp-cli set-custom-endpoint 162.159.192.254:2408`.
-            # NOTE:
-            #   * Although the default configured endpoints are written to
-            #     /var/lib/cloudflare-warp/conf.json, the file is overwritten on start of warp-svc.
-            #   * The default configured endpoints seem to change from machines to machines.
-            # TODO:
-            #   Maybe write a script to determine a reachable endpoint at ExecStartPre.
-            # REF:
-            #   * <https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/firewall#warp-ingress-ip>
-            #   * <https://ping.pe/162.159.192.9>
-            override_warp_endpoint = "162.159.192.254:2408";
-          };
-          settingsJsonFile = pkgs.writeText "cloudflare-warp-settings.json" (builtins.toJSON settings);
-        in "${pkgs.coreutils}/bin/ln -sf ${settingsJsonFile} /var/lib/${StateDirectory}/settings.json";
+        ExecStartPre = "${pkgs.make-warp-settings-json}/bin/make-warp-settings-json ${toString cfg.port} /var/lib/${StateDirectory}/settings.json";
         LogNamespace = "noisy";
         RestartSec = 5;
         Restart = "always";
