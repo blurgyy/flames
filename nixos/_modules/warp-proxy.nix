@@ -56,6 +56,9 @@ in
           };
           settingsJsonFile = pkgs.writeText "cloudflare-warp-settings.json" (builtins.toJSON settings);
         in "${pkgs.coreutils}/bin/ln -sf ${settingsJsonFile} /var/lib/${StateDirectory}/settings.json";
+        LogNamespace = "noisy";
+        RestartSec = 5;
+        Restart = "always";
       };
     };
   };
