@@ -13,6 +13,9 @@
 
     "v2ray"
     ".v2ray-wrapped"
+
+    "warp-svc"
+    ".warp-svc-wrapped"
   ];
   outbound = "direct-process";
 }
