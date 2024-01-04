@@ -42,6 +42,14 @@
             '') ];
           });
         });
+        # TODO: remove after upstream fixes this
+        alacritty-theme = prev.alacritty-theme.overrideAttrs (o: {
+          installPhase = ''
+            runHook preInstall
+            install -Dt $out *.toml
+            runHook postInstall
+          '';
+        });
 
         python310 = prev.python310.override {
           packageOverrides = python-final: python-prev: {
