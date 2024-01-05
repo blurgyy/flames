@@ -15,6 +15,21 @@
         in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
         "identity.fxaccounts.account.device.name" = hostName;
       };
+      userChrome = ''
+        #sidebar-box *,
+        #urlbar-background,
+        #navigator-toolbox {
+          transition: background-color .5s cubic-bezier(0, 0, 0, 1);
+        }
+        .tab-background {
+          transition: background-color .5s cubic-bezier(0, 0, 0, 1);
+          box-shadow: none !important;
+          background-image: none !important;
+        }
+        .tab-background[selected] {
+          background-color: var(--tab-selected-bgcolor) !important;
+        }
+      '';
     };
   };
   policies = {
@@ -68,6 +83,9 @@
       "media.ffmpeg.vaapi.enabled" = true;
       "media.rdd-ffmpeg.enabled" = true;
       "widget.gtk.overlay-scrollbars.enabled" = false;
+
+      # enable userChrome.css loading
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
     ExtensionSettings = let
       mkForceInstalled = extensions: builtins.mapAttrs 
