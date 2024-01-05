@@ -90,6 +90,8 @@
       # "{a9cb10b9-75e9-45c3-8194-d3b2c25bb6a2}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/bing-chat-for-all-browsers/latest.xpi";
       "{85860b32-02a8-431a-b2b1-40fbd64c9c69}".install_url = "https://addons.mozilla.org/firefox/downloads/latest/github-file-icons/latest.xpi";
       "ATBC@EasonWong".install_url = "https://addons.mozilla.org/firefox/downloads/latest/adaptive-tab-bar-colour/latest.xpi";
+    } // {
+      "*".installation_mode = "blocked";  # blocks all other addons
     };
   };
 }
