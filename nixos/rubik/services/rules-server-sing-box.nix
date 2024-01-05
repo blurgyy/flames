@@ -1,4 +1,4 @@
-{ config, lib, pkgs, utils, ... }:
+{ config, pkgs, utils, ... }:
 
 let
   listenPort = 2257;
@@ -6,28 +6,17 @@ let
 in
 
 {
-  sops.secrets = lib.listToAttrs
-    (map
-      (secret: {
-        name = secret;
-        value = {
-          restartUnits = [ "rules-server-sing-box.service" ];
-        };
-      })
-      [
-        "v2ray/domains/eu-00"
-        "v2ray/domains/eu-01"
-        "v2ray/domains/jp-00"
-        "v2ray/domains/us-00"
-        "v2ray/domains/wss-eu-00"
-        "v2ray/domains/wss-eu-01"
-        "v2ray/addresses/cn-00"
-        "v2ray/addresses/eu-00"
-        "v2ray/addresses/eu-01"
-        "v2ray/addresses/jp-00"
-        "v2ray/addresses/us-00"
-        "proxy-client-uuids"
-      ]);
+  sops.secrets = builtins.listToAttrs (map
+    (secret: {
+      name = secret;
+      value = {
+        restartUnits = [ "rules-server-sing-box.service" ];
+      };
+    })
+    (let
+      proxyClientSecrets = import ../../_parts/proxy-client-secrets.nix;
+    in proxyClientSecrets.domains ++ proxyClientSecrets.addresses)
+  );
 
   services.sing-box = {
     enable = false;

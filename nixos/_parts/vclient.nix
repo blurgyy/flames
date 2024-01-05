@@ -1,7 +1,12 @@
 { config, ... }: {
-  imports = [
-    ./proxy-client-secrets.nix
-  ];
+  sops.secrets = builtins.listToAttrs (map
+    (secret: {
+      name = secret;
+      value = {};
+    })
+    (import ./proxy-client-secrets.nix).default
+  );
+
   services.v2ray-tailored.client = {
     logging.level = "warning";
     enable = true;
@@ -18,6 +23,13 @@
     remotes = [
       rec {
         tag = "us-00";
+        address = config.sops.placeholder."v2ray/addresses/${tag}";
+        port = 443;
+        domain = config.sops.placeholder."v2ray/domains/${tag}";
+        wsPath = null;
+      }
+      rec {
+        tag = "us-01";
         address = config.sops.placeholder."v2ray/addresses/${tag}";
         port = 443;
         domain = config.sops.placeholder."v2ray/domains/${tag}";

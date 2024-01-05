@@ -1,7 +1,11 @@
 { config, ... }: {
-  imports = [
-    ./proxy-client-secrets.nix
-  ];
+  sops.secrets = builtins.listToAttrs (map
+    (secret: {
+      name = secret;
+      value = {};
+    })
+    (import ./proxy-client-secrets.nix).default
+  );
 
   services.sing-box = {
     enable = true;
