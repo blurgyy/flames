@@ -51,5 +51,5 @@
     ".sprinklesapp.com"
     ".bingapis.com"
   ];
-  outbound = "auto-jp";
+  outbound = "auto-ai-assistants-jp";
 }

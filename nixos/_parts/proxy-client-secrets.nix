@@ -9,6 +9,9 @@ rec {
   addresses = [
     "v2ray/domains/wss-eu-00"
     "v2ray/domains/wss-eu-01"
+    "v2ray/domains/wss-jp-00"
+    "v2ray/domains/wss-us-00"
+    "v2ray/domains/wss-us-01"
     "v2ray/addresses/cn-00"
     "v2ray/addresses/eu-00"
     "v2ray/addresses/eu-01"

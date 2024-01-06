@@ -1,7 +1,8 @@
 { config, ... }: {
   imports = [
+    ../../_parts/vserver.nix
+    ../../_parts/vserver-wss.nix
     ./ntfy.nix
-    ./v2ray.nix
   ];
   sops.secrets.acme-credentials-file = with config.users; {
     owner = users.haproxy.name;

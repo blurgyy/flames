@@ -21,6 +21,7 @@
     "v2ray/users/04/email" = {};
     "v2ray/users/05/email" = {};
   };
+
   services.v2ray-tailored.server = {
     enable = true;
     ports.http = config.sops.placeholder."v2ray/ports/server/http";
@@ -64,5 +65,13 @@
         inherit level;
       }
     ];
+  };
+
+  services.haproxy-tailored = {
+    frontends.tls-offload-front.backends = [{ name = "pivot"; condition = "unless HTTP"; }];
+    backends.pivot = {
+      mode = "tcp";
+      server.address = "127.0.0.1:${config.services.v2ray-tailored.server.ports.tcp}";
+    };
   };
 }

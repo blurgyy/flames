@@ -21,5 +21,5 @@
     ".intercom.io"
     ".intercomcdn.com"
   ];
-  outbound = "auto-us";
+  outbound = "auto-ai-assistants-us";
 }

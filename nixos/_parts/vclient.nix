@@ -78,6 +78,13 @@
         domain = config.sops.placeholder."v2ray/domains/eu-01";
         wsPath = config.sops.placeholder."v2ray/ws-path";
       }
+      {
+        tag = "wss-us-01";
+        address = config.sops.placeholder."v2ray/domains/us-01";
+        port = 443;
+        domain = config.sops.placeholder."v2ray/domains/us-01";
+        wsPath = config.sops.placeholder."v2ray/ws-path";
+      }
     ];
   };
 }
