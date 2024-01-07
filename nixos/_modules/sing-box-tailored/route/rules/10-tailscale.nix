@@ -1,5 +1,5 @@
 {
-  ip_cidr = "100.0.0.0/8";
+  ip_cidr = "100.64.0.0/10";
   process_name = [
     "tailscale"
     "tailscaled"
