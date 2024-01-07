@@ -1,6 +1,4 @@
 {
-  geoip = [
-    "cn"
-  ];
+  rule_set = "geoip-cn";
   outbound = "direct-cnip";
 }
