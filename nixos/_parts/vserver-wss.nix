@@ -4,10 +4,10 @@
   };
   services.v2ray-tailored.server.wsPath = config.sops.placeholder."v2ray/ws-path";
   services.haproxy-tailored = {
-    frontends.tls-offload-front.backends = [
-      { name = "pivot"; condition = "unless HTTP"; }
-      { name = "pivot-wss"; condition = "if { path ${config.sops.placeholder."v2ray/ws-path"} }"; }
-    ];
+    frontends.tls-offload-front.backends = [{
+      name = "pivot-wss";
+      condition = "if { path ${config.sops.placeholder."v2ray/ws-path"} }";
+    }];
     backends = {
       pivot-wss = {
         mode = "tcp";
