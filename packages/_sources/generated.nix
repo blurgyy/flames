@@ -199,18 +199,6 @@
       sha256 = "sha256-YQl5IDtodcbTV3D6vtJi7CwxVtHHl58fG6qCAoSaP4U=";
     };
   };
-  halbot = {
-    pname = "halbot";
-    version = "68fd52a22d43765cd1542c8d07d51c89eda9beaa";
-    src = fetchFromGitHub {
-      owner = "Leask";
-      repo = "halbot";
-      rev = "68fd52a22d43765cd1542c8d07d51c89eda9beaa";
-      fetchSubmodules = false;
-      sha256 = "sha256-HAKladG9JnE6aE0mpaqWGGQHYCS0+692Yty5OUGWW4E=";
-    };
-    date = "2024-01-07";
-  };
   harmonyos-sans = {
     pname = "harmonyos-sans";
     version = "0d79cad76b37ba0f3ccb1323c83833c78e0860de";
