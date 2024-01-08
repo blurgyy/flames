@@ -3,7 +3,6 @@
     ../../_parts/distributed-builder.nix
     ../../_parts/vserver.nix
     ../../_parts/vserver-wss.nix
-    ./halbot.nix
     ./hydra.nix
     ./rssbot.nix
     ./vaultwarden
