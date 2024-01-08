@@ -54,6 +54,7 @@
       "network.proxy.socks_remote_dns" = true;
       "network.proxy.no_proxies_on" = lib.concatStringsSep ", " proxy.ignore;
       "network.proxy.type" = 1;  # manual proxy configuration
+      "network.proxy.socks_version" = 5;
       "network.proxy.socks" = proxy.socks.addr or "";
       "network.proxy.socks_port" = proxy.socks.port or 0;
       "network.proxy.http" = proxy.http.addr or "";
