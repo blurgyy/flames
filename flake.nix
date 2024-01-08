@@ -127,6 +127,13 @@
     in {
       inherit (pkgs-stable) hydra-unstable;
     };
+    stableHaproxyOverlay = final: prev: let
+      pkgs-stable = import inputs.nixpkgs-stable {
+        inherit (prev) system config;
+      };
+    in {
+      inherit (pkgs-stable) haproxy;
+    };
   in
 
   flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
@@ -138,6 +145,7 @@
       overlays = [
         cudaOverlay
         stableHydraOverlay
+        stableHaproxyOverlay
         self.overlays.default
       ] ++ self.sharedOverlays;
     };
@@ -169,6 +177,7 @@
       inputs.nvfetcher.overlays.default
       cudaOverlay
       stableHydraOverlay
+      stableHaproxyOverlay
     ];
   };
 }
