@@ -3,8 +3,17 @@
 let
   inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.home.presets;
+
+  blender_with_packages = (pkgs.blender-ply-as-verts.withPackages (pp: with pp; [
+    einops
+    pillow
+    scipy
+    tqdm
+  ]));
+
   devPackages = with pkgs; [
     bat
+    blender_with_packages
     clang-tools
     colmena
     eza
@@ -42,13 +51,12 @@ let
   entPackages = with pkgs; [
   ];
   recPackages = with pkgs; [
+    blender_with_packages
     exiftool
     ffmpeg-fuller
     # gimp
     imagemagick
     yt-dlp
-  ] ++ [
-    (if pkgs.config.cudaSupport then blender-ply-as-verts else blender)
   ];
   sciPackages = with pkgs; [
     inkscape
