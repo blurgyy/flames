@@ -13,7 +13,6 @@ let
 
   devPackages = with pkgs; [
     bat
-    blender_with_packages
     clang-tools
     colmena
     eza
@@ -47,17 +46,17 @@ let
     tro
     typos
     xplr
-  ] ++ lib.optional (system == "x86_64-linux" || system == "i686-linux") conda;
+  ] ++ lib.optional (system == "x86_64-linux" || system == "i686-linux") conda
+    ++ lib.optional (system == "x86_64-linux") blender_with_packages;
   entPackages = with pkgs; [
   ];
   recPackages = with pkgs; [
-    blender_with_packages
     exiftool
     ffmpeg-fuller
     # gimp
     imagemagick
     yt-dlp
-  ];
+  ] ++ lib.optional (system == "x86_64-linux") blender_with_packages;
   sciPackages = with pkgs; [
     inkscape
     labelme
