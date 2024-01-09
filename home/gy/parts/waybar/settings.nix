@@ -200,7 +200,7 @@ in {
       # format = " ";
       format = " ";
       on-click = "${xfce.thunar}/bin/thunar ~";
-      on-click-right = "if systemctl --user is-active gammastep; then systemctl --user stop --no-block gammastep; notify-send --expire-time=3000 'Waybar' 'Stopping gammastep'; else systemctl --user start --no-block gammastep; notify-send --expire-time=3000 'Waybar' 'Starting gammastep'; fi";
+      on-click-right = "if systemctl --user is-active gammastep; then systemctl --user stop --no-block gammastep; ${pkgs.libnotify}/bin/notify-send --expire-time=3000 'Waybar' 'Stopping gammastep'; else systemctl --user start --no-block gammastep; ${pkgs.libnotify}/bin/notify-send --expire-time=3000 'Waybar' 'Starting gammastep'; fi";
       tooltip = false;
     };
     "custom/separator" = {
