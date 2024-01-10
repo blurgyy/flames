@@ -36,6 +36,7 @@ let
     parallel
     patchelf
     pciutils
+    pcl
     progress
     q-text-as-data
     sops
