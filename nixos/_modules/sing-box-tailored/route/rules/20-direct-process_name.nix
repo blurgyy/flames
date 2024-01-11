@@ -9,6 +9,11 @@
 
     "systemd-timesyncd"
 
+    "tailscale"
+    "tailscaled"
+    ".tailscale-wrapped"
+    ".tailscaled-wrapped"
+
     "transmission-daemon"
 
     "v2ray"
