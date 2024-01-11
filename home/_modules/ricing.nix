@@ -156,13 +156,13 @@ in with lib; {
 
   config = {
     ricing = {
-      headful = mkIf (cfg.headful.theme != null) {
-        wallpaper = cozy-sunny-4k;
-        themeColor = name: let
+      headful.wallpaper = cozy-sunny-4k;
+      headful.themeColor = mkIf (cfg.headful.theme != null) (name:
+        let
           colorFn = catppuccinColor (if cfg.headful.theme == "light" then "latte" else "mocha");
         in
-          (colors colorFn)."${name}";
-      };
+          (colors colorFn)."${name}"
+      );
       textual.themeColor = mkIf (cfg.textual.theme != null) (name: let
           colorFn = catppuccinColor (if cfg.textual.theme == "light" then "latte" else "mocha");
         in
