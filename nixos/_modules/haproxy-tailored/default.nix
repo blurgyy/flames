@@ -150,7 +150,7 @@ in {
       hasNoDefaultBackend = frontend: all (backend: !backend.isDefault) frontend.backends;
       getFrontendsWithoutDefaultBackend = frontends: filter hasNoDefaultBackend frontends;
     in map
-      (frontend: ''haproxy frontend "${frontend.name}" has no default backend configured!'')
+      (frontend: ''haproxy frontend "${frontend.name}" on host "${config.networking.hostName}" has no default backend configured!'')
       (getFrontendsWithoutDefaultBackend
         (toRawFrontendModule cfg.frontends)
       );
