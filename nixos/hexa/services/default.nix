@@ -2,6 +2,7 @@
   imports = [
     ../../_parts/vserver.nix
     ../../_parts/vserver-wss.nix
+    ./fixenc.nix
     ./ntfy.nix
   ];
   sops.secrets.acme-credentials-file = with config.users; {

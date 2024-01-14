@@ -5,10 +5,11 @@
       domain = config.networking.fqdn;
     };
     haproxy-tailored = {
-      frontends.tls-offload-front.backends = [
-        { name = "ntfy-default"; isDefault = true; }
-      ];
-      backends.ntfy-default = {
+      frontends.tls-offload-front = {
+        acls = [ { name = "is_ntfy"; body = "hdr(host) -i ${config.networking.fqdn}"; } ];
+        backends = [ { name = "ntfy"; condition = "if is_ntfy"; } ];
+      };
+      backends.ntfy = {
         mode = "http";
         server.address = "127.0.0.1:${toString config.services.ntfy-tailored.port}";
       };
