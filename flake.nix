@@ -101,6 +101,7 @@
 
     adrivems.url = "gitlab:highsunz/aliyundrive-mediaserver";
     dcompass.url = "github:compassd/dcompass";
+    fixenc.url = "gitlab:highsunz/fixenc";
     hypr-msg-handler.url = "gitlab:highsunz/hypr-msg-handler";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
   };
@@ -174,6 +175,7 @@
       inputs.adrivems.overlays.default
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
+      inputs.fixenc.overlays.default
       inputs.nvfetcher.overlays.default
       cudaOverlay
       stableHydraOverlay
