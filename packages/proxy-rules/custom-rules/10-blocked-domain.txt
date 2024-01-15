@@ -103,6 +103,8 @@ api.newad.ifeng.com
 app-ad.variflight.com
 app-adforce.jp
 app-monitor.ele.me
+app.adjust.net.in
+app.adjust.world
 appads.com
 appcpi.net
 appier.net
@@ -189,6 +191,8 @@ imgadpai.thepaper.cn
 imp.optaim.com
 impservice.dictapp.youdao.com
 impservice.youdao.com
+incoming-telemetry.mozilla.org
+incoming-telemetry.thunderbird.net
 inmobi.cn
 inmobi.com
 inmobi.net
