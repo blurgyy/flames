@@ -1,5 +1,6 @@
 {
   domain = [
+    "domain:adobe.com"
     "domain:gstatic.com"
     "domain:himself65.com"
     "domain:googleapis.com"
