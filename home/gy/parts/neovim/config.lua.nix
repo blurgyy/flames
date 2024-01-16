@@ -881,6 +881,10 @@ in ''
     if vim.tbl_contains(ignore_fts, filetype) then
       return
     end
+    -- do not open nvim-tree if current buffer width do not have enough space
+    if vim.o.colorcolumn + require("nvim-tree.view").View.width + 2 + 5 >= vim.o.columns then
+      return
+    end
     require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
   end
   vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
