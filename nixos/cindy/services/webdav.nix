@@ -15,9 +15,13 @@ in {
       modify = true;
       auth = true;
       users = [{
-        username = "{env}WEBDAV_USERNAME";
-        password = "{env}WEBDAV_PASSWORD";
-        scope = "/var/lib/${dataDir}/gy";
+        username = "{env}ZOTERO_USERNAME";
+        password = "{env}ZOTERO_PASSWORD";
+        scope = "/var/lib/${dataDir}/zotero";
+      } {
+        username = "{env}TWILAR_USERNAME";
+        password = "{env}TWILAR_PASSWORD";
+        scope = "/var/lib/${dataDir}/twilar";
       }];
     };
     environmentFile = config.sops.secrets.webdav.path;
@@ -26,7 +30,7 @@ in {
     StateDirectory = dataDir;
     StateDirectoryMode = "0700";
     ProtectSystem = "strict";
-    ExecStartPre = map (userInfo: "${pkgs.coreutils}/bin/mkdir -p ${userInfo.scope}")
+    ExecStartPre = map (userInfo: "${pkgs.btrfs-progs}/bin/btrfs subvolume create -p ${userInfo.scope}")
       (builtins.filter (userInfo: builtins.hasAttr "scope" userInfo) config.services.webdav.settings.users);
   };
   services.haproxy-tailored = {
