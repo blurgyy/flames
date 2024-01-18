@@ -658,6 +658,12 @@ in ''
     "yamlls",
   }
   local settings = {
+    clangd = {  -- REF: <https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp>
+      cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+      },
+    },
     elm = {
       codeLens = {
         enable = true,
