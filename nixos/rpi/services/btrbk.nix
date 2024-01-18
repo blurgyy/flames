@@ -89,6 +89,19 @@ in {
       };
     };
 
+    twilar-backup = {
+      onCalendar = "08:00:00 CST";
+      settings = globalCfg // {
+        subvolume."ssh://cindy/var/lib/webdav/twilar" = subvolSharedCfg // {
+          snapshot_preserve_min = "latest";
+          snapshot_preserve = "no";
+
+          target_preserve_min = "latest";
+          target_preserve = "1w 1m *y";
+        };
+      };
+    };
+
     repos-backup = {
       onCalendar = "04:00:00 CST";
       settings = globalCfg // {
