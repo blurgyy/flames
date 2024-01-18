@@ -3,7 +3,7 @@
 
   buildCommand = ''
     install -Dm444 -t $out/share/foot/themes \
-      $src/catppuccin-{frappe,latte,macchiato,mocha}.conf
+      $src/catppuccin-{frappe,latte,macchiato,mocha}.ini
   '';
 
   meta = {
