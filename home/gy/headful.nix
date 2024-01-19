@@ -48,7 +48,6 @@ in {
     cage
     cider
     evince
-    imv
     libnotify
     localsend
     logseq  # uses insecure electron-25.9.0
@@ -61,8 +60,9 @@ in {
     tdesktop-megumifox
     typst
     video-compare
-    wl-screenrec
+    vimiv-qt
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
+    wl-screenrec
     wlr-randr
     #wpsoffice-cn
     xdragon

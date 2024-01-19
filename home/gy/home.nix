@@ -278,7 +278,7 @@ in {
         # wildcards (use with `handlr open`)
         "audio/*" = "mpv.desktop";
         "video/*" = "mpv.desktop";
-        "image/*" = "imv-folder.desktop";
+        "image/*" = "vimiv.desktop";
       };
     };
   };
