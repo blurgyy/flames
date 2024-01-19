@@ -30,7 +30,7 @@ in
       cd /run/${serviceConfig.RuntimeDirectory}
       cp ${pkgs.cgi-rules-server}/bin/sing-box .
       ${utils.genJqSecretsReplacementSnippet config.services.sing-box.settings "/tmp/template.json"}
-      jq 'del(.route.geoip) | del(.route.geosite)' /tmp/template.json >template.json
+      jq 'del(.route.geoip) | del(.route.geosite) | .log.level="error" | .log.timestamp=true' /tmp/template.json >template.json
       ${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src template.json
       rm /tmp/template.json
       cp $CREDENTIALS_DIRECTORY/uuids uuids
