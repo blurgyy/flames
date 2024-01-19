@@ -145,11 +145,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1705251053,
-        "narHash": "sha256-Ts7wQP0WDNhrFlDHDwwOUtRDUiB18cDQQ5a6DKZOwxw=",
+        "lastModified": 1705628081,
+        "narHash": "sha256-2JuZgOx5FKtBYy9MLreJgSvZI9dPYlJ5S2Hbe6u9eB4=",
         "owner": "highsunz",
         "repo": "fixenc",
-        "rev": "8d951a46d48b1be7bffb525dd6d91110c7478624",
+        "rev": "37913232b6551b0e53a97bc8204f5ed07032d921",
         "type": "gitlab"
       },
       "original": {
