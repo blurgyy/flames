@@ -237,6 +237,7 @@ fixTypo "blurgy" [
   ghc = "ghc -dynamic -outputdir=/tmp/ghc";
   gpustat = ''gpustat --force-color -cpuFi 1 -P "draw,limit"'';
   hibernate = "systemctl hibernate";
+  imv = "vimiv";
   ip = "ip -br -c";
   jobs = "jobs -l";
   js = "sudo journalctl --system";
