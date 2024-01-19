@@ -211,6 +211,7 @@ in
       windowrulev2 = float, class:alarm-clock-applet
       windowrulev2 = float, class:localsend_app
       windowrulev2 = float, class:blender, title:Blender (Preferences|Render)
+      windowrulev2 = float, class:vimiv
 
       windowrulev2 = pin, floating:1
 

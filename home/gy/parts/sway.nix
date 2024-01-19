@@ -209,6 +209,7 @@ in {
       floating = {
         criteria = [
           { app_id = "mpv"; }
+          { app_id = "vimiv"; }
           { app_id = "alarm-clock-applet"; }
           { app_id = "localsend_app"; }
           { app_id = "org\\.kde\\.kdeconnect\\.*"; }
