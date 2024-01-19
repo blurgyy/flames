@@ -96,7 +96,7 @@
       "addon@darkreader.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
       "enhancerforyoutube@maximerf.addons.mozilla.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi";
       "jid1-93WyvpgvxzGATw@jetpack".install_url = "https://addons.mozilla.org/firefox/downloads/latest/to-google-translate/latest.xpi";
-      "jid1-Om7eJGwA1U8Akg@jetpack".install_url = "https://addons.mozilla.org/firefox/downloads/latest/octotree/latest.xpi";
+      # "jid1-Om7eJGwA1U8Akg@jetpack".install_url = "https://addons.mozilla.org/firefox/downloads/latest/octotree/latest.xpi";
       "spdyindicator@chengsun.github.com".install_url = "https://addons.mozilla.org/firefox/downloads/latest/http2-indicator/latest.xpi";
       "tridactyl.vim@cmcaine.co.uk".install_url = "https://addons.mozilla.org/firefox/downloads/latest/tridactyl-vim/latest.xpi";
       "uBlock0@raymondhill.net".install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
