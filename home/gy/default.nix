@@ -5,6 +5,9 @@
     config.cudaSupport = builtins.elem hostName [
       "winston"
       "meda"
+      "cadliu"
+      "cad-liu"
+      "mono"
     ];
     config.permittedInsecurePackages = [
       "electron-25.9.0"  # logseq
