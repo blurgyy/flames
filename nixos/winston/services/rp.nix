@@ -21,11 +21,11 @@
     };
     server.services = {
       http-proxy-from-copi = {
-        port = 1990;
+        port = 2990;
         expose = false;
       };
       socks-proxy-from-copi = {
-        port = 1999;
+        port = 2999;
         expose = false;
       };
       ssh-2x1080ti = {
@@ -42,6 +42,35 @@
       ssh-mono = {
         port = 17266;
         expose = false;
+      };
+    };
+  };
+
+  services.haproxy-tailored = {
+    enable = true;
+    frontends = {
+      http-proxy = {
+        mode = "http";
+        alpns = [ "h3" "h2" "http/1.1" ];
+        binds = [ "*:1990" ];
+        backends = [ { name = "http-proxy-balancer"; isDefault = true; } ];
+      };
+      socks-proxy = {
+        mode = "tcp";
+        binds = [ "*:1999" ];
+        backends = [ { name = "socks-proxy-balancer"; isDefault = true; } ];
+      };
+    };
+    backends = {
+      http-proxy-balancer = {
+        mode = "http";
+        balancer = "roundrobin";
+        servers = [{ address = "127.0.0.1:2990"; } { address = "127.0.0.1:9990"; }];
+      };
+      socks-proxy-balancer = {
+        mode = "tcp";
+        balancer = "roundrobin";
+        servers = [{ address = "127.0.0.1:2999"; } { address = "127.0.0.1:9999"; }];
       };
     };
   };
