@@ -1,21 +1,15 @@
-{ openai-whisper-cpp, symlinkJoin
-, gcc11Stdenv
-, cudatoolkit
+{ openai-whisper-cpp
+, cudaPackages
 }:
 
-let
-  cudatoolkit-unsplit = symlinkJoin {
-    name = "${cudatoolkit.name}-unsplit";
-    paths = [ cudatoolkit.lib cudatoolkit.out ];
-  };
-  openai-whisper-cpp-gcc11 = openai-whisper-cpp.override {
-    stdenv = gcc11Stdenv;
-  };
-in
-
-openai-whisper-cpp-gcc11.overrideAttrs (o: {
-  propagatedBuildInputs = o.propagatedBuildInputs or [] ++ [
-    cudatoolkit-unsplit
+(openai-whisper-cpp.override {
+  stdenv = cudaPackages.backendStdenv;
+}).overrideAttrs (o: {
+  buildInputs = with cudaPackages; o.buildInputs or [] ++ [
+    cuda_cccl  # <nv/target>
+    cuda_cudart
+    cuda_nvcc
+    libcublas
   ];
   WHISPER_CUBLAS = 1;
 
