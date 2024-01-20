@@ -20,11 +20,20 @@ frontend ${opts.name}
   mkBackend = opts: ''
 backend ${opts.name}
   mode ${opts.mode}
+  ${optionalString (builtins.length opts.servers > 1) "balance ${opts.balancer}"}
   ${optionalString (opts.mode == "tcp") "option tcplog"}
   ${concatStringsSep "\n  " (map (opt: "option ${opt}") (opts.options))}
   ${concatStringsSep "\n  " (map (acl: "acl ${acl.name} ${acl.body}") opts.acls)}
   ${concatStringsSep "\n  " (map (rule: "${opts.mode}-request ${rule}") opts.requestRules)}
-  server ${opts.name}-server ${opts.server.address} ${concatStringsSep " " opts.server.extraArgs}
+  ${let
+    getUniqueID = server: substring 0 6 (builtins.hashString "sha512" "${opts.name}${server.address}${concatStringsSep "<><>" server.extraArgs}");
+    mkBackendServerLine = server: ''server ${opts.name}-server-${getUniqueID server} ${server.address} ${concatStringsSep " " server.extraArgs}${
+      optionalString (builtins.length opts.servers > 1) " check"
+    }'';
+  in if opts.server == null
+  then concatStringsSep "\n  " (map mkBackendServerLine opts.servers)
+  else mkBackendServerLine opts.server}
+  
 '';
 in ''
 # This 2 lines are taken from the standard nixos module `services.haproxy`

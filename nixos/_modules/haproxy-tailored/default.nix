@@ -30,7 +30,7 @@
     options.name = mkOption { type = types.str; };
     options.extraNames = mkOption { type = types.listOf types.str; default = []; };
     options.reloadServices = mkOption { type = types.listOf types.str; default = []; };
-    options.acme = mkOption { type = acmeModule; };
+    options.acme = mkOption { type = acmeModule; default = {}; };
   });
   frontendModule = types.submodule ({ ... }: {
     options = {
@@ -70,9 +70,14 @@
     options = {
       name = mkOption { type = types.str; };
       options = mkOption { type = types.listOf types.str; default = []; };
+      balancer = mkOption {
+        type = types.enum [ "roundrobin" "leastconn" "source" ];
+        default = "roundrobin";
+      };
       inherit mode;
       inherit acls requestRules;
-      server = mkOption { type = backendServerModule; };
+      server = mkOption { type = types.nullOr backendServerModule; default = null; };
+      servers = mkOption { type = types.listOf backendServerModule; default = []; };
     };
   });
   defaultsModule = types.submodule ({ ... }: {
@@ -122,6 +127,17 @@ in {
       message = ''
         Service names in `services.haproxy-tailored.frontends.<name>.domain.reloadServices` must end
         with ".service"
+      '';
+    } {
+      assertion = let
+        pred1 = backend: backend.server == null;
+        pred2 = backend: (builtins.length backend.servers) == 0;
+      in builtins.all
+        (backend: (pred1 backend && pred2 backend) == false  /* can both be empty, at most 1 can be non-empty */)
+        (attrValues cfg.backends);
+      message = ''
+        `services.haproxy-tailored.backends.server` and `services.haproxy-tailored.backends.server`
+        (note the character "s" at the end) are mutually exclusive
       '';
     }] ++ (let
         getAllDefaultBackends = frontend: filter (backend: backend.isDefault) frontend.backends;
