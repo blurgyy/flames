@@ -42,9 +42,7 @@
   in (mergeAttrsList (apply [
     "cindy"
     "copi"
-    "cube"
     "hexa"
-    "hooper"
     "meda"
     "mono"
     "morty"
@@ -107,7 +105,6 @@
     mono-copi = addGpgRemoteForward 1000 (mono-winston // { proxyJump = "copi"; });
 
     gpp = { hostname = "peterpan"; port = 77; };
-    ghooper = { hostname = "hooper"; user = "git"; };
 
     ubuntu-jammy = addGpgRemoteForward 1001 {
       hostname = "winston";
