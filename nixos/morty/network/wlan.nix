@@ -12,6 +12,8 @@
       "@wlan_5@" = { psk = "@wlan_5_psk@"; priority = 40; };
       "@wlan_6@" = { psk = "@wlan_6_psk@"; priority = 20; };
       "@wlan_7@" = { psk = "@wlan_7_psk@"; priority = 20; };
+      "@wlan_8@" = { psk = "@wlan_8_psk@"; priority = 20; };
+      "@wlan_9@" = { psk = "@wlan_9_psk@"; priority = 20; };
     };
   };
 }
