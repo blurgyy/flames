@@ -2,6 +2,7 @@
   enable = true;
   userEmail = "gy@blurgy.xyz";
   userName = "Gaoyang Zhang";
+  lfs.enable = true;
   aliases = {
     a = "add";
     aa = "add -A";
