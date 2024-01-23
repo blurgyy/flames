@@ -1,4 +1,4 @@
-{
+{ config }: {
   domain = [
     "domain:reddit.com"
     "domain:redd.it"
@@ -10,5 +10,7 @@
     "1.1.1.1"
     "1.0.0.1"
   ];
-  outboundTag = "warp:unblock";
+  outboundTag = if config.services.warp-proxy.enable
+    then "warp:unblock"
+    else "direct:unblock";
 }

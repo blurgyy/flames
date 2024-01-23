@@ -105,7 +105,7 @@ in {
       }
     ];
   routing = if (reverse == null)
-    then (import ./routing) { inherit applyTag mapDir; }
+    then (import ./routing) { inherit config lib applyTag mapDir; }
     else if (reverse.position == "world")
     then {
       domainStrategy = "IPIfNonMatch";
