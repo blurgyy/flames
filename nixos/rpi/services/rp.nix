@@ -2,6 +2,8 @@
   sops.secrets = {
     "sshrp/ssh-env" = {};
     "sshrp/acremote-env" = {};
+    "sshrp/http-proxy-env" = {};
+    "sshrp/socks-proxy-env" = {};
   };
 
   services.ssh-reverse-proxy = {
@@ -19,6 +21,14 @@
         environmentFile = config.sops.secrets."sshrp/acremote-env".path;
         bindPort = 21607;
         hostPort = config.services.acremote.port;
+      };
+      http-proxy = {
+        environmentFile = config.sops.secrets."sshrp/http-proxy-env".path;
+        identityFile = config.sops.secrets.hostKey.path;
+      };
+      socks-proxy = {
+        environmentFile = config.sops.secrets."sshrp/socks-proxy-env".path;
+        identityFile = config.sops.secrets.hostKey.path;
       };
     };
   };

@@ -61,16 +61,18 @@
         backends = [ { name = "socks-proxy-balancer"; isDefault = true; } ];
       };
     };
-    backends = {
+    backends = let
+      mkServer = port: { address = "127.0.0.1:${toString port}"; };
+    in {
       http-proxy-balancer = {
         mode = "http";
         balancer = "roundrobin";
-        servers = [{ address = "127.0.0.1:2990"; } { address = "127.0.0.1:9990"; }];
+        servers = map mkServer [ 2990 3990 4990 5990 6990 7990 8990 9990 ];
       };
       socks-proxy-balancer = {
         mode = "tcp";
         balancer = "roundrobin";
-        servers = [{ address = "127.0.0.1:2999"; } { address = "127.0.0.1:9999"; }];
+        servers = map mkServer [ 2999 3999 4999 5999 6999 7999 8999 9999 ];
       };
     };
   };
