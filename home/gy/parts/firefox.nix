@@ -92,7 +92,7 @@
       mkForceInstalled = extensions: builtins.mapAttrs 
         (name: cfg: { installation_mode = "force_installed"; } // cfg)
         extensions;
-    in mkForceInstalled {
+    in mkForceInstalled {  # download the .xpi file, unzip the .xpi file, `jq .browser_specific_settings.gecko.id manifest.json` to get the id
       "addon@darkreader.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
       "enhancerforyoutube@maximerf.addons.mozilla.org".install_url = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi";
       "jid1-93WyvpgvxzGATw@jetpack".install_url = "https://addons.mozilla.org/firefox/downloads/latest/to-google-translate/latest.xpi";
