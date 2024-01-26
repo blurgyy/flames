@@ -36,6 +36,7 @@ in {
       dysk
       libqalculate
       nixStable
+      ollama
       procs
       ripgrep
       sdwrap
