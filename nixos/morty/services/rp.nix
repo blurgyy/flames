@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ config, pkgs, ... }: {
   sops.secrets = {
     "sshrp/ssh-env" = {};
     "sshrp/http-proxy-env" = {};
@@ -22,5 +22,20 @@
         identityFile = config.sops.secrets.hostKey.path;
       };
     };
+  };
+
+  systemd.services = let
+    ExecCondition = pkgs.writeShellScript "is-connected-to-zjuwlan" ''
+      function current_ssid() {
+        iw dev | grep ssid | grep ZJU | cut -d' ' -f2
+      }
+      if ! cmp -s <(current_ssid | head -c3) <(echo -n ZJU); then
+        echo "not connected to ZJUWLAN, skipping"
+        exit 1
+      fi
+    '';
+  in {
+    rp-http-proxy.serviceConfig = { inherit ExecCondition; };
+    rp-socks-proxy.serviceConfig = { inherit ExecCondition; };
   };
 }
