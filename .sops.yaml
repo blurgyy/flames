@@ -3,8 +3,6 @@ creation_rules:
     age: age1cacy7w6e0cln0xhje8n2wrq3lxhqhkf5gjjc3erhst39fnv3hggscqzq84
   - path_regex: nixos/copi/.*
     age: age10nw78ryuz24y9f3w3990rfecuhr3ryzaz9kjk8l5t4tcrzghjfhqr7cr3a
-  - path_regex: nixos/cube/.*
-    age: age1kul2xj4dc3vgeqg9ls2pkfy0tex93stz0n5wzv0quvexhhwjhcpssttqyn
   - path_regex: nixos/morty/.*
     age: age17rhy32g9t89kspazenx4mtx74vy7e78rvq320u27k5tqmfmszv9qatg4d4
   - path_regex: nixos/opi/.*
@@ -21,8 +19,6 @@ creation_rules:
     age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
   - path_regex: nixos/hexa/.*
     age: age1rs0mz782sg9kespz6gt7sf9n4r2ntfeqrycsyree2e80qhsdhvnswd8me2
-  - path_regex: nixos/trigo/.*
-    age: age1mec8red6693vtv0nvg7zcdksnp45r5mvlhg20dymrmktc2q574lscydt8v
   - path_regex: nixos/winston/.*
     age: age13u7zug9sy8rqkszcsnzef7n2zg7g6py4fvtjsrxlqdn2cdgnz9vsd6kg26
   - path_regex: nixos/meda/.*
