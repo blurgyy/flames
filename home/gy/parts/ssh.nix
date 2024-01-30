@@ -46,6 +46,7 @@
     "meda"
     "mono"
     "morty"
+    "octa"
     "opi"
     "penta"
     "peterpan"

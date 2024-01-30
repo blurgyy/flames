@@ -85,4 +85,5 @@ in apply "gy" {
   "quad" = x86_64-headless;
   "rubik" = x86_64-headless;
   "hexa" = x86_64-headless;
+  "octa" = x86_64-headless;
 }

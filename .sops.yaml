@@ -5,6 +5,8 @@ creation_rules:
     age: age10nw78ryuz24y9f3w3990rfecuhr3ryzaz9kjk8l5t4tcrzghjfhqr7cr3a
   - path_regex: nixos/morty/.*
     age: age17rhy32g9t89kspazenx4mtx74vy7e78rvq320u27k5tqmfmszv9qatg4d4
+  - path_regex: nixos/octa/*
+    age: age1jdgj4klgjcp5fwn59lfajzdrk04ayp9pzmvemqkknl9s3z4ecyrqv7sqp3
   - path_regex: nixos/opi/.*
     age: age1gsewrrh6mw99xmqnfj6uly3xt6kedj9kp4c5s09us54686q7pelst27hvf
   - path_regex: nixos/peterpan/.*
