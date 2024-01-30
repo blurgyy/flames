@@ -105,7 +105,7 @@ Trouble Shooting
   > **Note that the kernel params are copied from inside the ISO image**.
 
 * If the live environment cannot boot through stage 1 due to `/dev/root` not appearing, a workaround
-  is to copy all contents of the ISO image to a standalong partition and use it as the `root=`
+  is to copy all contents of the ISO image to a standalone partition and use it as the `root=`
   parameter, e.g.
   ```bash
   $ mkdir iso-mnt fresh-part-mnt
@@ -119,6 +119,11 @@ Trouble Shooting
   ```
   Where the `/dev/disk/by-label/fresh-partition` should be the partition to create and put all
   contents in.
+  * If creating a standalone partition is not possible (e.g. because the virtual machine's initial
+    partition table did not leave sufficient amount of space, and online-shrink of ext4 filesystems
+    is not possible), copy the files inside the iso to the current partition (i.e. the one mounted
+    at `/` in the running system) also works.  Remember to replace the `root=` kernel parameter
+    before running `grub-mkconfig -o /boot/grub/grub.cfg`, then reboot.
 
 * In case bootloader was installed when a wrong partition (or no partition) was mounted on `/boot`,
   reinstall bootloader with:
