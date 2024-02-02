@@ -104,6 +104,17 @@
       port = 17266;
     };
     mono-copi = addGpgRemoteForward 1000 (mono-winston // { proxyJump = "copi"; });
+    mono-sdcm = addGpgRemoteForward 1000 {
+      hostname = "sd-cm.ananas.run";
+      port = 22225;
+      remoteForwards = [{
+        bind = { address = "localhost"; port = 1990; };
+        host = { address = "localhost"; port = 9990; };
+      } {
+        bind = { address = "localhost"; port = 1999; };
+        host = { address = "localhost"; port = 9999; };
+      }];
+    };
 
     gpp = { hostname = "peterpan"; port = 77; };
 
