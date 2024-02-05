@@ -62,5 +62,6 @@ in mkHosts {
   quad = virtual-server-x86_64;
   rpi = sbc-aarch64;
   rubik = virtual-server-x86_64;
+  velo = virtual-server-x86_64;
   winston = pc-x86_64;
 }

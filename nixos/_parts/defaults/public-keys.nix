@@ -36,6 +36,7 @@
     quad = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHzxbziJTDlsV9/g3PlQIekZtNzVMshjgc6pZFadS0n/";
     penta = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGPx91bV1iwJAbd05psz0atvS4gEo5x8Jl4Mkf3GSbUd";
     hexa = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICfeWxOs0aRbWfJvn4mOpdJ23CB1uGMqEQy7dhPu9X+D";
+    velo = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEX6aLD1sblD6dPhFEHI/KYgnufHPb91zyUxhkVMsPew";
 
     morty = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAZ86gE2P12QOSTZfjG3XYPLdAQYeUuJAbgQI4qCXx1s";
     rpi = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID5h1Ml9C6A78lElY4fGEyB2aLGLFU1OfqgwnDrj/bXC";
@@ -47,5 +48,6 @@
 
   services = {
     soft-serve = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9rzg0Pw5saEXxRlML1W5lWjtmREyjTVu032nqNIEW";
+    ollama-at-kaggle = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGw7vnljdFv7XWzaUI1J8NzYEYr3gbX3PboxgUptqsm1";
   };
 }

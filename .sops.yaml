@@ -25,6 +25,8 @@ creation_rules:
     age: age13u7zug9sy8rqkszcsnzef7n2zg7g6py4fvtjsrxlqdn2cdgnz9vsd6kg26
   - path_regex: nixos/meda/.*
     age: age1zspldw3glwfwfe42aw72e2kpqgrumlsqkghm8jdh3r5stcmyffksyd6cgu
+  - path_regex: nixos/velo/.*
+    age: age13mp2kgltuha9fyf5jw524y69qnyu329fp4wrw8s4pth6y8ya2cls5xnc5p
 
   - path_regex: home/gy/secrets/.*
     age: age16930mvdme8ul9z42x7fvg4tjgqjpwwkarq5lwkke8le3nyp0vqusdjdzc9
