@@ -526,3 +526,21 @@ Trouble Shooting
   $ conda --version
   # this should output the latest version
   ```
+
+* While installing NixOS on a new machine with
+  ```bash
+  $ nixos-install --flake gitlab:highsunz/flames#<hostname>
+  ```
+  If it errors out with something like:
+  ```log
+  error:
+         … while setting up the build environment
+
+         error: getting attributes of path '/nix/store/ydbjdqhrfnl3fxwy2m3ppjv516i2qhc9-qemu-aarch64-binfmt-P-x86_64-unknown-linux-musl': No such file or directory
+  ```
+  but on other machines and hydra, the system derivation builds successfully, include hydra's url in
+  substituters and build that path first:
+  ```
+  $ nix build /nix/store/ydbjdqhrfnl3fxwy2m3ppjv516i2qhc9-qemu-aarch64-binfmt-P-x86_64-unknown-linux-musl
+  ```
+  Then rerun the `nixos-install` command, it can be built just fine.
