@@ -60,6 +60,11 @@
     inherit rpi-relay copi-relay opi-relay;
     inherit "2x1080ti-relay" shared-relay mono-relay;
 
+    octa-nat = addGpgRemoteForward 1000 {
+      hostname = "183.230.82.36";
+      port = 10005;
+    };
+
     # # Subnet routes via winston. use with `tailscale up --advertise-routes=10.76.0.0/21` on winston
     # # and `tailscale up --accept-routes` on client machines.
     # shared.hostname = "10.76.2.83";
