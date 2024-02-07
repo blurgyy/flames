@@ -1,5 +1,5 @@
 { ... }: {
-  time.timeZone = "Asia/Hong_Kong";
+  time.timeZone = "Europe/Amsterdam";
 
   boot.loader.grub.device = "/dev/sda";
   fileSystems = {
