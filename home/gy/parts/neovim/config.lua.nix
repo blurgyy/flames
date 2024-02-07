@@ -944,7 +944,7 @@ in ''
       "RainbowDelimiterYellow",
       "RainbowDelimiterBlue",
       "RainbowDelimiterOrange",
-      "RainbowDelimiterGreen",
+      -- "RainbowDelimiterGreen",
       "RainbowDelimiterViolet",
       "RainbowDelimiterCyan",
       "RainbowDelimiterRed",  -- red color is very conspicuous and not very aesthetic, use it for very deeply nested blocks
