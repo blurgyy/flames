@@ -2,10 +2,10 @@
 
 let
   defaultGateway = {
-    address = "64.64.240.1";
+    address = "45.78.20.1";
     interface = "eth0";
   };
-  address = "64.64.240.2";
+  address = "45.78.21.202";
   prefixLength = 22;
 in
 

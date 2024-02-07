@@ -4,7 +4,7 @@ let
   controlPanelDomain = "ollama.${config.networking.domain}";
   chatDomain = "chat.${config.networking.domain}";
 
-  controlPanelPort = 18572;
+  controlPanelPort = 3377;
   chatPort = 23989;
 in
 
