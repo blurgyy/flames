@@ -53,6 +53,7 @@
     "quad"
     "rpi"
     "rubik"
+    "velo"
     "winston"
   ])) // rec {
     inherit morty-relay winston-relay;

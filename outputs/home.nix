@@ -86,4 +86,5 @@ in apply "gy" {
   "rubik" = x86_64-headless;
   "hexa" = x86_64-headless;
   "octa" = x86_64-headless;
+  "velo" = x86_64-headless;
 }

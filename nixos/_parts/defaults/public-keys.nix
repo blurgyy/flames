@@ -20,6 +20,7 @@
     "gy@rubik" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB5LsnGtn4iyIF1fJp9h+uRyC4bGk7f/59F0R8Gx9UZT";
     "gy@hexa" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAww/vCR8EhXsDHiv71Fv72xZ/Y5jnqIh01iwpUfJe4V";
     "gy@octa" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINIuGEQqTOj8rWYK4xpfAv3IBmbOWaAi/Uo8hP6RQBxe";
+    "gy@velo" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILdw6bErBvatCbcct35L3ytGsgeceRaihgISJxeWCHSa";
 
     "gy@hooper" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHM4yanex/42s/F9dP7CJ3BstzEC7n0qwi0+2hhxOAS6";
 
