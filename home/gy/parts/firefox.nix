@@ -10,10 +10,10 @@
       isDefault = true;
       # NOTE: prefs set here are modifiable in firefox's about:config page
       settings = {
-        "general.useragent.override" = let
-          inherit (config.programs.firefox.package) version;
-        in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
-        "identity.fxaccounts.account.device.name" = hostName;
+        # "general.useragent.override" = let
+        #   inherit (config.programs.firefox.package) version;
+        # in "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:${version}) Gecko/20100101 Firefox/${version}";
+        # "identity.fxaccounts.account.device.name" = hostName;
       };
       userChrome = ''
         #sidebar-box *,
