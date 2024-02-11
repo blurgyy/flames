@@ -1,8 +1,8 @@
 { config, ... }:
 
 let
-  controlPanelDomain = "ollama.dev.${config.networking.domain}";
-  chatDomain = "chat.dev.${config.networking.domain}";
+  controlPanelDomain = "dev-ollama.${config.networking.domain}";
+  chatDomain = "dev-chat.${config.networking.domain}";
 
   controlPanelPort = 3377;
   chatPort = 23989;
