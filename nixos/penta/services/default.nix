@@ -5,6 +5,7 @@
     ../../_parts/vserver-wss.nix
     ./containers.nix
     ./ntfy.nix
+    ./ollama-dev-at-kaggle.nix
   ];
   sops.secrets.acme-credentials-file = with config.users; {
     owner = users.haproxy.name;
