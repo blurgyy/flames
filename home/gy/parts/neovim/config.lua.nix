@@ -58,7 +58,7 @@ in ''
     return exists(path .. "/")
   end
   local function prequire(m)   -- REF: <https://stackoverflow.com/a/17878208/13482274>
-    local ok, err = pcall(require, m) 
+    local ok, err = pcall(require, m)
     if not ok then return nil, err end
     return err
   end
@@ -499,7 +499,10 @@ in ''
   require("colorizer").setup()
 
   --- copilot.lua, copilot-cmp
-  require("copilot").setup({
+  require("copilot").setup({  -- It is recommended to disable copilot.lua's suggestion and panel
+                              -- modules, as they can interfere with completions properly appearing
+                              -- in copilot-cmp.
+                              -- REF: <https://github.com/zbirenbaum/copilot-cmp>
     suggestion = { enabled = false },
     panel = { enabled = false },
   })
