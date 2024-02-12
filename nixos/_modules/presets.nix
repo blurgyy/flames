@@ -40,6 +40,7 @@ let
         buildInputs = [ pdm-pep517 ];
       }))
       pydantic
+      scipy
       tqdm
     ]))
   ];
