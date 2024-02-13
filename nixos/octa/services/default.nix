@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./vm.nix
   ];
   services.haproxy-tailored = {
     enable = true;
