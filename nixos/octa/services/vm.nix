@@ -18,9 +18,6 @@ let
 in
 
 {
-  sops.secrets."sshrp/${VMName}-rdp" = {};
-  sops.secrets."sshrp/${VMName}-vnc" = {};
-
   environment.systemPackages = [
     pkgs.qemu
   ];
@@ -63,20 +60,9 @@ in
     };
   };
 
-  services.ssh-reverse-proxy = {
-    client.instances = {
-      "${VMName}-rdp" = {
-        environmentFile = config.sops.secrets."sshrp/${VMName}-rdp".path;
-        identityFile = config.sops.secrets.hostKey.path;
-        bindPort = VMRDPPort;
-        hostPort = VMRDPPort;
-      };
-      "${VMName}-vnc" = {
-        environmentFile = config.sops.secrets."sshrp/${VMName}-vnc".path;
-        identityFile = config.sops.secrets.hostKey.path;
-        bindPort = 5900;
-        hostPort = 5900;
-      };
-    };
+  # let `services.ssh-reverse-proxy.server.services` non-empty so that the "sshrp" user is created
+  services.ssh-reverse-proxy.server.services = {
+    "${VMName}-rdp".port = VMRDPPort;
+    "${VMName}-vnc".port = 5900;
   };
 }
