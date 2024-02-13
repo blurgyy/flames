@@ -13,6 +13,15 @@ in with lib; {
             * BIND_ADDR: TCP listening address on the remote (see man:ssh(1) -R `bind_addr`).
           '';
         };
+        type = mkOption {
+          type = types.enum [ "local" "remote" ];
+          default = "remote";
+          description = ''
+            Whether to forward a local port to the remote machine or vice versa.
+            If "local" (uses -L option), the remote machine will connect to the local machine.
+            If "remote" (uses -R option), the local machine will connect to the remote machine.
+          '';
+        };
         identityFile = mkOption { type = types.str; default = null; };
         bindPort = mkOption {
           type = with types; nullOr (oneOf [ int str ]);
@@ -147,11 +156,13 @@ in with lib; {
           script = ''
             ssh "$REMOTE" \
               -v \
-              -NR "$BIND_ADDR:${
+              -N \
+              -${if instance.type == "local" then "L" else "R"} "$BIND_ADDR:${
                   toString (if instance.bindPort != null then instance.bindPort else "$BIND_PORT")
                 }:localhost:${
                   toString (if instance.hostPort != null then instance.hostPort else "$HOST_PORT")
                 }" \
+              -oPort=''${SSH_PORT:-22} \
               -oUser="${instance.user}" \
               -oIdentityFile="$CREDENTIALS_DIRECTORY/id" \
               -oExitOnForwardFailure=yes \
