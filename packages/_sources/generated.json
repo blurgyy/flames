@@ -213,6 +213,21 @@
         },
         "version": "fbc1e34179cb6a37f0ddb28024f9bf94f0cbd70d"
     },
+    "fedora-virtio-win-iso": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "fedora-virtio-win-iso",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-69SCWGaPf3jgJu0nbCip0Z2D4CD/oICtaZENyGu8vMY=",
+            "type": "url",
+            "url": "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
+        },
+        "version": "0.1.240-1"
+    },
     "fish-plugin-catppuccin": {
         "cargoLocks": null,
         "date": "2023-11-02",

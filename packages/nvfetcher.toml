@@ -45,6 +45,10 @@ fetch.github = "Reverier-Xu/FluentDark-fcitx5"
 src.git = "https://github.com/sxqsfun/fcitx5-sogou-themes"
 fetch.github = "sxqsfun/fcitx5-sogou-themes"
 
+[fedora-virtio-win-iso]
+src.cmd = "curl -I https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio | grep -i '^location:' | awk -F/ '{ print $NF }' | sed -Ee 's/virtio-win-//'"
+fetch.url = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso"
+
 [fish-plugin-tide]
 src.github = "IlanCosman/tide"
 fetch.github = "IlanCosman/tide"

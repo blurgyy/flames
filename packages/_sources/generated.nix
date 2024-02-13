@@ -129,6 +129,14 @@
     };
     date = "2021-08-26";
   };
+  fedora-virtio-win-iso = {
+    pname = "fedora-virtio-win-iso";
+    version = "0.1.240-1";
+    src = fetchurl {
+      url = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso";
+      sha256 = "sha256-69SCWGaPf3jgJu0nbCip0Z2D4CD/oICtaZENyGu8vMY=";
+    };
+  };
   fish-plugin-catppuccin = {
     pname = "fish-plugin-catppuccin";
     version = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
