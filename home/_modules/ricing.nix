@@ -219,13 +219,30 @@ in with lib; {
       plugin = pkgs.tmux-plugin-catppuccin;
       extraConfig = "set -g @catppuccin_flavour '${if config.ricing.textual.theme == "light" then "latte" else "mocha"}'";
     }];
+    programs.fish = {  # use jointly with home.activation.setupFishTideTheme (see below)
+      plugins = [{
+        name = "tide";
+        src = pkgs.fish-plugin-tide.src;
+      }];
+      interactiveShellInit = ''
+        set -U tide_git_icon 
+        set -g tide_right_prompt_items status cmd_duration context node rustc java php ruby go kubectl toolbox terraform aws crystal time
+        set -g tide_left_prompt_items nix_shell fhs pwd git conda jobs newline character
+        set -g tide_prompt_add_newline_before true
+      '';
+    };
     services.dunst.iconTheme = config.gtk.iconTheme;
     # NOTE: Add `"layout.css.prefers-color-scheme.content-override" = 2;` to `Preferences` of
     # package wrap options for firefox.
     # REF: <https://support.mozilla.org/bm/questions/1364502>
 
-    home.activation.generateBatCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-      $DRY_RUN_CMD ${pkgs.bat}/bin/bat cache --build
-    '';
+    home.activation = {
+      generateBatCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+        $DRY_RUN_CMD ${pkgs.bat}/bin/bat cache --build
+      '';
+      setupFishTideTheme = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
+        $DRY_RUN_CMD ${config.programs.fish.package}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=No"
+      '';
+    };
   };
 }
