@@ -34,6 +34,7 @@
     "domain:claude.ai"
     "domain:anthropic.com"
     "domain:bard.google.com"
+    "domain:gemini.google.com"
     "domain:open.ai"
   ];
   outboundTag = "direct:ai-assistants";

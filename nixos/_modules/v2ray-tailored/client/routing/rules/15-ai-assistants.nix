@@ -10,6 +10,7 @@
     "oaiusercontent"
     "openai"
     "domain:bard.google.com"
+    "domain:gemini.google.com"
     "domain:live.com"
     "domain:open.ai"
   ];
