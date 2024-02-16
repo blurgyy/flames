@@ -60,11 +60,10 @@
   interactiveShellInit = (
     callWithHelpers ../raw/fish/interactiveShellInit.fish {}
   ) + ''
-    source ${pkgs.fish-plugin-tide}/share/fish/functions/_tide_sub_configure.fish
-    sed -Ee 's/^/set -U /' \
-      ${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/configs/lean.fish \
-      | source
-    set -U tide_git_icon 
+    string replace -r '^' 'set -U ' <${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/icons.fish | source
+    string replace -r '^' 'set -U ' <${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/configs/lean.fish | source
+    string replace -r '^' 'set -U ' <${pkgs.fish-plugin-tide}/share/fish/functions/tide/configure/configs/lean_16color.fish | source
+    set -g tide_git_icon 
     set -g tide_right_prompt_items status cmd_duration context node rustc java php ruby go kubectl toolbox terraform aws crystal time
     set -g tide_left_prompt_items nix_shell fhs pwd git conda jobs newline character
     set -g tide_prompt_add_newline_before true
