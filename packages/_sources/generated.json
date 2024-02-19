@@ -471,26 +471,6 @@
         },
         "version": "v0.10.3"
     },
-    "nbfc-linux": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "nbfc-linux",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "nbfc-linux",
-            "repo": "nbfc-linux",
-            "rev": "0.1.15",
-            "sha256": "sha256-+xYr2uIxfMaMAaHGvvA+0WPZjwj3wVAc34e1DWsJLqE=",
-            "type": "github"
-        },
-        "version": "0.1.15"
-    },
     "nftables-geoip-db": {
         "cargoLocks": null,
         "date": null,

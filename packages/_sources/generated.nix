@@ -279,17 +279,6 @@
       sha256 = "sha256-Yd8TN/vKiqX7NOZyy8OwOnreWS5gdyVMTAjFqoAuces=";
     };
   };
-  nbfc-linux = {
-    pname = "nbfc-linux";
-    version = "0.1.15";
-    src = fetchFromGitHub {
-      owner = "nbfc-linux";
-      repo = "nbfc-linux";
-      rev = "0.1.15";
-      fetchSubmodules = false;
-      sha256 = "sha256-+xYr2uIxfMaMAaHGvvA+0WPZjwj3wVAc34e1DWsJLqE=";
-    };
-  };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
     version = "2024-02";
