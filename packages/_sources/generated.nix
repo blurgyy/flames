@@ -53,18 +53,6 @@
     };
     date = "2022-11-10";
   };
-  clidle = {
-    pname = "clidle";
-    version = "a12e6d5652dba23fdbd7c4ded27f1950a5cc93de";
-    src = fetchFromGitHub {
-      owner = "ajeetdsouza";
-      repo = "clidle";
-      rev = "a12e6d5652dba23fdbd7c4ded27f1950a5cc93de";
-      fetchSubmodules = false;
-      sha256 = "sha256-sHPkYGsQ4b6MWqf7uS5iMFCdcDPt0yil847QhnwStZw=";
-    };
-    date = "2024-02-13";
-  };
   dms = {
     pname = "dms";
     version = "v1.6.0";

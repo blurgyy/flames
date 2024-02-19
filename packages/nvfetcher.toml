@@ -20,10 +20,6 @@ fetch.url = "https://github.com/samuelngs/apple-emoji-linux/releases/download/$v
 src.git = "https://github.com/catppuccin/bat"
 fetch.git = "https://github.com/catppuccin/bat"
 
-[clidle]
-src.git = "https://github.com/ajeetdsouza/clidle"
-fetch.github = "ajeetdsouza/clidle"
-
 [dms]
 src.github = "anacrolix/dms"
 fetch.github = "anacrolix/dms"

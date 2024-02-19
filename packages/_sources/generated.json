@@ -88,26 +88,6 @@
         },
         "version": "ba4d16880d63e656acced2b7d4e034e4a93f74b1"
     },
-    "clidle": {
-        "cargoLocks": null,
-        "date": "2024-02-13",
-        "extract": null,
-        "name": "clidle",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "ajeetdsouza",
-            "repo": "clidle",
-            "rev": "a12e6d5652dba23fdbd7c4ded27f1950a5cc93de",
-            "sha256": "sha256-sHPkYGsQ4b6MWqf7uS5iMFCdcDPt0yil847QhnwStZw=",
-            "type": "github"
-        },
-        "version": "a12e6d5652dba23fdbd7c4ded27f1950a5cc93de"
-    },
     "dms": {
         "cargoLocks": null,
         "date": null,
