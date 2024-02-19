@@ -135,8 +135,8 @@ in {
     ];
   };
 
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.options = "eurosign:e";
   services.dbus.implementation = "broker";
 
   console = {
