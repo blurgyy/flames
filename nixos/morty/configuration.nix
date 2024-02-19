@@ -32,12 +32,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  services = {
-    btrfs.autoScrub.fileSystems = [ "/elements" ];
-    logind.lidSwitch = "ignore";
-    rustdesk-server.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
