@@ -11,15 +11,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "c9480420501c0ed9f67036bd81119eb9ba0af441";
+    version = "bfab6055629168d8bafa9c08262566a77e4d153c";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "c9480420501c0ed9f67036bd81119eb9ba0af441";
+      rev = "bfab6055629168d8bafa9c08262566a77e4d153c";
       fetchSubmodules = false;
-      sha256 = "sha256-YdwxeKfTS7z7aD1sinPNGgdljSbUO4kXC1z7ZhoKK/8=";
+      sha256 = "sha256-Kuw7spaNfIJdq60vneIq0WRSm/1GCIF6+CmqJpqq5xI=";
     };
-    date = "2024-01-18";
+    date = "2024-02-19";
   };
   alist = {
     pname = "alist";
@@ -55,15 +55,15 @@
   };
   clidle = {
     pname = "clidle";
-    version = "fe27556c1147333af2cfe81cbc40f4f60ea191ee";
+    version = "a12e6d5652dba23fdbd7c4ded27f1950a5cc93de";
     src = fetchFromGitHub {
       owner = "ajeetdsouza";
       repo = "clidle";
-      rev = "fe27556c1147333af2cfe81cbc40f4f60ea191ee";
+      rev = "a12e6d5652dba23fdbd7c4ded27f1950a5cc93de";
       fetchSubmodules = false;
-      sha256 = "sha256-zSrCYNgN4wKFgRdog/7ANumy0GsqOMTHqLTT8p7LEgE=";
+      sha256 = "sha256-sHPkYGsQ4b6MWqf7uS5iMFCdcDPt0yil847QhnwStZw=";
     };
-    date = "2022-05-25";
+    date = "2024-02-13";
   };
   dms = {
     pname = "dms";
@@ -78,15 +78,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "46a9e7eae78cebdbadde172d5869eabfbe7c7f96";
+    version = "3e4a2bdd689f2e0e4b0b35d7ac0908a4b2b149b6";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "46a9e7eae78cebdbadde172d5869eabfbe7c7f96";
+      rev = "3e4a2bdd689f2e0e4b0b35d7ac0908a4b2b149b6";
       fetchSubmodules = false;
-      sha256 = "sha256-efp7WyMcGfIpEpHUmf8sS0KmG4lA6w3Z8UfmNkK1jeM=";
+      sha256 = "sha256-scB7mAkwyNTFU35+Dt+J1iv/i6WeNj7y6rHj1R8blG0=";
     };
-    date = "2024-01-17";
+    date = "2024-02-18";
   };
   dt = {
     pname = "dt";
@@ -107,15 +107,15 @@
   };
   fcitx5-fluent-dark-theme = {
     pname = "fcitx5-fluent-dark-theme";
-    version = "77556203063760d87b87fb0b3b82f14cbe190193";
+    version = "cffaaf85af892d7ee51980ae607ccf597ed3053b";
     src = fetchFromGitHub {
       owner = "Reverier-Xu";
       repo = "FluentDark-fcitx5";
-      rev = "77556203063760d87b87fb0b3b82f14cbe190193";
+      rev = "cffaaf85af892d7ee51980ae607ccf597ed3053b";
       fetchSubmodules = false;
-      sha256 = "sha256-om3jI6XNpkmFBXarwROKb6ldvCKaKzrBkLAdPmCxWkU=";
+      sha256 = "sha256-qo7yjySX8OWISwSAtJHNWL9nMU2SwgBVTlZfgWcOcCA=";
     };
-    date = "2022-05-26";
+    date = "2024-01-22";
   };
   fcitx5-sogou-themes = {
     pname = "fcitx5-sogou-themes";
@@ -266,18 +266,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202401172209";
+    version = "202402182210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202401172209/geoip.dat";
-      sha256 = "sha256-D6j7qGaHAb8qHn1rrsgXiZptwuyPeXbTz9g2JjI2MZ0=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202402182210/geoip.dat";
+      sha256 = "sha256-V/jzbeR6+QU6cFmWY3y7gW4UXKxXJgKnOyFxqdk7a+c=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202401172209";
+    version = "202402182210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202401172209/geosite.dat";
-      sha256 = "sha256-xAXEMjUWuCDp+xpWKz0eiyFC3YUemkTfoq2dDgbu4TU=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202402182210/geosite.dat";
+      sha256 = "sha256-PXg91/oBDNS7IK5/eiiWARicPTDRnvme4h4CU81jSoc=";
     };
   };
   luarock-dbus_proxy = {
@@ -293,21 +293,21 @@
   };
   nbfc-linux = {
     pname = "nbfc-linux";
-    version = "0.1.7";
+    version = "0.1.15";
     src = fetchFromGitHub {
       owner = "nbfc-linux";
       repo = "nbfc-linux";
-      rev = "0.1.7";
+      rev = "0.1.15";
       fetchSubmodules = false;
-      sha256 = "sha256-Q/W/O2cevofDNzn2ly1r6mfl39VnSrYxocKLr+JxQ3s=";
+      sha256 = "sha256-+xYr2uIxfMaMAaHGvvA+0WPZjwj3wVAc34e1DWsJLqE=";
     };
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
-    version = "2024-01";
+    version = "2024-02";
     src = fetchurl {
-      url = "https://download.db-ip.com/free/dbip-country-lite-2024-01.csv.gz";
-      sha256 = "sha256-5c5cVproKAsJ/bH8IrMeXLtWhYLvpjotZZRBwToMN2U=";
+      url = "https://download.db-ip.com/free/dbip-country-lite-2024-02.csv.gz";
+      sha256 = "sha256-t6DFoHZ6MS89bvFRcopiNJU9J6rnqy3teuG+0WB/wJ8=";
     };
   };
   primitive = {
@@ -366,10 +366,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "11.1.0";
+    version = "11.5.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/11.1.0/simple-icons-font-11.1.0.zip";
-      sha256 = "sha256-fGbmLaRTG5dyct2GHr3a0UB/91BCxPAYu4ENyWLSHWE=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/11.5.0/simple-icons-font-11.5.0.zip";
+      sha256 = "sha256-y22sSLd9QxWHBruE1wLiYbm3a33S5mU3ZxiAxy+rT0w=";
     };
   };
   symbols-nerd-font = {
@@ -382,13 +382,13 @@
   };
   tdesktop-megumifox = {
     pname = "tdesktop-megumifox";
-    version = "v4.14.6";
+    version = "v4.15.0";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v4.14.6";
+      rev = "v4.15.0";
       fetchSubmodules = true;
-      sha256 = "sha256-XTbbLkTjpVfPIWmEQ8/dYDC75GIGgy+8OWynv9Kk8tc=";
+      sha256 = "sha256-kLF5vVt7JKHtNIEJ4dp/HSOOCgRdjFzn0aQpFpiw9MM=";
     };
   };
   telegram-send = {
@@ -440,15 +440,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "4a60e809c5facc4d52e0be454926d887bd1dcdff";
+    version = "9a78d7eea0e7c89b0660483e77a31d451746698d";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "4a60e809c5facc4d52e0be454926d887bd1dcdff";
+      rev = "9a78d7eea0e7c89b0660483e77a31d451746698d";
       fetchSubmodules = false;
-      sha256 = "sha256-Xu6KJryfSn3Qhgzf0T5x7GKQ3sn4euJV4IcDGWhwR2A=";
+      sha256 = "sha256-aunLWuhzzH/78yar5uNjTmRzfMKvJe26usa2F3/Xq00=";
     };
-    date = "2024-01-17";
+    date = "2024-02-18";
   };
   video-compare = {
     pname = "video-compare";
@@ -487,16 +487,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "cf626cd2f94f6c230384c2e3249352b6404cd8d7";
+    version = "4d2d3f9c16438e0de284149ed7edbc2465aab34c";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "cf626cd2f94f6c230384c2e3249352b6404cd8d7";
+      rev = "4d2d3f9c16438e0de284149ed7edbc2465aab34c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-SjndH1yTTBcKcRS6Hk1pdLWYdBetzSafqh+wQ74gw18=";
+      sha256 = "sha256-ET4WIfVS0PE2lpyxo/53j87qgtmYOQ2zkEl/n1FH7qk=";
     };
-    date = "2024-01-17";
+    date = "2024-02-18";
   };
   vim-plugin-typescript-tools-nvim = {
     pname = "vim-plugin-typescript-tools-nvim";
@@ -524,27 +524,27 @@
   };
   wakapi = {
     pname = "wakapi";
-    version = "2.10.3";
+    version = "2.10.5";
     src = fetchFromGitHub {
       owner = "muety";
       repo = "wakapi";
-      rev = "2.10.3";
+      rev = "2.10.5";
       fetchSubmodules = false;
-      sha256 = "sha256-laJdH2C+lyvM82/r3jgV2CI0xJV39Y04tP1/YCXsGzo=";
+      sha256 = "sha256-u+br+C5tWSCc8LPGS3/CMkxpqaO30BsWPRFGOkloMlA=";
     };
   };
   wl-screenrec = {
     pname = "wl-screenrec";
-    version = "v0.1.2";
+    version = "v0.1.3";
     src = fetchFromGitHub {
       owner = "russelltg";
       repo = "wl-screenrec";
-      rev = "v0.1.2";
+      rev = "v0.1.3";
       fetchSubmodules = false;
-      sha256 = "sha256-Ol4/e/EETA8MXqiyCzcV6s4DjFf6ldUortOrzJ80/Ko=";
+      sha256 = "sha256-ThPZPV1GyMFRu94O9WwUpXbR4gnIML26K7TyIfXZlcI=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./wl-screenrec-v0.1.2/Cargo.lock;
+      lockFile = ./wl-screenrec-v0.1.3/Cargo.lock;
       outputHashes = {
         
       };
