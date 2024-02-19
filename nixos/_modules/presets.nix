@@ -35,10 +35,7 @@ let
       numpy
       pandas
       pillow
-      (plyfile.overridePythonAttrs (o: {
-        format = "pyproject";
-        buildInputs = [ pdm-pep517 ];
-      }))
+      plyfile
       pydantic
       scipy
       tqdm
