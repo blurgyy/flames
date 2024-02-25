@@ -25,6 +25,7 @@
     "domain:renovacionoffice.com"
     "domain:sprinklesapp.com"
 
+    "domain:azure.com"
     "domain:oaistatic.com"
     "domain:oaiusercontent.com"
     "domain:openai.com"

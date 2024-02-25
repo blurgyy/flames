@@ -1,5 +1,6 @@
 {
   domain = [
+    "azure.com"
     "open.ai"
     "claude.ai"
     "anthropic.com"
@@ -12,6 +13,7 @@
     "intercomcdn.com"
   ];
   domain_suffix = [
+    ".azure.com"
     ".open.ai"
     ".claude.ai"
     ".anthropic.com"
