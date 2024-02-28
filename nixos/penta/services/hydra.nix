@@ -127,6 +127,14 @@ in {
       systems = [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
       maxJobs = 4;
       supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
+    } {
+      hostName = "octa";
+      protocol = "ssh";
+      sshUser = "distributed-builder";
+      sshKey = config.sops.secrets.distributed-builder-ssh-key.path;
+      systems = [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
+      maxJobs = 4;
+      supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
     }];
     extraOptions = ''
       # Allow hydra to build homeConfigurations.*.activationPackage
