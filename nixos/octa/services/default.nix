@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ../../_parts/distributed-builder.nix
     ./vm.nix
   ];
   services.haproxy-tailored = {
