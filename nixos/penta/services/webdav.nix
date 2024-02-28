@@ -30,8 +30,6 @@ in {
     StateDirectory = dataDir;
     StateDirectoryMode = "0700";
     ProtectSystem = "strict";
-    ExecStartPre = map (userInfo: "${pkgs.btrfs-progs}/bin/btrfs subvolume create -p ${userInfo.scope}")
-      (builtins.filter (userInfo: builtins.hasAttr "scope" userInfo) config.services.webdav.settings.users);
   };
   services.haproxy-tailored = {
     frontends.tls-offload-front = {

@@ -6,6 +6,12 @@
     ./containers.nix
     ./ntfy.nix
     ./ollama-dev-at-kaggle.nix
+
+    ./hydra.nix
+    ./rssbot.nix
+    ./vaultwarden
+    ./wakapi.nix
+    ./webdav.nix
   ];
   sops.secrets.acme-credentials-file = with config.users; {
     owner = users.haproxy.name;

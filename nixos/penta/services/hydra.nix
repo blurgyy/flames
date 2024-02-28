@@ -120,19 +120,11 @@ in {
   };
   nix = {
     buildMachines = [{
-      hostName = "cindy";
-      protocol = "ssh";
-      sshUser = "distributed-builder";
-      sshKey = config.sops.secrets.distributed-builder-ssh-key.path;
-      systems = [ "aarch64-linux" ];
-      maxJobs = 4;
-      supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
-    } {
       hostName = "penta";
       protocol = "ssh";
       sshUser = "distributed-builder";
       sshKey = config.sops.secrets.distributed-builder-ssh-key.path;
-      systems = [ "x86_64-linux" "i686-linux" ];
+      systems = [ "aarch64-linux" "x86_64-linux" "i686-linux" ];
       maxJobs = 4;
       supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
     }];
