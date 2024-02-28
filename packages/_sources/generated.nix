@@ -11,15 +11,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "402eeeeb67abb66e4352395c8ab8a302b116bb39";
+    version = "2b878d8408ee947c31b2622d23004efa8510a9e2";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "402eeeeb67abb66e4352395c8ab8a302b116bb39";
+      rev = "2b878d8408ee947c31b2622d23004efa8510a9e2";
       fetchSubmodules = false;
-      sha256 = "sha256-pYw/iJzky916JY6ooZnwrb+lkC7P4LtvEzTuO5v06wE=";
+      sha256 = "sha256-xWst6oreUk501ybVMJ44oif/4667iYRr7bdbEAsBH1M=";
     };
-    date = "2024-02-25";
+    date = "2024-02-28";
   };
   alist = {
     pname = "alist";
@@ -66,15 +66,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "3696009b920a66610fd54cd51d1548768b8456e2";
+    version = "06a4eec47f419592c6726ffa0ba18fafc3a23665";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "3696009b920a66610fd54cd51d1548768b8456e2";
+      rev = "06a4eec47f419592c6726ffa0ba18fafc3a23665";
       fetchSubmodules = false;
-      sha256 = "sha256-1yDXwdITUKzNNoRkaLMZxRkJYqTrnLZIjhVBykyAXko=";
+      sha256 = "sha256-zSC6KFrCj8f8/fZrECCCZtuke9Em1Dpfq/Z+UhWHrRM=";
     };
-    date = "2024-02-24";
+    date = "2024-02-28";
   };
   dt = {
     pname = "dt";
@@ -95,15 +95,15 @@
   };
   fcitx5-fluent-dark-theme = {
     pname = "fcitx5-fluent-dark-theme";
-    version = "cffaaf85af892d7ee51980ae607ccf597ed3053b";
+    version = "e13c0e3eaadf461c1176e815b0db521c7f7ac787";
     src = fetchFromGitHub {
       owner = "Reverier-Xu";
       repo = "FluentDark-fcitx5";
-      rev = "cffaaf85af892d7ee51980ae607ccf597ed3053b";
+      rev = "e13c0e3eaadf461c1176e815b0db521c7f7ac787";
       fetchSubmodules = false;
-      sha256 = "sha256-qo7yjySX8OWISwSAtJHNWL9nMU2SwgBVTlZfgWcOcCA=";
+      sha256 = "sha256-mndyeqZLu1JPz5tbyltIFkOAYchQHEzGYe2H2cseJ9s=";
     };
-    date = "2024-01-22";
+    date = "2024-02-27";
   };
   fcitx5-sogou-themes = {
     pname = "fcitx5-sogou-themes";
@@ -254,18 +254,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202402242208";
+    version = "202402272210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202402242208/geoip.dat";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202402272210/geoip.dat";
       sha256 = "sha256-NxnsYH80dPAq6Cd0z0G5dBmdyOH1/rOEe4Mjxu9vlQc=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202402242208";
+    version = "202402272210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202402242208/geosite.dat";
-      sha256 = "sha256-edPBydJ7pbf9hG92q5GewFxHgjI8qEBQh3N2GQ9JH30=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202402272210/geosite.dat";
+      sha256 = "sha256-n7XApDEPp4gtmEtSagMjUSSNjM1oKMrsZBzC4LzjJ5M=";
     };
   };
   luarock-dbus_proxy = {
@@ -417,15 +417,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "1666d8510d3143c98fbf204ab918124e8e701995";
+    version = "8ce4b4706b9cfadb666061852bcbcc2a6b0c80cd";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "1666d8510d3143c98fbf204ab918124e8e701995";
+      rev = "8ce4b4706b9cfadb666061852bcbcc2a6b0c80cd";
       fetchSubmodules = false;
-      sha256 = "sha256-cbsgXzaX7T6UV9lPbXnRM7gzvoerh7smvxnL1qICKAc=";
+      sha256 = "sha256-QFlMACIpRN3arE2jMA1qz+oX8387bYAjZVmF3be5Z94=";
     };
-    date = "2024-02-24";
+    date = "2024-02-27";
   };
   video-compare = {
     pname = "video-compare";
@@ -464,16 +464,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "161eb67a82ee269d1037df64c6d5a05bd5860d32";
+    version = "64b7006a36cec099da7eaeb056c4a27dd5d73342";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "161eb67a82ee269d1037df64c6d5a05bd5860d32";
+      rev = "64b7006a36cec099da7eaeb056c4a27dd5d73342";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-zWlgueVCvQe2vAP+UJtysiousY53e9Xm+0mj3+TFgaI=";
+      sha256 = "sha256-YMt7WX7q/urLnJCdUSg1MyqvZ+HIbBB94oRUqZGUZsE=";
     };
-    date = "2024-02-22";
+    date = "2024-02-26";
   };
   vim-plugin-typescript-tools-nvim = {
     pname = "vim-plugin-typescript-tools-nvim";
