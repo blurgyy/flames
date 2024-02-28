@@ -115,10 +115,10 @@ in {
       };
     };
 
-    cindy-postgresql-backup = {
+    penta-postgresql-backup = {
       onCalendar = "02:30:00 CST";
       settings = globalCfg // {
-        subvolume."ssh://cindy/var/lib/postgresql" = subvolSharedCfg // {
+        subvolume."ssh://penta/var/lib/postgresql" = subvolSharedCfg // {
           snapshot_preserve_min = "latest";
           snapshot_preserve = "7d 3m 2y";
 

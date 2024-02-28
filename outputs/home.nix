@@ -79,7 +79,6 @@ in apply "gy" {
   "cad-liu" = x86_64-headless // { proxy = labProxy; };
   "mono" = x86_64-headless // { proxy = labProxy; };
 
-  "cindy" = aarch64-headless;
   "peterpan" = x86_64-headless;
   "penta" = x86_64-headless;
   "quad" = x86_64-headless;

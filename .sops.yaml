@@ -1,6 +1,4 @@
 creation_rules:
-  - path_regex: nixos/cindy/.*
-    age: age1cacy7w6e0cln0xhje8n2wrq3lxhqhkf5gjjc3erhst39fnv3hggscqzq84
   - path_regex: nixos/copi/.*
     age: age10nw78ryuz24y9f3w3990rfecuhr3ryzaz9kjk8l5t4tcrzghjfhqr7cr3a
   - path_regex: nixos/morty/.*
