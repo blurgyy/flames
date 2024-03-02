@@ -92,7 +92,7 @@ in {
     twilar-backup = {
       onCalendar = "08:00:00 CST";
       settings = globalCfg // {
-        subvolume."ssh://penta/var/lib/webdav/twilar" = subvolSharedCfg // {
+        subvolume."ssh://penta/var/lib/webdav/apps/twilar" = subvolSharedCfg // {
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
