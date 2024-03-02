@@ -1,35 +1,38 @@
-{ config, pkgs, ... }: let
+{ config, pkgs, ... }:
+
+let
   dataDir = "webdav";  # /var/lib/webdav
   webdavDomain = "webdav.${config.networking.domain}";
-in {
+  listenPort = 28067;
+in
+
+{
   sops.secrets.webdav = {
     owner = config.users.users.webdav.name;
     group = config.users.groups.webdav.name;
   };
-  services.webdav = {
+  services.webdav-server-rs = {
     enable = true;
     settings = {
-      address = "127.0.0.1";
-      port = 28067;
-      scope = "/var/lib/${dataDir}";
-      modify = true;
-      auth = true;
-      users = [{
-        username = "{env}ZOTERO_USERNAME";
-        password = "{env}ZOTERO_PASSWORD";
-        scope = "/var/lib/${dataDir}/zotero";
-      } {
-        username = "{env}TWILAR_USERNAME";
-        password = "{env}TWILAR_PASSWORD";
-        scope = "/var/lib/${dataDir}/twilar";
+      server.listen = [ "127.0.0.1:${toString listenPort}" ];
+      accounts = {
+        auth-type = "htpasswd.webdav";
+        acct-type = "unix";
+      };
+      # actual passwords in ../secrets.yaml
+      htpasswd.webdav.htpasswd = pkgs.writeText "webdav-htpasswd" "gy:$2y$05$nxPpwcYntdzL9kkz.TOK4eJRaxrkGEYYPq2EmpNPrTBRweFauN05S\n";
+      location = [{
+        route = [ "/*path" ];
+        directory = "/var/lib/${dataDir}";
+        handler = "filesystem";
+        methods = [ "webdav-rw" "http-ro" ];
+        auth = "true";
       }];
     };
-    environmentFile = config.sops.secrets.webdav.path;
   };
-  systemd.services.webdav.serviceConfig = {
+  systemd.services.webdav-server-rs.serviceConfig = {
     StateDirectory = dataDir;
     StateDirectoryMode = "0700";
-    ProtectSystem = "strict";
   };
   services.haproxy-tailored = {
     frontends.tls-offload-front = {
@@ -39,7 +42,7 @@ in {
     };
     backends.webdav = {
       mode = "http";
-      server.address = "127.0.0.1:${toString config.services.webdav.settings.port}";
+      server.address = "127.0.0.1:${toString listenPort}";
     };
   };
 }
