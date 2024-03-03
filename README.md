@@ -317,6 +317,7 @@ Trouble Shooting
   > **Warning**
   > 
   > Consult the "Description" section of `nix store repair --help` for caveats of this approach.
+  Or: use `nix-store --verify --check-contents --repair` to verify and repair them.
 
 * To run GUI programs inside systemd-nspawn containers, a simple way is to:
   1. Bind-mount (read-only) `/tmp/.X11-unix` from host to the container
