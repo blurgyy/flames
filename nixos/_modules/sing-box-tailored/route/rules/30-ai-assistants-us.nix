@@ -2,6 +2,7 @@
   domain = [
     "azure.com"
     "open.ai"
+    "chatgpt.com"
     "claude.ai"
     "anthropic.com"
     "bard.google.com"
@@ -15,6 +16,7 @@
   domain_suffix = [
     ".azure.com"
     ".open.ai"
+    ".chatgpt.com"
     ".claude.ai"
     ".anthropic.com"
     ".bard.google.com"

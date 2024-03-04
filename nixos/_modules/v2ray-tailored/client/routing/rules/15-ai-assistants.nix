@@ -9,6 +9,7 @@
     "oaistatic"
     "oaiusercontent"
     "openai"
+    "chatgpt"
     "domain:bard.google.com"
     "domain:gemini.google.com"
     "domain:live.com"

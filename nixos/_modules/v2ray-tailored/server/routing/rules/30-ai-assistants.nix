@@ -29,6 +29,7 @@
     "domain:oaistatic.com"
     "domain:oaiusercontent.com"
     "domain:openai.com"
+    "domain:chatgpt.com"
     "domain:intercom.io"
     "domain:intercomcdn.com"
     "domain:ai.com"
