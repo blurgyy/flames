@@ -5,7 +5,6 @@ let
   cfg = config.home.presets;
 
   blender_with_packages = (pkgs.blender-ply-as-verts.withPackages (pp: with pp; [
-    einops
     pillow
     scipy
     tqdm
