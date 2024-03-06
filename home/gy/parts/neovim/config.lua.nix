@@ -724,7 +724,7 @@ in ''
   local on_attach = function(client, bufnr)
     vim.keymap.set("n", "gD", previewer.lsp_type_definitions, opts)
     vim.keymap.set("n", "gd", previewer.lsp_definitions, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("n", "gh", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "gy", previewer.lsp_implementations, opts)
     vim.keymap.set("n", "g;", previewer.lsp_document_symbols, opts)
     vim.keymap.set("n", "g:", previewer.lsp_workspace_symbols, opts)
