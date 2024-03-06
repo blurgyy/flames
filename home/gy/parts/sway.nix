@@ -8,6 +8,7 @@
 in {
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.sway-disable-titlebar;
     xwayland = true;
     wrapperFeatures.gtk = true;
     config = {
