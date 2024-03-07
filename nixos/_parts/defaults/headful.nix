@@ -47,18 +47,6 @@
   # Needed for swaylock to work
   security.pam.services.swaylock = { };
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";  # Needed for fcitx5 to work in qt6
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-gtk
-      fcitx5-lua
-      libsForQt5.fcitx5-qt
-      fcitx5-sogou-themes
-      fcitx5-fluent-dark-theme
-    ];
-  };
-
   xdg.portal = {
     enable = lib.mkDefault true;
     wlr.enable = lib.mkDefault true;

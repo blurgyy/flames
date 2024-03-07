@@ -127,6 +127,22 @@ in {
 
   # Select internationalisation properties.
   i18n = {
+    inputMethod = {
+      enabled = "fcitx5";  # Needed for fcitx5 to work in qt6
+      fcitx5 = {
+        addons = with pkgs; [
+          fcitx5-chinese-addons
+          fcitx5-gtk
+          fcitx5-lua
+          libsForQt5.fcitx5-qt
+          fcitx5-sogou-themes
+          fcitx5-fluent-dark-theme
+        ];
+        quickPhrase = {
+          done = "✅";
+        };
+      };
+    };
     defaultLocale = lib.mkDefault "C.UTF-8";
     supportedLocales = lib.mkDefault [
       "${config.i18n.defaultLocale}/UTF-8"
