@@ -7,8 +7,6 @@
 with lib;
 
 (blender.override { inherit cudaSupport; }).overrideAttrs (o: {
-  pname = o.pname + "-import-ply-as-verts" + (if cudaSupport then "-cuda" else "");
-
   buildInputs = o.buildInputs or [] ++ [ unzip ];
 
   # nvcc from cudatoolkit at nixpkgs/23.05 does not support sm_89

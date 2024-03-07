@@ -3,7 +3,7 @@
 
   buildCommand = ''
     install -Dm444 -t $out/share/bat/themes \
-      $src/Catppuccin-{frappe,latte,macchiato,mocha}.tmTheme
+      $src/themes/Catppuccin\ {Frappe,Latte,Macchiato,Mocha}.tmTheme
   '';
 
   meta = {
