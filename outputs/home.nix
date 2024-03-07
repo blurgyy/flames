@@ -73,6 +73,7 @@ in apply "gy" {
 
   "winston" = x86_64-non-headless // { proxy = labProxy; };
   "meda" = x86_64-headless;
+  "herm" = x86_64-headless;
 
   # set IP of winston in hosts
   "cadliu" = x86_64-headless // { proxy = labProxy; };

@@ -12,6 +12,7 @@
     "gy@cad-liu" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINEjbeH2P4cG/eIHeOm1FM1vqclsfvBSlz+76RNTGYG3";
     "gy@meda" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6zT4g4V3YgZN1HsmtqBWYTUAmWG5+LHspnKe2yvtKs";
     "gy@mono" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG/DaWStxHqsult8pwUQKpM2jdqXFwYmyW6xDH/o9A3z";
+    "gy@herm" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK9ElTej/yDOERsCbxwNBhqbF4cca5Wp9FWoE2Vu4OuM";
 
     "gy@penta" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOh+aEgxsMtHYVDmh3NJXABWc78q3/BngZnP8gOS3xZ";
     "gy@peterpan" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJOyxiBbO6uQvG9B14K4neHMU3+PjA7sFuK3aqcF7voU";
