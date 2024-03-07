@@ -44,6 +44,7 @@ in {
     port = 5813;
     useSubstitutes = true;
     buildMachinesFiles = [ "/etc/nix/machines" ];
+
     extraConfig = ''
       # REF: <https://github.com/NixOS/hydra/blob/f48f00ee6d5727ae3e488cbf9ce157460853fea8/doc/manual/src/projects.md#email-notifications>
       email_notification = 1

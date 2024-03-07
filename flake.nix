@@ -121,13 +121,6 @@
       # # downloads.
       # inherit (pkgs-stable) cudaPackages cudatoolkit openai-whisper;
     };
-    stableHydraOverlay = final: prev: let
-      pkgs-stable = import inputs.nixpkgs-stable {
-        inherit (prev) system config;
-      };
-    in {
-      inherit (pkgs-stable) hydra-unstable;
-    };
     stableHaproxyOverlay = final: prev: let
       pkgs-stable = import inputs.nixpkgs-stable {
         inherit (prev) system config;
@@ -145,7 +138,6 @@
       config.allowBroken = true;
       overlays = [
         cudaOverlay
-        stableHydraOverlay
         stableHaproxyOverlay
         self.overlays.default
       ] ++ self.sharedOverlays;
@@ -178,7 +170,6 @@
       inputs.fixenc.overlays.default
       inputs.nvfetcher.overlays.default
       cudaOverlay
-      stableHydraOverlay
       stableHaproxyOverlay
     ];
   };
