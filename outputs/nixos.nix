@@ -51,6 +51,7 @@
   };
 in mkHosts {
   copi = sbc-aarch64;
+  herm = pc-x86_64-headless;
   hexa = virtual-server-x86_64;
   meda = pc-x86_64-headless;
   morty = pc-x86_64;
