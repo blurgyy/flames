@@ -345,10 +345,10 @@ Trouble Shooting
   ```bash
   $ gunzip -c result/tarball/nixos-wsl-installer.tar.gz >decompressed.tar
   $
-  $ # the secret is typically put at /var/lib/<hostname>.age
-  $ tar --append --file=decompressed.tar --transform='s:^:var/lib/:' hostname.age
+  $ # add the file to the tar archive, and make its prefix be ./var/lib instead of the given path
+  $ tar --append --file=decompressed.tar --transform='s:^:.:' /var/lib/hostname.age
   $
-  $ # inspect the modified tarball
+  $ # inspect the modified tarball, use `--transform` rule like above to make the path be consistent if not already so
   $ tar --list --file=decompressed.tar
   ```
 
