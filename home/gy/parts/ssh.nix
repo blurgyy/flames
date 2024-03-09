@@ -42,7 +42,6 @@
   in (mergeAttrsList (apply [
     "cindy"
     "copi"
-    "herm"
     "hexa"
     "meda"
     "mono"
