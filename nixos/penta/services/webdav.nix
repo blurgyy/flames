@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   dataDir = "webdav";  # /var/lib/webdav
   webdavDomain = "webdav.${config.networking.domain}";
   listenPort = 28067;
+  format = pkgs.formats.toml {};
 in
 
 {
@@ -29,10 +30,17 @@ in
         auth = "true";
       }];
     };
+    debug = true;
   };
   systemd.services.webdav-server-rs.serviceConfig = {
+    User = config.users.users.webdav.name;
+    Group = config.users.groups.webdav.name;
     StateDirectory = dataDir;
     StateDirectoryMode = "0700";
+    ExecStart = let
+      cfg = config.services.webdav-server-rs;
+    in
+      lib.mkForce "${pkgs.webdav-server-rs}/bin/webdav-server ${lib.optionalString cfg.debug "--debug"} -c ${format.generate "webdav-server.toml" cfg.settings}";
   };
   services.haproxy-tailored = {
     frontends.tls-offload-front = {
