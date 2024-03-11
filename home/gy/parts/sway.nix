@@ -130,7 +130,7 @@ in {
         "${mod}+0" = "workspace number 10";
         "${mod}+bracketleft" = "workspace prev";
         "${mod}+bracketright" = "workspace next";
-        "${mod}+Tab" = "workspace back_and_forth";
+        "Alt+Tab" = "workspace back_and_forth";
 
         # Layout manipulating
         "${mod}+v" = "split horizontal";
