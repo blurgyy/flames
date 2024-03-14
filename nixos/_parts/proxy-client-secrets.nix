@@ -1,6 +1,5 @@
 rec {
   domains = [
-    "v2ray/domains/eu-00"
     "v2ray/domains/eu-01"
     "v2ray/domains/eu-02"
     "v2ray/domains/jp-00"
@@ -9,13 +8,11 @@ rec {
   ];
   addresses = [
     "v2ray/addresses/cn-00"
-    "v2ray/addresses/eu-00"
     "v2ray/addresses/eu-01"
     "v2ray/addresses/eu-02"
     "v2ray/addresses/jp-00"
     "v2ray/addresses/us-00"
     "v2ray/addresses/us-01"
-    "v2ray/domains/wss-eu-00"
     "v2ray/domains/wss-eu-01"
     "v2ray/domains/wss-eu-02"
     "v2ray/domains/wss-jp-00"
