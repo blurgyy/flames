@@ -62,7 +62,7 @@ in
         restartTriggers = config.systemd.services.systemd-networkd.reloadTriggers;
         serviceConfig = {
           ExecStartPre = mkAfter [
-            "${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
+            "${pkgs.proxy-rules}/bin/sing-box-rules populate ${pkgs.proxy-rules}/src /etc/sing-box/config.json"
           ];
           LogNamespace = "noisy";
           MemoryAccounting = true;

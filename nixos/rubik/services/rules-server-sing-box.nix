@@ -24,28 +24,18 @@ in
     secretPath = placeholderPath;
   };
 
-  systemd.services.rules-server-sing-box = rec {
+  systemd.services.rules-server-sing-box = {
     wantedBy = [ "multi-user.target" ];
     preStart = ''
-      cd /run/${serviceConfig.RuntimeDirectory}
-      cp ${pkgs.cgi-rules-server}/bin/sing-box .
       ${utils.genJqSecretsReplacementSnippet config.services.sing-box.settings "/tmp/template.json"}
       jq 'del(.route.geoip) | del(.route.geosite) | .log.level="error" | .log.timestamp=true' /tmp/template.json >template.json
-      ${pkgs.proxy-rules}/bin/populate-sing-box-rules ${pkgs.proxy-rules}/src template.json
-      rm /tmp/template.json
-      cp $CREDENTIALS_DIRECTORY/uuids uuids
-      chmod 644 uuids
     '';
     path = [
-      pkgs.thttpd
+      pkgs.proxy-rules
       pkgs.jq
     ];
     script = ''
-      thttpd \
-        -d /run/${serviceConfig.RuntimeDirectory} \
-        -p ${toString listenPort} \
-        -c "/sing-box" \
-        -D
+      SING_BOX_RULES_PORT=${toString listenPort} sing-box-rules serve ${pkgs.proxy-rules}/src template.json $CREDENTIALS_DIRECTORY/uuids 
     '';
     serviceConfig = {
       DynamicUser = false;
@@ -70,6 +60,7 @@ in
     ];
     backends.rules-server-sing-box = {
       mode = "http";
+      requestRules = [ "replace-uri /sing-box(.*)$ \\1" ];
       server.address = "127.0.0.1:${toString listenPort}";
     };
   };
