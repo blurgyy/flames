@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from copy import deepcopy
 from dataclasses import dataclass
 from functools import partial
 import json
@@ -33,7 +34,7 @@ def apply_prepend_char(rules: List[str], prepend_char: str) -> List[str]:
 def populate_rules(obj: dict, rules_dir: Path) -> dict:
     if not isinstance(obj, dict):
         return obj
-    ret = obj.copy()
+    ret = deepcopy(obj)
     for key, value in obj.items():
         if isinstance(value, str) and len(value) > 2 and value.startswith("@") and value.endswith("@"):
             rules_file_specs = value[1:-1].strip()
@@ -109,7 +110,7 @@ def username_to_handle(username) -> str:
     combined = chosen_digits + chosen_lowers + chosen_uppers
 
     # Shuffle based on another part of the hash
-    order = int(f"0{hashed[handle_length:]}", 16) % math.factorial(handle_length)
+    order = int(hashed[min(handle_length, len(hashed) - 1)], 16) % math.factorial(handle_length)
 
     # Function to shuffle the string deterministically
     def deterministic_shuffle(s, order):
@@ -129,7 +130,7 @@ def username_to_handle(username) -> str:
 def replace_uuid(cfg: dict, uuid: str) -> dict:
     if not isinstance(cfg, dict):
         return cfg
-    ret = cfg.copy()
+    ret = deepcopy(cfg)
     for key, value in cfg.items():
         if key == "uuid":
             ret[key] = uuid
@@ -142,6 +143,20 @@ def replace_uuid(cfg: dict, uuid: str) -> dict:
     return ret
 
 
+def modify_set_system_proxy(cfg: dict) -> dict:
+    ret = deepcopy(cfg)
+    inbounds = ret["inbounds"]
+    new_inbounds = []
+    for inbound in inbounds:
+        if inbound["type"] == "tun":
+            continue
+        if inbound["type"] == "http":
+            inbound["set_system_proxy"] = True
+        new_inbounds.append(inbound)
+    ret["inbounds"] = new_inbounds
+    return ret
+
+
 def populate(rules_dir: Path, cfg_path: Path) -> int:
     cfg = json.loads(cfg_path.read_text())
     cfg = populate_rules(cfg, rules_dir)
@@ -150,8 +165,8 @@ def populate(rules_dir: Path, cfg_path: Path) -> int:
 
 
 def serve(rules_dir: Path, template_path: Path, userids_path: Path) -> int:
-    cfg = json.loads(template_path.read_text())
-    cfg = populate_rules(cfg, rules_dir)
+    template = json.loads(template_path.read_text())
+    populated = populate_rules(template, rules_dir)
 
     handle_to_user = {
         username_to_handle(line.split("=")[0]): User(
@@ -171,9 +186,13 @@ def serve(rules_dir: Path, template_path: Path, userids_path: Path) -> int:
         return username_to_handle(username)
 
     @app.get("/{salty_handle}")
-    def serve_config(salty_handle: str):
+    def serve_config(salty_handle: str, set_system_proxy: bool=False):
         for handle in handle_to_user.keys():
             if handle in salty_handle:
+                if set_system_proxy:
+                    cfg = modify_set_system_proxy(populated)
+                else:
+                    cfg = populated
                 return replace_uuid(cfg, handle_to_user[handle].uuid)
         raise HTTPException(status_code=404)
 
