@@ -545,3 +545,9 @@ Trouble Shooting
   $ nix build /nix/store/ydbjdqhrfnl3fxwy2m3ppjv516i2qhc9-qemu-aarch64-binfmt-P-x86_64-unknown-linux-musl
   ```
   Then rerun the `nixos-install` command, it can be built just fine.
+
+* If Rust program build fails with error messages related to OpenSSL, try:
+  ```nix
+  nativeBuildInputs = [ pkgs.pkg-config ];
+  buildInputs = [ pkgs.openssl ];
+  ```
