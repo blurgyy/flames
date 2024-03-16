@@ -234,6 +234,7 @@ in {
     procs
     ripgrep
     sdwrap
+    tinytools
     unar
     unzip
     zip
