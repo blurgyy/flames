@@ -1,21 +1,20 @@
 { generated, source, lib, python3Packages
+, onnxruntime
 , qt5
 }:
 
-with python3Packages;
-
 let
-  imgviz = buildPythonPackage {
+  imgviz = python3Packages.buildPythonPackage {
     inherit (generated.imgviz) pname version src;
 
-    propagatedBuildInputs = [
+    propagatedBuildInputs = with python3Packages; [
       matplotlib
       numpy
       pillow
       pyyaml
     ];
 
-    nativeCheckInputs = [
+    nativeCheckInputs = with python3Packages; [
       pytestCheckHook
     ];
 
@@ -25,9 +24,11 @@ let
       license = lib.licenses.mit;
     };
   };
+
+  pyonnxruntime = python3Packages.onnxruntime;
 in
 
-buildPythonApplication {
+python3Packages.buildPythonApplication {
   inherit (source) pname version src;
 
   nativeBuildInputs = [
@@ -41,19 +42,20 @@ buildPythonApplication {
     done
   '';
 
-  propagatedBuildInputs = [
+  propagatedBuildInputs = (with python3Packages; [
     gdown
     imgviz
     matplotlib
     natsort
     numpy
-    onnxruntime
     pillow
     pyyaml
     qtpy
     scikit-image
     termcolor
     pyqt5
+  ]) ++ [
+    (pyonnxruntime.override { onnxruntime = onnxruntime.override { cudaSupport = false; }; })
   ];
 
   meta = {
