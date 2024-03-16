@@ -82,8 +82,8 @@ def username_to_handle(username) -> str:
     """
     import hashlib
 
-    # Hash the username using SHA-256
-    hasher = hashlib.sha256()
+    # Hash the username using BLAKE2
+    hasher = hashlib.blake2b()
     hasher.update(username.encode('utf-8'))
     hashed = hasher.hexdigest()
 
@@ -109,7 +109,7 @@ def username_to_handle(username) -> str:
     combined = chosen_digits + chosen_lowers + chosen_uppers
 
     # Shuffle based on another part of the hash
-    order = int(hashed[min(handle_length, len(hashed) - 1)], 16) % math.factorial(handle_length)
+    order = int(f"0{hashed[handle_length:]}", 16) % math.factorial(handle_length)
 
     # Function to shuffle the string deterministically
     def deterministic_shuffle(s, order):
