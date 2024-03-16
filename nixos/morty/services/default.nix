@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./rp.nix
+    ./rp
   ];
 
   services = {

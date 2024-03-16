@@ -1,7 +1,7 @@
 { ... }: {
   imports = [
     ./btrbk.nix
-    ./rp.nix
+    ./rp
   ];
 
   services = {
