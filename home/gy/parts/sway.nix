@@ -334,6 +334,7 @@ in {
 
   home.sessionVariables = {
     XDG_SESSION_DESKTOP = "sway";
+    XDG_CURRENT_DESKTOP = "sway";
     QT_QPA_PLATFORM = "wayland";
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";

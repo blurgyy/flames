@@ -345,6 +345,7 @@ in
 
   home.sessionVariables = {
     XDG_SESSION_DESKTOP = "Hyprland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
     QT_QPA_PLATFORM = "wayland";
     CLUTTER_BACKEND = "wayland";
     SDL_VIDEODRIVER = "wayland";
