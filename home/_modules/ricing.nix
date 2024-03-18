@@ -209,10 +209,10 @@ in with lib; {
     #     else "mocha"
     # }.tmTheme";
     xdg.configFile = {
-      "bat/themes/catppuccin.tmTheme".source = "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
+      "bat/themes/catppuccin.tmTheme".source = "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin ${
         if cfg.textual.theme == "light"
-          then "latte"
-          else "mocha"
+          then "Latte"
+          else "Mocha"
       }.tmTheme";
     };
     programs.tmux.plugins = [{
