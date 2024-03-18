@@ -111,6 +111,8 @@
     pyright
     shfmt
     lua-language-server
+    rustc  # provides source code of rust standard library for completion
+    rust-analyzer
     tailwindcss-language-server
     taplo-lsp
     texlab
