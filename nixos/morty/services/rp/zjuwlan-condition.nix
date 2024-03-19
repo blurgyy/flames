@@ -22,4 +22,25 @@
       serviceConfig = { inherit ExecCondition; };
     };
   };
+
+  systemd.timers = let
+    wantedBy = [ "timers.target" ];
+    sharedTimerConfig = {
+      OnCalendar = "*-*-* *:*:00";  # minutely
+      Persistent = "yes";
+    };
+  in {
+    rp-http-proxy = {
+      inherit wantedBy;
+      timerConfig = sharedTimerConfig // {
+        Unit = "rp-http-proxy.service";
+      };
+    };
+    rp-socks-proxy = {
+      inherit wantedBy;
+      timerConfig = sharedTimerConfig // {
+        Unit = "rp-socks-proxy.service";
+      };
+    };
+  };
 }
