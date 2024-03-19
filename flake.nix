@@ -53,7 +53,7 @@
       };
     };
     nvfetcher = {
-      url = "github:berberman/nvfetcher";
+      url = "github:berberman/nvfetcher/0.6.2";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
