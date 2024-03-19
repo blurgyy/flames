@@ -11,7 +11,7 @@
         echo "connected to ZJUWLAN"
       fi
     '';
-    path = with pkgs; [ iw diffutils gnugrep coreutils];
+    path = with pkgs; [ iw diffutils gnugrep coreutils ];
   in {
     rp-http-proxy = {
       inherit path;
