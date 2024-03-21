@@ -75,54 +75,31 @@ def populate_rules(obj: dict, rules_dir: Path) -> dict:
     return ret
 
 
-def username_to_handle(username) -> str:
+def username_to_handle(username, handle_length) -> str:
     """
     Maps an arbitrary string into another 6-character string with a deterministic hash function.
     The resulting string will contain exactly 2 digits, 2 lower-case letters, and 2 upper case letters.
     The order of the 6 characters can be arbitrary, as long as the mapping is deterministic.
     """
     import hashlib
+    import string
 
     # Hash the username using BLAKE2
     hasher = hashlib.blake2b()
     hasher.update(username.encode('utf-8'))
     hashed = hasher.hexdigest()
 
-    # Lists of possible characters for each required type
-    digits = '0123456789'
-    lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
-    uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    all_choices = string.digits + string.ascii_lowercase + string.ascii_uppercase
 
-    n_digits, n_lower, n_upper = 2, 2, 2
-    handle_length = n_digits + n_lower + n_upper
+    handle, pos, old_index = [], 0, 0
 
-    # Use parts of the hash to select characters
-    digit_indices = [int(hashed[i], 16) % 10 for i in range(n_digits)]
-    lower_indices = [int(hashed[i+n_digits], 16) % 26 for i in range(n_lower)]
-    upper_indices = [int(hashed[i+n_digits+n_lower], 16) % 26 for i in range(n_upper)]
+    while len(handle) < handle_length:
+        index = int(f"0{hashed[pos:pos+16]}", 16) ^ (998_244_353 * old_index)
+        char = all_choices[index % len(all_choices)]
+        handle.append(char)
+        pos, old_index = index % len(hashed), index
 
-    # Compile the chosen characters
-    chosen_digits = ''.join(digits[i] for i in digit_indices)
-    chosen_lowers = ''.join(lowercase_letters[i] for i in lower_indices)
-    chosen_uppers = ''.join(uppercase_letters[i] for i in upper_indices)
-
-    # Combine all selected characters
-    combined = chosen_digits + chosen_lowers + chosen_uppers
-
-    # Shuffle based on another part of the hash
-    order = int(hashed[min(handle_length, len(hashed) - 1)], 16) % math.factorial(handle_length)
-
-    # Function to shuffle the string deterministically
-    def deterministic_shuffle(s, order):
-        sequence = list(s)
-        for i in range(len(sequence) - 1, 0, -1):
-            j = order // math.factorial(i)
-            order -= j * math.factorial(i)
-            sequence[i], sequence[j] = sequence[j], sequence[i]
-        return ''.join(sequence)
-
-    # Shuffle and return the handle
-    handle = deterministic_shuffle(combined, order)
+    handle = "".join(handle)
 
     return handle
 
@@ -169,7 +146,7 @@ def serve(rules_dir: Path, template_path: Path, userids_path: Path) -> int:
     populated = populate_rules(template, rules_dir)
 
     handle_to_user = {
-        username_to_handle(line.split("=")[0]): User(
+        username_to_handle(line.split("=")[0], handle_length=6): User(
             username=line.split("=")[0],
             uuid=line.split("=")[1],
         )
@@ -181,9 +158,9 @@ def serve(rules_dir: Path, template_path: Path, userids_path: Path) -> int:
 
     app = FastAPI()
 
-    @app.get("/api/v1/_handle/{username}")
-    def get_handle(username: str):
-        return username_to_handle(username)
+    @app.get("/api/v1/_handle/{username}/{handle_length}")
+    def get_handle(username: str, handle_length: int):
+        return username_to_handle(username, handle_length=handle_length)
 
     @app.get("/{salty_handle}")
     def serve_config(salty_handle: str, set_system_proxy: bool=False):
