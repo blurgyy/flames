@@ -188,7 +188,8 @@ in {
     ELM_HOME = "${config.xdg.stateHome}/elm";
     PAGER = "less";
     PARALLEL_HOME = "${config.xdg.stateHome}/parallel";
-    MANPAGER = ''sh -c \"sed -r 's/\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]//g' | bat -plman\"'';
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    MANROFFOPT = "-c";
     MDCAT_PAGER = "less";
     WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     PYTHONDONTWRITEBYTECODE = 1;
