@@ -15,6 +15,6 @@
   meta = {
     homepage = "https://github.com/ArtifexSoftware/urw-base35-fonts";
     description = "fonts from ghostscriptX";
-    license = lib.licenses.agpl3;
+    license = lib.licenses.agpl3Plus;
   };
 }

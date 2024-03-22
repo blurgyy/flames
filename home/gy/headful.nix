@@ -71,8 +71,8 @@ in {
     zotero
   ] ++ [  # fonts
     rubik
-    (iosevka-bin.override { variant = "sgr-iosevka-fixed"; })
-    (iosevka-bin.override { variant = "sgr-iosevka-slab"; })
+    (iosevka-bin.override { variant = "SGr-IosevkaFixed"; })
+    (iosevka-bin.override { variant = "SGr-IosevkaSlab"; })
     source-serif-pro
     source-sans-pro
     source-code-pro

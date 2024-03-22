@@ -1,9 +1,9 @@
-{ ... }: {
+{ pkgs, ... }: {
   services = {
     gpg-agent = {
       enable = true;
       enableExtraSocket = true;
-      pinentryFlavor = "tty";
+      pinentryPackage = pkgs.pinentry-rofi;
       defaultCacheTtl = 3600 * 24;
       maxCacheTtl = 3600 * 48;
       enableScDaemon = false;
