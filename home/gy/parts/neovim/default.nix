@@ -101,6 +101,7 @@
     autocmd VimEnter * :Copilot disable
   '';
   extraPackages = with pkgs; [
+    cargo
     ccls
     clang-tools
     ctags
