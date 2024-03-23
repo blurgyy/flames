@@ -12,6 +12,6 @@ buildGoModule {
   meta = {
     homepage = "https://github.com/fogleman/primitive";
     description = "Reproducing images with geometric primitives.";
-    license = lib.licenses.agpl3;
+    license = lib.licenses.agpl3Plus;
   };
 }
