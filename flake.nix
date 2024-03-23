@@ -53,7 +53,7 @@
       };
     };
     nvfetcher = {
-      url = "github:berberman/nvfetcher/0.6.2";
+      url = "github:berberman/nvfetcher";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
@@ -168,7 +168,6 @@
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
       inputs.fixenc.overlays.default
-      inputs.nvfetcher.overlays.default
       cudaOverlay
       stableHaproxyOverlay
     ];
