@@ -296,7 +296,6 @@ in {
         "type:keyboard" = {
           repeat_delay = "500";  # Start repeating keys after 500 ms
           repeat_rate = "30";  # Larger value results in higher recurring rate while repeating keys
-          xkb_options = "caps:escape";
         };
         "1155:20786:CATEX_TECH._68EC-S".xkb_file = "${pkgs.niz-68ec-use-sun_unix-layout-keymaps}/share/kbd/keymap.xkb";
         "1:1:AT_Translated_Set_2_keyboard".xkb_file = "${pkgs.hp-omen-use-sun_unix-layout-keymaps}/share/kbd/keymap.xkb";
