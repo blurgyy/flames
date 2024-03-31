@@ -1223,7 +1223,7 @@ xkb_symbols "(unnamed)" {
     key <RTRN> {         [          Return ] };
     key <LCTL> {
         type= "ONE_LEVEL",
-        symbols[Group1]= [          Caps_Lock ]  # use left control as Caps_Lock
+        symbols[Group1]= [          Control_L ]  # do not use left control as Caps_Lock
     };
     key <AC01> {
         type= "ALPHABETIC",
