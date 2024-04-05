@@ -32,6 +32,7 @@
   # Enable pipewire (see NixOS Wiki)
   security.rtkit.enable = lib.mkDefault true;
   services = {
+    dbus.packages = [ pkgs.gcr ];  # gnome-keyring password prompt interface
     tumbler.enable = true;  # Thumbnail support in Thunar
     openssh.settings.StreamLocalBindUnlink = false;
     pipewire = {

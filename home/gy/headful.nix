@@ -214,5 +214,6 @@ in {
         };
       };
     };
+    gnome-keyring.enable = true;
   };
 }
