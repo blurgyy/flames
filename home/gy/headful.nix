@@ -104,6 +104,9 @@ in {
         hwdec = "auto";
         tone-mapping = "hable";
         hdr-compute-peak = "yes";
+        cache = "yes";
+        demuxer-max-bytes = "512MiB";
+        demuxer-readahead-secs = 1800;
       };
       scripts = with pkgs.mpvScripts; [ mpris ];
     };
