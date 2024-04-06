@@ -182,7 +182,7 @@ def serve(rules_dir: Path, template_path: Path, userids_path: Path) -> int:
     Server(uvicorn.Config(
         app,
         host=os.environ.get("SING_BOX_RULES_HOST", "127.0.0.1"),
-        port=os.environ.get("SING_BOX_RULES_PORT", 2983),
+        port=int(os.environ.get("SING_BOX_RULES_PORT", "2983")),
         log_level="info",
     )).run()
 
