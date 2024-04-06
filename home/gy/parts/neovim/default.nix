@@ -65,6 +65,7 @@
         sql
         toml
         typescript
+        typst
         tsx
         yaml
         yuck
@@ -88,7 +89,6 @@
     vim-fugitive
     vim-smoothie
     vim-wakatime
-    typst-vim
   ];
   extraConfig = ''
     lua <<EOF
