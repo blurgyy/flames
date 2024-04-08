@@ -1,30 +1,30 @@
 creation_rules:
-  - path_regex: nixos/copi/.*
+  - path_regex: ^nixos/copi/secrets.yaml$
     age: age10nw78ryuz24y9f3w3990rfecuhr3ryzaz9kjk8l5t4tcrzghjfhqr7cr3a
-  - path_regex: nixos/morty/.*
+  - path_regex: ^nixos/morty/secrets.yaml$
     age: age17rhy32g9t89kspazenx4mtx74vy7e78rvq320u27k5tqmfmszv9qatg4d4
-  - path_regex: nixos/octa/*
+  - path_regex: ^nixos/octa/secrets.yaml$
     age: age1jdgj4klgjcp5fwn59lfajzdrk04ayp9pzmvemqkknl9s3z4ecyrqv7sqp3
-  - path_regex: nixos/opi/.*
+  - path_regex: ^nixos/opi/secrets.yaml$
     age: age1gsewrrh6mw99xmqnfj6uly3xt6kedj9kp4c5s09us54686q7pelst27hvf
-  - path_regex: nixos/peterpan/.*
+  - path_regex: ^nixos/peterpan/secrets.yaml$
     age: age1nk4n332ht4hpqyxkt4tnk4fecgrhemf5e0yk6zs9sut820zj8q9q4yqe0k
-  - path_regex: nixos/penta/.*
+  - path_regex: ^nixos/penta/secrets.yaml$
     age: age13vcaepjcyy6hqdfpph0vy5nhuu8lk8v3cdxtgu5gqcrrzamezu5qqfqu33
-  - path_regex: nixos/quad/.*
+  - path_regex: ^nixos/quad/secrets.yaml$
     age: age1zl7ugkws9cr55zz8t6zuvuj66ppv0qgutmqqyg7dnnsj5yqrgqjsfzk9jz
-  - path_regex: nixos/rpi/.*
+  - path_regex: ^nixos/rpi/secrets.yaml$
     age: age1wl5we8e8n3p77j8qm5fv9np8hz4ayv7vfduwpnuf577lex6l2cls3y70sc
-  - path_regex: nixos/rubik/.*
+  - path_regex: ^nixos/rubik/secrets.yaml$
     age: age1wt0h9vupmk5sgmt5jq35j0ee3z7mmsrsg89g48z4u8hs3fkg6c6s5g84gg
-  - path_regex: nixos/hexa/.*
+  - path_regex: ^nixos/hexa/secrets.yaml$
     age: age1rs0mz782sg9kespz6gt7sf9n4r2ntfeqrycsyree2e80qhsdhvnswd8me2
-  - path_regex: nixos/winston/.*
+  - path_regex: ^nixos/winston/secrets.yaml$
     age: age13u7zug9sy8rqkszcsnzef7n2zg7g6py4fvtjsrxlqdn2cdgnz9vsd6kg26
-  - path_regex: nixos/meda/.*
+  - path_regex: ^nixos/meda/secrets.yaml$
     age: age1zspldw3glwfwfe42aw72e2kpqgrumlsqkghm8jdh3r5stcmyffksyd6cgu
-  - path_regex: nixos/velo/.*
+  - path_regex: ^nixos/velo/secrets.yaml$
     age: age13mp2kgltuha9fyf5jw524y69qnyu329fp4wrw8s4pth6y8ya2cls5xnc5p
 
-  - path_regex: home/gy/secrets/.*
+  - path_regex: ^home/gy/secrets/secrets.yaml$
     age: age16930mvdme8ul9z42x7fvg4tjgqjpwwkarq5lwkke8le3nyp0vqusdjdzc9
