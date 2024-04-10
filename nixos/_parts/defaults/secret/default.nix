@@ -1,5 +1,5 @@
-{ config, pkgs, ... }: let
-  sops-key-file = "/var/lib/${config.networking.hostName}.age";
+{ config, ... }: let
+  sops-key-file = "/var/lib/sops/nixos";
 in {
   sops = {
     defaultSopsFile = ../../../${config.networking.hostName}/secrets.yaml;
