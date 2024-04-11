@@ -4,10 +4,6 @@
     ../../_parts/vserver-wss.nix
     ./ntfy.nix
   ];
-  sops.secrets.acme-credentials-file = with config.users; {
-    owner = users.haproxy.name;
-    group = groups.haproxy.name;
-  };
   services.haproxy-tailored = {
     enable = true;
     frontends.tls-offload-front = {

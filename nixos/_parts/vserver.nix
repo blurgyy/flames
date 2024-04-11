@@ -1,26 +1,5 @@
 { config, ... }: {
-  sops.secrets = {
-    "v2ray/ports/server/http" = {};
-    "v2ray/ports/server/socks" = {};
-    "v2ray/ports/server/api" = {};
-    "v2ray/ports/server/tcp" = {};
-    "v2ray/ports/server/wss" = {};
-    "v2ray/ws-path" = {};
-
-    "v2ray/users/00/uuid" = {};
-    "v2ray/users/01/uuid" = {};
-    "v2ray/users/02/uuid" = {};
-    "v2ray/users/03/uuid" = {};
-    "v2ray/users/04/uuid" = {};
-    "v2ray/users/05/uuid" = {};
-
-    "v2ray/users/00/email" = {};
-    "v2ray/users/01/email" = {};
-    "v2ray/users/02/email" = {};
-    "v2ray/users/03/email" = {};
-    "v2ray/users/04/email" = {};
-    "v2ray/users/05/email" = {};
-  };
+  sops.secrets = (import ./proxy-secrets.nix).server;
 
   services.v2ray-tailored.server = {
     enable = true;

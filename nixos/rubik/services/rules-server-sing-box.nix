@@ -6,17 +6,12 @@ let
 in
 
 {
-  sops.secrets = builtins.listToAttrs (map
-    (secret: {
-      name = secret;
-      value = {
-        restartUnits = [ "rules-server-sing-box.service" ];
-      };
+  sops.secrets = builtins.mapAttrs
+    (name: value: {
+      inherit (value) sopsFile;
+      restartUnits = [ "rules-server-sing-box.service" ];
     })
-    (let
-      proxyClientSecrets = import ../../_parts/proxy-client-secrets.nix;
-    in proxyClientSecrets.domains ++ proxyClientSecrets.addresses)
-  );
+    (import ../../_parts/proxy-secrets.nix).client;
 
   services.sing-box = {
     enable = false;

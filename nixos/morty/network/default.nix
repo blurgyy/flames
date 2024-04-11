@@ -4,15 +4,7 @@
     ./wlan.nix
   ];
 
-  sops.secrets = {
-    "zjuwlan-credentials" = {};
-    "ap-password" = {};
-  };
-
-  networking.zjuwlan-autoconnect = {
-    enable = true;
-    credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
-  };
+  sops.secrets."ap-password" = {};
 
   networking.wireless.interfaces = [ "wlan0_sta" ];
   networking.wlanInterfaces = {

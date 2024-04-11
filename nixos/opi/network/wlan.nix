@@ -1,5 +1,11 @@
-{ config, ... }: {
-  sops.secrets.wireless-environment-file = {};
+{ config, ... }:
+
+let
+  sharedSecretsFile = ../../_secrets.yaml;
+in
+
+{
+  sops.secrets.wireless-environment-file.sopsFile = sharedSecretsFile;
   networking.wireless = {
     enable = true;
     environmentFile = config.sops.secrets.wireless-environment-file.path;

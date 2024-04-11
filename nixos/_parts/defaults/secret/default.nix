@@ -1,4 +1,4 @@
-{ config, ... }: let
+{ config, lib, ... }: let
   sops-key-file = "/var/lib/sops/nixos";
 in {
   sops = {
@@ -8,6 +8,11 @@ in {
       "passwords/root".neededForUsers = true;
       "passwords/gy".neededForUsers = true;
       hostKey = {};
+      acme-credentials-file = lib.mkIf config.services.haproxy-tailored.enable {
+        sopsFile = ../../../_secrets.yaml;
+        owner = config.users.users.haproxy.name;
+        group = config.users.groups.haproxy.name;
+      };
     };
   };
   environment.variables.SOPS_AGE_KEY_FILE = sops-key-file;

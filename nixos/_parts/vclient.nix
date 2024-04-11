@@ -1,11 +1,5 @@
 { config, ... }: {
-  sops.secrets = builtins.listToAttrs (map
-    (secret: {
-      name = secret;
-      value = {};
-    })
-    (import ./proxy-client-secrets.nix).default
-  );
+  sops.secrets = (import ./proxy-secrets.nix).client;
 
   services.v2ray-tailored.client = {
     logging.level = "warning";

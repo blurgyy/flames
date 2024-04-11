@@ -1,5 +1,11 @@
-{ config, ... }: {
-  sops.secrets.wireless-environment-file = {};
+{ config, ... }:
+
+let
+  sharedSecretsFile = ../../_secrets.yaml;
+in
+
+{
+  sops.secrets.wireless-environment-file.sopsFile = sharedSecretsFile;
   networking.wireless = {
     enable = true;
     environmentFile = config.sops.secrets.wireless-environment-file.path;
@@ -15,5 +21,11 @@
       "@wlan_8@" = { psk = "@wlan_8_psk@"; priority = 20; };
       "@wlan_9@" = { psk = "@wlan_9_psk@"; priority = 20; };
     };
+  };
+
+  sops.secrets."zjuwlan-credentials".sopsFile = sharedSecretsFile;
+  networking.zjuwlan-autoconnect = {
+    enable = true;
+    credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
   };
 }

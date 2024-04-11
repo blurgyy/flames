@@ -1,7 +1,5 @@
 { config, ... }: {
-  sops.secrets = {
-    "v2ray/ws-path" = {};
-  };
+  sops.secrets = (import ./proxy-secrets.nix).server;
   services.v2ray-tailored.server.wsPath = config.sops.placeholder."v2ray/ws-path";
   services.haproxy-tailored = {
     frontends.tls-offload-front.backends = [{

@@ -1,5 +1,11 @@
-{ config, ... }: {
-  sops.secrets.wireless-environment-file = {};
+{ config, ... }:
+
+let
+  sharedSecretsFile = ../../_secrets.yaml;
+in
+
+{
+  sops.secrets.wireless-environment-file.sopsFile = sharedSecretsFile;
   networking.wireless = {
     enable = true;
     environmentFile = config.sops.secrets.wireless-environment-file.path;
@@ -26,7 +32,7 @@
 
   systemd.network.networks."40-wlan0".linkConfig.RequiredForOnline = true;
 
-  sops.secrets."zjuwlan-credentials" = {};
+  sops.secrets."zjuwlan-credentials".sopsFile = sharedSecretsFile;
   networking.zjuwlan-autoconnect = {
     enable = true;
     credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
