@@ -202,9 +202,6 @@ in {
     inherit ((proxy.envVarsFor hostName).http) all_proxy http_proxy https_proxy ftp_proxy rsync_proxy;
     inherit (proxy.envVarsFor hostName) no_proxy;
   } else {});
-  systemd.user.sessionVariables = builtins.mapAttrs
-    (name: value: lib.mkDefault value)
-    config.home.sessionVariables;
   pam.sessionVariables = config.home.sessionVariables;
 
   i18n.inputMethod = {
@@ -285,7 +282,10 @@ in {
     };
   };
 
-  systemd.user = {
+  systemd.user = lib.mkIf (!config.home.presets.sans-systemd) {
+    sessionVariables = builtins.mapAttrs
+      (name: value: lib.mkDefault value)
+      config.home.sessionVariables;
     startServices = true;
     targets.xdg-desktop-autostart.Install.WantedBy = [ "default.target" ];
     services.create-gpg-socketdir = {

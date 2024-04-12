@@ -71,6 +71,7 @@ with lib;
     entertainment = mkEnableOption "Setup environment for entertainment";
     recreation = mkEnableOption "Setup environment for recreational purporses";
     scientific = mkEnableOption "Setup environment for scientific purporses";
+    sans-systemd = mkEnableOption "Adjust settings for environments without systemd";
   };
 
   config = mkIf (builtins.any lib.id (builtins.attrValues cfg)) {

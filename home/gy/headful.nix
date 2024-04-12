@@ -170,7 +170,7 @@ in {
       pathPrefix = ./parts/mirrored/headful;
     };
   };
-  systemd.user = {
+  systemd.user = lib.mkIf (!config.home.presets.sans-systemd) {
     services.flameshot.Service.ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p %h/Pictures/screenshots";
     services.waybar.Install.WantedBy = [ "graphical-session.target" ];
   };
