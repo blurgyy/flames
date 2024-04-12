@@ -2,5 +2,5 @@ creation_rules:
   - path_regex: ^nixos/.*$
     age: age1ym2unw50lpw5ycq8hrsqdx5ec7560e4u265nll2lzl3lhkryr4wqf3m7zd  # put it at /var/lib/sops/nixos
 
-  - path_regex: ^home/gy/secrets/secrets.yaml$
+  - path_regex: ^home/.*$
     age: age16930mvdme8ul9z42x7fvg4tjgqjpwwkarq5lwkke8le3nyp0vqusdjdzc9  # put it at ~/.config/sops/age/keys.txt

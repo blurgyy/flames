@@ -84,7 +84,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   };
   modules = [
     ./home.nix
-    ./secrets
+    ./secrets.nix
     ./services
     inputs.sops-nix.homeManagerModules.sops
     inputs.nix-index-db.hmModules.nix-index
@@ -98,6 +98,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
           "morty"
           "winston"
           "mono"
+          "vdm0"
         ];
         entertainment = builtins.elem hostName [
           "morty"
@@ -105,11 +106,16 @@ in inputs.home-manager.lib.homeManagerConfiguration {
         recreation = builtins.elem hostName [
           "morty"
           "rpi"
+          "vdm0"
           "winston"
         ];
         scientific = builtins.elem hostName [
           "morty"
+          "vdm0"
           "winston"
+        ];
+        sans-systemd = builtins.elem hostName [
+          "vdm0"
         ];
       };
     }

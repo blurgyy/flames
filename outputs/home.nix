@@ -64,26 +64,35 @@
     };
     envVarsFor = getProxyEnvVars labProxy;
   };
-in apply "gy" {
-  "morty" = x86_64-non-headless;
-  "john" = x86_64-non-headless;
-  "rpi" = aarch64-headless;
-  "opi" = aarch64-headless;
-  "copi" = aarch64-headless;
 
-  "winston" = x86_64-non-headless // { proxy = labProxy; };
-  "meda" = x86_64-headless;
+  homeCfg4gy = apply "gy" {
+    "morty" = x86_64-non-headless;
+    "john" = x86_64-non-headless;
+    "rpi" = aarch64-headless;
+    "opi" = aarch64-headless;
+    "copi" = aarch64-headless;
 
-  # set IP of winston in hosts
-  "cadliu" = x86_64-headless // { proxy = labProxy; };
-  "cad-liu" = x86_64-headless // { proxy = labProxy; };
-  "mono" = x86_64-headless // { proxy = labProxy; };
+    "winston" = x86_64-non-headless // { proxy = labProxy; };
+    "meda" = x86_64-headless;
 
-  "peterpan" = x86_64-headless;
-  "penta" = x86_64-headless;
-  "quad" = x86_64-headless;
-  "rubik" = x86_64-headless;
-  "hexa" = x86_64-headless;
-  "octa" = x86_64-headless;
-  "velo" = x86_64-headless;
-}
+    # set IP of winston in hosts
+    "cadliu" = x86_64-headless // { proxy = labProxy; };
+    "cad-liu" = x86_64-headless // { proxy = labProxy; };
+    "mono" = x86_64-headless // { proxy = labProxy; };
+
+    "peterpan" = x86_64-headless;
+    "penta" = x86_64-headless;
+    "quad" = x86_64-headless;
+    "rubik" = x86_64-headless;
+    "hexa" = x86_64-headless;
+    "octa" = x86_64-headless;
+    "velo" = x86_64-headless;
+  };
+
+  homeCfg4root = apply "root" {
+    "vdm0" = x86_64-headless;
+  };
+
+in
+
+  homeCfg4gy // homeCfg4root
