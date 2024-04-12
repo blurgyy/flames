@@ -60,7 +60,7 @@ in {
 
       config = {  # REF: man:postconf(5)
         mailbox_size_limit = toString (8 * 1024 * 1024 * 1024);  # 8GiB
-        message_size_limit = toString (2 * 1024 * 1024 * 1024);  # 2GiB
+        message_size_limit = toString (256 * 1024 * 1024);  # 50MiB
         virtual_mailbox_limit = toString (8 * 1024 * 1024 * 1024);  # 8GiB
 
         smtpd_banner = "$myhostname ESMTP $mail_name ($mail_version)";
