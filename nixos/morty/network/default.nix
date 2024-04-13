@@ -6,14 +6,15 @@
 
   sops.secrets."ap-password" = {};
 
-  networking.wireless.interfaces = [ "wlan0_sta" ];
-  networking.wlanInterfaces = {
-    wlan0_sta.device = "wlan0";
-  };
-  systemd.network.networks."40-wlan0_sta" = {
-    name = "wlan0_sta";
-    networkConfig.DHCP = "yes";
-  };
+  # networking.wireless.interfaces = [ "wlan0_sta" ];
+  networking.wireless.interfaces = [ "wlan0" ];
+  # networking.wlanInterfaces = {
+  #   wlan0_sta.device = "wlan0";
+  # };
+  # systemd.network.networks."40-wlan0_sta" = {
+  #   name = "wlan0_sta";
+  #   networkConfig.DHCP = "yes";
+  # };
   # networking.wlanInterfaces.wlan0_ap.device = "wlan0";
   networking.ap = {
     enable = false;
