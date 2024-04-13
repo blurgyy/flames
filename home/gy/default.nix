@@ -9,10 +9,6 @@
       "cad-liu"
       "mono"
     ];
-    config.permittedInsecurePackages = [
-      "electron-25.9.0"  # logseq
-      "zotero-6.0.27"
-    ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
       (final: prev: {
