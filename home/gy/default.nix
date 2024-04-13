@@ -8,6 +8,7 @@
       "meda"
       "mono"
       "winston"
+      "vdm0"
     ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
