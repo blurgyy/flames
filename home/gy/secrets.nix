@@ -1,6 +1,6 @@
 { config, hostName, ... }: {
   sops = {
-    defaultSopsFile = ../_secrets.yaml;
+    defaultSopsFile = ../_secrets/gy.yaml;
     age.keyFile = "${config.home.sessionVariables.XDG_DATA_HOME}/${config.home.username}.age";
     secrets = {  # use %r for $XDG_RUNTIME_DIR, use %% for a literal `%`
       "file/netrc".path = "${config.home.homeDirectory}/.netrc";  # REF: <https://docs.wandb.ai/guides/track/advanced/environment-variables>
