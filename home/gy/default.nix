@@ -79,7 +79,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     inputs.ntfy-bridge.hmModules.default
     self.homeManagerModules.default
     (lib.optionalAttrs (!headless) ./headful.nix)
-    ({ home.stateVersion = "22.11"; })
+    ({ home.stateVersion = "23.11"; })
     {
       home.presets = {
         development = builtins.elem hostName [
