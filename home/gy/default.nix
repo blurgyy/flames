@@ -3,11 +3,11 @@
     inherit system;
     config.allowUnfree = true;
     config.cudaSupport = builtins.elem hostName [
-      "winston"
-      "meda"
-      "cadliu"
       "cad-liu"
+      "cadliu"
+      "meda"
       "mono"
+      "winston"
     ];
     overlays = [
       inputs.ntfy-bridge.overlays.default
