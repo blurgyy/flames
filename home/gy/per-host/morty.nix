@@ -1,5 +1,5 @@
 { ... }: {
   imports = [
-    ../parts/alarm-clock.nix
+    ../../_parts/alarm-clock.nix
   ];
 }

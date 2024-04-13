@@ -2,10 +2,10 @@
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
   imports = [
-    ./parts/localsend.nix
-    ./parts/gpg-agent.nix
-    ./parts/sway.nix
-    ./parts/zotero.nix
+    ../_parts/localsend.nix
+    ../_parts/gpg-agent.nix
+    ../_parts/sway.nix
+    ../_parts/zotero.nix
   ];
   ricing.headful.theme = "dark";
   qt = {
@@ -125,11 +125,11 @@ in {
     alacritty = {
       enable = true;
       package = pkgs.alacritty-swarm;
-      settings = callWithHelpers ./parts/alacritty.nix {};
+      settings = callWithHelpers ../_parts/alacritty.nix {};
     };
 
-    firefox = callWithHelpers ./parts/firefox.nix {};
-    waybar = callWithHelpers ./parts/waybar {};
+    firefox = callWithHelpers ../_parts/firefox.nix {};
+    waybar = callWithHelpers ../_parts/waybar {};
 
     zsh.initExtraFirst = lib.optionalString (pkgs.stdenv.hostPlatform.system == "x86_64-linux") ''
       # test variable is set, REF: <https://stackoverflow.com/a/42655305/13482274>
@@ -167,7 +167,7 @@ in {
     ];
     configFile = helpers.manifestXdgConfigFilesFrom {
       inherit config;
-      pathPrefix = ./parts/mirrored/headful;
+      pathPrefix = ../_parts/mirrored/headful;
     };
   };
   systemd.user = lib.mkIf (!config.home.presets.sans-systemd) {
@@ -202,10 +202,10 @@ in {
         };
       };
     };
-    flameshot = callWithHelpers ./parts/flameshot.nix {};
+    flameshot = callWithHelpers ../_parts/flameshot.nix {};
     dunst = {
       enable = true;
-      settings = callWithHelpers ./parts/dunst.nix {};
+      settings = callWithHelpers ../_parts/dunst.nix {};
     };
     git-sync = {
       enable = true;

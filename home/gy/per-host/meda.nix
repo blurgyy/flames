@@ -1,5 +1,5 @@
 { ... }: {
   imports = [
-    ../parts/gpg-agent.nix
+    ../../_parts/gpg-agent.nix
   ];
 }
