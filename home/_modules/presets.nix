@@ -36,7 +36,6 @@ let
     patchelf
     pciutils
     pcl
-    progress
     q-text-as-data
     sops
     sqlite

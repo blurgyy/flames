@@ -16,7 +16,6 @@ let
     libqalculate
     litecli
     nix-output-monitor
-    progress
     sops
     sqlite
     sshfs

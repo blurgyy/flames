@@ -236,6 +236,7 @@ in {
     lsof
     neovim
     pciutils
+    progress
     procs
     ripgrep
     sdwrap
