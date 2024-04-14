@@ -130,6 +130,8 @@ if string match -q "/dev/tty*" (tty)  # Do not autostart tmux in tty
   echo "Not autostarting terminal multiplexer in a tty" >&2
 else if test 0 -eq (id -u)  # Do not autostart tmux as root
   echo "Not autostarting terminal multiplexer as root" >&2
+else if set -q VSCODE_INJECTION
+  echo "Not autostarting terminal multiplexer inside VS Code terminal" >&2
 else if set -q ZELLIJ  # Do not nest zellij session
 else if set -q TMUX  # Do not nest tmux session
 else if set -q noexecmultiplexer  # explicitly not executing
