@@ -115,7 +115,7 @@ in {
            )]]; then
           echo "Executing fish from bash because all of the following are true:"
           echo "  1) the environment variable 'noexecfish' is not set"
-          echo "  2) this is an interactive shell, or we are inside a container"
+          echo "  2) this is an interactive shell, OR we are inside a container"
           exec fish
         fi
       '';
