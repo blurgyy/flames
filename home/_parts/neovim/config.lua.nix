@@ -219,6 +219,9 @@ in ''
   ]])
 
   -- Plugins
+  -- flash.nvim
+  require("flash").setup({})
+
   -- catppuccin
   require("catppuccin").setup({
     -- REF: <https://github.com/catppuccin/nvim#user-content-config>

@@ -13,6 +13,7 @@
     pkgs.vim-plugin-rainbow-delimiters-nvim
     pkgs.vim-plugin-typescript-tools-nvim
 
+    flash-nvim
     nvim-colorizer-lua
     vim-illuminate
     copilot-lua
