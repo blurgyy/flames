@@ -109,13 +109,13 @@ in {
     bash = {
       enable = true;
       initExtra = ''
-        if [[ "$-" == *i*
-           && -z "''${noexecfish+1}"
-           && -e "/run/host/container-manager" ]]; then
-          echo "Executing fish from bash because at least one of the following is true:"
-          echo "  1) this is an interactive shell"
-          echo "  2) the environment variable 'noexecfish' is not set"
-          echo "  3) we are inside a container"
+        if [[ -z "''${noexecfish+1}"
+           && ("$-" == *i*
+              || -e "/run/host/container-manager"
+           )]]; then
+          echo "Executing fish from bash because all of the following are true:"
+          echo "  1) the environment variable 'noexecfish' is not set"
+          echo "  2) this is an interactive shell, or we are inside a container"
           exec fish
         fi
       '';
