@@ -7,10 +7,6 @@
 }: let
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
-  imports = [
-    # ../_parts/kdeconnect.nix
-  ] ++ lib.optional (builtins.pathExists ./per-host/${hostName}.nix) ./per-host/${hostName}.nix;
-
   home.username = myName;
   home.homeDirectory = myHome;
   ricing.textual.theme = "dark";
@@ -74,7 +70,7 @@ in {
     mutableKeys = false;
     mutableTrust = false;
     publicKeys = [{
-      source = ../_parts/raw/gnupg/ff02f82f94915004.gpg;
+      source = ../raw/gnupg/ff02f82f94915004.gpg;
       trust = 5;
     }];
     settings = {
@@ -92,8 +88,8 @@ in {
   };
 
   programs = {
-    git = callWithHelpers ../_parts/git.nix {};
-    ssh = callWithHelpers ../_parts/ssh.nix {};
+    git = callWithHelpers ../git.nix {};
+    ssh = callWithHelpers ../ssh.nix {};
     readline = {
       enable = true;
       variables = {
@@ -101,7 +97,7 @@ in {
         completion-ignore-case = "On";
       };
     };
-    neovim = callWithHelpers ../_parts/neovim {};
+    neovim = callWithHelpers ../neovim {};
     bat = {
       enable = true;
       config = {
@@ -109,7 +105,7 @@ in {
         style = "numbers,changes,header-filename,header-filesize";
       };
     };
-    starship = callWithHelpers ../_parts/starship.nix {};
+    starship = callWithHelpers ../starship.nix {};
     bash = {
       enable = true;
       initExtra = ''
@@ -151,7 +147,7 @@ in {
       ];
       tmux.enableShellIntegration = true;
     };
-    fish = callWithHelpers ../_parts/fish {};
+    fish = callWithHelpers ../fish {};
     tmux = {
       enable = true;
       escapeTime = 0;
@@ -164,7 +160,7 @@ in {
         better-mouse-mode
         extrakto
       ];
-      extraConfig = builtins.readFile ../_parts/raw/tmux.conf;
+      extraConfig = builtins.readFile ../raw/tmux.conf;
     };
     zellij = {
       enable = false;
@@ -221,11 +217,11 @@ in {
       target = ".ipython/profile_default/ipython_config.py";
     };
     condarc = {
-      source = ../_parts/raw/condarc.yaml;
+      source = ../raw/condarc.yaml;
       target = ".condarc";
     };
     gduConfig = {
-      source = ../_parts/raw/gdu.yaml;
+      source = ../raw/gdu.yaml;
       target = ".gdu.yaml";
     };
     suppressGnuParallelCitationAlert = {
@@ -236,7 +232,7 @@ in {
   then {}
   else {
     npmConfig = {
-      text = callWithHelpers ../_parts/raw/npmrc.nix {};
+      text = callWithHelpers ../raw/npmrc.nix {};
       target = ".npmrc";
     };
   });
@@ -247,7 +243,7 @@ in {
       "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
       "fish/themes/Catppuccin Latte.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Latte.theme";
       "fish/themes/Catppuccin Mocha.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
-    } // (manifestXdgConfigFilesFrom { inherit config; pathPrefix = ../_parts/mirrored/headless; });
+    } // (manifestXdgConfigFilesFrom { inherit config; pathPrefix = ../mirrored/headless; });
     mimeApps = {
       enable = true;
       defaultApplications = builtins.mapAttrs (_: app: let

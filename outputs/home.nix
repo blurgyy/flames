@@ -2,7 +2,7 @@
   lib = nixpkgs.lib;
   apply = userName: attrs: lib.mapAttrs' (hostName: params: {
     name = "${userName}@${hostName}";
-    value = import ../home/gy (params // { inherit hostName; });
+    value = import ../home (params // { inherit userName hostName; });
   }) attrs;
   x86_64-non-headless = {
     system = "x86_64-linux";
