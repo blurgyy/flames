@@ -88,8 +88,7 @@
     vim-cool
     vim-fugitive
     vim-smoothie
-    vim-wakatime
-  ];
+  ] ++ lib.optional (config.home.username != "root") vim-wakatime;
   extraConfig = ''
     lua <<EOF
     ${callWithHelpers ./config.lua.nix {}}
@@ -118,8 +117,7 @@
     taplo-lsp
     texlab
     typst-lsp
-    wakatime
     yaml-language-server
     vscode-langservers-extracted
-  ];
+  ] ++ lib.optional (config.home.username != "root") wakatime;
 }

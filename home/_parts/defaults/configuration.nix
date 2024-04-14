@@ -187,17 +187,18 @@ in {
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     MANROFFOPT = "-c";
     MDCAT_PAGER = "less";
-    WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
     PYTHONDONTWRITEBYTECODE = 1;
     PYTHONUNBUFFERED = 1;
     PYTHONBREAKPOINT = "ipdb.set_trace";  # NOTE: use `breakpoint()` in script to trigger debugger
     PIP_REQUIRE_VIRTUALENV = 1;
     WINEPREFIX = "${config.xdg.dataHome}/wine";
     SKIM_DEFAULT_OPTS = toString config.programs.fzf.defaultOptions;
-  } // (if proxy != null then {
+  } // (lib.optionalAttrs (proxy != null) {
     inherit ((proxy.envVarsFor hostName).http) all_proxy http_proxy https_proxy ftp_proxy rsync_proxy;
     inherit (proxy.envVarsFor hostName) no_proxy;
-  } else {});
+  }) // (lib.optionalAttrs (config.home.username != "root") {
+    WAKATIME_HOME = "${config.xdg.configHome}/wakatime";
+  });
   pam.sessionVariables = config.home.sessionVariables;
 
   i18n.inputMethod = {
