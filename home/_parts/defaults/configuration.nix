@@ -35,7 +35,6 @@ in {
       ollama
       procs
       ripgrep
-      sdwrap
       telegram-send
       tinytools
       unar
@@ -48,7 +47,7 @@ in {
       yq  # yq, tomlq
       zip
       zstd
-    ];
+    ] ++ (lib.optional (!config.home.presets.sans-systemd) sdwrap);
   };
 
   nix.registry = {
