@@ -114,7 +114,7 @@ in with lib; {
         fi
       )'');
 
-    home.activation.restartSopsNix = lib.hm.dag.entryBefore [ "reloadSystemd" ] ''(
+    home.activation.restartSopsNix = lib.hm.dag.entryAfter [ "reloadSystemd" ] ''(
       if ${pkgs.systemd}/bin/systemctl --user list-unit-files | grep -q sops-nix.service; then
         echo "trying to restart sops-nix.service"
         $DRY_RUN_CMD ${pkgs.systemd}/bin/systemctl --user restart sops-nix.service
