@@ -63,7 +63,7 @@ let
   };
   lib = nixpkgs.lib;
   myName = userName;
-  myHome = "/home/${myName}";
+  myHome = "/${lib.optionalString (myName != "root") "home/"}${myName}";
   helpers = import ./_parts/_helpers.nix { inherit pkgs lib; };
   __callWithHelpers = path: overrides: with builtins; let
     f = import path;
