@@ -46,10 +46,6 @@
     group = config.users.groups.users.name;
   };
 
-  environment.systemPackages = [
-    pkgs.python3Packages.gpustat
-  ];
-
   networking.proxy = {
     default = "http://127.0.0.1:${toString config.services.ssh-reverse-proxy.server.services.http-proxy-from-copi.port}";
     noProxy = lib.concatStringsSep "," ([
