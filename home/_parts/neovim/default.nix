@@ -74,7 +74,6 @@
         vue
       ]
     ))
-    neorg
     catppuccin-nvim
     barbar-nvim
     lualine-nvim
