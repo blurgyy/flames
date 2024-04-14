@@ -11,15 +11,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "16dceaf2a3a6621459dffdf3944cb7d0d8d9dfd6";
+    version = "1681ca126446ea5cae9b1b4b35ec35d00e4d3ffb";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "16dceaf2a3a6621459dffdf3944cb7d0d8d9dfd6";
+      rev = "1681ca126446ea5cae9b1b4b35ec35d00e4d3ffb";
       fetchSubmodules = false;
-      sha256 = "sha256-RfttMvtj1FB/vRDVvO8gg+pxKAric5zKZ5Zw9oyGxFc=";
+      sha256 = "sha256-Fx9Q8BHbNWcdAA+Vmjflc/JIyVsW+6o1r60Y4QZUXqo=";
     };
-    date = "2024-04-04";
+    date = "2024-04-14";
   };
   alist = {
     pname = "alist";
@@ -42,16 +42,16 @@
   };
   bat-theme-catppuccin = {
     pname = "bat-theme-catppuccin";
-    version = "b19bea35a85a32294ac4732cad5b0dc6495bed32";
+    version = "b8134f01b0ac176f1cf2a7043a5abf5a1a29457b";
     src = fetchgit {
       url = "https://github.com/catppuccin/bat";
-      rev = "b19bea35a85a32294ac4732cad5b0dc6495bed32";
+      rev = "b8134f01b0ac176f1cf2a7043a5abf5a1a29457b";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-POoW2sEM6jiymbb+W/9DKIjDM1Buu1HAmrNP0yC2JPg=";
+      sha256 = "sha256-gzf0/Ltw8mGMsEFBTUuN33MSFtUP4xhdxfoZFntaycQ=";
     };
-    date = "2024-03-14";
+    date = "2024-04-09";
   };
   dms = {
     pname = "dms";
@@ -66,15 +66,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "095f94d2d33875439a59b35bb5d8a7ec63c8aa28";
+    version = "23e2f9dc6a82ff36432097ed478960f1c6bd4263";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "095f94d2d33875439a59b35bb5d8a7ec63c8aa28";
+      rev = "23e2f9dc6a82ff36432097ed478960f1c6bd4263";
       fetchSubmodules = false;
-      sha256 = "sha256-5wuEYrUyiQIO6PRuNjDWbI3g+GjBOgA+E8/YH6V4Yn8=";
+      sha256 = "sha256-5Sp7PsliHqpPS9lngEnJ5P9lGWVD520hz9T0aaruC3U=";
     };
-    date = "2024-04-01";
+    date = "2024-04-12";
   };
   dt = {
     pname = "dt";
@@ -254,18 +254,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202404032208";
+    version = "202404132209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202404032208/geoip.dat";
-      sha256 = "sha256-0SOSwfSzee7UxJaa3HHgo6cUouRzGwUK17t9Xk+CLWw=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202404132209/geoip.dat";
+      sha256 = "sha256-h0eYHNPRyAMkT81L7j8Q6eLZLGKQHFF0FY0Q0XNSD3I=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202404032208";
+    version = "202404132209";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202404032208/geosite.dat";
-      sha256 = "sha256-rigrE3oEkHxWSOb/hw+GvvJSYYdZ54OImwu162CVa6Q=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202404132209/geosite.dat";
+      sha256 = "sha256-tIden27kRT9mMysjoCIGtmEd5Lzmk9dLN2CW9haRyLk=";
     };
   };
   luarock-dbus_proxy = {
@@ -343,29 +343,29 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "11.11.0";
+    version = "11.12.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/11.11.0/simple-icons-font-11.11.0.zip";
-      sha256 = "sha256-KTGAuxkFxsoHaxOe3c1PHyMcy4sJv1QvExJusQokw/Q=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/11.12.0/simple-icons-font-11.12.0.zip";
+      sha256 = "sha256-4Ar7+ykhxbVBxNHg112sUx4uXIVUFF/2e0uoEyWkOv4=";
     };
   };
   symbols-nerd-font = {
     pname = "symbols-nerd-font";
-    version = "v3.1.1";
+    version = "v3.2.1";
     src = fetchurl {
-      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/NerdFontsSymbolsOnly.zip";
-      sha256 = "sha256-jGRhPv4MXRFmSpMdJB51bqQiz0rRjXmfHLXkMXEianY=";
+      url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/NerdFontsSymbolsOnly.zip";
+      sha256 = "sha256-vFnC6nTQIqYmL/njcv3lw2zVrj+CpWeUFIns+rTwPWY=";
     };
   };
   tdesktop-megumifox = {
     pname = "tdesktop-megumifox";
-    version = "v4.16.1";
+    version = "v4.16.6";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v4.16.1";
+      rev = "v4.16.6";
       fetchSubmodules = true;
-      sha256 = "sha256-sb7BpEIjSJS4ntv8s0RSJAj4BhTgHF7fEei5QXl60mA=";
+      sha256 = "sha256-1NRA8guTbDEraW1uXSo7q54d1e8/QnXwxkfb6k3e6b0=";
     };
   };
   telegram-send = {
@@ -417,15 +417,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "fd0b677d0dbee396dfe6d8a08c1d61bd267e063c";
+    version = "454a673899f624fbf89756edcf45519d64b53488";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "fd0b677d0dbee396dfe6d8a08c1d61bd267e063c";
+      rev = "454a673899f624fbf89756edcf45519d64b53488";
       fetchSubmodules = false;
-      sha256 = "sha256-y2d8ryc00EY3k12X7FyVHJB29kTQgGQe3aWQn0FpQbc=";
+      sha256 = "sha256-gGuMypDoNrGbXhrhaZj70YEhrHDoWNSsfan36F+dkso=";
     };
-    date = "2024-04-03";
+    date = "2024-04-13";
   };
   video-compare = {
     pname = "video-compare";
@@ -464,16 +464,16 @@
   };
   vim-plugin-rainbow-delimiters-nvim = {
     pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "580bc045c7ab3ab3ebd267774038c0d8cc19c789";
+    version = "0563a31b1f46a911865cb85df3ddde2eff9fdada";
     src = fetchgit {
       url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "580bc045c7ab3ab3ebd267774038c0d8cc19c789";
+      rev = "0563a31b1f46a911865cb85df3ddde2eff9fdada";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-DCwZMWeH9elJC/amq4lmo3Ql+6mitw+xMg59Aj27id8=";
+      sha256 = "sha256-N8Y6B45qKEewVKHCFVHRgMGIr7rjE7Kko/tJdOpkPvI=";
     };
-    date = "2024-03-23";
+    date = "2024-04-06";
   };
   vim-plugin-typescript-tools-nvim = {
     pname = "vim-plugin-typescript-tools-nvim";
