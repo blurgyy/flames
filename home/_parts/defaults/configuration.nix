@@ -47,7 +47,9 @@ in {
       yq  # yq, tomlq
       zip
       zstd
-    ] ++ (lib.optional (!config.home.presets.sans-systemd) sdwrap);
+    ]
+    ++ (lib.optional (!config.home.presets.sans-systemd) sdwrap)
+    ++ (lib.optional (pkgs.config.cudaSupport) python3Packages.gpustat);
   };
 
   nix.registry = {
