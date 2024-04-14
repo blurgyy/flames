@@ -1,6 +1,7 @@
 { hostName, ... }: {
   imports = [
     ./configuration.nix
+    ./secrets.nix
   ];
 
   home.presets = {

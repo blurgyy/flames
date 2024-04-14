@@ -78,7 +78,7 @@ in inputs.home-manager.lib.homeManagerConfiguration {
   inherit lib pkgs;
   extraSpecialArgs = {
     inherit inputs;
-    inherit hostName headless proxy;
+    inherit userName hostName headless proxy;
     inherit myName myHome helpers __callWithHelpers;
   };
   modules = [
