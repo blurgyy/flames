@@ -226,6 +226,7 @@ in with lib; {
       }];
       interactiveShellInit = ''
         set -U tide_git_icon 
+        set -U tide_context_color_root brred
         set -g tide_right_prompt_items status cmd_duration context node rustc java php ruby go kubectl toolbox terraform aws crystal time
         set -g tide_left_prompt_items nix_shell fhs pwd git conda jobs newline character
         set -g tide_prompt_add_newline_before true
