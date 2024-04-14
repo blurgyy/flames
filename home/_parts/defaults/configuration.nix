@@ -111,13 +111,11 @@ in {
       initExtra = ''
         if [[ "$-" == *i*
            && -z "''${noexecfish+1}"
-           && -e "/run/host/container-manager"
-           && -n "$VSCODE_INJECTION" ]]; then
+           && -e "/run/host/container-manager" ]]; then
           echo "Executing fish from bash because at least one of the following is true:"
           echo "  1) this is an interactive shell"
           echo "  2) the environment variable 'noexecfish' is not set"
           echo "  3) we are inside a container"
-          echo "  4) we are inside a shell started by vscode"
           exec fish
         fi
       '';
