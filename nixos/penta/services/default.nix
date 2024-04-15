@@ -7,7 +7,7 @@
     ./ntfy.nix
     ./ollama-dev-at-kaggle.nix
 
-    ./hydra.nix
+    # ./hydra.nix
     ./rssbot.nix
     ./vaultwarden
     ./wakapi.nix
