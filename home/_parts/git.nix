@@ -1,4 +1,4 @@
-{ pkgs, proxy }: {
+{ config, pkgs, proxy }: {
   enable = true;
   userEmail = "gy@blurgy.xyz";
   userName = "Gaoyang Zhang";
@@ -79,7 +79,7 @@
   };
   signing = {
     key = "ff02f82f94915004";
-    signByDefault = true;
+    signByDefault = !config.home.presets.sans-systemd;
   };
   extraConfig = {
     core.pager = "${pkgs.less}/bin/less --quit-if-one-screen";
