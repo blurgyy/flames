@@ -2,7 +2,7 @@ if not set -l _conda_bin (__find_conda_bin)
   return 1
 end
 
-set -l conda_envs_dir $HOME/.conda/envs
+set -l conda_envs_dir "$(dirname (dirname "$_conda_bin"))/envs"
 if not test -d $conda_envs_dir
   or test (count (command ls $conda_envs_dir)) -eq 0
   echo "No envs installed under $conda_envs_dir" >&2
