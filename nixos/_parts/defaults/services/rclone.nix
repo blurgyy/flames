@@ -30,7 +30,8 @@
     access_key_id = ${config.sops.placeholder."api/r2/rclone-nixos/access_key_id"}
     secret_access_key = ${config.sops.placeholder."api/r2/rclone-nixos/secret_access_key"}
     endpoint = https://${config.sops.placeholder."api/r2/account_id"}${lib.optionalString
-      (lib.hasPrefix "Europe" config.time.timeZone)
+      (false  # the "eu" endpoint does not mount anything?
+      && lib.hasPrefix "Europe" config.time.timeZone)
       ".eu"
     }.r2.cloudflarestorage.com
     acl = private
