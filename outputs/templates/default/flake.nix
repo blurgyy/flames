@@ -14,8 +14,8 @@
   };
 
   nixConfig = {
-    # extra-substituters = [ "https://cache.blurgy.xyz" ];
-    # extra-trusted-public-keys = [ "cache.blurgy.xyz:Xg9PvXkUIAhDIsdn/NOUUFo+HHc8htSiGj7O6fUj/W4=" ];
+    # extra-substituters = [ "https://cache.garnix.io" ];
+    # extra-trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }: flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
