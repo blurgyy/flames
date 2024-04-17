@@ -112,12 +112,15 @@ in {
       enable = true;
       initExtra = ''
         if [[ -z "''${noexecfish+1}"
-           && ("$-" == *i*
-              || -e "/run/host/container-manager"
-           )]]; then
+           && "$-" == *i*
+           && -e "/run/host/container-manager"
+           && -d /sbin
+           ]]; then
           echo "Executing fish from bash because all of the following are true:"
           echo "  1) the environment variable 'noexecfish' is not set"
-          echo "  2) this is an interactive shell, OR we are inside a container"
+          echo "  2) this is an interactive shell"
+          echo "  3) we are inside a container"
+          echo "  4) the container has FHS"
           exec fish
         fi
       '';
