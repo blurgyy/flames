@@ -473,10 +473,9 @@ in ''
   })
   local previewer = require("telescope.builtin")
   mappings.n = {
-    { name = "n", target = "<C-p>" },
-    { name = "n", target = "\\g" },
+    { name = "<C-p>", target = previewer.find_files },
     -- Search for a string in cwd and get results as you type
-    { name = "<leader>g", target = previewer.live_grep, options = { noremap = true } },
+    { name = "<M-g>", target = previewer.live_grep, options = { noremap = true } },
     -- Searches for the string under cursor in cwd
     { name = "z*", target = previewer.grep_string, options = { noremap = true } },
     { name = "z#", target = previewer.grep_string, options = { noremap = true } },
