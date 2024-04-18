@@ -217,6 +217,7 @@ in {
     comma
     dogdns
     dufs
+    dysk
     eza
     fd
     file
@@ -229,22 +230,22 @@ in {
     iotop
     jq
     killall
-    dysk
     lm_sensors
     lsof
+    ncurses
     neovim
     pciutils
-    progress
     procs
+    progress
     ripgrep
     sdwrap
     tinytools
     unar
     unzip
+    xdg-utils
+    yq  # yq, tomlq
     zip
     zsh
-    yq  # yq, tomlq
-    xdg-utils
   ];
 
   environment.variables = {

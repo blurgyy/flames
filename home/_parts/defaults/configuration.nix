@@ -17,6 +17,7 @@ in {
       comma
       dogdns
       dufs
+      dysk
       eza
       fd
       gdu
@@ -29,8 +30,8 @@ in {
       jq
       killall
       less
-      dysk
       libqalculate
+      ncurses
       nixStable
       ollama
       procs
