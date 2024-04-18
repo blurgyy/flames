@@ -1,5 +1,6 @@
 if not test -d /sbin
   and not test -d /usr/lib/wsl
+  and not test -e /.dockerenv
   return 0
 end
 
@@ -8,6 +9,8 @@ if test -d /sbin
     set indicator "fhs(wsl)"
   else if test -f /run/host/container-manager
     set indicator "fhs($(echo (cat /run/host/container-manager)))"
+  else if test -f /.dockerenv
+    set indicator "fhs(docker)"
   else
     set indicator "fhs"
   end

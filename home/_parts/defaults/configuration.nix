@@ -113,7 +113,7 @@ in {
       initExtra = ''
         if [[ -z "''${noexecfish+1}"
            && "$-" == *i*
-           && -e "/run/host/container-manager"
+           && (-e "/run/host/container-manager" || -e "/.dockerenv")
            && -d /sbin
            ]]; then
           echo "Executing fish from bash because all of the following are true:"
