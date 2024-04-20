@@ -51,7 +51,7 @@ in {
         "${mod}+Shift+c" = "reload" ;
 
         # Launchers
-        "Alt+r" = "exec rofi -terminal ${term} -show drun";
+        "${mod}+r" = "exec rofi -terminal ${term} -show drun";
         "Alt+Shift+r" = "exec rofi -terminal ${term} -show run";
         "Alt+s" = "exec rofi -terminal ${term} -show ssh";
         "Alt+Shift+s" = "exec rofi -ssh-client 'waypipe --remote-bin=~/.nix-profile/bin/waypipe ssh -Y' -terminal ${term} -show ssh";
@@ -138,8 +138,8 @@ in {
         "${mod}+b" = "split none";
         "${mod}+m" = "layout toggle tabbed split";
         "${mod}+p" = "layout toggle split";
-        "${mod}+f" = "fullscreen";
-        "${mod}+s" = "floating toggle";
+        "Alt+Return" = "fullscreen";
+        "${mod}+f" = "floating toggle";
         "${mod}+Shift+Space" = "layout stacking";
 
         # Toggle current focus between tiling and floating mode
@@ -153,7 +153,7 @@ in {
 
         "${mod}+Escape" = "exec sdwrap swaylock";
 
-        "${mod}+r" = ''mode "resize"'';
+        "${mod}+a" = ''mode "resize"'';
 
         "${mod}+t" = ''mode "passthrough"'';
       };

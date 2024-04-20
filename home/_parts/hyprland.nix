@@ -223,15 +223,15 @@ in
       bind = $mainMod, return, exec, alacritty
       bind = $mainMod, w, killactive,
       bind = $mainMod, e, exec, thunar
-      bind = ALT, r, exec, rofi -show drun
+      bind = $mainMod, r, exec, rofi -show drun
       bind = ALT SHIFT, r, exec, rofi -show run
       bind = ALT, s, exec, rofi -show ssh
       bind = ALT SHIFT, s, exec, rofi -ssh-client 'waypipe --remote-bin=~/.nix-profile/bin/waypipe ssh -Y' -show ssh
       # bind = $mainMod, e, pseudo, # dwindle
       # bind = $mainMod, e, togglesplit, # dwindle
 
-      bind = $mainMod, s, togglefloating,
-      bind = $mainMod, f, fullscreen, 0
+      bind = $mainMod, f, togglefloating,
+      bind = ALT, return, fullscreen, 0
       bind = $mainMod, m, fullscreen, 1
 
       bind = $mainMod, p, togglesplit,
@@ -329,7 +329,7 @@ in
       bindm = $mainMod, mouse:273, resizewindow
 
       # Resizing using submap, REF: <https://wiki.hyprland.org/Configuring/Binds/#submaps>
-      bind = $mainMod, r, submap, resize
+      bind = $mainMod, a, submap, resize
       submap = resize
       binde = , h, resizeactive, -10 0
       binde = , j, resizeactive, 0 10
