@@ -9,5 +9,6 @@
     "file/github-cli-hosts".path = "${config.xdg.configHome}/gh/hosts.yml";
     "file/nvchecker-keyfile".path = "${config.xdg.configHome}/nvchecker/keyfile.toml";  # nvfetcher -k ~/.config/nvchecker/keyfile.toml ...
     "file/wakatime-config".path = "${config.xdg.configHome}/wakatime/.wakatime.cfg";
+    "file/ollama-privatekey".path = "${config.home.homeDirectory}/.ollama/id_ed25519";
   };
 }
