@@ -35,6 +35,7 @@ in {
       nixStable
       ollama
       procs
+      procps
       progress
       ripgrep
       telegram-send
