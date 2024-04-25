@@ -9,9 +9,9 @@
     b = "branch";
     bs = "branch --set-upstream-to";
     bv = "branch -vv";
-    c = "commit -S -sv";
-    ca = "commit -S -sv --amend";
-    can = "commit -S -sv --amend --no-edit";
+    c = "commit -sv";  # signing flag `-S` can be omitted since signing.signByDefault is set
+    ca = "commit -sv --amend";
+    can = "commit -sv --amend --no-edit";
     cannosign = "commit -sv --amend --no-edit";
     canosign = "commit -sv --amend";
     cnosign = "commit -sv";
