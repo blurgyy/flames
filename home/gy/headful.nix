@@ -10,7 +10,7 @@ in {
   ricing.headful.theme = "dark";
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme.name = "gtk";
   };
   home.pointerCursor = {
     package = pkgs.bibata-cursors;
