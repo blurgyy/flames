@@ -91,6 +91,14 @@
       hostname = "10.76.2.80";
       proxyJump = "copi";
     };
+    winston-copi-relay = addGpgRemoteForward 1000 {
+      hostname = "10.76.2.80";
+      proxyJump = "copi-relay";
+    };
+    winston-rpi-relay = addGpgRemoteForward 1000 {
+      hostname = "10.76.2.80";
+      proxyJump = "rpi-relay";
+    };
     shared-copi = addGpgRemoteForward 1001 {
       hostname = "10.76.2.83";
       proxyJump = "copi";
