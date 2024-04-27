@@ -145,7 +145,7 @@ in ''
         name = "<leader>i",
         target = [[:let b:_ = winsaveview()<Bar>:%s/\s\+$//e<Bar>:call winrestview(b:_)<CR>:unlet b:_<CR>]],
       },
-      { name = "\\e", target = vim.diagnostic.open_float },
+      { name = "ge", target = vim.diagnostic.open_float },
       { name = "[e", target = vim.diagnostic.goto_prev },
       { name = "]e", target = vim.diagnostic.goto_next },
     },
