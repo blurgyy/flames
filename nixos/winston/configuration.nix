@@ -42,6 +42,8 @@
     openssh.authorizedKeys.keys = config.users.users.gy.openssh.authorizedKeys.keys ++ [
       # cyx
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDid9hA/KRba0O9kkm7Vu2jXawkaCREj8Ig31jKCjU9qmXhUFAA/nSCJ0dPPPs6VX9TxFdbVp+Ot48Yd0Y1vJtyX4wCFt4170eCu6rI5eIIJrkFJSsLidF7XTjcbl9Ojfd7WCRvnUMnGV+U+3owEHDcdx9v0IRKQg/D3quYkxUkLiZrGzDeD9jBPBbAUrNQWt7FwImQSqLFqDlbawNDP/ER6ck6s2pCyuM0zu+et7QkvHU6jYaA0BkJw4gSlMY62Di65ICnyN31rSpIcIt/C4+g4bwNfdZTW2akLc6UCg9T2VZzygMdwjjhBun/VK+FbKG94rMSD9OG3o+dMYP0q+stgu9QvZ9t9fzcLaSqLLg8Ujgva8nFYOtd2y2G3OUpcKeP6XAU2/6Nw9HvCUTSBMPT9YekZG4Tl3FMoBFI2B/RxQCczZ+jXfS1oVJ9NEXC+MIYSBr6WGbhdA3YK7VdYuaSTrL2aDGG1sUjs6B/25VwJfysN/drP6a4LB+2nEdcEw0= usr0@master"
+      # cyx
+      "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Ge7d6Qtp8f0+ju6e3E/fZ4FgTPKJiWwSTl+dEovM/g8vsLG7RjkkuhIOczCsKQAB82on9KwqLSrGwpouwDkDOKdOmQTy4zvAiO7J6udpROQugGaSSUvnF/tr5k3tmK/042ErS5WReYPYKISBI+3Hq0xA4ZTdeIpdJtfrpDMrW5zGotCu7LmDRIIqmlTxPbsSEGX6ceaVLWtKBNyfq6ML5RkDt3UNsSGTHiXcq/+c5ejFvUwAyfzZikLjOFWr30Ym6asdMyHb6XEhbnUgCsljiOQeOz0zHRvgjYHlhh/I2Wc4E6aFGBrcz2Y87gvz+zzPOnqi8Z2q4YT4bGQOEGMr cad_83@cad-liu"
     ];
     group = config.users.groups.users.name;
   };
