@@ -243,7 +243,7 @@ in {
       ];
       colors = {
         focused = {
-          border = themeColor "orange";
+          border = themeColor "highlight";
           background = themeColor "blue";
           text = themeColor "background";
           indicator = themeColor "green";
