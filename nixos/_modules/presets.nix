@@ -15,6 +15,7 @@ let
     inotify-tools
     libqalculate
     litecli
+    mayo
     nix-output-monitor
     sops
     sqlite
@@ -44,6 +45,7 @@ let
   ] ++ (lib.optional (system == "x86_64-linux") minecraft);
   recPackages = with pkgs; [
     ffmpeg-fuller
+    mayo
     typos
   ];
 in

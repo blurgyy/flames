@@ -30,6 +30,7 @@ let
     litecli
     lnav
     lsof
+    mayo
     nix-output-monitor
     nvfetcher
     parallel
@@ -54,6 +55,7 @@ let
     ffmpeg-fuller
     # gimp
     imagemagick
+    mayo
     yt-dlp
   ] ++ lib.optional (system == "x86_64-linux") blender_with_packages;
   sciPackages = with pkgs; [
