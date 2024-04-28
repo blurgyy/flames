@@ -279,6 +279,18 @@
       sha256 = "sha256-Yd8TN/vKiqX7NOZyy8OwOnreWS5gdyVMTAjFqoAuces=";
     };
   };
+  mayo = {
+    pname = "mayo";
+    version = "17fe28e627404a5884140bb96a09a3108664b67a";
+    src = fetchFromGitHub {
+      owner = "fougue";
+      repo = "mayo";
+      rev = "17fe28e627404a5884140bb96a09a3108664b67a";
+      fetchSubmodules = false;
+      sha256 = "sha256-8O4aE/foxohztwHm+IG6yhnc0tP7EVpjad7O8HnHCcM=";
+    };
+    date = "2024-04-26";
+  };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
     version = "2024-04";

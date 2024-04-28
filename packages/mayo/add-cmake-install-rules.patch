@@ -1,0 +1,35 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c5449b8..2343bec 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -687,3 +687,30 @@ add_custom_target(
+     src/mayo_version.h.cmake
+     README.md
+ )
++
++# Define installation paths
++set(INSTALL_BIN_DIR bin)
++set(INSTALL_LIB_DIR lib)
++set(INSTALL_INCLUDE_DIR include/${PROJECT_NAME})
++set(INSTALL_SHARE_DIR share/mayo)
++
++# Install targets
++install(TARGETS mayo
++        RUNTIME DESTINATION ${INSTALL_BIN_DIR}
++        ARCHIVE DESTINATION ${INSTALL_LIB_DIR}
++        LIBRARY DESTINATION ${INSTALL_LIB_DIR})
++
++if(Mayo_BuildConvCli)
++    install(TARGETS mayo-conv
++            RUNTIME DESTINATION ${INSTALL_BIN_DIR}
++            ARCHIVE DESTINATION ${INSTALL_LIB_DIR}
++            LIBRARY DESTINATION ${INSTALL_LIB_DIR})
++endif()
++
++# Install additional files
++install(FILES ${PROJECT_SOURCE_DIR}/images/appicon.icns DESTINATION ${INSTALL_SHARE_DIR} OPTIONAL)
++install(FILES ${PROJECT_SOURCE_DIR}/LICENSE.txt DESTINATION ${INSTALL_SHARE_DIR})
++
++# Install headers
++install(DIRECTORY ${PROJECT_SOURCE_DIR}/src/ DESTINATION ${INSTALL_INCLUDE_DIR}
++        FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
