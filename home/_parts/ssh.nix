@@ -61,7 +61,7 @@
     inherit "2x1080ti-relay" shared-relay mono-relay;
 
     octa-nat = addGpgRemoteForward 1000 {
-      hostname = "183.230.82.36";
+      hostname = "203.3.115.226";
       port = 10005;
     };
 
