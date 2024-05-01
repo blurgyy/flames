@@ -55,6 +55,7 @@ cmweb.ilike.alibaba.com
 colorfulclouds.net
 cpatrk.net
 czbank.com
+deepseek.com
 detectportal.firefox.com
 dingtalk.com
 dingtalkcloud.com
