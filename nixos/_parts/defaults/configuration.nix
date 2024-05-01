@@ -71,6 +71,16 @@ in {
   };
 
   nixpkgs.config.allowUnfree = lib.mkDefault true;
+  nixpkgs.config.cudaSupport = builtins.elem config.networking.hostName [
+    "cad-liu"
+    "cadliu"
+    "meda"
+    "mono"
+    "winston"
+  ];
+  nixpkgs.config.rocmSupport = builtins.elem config.networking.hostName [
+    "morty"
+  ];
 
   networking = {
     domain = "blurgy.xyz";
@@ -287,5 +297,6 @@ in {
         localhost.publicKey = keys.hosts.${config.networking.hostName};
       };
     };
+    ollama.enable = true;
   };
 }
