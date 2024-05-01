@@ -2,43 +2,30 @@
 
 {
   sops.secrets = let
-    secretConfig.sopsFile = ../../../_secrets.yaml;
+    secretConfig.sopsFile = ../../../../_secrets.yaml;
   in {
     "api/r2/rclone-nixos/access_key_id" = secretConfig;
     "api/r2/rclone-nixos/secret_access_key" = secretConfig;
     "api/r2/account_id" = secretConfig;
   };
 
-  users = {
-    users = {
-      rclone = {
-        isSystemUser = true;
-        group = config.users.groups.rclone.name;
-      };
-      gy.extraGroups = [ config.users.groups.rclone.name ];
-    };
-    groups.rclone = {};
-  };
-
   sops.templates.rclone-r2-cfg = {
     name = "rclone-r2.conf";
     mode = "440";
     content = ''
-    [r2]
-    type = s3
-    provider = Cloudflare
-    access_key_id = ${config.sops.placeholder."api/r2/rclone-nixos/access_key_id"}
-    secret_access_key = ${config.sops.placeholder."api/r2/rclone-nixos/secret_access_key"}
-    endpoint = https://${config.sops.placeholder."api/r2/account_id"}${lib.optionalString
-      (false  # the "eu" endpoint does not mount anything?
-      && lib.hasPrefix "Europe" config.time.timeZone)
-      ".eu"
-    }.r2.cloudflarestorage.com
-    acl = private
+      [r2]
+      type = s3
+      provider = Cloudflare
+      access_key_id = ${config.sops.placeholder."api/r2/rclone-nixos/access_key_id"}
+      secret_access_key = ${config.sops.placeholder."api/r2/rclone-nixos/secret_access_key"}
+      endpoint = https://${config.sops.placeholder."api/r2/account_id"}${lib.optionalString
+        (false  # the "eu" endpoint does not mount anything?
+        && lib.hasPrefix "Europe" config.time.timeZone)
+        ".eu"
+      }.r2.cloudflarestorage.com
+      acl = private
     '';
   };
-
-  environment.systemPackages = [ pkgs.rclone ];
 
   systemd.services.rclone-r2 = {
     after = [ "network.target" ]
