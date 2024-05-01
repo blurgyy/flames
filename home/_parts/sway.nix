@@ -25,6 +25,7 @@ in {
         { command = "systemctl --user reset-failed"; }
         { command = "${terminal} --class sway_autostart_alacritty"; }
         { command = "sdwrap firefox"; }
+        { command = "sdwrap obsidian"; }
         { command = "sdwrap zotero"; }
         { command = ''
           ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
@@ -184,7 +185,7 @@ in {
           { class = "firefox"; }
         ];
         "3" = [
-          { class = "Logseq"; }
+          { class = "Logseq|obsidian"; }
         ];
         "6" = [
           { app_id = "UE4Editor|CrashReportClient"; }

@@ -54,6 +54,7 @@ in {
     meshlab
     minicom
     obs-studio
+    obsidian
     printer-cadlab
     rustdesk-with-default-and-x11-desktopentry
     slurp

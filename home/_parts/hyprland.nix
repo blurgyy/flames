@@ -39,7 +39,6 @@ in
 
       # Workspace assignments for applications that does not autostart on hyprland launch
       windowrulev2 = workspace 2, class:^chromium-browser$
-      windowrulev2 = workspace 3, class:^Logseq$
       windowrulev2 = workspace 10, class:^(telegramdesktop|org.telegram.desktop)$
       windowrulev2 = workspace 16 silent, class:^Steam$
       windowrulev2 = workspace 32 silent, class:^minecraft-launcher$
@@ -50,6 +49,9 @@ in
       # Firefox on workspace 2
       windowrulev2 = workspace 2 silent, class:^firefox$
       exec-once = sdwrap firefox
+      # Knowledge garden application on workspace 3
+      windowrulev2 = workspace 3, class:^(Logseq|obsidian)$
+      exec-once = sdwrap obsidian
       # System monitor on workspace 8
       windowrulev2 = workspace 8 silent, class:^sysmon$
       exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap alacritty --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
