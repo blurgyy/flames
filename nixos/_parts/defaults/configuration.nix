@@ -150,6 +150,7 @@ in {
           libsForQt5.fcitx5-qt
           fcitx5-sogou-themes
           fcitx5-fluent-dark-theme
+          fcitx5-rime
         ];
         quickPhrase = {
           done = "✅";

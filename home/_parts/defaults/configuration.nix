@@ -213,6 +213,7 @@ in {
     fcitx5.addons = with pkgs; [
       fcitx5-chinese-addons
       fcitx5-lua
+      fcitx5-rime
     ];  # other addons are added only for headful profiles
   };
 
