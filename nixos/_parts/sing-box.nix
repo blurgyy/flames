@@ -5,5 +5,6 @@
     enable = true;
     preConfigure = true;
     secretPath = config.sops.secrets."v2ray/id".path;
+    restartOnWirelessReconnectInterfaces = config.networking.wireless.interfaces;
   };
 }
