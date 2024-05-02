@@ -298,6 +298,5 @@ in {
         localhost.publicKey = keys.hosts.${config.networking.hostName};
       };
     };
-    ollama.enable = true;
   };
 }
