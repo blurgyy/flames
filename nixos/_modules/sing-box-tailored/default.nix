@@ -87,21 +87,26 @@ in
 
           while true; do
             n_checks=$((n_checks + 1))
-            # Get the latest timestamp for CTRL-EVENT-CONNECTED from journalctl
-            NEW_TIMESTAMP=$(journalctl -u wpa_supplicant-${iface}.service --since "1 hour ago" | grep "CTRL-EVENT-CONNECTED" | tail -1 | awk '{print $1 " " $2 " " $3}')
-
             if [ $n_checks -eq $log_every_n_checks ]; then
-              echo "Last reconnection time: '$NEW_TIMESTAMP'"
+              echo "Last reconnection time was '$NEW_TIMESTAMP'"
               n_checks=0
             fi
 
-            if [ -n "$NEW_TIMESTAMP" ]; then
-              # Convert timestamp to seconds since epoch
-              NEW_TIMESTAMP_SEC=$(date -d "$NEW_TIMESTAMP" +%s)
+            # Get the latest timestamp for CTRL-EVENT-CONNECTED from journalctl
+            NEW_TIMESTAMP=$(journalctl -b -o short-unix -u wpa_supplicant-${iface}.service | grep "CTRL-EVENT-CONNECTED" | tail -1 | awk '{print $1}')
+
+            # Ensure that NEW_TIMESTAMP is not empty
+            if [[ -n "$NEW_TIMESTAMP" ]]; then
+              # Convert timestamp to seconds since epoch (if necessary)
+              NEW_TIMESTAMP_SEC=$(date -d "@$NEW_TIMESTAMP" +%s)
+
+              # Check if the new timestamp is greater than the last known timestamp
               if [[ "$LAST_TIMESTAMP" != 0 && "$NEW_TIMESTAMP_SEC" -gt "$LAST_TIMESTAMP" ]]; then
                   echo "Network reconnection detected. Restarting Sing-box."
                   systemctl restart sing-box.service
               fi
+
+              # Update the last known timestamp
               LAST_TIMESTAMP=$NEW_TIMESTAMP_SEC
             fi
             sleep 2  # Check every 2 seconds
