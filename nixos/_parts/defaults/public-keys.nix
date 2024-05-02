@@ -1,7 +1,6 @@
 {
   users = {
     "gy@morty" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM1m/+k7RnoL1YVbP4vv8XTFnlP6CGmnXJfxA+Xu6H5q";
-    "gy@john" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINlA0ON/HBEhGPo1Uu5lrgpbQ/D/Ivd7q3LuNTXScrRi";
     "gy@rpi" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJaSjivabf9fojBuWsmiLvCElj1sEILE0N8x8X7zM7Gk";
     "gy@copi" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5ko6UfBeTZWEUpsHydHBoHQngLdWwOOUwgvi6PgZfD";
     "gy@opi" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVsvwZiBI4n+3+nK14ZCQf2MoAq4XZJfH1IDcy0K0lq";
@@ -12,7 +11,6 @@
     "gy@cad-liu" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINEjbeH2P4cG/eIHeOm1FM1vqclsfvBSlz+76RNTGYG3";
     "gy@meda" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIF6zT4g4V3YgZN1HsmtqBWYTUAmWG5+LHspnKe2yvtKs";
     "gy@mono" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG/DaWStxHqsult8pwUQKpM2jdqXFwYmyW6xDH/o9A3z";
-    "gy@forge" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKurCMH8tu+ixTHXNEAYs6oHUpRGCoQ2KRwTSlT+9zLX";
     "root@vdm0" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFJ2JWkJw9EsjD5t90ju6cKII55qgu17xsKILRY05t7f";
 
     "gy@penta" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILOh+aEgxsMtHYVDmh3NJXABWc78q3/BngZnP8gOS3xZ";
@@ -22,8 +20,6 @@
     "gy@hexa" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAww/vCR8EhXsDHiv71Fv72xZ/Y5jnqIh01iwpUfJe4V";
     "gy@octa" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINIuGEQqTOj8rWYK4xpfAv3IBmbOWaAi/Uo8hP6RQBxe";
     "gy@velo" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILdw6bErBvatCbcct35L3ytGsgeceRaihgISJxeWCHSa";
-
-    "gy@hooper" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHM4yanex/42s/F9dP7CJ3BstzEC7n0qwi0+2hhxOAS6";
 
     "gy@FridaY" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII1LWYTkOiaY/TSs9qoAAQm2tVHw4Lljz90pCREnW2Zx";
     "btrbk-runner" = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJYdTyWi8iOOLRtfRVkCUURyZ3KU6a6q/K7XXr0FCM0P";

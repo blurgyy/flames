@@ -67,7 +67,6 @@
 
   homeCfg4gy = apply "gy" {
     "morty" = x86_64-non-headless;
-    "john" = x86_64-non-headless;
     "rpi" = aarch64-headless;
     "opi" = aarch64-headless;
     "copi" = aarch64-headless;
