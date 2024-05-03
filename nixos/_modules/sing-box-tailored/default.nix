@@ -82,13 +82,14 @@ in
           # Initial timestamp, 0 means not set
           LAST_TIMESTAMP=0
 
-          log_every_n_checks=15
+          check_interval_sec=2
+          log_every_n_checks=$((300 / check_interval_sec))  # Log every 5min
           n_checks=0
 
           while true; do
             n_checks=$((n_checks + 1))
             if [ $n_checks -eq $log_every_n_checks ]; then
-              echo "Last reconnection time was '$NEW_TIMESTAMP'"
+              echo "Last reconnection time was '$(date -d "@$NEW_TIMESTAMP")'"
               n_checks=0
             fi
 
