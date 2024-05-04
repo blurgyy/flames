@@ -40,7 +40,8 @@
         --allow-other
     '';
     serviceConfig = {
-      WorkingDirectory = "/run/rclone";
+      KillSignal = "SIGINT";  # seems like rclone does not unmount properly with SIGTERM
+      WorkingDirectory = "%t/rclone";
       RuntimeDirectory = "rclone";
       RuntimeDirectoryMode = 770;
       Group = config.users.groups.rclone.name;
