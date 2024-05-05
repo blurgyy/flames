@@ -28,6 +28,7 @@ in {
       "file:///home/gy/Downloads"
       "file:///home/gy/Playground"
       "file:///home/gy/Repos"
+      "file:///run/rclone"
       "file:///run/user/1000"
       "file:///tmp"
     ];
