@@ -28,7 +28,7 @@ in
         DNS written to `/etc/resolvconf.conf`, which is subsequently written to `/etc/resolv.conf`.
       '';
     };
-    restartOnWirelessReconnectInterfaces = mkOption {
+    monitorInterfaces = mkOption {
       type = with types; listOf str;
       default = [];
       description = "Restart sing-box on wpa_supplicant reconnect event from these interfaces";
@@ -76,7 +76,7 @@ in
       };
     })
 
-    (mkIf (cfg.restartOnWirelessReconnectInterfaces != []) (
+    (mkIf (cfg.enable && (cfg.monitorInterfaces != [])) (
       let
         mkScriptFor = iface: pkgs.writeShellScript "restart-sing-box-on-${iface}-wireless-reconnect" ''
           # Initial timestamp, 0 means not set
@@ -88,9 +88,18 @@ in
 
           while true; do
             n_checks=$((n_checks + 1))
-            if [ $n_checks -eq $log_every_n_checks ]; then
+
+            if [[ $n_checks -eq $log_every_n_checks ]]; then
               echo "Last reconnection time was '$(date -d "@$NEW_TIMESTAMP")'"
               n_checks=0
+            fi
+
+            # Check network responsiveness
+            if ! ping -c 5 -i 0.25 8.8.8.8 &> /dev/null; then
+              echo "Network unresponsive. Restarting wpa_supplicant."
+              systemctl restart wpa_supplicant-${iface}.service
+              sleep 5  # Wait before continuing
+              continue
             fi
 
             # Get the latest timestamp for CTRL-EVENT-CONNECTED from journalctl
@@ -103,7 +112,7 @@ in
 
               # Check if the new timestamp is greater than the last known timestamp
               if [[ "$LAST_TIMESTAMP" != 0 && "$NEW_TIMESTAMP_SEC" -gt "$LAST_TIMESTAMP" ]]; then
-                  echo "Network reconnection detected. Restarting Sing-box."
+                  echo "Network reconnection detected.  Restarting Sing-box."
                   systemctl restart sing-box.service
               fi
 
@@ -114,11 +123,11 @@ in
           done
         '';
 
-        systemdServicesForRestarting = lib.genAttrs cfg.restartOnWirelessReconnectInterfaces (iface: {
+        systemdServicesForRestarting = lib.genAttrs cfg.monitorInterfaces (iface: {
           description = "Monitor ${iface} and restart Sing-box on reconnection";
           after = [ "network.target" ];
           wantedBy = [ "multi-user.target" ];
-          path = [ pkgs.gawk ];
+          path = [ pkgs.gawk pkgs.iputils ];
           serviceConfig = {
             ExecStart = mkScriptFor iface;
             Restart = "always";
@@ -128,9 +137,9 @@ in
 
       in {
         systemd.services = lib.mapAttrs'
-          (name: value: {
-            name = "restart-sing-box-on-${name}-wireless-reconnect";
-            inherit value;
+          (iface: svc: {
+            name = "monitor-${iface}-and-restart-netowrk-stack";
+            value = svc;
           })
           systemdServicesForRestarting;
       }))
