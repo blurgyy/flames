@@ -13,8 +13,7 @@ EnumerateGroupForwardKeys=
 EnumerateGroupBackwardKeys=
 
 [Hotkey/TriggerKeys]
-# First hold Shift, then press left Alt to trigger this
-0=Shift+Meta_L
+0=Control+space
 1=Zenkaku_Hankaku
 2=Hangul
 
