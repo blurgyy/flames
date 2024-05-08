@@ -205,10 +205,7 @@ in {
       };
     };
     flameshot = callWithHelpers ../_parts/flameshot.nix {};
-    dunst = {
-      enable = true;
-      settings = callWithHelpers ../_parts/dunst.nix {};
-    };
+    swaync = callWithHelpers ../_parts/swaync.nix {};
     git-sync = {
       enable = true;
       repositories = {
