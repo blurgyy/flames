@@ -236,6 +236,9 @@ in {
     fzf
     gdu
     git
+    gnugrep
+    gnused
+    gnutar
     home-manager
     htop
     iotop

@@ -22,6 +22,8 @@ in {
       fd
       gdu
       git
+      gnugrep
+      gnused
       gnutar
       home-manager
       htop
