@@ -1,5 +1,5 @@
 { config }: let
-  inherit (config.ricing.headful) themeColor;
+  inherit (config.ricing) themeColor;
 in ''
 configuration {  /* REF: https://github.com/catppuccin/rofi */
   modi: "run,drun,ssh";

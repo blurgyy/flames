@@ -6,8 +6,8 @@ in {
     ../_parts/gpg-agent.nix
     ../_parts/sway.nix
     ../_parts/zotero.nix
+    ../_parts/ydotool.nix
   ];
-  ricing.headful.theme = "dark";
   qt = {
     enable = true;
     platformTheme.name = "gtk";

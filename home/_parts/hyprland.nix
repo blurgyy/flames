@@ -1,7 +1,7 @@
 { config, lib, pkgs, __callWithHelpers, ... }:
 
 let
-  inherit (config.ricing.headful) themeColor;
+  inherit (config.ricing) themeColor;
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
   wm-session-wants = [
     "thunar.service"

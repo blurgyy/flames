@@ -5,7 +5,7 @@ let
     name = "main";
     path = name;
   };
-  inherit (config.ricing.headful) themeColor;
+  inherit (config.ricing) themeColor;
 in
 
 {

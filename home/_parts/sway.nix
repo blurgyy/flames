@@ -4,7 +4,7 @@
     "thunar.service"
     "systembus-notify.service"
   ];
-  inherit (config.ricing.headful) wallpaper themeColor;
+  inherit (config.ricing) wallpaper themeColor;
 in {
   wayland.windowManager.sway = {
     enable = true;
@@ -284,7 +284,7 @@ in {
           accel_profile = "flat";  # Available values: (adaptive|flat)
         };
         "type:touchpad" = {
-          events = "disabled";  # disable touchpad
+          events = "enabled";  # disable touchpad
           accel_profile = "adaptive";  # Available values: (adaptive|flat)
           dwt = "enabled";  # Enable "disable-while-typing" feature
           tap = "enabled";  # Accept tap as mouse click

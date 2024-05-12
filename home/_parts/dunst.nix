@@ -1,5 +1,5 @@
 { lib, pkgs, config }: let
-  inherit (config.ricing.headful) themeColor;
+  inherit (config.ricing) themeColor;
   themeColorTransparency = "cc";
   transparentThemeColor = name: "${themeColor name}${themeColorTransparency}";
 in {

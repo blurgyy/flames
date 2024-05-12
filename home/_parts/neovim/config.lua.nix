@@ -1,5 +1,5 @@
 { config }: let
-  inherit (config.ricing.textual) themeColor;
+  inherit (config.ricing) themeColor;
 in ''
   vim = vim or {};
   table.unpack = table.unpack or unpack

@@ -9,7 +9,7 @@
 in {
   home.username = myName;
   home.homeDirectory = myHome;
-  ricing.textual.theme = "dark";
+  ricing.theme = "dark";
   programs.supervisedDesktopEntries.enable = true;
   home = {
     packages = with pkgs; [

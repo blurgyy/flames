@@ -143,47 +143,37 @@
   };
 in with lib; {
   options.ricing = {
-    headful = {
-      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); default = null; };
-      wallpaper = mkOption { };
-      themeColor = mkOption { };
-    };
-    textual = {
-      theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); default = null; };
-      themeColor = mkOption { };
-    };
+    theme = mkOption { type = with types; nullOr (enum [ "light" "dark" ]); default = null; };
+    themeColor = mkOption { };
+    wallpaper = mkOption { };
   };
 
   config = {
     ricing = {
-      headful.wallpaper = cozy-sunny-4k;
-      headful.themeColor = mkIf (cfg.headful.theme != null) (name:
+      wallpaper = cozy-sunny-4k;
+      themeColor = mkIf (cfg.theme != null) (name:
         let
-          colorFn = catppuccinColor (if cfg.headful.theme == "light" then "latte" else "mocha");
+          colorFn = catppuccinColor (if cfg.theme == "light" then "latte" else "mocha");
         in
           (colors colorFn)."${name}"
       );
-      textual.themeColor = mkIf (cfg.textual.theme != null) (name: let
-          colorFn = catppuccinColor (if cfg.textual.theme == "light" then "latte" else "mocha");
-        in
-          (colors colorFn)."${name}");
     };
-    gtk = mkIf (cfg.headful.theme != null) {
+    gtk = mkIf (cfg.theme != null) {
       enable = true;
       theme = {
         package = pkgs.catppuccin-gtk.override {
           accents = [ "yellow" ];
-          variant = if cfg.headful.theme == "light"
+          variant = if cfg.theme == "light"
             then "latte"
             else "mocha";
         };
-        name = if cfg.headful.theme == "light"
+        name = if cfg.theme == "light"
           then "Catppuccin-Latte-Standard-Yellow-Light"
           else "Catppuccin-Mocha-Standard-Yellow-Dark";
       };
       iconTheme = {
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
-        name = if cfg.headful.theme == "light"
+        name = if cfg.theme == "light"
           then "Flat-Remix-Yellow-Light"
           else "Flat-Remix-Yellow-Dark";
       };
@@ -193,7 +183,7 @@ in with lib; {
         useToml = lib.versionAtLeast config.programs.alacritty.package.version "0.13";
       in [
         "${pkgs.alacritty-theme}/catppuccin_${
-          if cfg.textual.theme == "light"
+          if cfg.theme == "light"
             then "latte"
             else "mocha"
         }.${if useToml
@@ -202,22 +192,25 @@ in with lib; {
         }"
       ];
     };
+    programs.neovim.extraConfig = mkAfter ''
+      set background=${config.ricing.theme}
+    '';
     # WARN: using readFile on derivations causes import-from-derivation.
     # programs.bat.themes.catppuccin = readFile "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin-${
-    #   if cfg.textual.theme == "light"
+    #   if cfg.theme == "light"
     #     then "latte"
     #     else "mocha"
     # }.tmTheme";
     xdg.configFile = {
       "bat/themes/catppuccin.tmTheme".source = "${pkgs.bat-theme-catppuccin}/share/bat/themes/Catppuccin ${
-        if cfg.textual.theme == "light"
+        if cfg.theme == "light"
           then "Latte"
           else "Mocha"
       }.tmTheme";
     };
     programs.tmux.plugins = [{
       plugin = pkgs.tmux-plugin-catppuccin;
-      extraConfig = "set -g @catppuccin_flavour '${if config.ricing.textual.theme == "light" then "latte" else "mocha"}'";
+      extraConfig = "set -g @catppuccin_flavour '${if config.ricing.theme == "light" then "latte" else "mocha"}'";
     }];
     programs.fish = {  # use jointly with home.activation.setupFishTideTheme (see below)
       plugins = [{

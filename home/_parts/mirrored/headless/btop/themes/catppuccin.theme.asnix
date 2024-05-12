@@ -1,5 +1,5 @@
 { config }: let
-  inherit (config.ricing.textual) themeColor;
+  inherit (config.ricing) themeColor;
 in ''
 theme[main_bg]=${themeColor "background"}
 theme[main_fg]=${themeColor "foreground"}

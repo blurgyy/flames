@@ -1,5 +1,5 @@
 { pkgs, hostName, config }: with pkgs; let
-  inherit (config.ricing.headful) themeColor;
+  inherit (config.ricing) themeColor;
   ethernetInterface.winston = "eth0";
   wirelessInterface.morty = "wlan0";
   interface = if (builtins.hasAttr hostName ethernetInterface)
