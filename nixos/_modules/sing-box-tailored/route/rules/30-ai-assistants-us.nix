@@ -12,6 +12,11 @@
     "openai.com"
     "intercom.io"
     "intercomcdn.com"
+    "aistudio.google.com"
+    "makersuite.google.com"
+    "ai.google.dev"
+    "idx.dev"
+    "generativelanguage.googleapis.com"
   ];
   domain_suffix = [
     ".azure.com"
@@ -26,6 +31,11 @@
     ".openai.com"
     ".intercom.io"
     ".intercomcdn.com"
+    ".aistudio.google.com"
+    ".makersuite.google.com"
+    ".ai.google.dev"
+    ".idx.dev"
+    ".generativelanguage.googleapis.com"
   ];
   outbound = "auto-ai-assistants-us";
 }

@@ -35,8 +35,15 @@
     "domain:ai.com"
     "domain:claude.ai"
     "domain:anthropic.com"
+
     "domain:bard.google.com"
     "domain:gemini.google.com"
+    "domain:aistudio.google.com"
+    "domain:makersuite.google.com"
+    "domain:ai.google.dev"
+    "domain:idx.dev"
+    "domain:generativelanguage.googleapis.com"
+
     "domain:open.ai"
   ];
   outboundTag = "direct:ai-assistants";
