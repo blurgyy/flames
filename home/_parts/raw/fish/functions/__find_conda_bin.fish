@@ -1,4 +1,12 @@
-set --local conda_search_path $HOME/.conda  # default installation prefix of nixpkgs#conda
+# default installation prefix of nixpkgs#conda
+
+if set -q conda_search_path
+  # respect existing environment, create a file under `~/.config/fish/conf.d/` to set it
+  set --local --append conda_search_path $HOME/.conda
+else
+  set --local conda_search_path $HOME/.conda
+end
+
 set --local --append conda_search_path $HOME/.local/lib/miniconda3
 set --local --append conda_search_path $HOME/.local/lib/miniconda
 set --local --append conda_search_path $HOME/miniconda3
