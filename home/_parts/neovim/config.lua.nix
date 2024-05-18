@@ -15,7 +15,6 @@ in ''
 
   vim.o.errorbells = false
   vim.o.visualbell = true
-  vim.api.nvim_set_option("t_vb", "")
   vim.o.shortmess = vim.o.shortmess .. "I"
   vim.o.showmode = false
 
@@ -38,7 +37,7 @@ in ''
         remove_blankline_trail = true,
       },
       indent = {
-        char = "┊",
+        char = "▏",
       },
     })
   end
