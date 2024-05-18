@@ -45,6 +45,8 @@ in {
         volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
         screenshot-notify = "${pkgs.notification-scripts}/bin/screenshot-notify";
       in {
+        "${mod}+y" = "exec waypoint";
+
         "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
         "${mod}+Alt+q" =  "exec swaymsg exit";
         "${mod}+e" = "exec ${fm}";

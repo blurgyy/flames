@@ -63,6 +63,7 @@ in {
     typst
     video-compare
     vimiv-qt
+    waypoint
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wl-screenrec
     wlr-randr

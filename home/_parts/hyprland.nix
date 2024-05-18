@@ -224,6 +224,7 @@ in
       # REF: <https://wiki.hyprland.org/Configuring/Binds/>
       bind = $mainMod, return, exec, alacritty
       bind = $mainMod, w, killactive,
+      bind = $mainMod, y, exec, waypoint
       bind = $mainMod, e, exec, thunar
       bind = $mainMod, r, exec, rofi -show drun
       bind = ALT SHIFT, r, exec, rofi -show run
