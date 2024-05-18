@@ -875,6 +875,31 @@
         },
         "version": "2.11.2"
     },
+    "waypoint": {
+        "cargoLocks": {
+            "Cargo.lock": [
+                "./waypoint-702657a6c18688fed97e498a9c95771b073835cc/Cargo.lock",
+                {}
+            ]
+        },
+        "date": "2024-04-17",
+        "extract": null,
+        "name": "waypoint",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "tadeokondrak",
+            "repo": "waypoint",
+            "rev": "702657a6c18688fed97e498a9c95771b073835cc",
+            "sha256": "sha256-ZRddQzSz++MlbbFBt5b1uZeOsOijdBtd9RfQeeTbQA4=",
+            "type": "github"
+        },
+        "version": "702657a6c18688fed97e498a9c95771b073835cc"
+    },
     "wl-screenrec": {
         "cargoLocks": {
             "Cargo.lock": [

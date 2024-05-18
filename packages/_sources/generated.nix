@@ -519,6 +519,24 @@
       sha256 = "sha256-lBjYtb64blFUH/iW/SmC4A7nX9asokvsNKu6QVYgmZ8=";
     };
   };
+  waypoint = {
+    pname = "waypoint";
+    version = "702657a6c18688fed97e498a9c95771b073835cc";
+    src = fetchFromGitHub {
+      owner = "tadeokondrak";
+      repo = "waypoint";
+      rev = "702657a6c18688fed97e498a9c95771b073835cc";
+      fetchSubmodules = false;
+      sha256 = "sha256-ZRddQzSz++MlbbFBt5b1uZeOsOijdBtd9RfQeeTbQA4=";
+    };
+    cargoLock."Cargo.lock" = {
+      lockFile = ./waypoint-702657a6c18688fed97e498a9c95771b073835cc/Cargo.lock;
+      outputHashes = {
+        
+      };
+    };
+    date = "2024-04-17";
+  };
   wl-screenrec = {
     pname = "wl-screenrec";
     version = "v0.1.3";

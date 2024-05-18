@@ -190,6 +190,11 @@ fetch.github = "loyalsoldier/v2ray-rules-dat"
 src.github = "muety/wakapi"
 fetch.github = "muety/wakapi"
 
+[waypoint]
+src.git = "https://github.com/tadeokondrak/waypoint"
+fetch.github = "tadeokondrak/waypoint"
+cargo_locks = ["Cargo.lock"]
+
 [wl-screenrec]
 src.github = "russelltg/wl-screenrec"
 fetch.github = "russelltg/wl-screenrec"
