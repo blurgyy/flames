@@ -95,7 +95,7 @@ in
             fi
 
             # Check network responsiveness
-            if ! ping -c 5 -i .99 8.8.8.8 &> /dev/null; then
+            if ! ping -c 8 -i .99 8.8.8.8 &> /dev/null; then
               echo "Network unresponsive. Restarting wpa_supplicant."
               systemctl restart wpa_supplicant-${iface}.service
               sleep 10  # Wait before continuing
