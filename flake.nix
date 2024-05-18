@@ -128,6 +128,13 @@
     in {
       inherit (pkgs-stable) haproxy;
     };
+    stableGamesOverlay = final: prev: let
+      pkgs-stable = import inputs.nixpkgs-stable {
+        inherit (prev) system config;
+      };
+    in {
+      inherit (pkgs-stable) minecraft steam;
+    };
   in
 
   flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
@@ -170,6 +177,7 @@
       inputs.fixenc.overlays.default
       cudaOverlay
       stableHaproxyOverlay
+      stableGamesOverlay
     ];
   };
 }
