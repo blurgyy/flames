@@ -503,12 +503,9 @@
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.36";
-    src = fetchFromGitHub {
-      owner = "microsoft";
-      repo = "vscode-codicons";
-      rev = "0.0.36";
-      fetchSubmodules = false;
-      sha256 = "sha256-OO6+fYc/DmC3E3r7EAxlI8hcDxWMJBrhnNmjLDoopaA=";
+    src = fetchurl {
+      url = "https://github.com/microsoft/vscode-codicons/releases/download/0.0.36/codicon.ttf";
+      sha256 = "sha256-NgUnV1OVrXD5QO/x5D63wuxk9OafidxYYbc0INKlePA=";
     };
   };
   wakapi = {

@@ -179,7 +179,7 @@ fetch.git = "https://github.com/pmizio/typescript-tools.nvim"
 
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
-fetch.github = "microsoft/vscode-codicons"
+fetch.url = "https://github.com/microsoft/vscode-codicons/releases/download/$ver/codicon.ttf"
 
 [v2ray-rules-dat]
 src.git = "https://github.com/loyalsoldier/v2ray-rules-dat"

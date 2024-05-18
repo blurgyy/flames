@@ -848,15 +848,10 @@
         "passthru": null,
         "pinned": false,
         "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
             "name": null,
-            "owner": "microsoft",
-            "repo": "vscode-codicons",
-            "rev": "0.0.36",
-            "sha256": "sha256-OO6+fYc/DmC3E3r7EAxlI8hcDxWMJBrhnNmjLDoopaA=",
-            "type": "github"
+            "sha256": "sha256-NgUnV1OVrXD5QO/x5D63wuxk9OafidxYYbc0INKlePA=",
+            "type": "url",
+            "url": "https://github.com/microsoft/vscode-codicons/releases/download/0.0.36/codicon.ttf"
         },
         "version": "0.0.36"
     },
