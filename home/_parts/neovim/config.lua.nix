@@ -37,7 +37,7 @@ in ''
         remove_blankline_trail = true,
       },
       indent = {
-        char = "▏",
+        char = "│",
       },
     })
   end
