@@ -1063,48 +1063,6 @@ in ''
     },
   })
 
-  -- fcitx5-ui
-  local lualine_cfg = require("lualine").get_config()
-  local function get_im()
-    local fcitx5_ui_mod = prequire("fcitx5-ui")
-    local mapping = {
-      [""] = " ",
-      ["keyboard-us"] = " ",
-      ["pinyin"] = "中",
-    }
-    if fcitx5_ui_mod then
-      local ok, im = pcall(fcitx5_ui_mod.getCurrentIM)
-      if ok then
-        return mapping[im]
-      else
-        return " "
-      end
-    else
-      return " "
-    end
-  end
-  if not GET_IM_INSERTED then
-    table.insert(lualine_cfg.sections.lualine_y, get_im)
-    GET_IM_INSERTED = true
-  end
-  require("lualine").setup(lualine_cfg)
-  local toggle_fcitx5_mapping = {
-    name = [[<C-\>]],
-    target = function()
-      local fcitx5_ui_mod = prequire("fcitx5-ui")
-      if not fcitx5_ui_mod then
-        local msg = "Could not toggle IM, is fcitx5 running?"
-        vim.api.nvim_echo({{msg, "WarningMsg"}}, true, {})
-      else
-        local ok, _ = pcall(fcitx5_ui_mod.toggle)
-        if not ok then
-          vim.api.nvim_echo({{"Failed to toggle IM, did fcitx5 die?", "ErrorMsg"}}, true, {})
-        end
-      end
-    end,
-  }
-  mappings.ni = { toggle_fcitx5_mapping, table.unpack(mappings.ni or {}) }
-
   -- comment.nvim
   require("Comment").setup()
 
