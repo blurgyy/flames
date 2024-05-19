@@ -17,12 +17,12 @@ in vimUtils.buildVimPlugin {
   postPatch = let
     luaVersion = with lib; concatStringsSep "." (take 2 (splitVersion lua51Packages.lua.version));
   in ''
-    sed -Ee '1ipackage.cpath = "${lua51Packages.lgi}/lib/lua/${luaVersion}/?.so;" .. package.cpath' \
+    sed -Ee '1ipackage.cpath = "${lua51Packages.lgi}/lib/lua/${luaVersion}/?/?.so;" .. package.cpath' \
         -e '1ipackage.path = "${lua51Packages.lgi}/share/lua/${luaVersion}/?.lua;" .. package.path' \
         -e '1ipackage.path = "${lua51Packages.lgi}/share/lua/${luaVersion}/?/init.lua;" .. package.path' \
         -e '1ipackage.path = "${dbus_proxy}/share/lua/${luaVersion}/?.lua;" .. package.path' \
         -e '1ipackage.path = "${dbus_proxy}/share/lua/${luaVersion}/?/init.lua;" .. package.path' \
-        -i lua/fcitx5-ui/utils.lua
+        -i lua/fcitx5-ui/init.lua
   '';
   meta = {
     homepage = "https://github.com/black-desk/fcitx5-ui.nvim";
