@@ -1063,9 +1063,6 @@ in ''
     },
   })
 
-  -- comment.nvim
-  require("Comment").setup()
-
   -- keymaps
   local function set_keymaps()
     for mode, map in pairs(mappings) do

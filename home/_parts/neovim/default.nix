@@ -16,7 +16,6 @@
     nvim-colorizer-lua
     vim-illuminate
     copilot-lua
-    comment-nvim
     nvim-lspconfig
     lsp_signature-nvim
     null-ls-nvim
