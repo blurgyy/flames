@@ -4,9 +4,9 @@
   sops.secrets = let
     secretConfig.sopsFile = ../../../../_secrets.yaml;
   in {
-    "api/gdrive/rclone-nixos/client_id" = secretConfig;
-    "api/gdrive/rclone-nixos/client_secret" = secretConfig;
-    "api/gdrive/rclone-nixos/token" = secretConfig;
+    "api/google/gdrive/rclone-nixos/client_id" = secretConfig;
+    "api/google/gdrive/rclone-nixos/client_secret" = secretConfig;
+    "api/google/gdrive/rclone-nixos/token" = secretConfig;
   };
 
   sops.templates.rclone-gdrive-cfg = {
@@ -16,9 +16,9 @@
       [gdrive]
       type = drive
       scope = drive
-      client_id = ${config.sops.placeholder."api/gdrive/rclone-nixos/client_id"}
-      client_secret = ${config.sops.placeholder."api/gdrive/rclone-nixos/client_secret"}
-      token = ${config.sops.placeholder."api/gdrive/rclone-nixos/token"}
+      client_id = ${config.sops.placeholder."api/google/gdrive/rclone-nixos/client_id"}
+      client_secret = ${config.sops.placeholder."api/google/gdrive/rclone-nixos/client_secret"}
+      token = ${config.sops.placeholder."api/google/gdrive/rclone-nixos/token"}
     '';
   };
 
