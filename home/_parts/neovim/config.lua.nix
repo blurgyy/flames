@@ -655,6 +655,7 @@ in ''
     "pyright",
     "rust_analyzer",
     "lua_ls",
+    "svelte",
     "tailwindcss",
     "taplo",
     "texlab",
