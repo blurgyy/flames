@@ -79,7 +79,7 @@ in {
     "winston"
   ];
   nixpkgs.config.rocmSupport = builtins.elem config.networking.hostName [
-    "morty"
+    # "morty"  # hardware may be outdated
   ];
 
   networking = {
