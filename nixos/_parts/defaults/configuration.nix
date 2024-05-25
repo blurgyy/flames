@@ -46,8 +46,8 @@ in {
       trusted-users = [ "root" "gy" ];
       substituters = # (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirror.sjtu.edu.cn/nix-channels/store") ++ [
       [
-        "https://cache.garnix.io"
         "https://nix-community.cachix.org"
+        "https://cache.garnix.io"
         "https://cuda-maintainers.cachix.org"
       ];
       trusted-public-keys = [
