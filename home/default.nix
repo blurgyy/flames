@@ -89,6 +89,6 @@ in inputs.home-manager.lib.homeManagerConfiguration {
     inputs.ntfy-bridge.hmModules.default
     self.homeManagerModules.default
     (lib.optionalAttrs ((!headless) && (builtins.pathExists ./${userName}/headful.nix)) ./${userName}/headful.nix)
-    ({ home.stateVersion = "23.11"; })
+    ({ home.stateVersion = "24.05"; })
   ];
 }
