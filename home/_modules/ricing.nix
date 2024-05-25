@@ -231,9 +231,6 @@ in with lib; {
     # REF: <https://support.mozilla.org/bm/questions/1364502>
 
     home.activation = {
-      generateBatCache = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
-        $DRY_RUN_CMD ${pkgs.bat}/bin/bat cache --build
-      '';
       setupFishTideTheme = lib.hm.dag.entryAfter [ "linkGeneration" ] ''
         if [[ -z "$DRY_RUN_CMD" ]]; then
           >/dev/null ${config.programs.fish.package}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=No"
