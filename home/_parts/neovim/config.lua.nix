@@ -934,7 +934,7 @@ in ''
   })
   local opts = { noremap = true, silent = true }
   mappings.n = {
-    { name = [[\h]], target = "<CMD>Gitsigns preview_hunk<CR>" },
+    { name = "gz", target = "<CMD>Gitsigns preview_hunk<CR>" },
     { name = "[h", target = "<CMD>Gitsigns prev_hunk<CR>" },
     { name = "]h", target = "<CMD>Gitsigns next_hunk<CR>" },
     { name = "<leader>hs", target = "<CMD>Gitsigns stage_hunk<CR>" },
