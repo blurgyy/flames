@@ -108,6 +108,7 @@
     nil
     pyright
     shfmt
+    nodePackages.bash-language-server
     nodePackages.svelte-language-server
     lua-language-server
     rustc  # provides source code of rust standard library for completion
