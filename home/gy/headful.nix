@@ -74,6 +74,7 @@ in {
     zotero
   ] ++ [  # fonts
     rubik
+    jost
     (iosevka-bin.override { variant = "SGr-IosevkaFixed"; })
     (iosevka-bin.override { variant = "SGr-IosevkaSlab"; })
     source-serif-pro
