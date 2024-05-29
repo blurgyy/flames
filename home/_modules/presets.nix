@@ -81,5 +81,6 @@ with lib;
       ++ (lib.optionals cfg.recreation recPackages)
       ++ (lib.optionals cfg.scientific sciPackages)
       ;
+    home.activation.dconfSettings = lib.mkIf config.home.presets.sans-systemd (lib.mkForce "");
   };
 }

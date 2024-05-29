@@ -238,7 +238,6 @@ in with lib; {
           $DRY_RUN_CMD ${config.programs.fish.package}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time='24-hour format' --lean_prompt_height='Two lines' --prompt_connection=Disconnected --prompt_spacing=Sparse --icons='Few icons' --transient=No"
         fi
       '';
-      dconfSettings = lib.mkIf config.home.presets.sans-systemd (lib.mkForce "");
     };
   };
 }
