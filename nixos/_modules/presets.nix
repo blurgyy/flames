@@ -8,7 +8,6 @@ let
     colmena
     ffmpeg-fuller
     gcc
-    glow
     hexyl
     hydra-check
     hyperfine

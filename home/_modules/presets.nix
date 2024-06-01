@@ -21,7 +21,6 @@ let
     fish
     fzf
     gdb
-    glow
     hexyl
     hydra-check
     imagemagick
