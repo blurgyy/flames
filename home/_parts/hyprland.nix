@@ -263,7 +263,7 @@ in
       # Lid switch, use hyprctl devices to show name
       bind = , switch:Lid Switch, exec, sdwrap swaylock
 
-      bind = $mainMod, escape, exec, sdwrap swaylock
+      bind = $mainMod ALT, L, exec, sdwrap swaylock
 
       # Move focus within current workspace
       bind = $mainMod, left,  movefocus, l

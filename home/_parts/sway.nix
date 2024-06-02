@@ -154,7 +154,7 @@ in {
         "${mod}+minus" = "scratchpad show";
         "${mod}+Shift+minus" = "move scratchpad";
 
-        "${mod}+Escape" = "exec sdwrap swaylock";
+        "${mod}+Alt+l" = "exec sdwrap swaylock";
 
         "${mod}+a" = ''mode "resize"'';
 
