@@ -369,15 +369,15 @@
       sha256 = "sha256-vFnC6nTQIqYmL/njcv3lw2zVrj+CpWeUFIns+rTwPWY=";
     };
   };
-  tdesktop-megumifox = {
-    pname = "tdesktop-megumifox";
-    version = "v4.16.8";
+  tdesktop-lily = {
+    pname = "tdesktop-lily";
+    version = "v5.1.1";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v4.16.8";
+      rev = "v5.1.1";
       fetchSubmodules = true;
-      sha256 = "sha256-M8wFhuTTEJippgvS93LNRqREV2TGF04ccps5oOmSr+0=";
+      sha256 = "sha256-IO023KwkXRwNNoxOYnD5KbL1wozREG6D3feGb6AArd4=";
     };
   };
   telegram-send = {

@@ -59,7 +59,7 @@ in {
     printer-cadlab
     rustdesk-with-default-and-x11-desktopentry
     slurp
-    tdesktop-megumifox
+    tdesktop-lily
     typst
     video-compare
     vimiv-qt
