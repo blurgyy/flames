@@ -1,4 +1,4 @@
 {
-  domain_suffix = ".ngrok-free.app";
+  domain_suffix = "ngrok-free.app";
   outbound = "auto-jp";
 }
