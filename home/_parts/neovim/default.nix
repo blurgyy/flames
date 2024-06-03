@@ -8,10 +8,6 @@
   vimdiffAlias = true;
 
   plugins = with pkgs.vimPlugins; [
-    pkgs.vim-plugin-bigfile-nvim
-    pkgs.vim-plugin-rainbow-delimiters-nvim
-    pkgs.vim-plugin-typescript-tools-nvim
-
     flash-nvim
     nvim-colorizer-lua
     vim-illuminate
@@ -81,6 +77,9 @@
     nvim-tree-lua
     indent-blankline-nvim
     gitsigns-nvim
+    rainbow-delimiters-nvim
+    bigfile-nvim
+    typescript-tools-nvim
     # lualine-lsp-progress  # Not tested
     # tabby  # Not provided by nixpkgs
 

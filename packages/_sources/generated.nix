@@ -450,18 +450,6 @@
       sha256 = "sha256-OcOFwIiwShQs+wjFgAz5rPDQou/ZC+FGO3ITeuCAbgQ=";
     };
   };
-  vim-plugin-bigfile-nvim = {
-    pname = "vim-plugin-bigfile-nvim";
-    version = "33eb067e3d7029ac77e081cfe7c45361887a311a";
-    src = fetchFromGitHub {
-      owner = "LunarVim";
-      repo = "bigfile.nvim";
-      rev = "33eb067e3d7029ac77e081cfe7c45361887a311a";
-      fetchSubmodules = false;
-      sha256 = "sha256-fabA2mVZAZg5Qot4ED9cJ1YMZ4wX4OvURNhIvKltFtA=";
-    };
-    date = "2023-11-06";
-  };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
     version = "665ecb1365639cd6c14e47f4bacd9121106025a2";
@@ -473,32 +461,6 @@
       sha256 = "sha256-FnxhCoBC8DDUlbHIi6xkIq53Nc6DVHwXD9j9LOdRzhc=";
     };
     date = "2023-06-16";
-  };
-  vim-plugin-rainbow-delimiters-nvim = {
-    pname = "vim-plugin-rainbow-delimiters-nvim";
-    version = "0f314613125fdd7c85faaee3c87051611d883253";
-    src = fetchgit {
-      url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim";
-      rev = "0f314613125fdd7c85faaee3c87051611d883253";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-tq31lEa6pUPEC97etfV3J6iwy5j7TD9A4+0hzpKptSU=";
-    };
-    date = "2024-05-31";
-  };
-  vim-plugin-typescript-tools-nvim = {
-    pname = "vim-plugin-typescript-tools-nvim";
-    version = "c43d9580c3ff5999a1eabca849f807ab33787ea7";
-    src = fetchgit {
-      url = "https://github.com/pmizio/typescript-tools.nvim";
-      rev = "c43d9580c3ff5999a1eabca849f807ab33787ea7";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sha256 = "sha256-kpdDYVd6uSuJImS9LU5p/vJgtj9tToNBvRTJHpsHyak=";
-    };
-    date = "2024-01-16";
   };
   vscode-codicons = {
     pname = "vscode-codicons";

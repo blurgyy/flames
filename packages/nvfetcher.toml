@@ -161,21 +161,9 @@ fetch.github = "MichaelAquilina/tro"
 src.github = "pixop/video-compare"
 fetch.github = "pixop/video-compare"
 
-[vim-plugin-bigfile-nvim]
-src.git = "https://github.com/LunarVim/bigfile.nvim"
-fetch.github = "LunarVim/bigfile.nvim"
-
 [vim-plugin-fcitx5-ui-nvim]
 src.git = "https://github.com/black-desk/fcitx5-ui.nvim"
 fetch.github = "black-desk/fcitx5-ui.nvim"
-
-[vim-plugin-rainbow-delimiters-nvim]
-src.git = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
-fetch.git = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim"
-
-[vim-plugin-typescript-tools-nvim]
-src.git = "https://github.com/pmizio/typescript-tools.nvim"
-fetch.git = "https://github.com/pmizio/typescript-tools.nvim"
 
 [vscode-codicons]
 src.github = "microsoft/vscode-codicons"
