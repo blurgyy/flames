@@ -80,7 +80,6 @@
     "mono" = x86_64-headless // { proxy = labProxy; };
 
     "peterpan" = x86_64-headless;
-    "penta" = x86_64-headless;
     "quad" = x86_64-headless;
     "rubik" = x86_64-headless;
     "hexa" = x86_64-headless;

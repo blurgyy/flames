@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, ... }: {
   sops.secrets.rssbot-token = {
     owner = config.users.users.rssbot.name;
     group = config.users.groups.rssbot.name;

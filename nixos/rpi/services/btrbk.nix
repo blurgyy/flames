@@ -40,7 +40,7 @@ in {
     password-backup = {
       onCalendar = "00/8:00:00";  # Every 8 hours since midnight
       settings = globalCfg // {
-        subvolume."ssh://penta/var/lib/bitwarden_rs" =  subvolSharedCfg //{
+        subvolume."ssh://velo/var/lib/bitwarden_rs" =  subvolSharedCfg //{
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
@@ -53,7 +53,7 @@ in {
     codingstats-backup = {
       onCalendar = "06:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
-        subvolume."ssh://penta/var/lib/wakapi" =  subvolSharedCfg //{
+        subvolume."ssh://velo/var/lib/wakapi" =  subvolSharedCfg //{
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
@@ -66,7 +66,7 @@ in {
     rssbot-backup = {
       onCalendar = "00:00:00 CST";  # morning 06:00 every day
       settings = globalCfg // {
-        subvolume."ssh://penta/var/lib/rssbot" = subvolSharedCfg // {
+        subvolume."ssh://quad/var/lib/rssbot" = subvolSharedCfg // {
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
@@ -92,7 +92,7 @@ in {
     twilar-backup = {
       onCalendar = "08:00:00 CST";
       settings = globalCfg // {
-        subvolume."ssh://penta/var/lib/webdav/apps/twilar" = subvolSharedCfg // {
+        subvolume."ssh://velo/var/lib/webdav/apps/twilar" = subvolSharedCfg // {
           snapshot_preserve_min = "latest";
           snapshot_preserve = "no";
 
@@ -111,19 +111,6 @@ in {
 
           target_preserve_min = "latest";
           target_preserve = "1w 3m 2y";
-        };
-      };
-    };
-
-    penta-postgresql-backup = {
-      onCalendar = "02:30:00 CST";
-      settings = globalCfg // {
-        subvolume."ssh://penta/var/lib/postgresql" = subvolSharedCfg // {
-          snapshot_preserve_min = "latest";
-          snapshot_preserve = "7d 3m 2y";
-
-          target_preserve_min = "latest";
-          target_preserve = "3d 3m 3y";
         };
       };
     };

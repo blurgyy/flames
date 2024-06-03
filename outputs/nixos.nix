@@ -56,7 +56,6 @@ in mkHosts {
   morty = pc-x86_64;
   octa = virtual-server-x86_64;
   opi = sbc-aarch64;
-  penta = virtual-server-x86_64;
   peterpan = virtual-server-x86_64;
   quad = virtual-server-x86_64;
   rpi = sbc-aarch64;

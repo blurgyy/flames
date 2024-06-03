@@ -48,7 +48,6 @@
     "morty"
     "octa"
     "opi"
-    "penta"
     "peterpan"
     "quad"
     "rpi"

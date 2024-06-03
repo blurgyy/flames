@@ -3,6 +3,9 @@
     ../../_parts/vserver.nix
     ../../_parts/vserver-wss.nix
     ./ollama-at-kaggle.nix
+    ./wakapi.nix
+    ./webdav.nix
+    ./vaultwarden
   ];
   services.haproxy-tailored = {
     enable = true;

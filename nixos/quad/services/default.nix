@@ -3,6 +3,8 @@
     ../../_parts/vserver.nix
     ../../_parts/vserver-wss.nix
     ./ntfy.nix
+    ./rssbot.nix
+    ./ollama-dev-at-kaggle.nix
   ];
   services.haproxy-tailored = {
     enable = true;

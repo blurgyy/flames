@@ -1,6 +1,10 @@
-{ config, ... }: let
+{ config, ... }:
+
+let
   wakapiDomain = "codingstats.${config.networking.domain}";
-in {
+in
+
+{
   sops.secrets = {
     "wakapi/salt" = {};
     "wakapi/smtp/username" = {};
