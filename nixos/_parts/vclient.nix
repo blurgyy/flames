@@ -37,13 +37,6 @@
         wsPath = null;
       }
       rec {
-        tag = "eu-01";
-        address = config.sops.placeholder."v2ray/addresses/${tag}";
-        port = 443;
-        domain = config.sops.placeholder."v2ray/domains/${tag}";
-        wsPath = null;
-      }
-      rec {
         tag = "cn-00";
         address = config.sops.placeholder."v2ray/addresses/${tag}";
         port = 443;
@@ -52,17 +45,10 @@
         allowInsecure = true;
       }
       {
-        tag = "wss-eu-00";
-        address = config.sops.placeholder."v2ray/domains/eu-00";
+        tag = "wss-eu-02";
+        address = config.sops.placeholder."v2ray/domains/eu-02";
         port = 443;
-        domain = config.sops.placeholder."v2ray/domains/eu-00";
-        wsPath = config.sops.placeholder."v2ray/ws-path";
-      }
-      {
-        tag = "wss-eu-01";
-        address = config.sops.placeholder."v2ray/domains/eu-01";
-        port = 443;
-        domain = config.sops.placeholder."v2ray/domains/eu-01";
+        domain = config.sops.placeholder."v2ray/domains/eu-02";
         wsPath = config.sops.placeholder."v2ray/ws-path";
       }
       {
