@@ -636,11 +636,11 @@
             "name": null,
             "owner": "telegramdesktop",
             "repo": "tdesktop",
-            "rev": "v5.1.1",
-            "sha256": "sha256-IO023KwkXRwNNoxOYnD5KbL1wozREG6D3feGb6AArd4=",
+            "rev": "v5.1.2",
+            "sha256": "sha256-KTgID7pd0QSFi5t9cdIVEi4/oQirDgsf7tTcEEtRdY0=",
             "type": "github"
         },
-        "version": "v5.1.1"
+        "version": "v5.1.2"
     },
     "telegram-send": {
         "cargoLocks": null,

@@ -371,13 +371,13 @@
   };
   tdesktop-lily = {
     pname = "tdesktop-lily";
-    version = "v5.1.1";
+    version = "v5.1.2";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v5.1.1";
+      rev = "v5.1.2";
       fetchSubmodules = true;
-      sha256 = "sha256-IO023KwkXRwNNoxOYnD5KbL1wozREG6D3feGb6AArd4=";
+      sha256 = "sha256-KTgID7pd0QSFi5t9cdIVEi4/oQirDgsf7tTcEEtRdY0=";
     };
   };
   telegram-send = {
