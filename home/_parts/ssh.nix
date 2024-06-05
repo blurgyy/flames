@@ -9,8 +9,7 @@
     "config.d/*"
   ];
   matchBlocks = let 
-    peterpan = "81.69.28.75";
-    relay = peterpan;
+    relay = "peterpan";
 
     addGpgRemoteForward = uid: config: config // {
       remoteForwards = config.remoteForwards or [] ++ [{
