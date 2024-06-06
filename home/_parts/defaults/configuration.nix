@@ -15,6 +15,8 @@ in {
     packages = with pkgs; [
       btop
       comma
+      coreutils-full
+      dnsutils
       dogdns
       dufs
       dysk
@@ -29,6 +31,8 @@ in {
       htop
       hyperfine
       iotop
+      iproute2
+      iputils
       jq
       killall
       less

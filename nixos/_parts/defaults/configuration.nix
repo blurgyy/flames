@@ -226,6 +226,8 @@ in {
   environment.systemPackages = with pkgs; [
     btop
     comma
+    coreutils-full
+    dnsutils
     dogdns
     dufs
     dysk
@@ -242,6 +244,8 @@ in {
     home-manager
     htop
     iotop
+    iproute2
+    iputils
     jq
     killall
     lm_sensors
