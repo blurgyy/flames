@@ -15,7 +15,7 @@ in vimUtils.buildVimPlugin {
   inherit (source) pname version src;
   propagatedBuildInputs = [ lua51Packages.lgi dbus_proxy ];
   postPatch = let
-    luaVersion = with lib; concatStringsSep "." (take 2 (splitVersion lua51Packages.lua.version));
+    luaVersion = lua51Packages.lua.luaversion;
   in ''
     sed -Ee '1ipackage.cpath = "${lua51Packages.lgi}/lib/lua/${luaVersion}/?/?.so;" .. package.cpath' \
         -e '1ipackage.path = "${lua51Packages.lgi}/share/lua/${luaVersion}/?.lua;" .. package.path' \
