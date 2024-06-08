@@ -82,6 +82,7 @@
     typescript-tools-nvim
     # lualine-lsp-progress  # Not tested
     # tabby  # Not provided by nixpkgs
+    which-key-nvim
 
     vim-cool
     vim-fugitive
