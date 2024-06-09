@@ -82,7 +82,10 @@ def main(credentials_path: Path, log_file: Path):
         printm("Filled username")
         password_box.send_keys(password)
         printm("Filled password")
-        remember_box.send_keys(Keys.SPACE)
+        if not remember_box.is_selected():
+            remember_box.click()
+        else:
+            printm("remember box is already selected, not clicking it again")
         printm("Checked remember box")
 
         submit_button = driver.find_element(By.ID, "login")
