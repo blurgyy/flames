@@ -106,7 +106,7 @@
     go
     gopls
     nil
-    pyright
+    basedpyright
     shfmt
     nodePackages.bash-language-server
     nodePackages.svelte-language-server
