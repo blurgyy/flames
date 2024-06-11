@@ -655,7 +655,7 @@ in ''
     "html",
     "jsonls",
     "nil_ls",
-    "basedpyright",
+    "pyright",
     "rust_analyzer",
     "lua_ls",
     "svelte",
@@ -677,17 +677,11 @@ in ''
         enable = true,
       },
     },
-    basedpyright = {
+    pyright = {
       settings = {
-        basedpyright = {
+        python = {
           analysis = {
             typeCheckingMode = "off",
-
-            reportUnreachable = true,
-            reportAny = false,
-
-            reportMissingTypeStubs = false,
-            useLibraryCodeForTypes = true,
           },
         },
       },
