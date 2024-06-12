@@ -1,4 +1,11 @@
-{ config, ... }: {
+{ config, ... }:
+
+{
+  services.proxy-zju = {
+    enable = true;
+    bindPort = 4096;
+  };
+
   sops.secrets = {
     "sshrp/ssh-env" = {};
     "sshrp/ssh-jammy-env" = {};

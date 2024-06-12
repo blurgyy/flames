@@ -2,7 +2,7 @@
 
 {
   services.proxy-zju = {
-    enable = true;
+    enable = false;
     bindPort = 2096;
   };
 
