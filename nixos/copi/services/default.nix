@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./rp
+    ./rp.nix
   ];
 
   services.curltimesync = {
