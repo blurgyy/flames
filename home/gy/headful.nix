@@ -51,7 +51,6 @@ in {
     evince
     libnotify
     localsend
-    logseq  # uses insecure electron-25.9.0
     meshlab
     minicom
     obs-studio
@@ -211,11 +210,11 @@ in {
     git-sync = {
       enable = true;
       repositories = {
-        logseq = {
-          interval = 1200;  # pull for changes 3 times per hour
-          path = "${myHome}/Repos/CHR/logseq";
-          uri = "git+ssh://git@github.com/blurgyy/logseq.git";
-        };
+        # logseq = {
+        #   interval = 1200;  # pull for changes 3 times per hour
+        #   path = "${myHome}/Repos/CHR/logseq";
+        #   uri = "git+ssh://git@github.com/blurgyy/logseq.git";
+        # };
       };
     };
     gnome-keyring.enable = true;
