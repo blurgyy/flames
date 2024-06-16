@@ -41,7 +41,7 @@ let
     ]))
   ];
   entPackages = with pkgs; [
-  ] ++ (lib.optional (system == "x86_64-linux") minecraft);
+  ];  # ++ (lib.optional (system == "x86_64-linux") minecraft);
   recPackages = with pkgs; [
     ffmpeg-fuller
     mayo
