@@ -11,15 +11,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "592780364a226d399a3aee19643ae4368a3c670e";
+    version = "13098cb1a6d4eb327f92aff2843b1f0196d93e46";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "592780364a226d399a3aee19643ae4368a3c670e";
+      rev = "13098cb1a6d4eb327f92aff2843b1f0196d93e46";
       fetchSubmodules = false;
-      sha256 = "sha256-ztxHBtZ/jyiJ1BKSbTlktWm6HTNIB+Nk7UavEtfaM2I=";
+      sha256 = "sha256-oh38N18K/hkjBDoqLaQ/+ym7gaeoXB5SP0s5rxUugGY=";
     };
-    date = "2024-06-12";
+    date = "2024-06-16";
   };
   alist = {
     pname = "alist";
@@ -66,15 +66,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "13dff65ea069534241646552b217f9583bdd7c59";
+    version = "9988820dcbb7d7911bb6449ffe119859e91cb2c7";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "13dff65ea069534241646552b217f9583bdd7c59";
+      rev = "9988820dcbb7d7911bb6449ffe119859e91cb2c7";
       fetchSubmodules = false;
-      sha256 = "sha256-FQMhmFpRjsoD0xqEzXh3kGlMuzgpkUYiNZj6/NjDbx4=";
+      sha256 = "sha256-Ym0Z1I6beSBW+G55NARCGzUOSEH0rApZVVR6fb6Cxk4=";
     };
-    date = "2024-06-11";
+    date = "2024-06-13";
   };
   dt = {
     pname = "dt";
@@ -229,10 +229,10 @@
   };
   labelme = {
     pname = "labelme";
-    version = "5.4.1";
+    version = "5.5.0";
     src = fetchurl {
-      url = "https://pypi.org/packages/source/l/labelme/labelme-5.4.1.tar.gz";
-      sha256 = "sha256-qjSnHV8fVWHEzAtD4eZhknYpE87RLxNI4swqEvraRC4=";
+      url = "https://pypi.org/packages/source/l/labelme/labelme-5.5.0.tar.gz";
+      sha256 = "sha256-feJ8abzpWQqwZMImiDxWz2xhW2aO8V8YWETz5VPd8MY=";
     };
   };
   libime-history-merge = {
@@ -254,18 +254,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202406112210";
+    version = "202406152210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202406112210/geoip.dat";
-      sha256 = "sha256-mBCPiYUD1UdUYXgacYJ/JSbJRp9WVKuy1CGcX85eYXo=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202406152210/geoip.dat";
+      sha256 = "sha256-IMKckWuP3rnRstOe6EKqlVriVZ/soH0QjB9SHYhSHr4=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202406112210";
+    version = "202406152210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202406112210/geosite.dat";
-      sha256 = "sha256-oOnfsHW4gPHv463v8NYnaRUXe2ZoYnilNeqfRj09z6M=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202406152210/geosite.dat";
+      sha256 = "sha256-e39vDZuYtCxOy6gJI5TJ/eo3WoqyQoavXJj1bWATCfc=";
     };
   };
   luarock-dbus_proxy = {
@@ -281,15 +281,15 @@
   };
   mayo = {
     pname = "mayo";
-    version = "dbd090b907c7ed4d07f8d11d48abae7489e116c4";
+    version = "4135cf44de6fa00628c5e18559cebbc9c3e87b54";
     src = fetchFromGitHub {
       owner = "fougue";
       repo = "mayo";
-      rev = "dbd090b907c7ed4d07f8d11d48abae7489e116c4";
+      rev = "4135cf44de6fa00628c5e18559cebbc9c3e87b54";
       fetchSubmodules = false;
-      sha256 = "sha256-RczPr+3uTV3qfRbcHcyedwdw5yE/ygQXOeSjwXFxW0A=";
+      sha256 = "sha256-e6xHM7xFNzW380uet8kZOyhYg2mNOXttnVygBUhNEt0=";
     };
-    date = "2024-06-11";
+    date = "2024-06-13";
   };
   nftables-geoip-db = {
     pname = "nftables-geoip-db";
@@ -355,10 +355,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "12.2.0";
+    version = "12.3.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/12.2.0/simple-icons-font-12.2.0.zip";
-      sha256 = "sha256-k63iDCooqFld/AnTNF/cJUz7KesKKl+R0qi7VTKdcBM=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/12.3.0/simple-icons-font-12.3.0.zip";
+      sha256 = "sha256-Oidw6BUTykNOxQMQb9KhJL+4CuL1MeVs8RTAzmRpx5A=";
     };
   };
   symbols-nerd-font = {
@@ -371,13 +371,13 @@
   };
   tdesktop-lily = {
     pname = "tdesktop-lily";
-    version = "v5.1.5";
+    version = "v5.1.7";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v5.1.5";
+      rev = "v5.1.7";
       fetchSubmodules = true;
-      sha256 = "sha256-dlPt87SKP17v9QFiRZSSUtSLVGTGbeo05G/p05l2zVc=";
+      sha256 = "sha256-OH9+cH5CQyrp4DSKXEMs6csGiH+GAtxJT4P9YidmAcM=";
     };
   };
   telegram-send = {
@@ -429,15 +429,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "c62972dbf385b73284777ee6b337dec30dd48a99";
+    version = "aecace477adc4e29c8eef867adf2caf41bfdc277";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "c62972dbf385b73284777ee6b337dec30dd48a99";
+      rev = "aecace477adc4e29c8eef867adf2caf41bfdc277";
       fetchSubmodules = false;
-      sha256 = "sha256-sMIfhH1IQpVtzsg+Fy3cFVKam3VlZVK/IEhM0mdEW/I=";
+      sha256 = "sha256-LpzOp7uh9aV9pGmir09BgRodB7wVNSX2PgsXzibis4I=";
     };
-    date = "2024-06-11";
+    date = "2024-06-15";
   };
   video-compare = {
     pname = "video-compare";
@@ -452,15 +452,15 @@
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
-    version = "665ecb1365639cd6c14e47f4bacd9121106025a2";
+    version = "02090e7539b2e2f97c29d51dcc5719b96835643a";
     src = fetchFromGitHub {
       owner = "black-desk";
       repo = "fcitx5-ui.nvim";
-      rev = "665ecb1365639cd6c14e47f4bacd9121106025a2";
+      rev = "02090e7539b2e2f97c29d51dcc5719b96835643a";
       fetchSubmodules = false;
-      sha256 = "sha256-FnxhCoBC8DDUlbHIi6xkIq53Nc6DVHwXD9j9LOdRzhc=";
+      sha256 = "sha256-ar4xZrCkvB9/iMYTuvi0BZtFnGyREATUCEifDqHf/A8=";
     };
-    date = "2023-06-16";
+    date = "2024-06-16";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
