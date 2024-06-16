@@ -797,26 +797,6 @@
         },
         "version": "0.0.36"
     },
-    "wakapi": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "wakapi",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "muety",
-            "repo": "wakapi",
-            "rev": "2.11.2",
-            "sha256": "sha256-lBjYtb64blFUH/iW/SmC4A7nX9asokvsNKu6QVYgmZ8=",
-            "type": "github"
-        },
-        "version": "2.11.2"
-    },
     "waypoint": {
         "cargoLocks": {
             "Cargo.lock": [

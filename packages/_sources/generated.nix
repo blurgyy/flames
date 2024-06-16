@@ -470,17 +470,6 @@
       sha256 = "sha256-NgUnV1OVrXD5QO/x5D63wuxk9OafidxYYbc0INKlePA=";
     };
   };
-  wakapi = {
-    pname = "wakapi";
-    version = "2.11.2";
-    src = fetchFromGitHub {
-      owner = "muety";
-      repo = "wakapi";
-      rev = "2.11.2";
-      fetchSubmodules = false;
-      sha256 = "sha256-lBjYtb64blFUH/iW/SmC4A7nX9asokvsNKu6QVYgmZ8=";
-    };
-  };
   waypoint = {
     pname = "waypoint";
     version = "702657a6c18688fed97e498a9c95771b073835cc";

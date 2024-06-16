@@ -174,10 +174,6 @@ src.git = "https://github.com/loyalsoldier/v2ray-rules-dat"
 src.branch = "release"
 fetch.github = "loyalsoldier/v2ray-rules-dat"
 
-[wakapi]
-src.github = "muety/wakapi"
-fetch.github = "muety/wakapi"
-
 [waypoint]
 src.git = "https://github.com/tadeokondrak/waypoint"
 fetch.github = "tadeokondrak/waypoint"
