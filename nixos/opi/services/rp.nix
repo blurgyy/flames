@@ -12,5 +12,15 @@
         hostPort = builtins.head config.services.openssh.ports;
       };
     };
+    server.services = {
+      wisp-rdp = {
+        port = 3389;
+        expose = false;
+      };
+      wisp-vnc = {
+        port = 5900;
+        expose = false;
+      };
+    };
   };
 }

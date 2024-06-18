@@ -60,9 +60,25 @@ in
     };
   };
 
-  # let `services.ssh-reverse-proxy.server.services` non-empty so that the "sshrp" user is created
-  services.ssh-reverse-proxy.server.services = {
-    "${VMName}-rdp".port = VMRDPPort;
-    "${VMName}-vnc".port = 5900;
+  sops.secrets = {
+    "sshrp/wisp-rdp" = {};
+    "sshrp/wisp-vnc" = {};
+  };
+
+  services.ssh-reverse-proxy = {
+    client.instances = {  # also see ./vm.nix
+      wisp-rdp = {
+        environmentFile = config.sops.secrets."sshrp/wisp-rdp".path;
+        identityFile = config.sops.secrets.hostKey.path;
+        bindPort = 3389;
+        hostPort = 3389;
+      };
+      wisp-vnc = {
+        environmentFile = config.sops.secrets."sshrp/wisp-vnc".path;
+        identityFile = config.sops.secrets.hostKey.path;
+        bindPort = 5900;
+        hostPort = 5900;
+      };
+    };
   };
 }
