@@ -86,12 +86,12 @@ in
     interface_name = cfg.tunInterface;
     inet4_address = tunAddress;
     auto_route = true;
-    inet4_route_exclude_address = [
-      "0.0.0.0/8"
-    ];
-    inet6_route_exclude_address = [
-      "::/128"
-    ];
+    # inet4_route_exclude_address = [
+    #   "0.0.0.0/8"
+    # ];
+    # inet6_route_exclude_address = [
+    #   "::/128"
+    # ];
     # enabling `strict_route` makes the device unreachable via ssh (ping is fine) from physical
     # interfaces (but still reachable via ssh through tailscale's tun)
     strict_route = false;
