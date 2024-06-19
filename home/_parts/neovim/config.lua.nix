@@ -495,9 +495,11 @@ in ''
         override_file_sorter = true,
         case_mode = "smart_case",
       },
+      ["ui-select"] = {},
     },
   })
   require("telescope").load_extension("fzf")
+  require("telescope").load_extension("ui-select")
 
   --- nvim-colorizer.lua
   require("colorizer").setup()

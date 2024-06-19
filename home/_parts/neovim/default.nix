@@ -28,6 +28,7 @@
     cmp-nvim-lsp
     telescope-nvim
       telescope-fzf-native-nvim
+      telescope-ui-select-nvim
     (nvim-treesitter.withPlugins (
       plugins: with plugins; [
         bash
