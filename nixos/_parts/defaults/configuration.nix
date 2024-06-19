@@ -44,12 +44,13 @@ in {
       auto-allocate-uids = true;
       use-cgroups = true;
       trusted-users = [ "root" "gy" ];
-      substituters = # (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirror.sjtu.edu.cn/nix-channels/store") ++ [
-      [
+      substituters = [
+        "https://cache.nixos.org"
         "https://nix-community.cachix.org"
         "https://cache.garnix.io"
         "https://cuda-maintainers.cachix.org"
-      ];
+      # ];
+      ] ++ (lib.optional (config.time.timeZone == "Asia/Shanghai") "https://mirror.sjtu.edu.cn/nix-channels/store");
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
