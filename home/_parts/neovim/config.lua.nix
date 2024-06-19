@@ -129,7 +129,7 @@ in ''
       { name = "gi", target = "gi<Esc>zzgi" },
       { name = "<C-j>", target = ":m .+1<CR>=kj" },
       { name = "gs", target = ":%s//g<Left><Left>" },
-      { name = "<M-CR>", target = ":lua vim.lsp.buf.code_action()<CR>" },
+      { name = "<M-a>", target = ":lua vim.lsp.buf.code_action()<CR>" },
       -- With mapleader
       { name = "<leader>n", target = ":n<CR>" },
       { name = "<leader>N", target = ":N<CR>" },
