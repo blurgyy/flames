@@ -179,6 +179,7 @@ in {
   };
 
   services = {
+    blueman-applet.enable = true;
     ntfy-bridge = {
       enable = true;
       defaultHost = "ntfy.blurgy.xyz";
