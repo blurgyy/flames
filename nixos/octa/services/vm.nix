@@ -57,6 +57,10 @@ in
           -netdev user,id=usernet,hostfwd=tcp:0.0.0.0:${toString VMRDPPort}-:3389 \
           -device e1000,netdev=usernet
       '';
+      serviceConfig = {
+        Restart = "always";
+        RestartSec = 15;
+      };
     };
   };
 
