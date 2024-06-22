@@ -54,7 +54,7 @@ in
           -drive file=${VMDiskPath},format=qcow2 \
           -drive file=${pkgs.fedora-virtio-win-iso},index=3,media=cdrom \
           -vnc :0 \
-          -netdev user,id=usernet,hostfwd=tcp:127.0.0.1:${toString VMRDPPort}-:3389 \
+          -netdev user,id=usernet,hostfwd=tcp:0.0.0.0:${toString VMRDPPort}-:3389 \
           -device e1000,netdev=usernet
       '';
     };
