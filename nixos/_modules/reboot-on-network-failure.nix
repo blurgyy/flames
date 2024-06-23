@@ -9,7 +9,7 @@
       wantedBy = [ "timers.target" ];
       timerConfig = {
         OnBootSec = "300s";
-        OnUnitInactiveSec = "150s";
+        OnUnitInactiveSec = "240s";
         Persistent = true;
         RandomizedDelaySec = "60s";
         Unit = "reboot-on-network-failure.service";
