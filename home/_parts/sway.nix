@@ -156,6 +156,9 @@ in {
 
         "${mod}+Alt+l" = "exec sdwrap swaylock";
 
+        # toggle notification center
+        "${mod}+Alt+n" = "exec swaync-client -t";
+
         "${mod}+a" = ''mode "resize"'';
 
         "${mod}+t" = ''mode "passthrough"'';

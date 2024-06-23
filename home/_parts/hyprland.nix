@@ -264,6 +264,7 @@ in
       bind = , switch:Lid Switch, exec, sdwrap swaylock
 
       bind = $mainMod ALT, L, exec, sdwrap swaylock
+      bind = $mainMod ALT, N, exec, swaync-client -t
 
       # Move focus within current workspace
       bind = $mainMod, left,  movefocus, l
