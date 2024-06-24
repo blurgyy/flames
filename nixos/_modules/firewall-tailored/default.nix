@@ -202,7 +202,8 @@ ${concatStringsSep "\n" cfg.extraRulesAfter}
         ruleFile = config.sops.templates.nftables-rules;
       in {
         description = "nftables firewall";
-        before = [ "network-pre.target" ];
+        after = [ "network-pre.target" ];
+        before = lib.optional config.networking.nat.enable "nat.service";
         wants = [ "network-pre.target" ];
         wantedBy = [ "multi-user.target" ];
         reloadIfChanged = true;
