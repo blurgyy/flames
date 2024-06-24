@@ -172,6 +172,17 @@ table inet filter {
   chain forward {
     type filter hook forward priority filter
     policy drop
+    ${if config.networking.nat.enable
+    then let
+      natCfg = config.networking.nat;
+    in (concatStringsSep "\n" (map
+      (iface: ''iifname "${iface}" oifname "${natCfg.externalInterface}" accept comment "allow NAT traffic from ${iface} to ${natCfg.externalInterface}"'')
+      natCfg.internalInterfaces
+    )) + "\n" + (concatStringsSep "\n" (map
+      (iface: ''iifname "${natCfg.externalInterface}" oifname "${iface}" ct state related,established accept comment "allow established NAT traffic from ${natCfg.externalInterface} to ${iface}"'')
+      natCfg.internalInterfaces
+    ))
+    else ""}
     ${concatStringsSep "\n" cfg.extraForwardRules}
     counter
   }
