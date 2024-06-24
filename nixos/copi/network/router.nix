@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 /*
  * connect winston through cable with this machine to route winston's traffic via WiFi
@@ -21,6 +21,7 @@
     reload-dwmac-sun8i = {
       wantedBy = [ "multi-user.target" ];
       after = [ "systemd-modules-load.service" ];
+      before = lib.optional config.services.sing-box.enable "sing-box.service";
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
