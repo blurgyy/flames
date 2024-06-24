@@ -86,6 +86,9 @@ in
     interface_name = cfg.tunInterface;
     inet4_address = tunAddress;
     auto_route = true;
+    exclude_interface = if config.networking.nat.enable
+      then config.networking.nat.internalInterfaces
+      else [];
     # inet4_route_exclude_address = [
     #   "0.0.0.0/8"
     # ];
