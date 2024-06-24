@@ -7,8 +7,8 @@
 {
   networking = {
     interfaces.eth0.ipv4.addresses = [{
-      address = "192.168.2.1";
-      prefixLength = 24;
+      address = "10.76.0.10";
+      prefixLength = 21;
     }];
     nat = {
       enable = true;
