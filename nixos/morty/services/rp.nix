@@ -1,7 +1,4 @@
 { config, ... }: {
-  imports = [
-    ./zjuwlan-condition.nix
-  ];
   sops.secrets = {
     "sshrp/ssh-env" = {};
     "sshrp/http-proxy-env" = {};
