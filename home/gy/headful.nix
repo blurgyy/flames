@@ -49,6 +49,7 @@ in {
     cage
     cider
     evince
+    feh
     libnotify
     localsend
     meshlab
@@ -61,7 +62,6 @@ in {
     tdesktop-lily
     typst
     video-compare
-    vimiv-qt
     waypoint
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wl-screenrec

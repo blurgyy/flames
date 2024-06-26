@@ -21,7 +21,8 @@ fixTypo "blurgy" [
   "ce"
   "lcd"
   "vcd"
-] // fixTypo "git" [ "g" "gi" "it" "gt" ]
+] // fixTypo "feh --conversion-timeout=1" [ "feh" "imv" "vimiv" ]
+// fixTypo "git" [ "g" "gi" "it" "gt" ]
 // fixTypo "g++" [ "g+" "g+=" "g=+" "g_" "g__" ]
 // fixTypo ll_command [ "ll" "lll" ]
 // fixTypo ls_command [ "ls" "lss" "lks" "lls" "lsc" "lsl" "s" "sl" ]
@@ -229,7 +230,6 @@ fixTypo "blurgy" [
   cgls = "systemd-cgls";
   dl = "axel -n 16";
   dvim = "${vi_command} -V10/tmp/vim-debug.log";
-  feh = "feh --auto-rotate --conversion-timeout=1";
   fgfg = "fg";
   dfg = "fg";
   "g++" = "g++ -Wall";
@@ -237,7 +237,6 @@ fixTypo "blurgy" [
   ghc = "ghc -dynamic -outputdir=/tmp/ghc";
   gpustat = ''gpustat --force-color -cpuFi 1 -P "draw,limit"'';
   hibernate = "systemctl hibernate";
-  imv = "vimiv";
   ip = "ip -br -c";
   jobs = "jobs -l";
   js = "sudo journalctl --system";
