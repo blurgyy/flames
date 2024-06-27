@@ -25,8 +25,9 @@ stdenvNoCC.mkDerivation {
     out=$TMPDIR/clash.yaml ${clashRulesBuildScript}
     install -Dvm444 $TMPDIR/clash.yaml $out/clash/generated.yaml
 
+    install -Dvm555 ${./src/clash-rules.py} $out/bin/clash-rules
     install -Dvm555 ${./src/sing-box-rules.py} $out/bin/sing-box-rules
-    patchShebangs --build $out/bin/sing-box-rules
+    patchShebangs --build $out/bin/*
 
     install -Dvm644 -t $out/src/custom ${./custom-rules}/*.txt
     install -Dvm644 -t $out/src/upstream ${rulesSrc}/*.txt

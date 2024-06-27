@@ -48,6 +48,11 @@
         email = config.sops.placeholder."v2ray/users/06/email";
         inherit level;
       }
+      {
+        uuid = config.sops.placeholder."v2ray/users/07/uuid";
+        email = config.sops.placeholder."v2ray/users/07/email";
+        inherit level;
+      }
     ];
   };
 

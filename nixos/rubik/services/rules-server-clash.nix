@@ -15,17 +15,15 @@ in
     preStart = ''
       cd /run/${serviceConfig.RuntimeDirectory}
       cp ${pkgs.cgi-rules-server}/bin/clash .
-      ln -sf $CREDENTIALS_DIRECTORY/header.yaml
+      cat $CREDENTIALS_DIRECTORY/header.yaml ${pkgs.proxy-rules}/clash/generated.yaml >template.yaml
       ln -sf $CREDENTIALS_DIRECTORY/uuids
-      ln -sf ${pkgs.proxy-rules}/clash/generated.yaml
     '';
     path = [ pkgs.thttpd ];
     script = ''
-      thttpd \
-        -d /run/${serviceConfig.RuntimeDirectory} \
-        -p ${toString listenPort} \
-        -c "/clash" \
-        -D
+      ${pkgs.proxy-rules}/bin/clash-rules \
+        --template /run/${serviceConfig.RuntimeDirectory}/template.yaml \
+        --users /run/${serviceConfig.RuntimeDirectory}/uuids \
+        --port ${toString listenPort}
     '';
     serviceConfig = {
       DynamicUser = true;
@@ -46,6 +44,7 @@ in
     ];
     backends.rules-server-clash = {
       mode = "http";
+      requestRules = [ "replace-uri /clash(.*)$ \\1" ];
       server.address = "127.0.0.1:${toString listenPort}";
     };
   };
