@@ -25,12 +25,13 @@ in
       ${utils.genJqSecretsReplacementSnippet config.services.sing-box.settings "/tmp/template.json"}
       jq 'del(.route.geoip) | del(.route.geosite) | .log.level="error" | .log.timestamp=true' /tmp/template.json >template.json
     '';
-    path = [
-      pkgs.proxy-rules
-      pkgs.jq
-    ];
+    path = [ pkgs.jq ];
     script = ''
-      SING_BOX_RULES_PORT=${toString listenPort} sing-box-rules serve ${pkgs.proxy-rules}/src template.json $CREDENTIALS_DIRECTORY/uuids 
+      ${pkgs.sing-box-rules}/bin/sing-box-rules serve \
+        ${pkgs.proxy-rules}/src \
+        template.json \
+        $CREDENTIALS_DIRECTORY/uuids \
+        --port=${toString listenPort}
     '';
     serviceConfig = {
       DynamicUser = false;

@@ -20,7 +20,7 @@ in
     '';
     path = [ pkgs.thttpd ];
     script = ''
-      ${pkgs.proxy-rules}/bin/clash-rules \
+      ${pkgs.clash-rules}/bin/clash-rules \
         --template /run/${serviceConfig.RuntimeDirectory}/template.yaml \
         --users /run/${serviceConfig.RuntimeDirectory}/uuids \
         --port ${toString listenPort}
