@@ -112,6 +112,7 @@
     nodePackages.svelte-language-server
     lua-language-server
     rustc  # provides source code of rust standard library for completion
+    rustfmt
     rust-analyzer
     tailwindcss-language-server
     taplo-lsp
