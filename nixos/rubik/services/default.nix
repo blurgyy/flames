@@ -18,6 +18,7 @@
           email = "gy@blurgy.xyz";
           credentialsFile = config.sops.secrets.acme-credentials-file.path;
         };
+        extraNames = [ "www.${config.networking.domain}" ];
       };
     };
   };
