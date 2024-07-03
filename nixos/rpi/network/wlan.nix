@@ -38,5 +38,5 @@ in
     credentialsFile = config.sops.secrets."zjuwlan-credentials".path;
   };
 
-  networking.reboot-on-network-failure = true;
+  networking.reboot-on-network-failure.enable = true;
 }
