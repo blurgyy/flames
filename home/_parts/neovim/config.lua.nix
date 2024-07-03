@@ -893,7 +893,7 @@ in ''
   }
 
   --- treesitter, ts-rainbow
-  rainbow = require "rainbow-delimiters"
+  local rainbow = require "rainbow-delimiters"
   vim.g.rainbow_delimiters = {
     strategy = {
       -- Use global strategy by default
