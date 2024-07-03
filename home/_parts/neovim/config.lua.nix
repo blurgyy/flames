@@ -688,6 +688,15 @@ in ''
         },
       },
     },
+    rust_analyzer = {
+      settings = {
+        ["rust-analyzer"] = {
+          procMacro = {
+            enable = false,
+          },
+        },
+      },
+    },
     ccls = {
       init_options = {
         cache = {
