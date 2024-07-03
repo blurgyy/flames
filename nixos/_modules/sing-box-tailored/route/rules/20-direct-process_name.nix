@@ -5,6 +5,8 @@
     "nscd"
     "nsncd"
 
+    "sing-man"
+
     "sshd"
 
     "systemd-timesyncd"
