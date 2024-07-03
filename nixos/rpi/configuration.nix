@@ -47,7 +47,7 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    transmission
+    transmission_4
     ustreamer
   ];
 
