@@ -15,10 +15,10 @@ tdesktop.overrideAttrs (o: {
   postPatch = ''
     patch -b -l -d Telegram/lib_ui -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/no-embolded-font.patch
     patch -b -l -d Telegram/lib_ui -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/dont-adjust-fontsize.patch
-    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0002-add-TDESKTOP_DISABLE_REGISTER_CUSTOM_SCHEME-back.patch
-    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0003-make-blockquote-markup-less-distractive.patch
-    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0004-Drop-usage-of-Qt-6.5-colorScheme-API-on-Linux.patch
-    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/animated-avatar-follows-power-setting.patch
+    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0001-add-TDESKTOP_DISABLE_REGISTER_CUSTOM_SCHEME-back.patch
+    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0002-make-blockquote-markup-less-distractive.patch
+    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0003-Drop-usage-of-Qt-6.5-colorScheme-API-on-Linux.patch
+    patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0004-make-animated-avatar-follow-power-settings.patch
     patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/warn-before-delete-all-2.patch
   '';
   meta.platforms = [ "x86_64-linux" ];  # save build time on the aarch64 builder
