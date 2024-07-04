@@ -138,7 +138,7 @@ in
       in {
         systemd.services = lib.mapAttrs'
           (iface: svc: {
-            name = "monitor-${iface}-and-restart-netowrk-stack";
+            name = "monitor-${iface}-and-restart-network-stack";
             value = svc;
           })
           systemdServicesForRestarting;
