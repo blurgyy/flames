@@ -782,6 +782,26 @@
         },
         "version": "12aa137a218584ca799762b76e9589bafec9eb8e"
     },
+    "vim-plugin-tiny-inline-diagnostic-nvim": {
+        "cargoLocks": null,
+        "date": "2024-07-05",
+        "extract": null,
+        "name": "vim-plugin-tiny-inline-diagnostic-nvim",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rachartier",
+            "repo": "tiny-inline-diagnostic.nvim",
+            "rev": "c9e8f98dbbb20c41716496bf37f69d29d3c91263",
+            "sha256": "sha256-/w3JOusXtcOKZtxjB1wm2l7hC5cgyU0FKSeBKuzwFxU=",
+            "type": "github"
+        },
+        "version": "c9e8f98dbbb20c41716496bf37f69d29d3c91263"
+    },
     "vscode-codicons": {
         "cargoLocks": null,
         "date": null,

@@ -462,6 +462,18 @@
     };
     date = "2024-06-26";
   };
+  vim-plugin-tiny-inline-diagnostic-nvim = {
+    pname = "vim-plugin-tiny-inline-diagnostic-nvim";
+    version = "c9e8f98dbbb20c41716496bf37f69d29d3c91263";
+    src = fetchFromGitHub {
+      owner = "rachartier";
+      repo = "tiny-inline-diagnostic.nvim";
+      rev = "c9e8f98dbbb20c41716496bf37f69d29d3c91263";
+      fetchSubmodules = false;
+      sha256 = "sha256-/w3JOusXtcOKZtxjB1wm2l7hC5cgyU0FKSeBKuzwFxU=";
+    };
+    date = "2024-07-05";
+  };
   vscode-codicons = {
     pname = "vscode-codicons";
     version = "0.0.36";
