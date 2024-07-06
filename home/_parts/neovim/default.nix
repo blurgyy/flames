@@ -8,6 +8,8 @@
   vimdiffAlias = true;
 
   plugins = with pkgs.vimPlugins; [
+    pkgs.vim-plugin-tiny-inline-diagnostic-nvim
+
     flash-nvim
     nvim-colorizer-lua
     vim-illuminate

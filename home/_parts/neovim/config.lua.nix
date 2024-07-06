@@ -217,7 +217,39 @@ in ''
     autocmd BufEnter * if exists('b:__bufview') | call winrestview(b:__bufview) | endif
   ]])
 
+  local vim_diagnostic_config = {
+    virtual_text = {
+      prefix = ">",
+      source = "if_many",
+    },
+    float = {
+      source = "always",
+      -- REF: <https://neovim.io/doc/user/api.html#nvim_open_win()>
+      -- none/single/double/rounded/solid/shadow
+      border = "double",
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = true,
+    severity_sort = true,
+  }
+
   -- Plugins
+  -- tiny-inline-diagnostic.nvim
+  require('tiny-inline-diagnostic').setup({
+    vertial_text = false,
+    signs = {  -- these are the defaults
+        left = "",
+        right = "",
+        diag = "●",
+        arrow = "    ",
+        up_arrow = "    ",
+        vertical = " │",
+        vertical_end = " └"
+    },
+  })
+  vim_diagnostic_config["virtual_text"] = false  -- disable diagnostic virtual texts for tiny-inline-diagnostic
+
   -- flash.nvim
   require("flash").setup({})
 
@@ -251,22 +283,7 @@ in ''
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
   end
   ---- REF: https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#user-content-change-prefixcharacter-preceding-the-diagnostics-virtual-text
-  vim.diagnostic.config({
-    virtual_text = {
-      prefix = ">",
-      source = "if_many",
-    },
-    float = {
-      source = "always",
-      -- REF: <https://neovim.io/doc/user/api.html#nvim_open_win()>
-      -- none/single/double/rounded/solid/shadow
-      border = "double",
-    },
-    signs = true,
-    underline = true,
-    update_in_insert = true,
-    severity_sort = true,
-  })
+  vim.diagnostic.config(vim_diagnostic_config)
 
   --- lsp_signature
   local lsp_signature_cfg = {
