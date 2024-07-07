@@ -3,7 +3,7 @@
 in {
   systemd.services.router-page = rec {
     wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.thttpd ];
+    path = [ pkgs.dufs ];
     preStart = ''
       cd /run/${serviceConfig.RuntimeDirectory}
       cat >index.html <<EOF
@@ -35,12 +35,9 @@ google.com, pub-7603222628125848, DIRECT, f08c47fec0942fa0
 EOF
     '';
     script = ''
-      thttpd \
-        -d /run/${serviceConfig.RuntimeDirectory} \
+      dufs /run/${serviceConfig.RuntimeDirectory} --render-index \
         -p ${toString listenPort} \
-        -c "/*" \
-        -l /var/log/${serviceConfig.LogsDirectory}/router-page.log \
-        -D
+        --log-file /var/log/${serviceConfig.LogsDirectory}/router-page.log
     '';
     serviceConfig = {
       DynamicUser = true;

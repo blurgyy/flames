@@ -18,7 +18,6 @@ in
       cat $CREDENTIALS_DIRECTORY/header.yaml ${pkgs.proxy-rules}/clash/generated.yaml >template.yaml
       ln -sf $CREDENTIALS_DIRECTORY/uuids
     '';
-    path = [ pkgs.thttpd ];
     script = ''
       ${pkgs.clash-rules}/bin/clash-rules \
         --template /run/${serviceConfig.RuntimeDirectory}/template.yaml \
