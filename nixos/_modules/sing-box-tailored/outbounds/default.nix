@@ -8,7 +8,7 @@ builtins.concatLists [
         uuid._secret = secretPath;
       } else if entry.type == "urltest"
       then {
-        interval = "5m";
+        interval = "150s";  # 2.5m
         tolerance = 50;  # ms
       } else {}) // entry)
     (mapDir applyTag ./remote))
