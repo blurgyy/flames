@@ -110,6 +110,7 @@
             "${conda-env}:/etc/profile.d/conda-env.sh"
             "${home-manager-PATH-env}:/etc/profile.d/home-manager-PATH-env.sh"
             "${TERM-env}:/etc/profile.d/TERM-env.sh"
+            "/run/opengl-driver/lib:${opengl-driver-bindpath}"
           ] ++ [  # ssh
             "${tmpfiles-create-etc-sshd-authorized_keys}:/etc/tmpfiles.d/create-etc-sshd-authorized_keys.conf"
             "${tmpfiles-create-var-empty-directory}:/etc/tmpfiles.d/create-var-empty-directory.conf"
@@ -121,7 +122,6 @@
           ] ++ (with config.boot.kernelPackages; [
             "${cudatoolkit-unsplit}:${cudatoolkit-bindpath}"
             "${nvidia_x11.bin}/bin/nvidia-smi:/usr/bin/nvidia-smi"  # NOTE: also bind /nix:/nix (see above) so that dynamic libararies can be found
-            "/run/opengl-driver/lib:${opengl-driver-bindpath}"
           ]);
         };
       };
