@@ -119,16 +119,25 @@
 
     gpp = { hostname = "peterpan"; port = 77; };
 
-    ubuntu-jammy = addGpgRemoteForward 1001 {
+    jazz = addGpgRemoteForward 1000 {
       hostname = "winston";
       port = 1722;
     };
-    ubuntu-jammy-copi = addGpgRemoteForward 1001 {
+    jazz-copi = addGpgRemoteForward 1000 {
       hostname = "winston";
       proxyJump = "copi";
       port = 1722;
     };
-    ubuntu-jammy-relay = addGpgRemoteForward 1001 {
+    jazz-relay = addGpgRemoteForward 1000 {
+      hostname = relay;
+      port = 16251;
+    };
+
+    juno = addGpgRemoteForward 1000 {
+      hostname = "morty";
+      port = 1722;
+    };
+    juno-relay = addGpgRemoteForward 1000 {
       hostname = relay;
       port = 16251;
     };
