@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 
+let
+  hostname = "jazz";
+in
+
 {
   systemd = {
     nspawn = let
@@ -10,12 +14,6 @@
       mkSshdConfigPortOverride = port: builtins.toFile "nspawn-sshd_config-port-override" ''
         Port ${toString port}
       '';
-      tmpfiles-create-etc-sshd-authorized_keys = let
-        keys = import ../../_parts/defaults/public-keys.nix;
-      in with builtins;
-        toFile "nspawn-tmpfiles-sshd-authorized_keys" ''
-          w ${authorized_keys-path} 444 root root - ${lib.concatStringsSep "\\n" (attrValues keys.users)}
-        '';
       sshd_config-overrides = builtins.toFile "nspawn-sshd_config-overrides" ''
         AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys.d/%u ${authorized_keys-path}
         PasswordAuthentication no
@@ -28,6 +26,9 @@
         ::1 localhost
         127.0.0.2 ${hostname}
         ::1 ${hostname}
+      '';
+      mkEtcHostname = hostname: builtins.toFile "nspawn-etc-hostname-${hostname}" ''
+        ${hostname}
       '';
       tmpfiles-create-var-lib-systemd-linger-gy = builtins.toFile "nspawn-tmpfiles-create-var-lib-systemd-linger-gy" ''
         f /var/lib/systemd/linger/gy 0644 root root - -
@@ -70,7 +71,7 @@
         export TERM=xterm-256color
       '';
     in {
-      jammy = {
+      ${hostname} = {
         enable = true;
         execConfig.Boot = true;
         networkConfig.Private = false;
@@ -97,15 +98,17 @@
             "/etc/inputrc"
             "/etc/resolv.conf"
             "${mkEtcHosts "ubuntu-jammy"}:/etc/hosts"
+            "${mkEtcHostname hostname}:/etc/hostname"
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
-            # "${display-env}:/etc/profile.d/display-env.sh"
+            "${display-env}:/etc/profile.d/display-env.sh"
             "${cuda-env}:/etc/profile.d/cuda-env.sh"
             "${conda-env}:/etc/profile.d/conda-env.sh"
             "${home-manager-PATH-env}:/etc/profile.d/home-manager-PATH-env.sh"
             "${TERM-env}:/etc/profile.d/TERM-env.sh"
             "/run/opengl-driver/lib:${opengl-driver-bindpath}"
+            # ssh
+            "/etc/ssh/authorized_keys.d:/etc/ssh/authorized_keys.d:rootidmap"
           ] ++ [  # ssh
-            "${tmpfiles-create-etc-sshd-authorized_keys}:/etc/tmpfiles.d/create-etc-sshd-authorized_keys.conf"
             "${tmpfiles-create-var-empty-directory}:/etc/tmpfiles.d/create-var-empty-directory.conf"
             "${tmpfiles-create-var-lib-systemd-linger-gy}:/etc/tmpfiles.d/enable-lingering-gy.conf"
             # add a line to `/etc/ssh/sshd_config` inside the container:
@@ -140,7 +143,7 @@
       #         * CUDA:
       #             failed: no CUDA-capable device is detected
       #
-      # "systemd-nspawn@jammy" = {
+      # "systemd-nspawn@${hostname}" = {
       #   overrideStrategy = "asDropin";
       #   wantedBy = [ "machines.target" ];
       # };
