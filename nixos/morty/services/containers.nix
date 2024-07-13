@@ -13,12 +13,6 @@ in
       mkSshdConfigPortOverride = port: builtins.toFile "nspawn-sshd_config-port-override" ''
         Port ${toString port}
       '';
-      tmpfiles-create-etc-sshd-authorized_keys = let
-        keys = import ../../_parts/defaults/public-keys.nix;
-      in with builtins;
-        toFile "nspawn-tmpfiles-sshd-authorized_keys" ''
-          w ${authorized_keys-path} 444 root root - ${lib.concatStringsSep "\\n" (attrValues keys.users)}
-        '';
       sshd_config-overrides = builtins.toFile "nspawn-sshd_config-overrides" ''
         AuthorizedKeysFile %h/.ssh/authorized_keys /etc/ssh/authorized_keys.d/%u ${authorized_keys-path}
         PasswordAuthentication no
@@ -105,7 +99,6 @@ in
             # ssh
             "/etc/ssh/authorized_keys.d:/etc/ssh/authorized_keys.d:rootidmap"
           ] ++ [  # ssh
-            "${tmpfiles-create-etc-sshd-authorized_keys}:/etc/tmpfiles.d/create-etc-sshd-authorized_keys.conf"
             "${tmpfiles-create-var-empty-directory}:/etc/tmpfiles.d/create-var-empty-directory.conf"
             "${tmpfiles-create-var-lib-systemd-linger-gy}:/etc/tmpfiles.d/enable-lingering-gy.conf"
             # add a line to `/etc/ssh/sshd_config` inside the container:
