@@ -11,15 +11,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "d1ae2d89ddd95722a491c5a77f5de88c2ddfa908";
+    version = "c3d6c9c613b7c4d2110340733b60e43e4145a599";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "d1ae2d89ddd95722a491c5a77f5de88c2ddfa908";
+      rev = "c3d6c9c613b7c4d2110340733b60e43e4145a599";
       fetchSubmodules = false;
-      sha256 = "sha256-xVXqHbHN8oCsz/Tx+nycEOfDq58fbN4d1lCrX7Nks84=";
+      sha256 = "sha256-IncKPR3EPMZvkhOQQqq4Q/tESZ3t4/PyyeeUxy1MT3I=";
     };
-    date = "2024-07-02";
+    date = "2024-07-14";
   };
   alist = {
     pname = "alist";
@@ -254,18 +254,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202407012211";
+    version = "202407122210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407012211/geoip.dat";
-      sha256 = "sha256-KyNsxGxAm9ew7xvtrcQe7EzwBdisl3bQBnhyUFSW9QA=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407122210/geoip.dat";
+      sha256 = "sha256-/SJFSLAwnwgQsDwTrmHMQaaWj+axY5yC3jcUhSAPvLs=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202407012211";
+    version = "202407122210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407012211/geosite.dat";
-      sha256 = "sha256-IeGuRxyYDeARSvmCFVv5ol5XflHSLLaUna70TFwm1XI=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407122210/geosite.dat";
+      sha256 = "sha256-1AL+ObnAk+M0os9jq1DX5impk5DNaDM840a+Ir9OBe8=";
     };
   };
   luarock-dbus_proxy = {
@@ -355,10 +355,10 @@
   };
   simple-icons = {
     pname = "simple-icons";
-    version = "13.0.0";
+    version = "13.1.0";
     src = fetchurl {
-      url = "https://github.com/simple-icons/simple-icons-font/releases/download/13.0.0/simple-icons-font-13.0.0.zip";
-      sha256 = "sha256-JtxZOInOyiAymkQDzCevi19a1eWnRybLlmyS0u5q8/A=";
+      url = "https://github.com/simple-icons/simple-icons-font/releases/download/13.1.0/simple-icons-font-13.1.0.zip";
+      sha256 = "sha256-wJYTEQ1qXSEw6wifCQobHrXqa6Ecb4bz2CJGnU/ShfI=";
     };
   };
   symbols-nerd-font = {
@@ -371,13 +371,13 @@
   };
   tdesktop-lily = {
     pname = "tdesktop-lily";
-    version = "v5.2.1";
+    version = "v5.2.3";
     src = fetchFromGitHub {
       owner = "telegramdesktop";
       repo = "tdesktop";
-      rev = "v5.2.1";
+      rev = "v5.2.3";
       fetchSubmodules = true;
-      sha256 = "sha256-mIdndn69ty82Mv2vLlHOPf4ZEu7/5vGVabk9ohLuKMA=";
+      sha256 = "sha256-VSMSlR3rIUTYQ4GLQrVMZNrSAFfh3aJo6p92xgXMrvo=";
     };
   };
   telegram-send = {
@@ -429,25 +429,25 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "57fd8790232dc26b3efcb02ab598cbbed35a3dcb";
+    version = "74408ee23f3166c2925ab07e30d95dbcce0031bd";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "57fd8790232dc26b3efcb02ab598cbbed35a3dcb";
+      rev = "74408ee23f3166c2925ab07e30d95dbcce0031bd";
       fetchSubmodules = false;
-      sha256 = "sha256-qGbqWSp0zD+g/FLoZOdqF+sBpugONIObZ52aUis4k5k=";
+      sha256 = "sha256-9mP7uRIGoXKg1mjzbet4gQSrHz7hYgYWFTH/HIwkejA=";
     };
-    date = "2024-07-01";
+    date = "2024-07-12";
   };
   video-compare = {
     pname = "video-compare";
-    version = "20240623";
+    version = "20240710";
     src = fetchFromGitHub {
       owner = "pixop";
       repo = "video-compare";
-      rev = "20240623";
+      rev = "20240710";
       fetchSubmodules = false;
-      sha256 = "sha256-U6kDJsorNVFqSVGcknvC/hGgfUZ5hstDDoUqWwW4uso=";
+      sha256 = "sha256-TmvT93ow6duz9AljUQgkV3IAwJyu7GeWJsZfLinhXIg=";
     };
   };
   vim-plugin-fcitx5-ui-nvim = {
@@ -464,15 +464,15 @@
   };
   vim-plugin-tiny-inline-diagnostic-nvim = {
     pname = "vim-plugin-tiny-inline-diagnostic-nvim";
-    version = "c9e8f98dbbb20c41716496bf37f69d29d3c91263";
+    version = "eabde6da4a90027e70ffcdeec3e531f10900d619";
     src = fetchFromGitHub {
       owner = "rachartier";
       repo = "tiny-inline-diagnostic.nvim";
-      rev = "c9e8f98dbbb20c41716496bf37f69d29d3c91263";
+      rev = "eabde6da4a90027e70ffcdeec3e531f10900d619";
       fetchSubmodules = false;
-      sha256 = "sha256-/w3JOusXtcOKZtxjB1wm2l7hC5cgyU0FKSeBKuzwFxU=";
+      sha256 = "sha256-8Yt2amUrxDZoNLJvOriK4sIl/pgO3e2AJIwIgbBavDs=";
     };
-    date = "2024-07-05";
+    date = "2024-07-13";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
