@@ -32,6 +32,11 @@
     name = "winter.jpg";
     hash = "sha256-JDXYkEaCeHsIft34uwkk6eJcNN9NgSLkM9JqM+ocnNs=";
   };
+  seaside-4k = pkgs.fetchurl {
+    url = "https://steamuserimages-a.akamaihd.net/ugc/1772698127134853919/1F840E3E39DB6D660583BA945AE88AEED3DFED33/";
+    name = "seaside.png";
+    hash = "sha256-20braCdAmHB6Q0UnVnZc4/IU+GI/UvjJYX18Od/wz44=";
+  };
 
   # Colors;
   nordColor = id: let
