@@ -70,13 +70,6 @@
         export TERM=xterm-256color
       '';
     in {
-      # See <https://nspawn.org> for available images.  Taking ubuntu "jammy" as an example,
-      #
-      # Installing:
-      #   curl https://hub.nspawn.org/storage/ubuntu/jammy/tar/image.tar.xz -Lo /tmp/jammy.tar.xz
-      #   machinectl import-tar /tmp/jammy.tar.xz jammy
-      # To remove it completely:
-      #   machinectl remove jammy
       jammy = {
         enable = true;
         execConfig.Boot = true;

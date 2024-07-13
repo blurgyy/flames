@@ -551,3 +551,11 @@ Trouble Shooting
   nativeBuildInputs = [ pkgs.pkg-config ];
   buildInputs = [ pkgs.openssl ];
   ```
+
+* Installing a Ubuntu (jammy, for example.  See <https://nspawn.org> for available images) container:
+  ```bash
+  $ curl https://hub.nspawn.org/storage/ubuntu/jammy/tar/image.tar.xz -Lo /tmp/jammy.tar.xz
+  $ machinectl import-tar /tmp/jammy.tar.xz <alias>
+  # to remove it completely:
+  $ machinectl remove <alias>
+  ```
