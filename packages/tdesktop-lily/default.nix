@@ -21,5 +21,8 @@ tdesktop.overrideAttrs (o: {
     patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/0004-make-animated-avatar-follow-power-settings.patch
     patch -b -l -Np1 -i ${generated.alcn-repo.src}/archlinuxcn/telegram-desktop-lily/warn-before-delete-all-2.patch
   '';
-  meta.platforms = [ "x86_64-linux" ];  # save build time on the aarch64 builder
+  meta = {
+    platforms = [ "x86_64-linux" ];  # save build time on the aarch64 builder
+    mainProgram = o.meta.mainProgram or "telegram-desktop";
+  };
 })
