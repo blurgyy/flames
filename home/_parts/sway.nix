@@ -202,7 +202,7 @@ in {
           { class = "Zotero"; }
         ];
         "10" = [
-          { class = "TelegramDesktop|Element|discord|com.alibabainc.dingtalk|weixin"; }
+          { class = "TelegramDesktop|Element|discord|com.alibabainc.dingtalk|weixin|wechat"; }
           { app_id = "telegramdesktop|org.telegram.desktop"; }
         ];
         "11" = [
