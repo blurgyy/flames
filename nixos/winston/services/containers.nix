@@ -97,7 +97,7 @@ in
             "/tmp/.X11-unix"
             "/etc/inputrc"
             "/etc/resolv.conf"
-            "${mkEtcHosts "ubuntu-jammy"}:/etc/hosts"
+            "${mkEtcHosts hostname}:/etc/hosts"
             "${mkEtcHostname hostname}:/etc/hostname"
             "${proxy-env}:/etc/profile.d/proxy-env.sh"
             "${display-env}:/etc/profile.d/display-env.sh"
