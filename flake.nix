@@ -3,6 +3,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/release-24.05";
+    nixpkgs-2311.url = "github:NixOS/nixpkgs/release-23.11";
     flake-utils.url = "github:numtide/flake-utils";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -139,6 +140,14 @@
     in {
       inherit (pkgs-stable) wechat-uos;
     };
+    workingFcitx5UiNvimOverlay = final: prev: let
+      pkgs-2311 = import inputs.nixpkgs-2311 {
+        inherit (prev) system config;
+        overlays = [ self.overlays.default ];
+      };
+    in {
+      inherit (pkgs-2311) vim-plugin-fcitx5-ui-nvim;
+    };
   in
 
   flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
@@ -183,6 +192,7 @@
       stableHaproxyOverlay
       stableGamesOverlay
       stableWechatOverlay
+      workingFcitx5UiNvimOverlay
     ];
   };
 }

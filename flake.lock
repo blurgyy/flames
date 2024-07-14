@@ -440,6 +440,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-2311": {
+      "locked": {
+        "lastModified": 1720535198,
+        "narHash": "sha256-zwVvxrdIzralnSbcpghA92tWu2DV2lwv89xZc8MTrbg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "205fd4226592cc83fd4c0885a3e4c9c400efabb5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720929638,
@@ -637,6 +653,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_6",
+        "nixpkgs-2311": "nixpkgs-2311",
         "nixpkgs-stable": "nixpkgs-stable",
         "ntfy-bridge": "ntfy-bridge",
         "nvfetcher": "nvfetcher",

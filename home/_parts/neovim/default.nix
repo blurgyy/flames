@@ -89,7 +89,10 @@
     vim-cool
     vim-fugitive
     vim-smoothie
-  ] ++ lib.optional (config.home.username != "root") vim-wakatime;
+  ]
+  ++ lib.optional (config.home.username != "root") vim-wakatime
+  ++ lib.optional (!config.home.presets.sans-systemd) pkgs.vim-plugin-fcitx5-ui-nvim
+  ;
   extraConfig = ''
     lua <<EOF
     ${callWithHelpers ./config.lua.nix {}}
