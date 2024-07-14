@@ -132,6 +132,13 @@
     in {
       inherit (pkgs-stable) minecraft steam;
     };
+    stableWechatOverlay = final: prev: let
+      pkgs-stable = import inputs.nixpkgs-stable {
+        inherit (prev) system config;
+      };
+    in {
+      inherit (pkgs-stable) wechat-uos;
+    };
   in
 
   flake-utils.lib.eachSystem [ "x86_64-linux" "aarch64-linux" ] (system: let
@@ -175,6 +182,7 @@
       cudaOverlay
       stableHaproxyOverlay
       stableGamesOverlay
+      stableWechatOverlay
     ];
   };
 }

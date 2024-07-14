@@ -73,6 +73,7 @@ in {
       to = { type = "gitlab"; owner = "highsunz"; repo = "aliyundrive-mediaserver"; };
     };
   };
+  nixpkgs.config.allowUnfree = lib.mkDefault true;
 
   programs.gpg = {
     enable = true;

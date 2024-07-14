@@ -1,4 +1,4 @@
-{ config, pkgs, lib, myHome, helpers, __callWithHelpers, ... }: let
+{ config, pkgs, lib, helpers, __callWithHelpers, ... }: let
   callWithHelpers = f: override: __callWithHelpers f (override // { inherit config callWithHelpers; });
 in {
   imports = [
@@ -45,6 +45,10 @@ in {
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"  # for wechat-uos
+  ];
+
   home.packages = with pkgs; [
     cage
     cider
@@ -63,6 +67,7 @@ in {
     typst
     video-compare
     waypoint
+    wechat-uos  # 2024-07-14: needs to allow openssl-1.1.1w in `nixpkgs.config.permittedInsecurePackages`
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wl-screenrec
     wlr-randr
