@@ -175,8 +175,8 @@ in with lib; {
         name = if cfg.theme == "light"
           # catppuccin likes to change these a lot.  I MEAN A LOT. check this first if theming goes
           # wrong after switching home-manager profile after a nixpkgs update.
-          then "catppuccin-latte-yellow-standard+default"
-          else "catppuccin-mocha-yellow-standard+default";  # this time the theme names for the two variants are actually the same
+          then "catppuccin-latte-yellow-standard"
+          else "catppuccin-mocha-yellow-standard";
       };
       iconTheme = {
         package = pkgs.flat-remix-icon-theme-proper-trayicons;
