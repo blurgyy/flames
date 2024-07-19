@@ -45,10 +45,10 @@
     after = [ firmwareMountingService ];
   };
 
-  fileSystems."/elements" = {
-    device = "/dev/disk/by-label/wd-elements";
+  fileSystems."/atom" = {
+    device = "/dev/disk/by-label/atom";
     fsType = "btrfs";
-    options = [ "noatime" "compress-force=zstd:3" "autodefrag" "nofail" ];
+      options = [ "noatime" "compress-force=zstd:3" "ssd" "discard=async" "nofail" ];
   };
 
   environment.systemPackages = [

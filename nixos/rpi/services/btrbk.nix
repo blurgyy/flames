@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }: let
-  backupTargetDirectory = "/elements/.btrbk/backups";  # /elements should be mounted
+  backupTargetDirectory = "/atom/.btrbk/backups";  # /atom should be mounted
 in {
   sops.secrets.btrbk-ssh-id = {
     owner = config.users.users.btrbk.name;
