@@ -229,6 +229,7 @@ in {
     btop
     comma
     coreutils-full
+    dmidecode
     dnsutils
     dogdns
     dufs
@@ -254,9 +255,10 @@ in {
     lsof
     ncurses
     neovim
+    p7zip
     pciutils
-    procs
     procps
+    procs
     progress
     ripgrep
     sdwrap

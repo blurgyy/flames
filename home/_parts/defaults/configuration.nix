@@ -16,6 +16,7 @@ in {
       btop
       comma
       coreutils-full
+      dmidecode
       dnsutils
       dogdns
       dufs
@@ -40,8 +41,9 @@ in {
       ncurses
       nixStable
       ollama
-      procs
+      p7zip
       procps
+      procs
       progress
       ripgrep
       telegram-send
