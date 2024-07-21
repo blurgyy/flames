@@ -6,7 +6,7 @@
 
   services = {
     acremote.enable = true;
-    btrfs.autoScrub.fileSystems = [ "/elements" ];
+    btrfs.autoScrub.fileSystems = [ "/atom" ];
     curltimesync = {
       enable = true;
       url = "114.222.113.139";  # im.qq.com

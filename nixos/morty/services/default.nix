@@ -5,7 +5,7 @@
   ];
 
   services = {
-    btrfs.autoScrub.fileSystems = [ "/elements" ];
+    btrfs.autoScrub.fileSystems = [ "/atom" ];
     logind.lidSwitch = "ignore";
     rustdesk-server = {
       enable = true;

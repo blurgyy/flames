@@ -56,7 +56,7 @@
   };
 
   services = {
-    btrfs.autoScrub.fileSystems = [ "/elements" ];
+    btrfs.autoScrub.fileSystems = [ "/atom" ];
   };
 
   services.xserver.videoDrivers = [
