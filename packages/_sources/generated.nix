@@ -500,23 +500,6 @@
     };
     date = "2024-04-17";
   };
-  wl-screenrec = {
-    pname = "wl-screenrec";
-    version = "v0.1.4";
-    src = fetchFromGitHub {
-      owner = "russelltg";
-      repo = "wl-screenrec";
-      rev = "v0.1.4";
-      fetchSubmodules = false;
-      sha256 = "sha256-IV16SX30pjN5vs7oNt4GK0Qczo16PPqw0re6ZTKAo1M=";
-    };
-    cargoLock."Cargo.lock" = {
-      lockFile = ./wl-screenrec-v0.1.4/Cargo.lock;
-      outputHashes = {
-        
-      };
-    };
-  };
   xtables-addons-perl-scripts = {
     pname = "xtables-addons-perl-scripts";
     version = "3.26";

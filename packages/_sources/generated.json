@@ -842,31 +842,6 @@
         },
         "version": "702657a6c18688fed97e498a9c95771b073835cc"
     },
-    "wl-screenrec": {
-        "cargoLocks": {
-            "Cargo.lock": [
-                "./wl-screenrec-v0.1.4/Cargo.lock",
-                {}
-            ]
-        },
-        "date": null,
-        "extract": null,
-        "name": "wl-screenrec",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "russelltg",
-            "repo": "wl-screenrec",
-            "rev": "v0.1.4",
-            "sha256": "sha256-IV16SX30pjN5vs7oNt4GK0Qczo16PPqw0re6ZTKAo1M=",
-            "type": "github"
-        },
-        "version": "v0.1.4"
-    },
     "xtables-addons-perl-scripts": {
         "cargoLocks": null,
         "date": null,
