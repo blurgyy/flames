@@ -11,15 +11,15 @@
   };
   alcn-repo = {
     pname = "alcn-repo";
-    version = "c3d6c9c613b7c4d2110340733b60e43e4145a599";
+    version = "e87e17bfbdc4508ba790fbceb42a15238df1ca6f";
     src = fetchFromGitHub {
       owner = "archlinuxcn";
       repo = "repo";
-      rev = "c3d6c9c613b7c4d2110340733b60e43e4145a599";
+      rev = "e87e17bfbdc4508ba790fbceb42a15238df1ca6f";
       fetchSubmodules = false;
-      sha256 = "sha256-IncKPR3EPMZvkhOQQqq4Q/tESZ3t4/PyyeeUxy1MT3I=";
+      sha256 = "sha256-K9dnq0uYKhg5N018CDVGDx2gSs9Rj1QL7b7TtTQwVE8=";
     };
-    date = "2024-07-14";
+    date = "2024-07-21";
   };
   alist = {
     pname = "alist";
@@ -42,16 +42,16 @@
   };
   bat-theme-catppuccin = {
     pname = "bat-theme-catppuccin";
-    version = "d714cc1d358ea51bfc02550dabab693f70cccea0";
+    version = "82e7ca555f805b53d2b377390e4ab38c20282e83";
     src = fetchgit {
       url = "https://github.com/catppuccin/bat";
-      rev = "d714cc1d358ea51bfc02550dabab693f70cccea0";
+      rev = "82e7ca555f805b53d2b377390e4ab38c20282e83";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Q5B4NDrfCIK3UAMs94vdXnR42k4AXCqZz6sRn8bzmf4=";
+      sha256 = "sha256-/Ob9iCVyjJDBCXlss9KwFQTuxybmSSzYRBZxOT10PZg=";
     };
-    date = "2024-04-25";
+    date = "2024-07-20";
   };
   dms = {
     pname = "dms";
@@ -66,15 +66,15 @@
   };
   dnsmasq-china-list = {
     pname = "dnsmasq-china-list";
-    version = "bf2bd949ba3e7842262c5e07842288c8ae1acb44";
+    version = "6ce518f40347e474463f2a56b4ed33d5f1c8464b";
     src = fetchFromGitHub {
       owner = "felixonmars";
       repo = "dnsmasq-china-list";
-      rev = "bf2bd949ba3e7842262c5e07842288c8ae1acb44";
+      rev = "6ce518f40347e474463f2a56b4ed33d5f1c8464b";
       fetchSubmodules = false;
-      sha256 = "sha256-uZLor/SKc2vkG8Joea/RDcx+oB2FJTSVrO17sA+rYiA=";
+      sha256 = "sha256-t6kZihsqcZgLVUrShTPL8OvrU/VHMeU0j0rX25BGG+I=";
     };
-    date = "2024-07-02";
+    date = "2024-07-17";
   };
   dt = {
     pname = "dt";
@@ -95,15 +95,15 @@
   };
   fcitx5-fluent-dark-theme = {
     pname = "fcitx5-fluent-dark-theme";
-    version = "dc98bc13e8eadabed7530a68706f0a2a0a07340e";
+    version = "b46d609b77f2e6ca01605d48fb452fa453a5e9ab";
     src = fetchFromGitHub {
       owner = "Reverier-Xu";
       repo = "FluentDark-fcitx5";
-      rev = "dc98bc13e8eadabed7530a68706f0a2a0a07340e";
+      rev = "b46d609b77f2e6ca01605d48fb452fa453a5e9ab";
       fetchSubmodules = false;
-      sha256 = "sha256-d1Y0MUOofBxwyeoXxUzQHrngL1qnL3TMa5DhDki7Pk8=";
+      sha256 = "sha256-tVPp6kFgsWlSLcEUffOvXCWDEV0y7qcSqYKQkGO7lrM=";
     };
-    date = "2024-03-30";
+    date = "2024-07-16";
   };
   fcitx5-sogou-themes = {
     pname = "fcitx5-sogou-themes";
@@ -162,16 +162,16 @@
   };
   foot-theme-catppuccin = {
     pname = "foot-theme-catppuccin";
-    version = "80756a4d63ea4fae4d0fdd793017370f8b8b12ac";
+    version = "17e2bdc8a8d854e8d390919579f87ab7d5f86e38";
     src = fetchgit {
       url = "https://github.com/catppuccin/foot";
-      rev = "80756a4d63ea4fae4d0fdd793017370f8b8b12ac";
+      rev = "17e2bdc8a8d854e8d390919579f87ab7d5f86e38";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-h6+7ln/i+FRSfWX2aSLhrxFO4mYJgH2pzzhe2Zz9Q4k=";
+      sha256 = "sha256-L5/HvBe4jGTHNSCxFL+xRh8CKYO3NLJ0ksVJIQxjsZA=";
     };
-    date = "2024-06-06";
+    date = "2024-07-20";
   };
   gdb-dashboard = {
     pname = "gdb-dashboard";
@@ -254,18 +254,18 @@
   };
   loyalsoldier-geoip = {
     pname = "loyalsoldier-geoip";
-    version = "202407122210";
+    version = "202407202210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407122210/geoip.dat";
-      sha256 = "sha256-/SJFSLAwnwgQsDwTrmHMQaaWj+axY5yC3jcUhSAPvLs=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407202210/geoip.dat";
+      sha256 = "sha256-RHea8s2IEsrm+HgFaafhW9gq7hZ8dhiTTvXR238MtL0=";
     };
   };
   loyalsoldier-geosite = {
     pname = "loyalsoldier-geosite";
-    version = "202407122210";
+    version = "202407202210";
     src = fetchurl {
-      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407122210/geosite.dat";
-      sha256 = "sha256-1AL+ObnAk+M0os9jq1DX5impk5DNaDM840a+Ir9OBe8=";
+      url = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202407202210/geosite.dat";
+      sha256 = "sha256-/xJRTnh9wRh2yV7ZW7Nr9oHARvPJlA6N7ItQrXAbkZA=";
     };
   };
   luarock-dbus_proxy = {
@@ -429,15 +429,15 @@
   };
   v2ray-rules-dat = {
     pname = "v2ray-rules-dat";
-    version = "74408ee23f3166c2925ab07e30d95dbcce0031bd";
+    version = "c828dcf2e33fd2c403f2399254482ed1badec236";
     src = fetchFromGitHub {
       owner = "loyalsoldier";
       repo = "v2ray-rules-dat";
-      rev = "74408ee23f3166c2925ab07e30d95dbcce0031bd";
+      rev = "c828dcf2e33fd2c403f2399254482ed1badec236";
       fetchSubmodules = false;
-      sha256 = "sha256-9mP7uRIGoXKg1mjzbet4gQSrHz7hYgYWFTH/HIwkejA=";
+      sha256 = "sha256-TZE1TiYOJl7zGyN2Xq+MRr41q+6A2F5JWq2WIoejxWc=";
     };
-    date = "2024-07-12";
+    date = "2024-07-20";
   };
   video-compare = {
     pname = "video-compare";
@@ -452,27 +452,27 @@
   };
   vim-plugin-fcitx5-ui-nvim = {
     pname = "vim-plugin-fcitx5-ui-nvim";
-    version = "12aa137a218584ca799762b76e9589bafec9eb8e";
+    version = "02ca012a8cf5f56d3ed23412a9de1418ddfdc1ff";
     src = fetchFromGitHub {
       owner = "black-desk";
       repo = "fcitx5-ui.nvim";
-      rev = "12aa137a218584ca799762b76e9589bafec9eb8e";
+      rev = "02ca012a8cf5f56d3ed23412a9de1418ddfdc1ff";
       fetchSubmodules = false;
-      sha256 = "sha256-pAYbJlWjugbwzQrioyQtltCp/IoVwUwunY2/VU74ik4=";
+      sha256 = "sha256-6NOHwCx7gbJ0PlpaHbpB8qTi7aWvS4VJJiKPB/O4QsE=";
     };
-    date = "2024-06-26";
+    date = "2024-07-17";
   };
   vim-plugin-tiny-inline-diagnostic-nvim = {
     pname = "vim-plugin-tiny-inline-diagnostic-nvim";
-    version = "eabde6da4a90027e70ffcdeec3e531f10900d619";
+    version = "4b5bc565d8ea4dce4bc45bba57f292578ba5197c";
     src = fetchFromGitHub {
       owner = "rachartier";
       repo = "tiny-inline-diagnostic.nvim";
-      rev = "eabde6da4a90027e70ffcdeec3e531f10900d619";
+      rev = "4b5bc565d8ea4dce4bc45bba57f292578ba5197c";
       fetchSubmodules = false;
-      sha256 = "sha256-8Yt2amUrxDZoNLJvOriK4sIl/pgO3e2AJIwIgbBavDs=";
+      sha256 = "sha256-DwwLVLZov7CiGuYAWXltqmBAAyjBPBnXBksNWXCi0Z0=";
     };
-    date = "2024-07-13";
+    date = "2024-07-19";
   };
   vscode-codicons = {
     pname = "vscode-codicons";
@@ -502,16 +502,16 @@
   };
   wl-screenrec = {
     pname = "wl-screenrec";
-    version = "v0.1.3";
+    version = "v0.1.4";
     src = fetchFromGitHub {
       owner = "russelltg";
       repo = "wl-screenrec";
-      rev = "v0.1.3";
+      rev = "v0.1.4";
       fetchSubmodules = false;
-      sha256 = "sha256-ThPZPV1GyMFRu94O9WwUpXbR4gnIML26K7TyIfXZlcI=";
+      sha256 = "sha256-IV16SX30pjN5vs7oNt4GK0Qczo16PPqw0re6ZTKAo1M=";
     };
     cargoLock."Cargo.lock" = {
-      lockFile = ./wl-screenrec-v0.1.3/Cargo.lock;
+      lockFile = ./wl-screenrec-v0.1.4/Cargo.lock;
       outputHashes = {
         
       };
