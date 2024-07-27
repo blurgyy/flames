@@ -1,4 +1,4 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{web, App, HttpResponse, HttpServer, Responder, middleware::Logger};
 use blake2::{Blake2b512, Digest};
 use clap::Parser;
 use num_bigint::BigUint;
@@ -7,6 +7,7 @@ use serde_json::json;
 use std::collections::HashMap;
 use std::fs;
 use std::sync::Arc;
+use log::info;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -93,6 +94,7 @@ fn prerender_configs(
 
 async fn handle_api_request(path: web::Path<(String, usize)>) -> impl Responder {
     let (name, length) = path.into_inner();
+    info!("API request: name={}, length={}", name, length);
 
     let hash_value = username_to_handle(&name, length);
     HttpResponse::Ok().json(json!({"hash": hash_value}))
@@ -103,6 +105,8 @@ async fn handle_hash_request(
     users: web::Data<Arc<HashMap<String, String>>>,
     cached_configs: web::Data<Arc<HashMap<String, String>>>,
 ) -> impl Responder {
+    info!("Hash request: hash_prefix={}", hash_prefix);
+
     if hash_prefix.len() < 6 {
         return HttpResponse::BadRequest().finish();
     }
@@ -127,13 +131,17 @@ async fn handle_hash_request(
 async fn main() -> std::io::Result<()> {
     let args = Args::parse();
 
+    // Initialize the logger
+    env_logger::init_from_env(env_logger::Env::default().default_filter_or("info"));
+
     let users = Arc::new(load_users(&args.users));
     let cached_configs = Arc::new(prerender_configs(&args.template, &users));
 
-    println!("Server running on http://{}:{}", args.listen, args.port);
+    info!("Server running on http://{}:{}", args.listen, args.port);
 
     HttpServer::new(move || {
         App::new()
+            .wrap(Logger::default())
             .app_data(web::Data::new(users.clone()))
             .app_data(web::Data::new(cached_configs.clone()))
             .route(

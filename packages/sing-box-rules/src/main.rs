@@ -1,4 +1,4 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder};
+use actix_web::{web, App, HttpResponse, HttpServer, Responder, middleware::Logger};
 use blake2::{Blake2b512, Digest};
 use clap::Parser;
 use num_bigint::BigUint;
@@ -8,6 +8,7 @@ use std::collections::HashMap;
 use std::fs;
 use std::path::PathBuf;
 use std::sync::Arc;
+use log::{info, error, debug};
 
 #[derive(Parser)]
 #[command(name = "sing_box_rules")]
@@ -214,10 +215,12 @@ fn modify_set_system_proxy(cfg: &serde_json::Value) -> serde_json::Value {
 }
 
 fn populate(rules_dir: PathBuf, cfg_path: PathBuf) -> std::io::Result<()> {
+    info!("Populating rules from {:?} to {:?}", rules_dir, cfg_path);
     let cfg = fs::read_to_string(&cfg_path)?;
     let cfg: serde_json::Value = serde_json::from_str(&cfg)?;
     let populated = populate_rules(&cfg, &rules_dir);
     fs::write(cfg_path, serde_json::to_string_pretty(&populated)?)?;
+    info!("Rules population completed successfully");
     Ok(())
 }
 
@@ -228,6 +231,13 @@ async fn serve(
     host: String,
     port: u16,
 ) -> std::io::Result<()> {
+    info!("Starting server with the following configuration:");
+    info!("Rules directory: {:?}", rules_dir);
+    info!("Template path: {:?}", template_path);
+    info!("User IDs path: {:?}", userids_path);
+    info!("Host: {}", host);
+    info!("Port: {}", port);
+
     let template = fs::read_to_string(&template_path)?;
     let template: serde_json::Value = serde_json::from_str(&template)?;
     let populated = populate_rules(&template, &rules_dir);
@@ -245,6 +255,8 @@ async fn serve(
         })
         .collect();
 
+    info!("Loaded {} user IDs", handle_to_user.len());
+
     let handle_to_user = Arc::new(handle_to_user);
     let populated = Arc::new(populated);
 
@@ -252,6 +264,7 @@ async fn serve(
         let handle_to_user = handle_to_user.clone();
         let populated = populated.clone();
         App::new()
+            .wrap(Logger::default())
             .app_data(web::Data::new(handle_to_user))
             .app_data(web::Data::new(populated))
             .route(
@@ -267,8 +280,11 @@ async fn serve(
 
 async fn get_handle(path: web::Path<(String, usize)>) -> impl Responder {
     let (username, handle_length) = path.into_inner();
+    info!("Generating handle for username: {}, length: {}", username, handle_length);
+    let handle = username_to_handle(&username, handle_length);
+    debug!("Generated handle: {}", handle);
     HttpResponse::Ok().json(json!({
-        "handle": username_to_handle(&username, handle_length)
+        "handle": handle,
     }))
 }
 
@@ -278,13 +294,17 @@ async fn serve_config(
     handle_to_user: web::Data<Arc<HashMap<String, User>>>,
     populated: web::Data<Arc<serde_json::Value>>,
 ) -> impl Responder {
+    info!("Serving config for salty handle: {}", salty_handle);
     let set_system_proxy = query
         .get("set_system_proxy")
         .map(|v| v == "true")
         .unwrap_or(false);
+    debug!("set_system_proxy: {}", set_system_proxy);
     for (handle, user) in handle_to_user.iter() {
         if salty_handle.contains(handle) {
+            info!("Found matching user for handle: {}", handle);
             let cfg = if set_system_proxy {
+                debug!("Modifying config to set system proxy");
                 modify_set_system_proxy(&populated)
             } else {
                 (**populated.into_inner()).clone()
@@ -293,25 +313,34 @@ async fn serve_config(
             return HttpResponse::Ok().json(cfg_with_uuid);
         }
     }
+    error!("No matching user found for salty handle: {}", salty_handle);
     HttpResponse::NotFound().finish()
 }
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
-    let cli = Cli::parse();
+    // Initialize the logger
+    env_logger::init_from_env(env_logger::Env::default().default_filter_or("info"));
 
+    let cli = Cli::parse();
     match cli {
         Cli::Populate {
             rules_dir,
             cfg_path,
-        } => populate(rules_dir, cfg_path)?,
+        } => {
+            info!("Running in populate mode");
+            populate(rules_dir, cfg_path)?
+        },
         Cli::Serve {
             rules_dir,
             template_json_path,
             userids_path,
             host,
             port,
-        } => serve(rules_dir, template_json_path, userids_path, host, port).await?,
+        } => {
+            info!("Running in serve mode");
+            serve(rules_dir, template_json_path, userids_path, host, port).await?
+        },
     }
 
     Ok(())
