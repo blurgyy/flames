@@ -189,7 +189,6 @@
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
       inputs.fixenc.overlays.default
-      inputs.sing-man.overlays.default
       cudaOverlay
       stableHaproxyOverlay
       stableGamesOverlay

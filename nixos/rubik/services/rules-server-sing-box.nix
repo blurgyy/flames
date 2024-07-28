@@ -1,6 +1,7 @@
-{ config, pkgs, utils, ... }:
+{ config, pkgs, utils, inputs, ... }:
 
 let
+  inherit (pkgs.stdenv.hostPlatform) system;
   listenPort = 2257;
   placeholderPath = "/proc/sys/kernel/random/boot_id";
 in
@@ -31,8 +32,8 @@ in
         ${pkgs.proxy-rules}/src \
         template.json \
         $CREDENTIALS_DIRECTORY/uuids \
-        $(echo "${pkgs.sing-man-windows}" | cut -d/ -f4 | cut -d- -f1) \
-        $(echo "${pkgs.sing-man-windows}" | awk -F- '{ print $NF }') \
+        $(echo "${inputs.sing-man.packages.${system}.sing-man-windows}" | cut -d/ -f4 | cut -d- -f1) \
+        $(echo "${inputs.sing-man.packages.${system}.sing-man-windows}" | awk -F- '{ print $NF }') \
         --port=${toString listenPort}
     '';
     serviceConfig = {
