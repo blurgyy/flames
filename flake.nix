@@ -102,6 +102,7 @@
     fixenc.url = "gitlab:highsunz/fixenc";
     hypr-msg-handler.url = "gitlab:highsunz/hypr-msg-handler";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
+    sing-man.url = "gitlab:highsunz/sing-man";
   };
 
   # `self` denotes this flake, other function arguments are the flakes
@@ -188,6 +189,7 @@
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
       inputs.fixenc.overlays.default
+      inputs.sing-man.overlays.default
       cudaOverlay
       stableHaproxyOverlay
       stableGamesOverlay

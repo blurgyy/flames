@@ -25,12 +25,14 @@ in
       ${utils.genJqSecretsReplacementSnippet config.services.sing-box.settings "/tmp/template.json"}
       jq 'del(.route.geoip) | del(.route.geosite) | .log.level="error" | .log.timestamp=true' /tmp/template.json >template.json
     '';
-    path = [ pkgs.jq ];
+    path = with pkgs; [ jq coreutils gawk ];
     script = ''
       ${pkgs.sing-box-rules}/bin/sing-box-rules serve \
         ${pkgs.proxy-rules}/src \
         template.json \
         $CREDENTIALS_DIRECTORY/uuids \
+        $(echo "${pkgs.sing-man-windows}" | cut -d/ -f4 | cut -d- -f1) \
+        $(echo "${pkgs.sing-man-windows}" | awk -F- '{ print $NF }') \
         --port=${toString listenPort}
     '';
     serviceConfig = {
