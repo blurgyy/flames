@@ -1,7 +1,7 @@
 use actix_web::{middleware::Logger, web, App, HttpResponse, HttpServer, Responder};
 use blake2::{Blake2b512, Digest};
 use clap::Parser;
-use log::{debug, error, info};
+use log::{debug, info};
 use num_bigint::BigUint;
 use num_traits::{Num, ToPrimitive};
 use serde_json::json;
@@ -12,7 +12,7 @@ use std::sync::Arc;
 
 struct SingManSpec {
     store_hash: String,
-    version: String
+    version: String,
 }
 
 struct UpdateResponse {
@@ -228,12 +228,12 @@ fn modify_set_system_proxy(cfg: &serde_json::Value) -> serde_json::Value {
 }
 
 fn populate(rules_dir: PathBuf, cfg_path: PathBuf) -> std::io::Result<()> {
-    info!("Populating rules from {:?} to {:?}", rules_dir, cfg_path);
+    debug!("Populating rules from {:?} to {:?}", rules_dir, cfg_path);
     let cfg = fs::read_to_string(&cfg_path)?;
     let cfg: serde_json::Value = serde_json::from_str(&cfg)?;
     let populated = populate_rules(&cfg, &rules_dir);
     fs::write(cfg_path, serde_json::to_string_pretty(&populated)?)?;
-    info!("Rules population completed successfully");
+    debug!("Rules population completed successfully");
     Ok(())
 }
 
@@ -245,14 +245,14 @@ async fn serve(
     host: String,
     port: u16,
 ) -> std::io::Result<()> {
-    info!("Starting server with the following configuration:");
-    info!("Rules directory: {:?}", rules_dir);
-    info!("Template path: {:?}", template_path);
-    info!("User IDs path: {:?}", userids_path);
-    info!("sing-man's store hash: {:?}", sing_man_spec.store_hash);
-    info!("sing-man's version: {:?}", sing_man_spec.version);
-    info!("Host: {}", host);
-    info!("Port: {}", port);
+    debug!("Starting server with the following configuration:");
+    debug!("Rules directory: {:?}", rules_dir);
+    debug!("Template path: {:?}", template_path);
+    debug!("User IDs path: {:?}", userids_path);
+    debug!("sing-man's store hash: {:?}", sing_man_spec.store_hash);
+    debug!("sing-man's version: {:?}", sing_man_spec.version);
+    debug!("Host: {}", host);
+    debug!("Port: {}", port);
 
     let template = fs::read_to_string(&template_path)?;
     let template: serde_json::Value = serde_json::from_str(&template)?;
@@ -272,7 +272,7 @@ async fn serve(
         })
         .collect();
 
-    info!("Loaded {} user IDs", handle_to_user.len());
+    debug!("Loaded {} user IDs", handle_to_user.len());
 
     let handle_to_user = Arc::new(handle_to_user);
     let populated = Arc::new(populated);
@@ -291,7 +291,10 @@ async fn serve(
                 "/api/v1/_handle/{username}/{handle_length}",
                 web::get().to(get_handle),
             )
-            .route("/api/v1/update", web::get().to(return_cached_update_response))
+            .route(
+                "/api/v1/update",
+                web::get().to(return_cached_update_response),
+            )
             .route("/{salty_handle}", web::get().to(serve_config))
     })
     .bind((host, port))?
@@ -299,7 +302,9 @@ async fn serve(
     .await
 }
 
-async fn return_cached_update_response(update_response: web::Data<Arc<UpdateResponse>>) -> impl Responder {
+async fn return_cached_update_response(
+    update_response: web::Data<Arc<UpdateResponse>>,
+) -> impl Responder {
     HttpResponse::Ok().json(json!({
         "version": update_response.version,
         "url": update_response.url,
@@ -341,7 +346,7 @@ async fn make_update_response(sing_man_spec: SingManSpec) -> UpdateResponse {
 
 async fn get_handle(path: web::Path<(String, usize)>) -> impl Responder {
     let (username, handle_length) = path.into_inner();
-    info!(
+    debug!(
         "Generating handle for username: {}, length: {}",
         username, handle_length
     );
@@ -358,7 +363,7 @@ async fn serve_config(
     handle_to_user: web::Data<Arc<HashMap<String, User>>>,
     populated: web::Data<Arc<serde_json::Value>>,
 ) -> impl Responder {
-    info!("Serving config for salty handle: {}", salty_handle);
+    debug!("Serving config for salty handle: {}", salty_handle);
     let set_system_proxy = query
         .get("set_system_proxy")
         .map(|v| v == "true")
@@ -366,7 +371,7 @@ async fn serve_config(
     debug!("set_system_proxy: {}", set_system_proxy);
     for (handle, user) in handle_to_user.iter() {
         if salty_handle.contains(handle) {
-            info!("Found matching user for handle: {}", handle);
+            debug!("Found matching user for handle: {}", handle);
             let cfg = if set_system_proxy {
                 debug!("Modifying config to set system proxy");
                 modify_set_system_proxy(&populated)
@@ -377,7 +382,7 @@ async fn serve_config(
             return HttpResponse::Ok().json(cfg_with_uuid);
         }
     }
-    error!("No matching user found for salty handle: {}", salty_handle);
+    debug!("No matching user found for salty handle: {}", salty_handle);
     HttpResponse::NotFound().finish()
 }
 

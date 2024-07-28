@@ -1,13 +1,13 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder, middleware::Logger};
+use actix_web::{middleware::Logger, web, App, HttpResponse, HttpServer, Responder};
 use blake2::{Blake2b512, Digest};
 use clap::Parser;
+use log::{debug, info};
 use num_bigint::BigUint;
 use num_traits::{Num, ToPrimitive};
 use serde_json::json;
 use std::collections::HashMap;
 use std::fs;
 use std::sync::Arc;
-use log::info;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -94,7 +94,7 @@ fn prerender_configs(
 
 async fn handle_api_request(path: web::Path<(String, usize)>) -> impl Responder {
     let (name, length) = path.into_inner();
-    info!("API request: name={}, length={}", name, length);
+    debug!("API request: name={}, length={}", name, length);
 
     let hash_value = username_to_handle(&name, length);
     HttpResponse::Ok().json(json!({"hash": hash_value}))
@@ -105,7 +105,7 @@ async fn handle_hash_request(
     users: web::Data<Arc<HashMap<String, String>>>,
     cached_configs: web::Data<Arc<HashMap<String, String>>>,
 ) -> impl Responder {
-    info!("Hash request: hash_prefix={}", hash_prefix);
+    debug!("Hash request: hash_prefix={}", hash_prefix);
 
     if hash_prefix.len() < 6 {
         return HttpResponse::BadRequest().finish();
