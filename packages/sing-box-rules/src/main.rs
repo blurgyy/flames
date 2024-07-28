@@ -1,6 +1,7 @@
-use actix_web::{web, App, HttpResponse, HttpServer, Responder, middleware::Logger};
+use actix_web::{middleware::Logger, web, App, HttpResponse, HttpServer, Responder};
 use blake2::{Blake2b512, Digest};
 use clap::Parser;
+use log::{debug, error, info};
 use num_bigint::BigUint;
 use num_traits::{Num, ToPrimitive};
 use serde_json::json;
@@ -8,7 +9,17 @@ use std::collections::HashMap;
 use std::fs;
 use std::path::PathBuf;
 use std::sync::Arc;
-use log::{info, error, debug};
+
+struct SingManSpec {
+    store_hash: String,
+    version: String
+}
+
+struct UpdateResponse {
+    version: String,
+    url: String,
+    b2sum: Option<String>,
+}
 
 #[derive(Parser)]
 #[command(name = "sing_box_rules")]
@@ -21,6 +32,8 @@ enum Cli {
         rules_dir: PathBuf,
         template_json_path: PathBuf,
         userids_path: PathBuf,
+        sing_man_store_hash: String,
+        sing_man_version: String,
         #[arg(long, default_value = "127.0.0.1")]
         host: String,
         #[arg(long, default_value = "2983")]
@@ -228,6 +241,7 @@ async fn serve(
     rules_dir: PathBuf,
     template_path: PathBuf,
     userids_path: PathBuf,
+    sing_man_spec: SingManSpec,
     host: String,
     port: u16,
 ) -> std::io::Result<()> {
@@ -235,12 +249,15 @@ async fn serve(
     info!("Rules directory: {:?}", rules_dir);
     info!("Template path: {:?}", template_path);
     info!("User IDs path: {:?}", userids_path);
+    info!("sing-man's store hash: {:?}", sing_man_spec.store_hash);
+    info!("sing-man's version: {:?}", sing_man_spec.version);
     info!("Host: {}", host);
     info!("Port: {}", port);
 
     let template = fs::read_to_string(&template_path)?;
     let template: serde_json::Value = serde_json::from_str(&template)?;
     let populated = populate_rules(&template, &rules_dir);
+    let update_info = make_update_response(sing_man_spec).await;
 
     let userids = fs::read_to_string(&userids_path)?;
     let handle_to_user: HashMap<String, User> = userids
@@ -259,18 +276,22 @@ async fn serve(
 
     let handle_to_user = Arc::new(handle_to_user);
     let populated = Arc::new(populated);
+    let update_info = Arc::new(update_info);
 
     HttpServer::new(move || {
         let handle_to_user = handle_to_user.clone();
         let populated = populated.clone();
+        let update_response = update_info.clone();
         App::new()
             .wrap(Logger::default())
             .app_data(web::Data::new(handle_to_user))
             .app_data(web::Data::new(populated))
+            .app_data(web::Data::new(update_response))
             .route(
                 "/api/v1/_handle/{username}/{handle_length}",
                 web::get().to(get_handle),
             )
+            .route("/api/v1/update", web::get().to(return_cached_update_response))
             .route("/{salty_handle}", web::get().to(serve_config))
     })
     .bind((host, port))?
@@ -278,9 +299,52 @@ async fn serve(
     .await
 }
 
+async fn return_cached_update_response(update_response: web::Data<Arc<UpdateResponse>>) -> impl Responder {
+    HttpResponse::Ok().json(json!({
+        "version": update_response.version,
+        "url": update_response.url,
+        "b2sum": update_response.b2sum,
+    }))
+}
+
+async fn make_update_response(sing_man_spec: SingManSpec) -> UpdateResponse {
+    let binary_url = format!(
+        "https://app.cachix.org/api/v1/cache/highsunz/serve/{}/bin/sing-man.exe",
+        sing_man_spec.store_hash,
+    );
+    let new_binary = match reqwest::get(&binary_url).await {
+        Ok(resp) => match resp.bytes().await {
+            Ok(binary_bytes) => binary_bytes,
+            _ => web::Bytes::new(),
+        },
+        _ => web::Bytes::new(),
+    };
+
+    let b2sum = if let Some(kind) = infer::get(&new_binary) {
+        if kind.mime_type() == "application/vnd.microsoft.portable-executable" {
+            let mut hasher = Blake2b512::new();
+            hasher.update(&new_binary);
+            Some(format!("{:x}", hasher.finalize()))
+        } else {
+            None
+        }
+    } else {
+        None
+    };
+
+    UpdateResponse {
+        version: sing_man_spec.version,
+        url: binary_url,
+        b2sum,
+    }
+}
+
 async fn get_handle(path: web::Path<(String, usize)>) -> impl Responder {
     let (username, handle_length) = path.into_inner();
-    info!("Generating handle for username: {}, length: {}", username, handle_length);
+    info!(
+        "Generating handle for username: {}, length: {}",
+        username, handle_length
+    );
     let handle = username_to_handle(&username, handle_length);
     debug!("Generated handle: {}", handle);
     HttpResponse::Ok().json(json!({
@@ -330,17 +394,30 @@ async fn main() -> std::io::Result<()> {
         } => {
             info!("Running in populate mode");
             populate(rules_dir, cfg_path)?
-        },
+        }
         Cli::Serve {
             rules_dir,
             template_json_path,
             userids_path,
+            sing_man_store_hash,
+            sing_man_version,
             host,
             port,
         } => {
             info!("Running in serve mode");
-            serve(rules_dir, template_json_path, userids_path, host, port).await?
-        },
+            serve(
+                rules_dir,
+                template_json_path,
+                userids_path,
+                SingManSpec {
+                    store_hash: sing_man_store_hash,
+                    version: sing_man_version,
+                },
+                host,
+                port,
+            )
+            .await?
+        }
     }
 
     Ok(())
