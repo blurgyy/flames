@@ -48,7 +48,7 @@ in
             name._secret = config.sops.secrets."v2ray/users/${index}/email".path;
             uuid._secret = config.sops.secrets."v2ray/users/${index}/uuid".path;
           })
-          [ "00" "01" "02" "03" "04" "05" "06" "07" ];
+          [ "00" "01" "02" "03" "04" "05" "06" "07" "08" ];
       }];
       route.rules = lib.mkBefore [{  # user mkBefore to prioritize this direct rule
         inbound = inboundTag;
