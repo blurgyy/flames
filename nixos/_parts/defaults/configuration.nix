@@ -147,7 +147,8 @@ in {
   # Select internationalisation properties.
   i18n = {
     inputMethod = {
-      enabled = "fcitx5";  # Needed for fcitx5 to work in qt6
+      enable = true;
+      type = "fcitx5";  # Needed for fcitx5 to work in qt6
       fcitx5 = {
         addons = with pkgs; [
           fcitx5-chinese-addons
