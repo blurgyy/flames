@@ -36,6 +36,7 @@ let
       pillow
       plyfile
       pydantic
+      scikit-image
       scipy
       tqdm
     ]))
