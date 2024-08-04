@@ -1,6 +1,8 @@
 { config, lib, pkgs, inputs, ... }: let
   keys = import ./public-keys.nix;
 in {
+  sops.secrets."nix-access-tokens.conf".sopsFile = ../../_secrets.yaml;
+
   users = {
     groups.plocate = {};  # for plocate-updatedb.service
     users = {
@@ -63,6 +65,9 @@ in {
       narinfo-cache-negative-ttl = 30;
       tarball-ttl = 30;
     };
+    extraOptions = ''
+      !include ${config.sops.secrets."nix-access-tokens.conf".path}
+    '';
     gc = {
       automatic = true;
       dates = "Sat *-*-* 03:15:00";
