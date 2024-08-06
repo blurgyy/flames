@@ -85,6 +85,7 @@
     # lualine-lsp-progress  # Not tested
     # tabby  # Not provided by nixpkgs
     which-key-nvim
+    nvim-ufo
 
     vim-cool
     vim-fugitive

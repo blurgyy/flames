@@ -778,6 +778,10 @@ in ''
   ---- REF: <https://github.com/hrsh7th/cmp-nvim-lsp>
   ---- Inspect the default capabilities with `:lua print(vim.inspect(require("cmp_nvim_lsp").default_capabilities()))`
   local caps = require("cmp_nvim_lsp").default_capabilities()
+  caps.textDocument.foldingRange = {  -- for plugin "nvim-ufo"
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+  }
   for _, lspname in pairs(enabled_lsps) do
     local lsp_settings = settings[lspname] or {}
     lsp_settings._name = lspname
@@ -789,6 +793,9 @@ in ''
         { debounce_text_changes = 150 }
     require("lspconfig")[lspname].setup(lsp_settings)
   end
+
+  --- nvim-ufo
+  require("ufo").setup()
 
   --- lualine
   require("lualine").setup({
