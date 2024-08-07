@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: with lib; let
-  cfg = config.services.rathole;
+  cfg = config.services.rathole-tailored;
 in {
-  options.services.rathole = let
+  options.services.rathole-tailored = let
     token = mkOption { type = types.str; };
     name = mkOption { type = types.str; };
     clientServiceModule = types.submodule ({ ... }: {
