@@ -43,6 +43,7 @@ api.caiyunapp.com
 apple.com
 archlinuxcn.org
 baidu.com
+blurgy.xyz
 bmp.ovh
 cainiao.com
 caiyuncdn.com
