@@ -150,15 +150,15 @@
   };
   fonts-collection = {
     pname = "fonts-collection";
-    version = "f12fd1af32fdcce6e7703f457029a9c6b92970c8";
+    version = "c28193508d3312eb8fc6aab7cc7aecf807e2ad77";
     src = fetchFromGitHub {
-      owner = "dolbydu";
-      repo = "font";
-      rev = "f12fd1af32fdcce6e7703f457029a9c6b92970c8";
+      owner = "blurgyy";
+      repo = "fonts";
+      rev = "c28193508d3312eb8fc6aab7cc7aecf807e2ad77";
       fetchSubmodules = false;
-      sha256 = "sha256-oeGC4rBtI1GKdC5gKiuRjKLU9RHksyKE+a8hRV0SVXw=";
+      sha256 = "sha256-RcuWQyQwetzF0itkTB/c9eCTdQDay40HM3GfzBCoPyI=";
     };
-    date = "2013-11-16";
+    date = "2024-08-07";
   };
   foot-theme-catppuccin = {
     pname = "foot-theme-catppuccin";

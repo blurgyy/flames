@@ -6,5 +6,5 @@
     install -Dvm444 -t $out/share/fonts/truetype $src/**/*.{ttf,ttc,TTF,TTC}
   '';
 
-  meta.homepage = "https://github.com/dolbydu/font";
+  meta.homepage = "https://github.com/blurgyy/fonts";
 }
