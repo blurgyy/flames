@@ -611,6 +611,15 @@ in ''
         };
       }),
     },
+    window = {
+      documentation = {
+        border = {'┌', '─', '┐', '│', '┘', '─', '└', '│'},
+      },
+      completion = {
+        border = {'╭', '─', '╮', '│', '╯', '─', '╰', '│'},
+        winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,CursorLine:PmenuSel,Search:None',
+      },
+    },
   })
   cmp.setup.cmdline(":", { sources = { { name = "cmdline" } } })
   cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
