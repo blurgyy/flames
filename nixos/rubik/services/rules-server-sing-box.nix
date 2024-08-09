@@ -7,12 +7,15 @@ let
 in
 
 {
-  sops.secrets = builtins.mapAttrs
+  sops.secrets = (builtins.mapAttrs
     (name: value: {
       inherit (value) sopsFile;
       restartUnits = [ "rules-server-sing-box.service" ];
     })
-    (import ../../_parts/proxy-secrets.nix).client;
+    (import ../../_parts/proxy-secrets.nix).client)
+    // {
+      proxy-client-uuids.restartUnits = [ "rules-server-clash.service" ];
+    };
 
   services.sing-box = {
     enable = false;
