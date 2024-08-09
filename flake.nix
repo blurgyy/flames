@@ -182,7 +182,7 @@
     templates = import ./outputs/templates { inherit my; };
     homeConfigurations = import ./outputs/home.nix { inherit nixpkgs inputs self; };
     homeManagerModules = import ./outputs/modules.nix { inherit my; inherit (nixpkgs) lib; definitionDir = ./home/_modules; };
-    nixosConfigurations = import ./outputs/nixos.nix { inherit nixpkgs inputs self; };
+    nixosConfigurations = import ./outputs/nixos.nix { inherit inputs self; };
     colmena = import ./outputs/colmena.nix { inherit nixpkgs inputs self; };
     sharedOverlays = [
       inputs.adrivems.overlays.default

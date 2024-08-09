@@ -1,5 +1,5 @@
-{ self, nixpkgs, inputs }: let
-  _mkHost = (hostName: params@{ system, ... }:
+{ self, inputs }: let
+  _mkHost = (hostName: params@{ system, nixpkgs ? inputs.nixpkgs, ... }:
       nixpkgs.lib.nixosSystem {
         inherit system;
         # NOTE: also need to update `outputs.colmena.meta.nodeSpecialArgs.${hostName}`.
@@ -58,7 +58,7 @@ in mkHosts {
   opi = sbc-aarch64;
   peterpan = virtual-server-x86_64;
   quad = virtual-server-x86_64;
-  rpi = sbc-aarch64;
+  rpi = sbc-aarch64 // { nixpkgs = inputs.nixpkgs-stable; };
   rubik = virtual-server-x86_64;
   velo = virtual-server-x86_64;
   winston = pc-x86_64;

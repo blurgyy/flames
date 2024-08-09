@@ -146,9 +146,12 @@ in {
 
   # Select internationalisation properties.
   i18n = {
-    inputMethod = {
+    inputMethod = (if lib.hasPrefix "24.05" lib.version then {
+      enabled = "fcitx5";
+    } else {
       enable = true;
       type = "fcitx5";  # Needed for fcitx5 to work in qt6
+    }) // {
       fcitx5 = {
         addons = with pkgs; [
           fcitx5-chinese-addons
