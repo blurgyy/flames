@@ -43,7 +43,6 @@ enum Cli {
 
 #[derive(Clone)]
 struct User {
-    username: String,
     uuid: String,
 }
 
@@ -268,7 +267,7 @@ async fn serve(
             let username = parts[0].to_string();
             let uuid = parts[1].to_string();
             let handle = username_to_handle(&username, 6);
-            (handle, User { username, uuid })
+            (handle, User { uuid })
         })
         .collect();
 
