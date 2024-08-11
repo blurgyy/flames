@@ -94,7 +94,7 @@ in
             "/etc/static"
             "/nix"
             "/:/host"
-            "/tmp/.X11-unix"
+            "-/tmp/.X11-unix"
             "/etc/inputrc"
             "/etc/resolv.conf"
             "${mkEtcHosts hostname}:/etc/hosts"
