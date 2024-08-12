@@ -26,7 +26,7 @@ in {
     enable = mkEnableOption "Enable soft-serve, a tasty, self-hostable Git server for the command line.";
     package = mkOption {
       type = types.package;
-      default = pkgs.soft-serve-relative-binary-path-in-hooks;
+      default = pkgs.soft-serve;
     };
     bind = mkOption { type = bindModule; default = {}; };
     display = mkOption { type = displayModule; description = "Information to be displayed in the TUI"; };
