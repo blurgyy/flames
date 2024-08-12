@@ -1,7 +1,11 @@
 { config, lib, pkgs, inputs, ... }: let
   keys = import ./public-keys.nix;
 in {
-  sops.secrets."nix-access-tokens.conf".sopsFile = ../../_secrets.yaml;
+  sops.secrets."nix-access-tokens.conf" = {
+    group = config.users.groups.keys.name;
+    mode = "0440";
+    sopsFile = ../../_secrets.yaml;
+  };
 
   users = {
     groups.plocate = {};  # for plocate-updatedb.service
