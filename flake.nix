@@ -101,6 +101,7 @@
     dcompass.url = "github:compassd/dcompass";
     fixenc.url = "gitlab:highsunz/fixenc";
     hypr-msg-handler.url = "gitlab:highsunz/hypr-msg-handler";
+    meaney.url = "github:blurgyy/meaney";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
     sing-man.url = "gitlab:highsunz/sing-man";
   };
@@ -188,6 +189,7 @@
       inputs.adrivems.overlays.default
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
+      inputs.meaney.overlays.default
       inputs.fixenc.overlays.default
       cudaOverlay
       stableHaproxyOverlay
