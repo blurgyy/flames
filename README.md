@@ -559,3 +559,7 @@ Trouble Shooting
   # to remove it completely:
   $ machinectl remove <alias>
   ```
+
+* For the `include <path>` or `!include <path>` directive in `/etc/nix.conf` to work, the included
+  path must be readable by the operating user.  If a user cannot read that file, the path will
+  effectively be ignored when that user uses Nix.
