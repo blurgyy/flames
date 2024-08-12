@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   controlPanelDomain = "ollama.${config.networking.domain}";
@@ -9,6 +9,25 @@ let
 in
 
 {
+  systemd.services.ollama-at-kaggle = {
+    enable = true;
+    wantedBy = [ "multi-user.target" ];
+    script = let
+      configFile = pkgs.writeText "config.toml" ''
+        api_server_address = "http://localhost:3287"  # configured from the kaggle side
+
+        [server]
+        host = "localhost"
+        port = ${toString controlPanelPort}
+        www_root = "${pkgs.meaney-frontend}/share/webapps/meaney"
+      '';
+    in ''
+      ${pkgs.meaney-backend}/bin/meaney-backend \
+        --config-path=${configFile} \
+        --chat-server-address=https://${chatDomain}
+    '';
+  };
+
   services.ssh-reverse-proxy.server = {
     services.ollama-at-kaggle = {
       port = chatPort;
