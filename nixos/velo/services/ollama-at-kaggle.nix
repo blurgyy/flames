@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 let
   controlPanelDomain = "ollama.${config.networking.domain}";
@@ -13,16 +13,17 @@ in
     enable = true;
     wantedBy = [ "multi-user.target" ];
     script = let
+      inherit (pkgs.stdenv.hostPlatform) system;
       configFile = pkgs.writeText "config.toml" ''
         api_server_address = "http://localhost:3287"  # configured from the kaggle side
 
         [server]
         host = "localhost"
         port = ${toString controlPanelPort}
-        www_root = "${pkgs.meaney-frontend}/share/webapps/meaney"
+        www_root = "${inputs.meaney.packages.${system}.meaney-frontend}/share/webapps/meaney"
       '';
     in ''
-      ${pkgs.meaney-backend}/bin/meaney-backend \
+      ${inputs.meaney.packages.${system}.meaney-backend}/bin/meaney-backend \
         --config-path=${configFile} \
         --chat-server-address=https://${chatDomain}
     '';

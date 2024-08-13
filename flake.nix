@@ -189,7 +189,6 @@
       inputs.adrivems.overlays.default
       inputs.colmena.overlays.default
       inputs.dcompass.overlays.default
-      inputs.meaney.overlays.default
       inputs.fixenc.overlays.default
       cudaOverlay
       stableHaproxyOverlay
