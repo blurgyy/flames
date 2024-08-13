@@ -199,6 +199,7 @@ in {
           { app_id = "sysmon"; }
         ];
         "9" = [
+          { app_id = "Zotero"; }
           { class = "Zotero"; }
         ];
         "10" = [
