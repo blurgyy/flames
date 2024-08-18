@@ -21,12 +21,9 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ pkgs.zjuwlan-login-script ];
 
-    networking.wireless = {
-      enable = true;
-      networks = {
-        "ZJUWLAN".authProtocols = [ "NONE" ];
-        "ZJUWLAN-NEW".authProtocols = [ "NONE" ];
-      };
+    networking.wireless.networks = {
+      "ZJUWLAN".authProtocols = [ "NONE" ];
+      "ZJUWLAN-NEW".authProtocols = [ "NONE" ];
     };
 
     systemd.timers.zjuwlan-login = {
