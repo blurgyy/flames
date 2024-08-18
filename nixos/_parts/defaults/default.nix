@@ -25,7 +25,6 @@ in [
   (includeIf withSecrets ./secret)
   (includeIf withSecrets inputs.sops-nix.nixosModules.sops)
 
-  (includeIf (!headless) inputs.cosmic.nixosModules.default)
   (includeIf (!headless) ./headful.nix)
 
   # enable wireless if headless
