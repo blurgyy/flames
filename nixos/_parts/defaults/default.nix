@@ -27,9 +27,6 @@ in [
 
   (includeIf (!headless) ./headful.nix)
 
-  # enable wireless if headless
-  { networking.wireless.enable = headless; }
-
   ({ config, ... }: {
     environment.presets = let
       inherit (config.networking) hostName;
