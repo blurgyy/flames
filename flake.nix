@@ -97,6 +97,11 @@
       };
     };
 
+    cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     adrivems.url = "gitlab:highsunz/aliyundrive-mediaserver";
     dcompass.url = "github:compassd/dcompass";
     fixenc.url = "gitlab:highsunz/fixenc";
