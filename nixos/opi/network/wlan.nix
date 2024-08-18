@@ -7,7 +7,6 @@ in
 {
   sops.secrets.wireless-environment-file.sopsFile = sharedSecretsFile;
   networking.wireless = {
-    enable = true;
     environmentFile = config.sops.secrets.wireless-environment-file.path;
     networks = {
       "morty.ap" = {
