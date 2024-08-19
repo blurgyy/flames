@@ -24,7 +24,7 @@ in
 
     services.ssh-reverse-proxy = {
       client.instances = {
-        proxy-zju-env = {
+        proxy-zju = {
           identityFile = config.sops.secrets.hostKey.path;
           environmentFile = config.sops.secrets."sshrp/proxy-zju-env".path;
           inherit (cfg) bindPort;
