@@ -9,6 +9,7 @@
       "morty"
       "winston"
       "mono"
+      "octa"
       "vdm0"
     ];
     entertainment = builtins.elem hostName [

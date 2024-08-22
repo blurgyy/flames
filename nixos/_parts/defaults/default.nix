@@ -34,6 +34,7 @@ in [
       development = elem hostName [
         "morty"
         "winston"
+        "octa"
       ];
       entertainment = elem hostName [
         "morty"
