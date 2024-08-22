@@ -29,11 +29,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1703147594,
-        "narHash": "sha256-ML3kyaVgK1XBF4a6gHeyYQCXskPy5RJwjloed9IvgTQ=",
+        "lastModified": 1724345356,
+        "narHash": "sha256-6XhB0olykz+JAhZoTwYXFgmYfmqnwrJc66gu3gpcUa8=",
         "owner": "highsunz",
         "repo": "aliyundrive-mediaserver",
-        "rev": "c489d7d9639110eaa2ab1abce5f14ea05eec58fa",
+        "rev": "4e43d81c873a2f108303a3adbdae449cff961fe3",
         "type": "gitlab"
       },
       "original": {
@@ -199,11 +199,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1701680307,
-        "narHash": "sha256-kAuep2h5ajznlPMD9rnQyffWG8EM/C73lejGofXvdM8=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "4022d587cbbfd70fe950c1e2083a02621806a725",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -519,16 +519,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1703138649,
-        "narHash": "sha256-DL9S1Orrm2m3b5g+fy37SOXezfpj3dq4JL6Hod1FhgI=",
+        "lastModified": 1724343829,
+        "narHash": "sha256-AiqymIDK+92Q9lPLYpGnxUamLIf316/WDdl2gbxP8zk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5a415de6cf229de31ee927b774ccb20a4aa0f130",
+        "rev": "34a25acb7cd018e2d2b535a0018bdd22d67caf68",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "release-23.11",
+        "ref": "release-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
