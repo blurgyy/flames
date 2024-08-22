@@ -1,4 +1,10 @@
-{ lib, rustdesk, makeDesktopItem }: rustdesk.overrideAttrs (o: {
+{ lib, rustdesk-flutter, makeDesktopItem }:
+
+let
+  rustdesk = rustdesk-flutter;
+in
+
+rustdesk.overrideAttrs (o: {
   pname = "rustdesk-with-default-and-x11-desktopentry";
   desktopItems = o.desktopItems ++ [(makeDesktopItem {
     name = "rustdesk-x11";
