@@ -123,7 +123,7 @@
     tailwindcss-language-server
     taplo-lsp
     texlab
-    typst-lsp
+    tinymist
     yaml-language-server
     vscode-langservers-extracted
   ] ++ lib.optional (config.home.username != "root") wakatime;

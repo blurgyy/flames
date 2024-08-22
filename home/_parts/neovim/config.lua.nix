@@ -690,7 +690,7 @@ in ''
     "tailwindcss",
     "taplo",
     "texlab",
-    "typst_lsp",
+    "tinymist",
     "yamlls",
   }
   local settings = {
