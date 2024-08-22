@@ -29,11 +29,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1724345356,
-        "narHash": "sha256-6XhB0olykz+JAhZoTwYXFgmYfmqnwrJc66gu3gpcUa8=",
+        "lastModified": 1724346723,
+        "narHash": "sha256-7AiNF38WYTWUNtX0XGoYPYBF+ZX+rERwOeyDbw1zGP8=",
         "owner": "highsunz",
         "repo": "aliyundrive-mediaserver",
-        "rev": "4e43d81c873a2f108303a3adbdae449cff961fe3",
+        "rev": "3315a51f3e7ef579970578f1b5b0d85cc13c966e",
         "type": "gitlab"
       },
       "original": {
