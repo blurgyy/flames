@@ -1,12 +1,16 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, inputs, ... }:
+
+let
+  inherit (pkgs.stdenv.hostPlatform) system;
+in
+
+{
   services = {
     aliyundrive-mediaserver = {
       enable = true;
       package = {
-        backend = pkgs.aliyundrive-mediaserver-backend;
-        frontend = pkgs.aliyundrive-mediaserver-frontend;
-        rclone = pkgs.rclone;
-        inherit (pkgs) aliyundrive-webdav;
+        inherit (pkgs) rclone;
+        inherit (inputs.adrivems.packages.${system}) backend frontend aliyundrive-webdav;
       };
       port = {
         aliyundrive-mediaserver = 1313;
