@@ -265,7 +265,9 @@ fixTypo "blurgy" [
   today = ''date +"%Y-%m-%d"'';
   ts = "PYTHONWARNINGS=ignore telegram-send --timeout 86400";
   viddy = "viddy -n 0.5 --pty";
+  "%%" = "viddy -n 0.5 --pty";
   vimlite = "${vi_command} --clean";
   watch = "watch -n 0.5 -c";
+  "%" = "watch -n 0.5 -c";
   kwget = "wget --no-check-certificate";
 }
