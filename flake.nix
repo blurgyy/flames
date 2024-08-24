@@ -121,26 +121,19 @@
       # # downloads.
       # inherit (pkgs-stable) cudaPackages cudatoolkit openai-whisper;
     };
-    stableHaproxyOverlay = final: prev: let
+    stableOverlays = final: prev: let
       pkgs-stable = import inputs.nixpkgs-stable {
         inherit (prev) system config;
       };
     in {
-      inherit (pkgs-stable) haproxy;
-    };
-    stableGamesOverlay = final: prev: let
-      pkgs-stable = import inputs.nixpkgs-stable {
-        inherit (prev) system config;
-      };
-    in {
-      inherit (pkgs-stable) minecraft steam;
-    };
-    stableWechatOverlay = final: prev: let
-      pkgs-stable = import inputs.nixpkgs-stable {
-        inherit (prev) system config;
-      };
-    in {
-      inherit (pkgs-stable) wechat-uos;
+      inherit (pkgs-stable)
+        haproxy
+
+        minecraft
+        steam
+
+        wechat-uos
+        ;
     };
     workingFcitx5UiNvimOverlay = final: prev: let
       pkgs-2311 = import inputs.nixpkgs-2311 {
@@ -160,7 +153,7 @@
       config.allowBroken = true;
       overlays = [
         cudaOverlay
-        stableHaproxyOverlay
+        stableOverlays
         self.overlays.default
       ] ++ self.sharedOverlays;
     };
@@ -190,9 +183,7 @@
       inputs.dcompass.overlays.default
       inputs.fixenc.overlays.default
       cudaOverlay
-      stableHaproxyOverlay
-      stableGamesOverlay
-      stableWechatOverlay
+      stableOverlays
       workingFcitx5UiNvimOverlay
     ];
   };
