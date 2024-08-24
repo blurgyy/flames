@@ -1,4 +1,6 @@
 use clap::Parser;
+use std::fs;
+use std::io::Write;
 use std::process::{Command, Stdio};
 use systemd::daemon;
 use uuid::Uuid;
@@ -22,6 +24,18 @@ struct Args {
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = Args::parse();
 
+    if is_systemd_available() {
+        run_with_systemd(&args)
+    } else {
+        run_without_systemd(&args)
+    }
+}
+
+fn is_systemd_available() -> bool {
+    fs::metadata("/run/systemd/system").is_ok()
+}
+
+fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     let user_flag = if unsafe { libc::geteuid() } != 0 {
         Some("--user")
     } else {
@@ -34,8 +48,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         Uuid::new_v4().simple().to_string()[..args.suffix_length].to_string()
     );
 
-    // Unfortunately, we still need to use systemctl for some operations
-    // that are not available in the systemd crate
     if is_unit_failed(&unit_name, user_flag)? {
         reset_failed_unit(&unit_name, user_flag)?;
     }
@@ -43,7 +55,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let do_attach = is_unit_active(&unit_name, user_flag)?;
 
     if do_attach {
-        // Unit is active, attach the new process to it
         let child = Command::new("systemd-cat")
             .arg(&args.command)
             .args(&args.args)
@@ -61,7 +72,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             return Err(e.into());
         }
     } else {
-        // Use systemd-run to create and start the unit
         Command::new("systemd-run")
             .args(user_flag)
             .args(&[
@@ -77,7 +87,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .spawn()?;
     }
 
-    // Notify systemd that we're ready
     if let Err(e) = daemon::notify(false, [(daemon::STATE_READY, "1")].iter()) {
         eprintln!("Failed to notify systemd: {}", e);
     }
@@ -87,6 +96,27 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         println!("Running command as a new unit: {}.scope", unit_name);
     }
+    println!("Command is: `{} {}`", args.command, args.args.join(" "));
+
+    Ok(())
+}
+
+fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
+    let pid_file = format!("/tmp/sdwrap-{}.pid", Uuid::new_v4().simple());
+
+    let child = Command::new(&args.command)
+        .args(&args.args)
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
+        .spawn()?;
+
+    let pid = child.id();
+
+    // Write PID to file
+    fs::write(&pid_file, pid.to_string())?;
+
+    println!("Running command in background. PID: {}", pid);
+    println!("To terminate the process, run: kill $(cat {})", pid_file);
     println!("Command is: `{} {}`", args.command, args.args.join(" "));
 
     Ok(())
