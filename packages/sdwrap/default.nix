@@ -1,6 +1,16 @@
-{ writeShellScriptBin, stdenvNoCC, symlinkJoin }: let
-  sdwrap = writeShellScriptBin "sdwrap" (builtins.readFile ./src/sdwrap);
-  sdwrap-clean = writeShellScriptBin "sdwrap-clean" (builtins.readFile ./src/sdwrap-clean);
+{ stdenvNoCC, rustPlatform, symlinkJoin
+, pkg-config
+, systemd
+}: let
+  sdwrap = rustPlatform.buildRustPackage {
+    name = "sdwrap";
+    src = ./.;
+
+    nativeBuildInputs = [ pkg-config ];
+    buildInputs = [ systemd.dev ];
+
+    cargoLock.lockFile = ./Cargo.lock;
+  };
   sdwrap-fish-completions = stdenvNoCC.mkDerivation {
     name = "sdwrap-fish-completions";
     src = ./src/fish-completions;
@@ -10,5 +20,5 @@
   };
 in symlinkJoin {
   name = "sdwrap";
-  paths = [ sdwrap sdwrap-clean sdwrap-fish-completions ];
+  paths = [ sdwrap sdwrap-fish-completions ];
 }
