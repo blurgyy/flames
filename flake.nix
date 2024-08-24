@@ -133,6 +133,8 @@
         steam
 
         wechat-uos
+
+        rustdesk
         ;
     };
     workingFcitx5UiNvimOverlay = final: prev: let

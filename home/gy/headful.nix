@@ -61,7 +61,7 @@ in {
     obs-studio
     obsidian
     printer-cadlab
-    # rustdesk-with-default-and-x11-desktopentry
+    rustdesk-with-default-and-x11-desktopentry
     slurp
     tdesktop-lily
     typst
