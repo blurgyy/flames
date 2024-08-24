@@ -28,7 +28,7 @@ in
       exec-once = ${lib.getExe pkgs.setup-xdg-desktop-portal-env-script} Hyprland
 
       # Record last workspace for later use with $mainMod+tab
-      exec-once = sdwrap ${hypr-last-workspace-recorder}
+      exec-once = sdwrap -- ${hypr-last-workspace-recorder}
 
       # REF: <https://wiki.hyprland.org/Configuring/Monitors/>
       monitor=desc:Philips Consumer Electronics Company PHL275E9 0x000023C6,2560x1440@74.968002,auto,1
@@ -48,16 +48,16 @@ in
 
       # Firefox on workspace 2
       windowrulev2 = workspace 2 silent, class:^firefox$
-      exec-once = sdwrap firefox
+      exec-once = sdwrap -- firefox
       # Knowledge garden application on workspace 3
       windowrulev2 = workspace 3, class:^(Logseq|obsidian)$
-      exec-once = sdwrap obsidian
+      exec-once = sdwrap -- obsidian
       # System monitor on workspace 8
       windowrulev2 = workspace 8 silent, class:^sysmon$
-      exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap alacritty --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
+      exec-once = ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap -- alacritty --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
       # Zotero on workspace 9
       windowrulev2 = workspace 9 silent, class:^Zotero$
-      exec-once = sdwrap zotero
+      exec-once = sdwrap -- zotero
 
       # Use exec here to always reset the window rules at each config reload
       exec = ${hypr-execonce-helper} ${lib.concatStringsSep " " (map
@@ -261,9 +261,9 @@ in
       bind = , print, exec, ${screenshot-notify} full
 
       # Lid switch, use hyprctl devices to show name
-      bind = , switch:Lid Switch, exec, sdwrap swaylock
+      bind = , switch:Lid Switch, exec, sdwrap -- swaylock
 
-      bind = $mainMod ALT, L, exec, sdwrap swaylock
+      bind = $mainMod ALT, L, exec, sdwrap -- swaylock
       bind = $mainMod ALT, N, exec, swaync-client -t
 
       # Move focus within current workspace

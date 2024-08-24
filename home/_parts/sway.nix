@@ -24,11 +24,11 @@ in {
       in [
         { command = "systemctl --user reset-failed"; }
         { command = "${terminal} --class sway_autostart_alacritty"; }
-        { command = "sdwrap firefox"; }
-        { command = "sdwrap obsidian"; }
-        { command = "sdwrap zotero"; }
+        { command = "sdwrap -- firefox"; }
+        { command = "sdwrap -- obsidian"; }
+        { command = "sdwrap -- zotero"; }
         { command = ''
-          ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
+          ALACRITTY_SOCK="/dev/shm/$WAYLAND_DISPLAY-topprg-workspace8.sock" sdwrap -- ${terminal} --class sysmon -e sh -c 'while true; do echo "I: starting ${topprg}"; if ! ${topprg}; then echo "E: ${topprg} was closed unexpectedly" >&2; else echo "I: ${topprg} was closed successfully"; fi done'
           ''; }
         { command = "${lib.getExe pkgs.setup-xdg-desktop-portal-env-script} sway"; }
       ];
@@ -154,7 +154,7 @@ in {
         "${mod}+minus" = "scratchpad show";
         "${mod}+Shift+minus" = "move scratchpad";
 
-        "${mod}+Alt+l" = "exec sdwrap swaylock";
+        "${mod}+Alt+l" = "exec sdwrap -- swaylock";
 
         # toggle notification center
         "${mod}+Alt+n" = "exec swaync-client -t";
@@ -331,7 +331,7 @@ in {
       bars = [ ];
     };
     extraConfig = ''
-      bindswitch lid:on exec sdwrap swaylock
+      bindswitch lid:on exec sdwrap -- swaylock
       titlebar_border_thickness 3
       titlebar_padding 3 3
     '';

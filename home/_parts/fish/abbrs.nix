@@ -260,6 +260,7 @@ fixTypo "blurgy" [
   pxx = "cgnoproxy";
   qfg = "fg";
   rsync = "rsync -aAHXv";
+  sdwrap = "sdwrap --";
   sus = "systemctl --user";
   sys = "sudo systemctl --system";
   today = ''date +"%Y-%m-%d"'';
