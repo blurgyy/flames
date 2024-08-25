@@ -22,6 +22,8 @@ struct Args {
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    setup();
+
     let args = Args::parse();
 
     if is_systemd_available() {
@@ -65,7 +67,7 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
         let pid = child.id();
 
         if let Err(e) = attach_process_to_unit(&unit_name, pid, user_flag) {
-            eprintln!(
+            tracing::error!(
                 "Failed to attach new process to '{}.scope': {}",
                 unit_name, e
             );
@@ -88,15 +90,15 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     }
 
     if let Err(e) = daemon::notify(false, [(daemon::STATE_READY, "1")].iter()) {
-        eprintln!("Failed to notify systemd: {}", e);
+        tracing::error!("Failed to notify systemd: {}", e);
     }
 
     if do_attach {
-        println!("Attached command to an existing unit: {}.scope", unit_name);
+        tracing::info!("Attached command to an existing unit: {}.scope", unit_name);
     } else {
-        println!("Running command as a new unit: {}.scope", unit_name);
+        tracing::info!("Running command as a new unit: {}.scope", unit_name);
     }
-    println!("Command is: `{} {}`", args.command, args.args.join(" "));
+    tracing::info!("Command is: `{} {}`", args.command, args.args.join(" "));
 
     Ok(())
 }
@@ -115,9 +117,9 @@ fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     // Write PID to file
     fs::write(&pid_file, pid.to_string())?;
 
-    println!("Running command in background. PID: {}", pid);
-    println!("To terminate the process, run: kill $(cat {})", pid_file);
-    println!("Command is: `{} {}`", args.command, args.args.join(" "));
+    tracing::info!("Running command in background. PID: {}", pid);
+    tracing::info!("To terminate the process, run: kill $(cat {})", pid_file);
+    tracing::info!("Command is: `{} {}`", args.command, args.args.join(" "));
 
     Ok(())
 }
@@ -187,4 +189,11 @@ fn attach_process_to_unit(
         ));
     }
     Ok(())
+}
+
+fn setup() {
+    if std::env::var("RUST_LOG").is_err() {
+        std::env::set_var("RUST_LOG", "info");
+    }
+    tracing_subscriber::fmt::init();
 }
