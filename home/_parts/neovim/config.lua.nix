@@ -837,6 +837,7 @@ in ''
   -- })
 
   --- neo-tree
+  local file_tree_window_width = 32
   require("neo-tree").setup({
     close_if_last_window = true,
     default_component_configs = {
@@ -856,7 +857,7 @@ in ''
       },
     },
     window = {
-      width = 32,
+      width = file_tree_window_width,
       mappings = {
         ["p"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
         ["h"] = { "close_node" },
@@ -897,7 +898,15 @@ in ''
     table.unpack(mappings.n or {}),
   }
   local open_tree = function()
-    local excluded_filetypes = {"gitcommit", "gitrebase"}
+    -- Do not open tree if the window is not wide enough
+    if vim.o.colorcolumn + file_tree_window_width + 2 + 5 >= vim.o.columns then
+      return
+    end
+    -- Do not open tree if filetype is any of these
+    local excluded_filetypes = {
+      "gitcommit",
+      "gitrebase",
+    }
     if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
       vim.cmd("Neotree show left")
     end
