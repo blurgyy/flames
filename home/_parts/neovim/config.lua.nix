@@ -313,6 +313,17 @@ in ''
 
   -- barbar
   require("bufferline").setup({
+    sidebar_filetypes = {
+      -- Use the default values: {event = 'BufWinLeave', text = nil}
+      NvimTree = true,
+      -- Or, specify the text used for the offset:
+      undotree = {text = 'undotree'},
+      -- Or, specify the event which the sidebar executes when leaving:
+      ['neo-tree'] = {event = 'BufWipeout'},
+      -- Or, specify both
+      Outline = {event = 'BufWinLeave', text = 'symbols-outline'},
+    },
+
     -- Enable/disable animations
     animation = true,
 
@@ -452,17 +463,6 @@ in ''
     -- REF: <https://stackoverflow.com/questions/1410862/concatenation-of-tables-in-lua#comments-54352037>
     table.unpack(mappings.n or {}),
   }
-
-  -- REF: <https://github.com/romgrk/barbar.nvim/#user-content-integration-with-filetree-plugins>
-  require("nvim-tree.events").subscribe("TreeOpen", function()
-    require("bufferline.api").set_offset(require("nvim-tree.view").View.width + 1)
-  end)
-  require("nvim-tree.events").subscribe("Resize", function()
-    require("bufferline.api").set_offset(require("nvim-tree.view").View.width + 1)
-  end)
-  require("nvim-tree.events").subscribe("TreeClose", function()
-    require("bufferline.api").set_offset(0)
-  end)
 
   -- telescope
   require("telescope").setup({
@@ -836,81 +836,61 @@ in ''
   --   show_symbols = true,
   -- })
 
-  --- nvim-tree
-  require("nvim-tree").setup({
-    renderer = {
-      icons = {
-        glyphs = {
-          git = {
-            deleted = "✘",
-            renamed = "➜",
-            staged = "⇡",
-            unstaged = "!",
-            untracked = "*",
-          },
-          folder = {
-            symlink = "",
-            symlink_open = "",
-          },
-        },
+  --- neo-tree
+  require("neo-tree").setup({
+    close_if_last_window = true,
+    window = {
+    width = 32,
+      mappings = {
+        ["p"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
+        ["h"] = { "close_node" },
+        ["l"] = { "open" },
+        ['<tab>'] = function (state)
+          local node = state.tree:get_node()
+          if require("neo-tree.utils").is_expandable(node) then
+            state.commands["toggle_node"](state)
+          else
+            state.commands['open'](state)
+            vim.cmd('Neotree reveal')                  
+          end
+        end,
       },
-    },
-    -- The file is initially generated via :NvimTreeGenerateOnAttach.
-    -- REF: <https://github.com/nvim-tree/nvim-tree.lua/wiki/Migrating-To-on_attach#user-content-migrating>
-    on_attach = dofile("${../raw/neovim/nvim-tree-on_attach.lua}").on_attach,
-    update_focused_file = { enable = true },
-    diagnostics = { enable = true },
-    hijack_cursor = true,  -- keep the cursor on first character
-    actions = {
-      open_file = {
-        quit_on_open = false,
-      },
-    },
+    }
   })
+  -- vim.api.nvim_create_autocmd('BufNewFile', {
+  --   group    = vim.api.nvim_create_augroup('RemoteFile', {clear = true}),
+  --   callback = function()
+  --     local f = vim.fn.expand('%:p')
+  --     for _, v in ipairs{'sftp', 'scp', 'ssh', 'dav', 'fetch', 'ftp', 'http', 'rcp', 'rsync'} do
+  --       local p = v .. '://'
+  --       if string.sub(f, 1, #p) == p then
+  --         vim.cmd[[
+  --           unlet g:loaded_netrw
+  --           unlet g:loaded_netrwPlugin
+  --           runtime! plugin/netrwPlugin.vim
+  --           silent Explore %
+  --         ]]
+  --         vim.api.nvim_clear_autocmds{group = 'RemoteFile'}
+  --         break
+  --       end
+  --     end
+  --   end
+  -- })
   mappings.n = {
-    { name = "<leader>d", target = require("nvim-tree.api").tree.open },
+    { name = "<leader>d", target = "<CMD>Neotree focus<CR>" },
     table.unpack(mappings.n or {}),
   }
-  ---- Open on startup
-  local function open_nvim_tree()
-    local ignore_fts = {
-      "gitcommit",
-      "gitrebase",
-    }
-    local filetype = vim.bo.ft
-    -- REF: <https://github.com/nvim-tree/nvim-tree.lua/wiki/Open-At-Startup>
-    if vim.tbl_contains(ignore_fts, filetype) then
-      return
+  local open_tree = function()
+    local excluded_filetypes = {"gitcommit", "gitrebase"}
+    if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
+      vim.cmd("Neotree show left")
     end
-    -- do not open nvim-tree if current buffer width do not have enough space
-    if vim.o.colorcolumn + require("nvim-tree.view").View.width + 2 + 5 >= vim.o.columns then
-      return
-    end
-    require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
   end
-  vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
-  ---- REF: https://github.com/kyazdani42/nvim-tree.lua#tips--reminders
-  vim.api.nvim_create_autocmd("QuitPre", {
+  vim.api.nvim_create_autocmd('VimEnter', {
+    group = vim.api.nvim_create_augroup("NEOTREE_AUGROUP", {clear = true}),
     callback = function()
-      local tree_wins = {}
-      local floating_wins = {}
-      local wins = vim.api.nvim_list_wins()
-      for _, w in ipairs(wins) do
-        local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(w))
-        if bufname:match("NvimTree_") ~= nil then
-          table.insert(tree_wins, w)
-        end
-        if vim.api.nvim_win_get_config(w).relative ~= "" then
-          table.insert(floating_wins, w)
-        end
-      end
-      if 1 == #wins - #floating_wins - #tree_wins then
-        -- Should quit, so we close all invalid windows.
-        for _, w in ipairs(tree_wins) do
-          vim.api.nvim_win_close(w, true)
-        end
-      end
-    end
+      vim.defer_fn(open_tree, 10)
+    end,
   })
 
   --- gitsigns

@@ -76,7 +76,8 @@
     lualine-nvim
       nvim-web-devicons
     todo-comments-nvim
-    nvim-tree-lua
+    neo-tree-nvim
+      nui-nvim
     indent-blankline-nvim
     gitsigns-nvim
     rainbow-delimiters-nvim
