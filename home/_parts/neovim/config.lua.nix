@@ -818,10 +818,10 @@ in ''
         {
           "diagnostics",
           symbols = {
-            error = " ", -- From nerd font
-            warn = " ", -- From awesome
-            info = " ", -- From nerd font
-            hint = "󰌵 ", -- From awesome
+            error = " ", -- From Font Awesome 6 Free
+            warn = " ", -- From Font Awesome 6 Free
+            info = " ", -- From Font Awesome 6 Free
+            hint = "󰌵", -- From SymbolsNerdFont
           },
         },
       },
@@ -1006,7 +1006,7 @@ in ''
       CAVEAT = { icon = " " --[[ from vscode-codicon ]] ,
         color = "warning", alt = { "WARN", "WARNING" } },
       PERF = { icon = " ", alt = { "OPT", "OPTIMIZE", "PERF", "PERFORMANCE" } },
-      NOTE = { icon = "󰌵 " --[[ from vscode-codicon ]] ,
+      NOTE = { icon = "󰌵" --[[ from SymbolsNerdFont ]] ,
         color = "hint", alt = { "INFO", "HINT" } },
       REF = { icon = " " --[[ from vscode-codicon ]] ,
         color = "default" },
