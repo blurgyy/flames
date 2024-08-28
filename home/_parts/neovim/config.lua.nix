@@ -276,7 +276,7 @@ in ''
     Error = " ",
     Warn = " ",
     Info = " ",
-    Hint = " ",
+    Hint = "󰌵",
   }
   for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
@@ -393,7 +393,7 @@ in ''
         [vim.diagnostic.severity.ERROR] = {enabled = true, icon = " "},
         [vim.diagnostic.severity.WARN] = {enabled = true, icon = " "},
         [vim.diagnostic.severity.INFO] = {enabled = true, icon = " "},
-        [vim.diagnostic.severity.HINT] = {enabled = true, icon = " "},
+        [vim.diagnostic.severity.HINT] = {enabled = true, icon = "󰌵"},
       },
     },
 
@@ -821,7 +821,7 @@ in ''
             error = " ", -- From nerd font
             warn = " ", -- From awesome
             info = " ", -- From nerd font
-            hint = " ", -- From awesome
+            hint = "󰌵 ", -- From awesome
           },
         },
       },
@@ -839,8 +839,24 @@ in ''
   --- neo-tree
   require("neo-tree").setup({
     close_if_last_window = true,
+    default_component_configs = {
+      diagnostics = {
+        symbols = {
+          hint = "󰌵",
+          info = " ",
+          warn = " ",
+          error = " ",
+        },
+        highlights = {
+          hint = "DiagnosticSignHint",
+          info = "DiagnosticSignInfo",
+          warn = "DiagnosticSignWarn",
+          error = "DiagnosticSignError",
+        },
+      },
+    },
     window = {
-    width = 32,
+      width = 32,
       mappings = {
         ["p"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
         ["h"] = { "close_node" },
@@ -990,7 +1006,7 @@ in ''
       CAVEAT = { icon = " " --[[ from vscode-codicon ]] ,
         color = "warning", alt = { "WARN", "WARNING" } },
       PERF = { icon = " ", alt = { "OPT", "OPTIMIZE", "PERF", "PERFORMANCE" } },
-      NOTE = { icon = " " --[[ from vscode-codicon ]] ,
+      NOTE = { icon = "󰌵 " --[[ from vscode-codicon ]] ,
         color = "hint", alt = { "INFO", "HINT" } },
       REF = { icon = " " --[[ from vscode-codicon ]] ,
         color = "default" },
