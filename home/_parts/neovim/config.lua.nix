@@ -287,7 +287,7 @@ in ''
 
   --- lsp_signature
   local lsp_signature_cfg = {
-    hint_prefix = "(param) ",
+    hint_prefix = "[ ] ",
     -- needs neovim 0.10+
     -- hint_inline = function() return true end,
   }
