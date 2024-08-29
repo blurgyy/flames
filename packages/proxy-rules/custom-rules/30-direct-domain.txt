@@ -96,6 +96,7 @@ location.services.mozilla.com
 meituan.com
 meituan.net
 mob.com
+msn.cn
 myqcloud.com
 mzstatic.com
 nbsanke.top
@@ -109,6 +110,8 @@ pangolin-sdk-toutiao-b.com
 pangolin-sdk-toutiao.com
 pangolin-sdk-toutiao1.com
 qczj.h5yunban.com
+qlogo.cn
+qpic.cn
 qq.com
 qweather.com
 qweather.net
@@ -118,6 +121,7 @@ sfplay.net
 shouqianba.com
 shujupie.com
 snapdrop.net
+sougou.com
 stat.alibaba.com
 survey.china.alibaba.com
 taobao.com
