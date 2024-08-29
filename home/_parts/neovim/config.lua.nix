@@ -861,6 +861,9 @@ in ''
       mappings = {
         ["p"] = { "toggle_preview", config = { use_float = true, use_image_nvim = false } },
         ["h"] = { "close_node" },
+        ["H"] = "noop",
+        ["zh"] = "toggle_hidden",
+        ["zi"] = "toggle_hidden",
         ["l"] = { "open" },
         ['<tab>'] = function (state)
           local node = state.tree:get_node()
@@ -894,7 +897,7 @@ in ''
   --   end
   -- })
   mappings.n = {
-    { name = "<leader>d", target = "<CMD>Neotree focus<CR>" },
+    { name = "<leader>d", target = "<CMD>Neotree reveal left<CR>" },
     table.unpack(mappings.n or {}),
   }
   local open_tree = function()
@@ -908,7 +911,7 @@ in ''
       "gitrebase",
     }
     if not vim.tbl_contains(excluded_filetypes, vim.bo.filetype) then
-      vim.cmd("Neotree show left")
+      vim.cmd("Neotree show reveal left")
     end
   end
   vim.api.nvim_create_autocmd('VimEnter', {
