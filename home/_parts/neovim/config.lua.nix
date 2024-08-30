@@ -875,7 +875,13 @@ in ''
           end
         end,
       },
-    }
+      fuzzy_finder_mappings = {
+        ["<C-j>"] = "move_cursor_down",
+        ["<tab>"] = "move_cursor_down",
+        ["<C-k>"] = "move_cursor_up",
+        ["<s-tab>"] = "move_cursor_down",
+      },
+    },
   })
   -- vim.api.nvim_create_autocmd('BufNewFile', {
   --   group    = vim.api.nvim_create_augroup('RemoteFile', {clear = true}),
