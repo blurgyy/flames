@@ -19,8 +19,38 @@
         inherit level;
       }
       {
+        uuid = config.sops.placeholder."v2ray/users/00-01/uuid";
+        email = config.sops.placeholder."v2ray/users/00-01/email";
+        inherit level;
+      }
+      {
+        uuid = config.sops.placeholder."v2ray/users/00-02/uuid";
+        email = config.sops.placeholder."v2ray/users/00-02/email";
+        inherit level;
+      }
+      {
+        uuid = config.sops.placeholder."v2ray/users/00-03/uuid";
+        email = config.sops.placeholder."v2ray/users/00-03/email";
+        inherit level;
+      }
+      {
         uuid = config.sops.placeholder."v2ray/users/01/uuid";
         email = config.sops.placeholder."v2ray/users/01/email";
+        inherit level;
+      }
+      {
+        uuid = config.sops.placeholder."v2ray/users/01-01/uuid";
+        email = config.sops.placeholder."v2ray/users/01-01/email";
+        inherit level;
+      }
+      {
+        uuid = config.sops.placeholder."v2ray/users/01-02/uuid";
+        email = config.sops.placeholder."v2ray/users/01-02/email";
+        inherit level;
+      }
+      {
+        uuid = config.sops.placeholder."v2ray/users/01-03/uuid";
+        email = config.sops.placeholder."v2ray/users/01-03/email";
         inherit level;
       }
       {

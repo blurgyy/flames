@@ -35,8 +35,8 @@ let
     "v2ray/ports/server/wss"
     "v2ray/ws-path"
 
-    "v2ray/users/00/uuid"
-    "v2ray/users/01/uuid"
+    "v2ray/users/00/uuid" "v2ray/users/00-01/uuid" "v2ray/users/00-02/uuid" "v2ray/users/00-03/uuid"
+    "v2ray/users/01/uuid" "v2ray/users/01-01/uuid" "v2ray/users/01-02/uuid" "v2ray/users/01-03/uuid"
     "v2ray/users/02/uuid"
     "v2ray/users/03/uuid"
     "v2ray/users/04/uuid"
@@ -45,8 +45,8 @@ let
     "v2ray/users/07/uuid"
     "v2ray/users/08/uuid"
 
-    "v2ray/users/00/email"
-    "v2ray/users/01/email"
+    "v2ray/users/00/email" "v2ray/users/00-01/email" "v2ray/users/00-02/email" "v2ray/users/00-03/email"
+    "v2ray/users/01/email" "v2ray/users/01-01/email" "v2ray/users/01-02/email" "v2ray/users/01-03/email"
     "v2ray/users/02/email"
     "v2ray/users/03/email"
     "v2ray/users/04/email"
