@@ -39,6 +39,7 @@ aliyuncs.com
 amap.com
 amd.com
 anyelse.com
+aotaki.com
 api.caiyunapp.com
 apple.com
 archlinuxcn.org
