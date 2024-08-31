@@ -1,7 +1,8 @@
-{ config }: let
+{ config, pkgs }: let
   inherit (config.ricing) themeColor;
 in {
   enable = true;
+  package = pkgs.flameshot.override { enableWlrSupport = true; };
   settings = {
     General = {
       contrastOpacity = "160";
