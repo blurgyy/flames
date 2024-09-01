@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: with lib; let
-  cfg = config.services.wakapi;
+  cfg = config.services.wakapi-tailored;
   portType = with types; oneOf [ str int ];
   serverOptions = types.submodule ({ ... }: {
     options = {
@@ -60,7 +60,7 @@
     };
   });
 in {
-  options.services.wakapi = {
+  options.services.wakapi-tailored = {
     enable = mkEnableOption "Enable coding statistics tracker via wakapi";
     package = mkOption { type = types.package; default = pkgs.wakapi; };
     server = mkOption { type = serverOptions; };

@@ -11,7 +11,7 @@ in
     "wakapi/smtp/password" = {};
   };
   services = {
-    wakapi = {
+    wakapi-tailored = {
       enable = true;
       server = {
         addr = "127.0.0.1";
@@ -41,7 +41,7 @@ in
       };
       backends.wakapi = {
         mode = "http";
-        server.address = "127.0.0.1:${toString config.services.wakapi.server.port}";
+        server.address = "127.0.0.1:${toString config.services.wakapi-tailored.server.port}";
       };
     };
   };
