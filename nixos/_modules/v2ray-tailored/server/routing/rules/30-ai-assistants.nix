@@ -39,6 +39,8 @@
     "domain:bard.google.com"
     "domain:gemini.google.com"
     "domain:aistudio.google.com"
+    "domain:ai.google.dev"
+    "domain:alkalimakersuite-pa.clients6.google.com"
     "domain:makersuite.google.com"
     "domain:ai.google.dev"
     "domain:idx.dev"

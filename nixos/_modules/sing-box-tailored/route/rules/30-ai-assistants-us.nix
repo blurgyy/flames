@@ -13,6 +13,8 @@
     "intercom.io"
     "intercomcdn.com"
     "aistudio.google.com"
+    "ai.google.dev"
+    "alkalimakersuite-pa.clients6.google.com"
     "makersuite.google.com"
     "ai.google.dev"
     "idx.dev"
