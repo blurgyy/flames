@@ -135,6 +135,8 @@
         wechat-uos
 
         rustdesk
+
+        swaylock-effects
         ;
     };
     workingFcitx5UiNvimOverlay = final: prev: let
