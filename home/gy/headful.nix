@@ -6,7 +6,6 @@ in {
     ../_parts/gpg-agent.nix
     ../_parts/sway.nix
     ../_parts/zotero.nix
-    ../_parts/ydotool.nix
   ];
   qt = {
     enable = true;
