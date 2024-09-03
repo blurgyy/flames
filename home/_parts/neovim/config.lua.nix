@@ -855,6 +855,41 @@ in ''
           error = "DiagnosticSignError",
         },
       },
+      icon = {
+        folder_closed = "",
+        folder_open = "",
+        folder_empty = "󰜌",
+        -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+        -- then these will never be used.
+        default = "*",
+        highlight = "NeoTreeFileIcon"
+      },
+      name = {
+        trailing_slash = false,
+        use_git_status_colors = true,
+        highlight = "NeoTreeFileName",
+      },
+      git_status = {
+        symbols = {
+          -- Change type
+          added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
+          modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
+          deleted   = "✖",-- this can only be used in the git_status source
+          renamed   = "󰁕",-- this can only be used in the git_status source
+          -- Status type
+          untracked = "",
+          ignored   = "",
+          unstaged  = "󰄱",
+          staged    = "",
+          conflict  = "",
+        }
+      },
+    },
+    use_libuv_file_watcher = true,
+    follow_current_file = {
+      enabled = true,  -- This will find and focus the file in the active buffer every time
+                       -- the current file is changed while the tree is open.
+      leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
     },
     window = {
       width = file_tree_window_width,
