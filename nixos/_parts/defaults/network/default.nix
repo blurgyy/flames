@@ -3,9 +3,12 @@
     ./tailscale.nix
   ];
 
-  services.warp-proxy.enable = builtins.elem
-    pkgs.stdenv.hostPlatform.system
-    config.services.warp-proxy.package.meta.platforms;
+  services.warp-proxy.enable = let
+    isPlatformSupported = builtins.elem
+      pkgs.stdenv.hostPlatform.system
+      config.services.warp-proxy.package.meta.platforms;
+    isOverseaBox = config.time.timeZone != "Asia/Shanghai";
+  in isPlatformSupported && isOverseaBox;
 
   networking.firewall-tailored = {
     enable = true;
