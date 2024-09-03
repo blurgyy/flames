@@ -25,6 +25,7 @@ let
     xplr
     (python3.withPackages (p: with p; [
       click
+      dacite
       einops
       h5py
       icecream
