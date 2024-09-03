@@ -1,7 +1,7 @@
 { proxy, hostName, lib, pkgs, mergeAttrsList }: {
   enable = true;
   controlMaster = "no";
-  controlPath = "~/.ssh/master-%r@%n:%p";
+  controlPath = "~/.ssh/master-%C";  # <https://github.com/hasura/gitkube/issues/127#issuecomment-934337227>
   compression = true;
   serverAliveInterval = 60;
   serverAliveCountMax = 3;
