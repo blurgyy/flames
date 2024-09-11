@@ -817,6 +817,26 @@
         },
         "version": "0.0.36"
     },
+    "watchyourlan": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "watchyourlan",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "aceberg",
+            "repo": "WatchYourLAN",
+            "rev": "2.0.2",
+            "sha256": "sha256-ABFkWPoIbiZ4TijebbWKYgtvVtypCa0vcKqoPVcTMq4=",
+            "type": "github"
+        },
+        "version": "2.0.2"
+    },
     "waypoint": {
         "cargoLocks": {
             "Cargo.lock": [
