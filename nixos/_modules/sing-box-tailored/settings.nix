@@ -98,8 +98,8 @@ in
     # enabling `strict_route` makes the device unreachable via ssh (ping is fine) from physical
     # interfaces (but still reachable via ssh through tailscale's tun)
     strict_route = false;
-    # system/gvisor/mixed, only gvisor seems to be able to capture all traffic to tun
-    stack = "gvisor";
+    # system/gvisor/mixed
+    stack = "system";
     mtu = 1500;
     sniff = true;
     sniff_timeout = "300ms";
