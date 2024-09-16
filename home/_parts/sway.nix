@@ -39,7 +39,6 @@ in {
         down = config.wayland.windowManager.sway.config.down;
         up = config.wayland.windowManager.sway.config.up;
         right = config.wayland.windowManager.sway.config.right;
-        rofi = "${pkgs.rofi-wayland}/bin/rofi";
         fm = "${pkgs.xfce.thunar}/bin/thunar ~";
         backlight-notify = "${pkgs.notification-scripts}/bin/backlight-notify";
         volume-notify = "${pkgs.notification-scripts}/bin/volume-notify";
