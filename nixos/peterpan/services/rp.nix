@@ -50,6 +50,11 @@ in
       };
       coderp-watson.port = 1111;
 
+      rdp-octa = {
+        port = 3389;
+        expose = true;
+      };
+
       proxy-zju-via-copi.port = 2096;
       proxy-zju-via-rpi.port = 3096;
     };
