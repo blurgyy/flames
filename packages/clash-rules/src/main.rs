@@ -77,16 +77,17 @@ fn prerender_configs(
 
     for (name, uuid) in users {
         let config_yaml = template.replace("@@uuid@@", uuid);
-        match serde_yaml::from_str::<serde_yaml::Value>(&config_yaml) {
-            Ok(yaml_value) => {
-                if let Ok(json_value) = serde_json::to_string(&yaml_value) {
-                    cached_configs.insert(name.clone(), json_value);
-                } else {
-                    eprintln!("Error converting YAML to JSON for user {}", name);
-                }
-            }
-            Err(_) => eprintln!("Error parsing YAML for user {}", name),
-        }
+        cached_configs.insert(name.clone(), config_yaml);
+        //match serde_yaml::from_str::<serde_yaml::Value>(&config_yaml) {
+        //    Ok(yaml_value) => {
+        //        if let Ok(json_value) = serde_json::to_string(&yaml_value) {
+        //            cached_configs.insert(name.clone(), json_value);
+        //        } else {
+        //            eprintln!("Error converting YAML to JSON for user {}", name);
+        //        }
+        //    }
+        //    Err(_) => eprintln!("Error parsing YAML for user {}", name),
+        //}
     }
 
     cached_configs
