@@ -48,6 +48,7 @@ blurgy.xyz
 bmp.ovh
 cainiao.com
 caiyuncdn.com
+cdn.jsdelivr.net
 chengdun.com
 chinahr.com
 chinasinew.com
