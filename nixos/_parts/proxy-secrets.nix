@@ -44,6 +44,7 @@ let
     "v2ray/users/06/uuid"
     "v2ray/users/07/uuid"
     "v2ray/users/08/uuid"
+    "v2ray/users/09/uuid"
 
     "v2ray/users/00/email" "v2ray/users/00-01/email" "v2ray/users/00-02/email" "v2ray/users/00-03/email"
     "v2ray/users/01/email" "v2ray/users/01-01/email" "v2ray/users/01-02/email" "v2ray/users/01-03/email"
@@ -54,6 +55,7 @@ let
     "v2ray/users/06/email"
     "v2ray/users/07/email"
     "v2ray/users/08/email"
+    "v2ray/users/09/email"
   ];
 
   client = domains ++ addresses ++ misc ++ ports;
