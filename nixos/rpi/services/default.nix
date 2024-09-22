@@ -2,6 +2,7 @@
   imports = [
     ./btrbk.nix
     ./rp.nix
+    ./syncthing.nix
   ];
 
   services = {
