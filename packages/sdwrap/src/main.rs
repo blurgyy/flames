@@ -106,10 +106,12 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
-    // create the directory /tmp/sdwrap
-    fs::create_dir_all("/tmp/sdwrap")?;
+    let output_dir = format!("/tmp/sdwrap/{}-{}", args.command, Uuid::new_v4().simple());
+    fs::create_dir_all(&output_dir)?;
 
-    let pid_file = format!("/tmp/sdwrap-{}/pid", Uuid::new_v4().simple());
+    let pid_file = format!("{}/pid", &output_dir);
+    let stdout_file = format!("{}/stdout", &output_dir);
+    let stderr_file = format!("{}/stderr", &output_dir);
 
     // write stdout to /tmp/sdwrap/stdout, and stderr to /tmp/sdwrap/stderr
     let child = Command::new(&args.command)
@@ -119,14 +121,14 @@ fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
                 .create(true)
                 .write(true)
                 .truncate(true)
-                .open("/tmp/sdwrap/stdout")?,
+                .open(&stdout_file)?,
         )
         .stderr(
             fs::OpenOptions::new()
                 .create(true)
                 .write(true)
                 .truncate(true)
-                .open("/tmp/sdwrap/stderr")?,
+                .open(&stderr_file)?,
         )
         .spawn()?;
 
@@ -135,7 +137,12 @@ fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     // Write PID to file
     fs::write(&pid_file, pid.to_string())?;
 
-    tracing::info!("Running command in background. PID: {}", pid);
+    tracing::info!(
+        "Running command in background. PID: {}, stdout: {}, stderr: {}",
+        pid,
+        stdout_file,
+        stderr_file,
+    );
     tracing::info!("To terminate the process, run: kill $(cat {})", pid_file);
     tracing::info!("Command is: `{} {}`", args.command, args.args.join(" "));
 
