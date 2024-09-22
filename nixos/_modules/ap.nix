@@ -52,8 +52,9 @@ in
         ${cfg.apInterface}.networks.${cfg.apInterface} = {  # Exactly one network must be named like the radio, for reasons internal to hostapd.
           ssid = "${config.networking.hostName}.ap";
           authentication = {
-            mode = "wpa3-sae-transition";
-            saePasswordsFile = cfg.passwordFile;
+            mode = "wpa2-sha1";
+            # mode = "wpa3-sae-transition";
+            # saePasswordsFile = cfg.passwordFile;
             wpaPasswordFile = cfg.passwordFile;
           };
         };

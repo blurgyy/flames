@@ -6,8 +6,8 @@
 
   sops.secrets."ap-password" = {};
 
-  # networking.wireless.interfaces = [ "wlan0_sta" ];
   networking.wireless.interfaces = [ "wlan0" ];
+  # networking.wireless.interfaces = [ "wlan0_sta" ];
   # networking.wlanInterfaces = {
   #   wlan0_sta.device = "wlan0";
   # };
