@@ -55,12 +55,12 @@
       "zju.edu.cn"
     ] ++ (builtins.attrNames self.nixosConfigurations);
     socks = {
-      addr = "winston";
-      port = 1999;
+      addr = "copi";
+      port = 9999;
     };
     http = {
-      addr = "winston";
-      port = 1990;
+      addr = "copi";
+      port = 9990;
     };
     envVarsFor = getProxyEnvVars labProxy;
   };
