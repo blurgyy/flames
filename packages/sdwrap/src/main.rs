@@ -69,7 +69,8 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
         if let Err(e) = attach_process_to_unit(&unit_name, pid, user_flag) {
             tracing::error!(
                 "Failed to attach new process to '{}.scope': {}",
-                unit_name, e
+                unit_name,
+                e
             );
             return Err(e.into());
         }
@@ -105,12 +106,28 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
-    let pid_file = format!("/tmp/sdwrap-{}.pid", Uuid::new_v4().simple());
+    // create the directory /tmp/sdwrap
+    fs::create_dir_all("/tmp/sdwrap")?;
 
+    let pid_file = format!("/tmp/sdwrap-{}/pid", Uuid::new_v4().simple());
+
+    // write stdout to /tmp/sdwrap/stdout, and stderr to /tmp/sdwrap/stderr
     let child = Command::new(&args.command)
         .args(&args.args)
-        .stdout(Stdio::null())
-        .stderr(Stdio::null())
+        .stdout(
+            fs::OpenOptions::new()
+                .create(true)
+                .write(true)
+                .truncate(true)
+                .open("/tmp/sdwrap/stdout")?,
+        )
+        .stderr(
+            fs::OpenOptions::new()
+                .create(true)
+                .write(true)
+                .truncate(true)
+                .open("/tmp/sdwrap/stderr")?,
+        )
         .spawn()?;
 
     let pid = child.id();
