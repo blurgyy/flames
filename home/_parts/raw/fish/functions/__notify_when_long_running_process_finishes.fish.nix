@@ -33,7 +33,7 @@ in ''
       #   - systemd-cgtop
       #   - watch
       if string match --quiet --regex -- \
-          '^((mdc|[bc])at|fg|ghc|git|gpustat|(btm|([hb]|bpy|io|radeon)?top)|julia|(less|more)|man|mpv|n?vim|[bi]?python|qalc|(system|journal)ctl|systemd-cg(ls|top)|watch)$' \
+          '^((mdc|[bc])at|fg|ghc|git|gpustat|(btm|([hb]|bpy|io|radeon)?top)|julia|(less|more)|man|mpv|n?vim|[bi]?python|qalc|sops|(system|journal)ctl|systemd-cg(ls|top)|watch)$' \
           "$command_name"
         return
       end
