@@ -82,6 +82,7 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
                 &format!("--unit={}.scope", unit_name),
                 "--property=Delegate=yes",
             ])
+            .arg("systemd-cat")
             .arg(&args.command)
             .args(&args.args)
             .stdout(Stdio::null())
