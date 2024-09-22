@@ -75,6 +75,12 @@ fn run_with_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
             return Err(e.into());
         }
     } else {
+        Command::new("systemd-cat")
+            .args(&[
+                "echo",
+                &format!("Starting {}.scope", unit_name),
+            ])
+            .spawn()?;
         Command::new("systemd-run")
             .args(user_flag)
             .args(&[
