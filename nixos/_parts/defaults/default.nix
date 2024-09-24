@@ -15,6 +15,8 @@ in [
   ./services
 
   inputs.nix-index-db.nixosModules.nix-index
+  inputs.disko.nixosModules.disko
+  { disko.imageBuilder.imageFormat = "qcow2"; }
   self.nixosModules.default
   {
     nixpkgs.overlays = [
