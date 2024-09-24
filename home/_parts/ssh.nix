@@ -9,7 +9,7 @@
     "config.d/*"
   ];
   matchBlocks = let 
-    relay = "81.69.28.75";
+    relay = "8.149.132.65";
 
     addGpgRemoteForward = uid: config: config // {
       remoteForwards = config.remoteForwards or [] ++ [{
@@ -48,6 +48,7 @@
     "octa"
     "opi"
     "peterpan"
+    "sophie"
     "quad"
     "rpi"
     "rubik"
@@ -118,6 +119,7 @@
     mono-copi = addGpgRemoteForward 1000 (mono-winston // { proxyJump = "copi"; });
 
     gpp = { hostname = "peterpan"; port = 77; };
+    gsp = { hostname = "sophie"; port = 77; };
 
     jazz = addGpgRemoteForward 1000 {
       hostname = "winston";
