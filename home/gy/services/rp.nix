@@ -9,6 +9,9 @@ in {
     "sshrp/ssh-2x1080ti-via-peterpan-env" = lib.mkIf (hostName == "cadliu") {
       path = "${envDir}/ssh-2x1080ti-via-peterpan-env";
     };
+    "sshrp/ssh-2x1080ti-via-sophie-env" = lib.mkIf (hostName == "cadliu") {
+      path = "${envDir}/ssh-2x1080ti-via-sophie-env";
+    };
 
     # shared
     "sshrp/ssh-shared-via-winston-env" = lib.mkIf (hostName == "cad-liu") {
@@ -17,6 +20,9 @@ in {
     "sshrp/ssh-shared-via-peterpan-env" = lib.mkIf (hostName == "cad-liu") {
       path = "${envDir}/ssh-shared-via-peterpan-env";
     };
+    "sshrp/ssh-shared-via-sophie-env" = lib.mkIf (hostName == "cad-liu") {
+      path = "${envDir}/ssh-shared-via-sophie-env";
+    };
 
     # mono
     "sshrp/ssh-mono-via-winston-env" = lib.mkIf (hostName == "mono") {
@@ -24,6 +30,9 @@ in {
     };
     "sshrp/ssh-mono-via-peterpan-env" = lib.mkIf (hostName == "mono") {
       path = "${envDir}/ssh-mono-via-peterpan-env";
+    };
+    "sshrp/ssh-mono-via-sophie-env" = lib.mkIf (hostName == "mono") {
+      path = "${envDir}/ssh-mono-via-sophie-env";
     };
   };
 
@@ -44,6 +53,10 @@ in {
           bindPort = 10023;
           hostPort = 22222;
         };
+        ssh-2x1080ti-via-sophie = {
+          bindPort = 10023;
+          hostPort = 22222;
+        };
       };
       cad-liu = mkInstances {
         ssh-shared-via-winston = {
@@ -54,6 +67,10 @@ in {
           bindPort = 10025;
           hostPort = 22222;
         };
+        ssh-shared-via-sophie = {
+          bindPort = 10025;
+          hostPort = 22222;
+        };
       };
       mono = mkInstances {
         ssh-mono-via-winston = {
@@ -61,6 +78,10 @@ in {
           hostPort = 22;
         };
         ssh-mono-via-peterpan = {
+          bindPort = 20497;
+          hostPort = 22;
+        };
+        ssh-mono-via-sophie = {
           bindPort = 20497;
           hostPort = 22;
         };
