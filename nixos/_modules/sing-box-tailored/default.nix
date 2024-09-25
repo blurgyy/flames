@@ -95,8 +95,8 @@ in
             fi
 
             # Check network responsiveness
-            if ! ping -c 90 -i .99 8.8.8.8 &> /dev/null; then
-              echo "Network has been unresponsive for at least 1min30s.  Restarting wpa_supplicant."
+            if ! ping -c 90 -w 90 8.8.8.8 &> /dev/null; then
+              echo "Network has been unresponsive for 1min30s.  Restarting wpa_supplicant."
               systemctl restart wpa_supplicant-${iface}.service
               sleep 10  # Wait before continuing
               continue
