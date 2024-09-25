@@ -16,6 +16,16 @@ in
         package
       '';
     };
+    command = mkOption {
+      type = types.str;
+      default = ''
+        if ping -c 1 8.8.8.8 &>/dev/null; then
+          return 0
+        fi
+        ping -W 1 -c 10 8.8.8.8 &>/dev/null
+      '';
+      description = "written to the body of a bash function.  should only return 0 if network is reachable";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -41,7 +51,7 @@ in
     in {
       path = with pkgs; [
         coreutils-full
-        curl
+        iputils  # ping
         diffutils
         gnugrep
         iw
@@ -62,11 +72,17 @@ in
             function current_ssid() {
               iw dev | grep ssid | grep ZJU | cut -d' ' -f2
             }
+
             if ! cmp -s <(current_ssid | head -c3) <(echo -n ZJU); then
               echo "not connected to ZJUWLAN, skipping"
               exit 1
             fi
-            if curl -fsSL https://www.baidu.com/ --connect-timeout 5 | grep -q "百度一下"; then
+
+            function network_is_reachable() {
+              ${cfg.command}
+            }
+
+            if network_is_reachable(); then
               echo "network is already reachable, skipping"
               exit 2
             fi
