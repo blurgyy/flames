@@ -82,7 +82,7 @@ in
               ${cfg.command}
             }
 
-            if network_is_reachable(); then
+            if network_is_reachable; then
               echo "network is already reachable, skipping"
               exit 2
             fi
