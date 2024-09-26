@@ -942,8 +942,15 @@ in ''
     table.unpack(mappings.n or {}),
   }
   local open_tree = function()
+    local max_cc = 0
+    for _, col in ipairs(vim.split(vim.o.colorcolumn, ",")) do
+      local n_col = tonumber(col)
+      if n_col and n_col > max_cc then
+        max_cc = n_col
+      end
+    end
     -- Do not open tree if the window is not wide enough
-    if vim.o.colorcolumn + file_tree_window_width + 2 + 5 >= vim.o.columns then
+    if max_cc + file_tree_window_width + 2 + 5 >= vim.o.columns then
       return
     end
     -- Do not open tree if filetype is any of these
