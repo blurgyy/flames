@@ -112,6 +112,7 @@
     elmPackages.elm-language-server
     go
     gopls
+    markdown-oxide
     nil
     pyright
     shfmt

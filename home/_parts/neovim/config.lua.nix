@@ -177,7 +177,6 @@ in ''
     "jsonc",
     "latex",
     "lua",
-    "markdown",
     "nix",
     "norg",
     "plaintex",
@@ -601,6 +600,14 @@ in ''
     }, {
       { name = "buffer" },
       { name = "copilot" },
+      {
+        name = 'nvim_lsp',
+        option = {
+          markdown_oxide = {
+            keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
+          }
+        }
+      },
     }),
     formatting = {
       format = require("lspkind").cmp_format({
@@ -682,10 +689,11 @@ in ''
     "gopls",
     "html",
     "jsonls",
+    "lua_ls",
+    "markdown_oxide",
     "nil_ls",
     "pyright",
     "rust_analyzer",
-    "lua_ls",
     "svelte",
     "tailwindcss",
     "taplo",
@@ -693,6 +701,7 @@ in ''
     "tinymist",
     "yamlls",
   }
+  local caps = require("cmp_nvim_lsp").default_capabilities()
   local settings = {
     clangd = {  -- REF: <https://www.reddit.com/r/neovim/comments/12qbcua/comment/jgpqxsp>
       cmd = {
@@ -713,6 +722,23 @@ in ''
           },
         },
       },
+    },
+    markdown_oxide = {
+      capabilities = vim.tbl_deep_extend(
+        'force',
+        caps,
+        {
+          workspace = {
+            didChangeWatchedFiles = {
+              dynamicRegistration = true,
+            },
+          },
+        }
+      ),
+      root_dir = require("lspconfig").util.root_pattern(
+        ".obsidian",
+        require("lspconfig").util.find_git_ancestor()
+      )
     },
     rust_analyzer = {
       settings = {
@@ -786,7 +812,6 @@ in ''
   -- cmp-nvim-lsp provides a more sensible value of default capabilities.
   ---- REF: <https://github.com/hrsh7th/cmp-nvim-lsp>
   ---- Inspect the default capabilities with `:lua print(vim.inspect(require("cmp_nvim_lsp").default_capabilities()))`
-  local caps = require("cmp_nvim_lsp").default_capabilities()
   caps.textDocument.foldingRange = {  -- for plugin "nvim-ufo"
     dynamicRegistration = false,
     lineFoldingOnly = true
