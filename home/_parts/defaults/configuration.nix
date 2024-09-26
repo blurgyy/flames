@@ -234,6 +234,21 @@ in {
       '';
       target = ".ipython/profile_default/ipython_config.py";
     };
+    ipythonAutoImport = {
+      text = ''
+        from collections import defaultdict
+        from concurrent.futures import ThreadPoolExecutor
+        from dataclasses import asdict, dataclass
+        import functools
+        import gc
+        from importlib import reload
+        import itertools
+        import json
+        from pathlib import Path
+        import random
+      '';
+      target = ".ipython/profile_default/startup/00-autoimport.py";
+    };
     condarc = {
       source = ../raw/condarc.yaml;
       target = ".condarc";
