@@ -23,7 +23,7 @@ in
       ];
       domain.extraNames = [ hydraDomain cacheDomain ];
       backends = [
-        { name = "hydra"; condition = "if is_hydra"; }
+        { name = "hydra"; isDefault = true; condition = "if is_hydra"; }
         { name = "cache"; condition = "if is_cache"; }
       ];
     };
@@ -90,7 +90,7 @@ in
       # Allow hydra to build homeConfigurations.*.activationPackage
       # REF: <https://github.com/cleverca22/nixos-configs/blob/33d05ae5881f637bec254b545b323f37ba3acf2e/nas-hydra.nix#L17>
       # Related: <https://github.com/NixOS/nix/issues/1888>
-      allowed-uris = https://github.com https://gitlab.com https://git.sr.ht
+      allowed-uris = https://github.com https://gitlab.com https://git.sr.ht github: gitlab:
     '';
   };
 }
