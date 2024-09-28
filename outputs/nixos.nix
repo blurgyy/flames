@@ -62,6 +62,7 @@ in mkHosts {
   rubik = virtual-server-x86_64;
   sophie = virtual-server-x86_64;
   tom = virtual-server-x86_64;
+  jerry = virtual-server-aarch64;
   velo = virtual-server-x86_64;
   winston = pc-x86_64;
 }

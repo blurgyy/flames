@@ -81,6 +81,8 @@
 
     "peterpan" = x86_64-headless;
     "sophie" = x86_64-headless;
+    "tom" = x86_64-headless;
+    "jerry" = aarch64-headless;
     "quad" = x86_64-headless;
     "rubik" = x86_64-headless;
     "hexa" = x86_64-headless;
