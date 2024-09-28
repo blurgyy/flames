@@ -79,7 +79,7 @@ in
       sshUser = "distributed-builder";
       sshKey = config.sops.secrets.distributed-builder-ssh-key.path;
       systems = [ "x86_64-linux" "i686-linux" ];
-      maxJobs = 8;
+      maxJobs = 4;
       supportedFeatures = [ "benchmark" "big-parallel" "kvm" "nixos-test" ];
     } {
       hostName = "jerry";
