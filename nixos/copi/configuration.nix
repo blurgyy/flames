@@ -51,7 +51,7 @@
   };
 
   environment.systemPackages = [
-    pkgs.transmission
+    pkgs.transmission_4
   ];
 
   sdImage = {
