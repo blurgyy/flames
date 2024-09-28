@@ -58,7 +58,9 @@ in mkHosts {
   opi = sbc-aarch64;
   peterpan = virtual-server-x86_64;
   quad = virtual-server-x86_64;
-  rpi = sbc-aarch64 // { nixpkgs = inputs.nixpkgs-stable; };
+  # # NOTE: to override rpi's nipxkgs version, use:
+  # rpi = sbc-aarch64 // { nixpkgs = inputs.nixpkgs-stable; };
+  rpi = sbc-aarch64;
   rubik = virtual-server-x86_64;
   sophie = virtual-server-x86_64;
   tom = virtual-server-x86_64;
