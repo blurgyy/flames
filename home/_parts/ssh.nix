@@ -39,19 +39,20 @@
         ${hostname} = addGpgRemoteForward 1000 { inherit hostname; };
       }) hostnames;
   in (mergeAttrsList (apply [
-    "cindy"
     "copi"
     "hexa"
+    "jerry"
     "meda"
     "mono"
     "morty"
     "octa"
     "opi"
     "peterpan"
-    "sophie"
     "quad"
     "rpi"
     "rubik"
+    "sophie"
+    "tom"
     "velo"
     "winston"
   ])) // rec {
