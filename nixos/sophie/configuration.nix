@@ -8,7 +8,7 @@
       # default image format is raw, it has been changed to qcow2 with
       #   `disko.imageBuilder.imageFormat = "qcow2"`;
       imageSize = "8G";
-      device = "/dev/disk/by-uuid/a8f440f0-7f22-4559-bdd9-49c1913084b3";
+      device = "/dev/disk/by-id/virtio-bp15tehyhsf94hghb9mm";
       type = "disk";
       content = {
         type = "gpt";
