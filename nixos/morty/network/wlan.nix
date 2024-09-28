@@ -8,18 +8,18 @@ in
   sops.secrets.wireless-environment-file.sopsFile = sharedSecretsFile;
   networking.wireless = {
     enable = true;
-    environmentFile = config.sops.secrets.wireless-environment-file.path;
+    secretsFile = config.sops.secrets.wireless-environment-file.path;
     networks = {
-      "@wlan_0@" = { psk = "@wlan_0_psk@"; priority = 90; };
-      "@wlan_1@" = { psk = "@wlan_1_psk@"; priority = 90; };
-      "@wlan_2@" = { psk = "@wlan_2_psk@"; priority = 90; };
-      "@wlan_3@" = { psk = "@wlan_3_psk@"; priority = 65; };
-      "@wlan_4@" = { psk = "@wlan_4_psk@"; priority = 65; };
-      "@wlan_5@" = { psk = "@wlan_5_psk@"; priority = 40; };
-      "@wlan_6@" = { psk = "@wlan_6_psk@"; priority = 20; };
-      "@wlan_7@" = { psk = "@wlan_7_psk@"; priority = 20; };
-      "@wlan_8@" = { psk = "@wlan_8_psk@"; priority = 20; };
-      "@wlan_9@" = { psk = "@wlan_9_psk@"; priority = 20; };
+      "ext:wlan_0" = { pskRaw = "ext:wlan_0_psk"; priority = 90; };
+      "ext:wlan_1" = { pskRaw = "ext:wlan_1_psk"; priority = 90; };
+      "ext:wlan_2" = { pskRaw = "ext:wlan_2_psk"; priority = 90; };
+      "ext:wlan_3" = { pskRaw = "ext:wlan_3_psk"; priority = 65; };
+      "ext:wlan_4" = { pskRaw = "ext:wlan_4_psk"; priority = 65; };
+      "ext:wlan_5" = { pskRaw = "ext:wlan_5_psk"; priority = 40; };
+      "ext:wlan_6" = { pskRaw = "ext:wlan_6_psk"; priority = 20; };
+      "ext:wlan_7" = { pskRaw = "ext:wlan_7_psk"; priority = 20; };
+      "ext:wlan_8" = { pskRaw = "ext:wlan_8_psk"; priority = 20; };
+      "ext:wlan_9" = { pskRaw = "ext:wlan_9_psk"; priority = 20; };
     };
   };
 
