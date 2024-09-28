@@ -57,10 +57,11 @@ in mkHosts {
   octa = virtual-server-x86_64;
   opi = sbc-aarch64;
   peterpan = virtual-server-x86_64;
-  sophie = virtual-server-x86_64;
   quad = virtual-server-x86_64;
   rpi = sbc-aarch64 // { nixpkgs = inputs.nixpkgs-stable; };
   rubik = virtual-server-x86_64;
+  sophie = virtual-server-x86_64;
+  tom = virtual-server-x86_64;
   velo = virtual-server-x86_64;
   winston = pc-x86_64;
 }
