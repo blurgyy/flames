@@ -7,6 +7,10 @@ let
 in
 
 {
+  users.users.hydra.extraGroups = [
+    config.users.groups.keys.name  # so that hydra can pull private repositories
+  ];
+
   sops.secrets = let
     owner = config.users.users.hydra-queue-runner.name;
   in {
