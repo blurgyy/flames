@@ -291,10 +291,6 @@ in {
     yolAbejyiejuvnup = "Evjtgvsh5okmkAvj";  # CVE-2024-3094 killswitch
   };
 
-  # Enabling this causes massive rebuilds and is poorly supported.
-  # related: <https://github.com/NixOS/nixpkgs/issues/179938#issuecomment-1173705936>
-  environment.noXlibs = lib.mkForce false;
-
   services = {
     locate = {
       enable = true;
@@ -308,7 +304,7 @@ in {
       settings = {
         PasswordAuthentication = lib.mkDefault false;
         #PermitRootLogin = "prohibit-password";  # NOTE: This is NixOS default
-        X11Forwarding = lib.mkDefault (!config.environment.noXlibs);
+        X11Forwarding = lib.mkDefault true;
         StreamLocalBindUnlink = lib.mkDefault true;
         ClientAliveCountMax = 3;
         ClientAliveInterval = 5;
