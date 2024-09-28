@@ -42,29 +42,6 @@
         "type": "gitlab"
       }
     },
-    "carinae": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1685883648,
-        "narHash": "sha256-yuMdXDGRDbviKxm+3ZOi7kcqBRBQOMPOI0v8fhrSLkk=",
-        "owner": "NickCao",
-        "repo": "carinae",
-        "rev": "2f725b469915fa4a5a43eb27062276c814167edb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NickCao",
-        "repo": "carinae",
-        "type": "github"
-      }
-    },
     "cli2b": {
       "inputs": {
         "flake-utils": [
@@ -812,7 +789,6 @@
       "inputs": {
         "acremote": "acremote",
         "adrivems": "adrivems",
-        "carinae": "carinae",
         "colmena": "colmena",
         "dcompass": "dcompass",
         "disko": "disko",

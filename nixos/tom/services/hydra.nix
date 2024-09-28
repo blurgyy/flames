@@ -36,7 +36,7 @@ in {
   };
   services.hydra = {
     enable = true;
-    package = pkgs.hydra_unstable;
+    # package = pkgs.hydra_unstable;
     hydraURL = "${hydraDomain}";
     notificationSender = "hydra@${config.networking.domain}";
     smtpHost = config.networking.domain;
