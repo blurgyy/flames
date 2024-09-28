@@ -575,3 +575,11 @@ Trouble Shooting
   ```bash
   $ TMPDIR=/mnt/tmp nixos-install --flake .#<machine_name>
   ```
+
+* To create a NixOS/Hydra project with declarative jobsets, using this repository (at commit hash
+  9e702a8005ddc4ea3351a1444d10292d15e6e5fb) as an example:
+  - Declarative spec file: `.hydra/projects/pkgs/specs.json`
+  - Declarative input type: `Git checkout`, `https://gitlab.com/highsunz/flames main`
+
+* While registering flakes as jobsets in NixOS/Hydra, fill in the "Email override" with own Email,
+  otherwise hydra tries to send email to the package's maintainer(s) if encountered error.
