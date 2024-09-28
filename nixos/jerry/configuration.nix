@@ -1,7 +1,7 @@
 { ... }: {
   time.timeZone = "Europe/Berlin";
 
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.systemd-boot.enable = true;
   boot.tmp.useTmpfs = false;
   fileSystems = {
     "/" = {
