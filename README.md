@@ -569,3 +569,9 @@ Trouble Shooting
   Booting from harddisk...
   ```
   It might be that the image is missing a "BIOS boot" partition at the beginning of the disk.
+
+* If running `nixos-install --flake .#<machine_name>` results in `no space left on device` in build
+  log, specify the `TMPDIR` env to a on-disk directory:
+  ```bash
+  $ TMPDIR=/mnt/tmp nixos-install --flake .#<machine_name>
+  ```
