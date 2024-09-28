@@ -71,13 +71,6 @@
         flake-compat.follows = "flake-compat";
       };
     };
-    carinae = {
-      url = "github:NickCao/carinae";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     tex2nix = {
       url = "github:Mic92/tex2nix";
       inputs = {
