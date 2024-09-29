@@ -122,7 +122,7 @@
     version = "0.1.262-2";
     src = fetchurl {
       url = "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso";
-      sha256 = "sha256-69SCWGaPf3jgJu0nbCip0Z2D4CD/oICtaZENyGu8vMY=";
+      sha256 = "sha256-vcKtFyegi22KWdQOES2TD1Ois1S974WQOrqtiWIU8KM=";
     };
   };
   fish-plugin-catppuccin = {
@@ -377,7 +377,7 @@
       repo = "tdesktop";
       rev = "v5.5.5";
       fetchSubmodules = true;
-      sha256 = "sha256-bN0gRXJGXA0Uao0Z55FV0yiL5aQY7ToVD3ccpBKIdzI=";
+      sha256 = "sha256-LWIOgyHp43bLN4RQtBKH2HitfVI6AKstPK5es2s+wVw=";
     };
   };
   telegram-send = {
