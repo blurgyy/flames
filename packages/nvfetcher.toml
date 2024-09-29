@@ -178,10 +178,6 @@ src.git = "https://github.com/loyalsoldier/v2ray-rules-dat"
 src.branch = "release"
 fetch.github = "loyalsoldier/v2ray-rules-dat"
 
-[watchyourlan]
-src.github = "aceberg/WatchYourLAN"
-fetch.github = "aceberg/WatchYourLAN"
-
 [waypoint]
 src.git = "https://github.com/tadeokondrak/waypoint"
 fetch.github = "tadeokondrak/waypoint"

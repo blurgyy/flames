@@ -482,17 +482,6 @@
       sha256 = "sha256-NgUnV1OVrXD5QO/x5D63wuxk9OafidxYYbc0INKlePA=";
     };
   };
-  watchyourlan = {
-    pname = "watchyourlan";
-    version = "2.0.3";
-    src = fetchFromGitHub {
-      owner = "aceberg";
-      repo = "WatchYourLAN";
-      rev = "2.0.3";
-      fetchSubmodules = false;
-      sha256 = "sha256-l4Q1eMSqEMiqa/e+m3EWxlwWjEo8/SES876DUnv7HY8=";
-    };
-  };
   waypoint = {
     pname = "waypoint";
     version = "702657a6c18688fed97e498a9c95771b073835cc";
