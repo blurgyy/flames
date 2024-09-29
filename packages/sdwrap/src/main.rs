@@ -116,6 +116,7 @@ fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
     fs::create_dir_all(&output_dir)?;
 
     let pid_file = format!("{}/pid", &output_dir);
+    let cmd_file = format!("{}/cmd", &output_dir);
     let stdout_file = format!("{}/stdout", &output_dir);
     let stderr_file = format!("{}/stderr", &output_dir);
 
@@ -140,8 +141,9 @@ fn run_without_systemd(args: &Args) -> Result<(), Box<dyn std::error::Error>> {
 
     let pid = child.id();
 
-    // Write PID to file
+    // Write PID and command to file
     fs::write(&pid_file, pid.to_string())?;
+    fs::write(&cmd_file, &format!("{} {}", &args.command, args.args.join(" ")))?;
 
     tracing::info!(
         "Running command in background. PID: {}, stdout: {}, stderr: {}",
