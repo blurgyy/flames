@@ -86,6 +86,7 @@ hetzner.cloud
 hetzner.com
 hetzner.company
 httpdns.pro
+huawei.com
 huazhiedu.com
 huiyingzimu.com
 hwwt8.com
