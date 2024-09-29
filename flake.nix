@@ -129,8 +129,6 @@
         minecraft
         steam
 
-        wechat-uos
-
         rustdesk
 
         swaylock-effects

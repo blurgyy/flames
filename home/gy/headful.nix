@@ -45,7 +45,7 @@ in {
   };
 
   nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"  # for wechat-uos
+    # "openssl-1.1.1w"  # for wechat-uos
   ];
 
   home.packages = with pkgs; [
@@ -66,7 +66,7 @@ in {
     typst
     video-compare
     waypoint
-    wechat-uos  # 2024-07-14: needs to allow openssl-1.1.1w in `nixpkgs.config.permittedInsecurePackages`
+    wechat-uos  # if build fails, download license.tar.gz at 'https://aur.archlinux.org/cgit/aur.git/plain/license.tar.gz?h=wechat-uos' and `nix-store --add-fixed sha256 license.tar.gz`
     wl-clipboard  # Need to be globally executable for clipboard integrations to work
     wl-screenrec
     wlr-randr
