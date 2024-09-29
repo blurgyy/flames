@@ -101,6 +101,7 @@
     meaney.url = "github:blurgyy/meaney";
     orangepi-3-lts-nixos.url = "gitlab:highsunz/orangepi-3-lts-nixos";
     sing-man.url = "gitlab:highsunz/sing-man";
+    zstdp.url = "github:blurgyy/zstdp";
   };
 
   # `self` denotes this flake, other function arguments are the flakes
