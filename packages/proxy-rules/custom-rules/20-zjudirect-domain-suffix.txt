@@ -4,8 +4,10 @@ mail.zju.edu.cn
 mirrors.zju.edu.cn
 my.zju.edu.cn
 myvpn.zju.edu.cn
+res.cloud.zju.edu.cn
 smtp.zju.edu.cn
 webvpn.zju.edu.cn
 xyszyl.zju.edu.cn
+yjsy.zju.edu.cn
 yqfkgl.zju.edu.cn
 zjuash.zju.edu.cn
