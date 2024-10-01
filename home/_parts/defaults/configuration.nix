@@ -63,6 +63,7 @@ in {
     ++ (lib.optional (pkgs.config.cudaSupport) python3Packages.gpustat);
   };
 
+  nix.gc.automatic = true;
   nix.registry = {
     pkgs.flake = inputs.nixpkgs;
     nixgl.flake = inputs.nixgl;
