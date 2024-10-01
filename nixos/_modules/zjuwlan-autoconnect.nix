@@ -19,10 +19,10 @@ in
     command = mkOption {
       type = types.str;
       default = ''
-        if ping -c 1 8.8.8.8 &>/dev/null; then
+        if ping -c 1 223.5.5.5 &>/dev/null; then
           return 0
         fi
-        ping -W 1 -c 10 8.8.8.8 &>/dev/null
+        ping -W 1 -c 10 223.5.5.5 &>/dev/null
       '';
       description = "written to the body of a bash function.  should only return 0 if network is reachable";
     };
