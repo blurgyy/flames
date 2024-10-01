@@ -4,7 +4,7 @@ let
   hydraDomain = "hydra.${config.networking.domain}";
   cacheDomain = "cache.${config.networking.domain}";
   cachePort = 25369;
-  cachePortFwd = 7735;
+  cachePortWithZstd = 7735;
 in
 
 {
@@ -40,7 +40,7 @@ in
     };
     backends.cache = {
       mode = "http";
-      server.address = "127.0.0.1:${toString cachePortFwd}";
+      server.address = "127.0.0.1:${toString cachePortWithZstd}";
     };
   };
   services.hydra = {
@@ -76,7 +76,7 @@ in
   services.zstdp = {
     enable = true;
     services.harmonia = {
-      listen = "127.0.0.1:${toString cachePortFwd}";
+      listen = "127.0.0.1:${toString cachePortWithZstd}";
       forward = "127.0.0.1:${toString cachePort}";
     };
   };
