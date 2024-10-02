@@ -71,7 +71,7 @@
     "opi" = aarch64-headless;
     "copi" = aarch64-headless;
 
-    "winston" = x86_64-non-headless // { proxy = labProxy; };
+    "winston" = x86_64-non-headless;
     "meda" = x86_64-headless;
 
     # set IP of winston in hosts

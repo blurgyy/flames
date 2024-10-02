@@ -43,18 +43,6 @@
     group = config.users.groups.users.name;
   };
 
-  networking.proxy = {
-    default = "http://127.0.0.1:1990";
-    noProxy = lib.concatStringsSep "," ([
-      "localhost"
-      "127.0.0.1/8"
-      "::1"
-      "cc98.org"
-      "nexushd.org"
-      "zju.edu.cn"
-    ] ++ (builtins.attrNames self.nixosConfigurations));
-  };
-
   services = {
     btrfs.autoScrub.fileSystems = [ "/atom" ];
   };
