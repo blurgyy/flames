@@ -5,6 +5,9 @@
     "nscd"
     "nsncd"
 
+    "radicle-node"
+    ".radicle-node-wrapped"
+
     "sing-man"
 
     "sshd"
