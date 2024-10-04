@@ -51,6 +51,7 @@
   };
 
   services = {
+    radicle = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtaD0VLldp1g9NppXnoJM9x9sLmBRCAlGRlASp1xHtA";
     soft-serve = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDg9rzg0Pw5saEXxRlML1W5lWjtmREyjTVu032nqNIEW";
     ollama-at-kaggle = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGw7vnljdFv7XWzaUI1J8NzYEYr3gbX3PboxgUptqsm1";
     ollama-dev-at-kaggle = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG63kSn2fqmxCqV9QIiefKn9O8iA1aUgyY3ZPOZ6R/4z";

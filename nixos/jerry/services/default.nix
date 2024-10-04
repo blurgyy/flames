@@ -3,6 +3,7 @@
     ../../_parts/distributed-builder.nix
     ../../_parts/vserver.nix
     ../../_parts/vserver-wss.nix
+    ./radicle.nix
   ];
   sops.secrets.acme-credentials-file = with config.users; {
     owner = users.haproxy.name;
