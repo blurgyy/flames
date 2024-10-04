@@ -35,7 +35,9 @@ in
       };
       web = {
         pinned = {
-          repositories = [];
+          repositories = [
+            "rad:z2bYEfpvZA4XKTDoTursXWphTFdot"  # flames
+          ];
         };
       };
     };
