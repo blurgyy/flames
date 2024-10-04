@@ -29,6 +29,9 @@ in
     settings = {
       node = {
         alias = "highsunz";
+        seedingPolicy = {
+          default = "allow";  # or "block".  Only "allow" seems to allow `rad sync`?
+        };
       };
       web = {
         pinned = {
