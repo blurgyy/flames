@@ -9,6 +9,7 @@ in {
   wayland.windowManager.sway = {
     enable = true;
     package = pkgs.sway-disable-titlebar;
+    checkConfig = false;  # we install xkb layouts to ~/.config/xkb but the config checking phrase does not know this
     xwayland = true;
     wrapperFeatures.gtk = true;
     config = {
@@ -304,7 +305,7 @@ in {
           repeat_rate = "30";  # Larger value results in higher recurring rate while repeating keys
         };
         "1155:20786:CATEX_TECH._68EC-S".xkb_file = "${pkgs.niz-68ec-use-sun_unix-layout-keymaps}/share/kbd/keymap.xkb";
-        "1:1:AT_Translated_Set_2_keyboard".xkb_file = "${pkgs.hp-omen-use-sun_unix-layout-keymaps}/share/kbd/keymap.xkb";
+        "1:1:AT_Translated_Set_2_keyboard".xkb_layout = "hp-omen";
       };
       fonts = {
         names = [ "slab-serif" ];

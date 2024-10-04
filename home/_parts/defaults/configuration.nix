@@ -277,6 +277,10 @@ in {
       "gdb/gdbinit".source = "${pkgs.gdb-dashboard}/share/gdb-dashboard/gdbinit";
       "fish/themes/Catppuccin Latte.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Latte.theme";
       "fish/themes/Catppuccin Mocha.theme".source = "${pkgs.fish-plugin-catppuccin}/share/fish/tools/web_config/themes/Catppuccin Mocha.theme";
+      "xkb" = {
+        source = "${pkgs.xkb-layouts}/share/X11/xkb";
+        recursive = true;
+      };
     } // (manifestXdgConfigFilesFrom { inherit config; pathPrefix = ../mirrored/headless; });
     mimeApps = {
       enable = true;

@@ -179,8 +179,19 @@ in {
     ];
   };
 
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "eurosign:e";
+  services.xserver.xkb = {
+    layout = if config.networking.hostName == "morty"
+      then "hp-omen"
+      else "us";
+    extraLayouts = {
+      hp-omen = {
+        description = "Used for";
+        languages = [ "eng" ];
+        symbolsFile = "${pkgs.xkb-layouts}/share/X11/xkb/symbols/hp-omen";
+      };
+    };
+    options = "eurosign:e";
+  };
   services.dbus.implementation = "broker";
 
   console = {

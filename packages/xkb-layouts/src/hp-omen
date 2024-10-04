@@ -1,0 +1,21 @@
+# just tell Claude the requirements and BAM:
+
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "basic" {
+    include "us(basic)"
+
+    # Use Caps Lock as Ctrl
+    replace key <CAPS> { [ Control_L ] };
+
+    # Use backtick/tilde as Escape
+    replace key <TLDE> { [ Escape ] };
+
+    # Swap Backspace and Backslash
+    replace key <BKSP> { [ backslash, bar ] };
+    replace key <BKSL> { [ BackSpace ] };
+
+    # Use Num Lock as backtick/tilde
+    replace key <NMLK> { [ grave, asciitilde ] };
+
+    modifier_map Control { <CAPS> };
+};
