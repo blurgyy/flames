@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1703163452,
-        "narHash": "sha256-hvNKGDB6dFVrBCm3KCJHds6/iikSsAieL3vR2CWdspI=",
+        "lastModified": 1728027660,
+        "narHash": "sha256-e30Xr649xKKw2KAuV19qWnofGwqlFo5XnMN1QWosAJ0=",
         "owner": "highsunz",
         "repo": "acremote",
-        "rev": "d043528d1696ef88569bca748de61e46498a4651",
+        "rev": "dbbba3e190c20425dd644681a9ca67a7fbc61b5d",
         "type": "gitlab"
       },
       "original": {
