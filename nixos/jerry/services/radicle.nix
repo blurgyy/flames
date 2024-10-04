@@ -3,6 +3,7 @@
 let
   radicleHttpdDomain = "radicle.${config.networking.domain}";
   radicleExplorerDomain = "git.${config.networking.domain}";
+
   radicleHttpPort = 18737;
   radicleExplorerPort = 13373;
 in
@@ -18,6 +19,10 @@ in
       enable = true;
       listenAddress = "127.0.0.1";
       listenPort = radicleHttpPort;
+    };
+    node = {
+      listenAddress = "0.0.0.0";  # use IPv4
+      listenPort = 8776;
     };
     privateKeyFile = config.sops.secrets.radicle-private-key.path;
     publicKey = (import ../../_parts/defaults/public-keys.nix).services.radicle;
