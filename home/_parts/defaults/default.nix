@@ -2,6 +2,7 @@
   imports = [
     ./configuration.nix
     ./secrets.nix
+    ./services
   ];
 
   home.presets = {
