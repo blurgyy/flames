@@ -284,6 +284,7 @@ in {
     procps
     procs
     progress
+    radicle-node
     ripgrep
     sdwrap
     tinytools
