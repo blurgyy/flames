@@ -1,13 +1,15 @@
-{ myName, config, pkgs, ... }:
+{ myName, hostName, config, pkgs, ... }:
 
 {
-  sops.secrets."radicle-private-key".path = "${config.home.homeDirectory}/.radicle/keys/radicle";
-
   home.packages = [ pkgs.radicle-node ];
 
   home.file = {
-    radiclePubkey = {
-      text = (import ../../../../nixos/_parts/defaults/public-keys.nix).services."${myName}@radicle";
+    radiclePrivKey = {
+      source = config.lib.file.mkOutOfStoreSymlink config.sops.secrets."userKey/${myName}@${hostName}".path;
+      target = ".radicle/keys/radicle";
+    };
+    radiclePubKey = {
+      text = (import ../../../../nixos/_parts/defaults/public-keys.nix).users."${myName}@${hostName}";
       target = ".radicle/keys/radicle.pub";
     };
     radicleConfig = {
