@@ -35,7 +35,7 @@ in
       web = {
         pinned = {
           repositories = [
-            "rad:z2bYEfpvZA4XKTDoTursXWphTFdot"  # flames
+            "rad:z3L8Nyj3A2eAyvqbLsw1S27T88wai"  # flames
           ];
         };
       };
