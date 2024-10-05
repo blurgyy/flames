@@ -29,7 +29,7 @@
           "hints": true
         },
         "node": {
-          "alias": "highsunz",
+          "alias": "${myName}@${hostName}",
           "listen": [],
           "peers": {
             "type": "dynamic"
