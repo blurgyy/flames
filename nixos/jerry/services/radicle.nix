@@ -9,10 +9,6 @@ let
 in
 
 {
-  sops.secrets.radicle-private-key = {
-    sopsFile = ../../_secrets.yaml;
-  };
-
   services.radicle = {
     enable = true;
     httpd = {
@@ -24,8 +20,8 @@ in
       listenAddress = "0.0.0.0";  # use IPv4
       listenPort = 8776;
     };
-    privateKeyFile = config.sops.secrets.radicle-private-key.path;
-    publicKey = (import ../../_parts/defaults/public-keys.nix).services.radicle;
+    privateKeyFile = config.sops.secrets."hostKey/${config.networking.hostName}".path;
+    publicKey = (import ../../_parts/defaults/public-keys.nix).hosts.${config.networking.hostName};
     settings = {
       node = {
         alias = "highsunz";
