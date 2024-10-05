@@ -16,7 +16,7 @@
       text = ''{
         "publicExplorer": "https://git.blurgy.xyz/nodes/$host/$rid$path",
         "preferredSeeds": [
-          "z6MkjXQGjLieiAijpGvX7kjkuEcmqQZK9MYA3oXtpLrqBbPD@radicle.blurgy.xyz:8776",
+          "z6MkqSwSCdG9KVb4HbwyU2gyGWXunWuy3T8YsvxMpnHbJX4u@radicle.blurgy.xyz:8776",
           "z6MkrLMMsiPWUcNPHcRajuMi9mDfYckSoJyPwwnknocNYPm7@seed.radicle.garden:8776",
           "z6Mkmqogy2qEM2ummccUthFEaaHvyYmYBYh3dbe9W4ebScxo@ash.radicle.garden:8776"
         ],
