@@ -36,6 +36,7 @@ in
         pinned = {
           repositories = [
             "rad:z3L8Nyj3A2eAyvqbLsw1S27T88wai"  # flames
+            "rad:z2vxLfsGxa93qn8ycwcX3hcqs3Tj1"  # zstdp
           ];
         };
       };
