@@ -32,6 +32,7 @@
     ll = "pull --ff-only";
     lll = "pull --ff-only";
     mt = "mergetool";
+    patch = "push rad HEAD:refs/patches";
     p = "push";
     pf = "push -f";
     s = "status -s";
