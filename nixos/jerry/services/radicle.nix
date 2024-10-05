@@ -20,9 +20,12 @@ in
       listenAddress = "0.0.0.0";  # use IPv4
       listenPort = 8776;
     };
-    privateKeyFile = config.sops.secrets."hostKey/${config.networking.hostName}".path;
+    privateKeyFile = config.sops.secrets.hostKey.path;
     publicKey = (import ../../_parts/defaults/public-keys.nix).hosts.${config.networking.hostName};
     settings = {
+      external_addresses = [
+        "${radicleHttpdDomain}:${toString config.services.radicle.node.listenPort}"
+      ];
       node = {
         alias = "highsunz";
         seedingPolicy = {
