@@ -27,7 +27,7 @@ in
         "${radicleHttpdDomain}:${toString config.services.radicle.node.listenPort}"
       ];
       node = {
-        alias = "highsunz";
+        alias = "highsunz@${config.networking.hostName}";
         seedingPolicy = {
           default = "allow";  # or "block".  Only "allow" seems to allow `rad sync`?
         };
