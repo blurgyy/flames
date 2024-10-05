@@ -48,7 +48,8 @@ in
     script = ''
       ${pkgs.dufs}/bin/dufs ${pkgs.radicle-explorer-highsunz} \
         -p ${toString radicleExplorerPort} \
-        --render-index
+        --render-index \
+        --render-spa
     '';
     serviceConfig = {
       Restart = "always";
