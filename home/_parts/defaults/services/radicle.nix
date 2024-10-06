@@ -1,4 +1,4 @@
-{ myName, hostName, config, pkgs, ... }:
+{ myName, hostName, helpers, config, pkgs, ... }:
 
 {
   home.packages = [ pkgs.radicle-node ];
@@ -72,11 +72,12 @@
 
   systemd.user.services.radicle-node = {
     Install.WantedBy = [ "default.target" ];
-    Service = {
-      ExecStart = "${pkgs.radicle-node}/bin/radicle-node";
+    Service = rec {
+      ExecStart = "${pkgs.radicle-node}/bin/rad node start --foreground --path ${pkgs.radicle-node}/bin/radicle-node";
       Restart = "always";
       RestartSec = 5;
-      NoNewPriviledges = true;
+      ExecStop = "${pkgs.radicle-node}/bin/rad node stop";
+      ExecRestart = "${ExecStop} && ${ExecStart}";
     };
   };
 }
