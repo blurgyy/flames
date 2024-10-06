@@ -69,11 +69,7 @@ in {
     nixgl.flake = inputs.nixgl;
     hsz = {
       from = { type = "indirect"; id = "hsz"; };
-      to = { type = "gitlab"; owner = "highsunz"; repo = "flames"; };
-    };
-    adrivems = {
-      from = { type = "indirect"; id = "adrivems"; };
-      to = { type = "gitlab"; owner = "highsunz"; repo = "aliyundrive-mediaserver"; };
+      to = { type = "git"; url = "https://ash.radicle.garden/rad:z2bYEfpvZA4XKTDoTursXWphTFdot"; };
     };
   };
   nixpkgs.config.allowUnfree = lib.mkDefault true;
