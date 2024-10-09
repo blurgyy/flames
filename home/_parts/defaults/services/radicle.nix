@@ -1,4 +1,4 @@
-{ myName, hostName, helpers, config, pkgs, ... }:
+{ myName, hostName, config, pkgs, ... }:
 
 {
   home.packages = [ pkgs.radicle-node ];
