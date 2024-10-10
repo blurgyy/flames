@@ -37,7 +37,7 @@ in {
       nixgl.flake = inputs.nixgl;
       hsz = {
         from = { type = "indirect"; id = "hsz"; };
-        to = { type = "git"; url = "https://ash.radicle.garden/rad:z2bYEfpvZA4XKTDoTursXWphTFdot"; };
+        to = { type = "git"; url = "https://ash.radicle.garden/rad:z3L8Nyj3A2eAyvqbLsw1S27T88wai"; };
       };
     };
     settings = {
